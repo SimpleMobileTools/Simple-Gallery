@@ -25,6 +25,7 @@ class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback
             manage_extended_details_duration.isChecked = details and EXT_DURATION != 0
             manage_extended_details_artist.isChecked = details and EXT_ARTIST != 0
             manage_extended_details_album.isChecked = details and EXT_ALBUM != 0
+            manage_extended_details_gps_coordinates.isChecked = details and EXT_GPS != 0
         }
 
         AlertDialog.Builder(activity)
@@ -60,6 +61,8 @@ class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback
                 result += EXT_ARTIST
             if (manage_extended_details_album.isChecked)
                 result += EXT_ALBUM
+            if (manage_extended_details_gps_coordinates.isChecked)
+                result += EXT_GPS
         }
 
         activity.config.extendedDetails = result

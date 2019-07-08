@@ -154,6 +154,7 @@ const val EXT_EXIF_PROPERTIES = 128
 const val EXT_DURATION = 256
 const val EXT_ARTIST = 512
 const val EXT_ALBUM = 1024
+const val EXT_GPS = 2048
 
 // media types
 const val TYPE_IMAGES = 1

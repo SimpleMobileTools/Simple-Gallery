@@ -78,6 +78,14 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/exif"/>
 
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/manage_extended_details_gps_coordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/gps_coordinates"/>
+
         <ImageView
             android:id="@+id/divider"
             android:layout_width="match_parent"
