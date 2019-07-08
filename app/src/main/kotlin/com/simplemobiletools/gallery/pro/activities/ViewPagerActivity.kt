@@ -709,28 +709,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
-        val latRef = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
-        val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
-        val lonRef = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
-
-        if (lat == null || latRef == null || lon == null || lonRef == null) {
-            toast(R.string.unknown_location)
-        } else {
-            val geoLat = if (latRef == "N") {
-                convertToDegree(lat)
-            } else {
-                -convertToDegree(lat)
-            }
-
-            val geoLon = if (lonRef == "E") {
-                convertToDegree(lon)
-            } else {
-                -convertToDegree(lon)
-            }
-
-            val uriBegin = "geo:$geoLat,$geoLon"
-            val query = "$geoLat, $geoLon"
+        val latLon = FloatArray(2)
+        if (exif.getLatLong(latLon)) {
+            val uriBegin = "geo:${latLon[0]},${latLon[1]}"
+            val query = "${latLon[0]}, ${latLon[1]}"
             val encodedQuery = Uri.encode(query)
             val uriString = "$uriBegin?q=$encodedQuery&z=16"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
@@ -740,28 +722,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             } else {
                 toast(R.string.no_app_found)
             }
+        } else {
+            toast(R.string.unknown_location)
         }
-    }
-
-    private fun convertToDegree(stringDMS: String): Float {
-        val dms = stringDMS.split(",".toRegex(), 3).toTypedArray()
-
-        val stringD = dms[0].split("/".toRegex(), 2).toTypedArray()
-        val d0 = stringD[0].toDouble()
-        val d1 = stringD[1].toDouble()
-        val floatD = d0 / d1
-
-        val stringM = dms[1].split("/".toRegex(), 2).toTypedArray()
-        val m0 = stringM[0].toDouble()
-        val m1 = stringM[1].toDouble()
-        val floatM = m0 / m1
-
-        val stringS = dms[2].split("/".toRegex(), 2).toTypedArray()
-        val s0 = stringS[0].toDouble()
-        val s1 = stringS[1].toDouble()
-        val floatS = s0 / s1
-
-        return (floatD + floatM / 60 + floatS / 3600).toFloat()
     }
 
     private fun initBottomActionsLayout() {
