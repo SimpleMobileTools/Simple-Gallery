@@ -210,7 +210,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_print -> printFile()
             R.id.menu_edit -> openEditor(getCurrentPath())
             R.id.menu_properties -> showProperties()
-            R.id.menu_show_on_map -> showOnMap()
+            R.id.menu_show_on_map -> showFileOnMap(getCurrentPath())
             R.id.menu_rotate_right -> rotateImage(90)
             R.id.menu_rotate_left -> rotateImage(-90)
             R.id.menu_rotate_one_eighty -> rotateImage(180)
@@ -701,32 +701,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun showOnMap() {
-        val exif = try {
-            ExifInterface(getCurrentPath())
-        } catch (e: Exception) {
-            showErrorToast(e)
-            return
-        }
-
-        val latLon = FloatArray(2)
-        if (exif.getLatLong(latLon)) {
-            val uriBegin = "geo:${latLon[0]},${latLon[1]}"
-            val query = "${latLon[0]}, ${latLon[1]}"
-            val encodedQuery = Uri.encode(query)
-            val uriString = "$uriBegin?q=$encodedQuery&z=16"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
-            val packageManager = packageManager
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            } else {
-                toast(R.string.no_app_found)
-            }
-        } else {
-            toast(R.string.unknown_location)
-        }
-    }
-
     private fun initBottomActionsLayout() {
         bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
         if (config.bottomActions) {
@@ -786,7 +760,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
         bottom_show_on_map.setOnClickListener {
-            showOnMap()
+            showFileOnMap(getCurrentPath())
         }
 
         bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)

@@ -10,6 +10,7 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.media.ExifInterface
+import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.util.DisplayMetrics
@@ -538,5 +539,36 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
         runOnUiThread {
             callback()
         }
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.N)
+fun Activity.showFileOnMap(path: String) {
+    val exif = try {
+        if (path.startsWith("content://") && isNougatPlus()) {
+            ExifInterface(contentResolver.openInputStream(Uri.parse(path)))
+        } else {
+            ExifInterface(path)
+        }
+    } catch (e: Exception) {
+        showErrorToast(e)
+        return
+    }
+
+    val latLon = FloatArray(2)
+    if (exif.getLatLong(latLon)) {
+        val uriBegin = "geo:${latLon[0]},${latLon[1]}"
+        val query = "${latLon[0]}, ${latLon[1]}"
+        val encodedQuery = Uri.encode(query)
+        val uriString = "$uriBegin?q=$encodedQuery&z=16"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
+        val packageManager = packageManager
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            toast(R.string.no_app_found)
+        }
+    } else {
+        toast(R.string.unknown_location)
     }
 }

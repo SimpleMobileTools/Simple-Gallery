@@ -25,4 +25,8 @@
         android:id="@+id/menu_open_with"
         android:title="@string/open_with"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_show_on_map"
+        android:title="@string/show_on_map"
+        app:showAsAction="never"/>
 </menu>
