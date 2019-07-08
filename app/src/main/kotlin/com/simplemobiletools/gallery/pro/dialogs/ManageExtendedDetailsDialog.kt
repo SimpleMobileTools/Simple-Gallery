@@ -22,9 +22,6 @@ class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback
             manage_extended_details_date_taken.isChecked = details and EXT_DATE_TAKEN != 0
             manage_extended_details_camera.isChecked = details and EXT_CAMERA_MODEL != 0
             manage_extended_details_exif.isChecked = details and EXT_EXIF_PROPERTIES != 0
-            manage_extended_details_duration.isChecked = details and EXT_DURATION != 0
-            manage_extended_details_artist.isChecked = details and EXT_ARTIST != 0
-            manage_extended_details_album.isChecked = details and EXT_ALBUM != 0
             manage_extended_details_gps_coordinates.isChecked = details and EXT_GPS != 0
         }
 
@@ -55,12 +52,6 @@ class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback
                 result += EXT_CAMERA_MODEL
             if (manage_extended_details_exif.isChecked)
                 result += EXT_EXIF_PROPERTIES
-            if (manage_extended_details_duration.isChecked)
-                result += EXT_DURATION
-            if (manage_extended_details_artist.isChecked)
-                result += EXT_ARTIST
-            if (manage_extended_details_album.isChecked)
-                result += EXT_ALBUM
             if (manage_extended_details_gps_coordinates.isChecked)
                 result += EXT_GPS
         }
