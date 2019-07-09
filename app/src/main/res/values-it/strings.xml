@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
     <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>

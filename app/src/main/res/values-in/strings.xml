@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
     <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nThanks!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>

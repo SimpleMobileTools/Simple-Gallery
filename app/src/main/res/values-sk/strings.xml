@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Dátumy boli úspešne opravené</string>
     <string name="share_resized">Zdieľať verziu so zmenenou veľkosťou</string>
     <string name="upgraded_from_free">Zdravím,\n\nvyzerá to tak, že ste zo starej bezplatnej apky prešlie na novú, platenú. Starú apku, ktorá má na vrchu nastavení tlačidlo \'Stiahnuť Pro verziu\', môžete už odinštalovať.\n\nStratíte tým iba súbory v odpadkovom koši, obľúbené položky budú odznačené a tiež si budete musieť opäť nastaviť položky v nastaveniach aplikácie.\n\nVďaka!</string>
+    <string name="switch_to_file_search">Prepnúť na vyhľadávanie súborov vo všetkých viditeľných priečinkoch</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>

@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você utilizou a opção de atualização existente na versão antiga. Agora já pode desinstalar essa versão antiga.\n\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados mas também terá que repor as predefinições da aplicação.\n\nObrigado!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
