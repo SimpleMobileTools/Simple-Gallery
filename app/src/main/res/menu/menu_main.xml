@@ -5,7 +5,8 @@
         android:id="@+id/search"
         android:icon="@drawable/ic_search"
         android:title="@string/search"
-        app:showAsAction="always"/>
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always"/>
     <item
         android:id="@+id/open_camera"
         android:icon="@drawable/ic_camera"
