@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="share_resized">Verkleinde versie delen</string>
     <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \"Upgraden naar Pro\" bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
