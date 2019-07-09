@@ -7,4 +7,9 @@
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always"/>
+    <item
+        android:id="@+id/toggle_filename"
+        android:icon="@drawable/ic_label"
+        android:title="@string/toggle_filename"
+        app:showAsAction="always"/>
 </menu>
