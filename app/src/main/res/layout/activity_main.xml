@@ -15,7 +15,7 @@
             android:id="@+id/directories_switch_searching"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center"
             android:padding="@dimen/activity_margin"
             android:text="@string/switch_to_file_search"

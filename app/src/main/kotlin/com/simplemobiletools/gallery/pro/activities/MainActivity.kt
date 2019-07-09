@@ -1018,7 +1018,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
 
-        if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
+        if (mIsSearchOpen) {
+            directories_empty_text_label.text = getString(R.string.no_items_found)
+            directories_empty_text.beGone()
+        } else if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
             directories_empty_text_label.text = getString(R.string.no_media_add_included)
             directories_empty_text.text = getString(R.string.add_folder)
 
@@ -1070,10 +1073,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
             measureRecyclerViewContent(dirsToShow)
         } else {
-            if (textToSearch.isNotEmpty()) {
-                dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
-            }
             runOnUiThread {
+                if (textToSearch.isNotEmpty()) {
+                    dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
+                }
+                checkPlaceholderVisibility(dirsToShow)
+
                 (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
                 measureRecyclerViewContent(dirsToShow)
             }
