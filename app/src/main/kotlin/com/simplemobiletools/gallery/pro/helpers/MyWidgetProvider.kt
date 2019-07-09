@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.getFileSignature
 import com.simplemobiletools.commons.extensions.setBackgroundColor
 import com.simplemobiletools.commons.extensions.setText
 import com.simplemobiletools.commons.extensions.setVisibleIf
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -34,7 +35,7 @@ class MyWidgetProvider : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
-        Thread {
+        ensureBackgroundThread {
             val config = context.config
             context.widgetsDB.getWidgets().filter { appWidgetIds.contains(it.widgetId) }.forEach {
                 val views = RemoteViews(context.packageName, R.layout.widget).apply {
@@ -75,7 +76,7 @@ class MyWidgetProvider : AppWidgetProvider() {
                 setupAppOpenIntent(context, views, R.id.widget_holder, it)
                 appWidgetManager.updateAppWidget(it.widgetId, views)
             }
-        }.start()
+        }
     }
 
     override fun onAppWidgetOptionsChanged(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int, newOptions: Bundle) {
@@ -85,10 +86,10 @@ class MyWidgetProvider : AppWidgetProvider() {
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         super.onDeleted(context, appWidgetIds)
-        Thread {
+        ensureBackgroundThread {
             appWidgetIds.forEach {
                 context.widgetsDB.deleteWidgetId(it)
             }
-        }.start()
+        }
     }
 }

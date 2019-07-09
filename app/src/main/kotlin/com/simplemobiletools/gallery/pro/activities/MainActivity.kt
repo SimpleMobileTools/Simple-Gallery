@@ -1,9 +1,7 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
-import android.app.SearchManager
 import android.content.ClipData
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,8 +12,6 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
@@ -65,7 +61,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
     private var mShouldStopFetching = false
-    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
@@ -73,7 +68,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
-    private var mSearchMenuItem: MenuItem? = null
     private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
@@ -224,8 +218,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
-
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
@@ -276,7 +268,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
-                setupSearch(this)
             }
         }
 
@@ -288,6 +279,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.search -> launchSearchActivity()
             R.id.sort -> showSortingDialog()
             R.id.filter -> showFilterMediaDialog()
             R.id.open_camera -> launchCamera()
@@ -331,43 +323,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem?.actionView as? SearchView)?.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (mIsSearchOpen) {
-                        setupAdapter(mDirs, newText)
-                    }
-                    return true
-                }
-            })
-        }
-
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                mIsSearchOpen = true
-                directories_refresh_layout.isEnabled = false
-                return true
-            }
-
-            // this triggers on device rotation too, avoid doing anything
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (mIsSearchOpen) {
-                    mIsSearchOpen = false
-                    directories_refresh_layout.isEnabled = config.enablePullToRefresh
-                    setupAdapter(mDirs, "")
-                }
-                return true
-            }
-        })
-    }
-
     private fun startNewPhotoFetcher() {
         if (isNougatPlus()) {
             val photoFetcher = NewPhotoFetcher()
@@ -391,7 +346,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkOTGPath() {
-        Thread {
+        ensureBackgroundThread {
             if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
                     config.wasOTGHandled = true
@@ -409,7 +364,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-        }.start()
+        }
     }
 
     private fun checkDefaultSpamFolders() {
@@ -467,15 +422,21 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    private fun launchSearchActivity() {
+        Intent(this, SearchActivity::class.java).apply {
+            startActivity(this)
+        }
+    }
+
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
             directories_grid.adapter = null
             if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
                 getDirectories()
             } else {
-                Thread {
+                ensureBackgroundThread {
                     gotDirectories(getCurrentlyDisplayedDirs())
-                }.start()
+                }
             }
         }
     }
@@ -579,11 +540,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 refreshItems()
             }
 
-            Thread {
+            ensureBackgroundThread {
                 folders.filter { !it.exists() }.forEach {
                     mDirectoryDao.deleteDirPath(it.absolutePath)
                 }
-            }.start()
+            }
         }
     }
 
@@ -668,22 +629,22 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun toggleRecycleBin(show: Boolean) {
         config.showRecycleBinAtFolders = show
         invalidateOptionsMenu()
-        Thread {
+        ensureBackgroundThread {
             var dirs = getCurrentlyDisplayedDirs()
             if (!show) {
                 dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
             }
             gotDirectories(dirs)
-        }.start()
+        }
     }
 
     private fun createNewFolder() {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                Thread {
+                ensureBackgroundThread {
                     gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
-                }.start()
+                }
             }
         }
     }
@@ -808,9 +769,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun itemClicked(path: String) {
-        Intent(this, MediaActivity::class.java).apply {
-            putExtra(DIRECTORY, path)
-            handleMediaIntent(this)
+        handleLockedFolderOpening(path) { success ->
+            if (success) {
+                Intent(this, MediaActivity::class.java).apply {
+                    putExtra(DIRECTORY, path)
+                    handleMediaIntent(this)
+                }
+            }
         }
     }
 
@@ -1003,7 +968,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
             directories_empty_text_label.text = getString(R.string.no_media_add_included)
             directories_empty_text.text = getString(R.string.add_folder)
-            directories_empty_text.underlineText()
 
             directories_empty_text.setOnClickListener {
                 showAddIncludedFolderDialog {
@@ -1013,11 +977,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             directories_empty_text_label.text = getString(R.string.no_media_with_filters)
             directories_empty_text.text = getString(R.string.change_filters_underlined)
+
             directories_empty_text.setOnClickListener {
                 showFilterMediaDialog()
             }
         }
 
+        directories_empty_text.underlineText()
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
@@ -1136,12 +1102,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             ?: ""
 
     private fun setupLatestMediaId() {
-        Thread {
+        ensureBackgroundThread {
             if (hasPermission(PERMISSION_READ_STORAGE)) {
                 mLatestMediaId = getLatestMediaId()
                 mLatestMediaDateId = getLatestMediaByDateId()
             }
-        }.start()
+        }
     }
 
     private fun checkLastMediaChanged() {
@@ -1150,7 +1116,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         mLastMediaHandler.postDelayed({
-            Thread {
+            ensureBackgroundThread {
                 val mediaId = getLatestMediaId()
                 val mediaDateId = getLatestMediaByDateId()
                 if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
@@ -1163,7 +1129,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     mLastMediaHandler.removeCallbacksAndMessages(null)
                     checkLastMediaChanged()
                 }
-            }.start()
+            }
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
@@ -1171,12 +1137,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
             config.lastBinCheck = System.currentTimeMillis()
             Handler().postDelayed({
-                Thread {
+                ensureBackgroundThread {
                     try {
                         mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
                     } catch (e: Exception) {
                     }
-                }.start()
+                }
             }, 3000L)
         }
     }
@@ -1185,7 +1151,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/175139712676531/209575122566323
     // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/497837993632037/499671223448714
     private fun excludeSpamFolders() {
-        Thread {
+        ensureBackgroundThread {
             try {
                 val internalPath = internalStoragePath
                 val checkedPaths = ArrayList<String>()
@@ -1222,7 +1188,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             } catch (e: Exception) {
             }
-        }.start()
+        }
     }
 
     override fun refreshItems() {
@@ -1230,16 +1196,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun recheckPinnedFolders() {
-        Thread {
+        ensureBackgroundThread {
             gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
-        }.start()
+        }
     }
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
-        Thread {
+        ensureBackgroundThread {
             storeDirectoryItems(directories, mDirectoryDao)
             removeInvalidDBDirectories()
-        }.start()
+        }
     }
 
     private fun checkWhatsNewDialog() {

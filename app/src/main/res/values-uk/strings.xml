@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Дати успішно виправлені</string>
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
     <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
@@ -115,10 +116,10 @@
     <string name="random_order">Випадковий порядок</string>
     <string name="move_backwards">Рухатися назад</string>
     <string name="loop_slideshow">Зациклити показ слайдів</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Анімація</string>
+    <string name="no_animation">Немає</string>
+    <string name="fade">Згасання</string>
+    <string name="slide">Зміщення</string>
     <string name="slideshow_ended">Слайдшоу закінчено</string>
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
 
@@ -133,11 +134,11 @@
     <string name="do_not_group_files">Не групувати файли</string>
     <string name="by_folder">текою</string>
     <string name="by_last_modified">останньою зміною</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">останньою зміною (по днях)</string>
+    <string name="by_last_modified_monthly">останньою зміною (по місяцях)</string>
     <string name="by_date_taken">датою зйомки</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">датою зйомки (по днях)</string>
+    <string name="by_date_taken_monthly">датою зйомки (по місяцях)</string>
     <string name="by_file_type">типом файлу</string>
     <string name="by_extension">розширенням</string>
     <string name="grouping_and_sorting">Зверніть увагу, що групування і сортування - це два окремих поля</string>

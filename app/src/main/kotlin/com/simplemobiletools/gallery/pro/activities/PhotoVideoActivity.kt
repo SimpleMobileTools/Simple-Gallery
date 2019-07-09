@@ -97,9 +97,16 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null && File(realPath).exists()) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
-                    sendViewPagerIntent(realPath)
-                    finish()
-                    return
+                    if (isFileTypeVisible(realPath)) {
+                        bottom_actions.beGone()
+                        handleLockedFolderOpening(realPath.getParentPath()) { success ->
+                            if (success) {
+                                sendViewPagerIntent(realPath)
+                            }
+                            finish()
+                        }
+                        return
+                    }
                 } else {
                     filename = realPath.getFilenameFromPath()
                 }
@@ -108,18 +115,30 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
-                rescanPaths(arrayListOf(mUri!!.path))
-                sendViewPagerIntent(mUri!!.path)
-                finish()
-                return
+                bottom_actions.beGone()
+                handleLockedFolderOpening(mUri!!.path.getParentPath()) { success ->
+                    if (success) {
+                        rescanPaths(arrayListOf(mUri!!.path))
+                        sendViewPagerIntent(mUri!!.path)
+                    }
+                    finish()
+                }
             }
+            return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && File(path).exists()) {
-                rescanPaths(arrayListOf(mUri!!.path))
-                sendViewPagerIntent(path)
-                finish()
-                return
+                if (isFileTypeVisible(path)) {
+                    bottom_actions.beGone()
+                    handleLockedFolderOpening(path.getParentPath()) { success ->
+                        if (success) {
+                            rescanPaths(arrayListOf(mUri!!.path))
+                            sendViewPagerIntent(path)
+                        }
+                        finish()
+                    }
+                    return
+                }
             }
         }
 
@@ -228,6 +247,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_EDIT == 0
             findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
+            findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
         }
 
         return true
@@ -244,6 +264,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             R.id.menu_share -> sharePath(mUri!!.toString())
             R.id.menu_edit -> openEditor(mUri!!.toString())
             R.id.menu_properties -> showProperties()
+            R.id.menu_show_on_map -> showFileOnMap(mUri!!.toString())
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -251,6 +272,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun showProperties() {
         PropertiesDialog(this, mUri!!.path)
+    }
+
+    private fun isFileTypeVisible(path: String): Boolean {
+        val filter = config.filterMedia
+        return !(path.isImageFast() && filter and TYPE_IMAGES == 0 ||
+                path.isVideoFast() && filter and TYPE_VIDEOS == 0 ||
+                path.isGif() && filter and TYPE_GIFS == 0 ||
+                path.isRawFast() && filter and TYPE_RAWS == 0 ||
+                path.isSvg() && filter and TYPE_SVGS == 0)
     }
 
     private fun initBottomActions() {
@@ -291,6 +321,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0 && mMedium?.isImage() == true)
         bottom_set_as.setOnClickListener {
             setAs(mUri!!.toString())
+        }
+
+        bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
+        bottom_show_on_map.setOnClickListener {
+            showFileOnMap(mUri!!.toString())
         }
     }
 

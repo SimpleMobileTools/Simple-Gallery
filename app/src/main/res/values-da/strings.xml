@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
     <string name="share_resized">Del en skaleret version</string>
     <string name="upgraded_from_free">Hej\n\nDet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \"Opgrader til Pro\"-knap i toppen af appens indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte din apps indstillinger.\n\nTak!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer medier</string>
@@ -116,9 +117,9 @@
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="no_animation">Ingen</string>
+    <string name="fade">Udton</string>
+    <string name="slide">Glid</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 
@@ -133,11 +134,11 @@
     <string name="do_not_group_files">Gruppér ikke filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sidst ændret</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Sidst ændret (daglig)</string>
+    <string name="by_last_modified_monthly">Sidst ændret (månedlig)</string>
     <string name="by_date_taken">Eksponeringsdato</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Eksponeringsdato (daglig)</string>
+    <string name="by_date_taken_monthly">Eksponeringsdato (månedlig)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filendelse</string>
     <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>

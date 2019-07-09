@@ -380,7 +380,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     fun saveLastVideoPosition(path: String, value: Int) {
-        if (!path.isEmpty()) {
+        if (path.isNotEmpty()) {
             prefs.edit().putInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", value).apply()
         }
     }

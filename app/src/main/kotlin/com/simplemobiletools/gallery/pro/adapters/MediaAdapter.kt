@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.dialogs.RenameItemsPatternDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -46,7 +47,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
-    private val hasOTGConnected = activity.hasOTGConnected()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -204,7 +204,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         if (selectedKeys.size == 1) {
             val oldPath = getFirstSelectedItemPath() ?: return
             RenameItemDialog(activity, oldPath) {
-                Thread {
+                ensureBackgroundThread {
                     activity.updateDBMediaPath(oldPath, it)
 
                     activity.runOnUiThread {
@@ -212,7 +212,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                         listener?.refreshItems()
                         finishActMode()
                     }
-                }.start()
+                }
             }
         } else {
             RenameItemsPatternDialog(activity, getSelectedPaths()) {
@@ -239,7 +239,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
-        Thread {
+        ensureBackgroundThread {
             getSelectedItems().forEach {
                 activity.toggleFileVisibility(it.path, hide)
             }
@@ -247,11 +247,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun toggleFavorites(add: Boolean) {
-        Thread {
+        ensureBackgroundThread {
             val mediumDao = activity.galleryDB.MediumDao()
             getSelectedItems().forEach {
                 it.isFavorite = add
@@ -261,7 +261,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun restoreFiles() {
@@ -281,7 +281,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun rotateSelection(degrees: Int) {
         activity.toast(R.string.saving)
-        Thread {
+        ensureBackgroundThread {
             val paths = getSelectedPaths().filter { it.isImageFast() }
             var fileCnt = paths.size
             rotatedImagePaths.clear()
@@ -297,7 +297,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     }
                 }
             }
-        }.start()
+        }
     }
 
     private fun moveFilesTo() {
@@ -334,12 +334,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun fixDateTaken() {
-        Thread {
+        ensureBackgroundThread {
             activity.fixDateTaken(getSelectedPaths(), true) {
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun checkDeleteConfirmation() {

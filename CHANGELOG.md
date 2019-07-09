@@ -1,6 +1,23 @@
 Changelog
 ==========
 
+Version 6.8.2 *(2019-07-02)*
+----------------------------
+
+ * Allow password protecting individual folders
+ * Let's try using dark theme menu
+ * Fixed the performance of scrolling GIF thumbnails
+ * Fixed some video stucking issues
+ * Some other stability and translation improvements
+
+Version 6.8.1 *(2019-06-27)*
+----------------------------
+
+ * Improved Search on the main screen, allow using it for searching all files, not folders
+ * Added Print functionality at fullscreen images
+ * Fixed a glitch at PNGs getting deleted after rotating
+ * Other stability, translation and performance improvements
+
 Version 6.8.0 *(2019-06-21)*
 ----------------------------
 

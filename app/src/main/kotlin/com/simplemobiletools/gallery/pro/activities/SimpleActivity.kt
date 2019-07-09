@@ -10,6 +10,7 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.scanPathRecursively
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
@@ -87,9 +88,9 @@ open class SimpleActivity : BaseSimpleActivity() {
             config.lastFilepickerPath = it
             config.addIncludedFolder(it)
             callback()
-            Thread {
+            ensureBackgroundThread {
                 scanPathRecursively(it)
-            }.start()
+            }
         }
     }
 }

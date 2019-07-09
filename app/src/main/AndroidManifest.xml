@@ -36,14 +36,6 @@
             android:name=".activities.MainActivity"
             android:resizeableActivity="true">
 
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:resource="@xml/searchable"/>
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
-            </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.PICK"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -79,6 +71,21 @@
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
 
+        </activity>
+
+        <activity
+            android:name=".activities.SearchActivity"
+            android:label="@string/search"
+            android:parentActivityName=".activities.MainActivity"
+            android:resizeableActivity="true">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:resource="@xml/searchable"/>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
         </activity>
 
         <activity

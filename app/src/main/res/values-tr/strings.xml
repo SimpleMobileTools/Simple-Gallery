@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
     <string name="share_resized">Yeniden boyutlandırılmış sürümü paylaş</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
@@ -227,59 +228,59 @@
     <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
     <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
+    <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Basit Galeri Pro: Fotoğraf Yönetici &amp; Düzenleyici</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Reklamsız çevrimdışı galeri. Fotoğraf &amp; videolarınızı yönetin ve düzenleyin</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Uygulamaya hiçbir reklam ve gereksiz izinler içermez. Uygulama internet erişimi gerektirmediğinden gizliliğiniz de korunur.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>BASİT GALERİ PRO – ÖZELLİKLER</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Reklamsız veya açılır penceresiz, çevrimdışı galeri
+        • Basit galeri fotoğraf editörü - kırpma, döndürme, yeniden boyutlandırma, çizim, filtreler ve daha fazlası
+        • İnternet erişimi gerekmez, size daha fazla gizlilik ve güvenlik sunar
+        • Gereksiz izinler gerekmez
+        • Resimleri, videoları ve dosyaları hızlıca arama
+        • Birçok farklı fotoğraf ve video türünü (RAW, SVG, panoramik vb.) açma ve görüntüleme
+        • Dosyaları kolayca düzenlemek ve organize etmek için çeşitli sezgisel hareketler
+        • Dosyaları filtrelemenin, gruplandırmanın ve sıralamanın birçok yolu
+        • Basit Galeri Pro\'nun görünümünü özelleştirme
+        • 32 dilde mevcut
+        • Hızlı erişim için dosyaları sık kullanılan olarak işaretleme
+        • Fotoğraflarınızı ve videolarınızı desen, pin veya parmak izi ile koruma
+        • Uygulama başlatılmasını veya belirli işlevleri de korumak için pin, desen ve parmak izi kullanma
+        • Silinen fotoğrafları ve videoları geri dönüşüm kutusundan kurtarma
+        • Fotoğrafları ve videoları gizlemek için dosyaların görünürlüğünü değiştirme
+        • Dosyalarınızın özelleştirilebilir bir slayt gösterisini oluşturma
+        • Dosyalarınızın ayrıntılı bilgilerini (çözünürlük, EXIF değerleri vb.) görüntüleme
+        • Basit Galeri Pro açık kaynak kodludur
+        … ve çok daha fazlası!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>FOTOĞRAF GALERİSİ EDİTÖRÜ</b>
+        Basit Galeri Pro, fotoğraflarınızı anında düzenlemenizi kolaylaştırır. Resimlerinizi kırpın, çevirin, döndürün ve yeniden boyutlandırın. Kendinizi biraz daha yaratıcı hissediyorsanız, filtre ekleyebilir ve resimlerinizi çizebilirsiniz!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>BİRÇOK DOSYA TÜRÜ İÇİN DESTEK</b>
+        Diğer galeri görüntüleyicilerinden ve fotoğraf düzenleyicilerinden farklı olarak, Basit Galeri Pro, JPEG, PNG, MP4, MKV, RAW, SVG, Panoramik fotoğraflar, Panoramik videolar ve daha pek çok farklı dosya türünü destekler.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>SON DERECE ÖZELLEŞTİRİLEBİLİR GALERİ YÖNETİCİSİ</b>
+        Kullanıcı arayüzünden alt araç çubuğundaki işlev düğmelerine kadar, Basit Galeri Pro oldukça özelleştirilebilirdir ve istediğiniz şekilde çalışır. Başka hiçbir galeri yöneticisi bu tür bir esnekliğe sahip değildir! Açık kaynak olması sayesinde 32 dilde de kullanıma hazırız!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>SİLİNEN FOTOĞRAFLARI VE VİDEOLARI KURTARIN</b>
+        Yanlışlıkla önemli bir fotoğrafı veya videoyu mu sildiniz? Endişelenmeyin! Basit Galeri Pro, silinmiş fotoğrafları ve videoları kolayca kurtarabileceğiniz kullanışlı bir geri dönüşüm kutusuna sahiptir.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>FOTOĞRAFLARI, VİDEOLARI VE DOSYALARI KORUYUN VE GİZLEYİN</b>
+        Pin, desen veya cihazınızın parmak izi tarayıcısını kullanarak fotoğrafları, videoları ve albümün tamamını koruyabilir ve gizleyebilirsiniz. Uygulamanın kendisini koruyabilir veya uygulamanın belirli işlevlerine kilitler yerleştirebilirsiniz. Örneğin, parmak izi taraması olmadan bir dosyayı silemez ve dosyalarınızı yanlışlıkla silmeye karşı korumaya yardımcı olabilirsiniz.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Tüm Basit Araçlar paketini buradan inceleyin:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>

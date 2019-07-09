@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="share_resized">Share a resized version</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">فلتر الميديا</string>
@@ -64,10 +65,8 @@
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
     <string name="add_folder">اضافة مجلد</string>
-    <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الملتيميديا ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدويا هنا.\n
+    <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الملتيميديا ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدويا هنا.\n  \n  لن تؤدي إضافة بعض العناصر هنا إلى استبعاد أي مجلد آخر.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-  \n
-  لن تؤدي إضافة بعض العناصر هنا إلى استبعاد أي مجلد آخر.</string>
 
     <!-- Resizing -->
     <string name="resize">تحجيم</string>

@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">Даты исправлены</string>
     <string name="share_resized">Поделиться изменённой версией</string>
     <string name="upgraded_from_free">Привет,\n\nпохоже, что вы обновились со старого бесплатного приложения. Теперь вы можете удалить старую версию, которая содержит кнопку \"Обновить до Pro\" в верхней части настроек приложения.\n\nБудет очищена корзина, сняты отметки избранного, а также вам придётся сбросить настройки приложения.\n\nСпасибо!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>

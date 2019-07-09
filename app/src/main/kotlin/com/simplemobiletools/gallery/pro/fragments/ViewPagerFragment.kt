@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.fragments
 
+import android.media.ExifInterface
 import android.provider.MediaStore
 import android.view.MotionEvent
 import androidx.fragment.app.Fragment
@@ -39,7 +40,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         val path = "${file.parent.trimEnd('/')}/"
-        val exif = android.media.ExifInterface(medium.path)
+        val exif = ExifInterface(medium.path)
         val details = StringBuilder()
         val detailsFlag = context!!.config.extendedDetails
         if (detailsFlag and EXT_NAME != 0) {
@@ -63,15 +64,19 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {
-            path.getExifDateTaken(exif, context!!).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifDateTaken(context!!).let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_CAMERA_MODEL != 0) {
-            path.getExifCameraModel(exif).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifCameraModel().let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_EXIF_PROPERTIES != 0) {
-            path.getExifProperties(exif).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifProperties().let { if (it.isNotEmpty()) details.appendln(it) }
+        }
+
+        if (detailsFlag and EXT_GPS != 0) {
+            getLatLonAltitude(medium.path).let { if (it.isNotEmpty()) details.appendln(it) }
         }
         return details.toString().trim()
     }
@@ -91,6 +96,23 @@ abstract class ViewPagerFragment : Fragment() {
             }
         }
         return ""
+    }
+
+    private fun getLatLonAltitude(path: String): String {
+        var result = ""
+        val exif = ExifInterface(path)
+        val latLon = FloatArray(2)
+
+        if (exif.getLatLong(latLon)) {
+            result = "${latLon[0]},  ${latLon[1]}"
+        }
+
+        val altitude = exif.getAltitude(0.0)
+        if (altitude != 0.0) {
+            result += ",  ${altitude}m"
+        }
+
+        return result.trimStart(',').trim()
     }
 
     protected fun handleEvent(event: MotionEvent) {

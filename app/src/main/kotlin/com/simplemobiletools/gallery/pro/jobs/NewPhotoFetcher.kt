@@ -14,6 +14,7 @@ import android.os.Handler
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
 import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 
@@ -94,11 +95,11 @@ class NewPhotoFetcher : JobService() {
             }
         }
 
-        Thread {
+        ensureBackgroundThread {
             affectedFolderPaths.forEach {
                 updateDirectoryPath(it)
             }
-        }.start()
+        }
 
         mHandler.post(mWorker)
         return true

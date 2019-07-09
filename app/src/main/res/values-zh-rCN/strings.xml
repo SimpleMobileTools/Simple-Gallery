@@ -33,6 +33,7 @@
     <string name="dates_fixed_successfully">日期修复成功</string>
     <string name="share_resized">调整图像尺寸并分享</string>
     <string name="upgraded_from_free">嘿，\n\n看起来您是从旧的免费版应用程序升级的。您现在可以卸载旧版本，在该版本应用的设置菜单顶部有一个“升级到专业版”按钮。\n\n此操作将会删除回收站项目，并取消收藏已收藏的项目，你的应用设置也将会重置。\n\n谢谢！</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>

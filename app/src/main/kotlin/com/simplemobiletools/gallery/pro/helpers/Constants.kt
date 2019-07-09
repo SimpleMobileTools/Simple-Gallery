@@ -115,6 +115,7 @@ const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000
 const val HIDE_SYSTEM_UI_DELAY = 500L
+const val MAX_PRINT_SIDE_SIZE = 4096
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
@@ -153,6 +154,7 @@ const val EXT_EXIF_PROPERTIES = 128
 const val EXT_DURATION = 256
 const val EXT_ARTIST = 512
 const val EXT_ALBUM = 1024
+const val EXT_GPS = 2048
 
 // media types
 const val TYPE_IMAGES = 1

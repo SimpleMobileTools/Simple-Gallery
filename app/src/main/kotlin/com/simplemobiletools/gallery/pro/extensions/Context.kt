@@ -358,7 +358,7 @@ fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: Ar
 }
 
 fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val folders = ArrayList<String>()
 
         val uri = MediaStore.Files.getContentUri("external")
@@ -384,20 +384,20 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
         }
 
         callback(folders)
-    }.start()
+    }
 }
 
 fun Context.rescanFolderMedia(path: String) {
-    Thread {
+    ensureBackgroundThread {
         rescanFolderMediaSync(path)
-    }.start()
+    }
 }
 
 fun Context.rescanFolderMediaSync(path: String) {
     getCachedMedia(path) {
         val cached = it
         GetMediaAsynctask(applicationContext, path, false, false, false) {
-            Thread {
+            ensureBackgroundThread {
                 val newMedia = it
                 val mediumDao = galleryDB.MediumDao()
                 val media = newMedia.filter { it is Medium } as ArrayList<Medium>
@@ -411,15 +411,15 @@ fun Context.rescanFolderMediaSync(path: String) {
                         }
                     }
                 }
-            }.start()
+            }
         }.execute()
     }
 }
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: DirectoryDao) {
-    Thread {
+    ensureBackgroundThread {
         directoryDao.insertAll(items)
-    }.start()
+    }
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
@@ -452,20 +452,21 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
             loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_GIFS) {
+        if (!animateGifs) {
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            return
+        }
+
         try {
             val gifDrawable = GifDrawable(path)
             target.setImageDrawable(gifDrawable)
-            if (animateGifs) {
-                gifDrawable.start()
-            } else {
-                gifDrawable.stop()
-            }
+            gifDrawable.start()
 
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
-            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         } catch (e: OutOfMemoryError) {
-            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_SVGS) {
         loadSVG(path, target, cropThumbnails)
@@ -525,6 +526,22 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
             .into(target)
 }
 
+fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+            .priority(Priority.LOW)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+
+    val builder = Glide.with(applicationContext)
+            .asBitmap() // make sure the GIF wont animate
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options)
+            .into(target)
+}
+
 fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
     target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
 
@@ -539,7 +556,7 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
@@ -581,12 +598,12 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
 
         removeInvalidDBDirectories(filteredDirectories, directoryDao)
-    }.start()
+    }
 }
 
 fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, mediumDao: MediumDao = galleryDB.MediumDao(),
                            callback: (ArrayList<ThumbnailItem>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val mediaFetcher = MediaFetcher(this)
         val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
@@ -599,7 +616,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }
 
         val shouldShowHidden = config.shouldShowHidden
-        foldersToScan.forEach {
+        foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
             try {
                 val currMedia = mediumDao.getMediaFromPath(it)
                 media.addAll(currMedia)
@@ -644,13 +661,16 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         } catch (ignored: Exception) {
         }
-    }.start()
+    }
 }
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
     dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !File(it.path).exists() && it.path != config.tempFolderPath }.forEach {
-        directoryDao.deleteDirPath(it.path)
+        try {
+            directoryDao.deleteDirPath(it.path)
+        } catch (ignored: Exception) {
+        }
     }
 }
 
@@ -768,9 +788,9 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 }
 
 fun Context.addPathToDB(path: String) {
-    Thread {
+    ensureBackgroundThread {
         if (!File(path).exists()) {
-            return@Thread
+            return@ensureBackgroundThread
         }
 
         val type = when {
@@ -791,7 +811,7 @@ fun Context.addPathToDB(path: String) {
             mediumDao.insert(medium)
         } catch (ignored: Exception) {
         }
-    }.start()
+    }
 }
 
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
