@@ -12,9 +12,20 @@
         android:layout_height="wrap_content">
 
         <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/directories_switch_searching"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:padding="@dimen/activity_margin"
+            android:text="@string/switch_to_file_search"
+            android:visibility="gone"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/directories_empty_text_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/directories_switch_searching"
             android:gravity="center_horizontal"
             android:paddingLeft="@dimen/big_margin"
             android:paddingTop="@dimen/activity_margin"
@@ -39,6 +50,7 @@
             android:id="@+id/directories_grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/directories_switch_searching"
             android:scrollbars="none"
             app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
             app:spanCount="@integer/directory_columns_vertical_scroll"/>
@@ -47,6 +59,7 @@
             android:id="@+id/directories_vertical_fastscroller"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_below="@+id/directories_switch_searching"
             android:layout_alignParentEnd="true"
             android:paddingStart="@dimen/normal_margin"
             android:visibility="gone">

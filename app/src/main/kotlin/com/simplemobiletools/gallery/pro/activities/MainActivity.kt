@@ -151,6 +151,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         updateWidgets()
         registerFileUpdateListener()
+
+        directories_switch_searching.setOnClickListener {
+            launchSearchActivity()
+        }
     }
 
     override fun onStart() {
@@ -198,6 +202,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
+        directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
+        directories_switch_searching.underlineText()
 
         if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
             handleAppPasswordProtection {
@@ -351,6 +357,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                directories_switch_searching.beVisible()
                 mIsSearchOpen = true
                 directories_refresh_layout.isEnabled = false
                 return true
@@ -359,6 +366,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             // this triggers on device rotation too, avoid doing anything
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 if (mIsSearchOpen) {
+                    directories_switch_searching.beGone()
                     mIsSearchOpen = false
                     directories_refresh_layout.isEnabled = config.enablePullToRefresh
                     setupAdapter(mDirs, "")
