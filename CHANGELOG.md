@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.8.3 *(2019-07-14)*
+----------------------------
+
+ * Added support for HEIC/HEIF files
+ * Reverted back to the previous way of searching folders, with a button for searching all files instead
+ * Added some dark theme improvements
+ * Show some location related values at the Properties window, or at the Extended details
+ * Misc other stability, performance and translation improvements
+
 Version 6.8.2 *(2019-07-02)*
 ----------------------------
 
