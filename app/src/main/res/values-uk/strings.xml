@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Дати успішно виправлені</string>
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
     <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
