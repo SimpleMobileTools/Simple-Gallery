@@ -164,6 +164,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        if(mSearchMenuItem!=null && mSearchMenuItem!!.isActionViewExpanded()) return
+
         config.isThirdPartyIntent = false
 
         if (mStoredAnimateGifs != config.animateGifs) {
@@ -230,7 +232,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
+        //mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
