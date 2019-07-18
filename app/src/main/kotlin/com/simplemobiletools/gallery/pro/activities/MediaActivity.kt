@@ -127,6 +127,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        if(mSearchMenuItem!=null && mSearchMenuItem!!.isActionViewExpanded()) return
         if (mStoredAnimateGifs != config.animateGifs) {
             getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -179,7 +180,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
+        //mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
