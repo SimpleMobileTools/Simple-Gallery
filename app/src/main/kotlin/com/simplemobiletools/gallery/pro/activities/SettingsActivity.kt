@@ -615,9 +615,6 @@ class SettingsActivity : SimpleActivity() {
                 put(FILE_LOADING_PRIORITY, config.fileLoadingPriority)
                 put(AUTOPLAY_VIDEOS, config.autoplayVideos)
                 put(REMEMBER_LAST_VIDEO_POSITION, config.rememberLastVideoPosition)
-                config.getAllLastVideoPositions().forEach {
-                    put(it.key, it.value.toString())
-                }
                 put(LOOP_VIDEOS, config.loopVideos)
                 put(OPEN_VIDEOS_ON_SEPARATE_SCREEN, config.openVideosOnSeparateScreen)
                 put(ALLOW_VIDEO_GESTURES, config.allowVideoGestures)
@@ -799,10 +796,6 @@ class SettingsActivity : SimpleActivity() {
                 LAST_EDITOR_BRUSH_SIZE -> config.lastEditorBrushSize = value.toInt()
                 LAST_CONFLICT_RESOLUTION -> config.lastConflictResolution = value.toInt()
                 LAST_CONFLICT_APPLY_TO_ALL -> config.lastConflictApplyToAll = value.toBoolean()
-            }
-
-            if (key.startsWith(LAST_VIDEO_POSITION_PREFIX)) {
-                config.saveLastVideoPosition(key, value as Int)
             }
         }
 
