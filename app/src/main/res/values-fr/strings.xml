@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -117,9 +117,9 @@
     <string name="move_backwards">Défilement inverse</string>
     <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="no_animation">Aucune</string>
+    <string name="fade">Fondu</string>
+    <string name="slide">Glissement</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
