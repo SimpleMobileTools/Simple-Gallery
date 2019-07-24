@@ -1,7 +1,8 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.media.MediaMetadataRetriever
-import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
+import com.simplemobiletools.commons.extensions.doesThisOrParentHaveNoMedia
+import com.simplemobiletools.commons.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
 

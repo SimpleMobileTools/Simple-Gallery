@@ -207,7 +207,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = File(mPath).containsNoMedia()
+        val isFolderHidden = mPath.containsNoMedia()
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 

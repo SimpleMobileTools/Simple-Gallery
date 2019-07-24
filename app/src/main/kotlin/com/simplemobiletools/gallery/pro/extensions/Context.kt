@@ -424,7 +424,7 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: Direc
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
     val dirName = getFolderNameFromPath(path)
-    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
+    return if (path.doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
         "$dirName $hidden"
     } else {
         dirName
@@ -587,7 +587,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 
         val hiddenString = resources.getString(R.string.hidden)
         filteredDirectories.forEach {
-            it.name = if (File(it.path).doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
+            it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
                 "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
             } else {
                 it.name
