@@ -401,15 +401,18 @@ fun Context.rescanFolderMediaSync(path: String) {
                 val newMedia = it
                 val mediumDao = galleryDB.MediumDao()
                 val media = newMedia.filter { it is Medium } as ArrayList<Medium>
-                mediumDao.insertAll(media)
+                try {
+                    mediumDao.insertAll(media)
 
-                cached.forEach {
-                    if (!newMedia.contains(it)) {
-                        val mediumPath = (it as? Medium)?.path
-                        if (mediumPath != null) {
-                            deleteDBPath(mediumDao, mediumPath)
+                    cached.forEach {
+                        if (!newMedia.contains(it)) {
+                            val mediumPath = (it as? Medium)?.path
+                            if (mediumPath != null) {
+                                deleteDBPath(mediumDao, mediumPath)
+                            }
                         }
                     }
+                } catch (ignored: Exception) {
                 }
             }
         }.execute()
