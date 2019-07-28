@@ -389,7 +389,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.tempFolderPath.isNotEmpty()) {
             val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
-                if (newFolder.list()?.isEmpty() == true) {
+                if (newFolder.list()?.isEmpty() == true && newFolder.getProperSize(true) == 0L && newFolder.getFileCount(true) == 0) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
                     tryDeleteFileDirItem(newFolder.toFileDirItem(), true, true)
                 }
