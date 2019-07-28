@@ -26,7 +26,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
@@ -90,8 +93,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
-        if (config.appSideloadingStatus == SIDELOADING_TRUE) {
-            showSideloadingDialog()
+        if (checkAppSideloading()) {
             return
         }
 
