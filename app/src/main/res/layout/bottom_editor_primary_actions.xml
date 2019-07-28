@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/filter"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_photo_filter"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -26,6 +26,7 @@
         android:layout_height="@dimen/bottom_editor_color_picker_size"
         android:layout_marginEnd="@dimen/small_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/change_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/bottom_draw_undo"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -36,6 +37,7 @@
         android:layout_height="@dimen/bottom_editor_color_picker_size"
         android:layout_marginEnd="@dimen/small_margin"
         android:clickable="false"
+        android:contentDescription="@null"
         android:padding="@dimen/small_margin"
         android:src="@drawable/circle_background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +51,7 @@
         android:layout_marginEnd="@dimen/normal_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="false"
+        android:contentDescription="@string/undo"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_undo"
         app:layout_constraintBottom_toBottomOf="parent"

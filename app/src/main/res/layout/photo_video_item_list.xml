@@ -21,6 +21,7 @@
         android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:contentDescription="@null"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"

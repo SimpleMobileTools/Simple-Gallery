@@ -24,6 +24,7 @@
         android:layout_alignBottom="@+id/dir_thumbnail"
         android:layout_centerInParent="true"
         android:background="@color/default_background_color"
+        android:contentDescription="@string/lock_folder"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_lock_huge"
         android:visibility="gone"/>
@@ -36,6 +37,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
+        android:contentDescription="@null"
         android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_check"
         android:visibility="gone"/>
@@ -91,6 +93,7 @@
             android:id="@+id/dir_location"
             android:layout_width="@dimen/sd_card_icon_size"
             android:layout_height="@dimen/sd_card_icon_size"
+            android:contentDescription="@null"
             android:paddingBottom="@dimen/small_margin"
             android:src="@drawable/ic_sd_card"
             android:visibility="gone"/>
@@ -99,6 +102,7 @@
             android:id="@+id/dir_pin"
             android:layout_width="@dimen/sd_card_icon_size"
             android:layout_height="@dimen/sd_card_icon_size"
+            android:contentDescription="@string/pin"
             android:paddingBottom="@dimen/small_margin"
             android:src="@drawable/ic_pin"
             android:visibility="gone"/>

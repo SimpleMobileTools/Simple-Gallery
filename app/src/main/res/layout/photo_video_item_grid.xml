@@ -51,6 +51,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
+        android:contentDescription="@null"
         android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_check"
         android:visibility="gone"/>
