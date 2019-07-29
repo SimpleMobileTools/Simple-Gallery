@@ -394,7 +394,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
-    private fun getSelectedItems() = media.filter { selectedKeys.contains((it as? Medium)?.path?.hashCode()) } as ArrayList<Medium>
+    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Medium>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 

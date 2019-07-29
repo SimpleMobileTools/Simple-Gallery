@@ -595,7 +595,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         listener?.refreshItems()
     }
 
-    private fun getSelectedItems() = dirs.filter { selectedKeys.contains(it.path.hashCode()) } as ArrayList<Directory>
+    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Directory>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 
