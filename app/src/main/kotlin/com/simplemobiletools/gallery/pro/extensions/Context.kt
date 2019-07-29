@@ -623,7 +623,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             try {
                 val currMedia = mediumDao.getMediaFromPath(it)
                 media.addAll(currMedia)
-            } catch (ignored: IllegalStateException) {
+            } catch (ignored: Exception) {
             }
         }
 

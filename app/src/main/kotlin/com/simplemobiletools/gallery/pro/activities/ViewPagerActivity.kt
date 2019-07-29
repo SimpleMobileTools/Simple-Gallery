@@ -693,7 +693,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return false
     }
 
-    private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
+    private fun getCurrentFragment() = (view_pager.adapter as? MyPagerAdapter)?.getCurrentFragment(view_pager.currentItem)
 
     private fun showProperties() {
         if (getCurrentMedium() != null) {

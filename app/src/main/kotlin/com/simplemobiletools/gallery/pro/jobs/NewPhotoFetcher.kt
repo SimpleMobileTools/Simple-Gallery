@@ -44,7 +44,11 @@ class NewPhotoFetcher : JobService() {
             addTriggerContentUri(JobInfo.TriggerContentUri(photoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
             addTriggerContentUri(JobInfo.TriggerContentUri(videoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
             addTriggerContentUri(JobInfo.TriggerContentUri(MEDIA_URI, 0))
-            context.getSystemService(JobScheduler::class.java).schedule(build())
+
+            try {
+                context.getSystemService(JobScheduler::class.java).schedule(build())
+            } catch (ignored: Exception) {
+            }
         }
     }
 
