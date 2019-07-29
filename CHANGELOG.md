@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.8.4 *(2019-07-29)*
+----------------------------
+
+ * Share files in the order they were selected
+ * Allow customizing the bottom navigation bar color
+ * Fixed some UI glitches related to fullscreen view bottom buttons
+ * Many other stability and UX improvements
+
 Version 6.8.3 *(2019-07-14)*
 ----------------------------
 
