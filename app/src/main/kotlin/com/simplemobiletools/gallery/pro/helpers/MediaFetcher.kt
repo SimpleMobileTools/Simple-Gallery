@@ -230,7 +230,7 @@ class MediaFetcher(val context: Context) {
                 continue
             }
 
-            if (checkFileExistence && !file.exists()) {
+            if (checkFileExistence && (!file.exists() || !file.isFile)) {
                 continue
             }
 
