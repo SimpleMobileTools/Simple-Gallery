@@ -240,14 +240,22 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             } else {
                 activity.handleLockedFolderOpening(path) { success ->
                     if (success) {
-                        activity.removeNoMedia(path) {
-                            if (activity.config.shouldShowHidden) {
-                                updateFolderNames()
-                            } else {
-                                activity.runOnUiThread {
-                                    listener?.refreshItems()
-                                    finishActMode()
+                        if (path.containsNoMedia()) {
+                            activity.removeNoMedia(path) {
+                                if (activity.config.shouldShowHidden) {
+                                    updateFolderNames()
+                                } else {
+                                    activity.runOnUiThread {
+                                        listener?.refreshItems()
+                                        finishActMode()
+                                    }
                                 }
+                            }
+                        } else {
+                            config.addIncludedFolder(path)
+                            activity.runOnUiThread {
+                                listener?.refreshItems()
+                                finishActMode()
                             }
                         }
                     }
