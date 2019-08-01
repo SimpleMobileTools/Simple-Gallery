@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">日期修复成功</string>
     <string name="share_resized">调整图像尺寸并分享</string>
     <string name="upgraded_from_free">嘿，\n\n看起来您是从旧的免费版应用程序升级的。您现在可以卸载旧版本，在该版本应用的设置菜单顶部有一个“升级到专业版”按钮。\n\n此操作将会删除回收站项目，并取消收藏已收藏的项目，你的应用设置也将会重置。\n\n谢谢！</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">切换文件搜索目标为所有可见的文件夹</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -116,10 +116,10 @@
     <string name="random_order">随机顺序</string>
     <string name="move_backwards">倒播</string>
     <string name="loop_slideshow">循环幻灯片</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">动画</string>
+    <string name="no_animation">无</string>
+    <string name="fade">渐变</string>
+    <string name="slide">滑动</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
 
@@ -134,11 +134,11 @@
     <string name="do_not_group_files">禁用文件分组</string>
     <string name="by_folder">目录</string>
     <string name="by_last_modified">最近修改</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">最后修改（按日）</string>
+    <string name="by_last_modified_monthly">最后修改（按月）</string>
     <string name="by_date_taken">拍摄时间</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">拍摄日期（按日）</string>
+    <string name="by_date_taken_monthly">拍摄日期（按月）</string>
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展名</string>
     <string name="grouping_and_sorting">请注意，分组和排序是相互独立的</string>
