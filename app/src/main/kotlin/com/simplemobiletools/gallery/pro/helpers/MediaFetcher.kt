@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.helpers
 import android.content.Context
 import android.database.Cursor
 import android.os.Environment
+import android.provider.BaseColumns
 import android.provider.MediaStore
 import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
@@ -45,24 +46,46 @@ class MediaFetcher(val context: Context) {
         val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
 
         return try {
-            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            val folders = parseCursor(cursor)
+            val folders = getLatestFileFolders()
 
-            val priorityFolders = arrayListOf(
+            folders.addAll(arrayListOf(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString(),
                     "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/Camera",
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString()
-            ).filter { File(it).exists() }
+            ).filter { File(it).exists() })
 
-            folders.sortBy {
-                val folder = it
-                !priorityFolders.any { it.equals(folder, true) }
-            }
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            folders.addAll(parseCursor(cursor))
 
-            folders
+            val config = context.config
+            val shouldShowHidden = config.shouldShowHidden
+            val excludedPaths = config.excludedFolders
+            val includedPaths = config.includedFolders
+            folders.filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
             ArrayList()
         }
+    }
+
+    private fun getLatestFileFolders(): LinkedHashSet<String> {
+        val uri = MediaStore.Files.getContentUri("external")
+        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
+        val parents = LinkedHashSet<String>()
+        val sorting = "${BaseColumns._ID} DESC LIMIT 50"
+        var cursor: Cursor? = null
+        try {
+            cursor = context.contentResolver.query(uri, projection, null, null, sorting)
+            if (cursor?.moveToFirst() == true) {
+                do {
+                    val path = cursor.getStringValue(MediaStore.Images.ImageColumns.DATA) ?: continue
+                    parents.add(path.getParentPath())
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor?.close()
+        }
+
+        return parents
     }
 
     private fun getSelectionQuery(filterMedia: Int): String {
@@ -130,7 +153,7 @@ class MediaFetcher(val context: Context) {
         return args
     }
 
-    private fun parseCursor(cursor: Cursor): ArrayList<String> {
+    private fun parseCursor(cursor: Cursor): LinkedHashSet<String> {
         val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
@@ -155,7 +178,7 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
         foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
-        return foldersToScan.distinctBy { it.getDistinctPath() } as ArrayList<String>
+        return foldersToScan.distinctBy { it.getDistinctPath() }.toSet() as LinkedHashSet<String>
     }
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
