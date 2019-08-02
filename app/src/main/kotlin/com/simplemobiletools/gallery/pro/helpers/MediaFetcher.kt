@@ -47,7 +47,6 @@ class MediaFetcher(val context: Context) {
 
         return try {
             val folders = getLatestFileFolders()
-
             folders.addAll(arrayListOf(
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString(),
                     "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/Camera",
