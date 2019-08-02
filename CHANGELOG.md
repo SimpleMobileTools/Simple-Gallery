@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.9.0 *(2019-08-02)*
+----------------------------
+
+ * Show a message at copy/move if the destination doesn't have enough space
+ * Rewrote the video playback to fix some glitches
+ * Improve the performance at loading initial screen folders
+ * Allow toggling between the old renaming of appending/prepending or using a pattern
+ * Some improvements related to folder un/hiding
+
 Version 6.8.4 *(2019-07-29)*
 ----------------------------
 
