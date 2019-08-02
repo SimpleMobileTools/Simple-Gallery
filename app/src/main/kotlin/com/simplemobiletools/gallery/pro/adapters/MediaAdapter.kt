@@ -10,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RenameDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.dialogs.RenameItemsPatternDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
@@ -215,7 +215,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 }
             }
         } else {
-            RenameItemsPatternDialog(activity, getSelectedPaths()) {
+            RenameDialog(activity, getSelectedPaths()) {
                 enableInstantLoad()
                 listener?.refreshItems()
                 finishActMode()
