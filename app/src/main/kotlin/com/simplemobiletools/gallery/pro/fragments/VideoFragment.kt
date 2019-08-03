@@ -273,7 +273,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun saveVideoProgress() {
-        if (!videoEnded()) {
+        if (!videoEnded() && mExoPlayer != null) {
             mConfig.saveLastVideoPosition(mMedium.path, mExoPlayer!!.currentPosition.toInt() / 1000)
         }
     }
