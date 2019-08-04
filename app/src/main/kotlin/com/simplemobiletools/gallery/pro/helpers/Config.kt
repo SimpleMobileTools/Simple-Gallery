@@ -447,13 +447,13 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(LAST_EDITOR_CROP_ASPECT_RATIO, ASPECT_RATIO_FREE)
         set(lastEditorCropAspectRatio) = prefs.edit().putInt(LAST_EDITOR_CROP_ASPECT_RATIO, lastEditorCropAspectRatio).apply()
 
-    var lastEditorCropOtherAspectRatioX: Int
-        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, 2)
-        set(lastEditorCropOtherAspectRatioX) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, lastEditorCropOtherAspectRatioX).apply()
+    var lastEditorCropOtherAspectRatioX: Float
+        get() = prefs.getFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, 2f)
+        set(lastEditorCropOtherAspectRatioX) = prefs.edit().putFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, lastEditorCropOtherAspectRatioX).apply()
 
-    var lastEditorCropOtherAspectRatioY: Int
-        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1)
-        set(lastEditorCropOtherAspectRatioY) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
+    var lastEditorCropOtherAspectRatioY: Float
+        get() = prefs.getFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1f)
+        set(lastEditorCropOtherAspectRatioY) = prefs.edit().putFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
 
     var groupDirectSubfolders: Boolean
         get() = prefs.getBoolean(GROUP_DIRECT_SUBFOLDERS, false)

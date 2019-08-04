@@ -78,7 +78,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var resizeWidth = 0
     private var resizeHeight = 0
     private var drawColor = 0
-    private var lastOtherAspectRatio: Pair<Int, Int>? = null
+    private var lastOtherAspectRatio: Pair<Float, Float>? = null
     private var currPrimaryAction = PRIMARY_ACTION_NONE
     private var currCropRotateAction = CROP_ROTATE_ASPECT_RATIO
     private var currAspectRatio = ASPECT_RATIO_FREE
@@ -177,12 +177,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setupBottomActions()
 
         if (config.lastEditorCropAspectRatio == ASPECT_RATIO_OTHER) {
-            if (config.lastEditorCropOtherAspectRatioX == 0) {
-                config.lastEditorCropOtherAspectRatioX = 1
+            if (config.lastEditorCropOtherAspectRatioX == 0f) {
+                config.lastEditorCropOtherAspectRatioX = 1f
             }
 
-            if (config.lastEditorCropOtherAspectRatioY == 0) {
-                config.lastEditorCropOtherAspectRatioY = 1
+            if (config.lastEditorCropOtherAspectRatioY == 0f) {
+                config.lastEditorCropOtherAspectRatioY = 1f
             }
 
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
@@ -654,13 +654,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 setFixedAspectRatio(false)
             } else {
                 val newAspectRatio = when (aspectRatio) {
-                    ASPECT_RATIO_ONE_ONE -> Pair(1, 1)
-                    ASPECT_RATIO_FOUR_THREE -> Pair(4, 3)
-                    ASPECT_RATIO_SIXTEEN_NINE -> Pair(16, 9)
+                    ASPECT_RATIO_ONE_ONE -> Pair(1f, 1f)
+                    ASPECT_RATIO_FOUR_THREE -> Pair(4f, 3f)
+                    ASPECT_RATIO_SIXTEEN_NINE -> Pair(16f, 9f)
                     else -> Pair(lastOtherAspectRatio!!.first, lastOtherAspectRatio!!.second)
                 }
 
-                setAspectRatio(newAspectRatio.first, newAspectRatio.second)
+                setAspectRatio(newAspectRatio.first.toInt(), newAspectRatio.second.toInt())
             }
         }
     }
