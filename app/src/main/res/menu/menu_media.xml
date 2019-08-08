@@ -40,7 +40,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/open_camera"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/ic_camera_vector"
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item

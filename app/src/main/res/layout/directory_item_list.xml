@@ -39,7 +39,7 @@
         android:background="@drawable/circle_background"
         android:contentDescription="@null"
         android:padding="@dimen/tiny_margin"
-        android:src="@drawable/ic_check"
+        android:src="@drawable/ic_check_vector"
         android:visibility="gone"/>
 
     <TextView

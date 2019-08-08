@@ -19,6 +19,7 @@ android {
         versionName "6.9.1"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
+        vectorDrawables.useSupportLibrary = true
     }
 
     signingConfigs {
@@ -61,7 +62,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.15.22'
+    implementation 'com.simplemobiletools:commons:5.15.24'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
