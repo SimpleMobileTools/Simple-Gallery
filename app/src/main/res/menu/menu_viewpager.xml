@@ -14,7 +14,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_share"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/ic_share_vector"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
@@ -36,12 +36,12 @@
     </item>
     <item
         android:id="@+id/menu_add_to_favorites"
-        android:icon="@drawable/ic_star_off"
+        android:icon="@drawable/ic_star_off_vector"
         android:title="@string/add_to_favorites"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_remove_from_favorites"
-        android:icon="@drawable/ic_star_on"
+        android:icon="@drawable/ic_star_on_vector"
         android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom"/>
     <item

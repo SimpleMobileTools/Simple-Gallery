@@ -3,7 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_search_vector"
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always"/>
@@ -14,7 +14,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/sort"
-        android:icon="@drawable/ic_sort"
+        android:icon="@drawable/ic_sort_vector"
         android:title="@string/sort_by"
         app:showAsAction="ifRoom"/>
     <item

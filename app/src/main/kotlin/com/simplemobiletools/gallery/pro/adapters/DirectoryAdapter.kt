@@ -677,7 +677,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
             dir_location.beVisibleIf(directory.location != LOCATION_INTERNAL)
             if (dir_location.isVisible()) {
-                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card else R.drawable.ic_usb)
+                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
             }
 
             photo_cnt.beVisibleIf(showMediaCount)

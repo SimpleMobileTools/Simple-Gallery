@@ -95,7 +95,7 @@
             android:layout_height="@dimen/sd_card_icon_size"
             android:contentDescription="@null"
             android:paddingBottom="@dimen/small_margin"
-            android:src="@drawable/ic_sd_card"
+            android:src="@drawable/ic_sd_card_vector"
             android:visibility="gone"/>
 
         <ImageView

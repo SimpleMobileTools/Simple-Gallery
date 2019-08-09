@@ -798,7 +798,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
+        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on_vector else R.drawable.ic_star_off_vector
         bottom_favorite.setImageResource(favoriteIcon)
 
         val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide
