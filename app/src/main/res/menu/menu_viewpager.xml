@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_delete"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
@@ -50,7 +50,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_change_orientation"
-        android:icon="@drawable/ic_orientation_auto"
+        android:icon="@drawable/ic_orientation_auto_vector"
         android:title="@string/change_orientation"
         app:showAsAction="ifRoom">
         <menu>
@@ -87,7 +87,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item

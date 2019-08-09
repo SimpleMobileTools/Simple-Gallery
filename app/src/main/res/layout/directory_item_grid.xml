@@ -25,7 +25,7 @@
         android:background="@color/default_background_color"
         android:contentDescription="@string/lock_folder"
         android:padding="@dimen/lock_padding"
-        android:src="@drawable/ic_lock_huge"
+        android:src="@drawable/ic_lock_vector"
         android:visibility="gone"/>
 
     <ImageView

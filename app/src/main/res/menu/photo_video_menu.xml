@@ -13,7 +13,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item

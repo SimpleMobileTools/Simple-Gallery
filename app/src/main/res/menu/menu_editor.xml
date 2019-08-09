@@ -8,7 +8,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit_with"
         app:showAsAction="ifRoom"/>
     <item
