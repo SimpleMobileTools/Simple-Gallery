@@ -439,6 +439,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
+            activity.fixDateTaken(paths, false)
             config.tempFolderPath = ""
             listener?.refreshItems()
             finishActMode()

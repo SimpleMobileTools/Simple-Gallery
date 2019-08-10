@@ -572,6 +572,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
         tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
+            fixDateTaken(arrayListOf(currPath), false)
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()

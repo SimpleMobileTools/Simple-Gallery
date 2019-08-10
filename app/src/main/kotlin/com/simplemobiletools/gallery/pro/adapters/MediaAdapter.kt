@@ -326,6 +326,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             config.tempFolderPath = ""
             activity.applicationContext.rescanFolderMedia(it)
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
+            activity.fixDateTaken(paths, false)
             if (!isCopyOperation) {
                 listener?.refreshItems()
                 activity.updateFavoritePaths(fileDirItems, it)
