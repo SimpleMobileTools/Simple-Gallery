@@ -632,7 +632,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun deleteDBDirectory() {
         ensureBackgroundThread {
-            mDirectoryDao.deleteDirPath(mPath)
+            try {
+                mDirectoryDao.deleteDirPath(mPath)
+            } catch (ignored: Exception) {
+            }
         }
     }
 
