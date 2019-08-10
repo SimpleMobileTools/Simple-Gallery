@@ -19,7 +19,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rotate"
-        android:icon="@drawable/ic_rotate_right"
+        android:icon="@drawable/ic_rotate_right_vector"
         android:title="@string/rotate"
         app:showAsAction="ifRoom">
         <menu>
@@ -97,12 +97,12 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_slideshow"
-        android:icon="@drawable/ic_slideshow"
+        android:icon="@drawable/ic_slideshow_vector"
         android:title="@string/slideshow"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_set_as"
-        android:icon="@drawable/ic_set_as"
+        android:icon="@drawable/ic_set_as_vector"
         android:title="@string/set_as"
         app:showAsAction="ifRoom"/>
     <item
