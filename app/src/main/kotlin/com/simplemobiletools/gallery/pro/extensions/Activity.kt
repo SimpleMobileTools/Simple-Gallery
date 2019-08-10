@@ -256,10 +256,14 @@ fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit)
 fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
     ensureBackgroundThread {
         val newPaths = ArrayList<String>()
-        paths.forEach {
-            val source = it
-            val destination = it.removePrefix(recycleBinPath)
+        for (source in paths) {
+            val destination = source.removePrefix(recycleBinPath)
             val lastModified = File(source).lastModified()
+
+            val isShowingSAF = handleSAFDialog(destination) {}
+            if (isShowingSAF) {
+                return@ensureBackgroundThread
+            }
 
             var inputStream: InputStream? = null
             var out: OutputStream? = null
