@@ -60,8 +60,8 @@ fun Activity.setAs(path: String) {
     setAsIntent(path, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.openPath(path: String, forceChooser: Boolean) {
-    openPathIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
+fun Activity.openPath(path: String, forceChooser: Boolean, extras: HashMap<String, Boolean> = HashMap()) {
+    openPathIntent(path, forceChooser, BuildConfig.APPLICATION_ID, extras = extras)
 }
 
 fun Activity.openEditor(path: String, forceChooser: Boolean = false) {

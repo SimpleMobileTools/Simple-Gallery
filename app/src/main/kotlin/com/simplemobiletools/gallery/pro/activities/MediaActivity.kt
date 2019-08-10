@@ -835,7 +835,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             val isVideo = path.isVideoFast()
             if (isVideo) {
-                openPath(path, false)
+                val extras = HashMap<String, Boolean>()
+                extras[SHOW_FAVORITES] = mPath == FAVORITES
+                openPath(path, false, extras)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(PATH, path)

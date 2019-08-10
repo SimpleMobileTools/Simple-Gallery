@@ -229,6 +229,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun sendViewPagerIntent(path: String) {
         Intent(this, ViewPagerActivity::class.java).apply {
+            putExtra(SHOW_FAVORITES, intent.getBooleanExtra(SHOW_FAVORITES, false))
             putExtra(IS_VIEW_INTENT, true)
             putExtra(IS_FROM_GALLERY, mIsFromGallery)
             putExtra(PATH, path)
