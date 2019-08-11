@@ -251,7 +251,6 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-
         if (!mWasInit) {
             return
         }
@@ -272,6 +271,7 @@ class PhotoFragment : ViewPagerFragment() {
             loadImage()
         }
 
+        measureScreen()
         initExtendedDetails()
         updateInstantSwitchWidths()
     }
@@ -461,13 +461,14 @@ class PhotoFragment : ViewPagerFragment() {
         mIsSubsamplingVisible = true
         val config = context!!.config
         val showHighestQuality = config.showHighestQuality
+        val minTileDpi = if (showHighestQuality) -1 else getMinTileDpi()
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
             override fun make() = PicassoDecoder(mMedium.path, Picasso.get(), rotation)
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
-            override fun make() = PicassoRegionDecoder(showHighestQuality)
+            override fun make() = PicassoRegionDecoder(showHighestQuality, mScreenWidth, mScreenHeight, minTileDpi)
         }
 
         var newOrientation = (rotation + mCurrentRotationDegrees) % 360
@@ -477,7 +478,7 @@ class PhotoFragment : ViewPagerFragment() {
 
         mView.subsampling_view.apply {
             setMaxTileSize(if (showHighestQuality) Integer.MAX_VALUE else 4096)
-            setMinimumTileDpi(if (showHighestQuality) -1 else getMinTileDpi())
+            setMinimumTileDpi(minTileDpi)
             background = ColorDrawable(Color.TRANSPARENT)
             bitmapDecoderFactory = bitmapDecoder
             regionDecoderFactory = regionDecoder
@@ -487,6 +488,7 @@ class PhotoFragment : ViewPagerFragment() {
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = newOrientation
             setImage(mMedium.path)
+
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
@@ -520,10 +522,10 @@ class PhotoFragment : ViewPagerFragment() {
         val averageDpi = (metrics.xdpi + metrics.ydpi) / 2
         val device = "${Build.BRAND} ${Build.MODEL}".toLowerCase()
         return when {
-            WEIRD_DEVICES.contains(device) -> 240
-            averageDpi > 400 -> 280
-            averageDpi > 300 -> 220
-            else -> 160
+            WEIRD_DEVICES.contains(device) -> WEIRD_TILE_DPI
+            averageDpi > 400 -> HIGH_TILE_DPI
+            averageDpi > 300 -> NORMAL_TILE_DPI
+            else -> LOW_TILE_DPI
         }
     }
 

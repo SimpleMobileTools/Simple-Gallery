@@ -208,3 +208,9 @@ const val MAX_VIDEO_ZOOM_SCALE = 5f
 const val ZOOM_MODE_NONE = 0
 const val ZOOM_MODE_DRAG = 1
 const val ZOOM_MODE_ZOOM = 2
+
+// constants related to image quality
+const val LOW_TILE_DPI = 160
+const val NORMAL_TILE_DPI = 220
+const val WEIRD_TILE_DPI = 240
+const val HIGH_TILE_DPI = 280
