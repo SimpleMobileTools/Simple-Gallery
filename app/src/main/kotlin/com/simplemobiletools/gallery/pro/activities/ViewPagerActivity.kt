@@ -19,6 +19,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -126,6 +127,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         invalidateOptionsMenu()
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>${mPath.getFilenameFromPath()}</font>")
         window.statusBarColor = Color.TRANSPARENT
     }
 
@@ -189,6 +191,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (visibleBottomActions != 0) {
             updateBottomActionIcons(currentMedium)
         }
+
+        updateMenuItemColors(menu, baseColor = Color.BLACK)
         return true
     }
 

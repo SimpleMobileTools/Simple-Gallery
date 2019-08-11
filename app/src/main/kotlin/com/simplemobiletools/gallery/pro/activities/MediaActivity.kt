@@ -234,6 +234,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         setupSearch(menu)
+        updateMenuItemColors(menu)
         return true
     }
 

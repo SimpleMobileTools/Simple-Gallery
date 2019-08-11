@@ -48,6 +48,20 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         setupBottomActions()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
+        updateMenuItemColors(menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.save -> confirmWallpaper()
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
+    }
+
     private fun handleImage(intent: Intent) {
         uri = intent.data
         if (uri.scheme != "file" && uri.scheme != "content") {
@@ -79,19 +93,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         val wallpaperWidth = if (isLandscapeRatio) wallpaperManager.desiredMinimumWidth else wallpaperManager.desiredMinimumWidth / 2
         crop_image_view.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
         bottom_set_wallpaper_aspect_ratio.setImageResource(if (isLandscapeRatio) R.drawable.ic_minimize else R.drawable.ic_maximize)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.save -> confirmWallpaper()
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
     }
 
     private fun changeAspectRatio(isLandscape: Boolean) {

@@ -51,6 +51,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
         setupSearch(menu)
+        updateMenuItemColors(menu)
         return true
     }
 
