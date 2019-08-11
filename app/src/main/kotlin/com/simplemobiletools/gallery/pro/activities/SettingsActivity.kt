@@ -85,6 +85,7 @@ class SettingsActivity : SimpleActivity() {
         setupSectionColors()
         setupExportSettings()
         setupImportSettings()
+        invalidateOptionsMenu()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
