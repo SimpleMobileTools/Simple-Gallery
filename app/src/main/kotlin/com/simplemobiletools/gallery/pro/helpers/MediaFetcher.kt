@@ -38,13 +38,6 @@ class MediaFetcher(val context: Context) {
     }
 
     fun getFoldersToScan(): ArrayList<String> {
-        val filterMedia = context.config.filterMedia
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        val uri = MediaStore.Files.getContentUri("external")
-
-        val selection = "${getSelectionQuery(filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
-        val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
-
         return try {
             val folders = getLatestFileFolders()
             folders.addAll(arrayListOf(
@@ -53,6 +46,11 @@ class MediaFetcher(val context: Context) {
                     Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString()
             ).filter { File(it).exists() })
 
+            val filterMedia = context.config.filterMedia
+            val uri = MediaStore.Files.getContentUri("external")
+            val projection = arrayOf(MediaStore.Images.Media.DATA)
+            val selection = "${getSelectionQuery(filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
+            val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
             folders.addAll(parseCursor(cursor))
 
