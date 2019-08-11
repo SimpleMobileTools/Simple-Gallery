@@ -121,7 +121,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         return true
     }
 
-    private fun getCurrentVolume() = activity!!.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+    private fun getCurrentVolume() = activity?.audioManager?.getStreamVolume(AudioManager.STREAM_MUSIC) ?: 0
 
     private fun getCurrentBrightness(): Int {
         return try {
