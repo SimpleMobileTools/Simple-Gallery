@@ -464,7 +464,7 @@ class PhotoFragment : ViewPagerFragment() {
         val minTileDpi = if (showHighestQuality) -1 else getMinTileDpi()
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
-            override fun make() = PicassoDecoder(mMedium.path, Picasso.get(), rotation)
+            override fun make() = MyGlideImageDecoder(rotation, mScreenWidth, mScreenHeight)
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
