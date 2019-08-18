@@ -365,7 +365,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer!!.addVideoListener(object : SimpleExoPlayer.VideoListener {
             override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
                 mVideoSize.x = width
-                mVideoSize.y = height
+                mVideoSize.y = (height / pixelWidthHeightRatio).toInt()
                 setVideoSize()
             }
 
