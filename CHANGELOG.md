@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.9.3 *(2019-08-19)*
+----------------------------
+
+ * Added some light theme related improvements
+ * Properly keep the last_modified field at copy/move in some new cases
+ * Changed the way fullscreen images are loaded to fix some rotation issues
+ * Fixed some video playback aspect ratio glitches
+ * Few other improvements here and there
+
 Version 6.9.2 *(2019-08-11)*
 ----------------------------
 
