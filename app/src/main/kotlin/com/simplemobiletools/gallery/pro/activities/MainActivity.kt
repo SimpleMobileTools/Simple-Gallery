@@ -29,6 +29,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
+import com.simplemobiletools.gallery.pro.asynctasks.ProgressNotificationAsyncTask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
@@ -46,7 +47,7 @@ import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainActivity : SimpleActivity(), DirectoryOperationsListener {
+class MainActivity : SimpleActivity(), DirectoryOperationsListener, ProgressNotificationAsyncTask.Listener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -589,17 +590,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun deleteFilteredFileDirItems(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
-        deleteFiles(fileDirItems) {
-            runOnUiThread {
-                refreshItems()
-            }
+        ProgressNotificationAsyncTask(this, fileDirItems, folders, mDirectoryDao, this).execute()
+    }
 
-            ensureBackgroundThread {
-                folders.filter { !it.exists() }.forEach {
-                    mDirectoryDao.deleteDirPath(it.absolutePath)
-                }
-            }
-        }
+    override fun refresh() {
+        refreshItems()
     }
 
     private fun setupLayoutManager() {
