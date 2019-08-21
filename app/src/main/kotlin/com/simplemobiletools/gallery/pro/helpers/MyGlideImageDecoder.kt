@@ -7,9 +7,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageDecoder
 
-class MyGlideImageDecoder(val degrees: Int, val width: Int, val height: Int) : ImageDecoder {
+class MyGlideImageDecoder(val degrees: Int) : ImageDecoder {
 
     override fun decode(context: Context, uri: Uri): Bitmap {
         val options = RequestOptions()
@@ -22,7 +23,7 @@ class MyGlideImageDecoder(val degrees: Int, val width: Int, val height: Int) : I
                 .load(uri)
                 .apply(options)
                 .transform(RotateTransformation(-degrees))
-                .into(width, height)
+                .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
 
         return builder.get()
     }
