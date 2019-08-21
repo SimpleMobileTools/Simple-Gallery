@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.9.4 *(2019-08-21)*
+----------------------------
+
+ * Let's load a higher resolution image at the fullscreen view
+
 Version 6.9.3 *(2019-08-19)*
 ----------------------------
 
