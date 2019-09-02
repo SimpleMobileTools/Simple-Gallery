@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
     <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
@@ -64,7 +64,7 @@
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>
     <string name="add_folder">Aggiungi cartella</string>
     <string name="included_activity_placeholder">Se si hanno alcune cartelle che contengono media, ma non sono state riconosciute dall\'app, si possono aggiungerle manualmente qui.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Nessun file multimediale trovato. Puoi risolvere aggiungendo a mano le cartelle contenenti i file multimediali.</string>
 
     <!-- Resizing -->
     <string name="resize">Ridimensiona</string>
@@ -116,10 +116,10 @@
     <string name="random_order">Ordine sparso</string>
     <string name="move_backwards">Scorri al contrario</string>
     <string name="loop_slideshow">Ripeti presentazione</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Animazione</string>
+    <string name="no_animation">Nessuna</string>
+    <string name="fade">Dissolvenza</string>
+    <string name="slide">Diapositiva</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
 
@@ -134,11 +134,11 @@
     <string name="do_not_group_files">Non raggruppare i file</string>
     <string name="by_folder">Cartella</string>
     <string name="by_last_modified">Ultima modifica</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Ultima modifica (quotidiano)</string>
+    <string name="by_last_modified_monthly">Ultima modifica (mensile)</string>
     <string name="by_date_taken">Data creazione</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Data creazione (quotidiano)</string>
+    <string name="by_date_taken_monthly">Data creazione (mensile)</string>
     <string name="by_file_type">Tipo di file</string>
     <string name="by_extension">Estensione</string>
     <string name="grouping_and_sorting">Notare che il raggruppamento e l\'ordinamento sono due campi indipendenti</string>
