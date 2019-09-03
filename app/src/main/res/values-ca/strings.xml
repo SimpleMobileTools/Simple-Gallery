@@ -187,6 +187,7 @@
     <string name="speed">Velocitat</string>
     <string name="compromise">Compromès</string>
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

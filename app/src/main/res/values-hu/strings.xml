@@ -188,6 +188,7 @@
     <string name="speed">Gyors</string>
     <string name="compromise">Kiegyensúlyozott</string>
     <string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>

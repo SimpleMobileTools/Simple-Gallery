@@ -187,6 +187,7 @@
     <string name="speed">Скорость</string>
     <string name="compromise">Компромисс</string>
     <string name="avoid_showing_invalid_files">Пропускать файлы с ошибками</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

@@ -187,6 +187,7 @@
     <string name="speed">Rýchlosť</string>
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Nezobrazovať neplatné súbory</string>
+    <string name="show_image_file_types">Zobraziť typ obrázkových súborov</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
