@@ -218,47 +218,50 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
         }
 
+        if (hide) {
+            if (config.wasHideFolderTooltipShown) {
+                hideFolders(selectedPaths)
+            } else {
+                config.wasHideFolderTooltipShown = true
+                ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
+                    hideFolders(selectedPaths)
+                }
+            }
+            return
+        }
+
         selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
             val path = it
-            if (hide) {
-                if (config.wasHideFolderTooltipShown) {
-                    activity.handleLockedFolderOpening(path) { success ->
-                        if (success) {
-                            hideFolder(path)
-                        }
-                    }
-                } else {
-                    config.wasHideFolderTooltipShown = true
-                    ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        activity.handleLockedFolderOpening(path) { success ->
-                            if (success) {
-                                hideFolder(path)
+            activity.handleLockedFolderOpening(path) { success ->
+                if (success) {
+                    if (path.containsNoMedia()) {
+                        activity.removeNoMedia(path) {
+                            if (activity.config.shouldShowHidden) {
+                                updateFolderNames()
+                            } else {
+                                activity.runOnUiThread {
+                                    listener?.refreshItems()
+                                    finishActMode()
+                                }
                             }
+                        }
+                    } else {
+                        config.addIncludedFolder(path)
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
                         }
                     }
                 }
-            } else {
-                activity.handleLockedFolderOpening(path) { success ->
-                    if (success) {
-                        if (path.containsNoMedia()) {
-                            activity.removeNoMedia(path) {
-                                if (activity.config.shouldShowHidden) {
-                                    updateFolderNames()
-                                } else {
-                                    activity.runOnUiThread {
-                                        listener?.refreshItems()
-                                        finishActMode()
-                                    }
-                                }
-                            }
-                        } else {
-                            config.addIncludedFolder(path)
-                            activity.runOnUiThread {
-                                listener?.refreshItems()
-                                finishActMode()
-                            }
-                        }
-                    }
+            }
+        }
+    }
+
+    private fun hideFolders(paths: ArrayList<String>) {
+        for (path in paths) {
+            activity.handleLockedFolderOpening(path) { success ->
+                if (success) {
+                    hideFolder(path)
                 }
             }
         }
