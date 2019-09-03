@@ -465,7 +465,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             activity.getShortcutImage(coverThumbnail, drawable) {
                 val intent = Intent(activity, MediaActivity::class.java)
                 intent.action = Intent.ACTION_VIEW
-                intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
+                intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra(DIRECTORY, path)
 
                 val shortcut = ShortcutInfo.Builder(activity, path)
