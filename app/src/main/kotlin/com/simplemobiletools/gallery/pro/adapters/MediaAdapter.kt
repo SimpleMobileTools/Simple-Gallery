@@ -54,6 +54,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
+    private var showFileTypes = config.showThumbnailFileTypes
 
     init {
         setupDragListener(true)
@@ -434,6 +435,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         notifyDataSetChanged()
     }
 
+    fun updateShowFileTypes(showFileTypes: Boolean) {
+        this.showFileTypes = showFileTypes
+        notifyDataSetChanged()
+    }
+
     private fun enableInstantLoad() {
         loadImageInstantly = true
         delayHandler.postDelayed({
@@ -448,7 +454,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
 
-            if (medium.isGIF() || medium.isRaw() || medium.isSVG()) {
+            if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
                 file_type.setText(when (medium.type) {
                     TYPE_GIFS -> R.string.gif
                     TYPE_RAWS -> R.string.raw
