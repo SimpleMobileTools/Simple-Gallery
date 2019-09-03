@@ -187,7 +187,7 @@
     <string name="speed">Ταχύτητα</string>
     <string name="compromise">Συμβιβασμός</string>
     <string name="avoid_showing_invalid_files">Αποφυγή εμφάνισης μη έγκυρων αρχείων</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Εμφάνιση τύπου αρχείου εικόνας</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
