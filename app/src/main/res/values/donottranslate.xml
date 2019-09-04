@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gif">GIF</string>
+    <string name="raw">RAW</string>
+    <string name="svg">SVG</string>
     <string name="package_name">com.simplemobiletools.gallery.pro</string>
 
     <!-- Release notes -->

@@ -78,6 +78,7 @@ const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 const val SHOW_NOTCH = "show_notch"
 const val FILE_LOADING_PRIORITY = "file_loading_priority"
 const val SPAM_FOLDERS_CHECKED = "spam_folders_checked"
+const val SHOW_THUMBNAIL_FILE_TYPES = "show_thumbnail_file_types"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

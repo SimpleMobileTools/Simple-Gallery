@@ -187,6 +187,7 @@
     <string name="speed">Velocidade</string>
     <string name="compromise">Meio termo</string>
     <string name="avoid_showing_invalid_files">Evitar a exibição de arquivos inválidos</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

@@ -21,6 +21,8 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
+import com.simplemobiletools.gallery.pro.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.pro.helpers.TYPE_RAWS
 import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -52,6 +54,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
+    private var showFileTypes = config.showThumbnailFileTypes
 
     init {
         setupDragListener(true)
@@ -432,6 +435,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         notifyDataSetChanged()
     }
 
+    fun updateShowFileTypes(showFileTypes: Boolean) {
+        this.showFileTypes = showFileTypes
+        notifyDataSetChanged()
+    }
+
     private fun enableInstantLoad() {
         loadImageInstantly = true
         delayHandler.postDelayed({
@@ -445,6 +453,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
+
+            if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
+                file_type.setText(when (medium.type) {
+                    TYPE_GIFS -> R.string.gif
+                    TYPE_RAWS -> R.string.raw
+                    else -> R.string.svg
+                })
+                file_type.beVisible()
+            } else {
+                file_type.beGone()
+            }
+
             medium_name.beVisibleIf(displayFilenames || isListViewType)
             medium_name.text = medium.name
             medium_name.tag = medium.path

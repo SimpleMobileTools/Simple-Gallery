@@ -73,6 +73,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowInfoBubble = true
+    private var mStoredShowFileTypes = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
@@ -139,6 +140,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mLoadedInitialPhotos = false
             media_grid.adapter = null
             getMedia()
+        }
+
+        if (mStoredShowFileTypes != config.showThumbnailFileTypes) {
+            getMediaAdapter()?.updateShowFileTypes(config.showThumbnailFileTypes)
         }
 
         if (mStoredTextColor != config.textColor) {
@@ -285,6 +290,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowInfoBubble = showInfoBubble
+            mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
             mShowAll = showAll

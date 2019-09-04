@@ -178,6 +178,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, false)
         set(showThumbnailVideoDuration) = prefs.edit().putBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, showThumbnailVideoDuration).apply()
 
+    var showThumbnailFileTypes: Boolean
+        get() = prefs.getBoolean(SHOW_THUMBNAIL_FILE_TYPES, true)
+        set(showThumbnailFileTypes) = prefs.edit().putBoolean(SHOW_THUMBNAIL_FILE_TYPES, showThumbnailFileTypes).apply()
+
     var screenRotation: Int
         get() = prefs.getInt(SCREEN_ROTATION, ROTATE_BY_SYSTEM_SETTING)
         set(screenRotation) = prefs.edit().putInt(SCREEN_ROTATION, screenRotation).apply()

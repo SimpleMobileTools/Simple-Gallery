@@ -64,6 +64,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowNotch()
         setupBottomActions()
         setupThumbnailVideoDuration()
+        setupThumbnailFileTypes()
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
@@ -244,6 +245,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_thumbnail_video_duration_holder.setOnClickListener {
             settings_show_thumbnail_video_duration.toggle()
             config.showThumbnailVideoDuration = settings_show_thumbnail_video_duration.isChecked
+        }
+    }
+
+    private fun setupThumbnailFileTypes() {
+        settings_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
+        settings_show_thumbnail_file_types_holder.setOnClickListener {
+            settings_show_thumbnail_file_types.toggle()
+            config.showThumbnailFileTypes = settings_show_thumbnail_file_types.isChecked
         }
     }
 
