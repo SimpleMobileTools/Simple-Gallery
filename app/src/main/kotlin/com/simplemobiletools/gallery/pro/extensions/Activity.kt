@@ -292,7 +292,9 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             callback()
         }
 
-        fixDateTaken(newPaths, false)
+        rescanPaths(newPaths) {
+            fixDateTaken(newPaths, false)
+        }
     }
 }
 
@@ -356,7 +358,8 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, callbac
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
         val mediumDao = galleryDB.MediumDao()
-        rescanPaths(paths) {
+
+        ensureBackgroundThread {
             for (path in paths) {
                 val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
                         ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
