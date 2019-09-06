@@ -62,7 +62,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.17.3'
+    implementation 'com.simplemobiletools:commons:5.17.9'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
@@ -75,8 +75,8 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
-    implementation 'com.github.tibbi:gestureviews:4444214285'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:8341253173'
+    implementation 'com.github.tibbi:gestureviews:a2208ce9d9'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:3afb6c1b6e'
     kapt 'com.github.bumptech.glide:compiler:4.9.0' // keep it here too, not just in Commons, else loading SVGs wont work
 
     kapt 'androidx.room:room-compiler:2.1.0'
