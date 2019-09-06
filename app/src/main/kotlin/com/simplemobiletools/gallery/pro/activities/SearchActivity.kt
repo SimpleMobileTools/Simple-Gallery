@@ -51,6 +51,15 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
         setupSearch(menu)
+        updateMenuItemColors(menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.toggle_filename -> toggleFilenameVisibility()
+            else -> return super.onOptionsItemSelected(item)
+        }
         return true
     }
 
@@ -134,6 +143,11 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun getMediaAdapter() = media_grid.adapter as? MediaAdapter
+
+    private fun toggleFilenameVisibility() {
+        config.displayFileNames = !config.displayFileNames
+        getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
+    }
 
     private fun itemClicked(path: String) {
         val isVideo = path.isVideoFast()

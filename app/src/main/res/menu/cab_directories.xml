@@ -3,7 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_delete"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
@@ -33,7 +33,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
-        android:icon="@drawable/ic_unhide"
+        android:icon="@drawable/ic_unhide_vector"
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
     <item
@@ -58,7 +58,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/cab_select_all"
-        android:icon="@drawable/ic_select_all"
+        android:icon="@drawable/ic_select_all_vector"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item

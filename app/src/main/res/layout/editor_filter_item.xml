@@ -12,6 +12,7 @@
         android:layout_height="@dimen/bottom_filters_thumbnail_size"
         android:layout_above="@+id/editor_filter_item_label"
         android:background="@drawable/stroke_background"
+        android:contentDescription="@null"
         android:padding="1dp"/>
 
     <TextView

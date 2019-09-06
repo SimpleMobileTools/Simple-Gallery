@@ -21,10 +21,11 @@
         android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:contentDescription="@null"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"
-        android:src="@drawable/ic_check"
+        android:src="@drawable/ic_check_vector"
         android:visibility="gone"/>
 
     <TextView
@@ -53,6 +54,23 @@
         android:paddingBottom="6dp"
         android:src="@drawable/img_play_outline_empty"
         android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/file_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:paddingBottom="6dp"
+        android:paddingEnd="@dimen/small_margin"
+        android:fontFamily="sans-serif-medium"
+        android:shadowColor="@color/default_background_color"
+        android:shadowRadius="4"
+        android:text="@string/gif"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/normal_text_size"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/video_duration"

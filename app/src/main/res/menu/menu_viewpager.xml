@@ -3,23 +3,23 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_save_as"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_check_vector"
         android:title="@string/save_as"
         android:visible="false"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_delete"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_share"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/ic_share_vector"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rotate"
-        android:icon="@drawable/ic_rotate_right"
+        android:icon="@drawable/ic_rotate_right_vector"
         android:title="@string/rotate"
         app:showAsAction="ifRoom">
         <menu>
@@ -36,12 +36,12 @@
     </item>
     <item
         android:id="@+id/menu_add_to_favorites"
-        android:icon="@drawable/ic_star_off"
+        android:icon="@drawable/ic_star_off_vector"
         android:title="@string/add_to_favorites"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_remove_from_favorites"
-        android:icon="@drawable/ic_star_on"
+        android:icon="@drawable/ic_star_on_vector"
         android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom"/>
     <item
@@ -50,7 +50,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_change_orientation"
-        android:icon="@drawable/ic_orientation_auto"
+        android:icon="@drawable/ic_orientation_auto_vector"
         android:title="@string/change_orientation"
         app:showAsAction="ifRoom">
         <menu>
@@ -87,7 +87,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
@@ -97,12 +97,12 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_slideshow"
-        android:icon="@drawable/ic_slideshow"
+        android:icon="@drawable/ic_slideshow_vector"
         android:title="@string/slideshow"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_set_as"
-        android:icon="@drawable/ic_set_as"
+        android:icon="@drawable/ic_set_as_vector"
         android:title="@string/set_as"
         app:showAsAction="ifRoom"/>
     <item

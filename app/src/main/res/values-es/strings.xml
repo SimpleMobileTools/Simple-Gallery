@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="share_resized">Comparte una versión redimensionada</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
@@ -187,6 +187,7 @@
     <string name="speed">Velocidad</string>
     <string name="compromise">Compromiso</string>
     <string name="avoid_showing_invalid_files">Evita mostrar archivos inválidos</string>
+    <string name="show_image_file_types">Mostrar tipos de archivo de imagen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

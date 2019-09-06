@@ -49,9 +49,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mWasVideoStarted = false
     private var mWasPlayerInited = false
     private var mWasLastPositionRestored = false
+    private var mPlayOnPrepared = false
+    private var mIsPlayerPrepared = false
     private var mCurrTime = 0
     private var mDuration = 0
     private var mPositionWhenInit = 0
+    private var mPositionAtPause = 0L
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(1, 1)
@@ -80,11 +83,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            panorama_outline.setOnClickListener { openPanorama() }
             video_curr_time.setOnClickListener { skip(false) }
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
             video_preview.setOnClickListener { toggleFullscreen() }
-            panorama_outline.setOnClickListener { openPanorama() }
+            video_surface_frame.setOnClickListener { toggleFullscreen() }
             video_play_outline.setOnClickListener {
                 if (mConfig.openVideosOnSeparateScreen) {
                     launchVideoPlayer()
@@ -108,6 +112,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mBrightnessSideScroll = video_brightness_controller
             mVolumeSideScroll = video_volume_controller
             mTextureView = video_surface
+            mTextureView.surfaceTextureListener = this@VideoFragment
 
             if (mConfig.allowDownGesture) {
                 video_preview.setOnTouchListener { view, event ->
@@ -158,7 +163,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         if (!mIsPanorama) {
-            setupPlayer()
             if (savedInstanceState != null) {
                 mCurrTime = savedInstanceState.getInt(PROGRESS)
             }
@@ -268,23 +272,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
     }
 
-    private fun setupPlayer() {
-        if (activity == null || mConfig.openVideosOnSeparateScreen || mIsPanorama) {
-            return
-        }
-
-        mView.video_surface_frame.setOnClickListener { toggleFullscreen() }
-        mTextureView.surfaceTextureListener = this
-
-        checkExtendedDetails()
-
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
-        mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
-        initExoPlayerListeners()
-    }
-
     private fun saveVideoProgress() {
-        if (!videoEnded()) {
+        if (!videoEnded() && mExoPlayer != null) {
             mConfig.saveLastVideoPosition(mMedium.path, mExoPlayer!!.currentPosition.toInt() / 1000)
         }
     }
@@ -292,6 +281,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private fun restoreLastVideoSavedPosition() {
         val pos = mConfig.getLastVideoPosition(mMedium.path)
         if (pos > 0) {
+            mPositionAtPause = pos * 1000L
             setPosition(pos)
         }
     }
@@ -317,6 +307,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun initExoPlayer() {
+        if (activity == null || mConfig.openVideosOnSeparateScreen || mIsPanorama || mExoPlayer != null) {
+            return
+        }
+
+        mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
+        mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
+
         val isContentUri = mMedium.path.startsWith("content://")
         val uri = if (isContentUri) Uri.parse(mMedium.path) else Uri.fromFile(File(mMedium.path))
         val dataSpec = DataSpec(uri)
@@ -325,15 +322,19 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             fileDataSource.open(dataSpec)
         } catch (e: Exception) {
             activity?.showErrorToast(e)
+            return
         }
 
         val factory = DataSource.Factory { fileDataSource }
         val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
+        mPlayOnPrepared = true
         mExoPlayer!!.audioStreamType = C.STREAM_TYPE_MUSIC
         mExoPlayer!!.prepare(audioSource)
-    }
 
-    private fun initExoPlayerListeners() {
+        if (mTextureView.surfaceTexture != null) {
+            mExoPlayer!!.setVideoSurface(Surface(mTextureView.surfaceTexture))
+        }
+
         mExoPlayer!!.addListener(object : Player.EventListener {
             override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
 
@@ -364,7 +365,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer!!.addVideoListener(object : SimpleExoPlayer.VideoListener {
             override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
                 mVideoSize.x = width
-                mVideoSize.y = height
+                mVideoSize.y = (height / pixelWidthHeightRatio).toInt()
                 setVideoSize()
             }
 
@@ -483,10 +484,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun skip(forward: Boolean) {
-        if (mExoPlayer == null || mIsPanorama) {
+        if (mIsPanorama) {
+            return
+        } else if (mExoPlayer == null) {
+            playVideo()
             return
         }
 
+        mPositionAtPause = 0L
         val curr = mExoPlayer!!.currentPosition
         val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
         val newProgress = if (forward) curr + twoPercents else curr - twoPercents
@@ -499,17 +504,25 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-        if (mExoPlayer != null && fromUser) {
-            if (!mWasPlayerInited) {
-                mPositionWhenInit = progress
+        if (fromUser) {
+            if (mExoPlayer != null) {
+                if (!mWasPlayerInited) {
+                    mPositionWhenInit = progress
+                }
+                setPosition(progress)
             }
-            setPosition(progress)
+
+            if (mExoPlayer == null) {
+                mPositionAtPause = progress * 1000L
+                playVideo()
+            }
         }
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar) {
-        if (mExoPlayer == null)
+        if (mExoPlayer == null) {
             return
+        }
 
         mExoPlayer!!.playWhenReady = false
         mIsDragged = true
@@ -527,26 +540,27 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         if (mIsPlaying) {
             mExoPlayer!!.playWhenReady = true
         } else {
-            togglePlayPause()
+            playVideo()
         }
 
         mIsDragged = false
     }
 
     private fun togglePlayPause() {
-        if (activity == null || !isAdded)
+        if (activity == null || !isAdded) {
             return
+        }
 
-        mIsPlaying = !mIsPlaying
         if (mIsPlaying) {
-            playVideo()
-        } else {
             pauseVideo()
+        } else {
+            playVideo()
         }
     }
 
     fun playVideo() {
         if (mExoPlayer == null) {
+            initExoPlayer()
             return
         }
 
@@ -575,9 +589,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mWasVideoStarted = true
-        mIsPlaying = true
+        if (mIsPlayerPrepared) {
+            mIsPlaying = true
+        }
         mExoPlayer?.playWhenReady = true
-        activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun pauseVideo() {
@@ -592,6 +608,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mPlayPauseButton.setImageResource(R.drawable.ic_play_outline)
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        mPositionAtPause = mExoPlayer?.currentPosition ?: 0L
+        releaseExoPlayer()
     }
 
     private fun videoEnded(): Boolean {
@@ -604,6 +622,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer?.seekTo(seconds * 1000L)
         mSeekBar.progress = seconds
         mCurrTimeView.text = seconds.getFormattedDuration()
+
+        if (!mIsPlaying) {
+            mPositionAtPause = mExoPlayer?.currentPosition ?: 0L
+        }
     }
 
     private fun setupVideoDuration() {
@@ -627,7 +649,17 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             setPosition(mPositionWhenInit)
             mPositionWhenInit = 0
         }
+
+        mIsPlayerPrepared = true
+        if (mPlayOnPrepared && !mIsPlaying) {
+            if (mPositionAtPause != 0L) {
+                mExoPlayer?.seekTo(mPositionAtPause)
+                mPositionAtPause = 0L
+            }
+            playVideo()
+        }
         mWasPlayerInited = true
+        mPlayOnPrepared = false
     }
 
     private fun videoCompleted() {
@@ -657,6 +689,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun releaseExoPlayer() {
+        mIsPlayerPrepared = false
         mExoPlayer?.stop()
         ensureBackgroundThread {
             mExoPlayer?.release()

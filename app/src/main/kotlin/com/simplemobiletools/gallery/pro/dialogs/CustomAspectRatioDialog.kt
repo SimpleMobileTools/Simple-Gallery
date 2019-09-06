@@ -9,11 +9,11 @@ import com.simplemobiletools.commons.extensions.value
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_custom_aspect_ratio.view.*
 
-class CustomAspectRatioDialog(val activity: BaseSimpleActivity, val defaultCustomAspectRatio: Pair<Int, Int>?, val callback: (aspectRatio: Pair<Int, Int>) -> Unit) {
+class CustomAspectRatioDialog(val activity: BaseSimpleActivity, val defaultCustomAspectRatio: Pair<Float, Float>?, val callback: (aspectRatio: Pair<Float, Float>) -> Unit) {
     init {
         val view = activity.layoutInflater.inflate(R.layout.dialog_custom_aspect_ratio, null).apply {
-            aspect_ratio_width.setText(defaultCustomAspectRatio?.first?.toString() ?: "")
-            aspect_ratio_height.setText(defaultCustomAspectRatio?.second?.toString() ?: "")
+            aspect_ratio_width.setText(defaultCustomAspectRatio?.first?.toInt()?.toString() ?: "")
+            aspect_ratio_height.setText(defaultCustomAspectRatio?.second?.toInt()?.toString() ?: "")
         }
 
         AlertDialog.Builder(activity)
@@ -32,8 +32,8 @@ class CustomAspectRatioDialog(val activity: BaseSimpleActivity, val defaultCusto
                 }
     }
 
-    private fun getViewValue(view: EditText): Int {
+    private fun getViewValue(view: EditText): Float {
         val textValue = view.value
-        return if (textValue.isEmpty()) 0 else textValue.toInt()
+        return if (textValue.isEmpty()) 0f else textValue.toFloat()
     }
 }

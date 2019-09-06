@@ -34,7 +34,8 @@
         android:id="@+id/top_shadow"
         android:layout_width="match_parent"
         android:layout_height="@dimen/default_status_action_height"
-        android:background="@drawable/gradient_background_flipped"/>
+        android:background="@drawable/gradient_background_flipped"
+        android:contentDescription="@null"/>
 
     <TextView
         android:id="@+id/video_bottom_gradient"

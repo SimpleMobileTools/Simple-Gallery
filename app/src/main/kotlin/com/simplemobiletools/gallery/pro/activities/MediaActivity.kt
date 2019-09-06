@@ -73,6 +73,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowInfoBubble = true
+    private var mStoredShowFileTypes = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
@@ -141,6 +142,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMedia()
         }
 
+        if (mStoredShowFileTypes != config.showThumbnailFileTypes) {
+            getMediaAdapter()?.updateShowFileTypes(config.showThumbnailFileTypes)
+        }
+
         if (mStoredTextColor != config.textColor) {
             getMediaAdapter()?.updateTextColor(config.textColor)
         }
@@ -207,7 +212,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = File(mPath).containsNoMedia()
+        val isFolderHidden = mPath.containsNoMedia()
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
@@ -234,6 +239,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         setupSearch(menu)
+        updateMenuItemColors(menu)
         return true
     }
 
@@ -284,6 +290,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowInfoBubble = showInfoBubble
+            mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
             mShowAll = showAll
@@ -381,7 +388,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
                     mAllowPickingMultiple, mPath, media_grid, fastscroller) {
-                if (it is Medium) {
+                if (it is Medium && !isFinishing) {
                     itemClicked(it.path)
                 }
             }.apply {
@@ -632,7 +639,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun deleteDBDirectory() {
         ensureBackgroundThread {
-            mDirectoryDao.deleteDirPath(mPath)
+            try {
+                mDirectoryDao.deleteDirPath(mPath)
+            } catch (ignored: Exception) {
+            }
         }
     }
 
@@ -832,7 +842,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             val isVideo = path.isVideoFast()
             if (isVideo) {
-                openPath(path, false)
+                val extras = HashMap<String, Boolean>()
+                extras[SHOW_FAVORITES] = mPath == FAVORITES
+                openPath(path, false, extras)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(PATH, path)

@@ -3,22 +3,23 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_search_vector"
         android:title="@string/search"
-        app:showAsAction="always"/>
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always"/>
     <item
         android:id="@+id/open_camera"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/ic_camera_vector"
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/sort"
-        android:icon="@drawable/ic_sort"
+        android:icon="@drawable/ic_sort_vector"
         android:title="@string/sort_by"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/filter"
-        android:icon="@drawable/ic_filter"
+        android:icon="@drawable/ic_filter_vector"
         android:title="@string/filter_media"
         app:showAsAction="ifRoom"/>
     <item

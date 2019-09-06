@@ -145,8 +145,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun checkHideBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
-        menu.findItem(R.id.cab_hide).isVisible = selectedPaths.any { !File(it).doesThisOrParentHaveNoMedia() }
-        menu.findItem(R.id.cab_unhide).isVisible = selectedPaths.any { File(it).doesThisOrParentHaveNoMedia() }
+        menu.findItem(R.id.cab_hide).isVisible = selectedPaths.any { !it.doesThisOrParentHaveNoMedia() }
+        menu.findItem(R.id.cab_unhide).isVisible = selectedPaths.any { it.doesThisOrParentHaveNoMedia() }
     }
 
     private fun checkPinBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
@@ -218,28 +218,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
         }
 
+        if (hide) {
+            if (config.wasHideFolderTooltipShown) {
+                hideFolders(selectedPaths)
+            } else {
+                config.wasHideFolderTooltipShown = true
+                ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
+                    hideFolders(selectedPaths)
+                }
+            }
+            return
+        }
+
         selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
             val path = it
-            if (hide) {
-                if (config.wasHideFolderTooltipShown) {
-                    activity.handleLockedFolderOpening(path) { success ->
-                        if (success) {
-                            hideFolder(path)
-                        }
-                    }
-                } else {
-                    config.wasHideFolderTooltipShown = true
-                    ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        activity.handleLockedFolderOpening(path) { success ->
-                            if (success) {
-                                hideFolder(path)
-                            }
-                        }
-                    }
-                }
-            } else {
-                activity.handleLockedFolderOpening(path) { success ->
-                    if (success) {
+            activity.handleLockedFolderOpening(path) { success ->
+                if (success) {
+                    if (path.containsNoMedia()) {
                         activity.removeNoMedia(path) {
                             if (activity.config.shouldShowHidden) {
                                 updateFolderNames()
@@ -250,7 +245,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                                 }
                             }
                         }
+                    } else {
+                        config.addIncludedFolder(path)
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
+                        }
                     }
+                }
+            }
+        }
+    }
+
+    private fun hideFolders(paths: ArrayList<String>) {
+        for (path in paths) {
+            activity.handleLockedFolderOpening(path) { success ->
+                if (success) {
+                    hideFolder(path)
                 }
             }
         }
@@ -308,7 +319,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 val affectedPositions = ArrayList<Int>()
                 val includedFolders = activity.config.includedFolders
                 val newDirs = dirs.filterIndexed { index, directory ->
-                    val removeDir = File(directory.path).doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
+                    val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
                     if (removeDir) {
                         affectedPositions.add(index)
                     }
@@ -431,6 +442,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
+            activity.fixDateTaken(paths, false)
             config.tempFolderPath = ""
             listener?.refreshItems()
             finishActMode()
@@ -456,7 +468,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             activity.getShortcutImage(coverThumbnail, drawable) {
                 val intent = Intent(activity, MediaActivity::class.java)
                 intent.action = Intent.ACTION_VIEW
-                intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
+                intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra(DIRECTORY, path)
 
                 val shortcut = ShortcutInfo.Builder(activity, path)
@@ -595,7 +607,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         listener?.refreshItems()
     }
 
-    private fun getSelectedItems() = dirs.filter { selectedKeys.contains(it.path.hashCode()) } as ArrayList<Directory>
+    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Directory>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 
@@ -669,7 +681,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
             dir_location.beVisibleIf(directory.location != LOCATION_INTERNAL)
             if (dir_location.isVisible()) {
-                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card else R.drawable.ic_usb)
+                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
             }
 
             photo_cnt.beVisibleIf(showMediaCount)

@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Data fixada correctament</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
     <string name="upgraded_from_free">Hola,\n\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó "Actualitza a Pro" a la part superior de la configuració de l’aplicació.\nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablirla configuració de la vostra aplicació.\n\nGràcies!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Canvia a la cerca de fitxers a totes les carpetes visibles</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d’arxius</string>
@@ -187,6 +187,7 @@
     <string name="speed">Velocitat</string>
     <string name="compromise">Compromès</string>
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
+    <string name="show_image_file_types">Mostra els tipus de fitxers d\’imatges</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

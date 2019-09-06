@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -47,7 +47,7 @@
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option cache le dossier en y ajoutant un fichier \".nomedia\", cela cachera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole \"Œil\" (permettant l\'affichage) depuis les paramètres. Continuer ?</string>
-    <string name="exclude">Exclure</string>
+    <string name="exclude">Exclure le dossier</string>
     <string name="excluded_folders">Dossiers exclus</string>
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Gallery uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
@@ -78,8 +78,8 @@
     <string name="editor">Éditeur</string>
     <string name="save">Sauvegarder</string>
     <string name="rotate">Pivoter</string>
-    <string name="path">Chemin</string>
-    <string name="invalid_image_path">Chemin invalide</string>
+    <string name="path">Emplacement</string>
+    <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">Échec de l\'édition de l\'image</string>
     <string name="edit_image_with">Modifier l\'image avec :</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
@@ -114,12 +114,12 @@
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIFs</string>
     <string name="random_order">Ordre aléatoire</string>
-    <string name="move_backwards">Défilement inverse</string>
+    <string name="move_backwards">Défilement inversé</string>
     <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="no_animation">Aucune</string>
+    <string name="fade">Fondu</string>
+    <string name="slide">Glissement</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
@@ -141,7 +141,7 @@
     <string name="by_date_taken_monthly">Date de prise de vue (par mois)</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="grouping_and_sorting">Notez que \'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
+    <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché sur le widget :</string>
@@ -164,29 +164,30 @@
     <string name="scroll_thumbnails_horizontally">Défiler les miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
-    <string name="allow_photo_gestures">Contrôler la luminosité des images avec des gestes verticaux</string>
+    <string name="allow_photo_gestures">Contrôler la luminosité des images par gestes verticaux</string>
     <string name="allow_video_gestures">Contrôler le volume et la luminosité des vidéos avec des gestes verticaux</string>
-    <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers</string>
-    <string name="show_extended_details">Afficher en surimpression les informations supplémentaires du média en plein écran</string>
+    <string name="show_media_count">Afficher le nombre de fichiers des dossiers</string>
+    <string name="show_extended_details">Afficher les informations supplémentaires du média en plein écran</string>
     <string name="manage_extended_details">Gérer les informations supplémentaires</string>
     <string name="one_finger_zoom">Activer les zoom à un doigt sur les images en plein écran</string>
     <string name="allow_instant_change">Appuyer sur les cotés de l\'écran pour changer instantanément de média</string>
-    <string name="allow_deep_zooming_images">Utiliser le zoom maximal des images</string>
+    <string name="allow_deep_zooming_images">Activer les options de zoom avancées</string>
     <string name="hide_extended_details">Cacher les informations supplémentaires si la barre d\'état est masquée</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
     <string name="deep_zoomable_images">Niveau de zoom</string>
-    <string name="show_highest_quality">Afficher les images avec la meilleur qualité possible</string>
+    <string name="show_highest_quality">Afficher les images avec la meilleure qualité possible</string>
     <string name="show_recycle_bin_last">Afficher la corbeille en fin de liste sur l\'écran principal</string>
     <string name="allow_down_gesture">Fermer la vue plein écran par un geste vers le bas</string>
     <string name="allow_one_to_one_zoom">Permettre un zoom avant 1:1 par double appui</string>
-    <string name="open_videos_on_separate_screen">Ouvrir les vidéos sur un écran séparé avec de nouveaux gestes horizontaux</string>
+    <string name="open_videos_on_separate_screen">Ouvrir les vidéos dans une application externe</string>
     <string name="show_notch">Afficher une encoche si disponible</string>
     <string name="allow_rotating_gestures">Pivoter les images par gestes</string>
     <string name="file_loading_priority">Priorité de chargement des fichiers</string>
     <string name="speed">Rapide</string>
     <string name="compromise">Compromis</string>
     <string name="avoid_showing_invalid_files">Eviter l\'affichage de fichiers invalides</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

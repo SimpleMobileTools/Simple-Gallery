@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_background"/>
+        android:background="@drawable/gradient_background"
+        android:contentDescription="@null"/>
 
     <ImageView
         android:id="@+id/cardboard"
@@ -35,6 +36,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/activity_margin"
-        android:src="@drawable/ic_explore"/>
+        android:src="@drawable/ic_explore_vector"/>
 
 </RelativeLayout>

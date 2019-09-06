@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Datumen har korrigerats</string>
     <string name="share_resized">Dela en version med ändrad storlek</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Växla till filsökning i alla synliga mappar</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrera media</string>
@@ -64,7 +64,7 @@
     <string name="manage_included_folders">Hantera inkluderade mappar</string>
     <string name="add_folder">Lägg till mapp</string>
     <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen, kan du lägga till dem manuellt här.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Inga mediefiler hittades. Du kan lägga till de mappar som innehåller mediefiler manuellt.</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>
@@ -160,7 +160,7 @@
     <string name="screen_rotation_system_setting">Systeminställning</string>
     <string name="screen_rotation_device_rotation">Enhetens rotation</string>
     <string name="screen_rotation_aspect_ratio">Bildförhållande</string>
-    <string name="black_background_at_fullscreen">Svart bakgrund och statusfält när media visas i helskärmsläge</string>
+    <string name="black_background_at_fullscreen">Svart bakgrund när media visas i helskärmsläge</string>
     <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
     <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
     <string name="delete_empty_folders">Ta bort tomma mappar när deras innehåll tas bort</string>
@@ -178,15 +178,16 @@
     <string name="deep_zoomable_images">Djupt zoombara bilder</string>
     <string name="show_highest_quality">Visa bilder i högsta möjliga kvalitet</string>
     <string name="show_recycle_bin_last">Visa Papperskorgen som det sista objektet i huvudvyn</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="allow_down_gesture">Tillåt avslutning av helskärmsläget med en nedåtgest</string>
+    <string name="allow_one_to_one_zoom">Tillåt 1:1-zoomning med två dubbeltryck</string>
+    <string name="open_videos_on_separate_screen">Öppna alltid videor i en separat vy med nya horisontella gester</string>
     <string name="show_notch">Show a notch if available</string>
     <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
     <string name="file_loading_priority">File loading priority</string>
     <string name="speed">Speed</string>
     <string name="compromise">Compromise</string>
     <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatyrer</string>

@@ -19,6 +19,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -126,6 +127,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         invalidateOptionsMenu()
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>${mPath.getFilenameFromPath()}</font>")
         window.statusBarColor = Color.TRANSPARENT
     }
 
@@ -189,6 +191,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (visibleBottomActions != 0) {
             updateBottomActionIcons(currentMedium)
         }
+
+        updateMenuItemColors(menu, baseColor = Color.BLACK)
         return true
     }
 
@@ -572,6 +576,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
         tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
+            fixDateTaken(arrayListOf(currPath), false)
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()
@@ -620,12 +625,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun getChangeOrientationIcon(): Int {
         return if (mIsOrientationLocked) {
             if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
-                R.drawable.ic_orientation_portrait
+                R.drawable.ic_orientation_portrait_vector
             } else {
-                R.drawable.ic_orientation_landscape
+                R.drawable.ic_orientation_landscape_vector
             }
         } else {
-            R.drawable.ic_orientation_auto
+            R.drawable.ic_orientation_auto_vector
         }
     }
 
@@ -693,7 +698,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return false
     }
 
-    private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
+    private fun getCurrentFragment() = (view_pager.adapter as? MyPagerAdapter)?.getCurrentFragment(view_pager.currentItem)
 
     private fun showProperties() {
         if (getCurrentMedium() != null) {
@@ -798,10 +803,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
+        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on_vector else R.drawable.ic_star_off_vector
         bottom_favorite.setImageResource(favoriteIcon)
 
-        val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide else R.drawable.ic_hide
+        val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide
         bottom_toggle_file_visibility.setImageResource(hideIcon)
 
         bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)

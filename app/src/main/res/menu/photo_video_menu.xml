@@ -3,7 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_share"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/ic_share_vector"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
@@ -13,12 +13,12 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_set_as"
-        android:icon="@drawable/ic_set_as"
+        android:icon="@drawable/ic_set_as_vector"
         android:title="@string/set_as"
         app:showAsAction="ifRoom"/>
     <item

@@ -44,7 +44,11 @@ class NewPhotoFetcher : JobService() {
             addTriggerContentUri(JobInfo.TriggerContentUri(photoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
             addTriggerContentUri(JobInfo.TriggerContentUri(videoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
             addTriggerContentUri(JobInfo.TriggerContentUri(MEDIA_URI, 0))
-            context.getSystemService(JobScheduler::class.java).schedule(build())
+
+            try {
+                context.getSystemService(JobScheduler::class.java).schedule(build())
+            } catch (ignored: Exception) {
+            }
         }
     }
 
@@ -56,46 +60,45 @@ class NewPhotoFetcher : JobService() {
 
     override fun onStartJob(params: JobParameters): Boolean {
         mRunningParams = params
-
-        val affectedFolderPaths = HashSet<String>()
-        if (params.triggeredContentAuthorities != null && params.triggeredContentUris != null) {
-            val ids = arrayListOf<String>()
-            for (uri in params.triggeredContentUris!!) {
-                val path = uri.pathSegments
-                if (path != null && (path.size == PHOTO_PATH_SEGMENTS.size + 1 || path.size == VIDEO_PATH_SEGMENTS.size + 1)) {
-                    ids.add(path[path.size - 1])
-                }
-            }
-
-            if (ids.isNotEmpty()) {
-                val selection = StringBuilder()
-                for (id in ids) {
-                    if (selection.isNotEmpty()) {
-                        selection.append(" OR ")
-                    }
-                    selection.append("${MediaStore.Images.ImageColumns._ID} = '$id'")
-                }
-
-                var cursor: Cursor? = null
-                try {
-                    val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
-                    val uris = arrayListOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
-                    uris.forEach {
-                        cursor = contentResolver.query(it, projection, selection.toString(), null, null)
-                        while (cursor!!.moveToNext()) {
-                            val path = cursor!!.getStringValue(MediaStore.Images.ImageColumns.DATA)
-                            affectedFolderPaths.add(path.getParentPath())
-                            addPathToDB(path)
-                        }
-                    }
-                } catch (ignored: Exception) {
-                } finally {
-                    cursor?.close()
-                }
-            }
-        }
-
         ensureBackgroundThread {
+            val affectedFolderPaths = HashSet<String>()
+            if (params.triggeredContentAuthorities != null && params.triggeredContentUris != null) {
+                val ids = arrayListOf<String>()
+                for (uri in params.triggeredContentUris!!) {
+                    val path = uri.pathSegments
+                    if (path != null && (path.size == PHOTO_PATH_SEGMENTS.size + 1 || path.size == VIDEO_PATH_SEGMENTS.size + 1)) {
+                        ids.add(path[path.size - 1])
+                    }
+                }
+
+                if (ids.isNotEmpty()) {
+                    val selection = StringBuilder()
+                    for (id in ids) {
+                        if (selection.isNotEmpty()) {
+                            selection.append(" OR ")
+                        }
+                        selection.append("${MediaStore.Images.ImageColumns._ID} = '$id'")
+                    }
+
+                    var cursor: Cursor? = null
+                    try {
+                        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
+                        val uris = arrayListOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+                        uris.forEach {
+                            cursor = contentResolver.query(it, projection, selection.toString(), null, null)
+                            while (cursor!!.moveToNext()) {
+                                val path = cursor!!.getStringValue(MediaStore.Images.ImageColumns.DATA)
+                                affectedFolderPaths.add(path.getParentPath())
+                                addPathToDB(path)
+                            }
+                        }
+                    } catch (ignored: Exception) {
+                    } finally {
+                        cursor?.close()
+                    }
+                }
+            }
+
             affectedFolderPaths.forEach {
                 updateDirectoryPath(it)
             }

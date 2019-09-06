@@ -259,7 +259,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         explore.setOnClickListener {
             mIsExploreEnabled = !mIsExploreEnabled
             vr_video_view.setPureTouchTracking(mIsExploreEnabled)
-            explore.setImageResource(if (mIsExploreEnabled) R.drawable.ic_explore else R.drawable.ic_explore_off)
+            explore.setImageResource(if (mIsExploreEnabled) R.drawable.ic_explore_vector else R.drawable.ic_explore_off_vector)
         }
     }
 

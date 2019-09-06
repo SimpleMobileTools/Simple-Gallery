@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -63,6 +64,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowNotch()
         setupBottomActions()
         setupThumbnailVideoDuration()
+        setupThumbnailFileTypes()
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
@@ -84,6 +86,12 @@ class SettingsActivity : SimpleActivity() {
         setupSectionColors()
         setupExportSettings()
         setupImportSettings()
+        invalidateOptionsMenu()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        updateMenuItemColors(menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun setupSectionColors() {
@@ -237,6 +245,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_thumbnail_video_duration_holder.setOnClickListener {
             settings_show_thumbnail_video_duration.toggle()
             config.showThumbnailVideoDuration = settings_show_thumbnail_video_duration.isChecked
+        }
+    }
+
+    private fun setupThumbnailFileTypes() {
+        settings_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
+        settings_show_thumbnail_file_types_holder.setOnClickListener {
+            settings_show_thumbnail_file_types.toggle()
+            config.showThumbnailFileTypes = settings_show_thumbnail_file_types.isChecked
         }
     }
 
@@ -615,9 +631,6 @@ class SettingsActivity : SimpleActivity() {
                 put(FILE_LOADING_PRIORITY, config.fileLoadingPriority)
                 put(AUTOPLAY_VIDEOS, config.autoplayVideos)
                 put(REMEMBER_LAST_VIDEO_POSITION, config.rememberLastVideoPosition)
-                config.getAllLastVideoPositions().forEach {
-                    put(it.key, it.value.toString())
-                }
                 put(LOOP_VIDEOS, config.loopVideos)
                 put(OPEN_VIDEOS_ON_SEPARATE_SCREEN, config.openVideosOnSeparateScreen)
                 put(ALLOW_VIDEO_GESTURES, config.allowVideoGestures)
@@ -793,16 +806,12 @@ class SettingsActivity : SimpleActivity() {
                 SLIDESHOW_MOVE_BACKWARDS -> config.slideshowMoveBackwards = value.toBoolean()
                 SLIDESHOW_LOOP -> config.loopSlideshow = value.toBoolean()
                 LAST_EDITOR_CROP_ASPECT_RATIO -> config.lastEditorCropAspectRatio = value.toInt()
-                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X -> config.lastEditorCropOtherAspectRatioX = value.toInt()
-                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y -> config.lastEditorCropOtherAspectRatioY = value.toInt()
+                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X -> config.lastEditorCropOtherAspectRatioX = value.toString().toFloat()
+                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y -> config.lastEditorCropOtherAspectRatioY = value.toString().toFloat()
                 LAST_EDITOR_DRAW_COLOR -> config.lastEditorDrawColor = value.toInt()
                 LAST_EDITOR_BRUSH_SIZE -> config.lastEditorBrushSize = value.toInt()
                 LAST_CONFLICT_RESOLUTION -> config.lastConflictResolution = value.toInt()
                 LAST_CONFLICT_APPLY_TO_ALL -> config.lastConflictApplyToAll = value.toBoolean()
-            }
-
-            if (key.startsWith(LAST_VIDEO_POSITION_PREFIX)) {
-                config.saveLastVideoPosition(key, value as Int)
             }
         }
 

@@ -74,7 +74,11 @@ class MyWidgetProvider : AppWidgetProvider() {
                 }
 
                 setupAppOpenIntent(context, views, R.id.widget_holder, it)
-                appWidgetManager.updateAppWidget(it.widgetId, views)
+
+                try {
+                    appWidgetManager.updateAppWidget(it.widgetId, views)
+                } catch (ignored: Exception) {
+                }
             }
         }
     }

@@ -1,7 +1,9 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
+import android.app.SearchManager
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +14,8 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
@@ -61,6 +65,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
     private var mShouldStopFetching = false
+    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
@@ -68,6 +73,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+    private var mSearchMenuItem: MenuItem? = null
     private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
@@ -145,6 +151,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         updateWidgets()
         registerFileUpdateListener()
+
+        directories_switch_searching.setOnClickListener {
+            launchSearchActivity()
+        }
     }
 
     override fun onStart() {
@@ -192,6 +202,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
+        directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
+        directories_switch_searching.underlineText()
 
         if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
             handleAppPasswordProtection {
@@ -218,6 +230,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
+        mSearchMenuItem?.collapseActionView()
+
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
@@ -268,18 +282,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
+                setupSearch(this)
             }
         }
 
         menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
+        updateMenuItemColors(menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.search -> launchSearchActivity()
             R.id.sort -> showSortingDialog()
             R.id.filter -> showFilterMediaDialog()
             R.id.open_camera -> launchCamera()
@@ -323,6 +338,45 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    private fun setupSearch(menu: Menu) {
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        mSearchMenuItem = menu.findItem(R.id.search)
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    if (mIsSearchOpen) {
+                        setupAdapter(mDirs, newText)
+                    }
+                    return true
+                }
+            })
+        }
+
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                directories_switch_searching.beVisible()
+                mIsSearchOpen = true
+                directories_refresh_layout.isEnabled = false
+                return true
+            }
+
+            // this triggers on device rotation too, avoid doing anything
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                if (mIsSearchOpen) {
+                    directories_switch_searching.beGone()
+                    mIsSearchOpen = false
+                    directories_refresh_layout.isEnabled = config.enablePullToRefresh
+                    setupAdapter(mDirs, "")
+                }
+                return true
+            }
+        })
+    }
+
     private fun startNewPhotoFetcher() {
         if (isNougatPlus()) {
             val photoFetcher = NewPhotoFetcher()
@@ -336,7 +390,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.tempFolderPath.isNotEmpty()) {
             val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
-                if (newFolder.list()?.isEmpty() == true) {
+                if (newFolder.list()?.isEmpty() == true && newFolder.getProperSize(true) == 0L && newFolder.getFileCount(true) == 0) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
                     tryDeleteFileDirItem(newFolder.toFileDirItem(), true, true)
                 }
@@ -965,7 +1019,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
 
-        if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
+        if (mIsSearchOpen) {
+            directories_empty_text_label.text = getString(R.string.no_items_found)
+            directories_empty_text.beGone()
+        } else if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
             directories_empty_text_label.text = getString(R.string.no_media_add_included)
             directories_empty_text.text = getString(R.string.add_folder)
 
@@ -1017,10 +1074,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
             measureRecyclerViewContent(dirsToShow)
         } else {
-            if (textToSearch.isNotEmpty()) {
-                dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
-            }
             runOnUiThread {
+                if (textToSearch.isNotEmpty()) {
+                    dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
+                }
+                checkPlaceholderVisibility(dirsToShow)
+
                 (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
                 measureRecyclerViewContent(dirsToShow)
             }
@@ -1215,6 +1274,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(220, R.string.release_220))
             add(Release(221, R.string.release_221))
             add(Release(225, R.string.release_225))
+            add(Release(258, R.string.release_258))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

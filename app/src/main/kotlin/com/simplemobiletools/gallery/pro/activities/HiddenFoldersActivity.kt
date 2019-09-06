@@ -36,8 +36,9 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_add_folder, menu)
+        updateMenuItemColors(menu)
         return true
     }
 

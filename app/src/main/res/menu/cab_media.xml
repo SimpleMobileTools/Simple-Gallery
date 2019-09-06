@@ -3,22 +3,22 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_confirm_selection"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_check_vector"
         android:title="@string/confirm_selection"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_delete"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_share"
-        android:icon="@drawable/ic_share"
+        android:icon="@drawable/ic_share_vector"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_rotate"
-        android:icon="@drawable/ic_rotate_right"
+        android:icon="@drawable/ic_rotate_right_vector"
         android:title="@string/rotate"
         app:showAsAction="ifRoom">
         <menu>
@@ -50,27 +50,27 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
-        android:icon="@drawable/ic_unhide"
+        android:icon="@drawable/ic_unhide_vector"
         android:title="@string/unhide"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_select_all"
-        android:icon="@drawable/ic_select_all"
+        android:icon="@drawable/ic_select_all_vector"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_add_to_favorites"
-        android:icon="@drawable/ic_star_off"
+        android:icon="@drawable/ic_star_off_vector"
         android:title="@string/add_to_favorites"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_remove_from_favorites"
-        android:icon="@drawable/ic_star_on"
+        android:icon="@drawable/ic_star_on_vector"
         android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom"/>
     <item

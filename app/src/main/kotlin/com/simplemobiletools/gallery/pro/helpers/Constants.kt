@@ -67,8 +67,8 @@ const val LAST_BIN_CHECK = "last_bin_check"
 const val SHOW_HIGHEST_QUALITY = "show_highest_quality"
 const val ALLOW_DOWN_GESTURE = "allow_down_gesture"
 const val LAST_EDITOR_CROP_ASPECT_RATIO = "last_editor_crop_aspect_ratio"
-const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect_ratio_x"
-const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y"
+const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect_ratio_x_2"
+const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y_2"
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
@@ -78,6 +78,7 @@ const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 const val SHOW_NOTCH = "show_notch"
 const val FILE_LOADING_PRIORITY = "file_loading_priority"
 const val SPAM_FOLDERS_CHECKED = "spam_folders_checked"
+const val SHOW_THUMBNAIL_FILE_TYPES = "show_thumbnail_file_types"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -97,7 +98,6 @@ const val SLIDESHOW_ANIMATION_NONE = 0
 const val SLIDESHOW_ANIMATION_SLIDE = 1
 const val SLIDESHOW_ANIMATION_FADE = 2
 
-const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
 const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
@@ -209,3 +209,9 @@ const val MAX_VIDEO_ZOOM_SCALE = 5f
 const val ZOOM_MODE_NONE = 0
 const val ZOOM_MODE_DRAG = 1
 const val ZOOM_MODE_ZOOM = 2
+
+// constants related to image quality
+const val LOW_TILE_DPI = 160
+const val NORMAL_TILE_DPI = 220
+const val WEIRD_TILE_DPI = 240
+const val HIGH_TILE_DPI = 280

@@ -10,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RenameDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.dialogs.RenameItemsPatternDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
@@ -21,6 +21,8 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
+import com.simplemobiletools.gallery.pro.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.pro.helpers.TYPE_RAWS
 import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -52,6 +54,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
+    private var showFileTypes = config.showThumbnailFileTypes
 
     init {
         setupDragListener(true)
@@ -215,7 +218,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 }
             }
         } else {
-            RenameItemsPatternDialog(activity, getSelectedPaths()) {
+            RenameDialog(activity, getSelectedPaths()) {
                 enableInstantLoad()
                 listener?.refreshItems()
                 finishActMode()
@@ -326,6 +329,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             config.tempFolderPath = ""
             activity.applicationContext.rescanFolderMedia(it)
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
+            activity.fixDateTaken(paths, false)
             if (!isCopyOperation) {
                 listener?.refreshItems()
                 activity.updateFavoritePaths(fileDirItems, it)
@@ -394,7 +398,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
-    private fun getSelectedItems() = media.filter { selectedKeys.contains((it as? Medium)?.path?.hashCode()) } as ArrayList<Medium>
+    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Medium>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 
@@ -431,6 +435,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         notifyDataSetChanged()
     }
 
+    fun updateShowFileTypes(showFileTypes: Boolean) {
+        this.showFileTypes = showFileTypes
+        notifyDataSetChanged()
+    }
+
     private fun enableInstantLoad() {
         loadImageInstantly = true
         delayHandler.postDelayed({
@@ -444,6 +453,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
+
+            if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
+                file_type.setText(when (medium.type) {
+                    TYPE_GIFS -> R.string.gif
+                    TYPE_RAWS -> R.string.raw
+                    else -> R.string.svg
+                })
+                file_type.beVisible()
+            } else {
+                file_type.beGone()
+            }
+
             medium_name.beVisibleIf(displayFilenames || isListViewType)
             medium_name.text = medium.name
             medium_name.tag = medium.path

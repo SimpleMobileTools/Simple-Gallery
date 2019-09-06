@@ -32,8 +32,8 @@
     <string name="fixing">Düzeltiliyor…</string>
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
     <string name="share_resized">Yeniden boyutlandırılmış sürümü paylaş</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="upgraded_from_free">Merhaba,\n\neski ücretsiz uygulamadan yükseltmiş gibisiniz. Artık uygulama ayarlarının en üst kısmında \'Pro\'ya Yükselt\' düğmesi olan eski sürümü kaldırabilirsiniz.\n\nYalnızca Geri Dönüşüm Kutusu öğelerinin silinmesi, sık kullanılanların işaretlerinin kaldırılması ve uygulama ayarlarınızı sıfırlamanız gerekir.\n\nTeşekkürler!</string>
+    <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
@@ -187,6 +187,7 @@
     <string name="speed">Speed</string>
     <string name="compromise">Compromise</string>
     <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_image_file_types">Show image file types</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
@@ -239,7 +240,7 @@
     <string name="app_long_description">
         Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
 
-        Uygulamaya hiçbir reklam ve gereksiz izinler içermez. Uygulama internet erişimi gerektirmediğinden gizliliğiniz de korunur.
+        Uygulama hiçbir reklam ve gereksiz izinler içermez. Uygulama internet erişimi gerektirmediğinden gizliliğiniz de korunur.
 
         -------------------------------------------------
         <b>BASİT GALERİ PRO – ÖZELLİKLER</b>
