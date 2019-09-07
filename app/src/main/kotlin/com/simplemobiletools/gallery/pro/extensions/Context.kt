@@ -852,3 +852,27 @@ fun Context.updateDirectoryPath(path: String) {
     val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
     updateDBDirectory(directory, galleryDB.DirectoryDao())
 }
+
+fun Context.getFileDateTaken(path: String): Long {
+    val projection = arrayOf(
+            MediaStore.Images.Media.DATE_TAKEN
+    )
+
+    val uri = MediaStore.Files.getContentUri("external")
+    val selection = "${MediaStore.Images.Media.DATA} = ?"
+    val selectionArgs = arrayOf(path)
+
+    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
+    cursor?.use {
+        if (cursor.moveToFirst()) {
+            do {
+                try {
+                    return cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                } catch (e: Exception) {
+                }
+            } while (cursor.moveToNext())
+        }
+    }
+
+    return 0L
+}
