@@ -876,3 +876,5 @@ fun Context.getFileDateTaken(path: String): Long {
 
     return 0L
 }
+
+fun Context.isChromebook() = packageManager.hasSystemFeature("org.chromium.arc.device_management")
