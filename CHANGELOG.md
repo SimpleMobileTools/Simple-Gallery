@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.9.5 *(2019-09-08)*
+----------------------------
+
+ * Added optional thumbnail icons for showing GIF/SVG/RAW file types
+ * Properly handle Date Taken value at copy/move/edit
+ * Fixed a glitch with white top actionmenu at selecting items
+ * Fixed fullscreen mode toggling on Chromebooks
+
 Version 6.9.4 *(2019-08-21)*
 ----------------------------
 
