@@ -409,14 +409,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     config.addIncludedFolder(otgPath)
                 }
 
-                if (config.OTGPath.isEmpty()) {
+                // OTG handling has been changed again in SDK version 28, the old method no longer works
+                /*if (config.OTGPath.isEmpty()) {
                     runOnUiThread {
                         ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
                             config.wasOTGHandled = true
                             showOTGPermissionDialog()
                         }
                     }
-                }
+                }*/
             }
         }
     }
