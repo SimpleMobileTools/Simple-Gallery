@@ -302,9 +302,9 @@ class MediaFetcher(val context: Context) {
             if (cursor.moveToFirst()) {
                 do {
                     try {
-                        val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
                         val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         if (dateTaken != 0L) {
+                            val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
                             dateTakens[path] = dateTaken
                         }
                     } catch (e: Exception) {
