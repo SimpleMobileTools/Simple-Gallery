@@ -64,7 +64,7 @@
     <string name="manage_included_folders">Dahil edilen klasörleri yönet</string>
     <string name="add_folder">Klasör ekle</string>
     <string name="included_activity_placeholder">Medya içeren, ancak uygulama tarafından tanınmayan bazı klasörleriniz varsa, bunları elle ekleyebilirsiniz.\n\nBuraya bazı öğeler eklemek başka bir klasörü hariç tutmaz.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Hiçbir medya dosyası bulunamadı. Medya dosyalarını içeren klasörleri elle ekleyerek çözebilirsiniz.</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
@@ -116,8 +116,8 @@
     <string name="random_order">Rastgele sırala</string>
     <string name="move_backwards">Geriye doğru git</string>
     <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
+    <string name="animation">Animasyon</string>
+    <string name="no_animation">Hiçbiri</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
@@ -134,14 +134,14 @@
     <string name="do_not_group_files">Dosyaları gruplandırma</string>
     <string name="by_folder">Klasör</string>
     <string name="by_last_modified">Son değiştirilme</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Son değiştirilme (günlük)</string>
+    <string name="by_last_modified_monthly">Son değiştirilme (aylık)</string>
     <string name="by_date_taken">Çekildiği tarih</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Çekildiği tarih (günlük)</string>
+    <string name="by_date_taken_monthly">Çekildiği tarih (aylık)</string>
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Lütfen gruplandırmanın ve sıralamanın 2 bağımsız alan olduğunu unutmayın</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Widget\'ta gösterilen klasör:</string>
@@ -183,11 +183,11 @@
     <string name="open_videos_on_separate_screen">Videoları yeni yatay hareketlerle daima ayrı bir ekranda aç</string>
     <string name="show_notch">Varsa bir çentik göster</string>
     <string name="allow_rotating_gestures">Hareketlerle resimlerin döndürülmesine izin ver</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="file_loading_priority">Dosya yükleme önceliği</string>
+    <string name="speed">Hız</string>
+    <string name="compromise">Ödünsüz</string>
+    <string name="avoid_showing_invalid_files">Geçersiz dosyaları göstermekten kaçın</string>
+    <string name="show_image_file_types">Resim dosyası türlerini göster</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
