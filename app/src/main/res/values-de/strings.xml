@@ -180,7 +180,7 @@
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
     <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
     <string name="allow_one_to_one_zoom">Erlaube 1:1 Zoom mit zweimaligem, doppeltem Antippen</string>
-    <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem speraten Bildschirm mit neuen horizontalen Gesten</string>
+    <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem seperaten Bildschirm mit neuen horizontalen Gesten</string>
     <string name="show_notch">Show a notch if available</string>
     <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
     <string name="file_loading_priority">Priorität beim Laden von Dateien</string>
