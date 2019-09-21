@@ -187,7 +187,7 @@
     <string name="speed">Rapide</string>
     <string name="compromise">Compromis</string>
     <string name="avoid_showing_invalid_files">Eviter l\'affichage de fichiers invalides</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Afficher les types d'image</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
