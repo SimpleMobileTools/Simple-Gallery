@@ -207,11 +207,24 @@ class MediaFetcher(val context: Context) {
         val checkFileExistence = config.fileLoadingPriority == PRIORITY_VALIDITY
         val showHidden = config.shouldShowHidden
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
+        val subdirs = ArrayList<File>()
 
         val files = when (folder) {
-            FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toTypedArray()
-            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toTypedArray()
-            else -> File(folder).listFiles() ?: return media
+            FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
+            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toMutableList() as ArrayList<File>
+            else -> {
+                val allFiles = File(folder).listFiles() ?: return media
+                val notDirs = ArrayList<File>()
+                allFiles.forEach {
+                    if (it.isDirectory) {
+                        subdirs.add(it)
+                    } else {
+                        notDirs.add(it)
+                    }
+                }
+
+                notDirs
+            }
         }
 
         for (file in files) {
