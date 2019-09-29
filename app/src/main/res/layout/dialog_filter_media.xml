@@ -49,4 +49,12 @@
         android:paddingBottom="@dimen/activity_margin"
         android:text="@string/svgs"/>
 
+    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        android:id="@+id/filter_media_portraits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        android:text="@string/portraits"/>
+
 </LinearLayout>

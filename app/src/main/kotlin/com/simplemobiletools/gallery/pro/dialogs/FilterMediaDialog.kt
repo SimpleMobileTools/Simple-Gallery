@@ -19,6 +19,7 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             filter_media_gifs.isChecked = filterMedia and TYPE_GIFS != 0
             filter_media_raws.isChecked = filterMedia and TYPE_RAWS != 0
             filter_media_svgs.isChecked = filterMedia and TYPE_SVGS != 0
+            filter_media_portraits.isChecked = filterMedia and TYPE_PORTRAITS != 0
         }
 
         AlertDialog.Builder(activity)
@@ -41,6 +42,8 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             result += TYPE_RAWS
         if (view.filter_media_svgs.isChecked)
             result += TYPE_SVGS
+        if (view.filter_media_portraits.isChecked)
+            result += TYPE_PORTRAITS
 
         activity.config.filterMedia = result
         callback(result)
