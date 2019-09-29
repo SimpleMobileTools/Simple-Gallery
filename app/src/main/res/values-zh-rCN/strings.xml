@@ -42,6 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW 图片</string>
     <string name="svgs">SVG</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">没有媒体文件匹配选定的筛选条件。</string>
     <string name="change_filters_underlined"><u>更改筛选条件</u></string>
 

@@ -42,6 +42,7 @@
     <string name="gifs">GIF\'ler</string>
     <string name="raw_images">RAW resimler</string>
     <string name="svgs">SVG\'ler</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Seçilen filtrelerle hiçbir medya dosyası bulunamadı.</string>
     <string name="change_filters_underlined"><u>Filtreleri değiştir</u></string>
 

@@ -42,6 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
     <string name="svgs">SVG</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 

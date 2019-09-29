@@ -42,6 +42,7 @@
     <string name="gifs">GIFs</string>
     <string name="raw_images">RAW images</string>
     <string name="svgs">SVGs</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Non se atoparon medios dos indicados polo filtro.</string>
     <string name="change_filters_underlined"><u>Cambiar filtro</u></string>
 

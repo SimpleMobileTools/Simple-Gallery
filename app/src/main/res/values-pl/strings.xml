@@ -42,6 +42,7 @@
     <string name="gifs">GIFy</string>
     <string name="raw_images">Obrazy RAW</string>
     <string name="svgs">Obrazy SVG</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Nie znaleziono multimediów zgodnych z zastosowanymi filtrami.</string>
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
