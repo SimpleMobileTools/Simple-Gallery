@@ -44,6 +44,8 @@ data class Medium(
 
     fun isSVG() = type == TYPE_SVGS
 
+    fun isPortrait() = type == TYPE_PORTRAITS
+
     fun isHidden() = name.startsWith('.')
 
     fun getBubbleText(sorting: Int, context: Context) = when {

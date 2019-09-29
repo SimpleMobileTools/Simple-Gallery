@@ -25,5 +25,9 @@ fun ArrayList<Medium>.getDirMediaTypes(): Int {
         types += TYPE_SVGS
     }
 
+    if (any { it.isPortrait() }) {
+        types += TYPE_PORTRAITS
+    }
+
     return types
 }
