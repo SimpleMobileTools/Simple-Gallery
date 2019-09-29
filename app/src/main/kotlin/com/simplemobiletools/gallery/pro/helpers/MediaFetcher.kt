@@ -206,7 +206,7 @@ class MediaFetcher(val context: Context) {
         val checkProperFileSize = getProperFileSize || config.fileLoadingPriority == PRIORITY_COMPROMISE
         val checkFileExistence = config.fileLoadingPriority == PRIORITY_VALIDITY
         val showHidden = config.shouldShowHidden
-        val showPortraits = config.filterMedia and TYPE_PORTRAITS != 0
+        val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
         val subdirs = ArrayList<File>() // used only for Portrait photos starting with "IMG_" for now
 
