@@ -620,12 +620,14 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }
 
         if (config.filterMedia and TYPE_PORTRAITS != 0) {
+            val foldersToAdd = ArrayList<String>()
             for (folder in foldersToScan) {
                 val allFiles = File(folder).listFiles() ?: continue
                 allFiles.filter { it.isDirectory && it.name.startsWith("img_", true) }.forEach {
-                    foldersToScan.add(it.absolutePath)
+                    foldersToAdd.add(it.absolutePath)
                 }
             }
+            foldersToScan.addAll(foldersToAdd)
         }
 
         val shouldShowHidden = config.shouldShowHidden
