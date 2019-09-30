@@ -619,6 +619,15 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             media.addAll(getUpdatedDeletedMedia(mediumDao))
         }
 
+        if (config.filterMedia and TYPE_PORTRAITS != 0) {
+            for (folder in foldersToScan) {
+                val allFiles = File(folder).listFiles() ?: continue
+                allFiles.filter { it.isDirectory && it.name.startsWith("img_", true) }.forEach {
+                    foldersToScan.add(it.absolutePath)
+                }
+            }
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
             try {
