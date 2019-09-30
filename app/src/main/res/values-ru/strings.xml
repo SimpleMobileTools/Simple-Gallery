@@ -42,7 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Портреты</string>
     <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
@@ -231,7 +231,7 @@
     <string name="faq_14_title">Я скрыл файл/папку. Как я могу его увидеть его снова?</string>
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером.</string>
     <string name="faq_15_title">Почему приложение занимает так много места?</string>
-    <string name="faq_15_text">Кэш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые объекты. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
+    <string name="faq_15_text">Кеш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые объекты. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
@@ -239,50 +239,50 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Галерея без рекламы. Управление, изменение, восстановление и защита фото и видео</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro — настраиваемая автономная галерея. Организуйте и редактируйте свои фотографии; восстанавливайте удалённые файлы при помощи функции "корзина"; защищайте и скрывайте личные файлы; просматривайте множество различных фото- и видеоформатов, включая RAW, SVG и многие другие.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Приложение не содержит рекламы и ненужных разрешений. Поскольку приложение не требует доступа в интернет, ваша конфиденциальность защищена.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – ВОЗМОЖНОСТИ</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Автономная галерея без рекламы или всплывающих окон
+        • Встроенный редактор изображение - обрезка, поворот, изменение размера, рисование, фильтры и другое
+        • Не требуется доступ в интернет, что даёт вам больше конфиденциальности и защищённости
+        • Не требуется никаких ненужных разрешений
+        • Быстрый поиск изображений, видео и файлов
+        • Открывает множество различных типов изображений и видео (RAW, SVG, панорамы и т.д.)
+        • Различные интуитивно понятные жесты, чтобы легко редактировать и организовывать файлы
+        • Множество способов фильтрации, группировки и сортировки файлов
+        • Настройка внешнего вида в Simple Gallery Pro
+        • Доступна на 32 языках
+        • Пометка файлов как избранных для быстрого доступа
+        • Защищает ваши фотографии и видео с помощью графического ключа, PIN-кода или отпечатка пальца
+        • Также можно использовать ключ, PIN или отпечаток для защиты запуска приложения или конкретных функций
+        • Восстановление удалённых фотографий и видео из корзины
+        • Переключение видимости файлов для скрытия фотографий и видео
+        • Создание настраиваемых слайдшоу из ваших файлов
+        • Просмотр подробной информации о файлах (разрешение, значения EXIF и т.д.)
+        • Simple Gallery Pro с открытым исходным кодом
+        … и многое многое другое!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>РЕДАКТОР ИЗОБРАЖЕНИЙ</b>
+        Simple Gallery Pro позволяет легко редактировать изображения на ходу. Можно обрезать, перевернуть, повернуть и изменить размер ваших фотографий. Если вы чувствуете себя немного более творчески, то можете добавить фильтры и рисовать на своих фотографиях!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>ПОДДЕРЖКА МНОЖЕСТВА ТИПОВ ФАЙЛОВ</b>
+        В отличие от некоторых других галерей и организаторов изображений, Simple Gallery Pro поддерживает огромный набор различных типов файлов, включая JPEG, PNG, MP4, MKV, RAW, SVG, панорамные фотографии, панорамные видео и многие другие.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>НАСТРАИВАЕМЫЙ МЕНЕДЖЕР ГАЛЕРЕИ</b>
+        От пользовательского интерфейса до функциональных кнопок на нижней панели инструментов, Simple Gallery Pro отличается высокой настраиваемостью и работает так, как вы хотите. Никакой другой менеджер галереи не обладает такой гибкостью! Благодаря открытому исходному коду, мы также доступны на 32 языках!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>ВОССТАНОВЛЕНИЕ УДАЛЁННЫХ ФОТОГРАФИЙ И ВИДЕО</b>
+        Случайно удалили драгоценное фото или видео? Не беспокойтесь! Simple Gallery Pro предлагает удобную корзину, из которой можно легко восстановить удалённые фотографии и видео.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>ЗАЩИТА И СКРЫТИЕ ФОТОГРАФИЙ, ВИДЕО И ФАЙЛОВ</b>
+        Используя PIN-код, графический ключ или сканер отпечатков пальцев своего устройства, вы можете защитить и скрыть фотографии, видео и целые альбомы. Вы можете защитить как всё приложение, так и заблокировать отдельные его функции. Например, вы не сможете удалить файл без подтверждения отпечатком пальца, что поможет защитить файлы от случайного удаления.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Ознакомьтесь с полным набором инструментов серии Simple здесь:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
