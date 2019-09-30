@@ -448,7 +448,7 @@ fun Context.getFolderNameFromPath(path: String): String {
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
                       skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     target.isHorizontalScrolling = horizontalScroll
-    if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS) {
+    if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
         if (type == TYPE_IMAGES && path.isPng()) {
             loadPng(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         } else {
@@ -814,6 +814,7 @@ fun Context.addPathToDB(path: String) {
             path.isGif() -> TYPE_GIFS
             path.isRawFast() -> TYPE_RAWS
             path.isSvg() -> TYPE_SVGS
+            path.isPortrait() -> TYPE_PORTRAITS
             else -> TYPE_IMAGES
         }
 

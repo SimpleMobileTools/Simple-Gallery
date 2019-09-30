@@ -336,6 +336,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         mPath.isGif() -> TYPE_GIFS
                         mPath.isSvg() -> TYPE_SVGS
                         mPath.isRawFast() -> TYPE_RAWS
+                        mPath.isPortrait() -> TYPE_PORTRAITS
                         else -> TYPE_IMAGES
                     }
 
