@@ -42,6 +42,7 @@
     <string name="gifs">GIF\'er</string>
     <string name="raw_images">RAW-billeder</string>
     <string name="svgs">SVG\'er</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Der blev ikke fundet nogen filer med det valgte filter.</string>
     <string name="change_filters_underlined"><u>Skift filter</u></string>
 

@@ -323,19 +323,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             }
 
-            view_pager.adapter?.let {
-                (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
-                checkSystemUI()
-                val newAlpha = if (mIsFullScreen) 0f else 1f
-                top_shadow.animate().alpha(newAlpha).start()
-                if (bottom_actions.isVisible()) {
-                    bottom_actions.animate().alpha(newAlpha).start()
-                    arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
-                            bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
-                        it.isClickable = !mIsFullScreen
-                    }
-                }
-            }
+            checkSystemUI()
+            fullscreenToggled()
         }
 
         if (intent.action == "com.android.camera.action.REVIEW") {
@@ -576,7 +565,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
         tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
-            fixDateTaken(arrayListOf(currPath), false)
+            val newPath = "$it/${currPath.getFilenameFromPath()}"
+            rescanPaths(arrayListOf(newPath)) {
+                fixDateTaken(arrayListOf(newPath), false)
+            }
+
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()
@@ -1078,6 +1071,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         checkSystemUI()
+        if (isChromebook()) {
+            fullscreenToggled()
+        }
     }
 
     override fun videoEnded(): Boolean {
@@ -1131,6 +1127,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } else {
             stopSlideshow()
             showSystemUI(true)
+        }
+    }
+
+    private fun fullscreenToggled() {
+        view_pager.adapter?.let {
+            (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
+            val newAlpha = if (mIsFullScreen) 0f else 1f
+            top_shadow.animate().alpha(newAlpha).start()
+            if (bottom_actions.isVisible()) {
+                bottom_actions.animate().alpha(newAlpha).start()
+                arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
+                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
+                    it.isClickable = !mIsFullScreen
+                }
+            }
         }
     }
 

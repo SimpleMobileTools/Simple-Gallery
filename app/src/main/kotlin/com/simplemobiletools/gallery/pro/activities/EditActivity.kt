@@ -39,6 +39,7 @@ import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.openEditor
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.FilterItem
@@ -874,7 +875,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun scanFinalPath(path: String) {
-        rescanPaths(arrayListOf(path)) {
+        val paths = arrayListOf(path)
+        rescanPaths(paths) {
+            fixDateTaken(paths, false)
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()

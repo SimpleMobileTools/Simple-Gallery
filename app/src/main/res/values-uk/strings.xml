@@ -42,6 +42,7 @@
     <string name="gifs">GIF-зображення</string>
     <string name="raw_images">RAW-зображення</string>
     <string name="svgs">SVG-зображення</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">З вибраними фільтрами мультимедійні файли не знайдено.</string>
     <string name="change_filters_underlined"><u>Змінити фільтри</u></string>
 
@@ -187,7 +188,7 @@
     <string name="speed">Швидкість</string>
     <string name="compromise">Компроміс</string>
     <string name="avoid_showing_invalid_files">Запобігати показу пошкоджених файлів</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Показувати типи файлів зображень</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>

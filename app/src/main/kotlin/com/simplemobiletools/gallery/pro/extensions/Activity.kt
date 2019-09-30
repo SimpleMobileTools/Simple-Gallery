@@ -292,7 +292,9 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             callback()
         }
 
-        fixDateTaken(newPaths, false)
+        rescanPaths(newPaths) {
+            fixDateTaken(newPaths, false)
+        }
     }
 }
 
@@ -346,17 +348,19 @@ fun Activity.hasNavBar(): Boolean {
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }
 
-fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, callback: (() -> Unit)? = null) {
+fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
     val BATCH_SIZE = 50
     if (showToasts) {
         toast(R.string.fixing)
     }
 
+    val pathsToRescan = ArrayList<String>()
     try {
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
         val mediumDao = galleryDB.MediumDao()
-        rescanPaths(paths) {
+
+        ensureBackgroundThread {
             for (path in paths) {
                 val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
                         ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
@@ -385,6 +389,10 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, callbac
 
                 mediumDao.updateFavoriteDateTaken(path, timestamp)
                 didUpdateFile = true
+
+                if (!hasRescanned && getFileDateTaken(path) == 0L) {
+                    pathsToRescan.add(path)
+                }
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
@@ -392,12 +400,18 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, callbac
                 didUpdateFile = false
             }
 
-            runOnUiThread {
-                if (showToasts) {
-                    toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
-                }
+            if (hasRescanned || pathsToRescan.isEmpty()) {
+                runOnUiThread {
+                    if (showToasts) {
+                        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+                    }
 
-                callback?.invoke()
+                    callback?.invoke()
+                }
+            } else {
+                rescanPaths(pathsToRescan) {
+                    fixDateTaken(paths, showToasts, true)
+                }
             }
         }
     } catch (e: Exception) {

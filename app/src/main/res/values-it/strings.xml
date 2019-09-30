@@ -42,6 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">Immagini RAW</string>
     <string name="svgs">SVG</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Nessun file trovato con il filtro selezionato.</string>
     <string name="change_filters_underlined"><u>Cambia filtro</u></string>
 
@@ -187,7 +188,7 @@
     <string name="speed">Veloce</string>
     <string name="compromise">Compromesso</string>
     <string name="avoid_showing_invalid_files">Evita di mostrare file non validi</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Mostra i tipi di file immagine</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>

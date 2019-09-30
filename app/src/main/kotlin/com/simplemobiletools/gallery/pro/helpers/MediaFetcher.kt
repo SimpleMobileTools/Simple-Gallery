@@ -178,7 +178,7 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
         foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
-        return foldersToScan.distinctBy { it.getDistinctPath() }.toSet() as LinkedHashSet<String>
+        return foldersToScan.distinctBy { it.getDistinctPath() }.toMutableSet() as LinkedHashSet<String>
     }
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
@@ -206,12 +206,34 @@ class MediaFetcher(val context: Context) {
         val checkProperFileSize = getProperFileSize || config.fileLoadingPriority == PRIORITY_COMPROMISE
         val checkFileExistence = config.fileLoadingPriority == PRIORITY_VALIDITY
         val showHidden = config.shouldShowHidden
+        val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
+        val subdirs = ArrayList<File>() // used only for Portrait photos starting with "IMG_" for now
 
         val files = when (folder) {
-            FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toTypedArray()
-            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toTypedArray()
-            else -> File(folder).listFiles() ?: return media
+            FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
+            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toMutableList() as ArrayList<File>
+            else -> {
+                val allFiles = File(folder).listFiles() ?: return media
+                val notDirs = ArrayList<File>()
+                allFiles.forEach {
+                    if (it.isDirectory) {
+                        if (showPortraits && it.name.startsWith("img_", true)) {
+                            subdirs.add(it)
+                        }
+                    } else {
+                        notDirs.add(it)
+                    }
+                }
+
+                notDirs
+            }
+        }
+
+        for (subdir in subdirs) {
+            val portraitFiles = subdir.listFiles() ?: continue
+            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.first()
+            files.add(cover)
         }
 
         for (file in files) {
@@ -283,6 +305,7 @@ class MediaFetcher(val context: Context) {
                 media.add(medium)
             }
         }
+
         return media
     }
 
@@ -302,9 +325,11 @@ class MediaFetcher(val context: Context) {
             if (cursor.moveToFirst()) {
                 do {
                     try {
-                        val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
                         val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                        dateTakens[path] = dateTaken
+                        if (dateTaken != 0L) {
+                            val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                            dateTakens[path] = dateTaken
+                        }
                     } catch (e: Exception) {
                     }
                 } while (cursor.moveToNext())

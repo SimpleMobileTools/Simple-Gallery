@@ -42,6 +42,7 @@
     <string name="gifs">الصور المتحركة</string>
     <string name="raw_images">RAW images</string>
     <string name="svgs">SVGs</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">لم يتم العثور على ملفات وسائط مع الفلاتر المحددة</string>
     <string name="change_filters_underlined"><u >تغيير الفلاتر</u></string>
 

@@ -42,6 +42,7 @@
     <string name="gifs">ГИФови</string>
     <string name="raw_images">Сирове слике</string>
     <string name="svgs">СВГови</string>
+    <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Нема пронађених медија датотека са изабраним филтерима.</string>
     <string name="change_filters_underlined"><u>Измени филтере</u></string>
 

@@ -326,13 +326,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
 
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
+            val destinationPath = it
             config.tempFolderPath = ""
-            activity.applicationContext.rescanFolderMedia(it)
+            activity.applicationContext.rescanFolderMedia(destinationPath)
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
-            activity.fixDateTaken(paths, false)
+
+            val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as ArrayList<String>
+            activity.rescanPaths(newPaths) {
+                activity.fixDateTaken(newPaths, false)
+            }
             if (!isCopyOperation) {
                 listener?.refreshItems()
-                activity.updateFavoritePaths(fileDirItems, it)
+                activity.updateFavoritePaths(fileDirItems, destinationPath)
             }
         }
     }
