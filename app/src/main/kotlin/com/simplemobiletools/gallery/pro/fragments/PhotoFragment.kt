@@ -18,6 +18,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -343,6 +344,10 @@ class PhotoFragment : ViewPagerFragment() {
             mMedium.isSVG() -> loadSVG()
             else -> loadBitmap()
         }
+
+        if (mMedium.isPortrait() && context != null) {
+            showPortraitStripe()
+        }
     }
 
     private fun loadGif() {
@@ -438,6 +443,15 @@ class PhotoFragment : ViewPagerFragment() {
             })
         } catch (ignored: Exception) {
         }
+    }
+
+    private fun showPortraitStripe() {
+        var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
+        if (context!!.config.bottomActions) {
+            bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
+        }
+        (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+        mView.photo_portrait_stripe_wrapper.beVisible()
     }
 
     private fun openPanorama() {
@@ -662,6 +676,10 @@ class PhotoFragment : ViewPagerFragment() {
             if (mIsPanorama) {
                 panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
                 panorama_outline.isClickable = !isFullscreen
+            }
+
+            if (mMedium.isPortrait()) {
+                photo_portrait_stripe_wrapper.animate().alpha(if (isFullscreen) 0f else 1f).start()
             }
         }
     }
