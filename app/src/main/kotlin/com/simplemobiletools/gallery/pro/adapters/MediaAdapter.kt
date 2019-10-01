@@ -457,7 +457,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
-            play_outline.beVisibleIf(medium.isVideo())
+            play_outline.beVisibleIf(medium.isVideo() || medium.isPortrait())
+            if (medium.isVideo()) {
+                play_outline.setImageResource(R.drawable.img_play_outline)
+            } else if (medium.isPortrait()) {
+                play_outline.setImageResource(R.drawable.ic_portrait_photo_vector)
+            }
 
             if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
                 file_type.setText(when (medium.type) {
