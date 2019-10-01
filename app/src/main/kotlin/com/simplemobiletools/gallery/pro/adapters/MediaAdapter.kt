@@ -460,8 +460,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             play_outline.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
                 play_outline.setImageResource(R.drawable.img_play_outline)
+                play_outline.beVisible()
             } else if (medium.isPortrait()) {
                 play_outline.setImageResource(R.drawable.ic_portrait_photo_vector)
+                play_outline.beVisibleIf(showFileTypes)
             }
 
             if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
