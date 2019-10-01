@@ -127,6 +127,7 @@ const val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
 const val SHOULD_INIT_FRAGMENT = "should_init_fragment"
+const val PORTRAIT_PATH = "portrait_path"
 
 // rotations
 const val ROTATE_BY_SYSTEM_SETTING = 0
