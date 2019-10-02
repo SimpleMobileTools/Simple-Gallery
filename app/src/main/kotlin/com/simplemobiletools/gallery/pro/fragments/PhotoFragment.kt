@@ -455,19 +455,7 @@ class PhotoFragment : ViewPagerFragment() {
             val sideWidth = screenWidth / 2 - itemWidth / 2
             val fakeItemsCnt = ceil(sideWidth / itemWidth.toDouble()).toInt()
 
-            val paths = ArrayList<String>()
-            for (i in 0 until fakeItemsCnt) {
-                paths.add("")
-            }
-
-            files.forEach {
-                paths.add(it.absolutePath)
-            }
-
-            for (i in 0 until fakeItemsCnt) {
-                paths.add("")
-            }
-
+            val paths = fillPhotoPaths(files, fakeItemsCnt)
             var curWidth = itemWidth
             while (curWidth < screenWidth) {
                 curWidth += itemWidth
@@ -479,34 +467,57 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             mView.photo_portrait_stripe.adapter = adapter
+            setupStripeBottomMargin()
 
-            var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
-            if (context!!.config.bottomActions) {
-                bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
-            }
-            (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
-
-            var coverIndex = -1
-            paths.forEachIndexed { index, path ->
-                if (path.contains("cover", true)) {
-                    coverIndex = index
-                }
-            }
-
-            if (coverIndex == -1) {
-                paths.forEachIndexed { index, path ->
-                    if (path.isNotEmpty()) {
-                        coverIndex = index
-                    }
-                }
-            }
-
+            val coverIndex = getCoverImageIndex(paths)
             mView.photo_portrait_stripe.onGlobalLayout {
                 mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
                 adapter.setCurrentPhoto(coverIndex)
                 mView.photo_portrait_stripe_wrapper.beVisible()
             }
         }
+    }
+
+    private fun fillPhotoPaths(files: ArrayList<File>, fakeItemsCnt: Int): ArrayList<String> {
+        val paths = ArrayList<String>()
+        for (i in 0 until fakeItemsCnt) {
+            paths.add("")
+        }
+
+        files.forEach {
+            paths.add(it.absolutePath)
+        }
+
+        for (i in 0 until fakeItemsCnt) {
+            paths.add("")
+        }
+        return paths
+    }
+
+    private fun setupStripeBottomMargin() {
+        var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
+        if (context!!.config.bottomActions) {
+            bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
+        }
+        (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+    }
+
+    private fun getCoverImageIndex(paths: ArrayList<String>): Int {
+        var coverIndex = -1
+        paths.forEachIndexed { index, path ->
+            if (path.contains("cover", true)) {
+                coverIndex = index
+            }
+        }
+
+        if (coverIndex == -1) {
+            paths.forEachIndexed { index, path ->
+                if (path.isNotEmpty()) {
+                    coverIndex = index
+                }
+            }
+        }
+        return coverIndex
     }
 
     private fun openPanorama() {
