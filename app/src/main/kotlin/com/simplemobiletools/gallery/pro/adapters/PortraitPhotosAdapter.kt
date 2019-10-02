@@ -38,7 +38,6 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
         if (currentSelectionIndex != position) {
             currentSelectionIndex = position
             notifyDataSetChanged()
-            views[position]?.performClick()
         }
     }
 
