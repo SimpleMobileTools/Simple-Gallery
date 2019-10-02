@@ -35,6 +35,14 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
 
     fun getCurrentPhoto() = currentSelection
 
+    private fun setCurrentPhoto(position: Int) {
+        val newPhoto = photos.getOrNull(position) ?: return
+        if (currentSelection != newPhoto) {
+            currentSelection = newPhoto
+            notifyDataSetChanged()
+        }
+    }
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(photo: String, position: Int): View {
             itemView.apply {
@@ -64,6 +72,7 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                 if (photo.isNotEmpty()) {
                     setOnClickListener {
                         itemClick(position, x.toInt())
+                        setCurrentPhoto(position)
                     }
                 } else {
                     setOnClickListener(null)
