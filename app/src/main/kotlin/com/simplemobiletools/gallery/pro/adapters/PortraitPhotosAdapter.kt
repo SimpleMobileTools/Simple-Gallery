@@ -18,7 +18,7 @@ import java.util.*
 class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int, Int) -> Unit) :
         RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
 
-    private var currentSelection = photos.firstOrNull { it.contains("cover", true) } ?: photos.firstOrNull { it.isNotEmpty() }
+    var currentSelectionIndex = -1
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
     private val itemWidth = context.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt()
 
@@ -33,12 +33,9 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
 
     override fun getItemCount() = photos.size
 
-    fun getCurrentPhoto() = currentSelection
-
-    private fun setCurrentPhoto(position: Int) {
-        val newPhoto = photos.getOrNull(position) ?: return
-        if (currentSelection != newPhoto) {
-            currentSelection = newPhoto
+    fun setCurrentPhoto(position: Int) {
+        if (currentSelectionIndex != position) {
+            currentSelectionIndex = position
             notifyDataSetChanged()
         }
     }
@@ -52,7 +49,7 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                     itemWidth
                 }
 
-                portrait_photo_item_thumbnail.background = if (photo.isEmpty() || getCurrentPhoto() != photo) {
+                portrait_photo_item_thumbnail.background = if (photo.isEmpty() || position != currentSelectionIndex) {
                     null
                 } else {
                     strokeBackground

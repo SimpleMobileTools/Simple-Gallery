@@ -448,13 +448,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun showPortraitStripe() {
-        var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
-        if (context!!.config.bottomActions) {
-            bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
-        }
-        (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
-        mView.photo_portrait_stripe_wrapper.beVisible()
-
         val files = File(mMedium.parentPath).listFiles()?.toMutableList() as? ArrayList<File>
         if (files != null) {
             val screenWidth = context!!.realScreenSize.x
@@ -486,6 +479,33 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             mView.photo_portrait_stripe.adapter = adapter
+
+            var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
+            if (context!!.config.bottomActions) {
+                bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
+            }
+            (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+
+            var coverIndex = -1
+            paths.forEachIndexed { index, path ->
+                if (path.contains("cover", true)) {
+                    coverIndex = index
+                }
+            }
+
+            if (coverIndex == -1) {
+                paths.forEachIndexed { index, path ->
+                    if (path.isNotEmpty()) {
+                        coverIndex = index
+                    }
+                }
+            }
+
+            mView.photo_portrait_stripe.onGlobalLayout {
+                mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
+                adapter.setCurrentPhoto(coverIndex)
+                mView.photo_portrait_stripe_wrapper.beVisible()
+            }
         }
     }
 

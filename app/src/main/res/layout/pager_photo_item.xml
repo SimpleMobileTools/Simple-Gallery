@@ -84,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/portrait_photos_stripe_height"
         android:layout_alignParentBottom="true"
-        android:visibility="gone">
+        android:visibility="invisible">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photo_portrait_stripe"
