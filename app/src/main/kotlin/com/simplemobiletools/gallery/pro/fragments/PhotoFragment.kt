@@ -458,7 +458,7 @@ class PhotoFragment : ViewPagerFragment() {
         val files = File(mMedium.parentPath).listFiles()?.toMutableList() as? ArrayList<File>
         if (files != null) {
             val screenWidth = context!!.realScreenSize.x
-            val itemWidth = context!!.resources.getDimension(R.dimen.portrait_photos_stripe_height) + context!!.resources.getDimension(R.dimen.one_dp)
+            val itemWidth = context!!.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt() + context!!.resources.getDimension(R.dimen.one_dp).toInt()
             val sideWidth = screenWidth / 2 - itemWidth / 2
             val fakeItemsCnt = ceil(sideWidth / itemWidth.toDouble()).toInt()
 
@@ -480,8 +480,10 @@ class PhotoFragment : ViewPagerFragment() {
                 curWidth += itemWidth
             }
 
-            val sideElementWidth = curWidth.toInt() - screenWidth
-            val adapter = PortraitPhotosAdapter(context!!, paths, sideElementWidth) {
+            val sideElementWidth = curWidth - screenWidth
+            val adapter = PortraitPhotosAdapter(context!!, paths, sideElementWidth) { position, x ->
+                mView.photo_portrait_stripe.smoothScrollBy((x + itemWidth / 2) - screenWidth / 2, 0)
+
             }
 
             mView.photo_portrait_stripe.adapter = adapter

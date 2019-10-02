@@ -15,7 +15,7 @@ import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.portrait_photo_item.view.*
 import java.util.*
 
-class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int) -> Unit) :
+class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int, Int) -> Unit) :
         RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
 
     private var currentSelection = photos.firstOrNull { it.contains("cover", true) } ?: photos.firstOrNull { it.isNotEmpty() }
@@ -60,6 +60,14 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .apply(options)
                         .into(portrait_photo_item_thumbnail)
+
+                if (photo.isNotEmpty()) {
+                    setOnClickListener {
+                        itemClick(position, x.toInt())
+                    }
+                } else {
+                    setOnClickListener(null)
+                }
             }
             return itemView
         }
