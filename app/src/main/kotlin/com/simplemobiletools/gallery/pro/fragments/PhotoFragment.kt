@@ -41,6 +41,7 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
+import com.simplemobiletools.gallery.pro.adapters.PortraitPhotosAdapter
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -452,6 +453,15 @@ class PhotoFragment : ViewPagerFragment() {
         }
         (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
         mView.photo_portrait_stripe_wrapper.beVisible()
+
+        val files = File(mMedium.parentPath).listFiles()?.toMutableList() as? ArrayList<File>
+        if (files != null) {
+            val paths = files.map { it.absolutePath }.toMutableList() as ArrayList<String>
+            val adapter = PortraitPhotosAdapter(context!!, paths) {
+
+            }
+            mView.photo_portrait_stripe.adapter = adapter
+        }
     }
 
     private fun openPanorama() {
