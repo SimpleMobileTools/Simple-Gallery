@@ -18,7 +18,7 @@ import java.util.*
 class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int) -> Unit) :
         RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
 
-    private var currentSelection = photos.first()
+    private var currentSelection = photos.firstOrNull { it.contains("cover", true) } ?: photos.firstOrNull { it.isNotEmpty() }
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
     private val itemWidth = context.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt()
 
