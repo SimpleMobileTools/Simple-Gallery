@@ -56,6 +56,7 @@ import pl.droidsonroids.gif.InputSource
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
+import kotlin.math.ceil
 
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
@@ -456,10 +457,33 @@ class PhotoFragment : ViewPagerFragment() {
 
         val files = File(mMedium.parentPath).listFiles()?.toMutableList() as? ArrayList<File>
         if (files != null) {
-            val paths = files.map { it.absolutePath }.toMutableList() as ArrayList<String>
-            val adapter = PortraitPhotosAdapter(context!!, paths) {
+            val screenWidth = context!!.realScreenSize.x
+            val itemWidth = context!!.resources.getDimension(R.dimen.portrait_photos_stripe_height) + context!!.resources.getDimension(R.dimen.one_dp)
+            val sideWidth = screenWidth / 2 - itemWidth / 2
+            val fakeItemsCnt = ceil(sideWidth / itemWidth.toDouble()).toInt()
 
+            val paths = ArrayList<String>()
+            for (i in 0 until fakeItemsCnt) {
+                paths.add("")
             }
+
+            files.forEach {
+                paths.add(it.absolutePath)
+            }
+
+            for (i in 0 until fakeItemsCnt) {
+                paths.add("")
+            }
+
+            var curWidth = itemWidth
+            while (curWidth < screenWidth) {
+                curWidth += itemWidth
+            }
+
+            val sideElementWidth = curWidth.toInt() - screenWidth
+            val adapter = PortraitPhotosAdapter(context!!, paths, sideElementWidth) {
+            }
+
             mView.photo_portrait_stripe.adapter = adapter
         }
     }

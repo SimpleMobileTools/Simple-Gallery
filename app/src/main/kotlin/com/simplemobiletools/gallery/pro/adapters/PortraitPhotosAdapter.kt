@@ -12,17 +12,15 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.getFileKey
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.realScreenSize
 import kotlinx.android.synthetic.main.portrait_photo_item.view.*
 import java.util.*
 
-class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val itemClick: (Int) -> Unit) :
+class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int) -> Unit) :
         RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
 
     private var currentSelection = photos.first()
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
-    private val screenWidth = context.realScreenSize.x
-    private val itemWidth = context.resources.getDimension(R.dimen.portrait_photos_stripe_height) + context.resources.getDimension(R.dimen.one_dp)
+    private val itemWidth = context.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindView(photos[position], position)
@@ -40,16 +38,16 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(photo: String, position: Int): View {
             itemView.apply {
-                if (position == 0) {
-                    portrait_photo_item_holder.setPadding(getStripeSidePadding(), 0, 0, 0)
-                } else if (position == photos.size - 1) {
-                    portrait_photo_item_holder.setPadding(0, 0, getStripeSidePadding(), 0)
+                if (position == 0 || position == photos.size - 1) {
+                    portrait_photo_item_thumbnail.layoutParams.width = sideElementWidth
+                } else {
+                    portrait_photo_item_thumbnail.layoutParams.width = itemWidth
                 }
 
-                portrait_photo_item_thumbnail.background = if (getCurrentPhoto() == photo) {
-                    strokeBackground
-                } else {
+                portrait_photo_item_thumbnail.background = if (photo.isEmpty() || getCurrentPhoto() != photo) {
                     null
+                } else {
+                    strokeBackground
                 }
 
                 val options = RequestOptions()
@@ -66,6 +64,4 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
             return itemView
         }
     }
-
-    private fun getStripeSidePadding() = screenWidth / 2 - (itemWidth / 2).toInt()
 }

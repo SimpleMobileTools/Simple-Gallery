@@ -86,7 +86,7 @@
         android:layout_alignParentBottom="true"
         android:visibility="gone">
 
-        <com.simplemobiletools.commons.views.MyRecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photo_portrait_stripe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
