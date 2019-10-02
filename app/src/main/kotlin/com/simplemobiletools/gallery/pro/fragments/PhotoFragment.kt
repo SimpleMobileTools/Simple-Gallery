@@ -16,6 +16,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -470,6 +471,8 @@ class PhotoFragment : ViewPagerFragment() {
             setupStripeBottomMargin()
 
             val coverIndex = getCoverImageIndex(paths)
+            setupStripeUpListener(adapter, screenWidth, itemWidth)
+
             mView.photo_portrait_stripe.onGlobalLayout {
                 mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
                 adapter.setCurrentPhoto(coverIndex)
@@ -518,6 +521,28 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
         return coverIndex
+    }
+
+    private fun setupStripeUpListener(adapter: PortraitPhotosAdapter, screenWidth: Int, itemWidth: Int) {
+        mView.photo_portrait_stripe.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                var closestIndex = -1
+                var closestDistance = Integer.MAX_VALUE
+                val center = screenWidth / 2
+                for ((key, value) in adapter.views) {
+                    val distance = Math.abs(value.x.toInt() + itemWidth / 2 - center)
+                    if (distance < closestDistance) {
+                        closestDistance = distance
+                        closestIndex = key
+                    }
+                }
+
+                Handler().postDelayed({
+                    adapter.performClickOn(closestIndex)
+                }, 100)
+            }
+            false
+        }
     }
 
     private fun openPanorama() {

@@ -19,6 +19,7 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
         RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
 
     var currentSelectionIndex = -1
+    var views = HashMap<Int, View>()
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
     private val itemWidth = context.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt()
 
@@ -37,7 +38,12 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
         if (currentSelectionIndex != position) {
             currentSelectionIndex = position
             notifyDataSetChanged()
+            views[position]?.performClick()
         }
+    }
+
+    fun performClickOn(position: Int) {
+        views[position]?.performClick()
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -67,6 +73,7 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                         .into(portrait_photo_item_thumbnail)
 
                 if (photo.isNotEmpty()) {
+                    views[position] = this
                     setOnClickListener {
                         itemClick(position, x.toInt())
                         setCurrentPhoto(position)
