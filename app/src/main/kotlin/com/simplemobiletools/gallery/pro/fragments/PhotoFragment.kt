@@ -76,6 +76,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var mWasInit = false
     private var mIsPanorama = false
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
+    private var mCurrentPortraitPhotoPath = ""
     private var mImageOrientation = -1
     private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
@@ -465,12 +466,16 @@ class PhotoFragment : ViewPagerFragment() {
             val sideElementWidth = curWidth - screenWidth
             val adapter = PortraitPhotosAdapter(context!!, paths, sideElementWidth) { position, x ->
                 mView.photo_portrait_stripe.smoothScrollBy((x + itemWidth / 2) - screenWidth / 2, 0)
+                if (paths[position] != mCurrentPortraitPhotoPath) {
+                    mCurrentPortraitPhotoPath = paths[position]
+                }
             }
 
             mView.photo_portrait_stripe.adapter = adapter
             setupStripeBottomMargin()
 
             val coverIndex = getCoverImageIndex(paths)
+            mCurrentPortraitPhotoPath = paths[coverIndex]
             setupStripeUpListener(adapter, screenWidth, itemWidth)
 
             mView.photo_portrait_stripe.onGlobalLayout {
