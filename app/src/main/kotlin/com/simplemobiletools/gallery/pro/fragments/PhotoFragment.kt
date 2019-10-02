@@ -483,7 +483,6 @@ class PhotoFragment : ViewPagerFragment() {
             val sideElementWidth = curWidth - screenWidth
             val adapter = PortraitPhotosAdapter(context!!, paths, sideElementWidth) { position, x ->
                 mView.photo_portrait_stripe.smoothScrollBy((x + itemWidth / 2) - screenWidth / 2, 0)
-
             }
 
             mView.photo_portrait_stripe.adapter = adapter

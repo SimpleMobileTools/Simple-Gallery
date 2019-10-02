@@ -46,10 +46,10 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(photo: String, position: Int): View {
             itemView.apply {
-                if (position == 0 || position == photos.size - 1) {
-                    portrait_photo_item_thumbnail.layoutParams.width = sideElementWidth
+                portrait_photo_item_thumbnail.layoutParams.width = if (position == 0 || position == photos.size - 1) {
+                    sideElementWidth
                 } else {
-                    portrait_photo_item_thumbnail.layoutParams.width = itemWidth
+                    itemWidth
                 }
 
                 portrait_photo_item_thumbnail.background = if (photo.isEmpty() || getCurrentPhoto() != photo) {
