@@ -3,8 +3,8 @@
     android:id="@+id/portrait_photo_item_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="1dp"
-    android:layout_marginEnd="1dp">
+    android:layout_marginStart="@dimen/one_dp"
+    android:layout_marginEnd="@dimen/one_dp">
 
     <ImageView
         android:id="@+id/portrait_photo_item_thumbnail"
@@ -12,6 +12,6 @@
         android:layout_height="@dimen/portrait_photos_stripe_height"
         android:background="@drawable/stroke_background"
         android:contentDescription="@null"
-        android:padding="1dp" />
+        android:padding="@dimen/one_dp" />
 
 </RelativeLayout>
