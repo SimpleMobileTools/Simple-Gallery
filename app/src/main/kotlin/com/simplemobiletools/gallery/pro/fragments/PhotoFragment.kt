@@ -342,15 +342,16 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         checkScreenDimensions()
+
+        if (mMedium.isPortrait() && context != null) {
+            showPortraitStripe()
+        }
+
         mImageOrientation = getImageOrientation()
         when {
             mMedium.isGIF() -> loadGif()
             mMedium.isSVG() -> loadSVG()
             else -> loadBitmap()
-        }
-
-        if (mMedium.isPortrait() && context != null) {
-            showPortraitStripe()
         }
     }
 
@@ -386,7 +387,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadBitmap(addZoomableView: Boolean = true) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
-                .signature(mMedium.path.getFileSignature())
+                .signature(getFilePathToShow().getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
                 .priority(priority)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -398,7 +399,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         Glide.with(context!!)
-                .load(mMedium.path)
+                .load(getFilePathToShow())
                 .apply(options)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
@@ -419,7 +420,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun tryLoadingWithPicasso(addZoomableView: Boolean) {
-        var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
+        var pathToLoad = if (getFilePathToShow().startsWith("content://")) getFilePathToShow() else "file://${getFilePathToShow()}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
         try {
@@ -468,6 +469,8 @@ class PhotoFragment : ViewPagerFragment() {
                 mView.photo_portrait_stripe.smoothScrollBy((x + itemWidth / 2) - screenWidth / 2, 0)
                 if (paths[position] != mCurrentPortraitPhotoPath) {
                     mCurrentPortraitPhotoPath = paths[position]
+                    hideZoomableView()
+                    loadBitmap()
                 }
             }
 
@@ -550,6 +553,8 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
+    private fun getFilePathToShow() = if (mMedium.isPortrait()) mCurrentPortraitPhotoPath else mMedium.path
+
     private fun openPanorama() {
         Intent(context, PanoramaPhotoActivity::class.java).apply {
             putExtra(PATH, mMedium.path)
@@ -597,7 +602,7 @@ class PhotoFragment : ViewPagerFragment() {
             rotationEnabled = config.allowRotatingWithGestures
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = newOrientation
-            setImage(mMedium.path)
+            setImage(getFilePathToShow())
 
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
@@ -661,7 +666,7 @@ class PhotoFragment : ViewPagerFragment() {
         var orient = defaultOrientation
 
         try {
-            val path = mMedium.path
+            val path = getFilePathToShow()
             orient = if (path.startsWith("content:/")) {
                 val inputStream = context!!.contentResolver.openInputStream(Uri.parse(path))
                 val exif = ExifInterface()
@@ -673,7 +678,7 @@ class PhotoFragment : ViewPagerFragment() {
                 exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
             }
 
-            if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
+            if (orient == defaultOrientation || context!!.isPathOnOTG(getFilePathToShow())) {
                 val uri = if (path.startsWith("content:/")) Uri.parse(path) else Uri.fromFile(File(path))
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()
