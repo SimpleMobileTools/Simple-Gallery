@@ -688,7 +688,7 @@ class PhotoFragment : ViewPagerFragment() {
                 panorama_outline.isClickable = !isFullscreen
             }
 
-            if (mMedium.isPortrait()) {
+            if (mWasInit && mMedium.isPortrait()) {
                 photo_portrait_stripe_wrapper.animate().alpha(if (isFullscreen) 0f else 1f).start()
             }
         }
