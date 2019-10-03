@@ -132,7 +132,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         setupButtonMargins()
     }
