@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.10.0 *(2019-10-04)*
+----------------------------
+
+ * Added initial support for Portrait images
+ * Updated some helper libraries
+ * Some stability and translation improvements
+
 Version 6.9.6 *(2019-09-12)*
 ----------------------------
 
