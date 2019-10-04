@@ -72,13 +72,14 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                         .into(portrait_photo_item_thumbnail)
 
                 if (photo.isNotEmpty()) {
+                    isClickable = true
                     views[position] = this
                     setOnClickListener {
                         itemClick(position, x.toInt())
                         setCurrentPhoto(position)
                     }
                 } else {
-                    setOnClickListener(null)
+                    isClickable = false
                 }
             }
             return itemView
