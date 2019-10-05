@@ -42,7 +42,7 @@
     <string name="gifs">GIF-зображення</string>
     <string name="raw_images">RAW-зображення</string>
     <string name="svgs">SVG-зображення</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Портрети</string>
     <string name="no_media_with_filters">З вибраними фільтрами мультимедійні файли не знайдено.</string>
     <string name="change_filters_underlined"><u>Змінити фільтри</u></string>
 
