@@ -245,9 +245,11 @@ class MediaFetcher(val context: Context) {
 
         for (subdir in subdirs) {
             val portraitFiles = subdir.listFiles() ?: continue
-            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.first()
-            files.add(cover)
-            covers.add(cover.absolutePath)
+            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
+            if (cover != null) {
+                files.add(cover)
+                covers.add(cover.absolutePath)
+            }
         }
 
         for (file in files) {

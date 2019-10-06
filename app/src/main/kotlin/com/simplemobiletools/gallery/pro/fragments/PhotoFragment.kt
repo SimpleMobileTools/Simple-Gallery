@@ -482,13 +482,15 @@ class PhotoFragment : ViewPagerFragment() {
             setupStripeBottomMargin()
 
             val coverIndex = getCoverImageIndex(paths)
-            mCurrentPortraitPhotoPath = paths[coverIndex]
-            setupStripeUpListener(adapter, screenWidth, itemWidth)
+            if (coverIndex != -1) {
+                mCurrentPortraitPhotoPath = paths[coverIndex]
+                setupStripeUpListener(adapter, screenWidth, itemWidth)
 
-            mView.photo_portrait_stripe.onGlobalLayout {
-                mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
-                adapter.setCurrentPhoto(coverIndex)
-                mView.photo_portrait_stripe_wrapper.beVisible()
+                mView.photo_portrait_stripe.onGlobalLayout {
+                    mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
+                    adapter.setCurrentPhoto(coverIndex)
+                    mView.photo_portrait_stripe_wrapper.beVisible()
+                }
             }
         }
     }
