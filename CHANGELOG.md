@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.10.1 *(2019-10-06)*
+----------------------------
+
+ * Fixed some Portrait photo related crashes
+
 Version 6.10.0 *(2019-10-04)*
 ----------------------------
 
