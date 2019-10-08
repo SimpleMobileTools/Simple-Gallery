@@ -9,7 +9,7 @@
     <string name="pin_folder">폴더 고정</string>
     <string name="unpin_folder">폴더 고정 해제</string>
     <string name="pin_to_the_top">상단에 고정</string>
-    <string name="show_all">모든 폴더의 컨텐츠 보기</string>
+    <string name="show_all">모두 펼쳐보기</string>
     <string name="all_folders">모든 폴더</string>
     <string name="folder_view">폴더 보기로 변경</string>
     <string name="other_folder">다른 폴더</string>
@@ -171,7 +171,7 @@
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">표시할 세부정보 편집</string>
     <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>
-    <string name="allow_instant_change">측면 터치로 파일 전환</string>
+    <string name="allow_instant_change">측면 터치로 사진 이동</string>
     <string name="allow_deep_zooming_images">확대 범위 확장</string>
     <string name="hide_extended_details">상태 표시줄 숨김 시 세부정보 같이 숨기기</string>
     <string name="show_at_bottom">화면 하단에 UI 표시</string>
@@ -181,14 +181,14 @@
     <string name="show_recycle_bin_last">첫화면에서 휴지통을 마지막 항목으로 표시</string>
     <string name="allow_down_gesture">아래로 스와이프하여 전체화면 나가기</string>
     <string name="allow_one_to_one_zoom">두번 탭하여 1:1 크기로 보기</string>
-    <string name="open_videos_on_separate_screen">동영상을 따로 열어 새로운 수평 제스쳐 사용</string>
+    <string name="open_videos_on_separate_screen">동영상을 따로 열어 새 수평 제스처 사용</string>
     <string name="show_notch">가능한 경우 노치 표시</string>
-    <string name="allow_rotating_gestures">제스쳐로 사진 회전</string>
+    <string name="allow_rotating_gestures">제스처로 사진 회전</string>
     <string name="file_loading_priority">파일 로딩 우선권</string>
     <string name="speed">속도</string>
     <string name="compromise">균형</string>
     <string name="avoid_showing_invalid_files">잘못된 파일 보이지 않기</string>
-    <string name="show_image_file_types">사진 파일 종류 보이기</string>
+    <string name="show_image_file_types">사진 파일 종류 표시</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>
