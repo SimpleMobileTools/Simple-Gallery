@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.10.2 *(2019-10-13)*
+----------------------------
+
+ * Fixed a glitch with small letters in some cases
+ * Properly display SVG images
+ * Show a "Pro" label at the About sections' app version
+
 Version 6.10.1 *(2019-10-06)*
 ----------------------------
 
