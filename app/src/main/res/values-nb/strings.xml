@@ -42,7 +42,7 @@
     <string name="gifs">GIF-bilder</string>
     <string name="raw_images">RAW-format-bilder</string>
     <string name="svgs">SVG-bilder</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Portretter</string>
     <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
 
@@ -188,7 +188,7 @@
     <string name="speed">Hastighet</string>
     <string name="compromise">Kompromiss</string>
     <string name="avoid_showing_invalid_files">Unngå visning av ugyldige filer</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Vis bildefiltyper</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
