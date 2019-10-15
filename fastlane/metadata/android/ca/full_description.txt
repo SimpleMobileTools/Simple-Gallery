@@ -1,0 +1,51 @@
+Simple Gallery Pro és una galeria fora de línia altament personalitzable. Organitza i edita les teves fotos, recupera fitxers suprimits amb la paperera de reciclatge, protegeix i amaga fitxers, mostra una gran varietat de formats de foto i vídeo incloent RAW, SVG i molt més.
+
+L’aplicació no conté anuncis ni permisos innecessaris. Com que l’aplicació tampoc no requereix accés a Internet, la vostra privadesa està protegida.
+
+-------------------------------------------------
+<b>SIMPLE GALLERY PRO - CARACTERÍSTIQUES</b>
+-------------------------------------------------
+
+• Galeria sense connexió sense anuncis ni finestres emergents
+• Editor de fotos senzilles de la galeria: retalla, gira, canvia de mida, dibuixa, filtra i més
+• No es necessita accés a Internet, donant-li més privacitat i seguretat
+• No es necessiten permisos innecessaris
+• Cerca ràpidament imatges, vídeos i fitxers
+• Obre i visualitza molts tipus de fotos i de vídeo diferents (RAW, SVG, panoràmiques, etc.)
+• Una varietat de gestos intuïtius per editar fàcilment i organitzar els fitxers
+• Moltes maneres de filtrar, agrupar, amplificar i ordenar fitxers
+• Personalitza l’aparença de Simple Gallery Pro
+• Disponible en 32 idiomes
+• Marca els fitxers com a preferits per accedir ràpidament
+• Protegeix les teves fotos i vídeos amb un patró, pin o empremta digital
+• Utilitza un pin, patró i empremta digital per protegir també el llançament de l’aplicació o funcions específiques
+• Recupera fotos i vídeos esborrats de la paperera de reciclatge
+• Canvia la visibilitat dels fitxers per ocultar fotografies i vídeos
+• Crea una presentació de diapositives personalitzable dels teus fitxers
+• Mostra informació detallada dels teus fitxers (resolució, valors EXIF, etc.)
+• Simple Gallery Pro és de codi obert
+... i molt més!
+
+<b>EDITOR DE GALERIA DE FOTOS </b>
+Simple Gallery Pro et permet editar fàcilment les vostres imatges. Retalla, gira, gira i canvia la mida de les teves fotos. Si et sents una mica més creatiu, pots afegir filtres i dibuixar-ne les imatges.
+
+<b>SUPORT PER ALTRES TIPUS DE ARXIU </b>
+A diferència d’altres aplicacions de galeria, Simple Gallery Pro suporta una gran varietat de tipus de fitxers diferents, inclosos JPEG, PNG, MP4, MKV, RAW, SVG, fotos panoràmiques, vídeos panoràmics i molts més.
+
+<b>GESTOR DE GALERIA ALTAMENT PERSONALITZABLE </b>
+Des de la interfície d’usuari fins als botons de funció de la barra d’eines inferior, Simple Gallery Pro és altament personalitzable i funciona de la manera que desitgis. Cap altre aplicació de galeria té aquest tipus de flexibilitat. Gràcies a ser de codi obert, també estem disponibles en 32 idiomes.
+
+<b>RECUPERES FOTOS I VÍDEOS </b>
+Has suprimit accidentalment una foto o vídeo precios? No et preocupis! Simple Gallery Pro disposa d’una paperera de reciclatge on podeu recuperar fotos i vídeos eliminats fàcilment.
+
+<b>PROTEGEIX, OCULTA FOTOS, VÍDEOS I ARXIUS </b>
+Amb el pin, el patró o l’escàner d’emprenta digital del teu dispositiu, pots protegir i amagar fotografies, vídeos i àlbums sencers. Pots protegir la pròpia aplicació o col·locar panys sobre funcions específiques de l’aplicació. Per exemple, no poder esborrar un fitxer sense una anàlisi d’empremtes digitals, ajudant-vos a protegir els teus fitxers de l’eliminació accidental.
+
+<b>Consulteu el conjunt complet d’eines senzilles aquí: </b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools
