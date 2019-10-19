@@ -42,7 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">Imagens RAW</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Retratos</string>
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
@@ -58,7 +58,7 @@
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerir pastas ocultas</string>
-    <string name="hidden_folders_placeholder">Parece que não existem pastas ocultas com ficheiros \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Parece que não existem pastas ocultadas com ficheiros \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
@@ -186,7 +186,7 @@
     <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
     <string name="file_loading_priority">Prioridade de carregamento dos ficheiros</string>
     <string name="speed">Velocidade</string>
-    <string name="compromise">Compromisso</string>
+    <string name="compromise">Qualidade</string>
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
     <string name="show_image_file_types">Mostrar o tipo de imagem</string>
 
@@ -247,25 +247,25 @@
         <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Galeria local sem quaisquer anúncios
+        • Editor de fotos – recorte, rotação, redimensionamento, filtros e mais
+        • Não requer acesso à Internet, garantindo a sua privacidade e segurança
+        • Não requer permissões desnecessárias
+        • Pesquisa rápida de imagens, vídeos e ficheiros
+        • Com suporte a diversos tipos de ficheiros (RAW, SVG, panorâmica, etc)
+        • Pode utilizar gestos para editar e organizar ficheiros
+        • Diversas opções para filtrar, agrupar e ordenar ficheiros
+        • Personalização da aparência da aplicação
+        • Disponível em 32 idiomas
+        • Marcar ficheiros como favoritos para acesso rápido
+        • Proteção de fotos e vídeos com recurso a padrões, PIN ou impressão digital
+        • Também pode utilizar padrões PIN e impressão digital para impedir a abertura da aplicação ou para restringir ações
+        • Recuperação de fotos e vídeos apagados através da reciclagem
+        • Alternar visibilidade dos ficheiros para ocultar/mostrar fotos e vídeos
+        • Criação de apresentações personalizadas
+        • Ver informações detalhadas dos ficheiros (resolução, dados EXIF, etc)
+        • Simple Gallery Pro é open source
+        … e muito mais!
 
         <b>PHOTO GALLERY EDITOR</b>
         Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
