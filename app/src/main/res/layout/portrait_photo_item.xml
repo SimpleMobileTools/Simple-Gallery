@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/portrait_photo_item_holder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/one_dp"
+    android:layout_marginEnd="@dimen/one_dp">
+
+    <ImageView
+        android:id="@+id/portrait_photo_item_thumbnail"
+        android:layout_width="@dimen/portrait_photos_stripe_height"
+        android:layout_height="@dimen/portrait_photos_stripe_height"
+        android:background="@drawable/stroke_background"
+        android:contentDescription="@null"
+        android:padding="@dimen/one_dp" />
+
+</RelativeLayout>

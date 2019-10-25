@@ -1,6 +1,25 @@
 Changelog
 ==========
 
+Version 6.10.2 *(2019-10-13)*
+----------------------------
+
+ * Fixed a glitch with small letters in some cases
+ * Properly display SVG images
+ * Show a "Pro" label at the About sections' app version
+
+Version 6.10.1 *(2019-10-06)*
+----------------------------
+
+ * Fixed some Portrait photo related crashes
+
+Version 6.10.0 *(2019-10-04)*
+----------------------------
+
+ * Added initial support for Portrait images
+ * Updated some helper libraries
+ * Some stability and translation improvements
+
 Version 6.9.6 *(2019-09-12)*
 ----------------------------
 

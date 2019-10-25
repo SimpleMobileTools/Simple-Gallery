@@ -266,7 +266,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (!File(mPath).exists()) {
+        if (mPath.isPortrait() && getPortraitPath() == "") {
+            val newIntent = Intent(this, ViewPagerActivity::class.java)
+            newIntent.putExtras(intent!!.extras!!)
+            newIntent.putExtra(PORTRAIT_PATH, mPath)
+            newIntent.putExtra(PATH, "${mPath.getParentPath().getParentPath()}/${mPath.getFilenameFromPath()}")
+
+            startActivity(newIntent)
+            finish()
+            return
+        }
+
+        if (!File(mPath).exists() && getPortraitPath() == "") {
             finish()
             return
         }
@@ -336,6 +347,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         mPath.isGif() -> TYPE_GIFS
                         mPath.isSvg() -> TYPE_SVGS
                         mPath.isRawFast() -> TYPE_RAWS
+                        mPath.isPortrait() -> TYPE_PORTRAITS
                         else -> TYPE_IMAGES
                     }
 
@@ -507,7 +519,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun scheduleSwipe() {
         mSlideshowHandler.removeCallbacksAndMessages(null)
         if (mIsSlideshowActive) {
-            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGIF()) {
+            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGIF() || getCurrentMedium()!!.isPortrait()) {
                 mSlideshowHandler.postDelayed({
                     if (mIsSlideshowActive && !isDestroyed) {
                         swipeToNextMedium()
@@ -529,7 +541,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getMediaForSlideshow(): Boolean {
         mSlideshowMedia = mMediaFiles.filter {
-            it.isImage() || (config.slideshowIncludeVideos && it.isVideo() || (config.slideshowIncludeGIFs && it.isGIF()))
+            it.isImage() || it.isPortrait() || (config.slideshowIncludeVideos && it.isVideo() || (config.slideshowIncludeGIFs && it.isGIF()))
         }.toMutableList()
 
         if (config.slideshowRandomOrder) {
@@ -669,6 +681,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getCurrentPhotoFragment() = getCurrentFragment() as? PhotoFragment
+
+    private fun getPortraitPath() = intent.getStringExtra(PORTRAIT_PATH) ?: ""
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
@@ -995,7 +1009,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         initBottomActionsLayout()
     }
@@ -1032,7 +1046,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun getPositionInList(items: MutableList<Medium>): Int {
         mPos = 0
         for ((i, medium) in items.withIndex()) {
-            if (medium.path == mPath) {
+            val portraitPath = getPortraitPath()
+            if (portraitPath != "") {
+                val portraitPaths = File(portraitPath).parentFile?.list()
+                if (portraitPaths != null) {
+                    for (path in portraitPaths) {
+                        if (medium.name == path) {
+                            return i
+                        }
+                    }
+                }
+            } else if (medium.path == mPath) {
                 return i
             }
         }

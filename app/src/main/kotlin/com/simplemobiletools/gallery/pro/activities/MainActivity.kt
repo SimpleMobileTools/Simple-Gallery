@@ -1119,8 +1119,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (!File(it.path).exists()) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
-                val children = File(it.path).list()?.asList()
-                val hasMediaFile = children?.any { it?.isMediaFile() == true } ?: false
+                val children = File(it.path).listFiles()?.asList()
+                val hasMediaFile = children?.any {
+                    it?.isMediaFile() == true || (it.isDirectory && it.name.startsWith("img_", true))
+                } ?: false
+
                 if (!hasMediaFile) {
                     invalidDirs.add(it)
                 }

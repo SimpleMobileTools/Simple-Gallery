@@ -1,0 +1,51 @@
+Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
+
+Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá prístup na internet, vaše súkromie je chránené.
+
+-------------------------------------------------
+<b>JEDNODUCHÁ GALÉRIA PRO - FUNKCIE</b>
+-------------------------------------------------
+
+• Offline galéria bez reklám a vyskakujúcich okien
+• Editor Jednoduchej Galérie - orezávajte, otáčajte, meňte veľkosť, kreslite, používajte filtre a viac
+• Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia a bezpečia
+• Nie sú potrebné žiadne podozrivé oprávnenia
+• Rýchlo prehliadajte obrázky a videá
+• Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, panoramatické atď)
+• Množstvo intuitívnych gest pre jednoduchú úpravu a organizovanie súborov
+• Veľa rôznych spôsobov filtrovania, zoskupovania a radenia súborov
+• Zmeňte si vzhľad Jednoduchej Galérie
+• Dostupná v 32 jazykoch
+• Označte obľúbené súbory pre rýchly prístup
+• Chráňte vaše obrázky a videá vzorom, PIN kódom alebo odtlačkom prstov
+• Použite PIN kód, vzor, alebo odtlačky prstov na zabezpečenie spúšťania apky, alebo niektorých funkcií
+• Obnovte vymazané fotky a videá pomocou odpadkového koša
+• Prepnite viditeľnosť súborov pre ich ochranu
+• Vytvorte zo súborov prezentáciu
+• Prezrite si detailné informácie o súboroch (rozlíšenie, EXIF hodnoty atď)
+• Jednoduchá Galéria Pro má otvorený zdrojový kód
+… a mnoho mnoho ďalšieho!
+
+<b>EDITOR OBRÁZKOV</b>
+Jednoduchá Galéria Pro umožňuje ľahkú úpravu obrázkov. Orezávajte, preklápajte, alebo meňte ich veľkosť. Ak sa cítite kreatívne, môžete aj aplikovať filtre, alebo na nich kresliť!
+
+<b>PODPORA PRE MNOŽSTVO TYPOV SÚBOROV</b>
+Na rozdiel od niektorých galérií podporuje Jednoduchá Galéria množstvo rôznych druhov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+
+<b>VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV</b>
+Od vzhľadu po funkcie na spodej lište, Jednoduchá Galéria je upraviteľná a bude fungovať presne tak, ako chcete. Žiadna iná galéria nie je taká flexibilná! Vďaka otvorenému zdrojovému kódu je apka dostupná v 32 jazykoch!
+
+<b>OBNOVTE VYMAZANÉ FOTKY A VIDEÁ</b>
+Vymazali ste náhodou dôležitú fotku, alebo video? Jednoduchá Galéria Pro obsahuje užitočný odpadkový kôš, vďaka ktorému viete jednoducho obnoviť vymazané súbory.
+
+<b>OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ</b>
+Použitím PIN kódu, vzoru, alebo odtlačkov prstov viete vaše súbory ochrániť, alebo ukryť. Taktiež viete ochrániť aj buď spúšťanie apky ako takej, alebo niektoré jej funkcie. Napríklad tým viete zabrániť náhodnému vymazaniu súborov bez vašich odtlačkov prstov.
+
+<b>Pozrite si celú sadu aplikácií na:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

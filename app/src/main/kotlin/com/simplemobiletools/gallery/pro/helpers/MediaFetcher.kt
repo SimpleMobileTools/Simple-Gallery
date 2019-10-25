@@ -97,6 +97,11 @@ class MediaFetcher(val context: Context) {
             }
         }
 
+        if (filterMedia and TYPE_PORTRAITS != 0) {
+            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+        }
+
         if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
@@ -128,6 +133,11 @@ class MediaFetcher(val context: Context) {
             photoExtensions.forEach {
                 args.add("%$it")
             }
+        }
+
+        if (filterMedia and TYPE_PORTRAITS != 0) {
+            args.add("%.jpg")
+            args.add("%.jpeg")
         }
 
         if (filterMedia and TYPE_VIDEOS != 0) {
@@ -208,7 +218,10 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
-        val subdirs = ArrayList<File>() // used only for Portrait photos starting with "IMG_" for now
+
+        // used only for Portrait photos starting with "IMG_" for now
+        val subdirs = ArrayList<File>()
+        val covers = ArrayList<String>()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
@@ -232,8 +245,11 @@ class MediaFetcher(val context: Context) {
 
         for (subdir in subdirs) {
             val portraitFiles = subdir.listFiles() ?: continue
-            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.first()
-            files.add(cover)
+            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
+            if (cover != null) {
+                files.add(cover)
+                covers.add(cover.absolutePath)
+            }
         }
 
         for (file in files) {
@@ -242,13 +258,14 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = file.absolutePath
-            val isImage = path.isImageFast()
-            val isVideo = if (isImage) false else path.isVideoFast()
-            val isGif = if (isImage || isVideo) false else path.isGif()
-            val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
-            val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
+            val isPortrait = covers.contains(path)
+            val isImage = if (isPortrait) false else path.isImageFast()
+            val isVideo = if (isPortrait || isImage) false else path.isVideoFast()
+            val isGif = if (isPortrait || isImage || isVideo) false else path.isGif()
+            val isRaw = if (isPortrait || isImage || isVideo || isGif) false else path.isRawFast()
+            val isSvg = if (isPortrait || isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
-            if (!isImage && !isVideo && !isGif && !isRaw && !isSvg)
+            if (!isPortrait && !isImage && !isVideo && !isGif && !isRaw && !isSvg)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
@@ -297,6 +314,7 @@ class MediaFetcher(val context: Context) {
                     isGif -> TYPE_GIFS
                     isRaw -> TYPE_RAWS
                     isSvg -> TYPE_SVGS
+                    isPortrait -> TYPE_PORTRAITS
                     else -> TYPE_IMAGES
                 }
 
