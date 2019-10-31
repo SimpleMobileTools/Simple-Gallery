@@ -238,7 +238,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline galéria hirdetések nélkül. A fényképek és videók rendezése, szerkesztése</string>
+    <string name="app_short_description">Browse your memories without any interruptions.</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
