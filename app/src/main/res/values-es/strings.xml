@@ -226,18 +226,18 @@
     <string name="faq_11_text">Claro, solo use el elemento de menú \"Agrupar por \" mientras esté en la vista de miniaturas. Puede agrupar archivos según varios criterios, incluida la Fecha de toma. Si usa la función \"Mostrar todo el contenido de las carpetas\" también puede agruparlas por carpetas.</string>
     <string name="faq_12_title">La ordenación por fecha tomada no parece funcionar correctamente, ¿cómo puedo solucionarlo?</string>
     <string name="faq_12_text">Lo más probable es que sea causado por los archivos que se copian de algún lugar. Puede solucionarlo seleccionando las miniaturas de archivo y seleccionando \"Fijar fecha de toma\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_13_title">Veo algunas bandas de color en las imágenes. ¿Cómo puedo mejorar la calidad?</string>
+    <string name="faq_13_text">La solución actual para mostrar imágenes funciona bien en la gran mayoría de los casos, pero si desea una calidad de imagen aún mejor, puede habilitar \"Mostrar imágenes con la calidad más alta posible\" en la configuración de la aplicación, en la opción \"Zoom profundo" imágenes\".</string>
+    <string name="faq_14_title">He escondido un archivo / carpeta. ¿Cómo puedo mostrarlo?</string>
+    <string name="faq_14_text">Puede presionar el elemento de menú \"Mostrar temporalmente elementos ocultos\" en la pantalla principal o alternar \"Mostrar elementos ocultos\" en la configuración de la aplicación para ver el elemento oculto. Si desea mostrarlo, solo manténgalo presionado y seleccione \"Mostrar\". Las carpetas se ocultan agregando un archivo oculto \".Nomedia\" en ellas, también puede eliminar el archivo con cualquier administrador de archivos.</string>
+    <string name="faq_15_title">¿Por qué la aplicación ocupa tanto espacio?</string>
+    <string name="faq_15_text">El caché de aplicaciones puede ocupar hasta 250 MB, asegura una carga de imagen más rápida. Si la aplicación ocupa aún más espacio, lo más probable es que tenga elementos en la Papelera de reciclaje. Esos archivos cuentan para el tamaño de la aplicación. Puede borrar la Papelera de reciclaje abriéndola y eliminando todos los archivos, o desde la configuración de la aplicación. Todos los archivos en el contenedor se eliminan automáticamente después de 30 días.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Explore sus recuerdos sin interrupciones.</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 

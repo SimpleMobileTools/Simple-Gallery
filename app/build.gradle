@@ -15,8 +15,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 269
-        versionName "6.10.2"
+        versionCode 270
+        versionName "6.10.3"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
         vectorDrawables.useSupportLibrary = true
@@ -62,12 +62,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.18.12'
+    implementation 'com.simplemobiletools:commons:5.18.14'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.18'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
@@ -80,7 +80,7 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    kapt 'androidx.room:room-compiler:2.1.0'
-    implementation 'androidx.room:room-runtime:2.1.0'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0'
+    kapt 'androidx.room:room-compiler:2.2.1'
+    implementation 'androidx.room:room-runtime:2.2.1'
+    annotationProcessor 'androidx.room:room-compiler:2.2.1'
 }

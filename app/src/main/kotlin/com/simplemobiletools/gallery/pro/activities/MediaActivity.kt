@@ -604,8 +604,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             ensureBackgroundThread {
                 val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
                 val newMedia = it
-                gotMedia(newMedia, false)
                 try {
+                    gotMedia(newMedia, false)
                     oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !File(it.path).exists() }.forEach {
                         mMediumDao.deleteMediumPath(it.path)
                     }

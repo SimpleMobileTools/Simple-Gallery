@@ -127,7 +127,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         invalidateOptionsMenu()
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>${mPath.getFilenameFromPath()}</font>")
+        val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
+        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>$filename</font>")
         window.statusBarColor = Color.TRANSPARENT
     }
 
