@@ -237,7 +237,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">簡易相簿 Pro: 相片管理&amp;編輯器</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions.</string>
+    <string name="app_short_description">毫無阻礙地瀏覽您的回憶。</string>
     <string name="app_long_description">
         簡易相簿Pro是一個高度自訂化的離線相簿。整理和編輯你的照片，從回收桶恢復刪除的檔案，保護和隱藏檔案，以及瀏覽大量不同的照片&amp;影片格式，包含RAW、SVG…等更多。
 
