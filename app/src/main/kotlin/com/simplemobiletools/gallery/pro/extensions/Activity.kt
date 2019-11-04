@@ -251,7 +251,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
 
                     out?.flush()
 
-                    if (fileDocument?.getItemSize(false) == copiedSize && getDoesFilePathExist(destination)) {
+                    if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
                         mediumDao.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
                     }
@@ -306,8 +306,19 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             try {
                 out = getFileOutputStreamSync(destination, source.getMimeType())
                 inputStream = getFileInputStreamSync(source)
-                inputStream!!.copyTo(out!!)
-                if (File(source).length() == File(destination).length()) {
+
+                var copiedSize = 0L
+                val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                var bytes = inputStream!!.read(buffer)
+                while (bytes >= 0) {
+                    out!!.write(buffer, 0, bytes)
+                    copiedSize += bytes
+                    bytes = inputStream.read(buffer)
+                }
+
+                out?.flush()
+
+                if (File(source).length() == copiedSize) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
                 newPaths.add(destination)
