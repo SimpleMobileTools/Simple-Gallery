@@ -945,7 +945,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
-        if (File(path).isDirectory || !path.isMediaFile()) {
+        if (getIsPathDirectory(path) || !path.isMediaFile()) {
             return
         }
 
