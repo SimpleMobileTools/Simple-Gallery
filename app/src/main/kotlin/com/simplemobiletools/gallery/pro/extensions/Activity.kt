@@ -131,7 +131,7 @@ fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
 
 fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
-    if (file.exists()) {
+    if (getDoesFilePathExist(file.absolutePath)) {
         callback()
         return
     }
@@ -164,12 +164,12 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
 fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
-    if (!file.exists()) {
+    if (!getDoesFilePathExist(file.absolutePath)) {
         callback?.invoke()
         return
     }
 
-    tryDeleteFileDirItem(file.toFileDirItem(), false, false) {
+    tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
     }
 }
@@ -271,7 +271,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             try {
                 out = getFileOutputStreamSync(destination, source.getMimeType())
                 inputStream = getFileInputStreamSync(source)
-                inputStream.copyTo(out!!)
+                inputStream!!.copyTo(out!!)
                 if (File(source).length() == File(destination).length()) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
@@ -519,7 +519,9 @@ fun BaseSimpleActivity.copyFile(source: String, destination: String) {
     try {
         out = getFileOutputStreamSync(destination, source.getMimeType())
         inputStream = getFileInputStreamSync(source)
-        inputStream.copyTo(out!!)
+        inputStream!!.copyTo(out!!)
+    } catch (e: Exception) {
+        showErrorToast(e)
     } finally {
         inputStream?.close()
         out?.close()
