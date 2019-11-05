@@ -444,7 +444,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception) {}
+                override fun onError(e: Exception?) {}
             })
         } catch (ignored: Exception) {
         }
