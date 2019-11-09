@@ -595,7 +595,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
                 "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
             } else {
-                it.name
+                it.name.removeSuffix(hiddenString).trim()
             }
         }
 
