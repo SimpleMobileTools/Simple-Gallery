@@ -357,11 +357,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadGif() {
         try {
-            val path = mMedium.path
-            val source = if (path.startsWith("content://") || path.startsWith("file://")) {
-                InputSource.UriSource(context!!.contentResolver, Uri.parse(path))
+            val pathToLoad = getPathToLoad(mMedium)
+            val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
+                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
             } else {
-                InputSource.FileSource(path)
+                InputSource.FileSource(pathToLoad)
             }
 
             mView.apply {
@@ -444,7 +444,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception) {}
+                override fun onError(e: Exception?) {}
             })
         } catch (ignored: Exception) {
         }
@@ -559,7 +559,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun getFilePathToShow() = if (mMedium.isPortrait()) mCurrentPortraitPhotoPath else mMedium.path
+    private fun getFilePathToShow() = if (mMedium.isPortrait()) mCurrentPortraitPhotoPath else getPathToLoad(mMedium)
 
     private fun openPanorama() {
         Intent(context, PanoramaPhotoActivity::class.java).apply {

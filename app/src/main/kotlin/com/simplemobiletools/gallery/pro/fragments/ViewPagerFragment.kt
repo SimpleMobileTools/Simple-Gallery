@@ -35,7 +35,7 @@ abstract class ViewPagerFragment : Fragment() {
 
     fun getMediumExtendedDetails(medium: Medium): String {
         val file = File(medium.path)
-        if (!file.exists()) {
+        if (context?.getDoesFilePathExist(file.absolutePath) == false) {
             return ""
         }
 
@@ -80,6 +80,8 @@ abstract class ViewPagerFragment : Fragment() {
         }
         return details.toString().trim()
     }
+
+    fun getPathToLoad(medium: Medium) = if (context!!.isPathOnOTG(medium.path)) medium.path.getOTGPublicPath(context!!) else medium.path
 
     private fun getFileLastModified(file: File): String {
         val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)

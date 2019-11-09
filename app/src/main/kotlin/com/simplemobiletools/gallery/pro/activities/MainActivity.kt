@@ -389,10 +389,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun removeTempFolder() {
         if (config.tempFolderPath.isNotEmpty()) {
             val newFolder = File(config.tempFolderPath)
-            if (newFolder.exists() && newFolder.isDirectory) {
+            if (getDoesFilePathExist(newFolder.absolutePath) && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true && newFolder.getProperSize(true) == 0L && newFolder.getFileCount(true) == 0) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
-                    tryDeleteFileDirItem(newFolder.toFileDirItem(), true, true)
+                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true, true)
                 }
             }
             config.tempFolderPath = ""
@@ -408,16 +408,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     config.OTGPath = otgPath
                     config.addIncludedFolder(otgPath)
                 }
-
-                // OTG handling has been changed again in SDK version 28, the old method no longer works
-                /*if (config.OTGPath.isEmpty()) {
-                    runOnUiThread {
-                        ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
-                            config.wasOTGHandled = true
-                            showOTGPermissionDialog()
-                        }
-                    }
-                }*/
             }
         }
     }
@@ -428,8 +418,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
             )
 
+            val OTGPath = config.OTGPath
             spamFolders.forEach {
-                if (File(it).exists()) {
+                if (getDoesFilePathExist(it, OTGPath)) {
                     config.addExcludedFolder(it)
                 }
             }
@@ -570,7 +561,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                                 (it.isGif() && filter and TYPE_GIFS != 0) ||
                                 (it.isRawFast() && filter and TYPE_RAWS != 0) ||
                                 (it.isSvg() && filter and TYPE_SVGS != 0))
-            }?.mapTo(itemsToDelete) { it.toFileDirItem() }
+            }?.mapTo(itemsToDelete) { it.toFileDirItem(applicationContext) }
         }
 
         if (config.useRecycleBin) {
@@ -590,13 +581,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun deleteFilteredFileDirItems(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
+        val OTGPath = config.OTGPath
         deleteFiles(fileDirItems) {
             runOnUiThread {
                 refreshItems()
             }
 
             ensureBackgroundThread {
-                folders.filter { !it.exists() }.forEach {
+                folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
                     mDirectoryDao.deleteDirPath(it.absolutePath)
                 }
             }
@@ -1115,13 +1107,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
         val invalidDirs = ArrayList<Directory>()
+        val OTGPath = config.OTGPath
         dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
-            if (!File(it.path).exists()) {
+            if (!getDoesFilePathExist(it.path, OTGPath)) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
-                val children = File(it.path).listFiles()?.asList()
+                val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it?.isMediaFile() == true || (it.isDirectory && it.name.startsWith("img_", true))
+                    it?.isMediaFile() == true || (File(it).isDirectory && it?.startsWith("img_", true) == true)
                 } ?: false
 
                 if (!hasMediaFile) {
@@ -1151,6 +1144,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
+                toast("invalid ${it.path}", Toast.LENGTH_LONG)
                 try {
                     mDirectoryDao.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
@@ -1243,9 +1237,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 oftenRepeatedPaths.removeAll(substringToRemove)
+                val OTGPath = config.OTGPath
                 oftenRepeatedPaths.forEach {
                     val file = File("$internalPath/$it")
-                    if (file.exists()) {
+                    if (getDoesFilePathExist(file.absolutePath, OTGPath)) {
                         config.addExcludedFolder(file.absolutePath)
                     }
                 }

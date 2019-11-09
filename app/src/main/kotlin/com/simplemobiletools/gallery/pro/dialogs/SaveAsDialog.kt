@@ -7,7 +7,6 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
-import java.io.File
 
 class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
 
@@ -67,7 +66,7 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                                 return@setOnClickListener
                             }
 
-                            if (File(newPath).exists()) {
+                            if (activity.getDoesFilePathExist(newPath)) {
                                 val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
                                 ConfirmationDialog(activity, title) {
                                     callback(newPath)

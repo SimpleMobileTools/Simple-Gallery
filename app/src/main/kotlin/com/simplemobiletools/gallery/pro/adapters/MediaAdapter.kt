@@ -49,6 +49,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
+    private val hasOTGConnected = activity.hasOTGConnected()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -492,7 +493,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 medium_check?.background?.applyColorFilter(primaryColor)
             }
 
-            val path = medium.path
+            var path = medium.path
+            if (hasOTGConnected && context.isPathOnOTG(path)) {
+                path = path.getOTGPublicPath(context)
+            }
+
             if (loadImageInstantly) {
                 activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
             } else {

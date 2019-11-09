@@ -75,7 +75,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         val uri = mUri.toString()
         if (uri.startsWith("content:/") && uri.contains("/storage/")) {
             val guessedPath = uri.substring(uri.indexOf("/storage/"))
-            if (File(guessedPath).exists()) {
+            if (getDoesFilePathExist(guessedPath)) {
                 val extras = intent.extras ?: Bundle()
                 extras.apply {
                     putString(REAL_FILE_PATH, guessedPath)
@@ -93,7 +93,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
-            if (realPath != null && File(realPath).exists()) {
+            if (realPath != null && getDoesFilePathExist(realPath)) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     if (isFileTypeVisible(realPath)) {
                         bottom_actions.beGone()
@@ -125,7 +125,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && File(path).exists()) {
+            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
                 if (isFileTypeVisible(path)) {
                     bottom_actions.beGone()
                     handleLockedFolderOpening(path.getParentPath()) { success ->

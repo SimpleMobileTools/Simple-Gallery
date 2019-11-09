@@ -366,6 +366,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
         val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
         val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
         val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
+        val OTGPath = config.OTGPath
 
         var cursor: Cursor? = null
         try {
@@ -374,7 +375,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
                     val noMediaFile = File(path)
-                    if (noMediaFile.exists() && noMediaFile.name == NOMEDIA) {
+                    if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
                         folders.add("${noMediaFile.parent}/")
                     }
                 } while (cursor.moveToNext())
@@ -661,9 +662,10 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         mediaFetcher.sortMedia(media, config.getFileSorting(pathToUse))
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
+        val OTGPath = config.OTGPath
 
         val mediaToDelete = ArrayList<Medium>()
-        media.filter { !File(it.path).exists() }.forEach {
+        media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 deleteDBPath(mediumDao, it.path)
             } else {
@@ -682,7 +684,8 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !File(it.path).exists() && it.path != config.tempFolderPath }.forEach {
+    val OTGPath = config.OTGPath
+    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path, OTGPath) && it.path != config.tempFolderPath }.forEach {
         try {
             directoryDao.deleteDirPath(it.path)
         } catch (ignored: Exception) {
@@ -705,6 +708,10 @@ fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) 
     } catch (ignored: Exception) {
     }
 }
+
+fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
+
+fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
 
 fun Context.getFavoritePaths(): ArrayList<String> {
     return try {
@@ -805,7 +812,7 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 
 fun Context.addPathToDB(path: String) {
     ensureBackgroundThread {
-        if (!File(path).exists()) {
+        if (!getDoesFilePathExist(path)) {
             return@ensureBackgroundThread
         }
 
@@ -833,11 +840,16 @@ fun Context.addPathToDB(path: String) {
 
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
                                      includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
-    var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
+    val OTGPath = config.OTGPath
+    var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
     albumCovers.forEach {
-        if (it.path == path && File(it.tmb).exists()) {
+        if (it.path == path && getDoesFilePathExist(it.tmb, OTGPath)) {
             thumbnail = it.tmb
         }
+    }
+
+    if (config.OTGPath.isNotEmpty() && thumbnail.startsWith(config.OTGPath)) {
+        thumbnail = thumbnail.getOTGPublicPath(applicationContext)
     }
 
     val defaultMedium = Medium(0, "", "", "", 0L, 0L, 0L, 0, 0, false, 0L)

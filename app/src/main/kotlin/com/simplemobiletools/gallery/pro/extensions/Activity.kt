@@ -131,7 +131,7 @@ fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
 
 fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
-    if (file.exists()) {
+    if (getDoesFilePathExist(file.absolutePath)) {
         callback()
         return
     }
@@ -164,12 +164,12 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
 fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
-    if (!file.exists()) {
+    if (!getDoesFilePathExist(file.absolutePath)) {
         callback?.invoke()
         return
     }
 
-    tryDeleteFileDirItem(file.toFileDirItem(), false, false) {
+    tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
     }
 }
@@ -228,22 +228,57 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
 fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: ((wasSuccess: Boolean) -> Unit)?) {
     ensureBackgroundThread {
         var pathsCnt = paths.size
-        paths.forEach {
-            val file = File(it)
-            val internalFile = File(recycleBinPath, it)
-            val lastModified = file.lastModified()
-            try {
-                if (file.copyRecursively(internalFile, true)) {
-                    mediumDao.updateDeleted("$RECYCLE_BIN$it", System.currentTimeMillis(), it)
-                    pathsCnt--
+        val OTGPath = config.OTGPath
 
-                    if (config.keepLastModified) {
-                        internalFile.setLastModified(lastModified)
+        for (source in paths) {
+            if (OTGPath.isNotEmpty() && source.startsWith(OTGPath)) {
+                var inputStream: InputStream? = null
+                var out: OutputStream? = null
+                try {
+                    val destination = "$recycleBinPath/$source"
+                    val fileDocument = getSomeDocumentFile(source)
+                    inputStream = applicationContext.contentResolver.openInputStream(fileDocument?.uri)
+                    out = getFileOutputStreamSync(destination, source.getMimeType())
+
+                    var copiedSize = 0L
+                    val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                    var bytes = inputStream.read(buffer)
+                    while (bytes >= 0) {
+                        out!!.write(buffer, 0, bytes)
+                        copiedSize += bytes
+                        bytes = inputStream.read(buffer)
                     }
+
+                    out?.flush()
+
+                    if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
+                        mediumDao.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
+                        pathsCnt--
+                    }
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                    return@ensureBackgroundThread
+                } finally {
+                    inputStream?.close()
+                    out?.close()
                 }
-            } catch (e: Exception) {
-                showErrorToast(e)
-                return@forEach
+            } else {
+                val file = File(source)
+                val internalFile = File(recycleBinPath, source)
+                val lastModified = file.lastModified()
+                try {
+                    if (file.copyRecursively(internalFile, true)) {
+                        mediumDao.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
+                        pathsCnt--
+
+                        if (config.keepLastModified) {
+                            internalFile.setLastModified(lastModified)
+                        }
+                    }
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                    return@ensureBackgroundThread
+                }
             }
         }
         callback?.invoke(pathsCnt == 0)
@@ -271,8 +306,19 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             try {
                 out = getFileOutputStreamSync(destination, source.getMimeType())
                 inputStream = getFileInputStreamSync(source)
-                inputStream.copyTo(out!!)
-                if (File(source).length() == File(destination).length()) {
+
+                var copiedSize = 0L
+                val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                var bytes = inputStream!!.read(buffer)
+                while (bytes >= 0) {
+                    out!!.write(buffer, 0, bytes)
+                    copiedSize += bytes
+                    bytes = inputStream.read(buffer)
+                }
+
+                out?.flush()
+
+                if (File(source).length() == copiedSize) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
                 newPaths.add(destination)
@@ -519,7 +565,9 @@ fun BaseSimpleActivity.copyFile(source: String, destination: String) {
     try {
         out = getFileOutputStreamSync(destination, source.getMimeType())
         inputStream = getFileInputStreamSync(source)
-        inputStream.copyTo(out!!)
+        inputStream!!.copyTo(out!!)
+    } catch (e: Exception) {
+        showErrorToast(e)
     } finally {
         inputStream?.close()
         out?.close()
