@@ -1096,9 +1096,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         checkSystemUI()
-        if (isChromebook()) {
-            fullscreenToggled()
-        }
+        fullscreenToggled()
     }
 
     override fun videoEnded(): Boolean {
