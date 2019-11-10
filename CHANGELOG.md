@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.10.5 *(2019-11-10)*
+----------------------------
+
+ * Remember the last used pattern at batch renaming
+ * Allow adding an incrementing number at pattern batch renaming
+ * Fixed some USB file related issues
+ * Fixed some fullscreen glitches at using split screen
+ * Allow using videos as custom folder covers
+ * Some stability and translation improvements
+
 Version 6.10.4 *(2019-11-05)*
 ----------------------------
 
