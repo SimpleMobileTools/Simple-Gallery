@@ -1144,7 +1144,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
-                toast("invalid ${it.path}", Toast.LENGTH_LONG)
                 try {
                     mDirectoryDao.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
