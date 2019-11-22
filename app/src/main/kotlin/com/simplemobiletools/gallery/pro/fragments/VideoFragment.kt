@@ -460,7 +460,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mTimeHolder.animate().alpha(newAlpha).start()
         mView.video_details.apply {
-            if (mStoredShowExtendedDetails && isVisible()) {
+            if (mStoredShowExtendedDetails && isVisible() && context != null) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (mStoredHideExtendedDetails) {
