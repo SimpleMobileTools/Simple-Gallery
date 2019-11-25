@@ -258,7 +258,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            mPath = intent.extras.getString(REAL_FILE_PATH)
+            mPath = intent.extras!!.getString(REAL_FILE_PATH)!!
         }
 
         if (mPath.isEmpty()) {

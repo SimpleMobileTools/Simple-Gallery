@@ -114,10 +114,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
                 bottom_actions.beGone()
-                handleLockedFolderOpening(mUri!!.path.getParentPath()) { success ->
+                handleLockedFolderOpening(mUri!!.path!!.getParentPath()) { success ->
                     if (success) {
-                        rescanPaths(arrayListOf(mUri!!.path))
-                        sendViewPagerIntent(mUri!!.path)
+                        rescanPaths(arrayListOf(mUri!!.path!!))
+                        sendViewPagerIntent(mUri!!.path!!)
                     }
                     finish()
                 }
@@ -130,7 +130,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                     bottom_actions.beGone()
                     handleLockedFolderOpening(path.getParentPath()) { success ->
                         if (success) {
-                            rescanPaths(arrayListOf(mUri!!.path))
+                            rescanPaths(arrayListOf(mUri!!.path!!))
                             sendViewPagerIntent(path)
                         }
                         finish()
@@ -154,7 +154,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         mIsVideo = type == TYPE_VIDEOS
-        mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, 0, false, 0L)
+        mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -272,7 +272,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun showProperties() {
-        PropertiesDialog(this, mUri!!.path)
+        PropertiesDialog(this, mUri!!.path!!)
     }
 
     private fun isFileTypeVisible(path: String): Boolean {
