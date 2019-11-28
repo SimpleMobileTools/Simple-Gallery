@@ -612,7 +612,7 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
 fun Activity.showFileOnMap(path: String) {
     val exif = try {
         if (path.startsWith("content://") && isNougatPlus()) {
-            ExifInterface(contentResolver.openInputStream(Uri.parse(path)))
+            ExifInterface(contentResolver.openInputStream(Uri.parse(path))!!)
         } else {
             ExifInterface(path)
         }
