@@ -71,6 +71,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
+        if (intent.data == null && intent.action == Intent.ACTION_VIEW) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+
         mUri = intent.data ?: return
         val uri = mUri.toString()
         if (uri.startsWith("content:/") && uri.contains("/storage/")) {
