@@ -5,7 +5,7 @@ Version 6.10.6 *(2019-11-28)*
 ----------------------------
 
  * Fixed some smaller glitches
- * Added some stability, translation improvements
+ * Added some stability and translation improvements
 
 Version 6.10.5 *(2019-11-10)*
 ----------------------------
