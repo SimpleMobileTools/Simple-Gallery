@@ -15,8 +15,8 @@
     <string name="other_folder">مجلد آخر</string>
     <string name="show_on_map">عرض علي الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
-    <string name="increase_column_count">زيادة عدد السعادة</string>
-    <string name="reduce_column_count">تقليل عدد السعادة</string>
+    <string name="increase_column_count">ذيادة عدد الأعمدة</string>
+    <string name="reduce_column_count">تقليل عدد الأعمدة</string>
     <string name="change_cover_image">تغيير صورة الغلاف</string>
     <string name="select_photo">تحديد صورة</string>
     <string name="use_default">إستخدام كإفتراضي</string>
@@ -26,14 +26,14 @@
     <string name="unlock_orientation">فتح الاتجاه</string>
     <string name="change_orientation">تغيير الاتجاه</string>
     <string name="force_portrait">فرض الإتجاه العمودي</string>
-    <string name="force_landscape">فرض الإتجاه الفقي</string>
+    <string name="force_landscape">فرض الإتجاه الأفقي</string>
     <string name="use_default_orientation">إستخدام الإتجاه الافتراضي</string>
     <string name="fix_date_taken">إصلاح تاريخ إلتقاط القيمة</string>
     <string name="fixing">جارٍ الإصلاح…</string>
     <string name="dates_fixed_successfully">تم إصلاح التواريخ بنجاح</string>
     <string name="share_resized">مشاركة الصورة الذي تم تغيير حجمها</string>
     <string name="upgraded_from_free">مرحباً,\n\nيبدو أنك قمت بترقية التطبيق المجاني القديم. يمكنك الآن إلغاء تثبيت الإصدار القديم، الذي يحتوي على زر \'الترقية إلى Pro\' في أعلي إعدادات التطبيق.\n\nسيتم حذف عناصر سلة المحذوفات فقط، كما سيتم حذف العناصر المفضلة، كما سيتعين عليك إعادة ضبط إعدادات التطبيق .\n\nشكراً!</string>
-    <string name="switch_to_file_search">التبديل الي البحث في الملفات عبر كافة المجلدات المراية</string>
+    <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
 
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>
@@ -49,8 +49,8 @@
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">تقوم هذه الوظيفة باخفاء المجلد عن طريق إضافة ملف \'. nomedia \' إليه ، وستقوم باخفاء كل المجلدات الفرعية أيضًا. يمكنك رؤيتهم عن طريق تبديل خيار \'إظهار العناصر المخفية \' في الإعدادات. هل تريد المتابعة؟</string>
     <string name="exclude">إستبعاد</string>
-    <string name="excluded_folders">المجلدات السابعة</string>
-    <string name="manage_excluded_folders">إدارة المجلدات السابعة</string>
+    <string name="excluded_folders">المجلدات المستبعدة</string>
+    <string name="manage_excluded_folders">إدارة المجلدات المستبعدة</string>
     <string name="exclude_folder_description">سيؤدي ذلك الي إستبعاد التحديد مع المجلدات الفرعية من "الاستديو" فقط.. يمكنك إدارة المجلدات المستبعدة في الإعدادات.</string>
     <string name="exclude_folder_parent">إستبعاد المجلد الأصل بدلاً  من ذلك(المحدد)؟</string>
     <string name="excluded_activity_placeholder">سيؤدي إستبعاد المجلدات الي جعلها مع المجلدات الفرعية مخفية  في "الاستديو" فقط, وستظل مرئية في تطبيقات أخرى. \n\nإذا كنت تريد إخفاءها من التطبيقات الأخرى أيضاً ، فاستخدم وظيفة الإخفاء.</string>
@@ -194,7 +194,7 @@
     <string name="thumbnails">الصور المصغرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
     <string name="extended_details">التفاصيل الموسعة</string>
-    <string name="bottom_actions">إجراءات الأزرار</string>
+    <string name="bottom_actions"> إجراءات الأزرار السفلية</string>
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">إدارة إجراءات الأزرار المرئية</string>
@@ -287,7 +287,7 @@
         <b>موقع مستقل لتطبيق المعرض البسيط الـ Pro : </b>
         https://www.simplemobiletools.com/gallery
 
-        <b>الفيسبوك:</b>
+        <b>صفحة الفيسبوك:</b>
         https://www.facebook.com/simplemobiletools
 
         <b>موقع رديت:</b>
