@@ -102,7 +102,12 @@ abstract class ViewPagerFragment : Fragment() {
 
     private fun getLatLonAltitude(path: String): String {
         var result = ""
-        val exif = ExifInterface(path)
+        val exif = try {
+            ExifInterface(path)
+        } catch (e: Exception) {
+            return ""
+        }
+
         val latLon = FloatArray(2)
 
         if (exif.getLatLong(latLon)) {
