@@ -771,7 +771,7 @@ class PhotoFragment : ViewPagerFragment() {
         this.mIsFullscreen = isFullscreen
         mView.apply {
             photo_details.apply {
-                if (mStoredShowExtendedDetails && isVisible() && context != null) {
+                if (mStoredShowExtendedDetails && isVisible() && context != null && resources != null) {
                     animate().y(getExtendedDetailsY(height))
 
                     if (mStoredHideExtendedDetails) {
