@@ -854,6 +854,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         val dirs = getSortedDirectories(newDirs)
+        if (config.groupDirectSubfolders) {
+            mDirs = dirs.clone() as ArrayList<Directory>
+        }
+
         var isPlaceholderVisible = dirs.isEmpty()
 
         runOnUiThread {
