@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -16,6 +18,7 @@ import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
 import com.simplemobiletools.gallery.pro.extensions.galleryDB
 import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.io.File
 import java.util.*
@@ -690,6 +693,7 @@ class SettingsActivity : SimpleActivity() {
                 put(LAST_EDITOR_BRUSH_SIZE, config.lastEditorBrushSize)
                 put(LAST_CONFLICT_RESOLUTION, config.lastConflictResolution)
                 put(LAST_CONFLICT_APPLY_TO_ALL, config.lastConflictApplyToAll)
+                put(ALBUM_COVERS, config.albumCovers)
             }
 
             exportSettings(configItems, "gallery-settings.txt")
@@ -812,6 +816,18 @@ class SettingsActivity : SimpleActivity() {
                 LAST_EDITOR_BRUSH_SIZE -> config.lastEditorBrushSize = value.toInt()
                 LAST_CONFLICT_RESOLUTION -> config.lastConflictResolution = value.toInt()
                 LAST_CONFLICT_APPLY_TO_ALL -> config.lastConflictApplyToAll = value.toBoolean()
+                ALBUM_COVERS -> {
+                    val existingCovers = config.parseAlbumCovers()
+                    val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>
+
+                    val listType = object : TypeToken<List<AlbumCover>>() {}.type
+                    val covers = Gson().fromJson<ArrayList<AlbumCover>>(value.toString(), listType) ?: ArrayList(1)
+                    covers.filter { !existingCoverPaths.contains(it.path) && getDoesFilePathExist(it.tmb) }.forEach {
+                        existingCovers.add(it)
+                    }
+
+                    config.albumCovers = Gson().toJson(existingCovers)
+                }
             }
         }
 
