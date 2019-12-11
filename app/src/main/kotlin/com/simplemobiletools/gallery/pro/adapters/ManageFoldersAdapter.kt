@@ -39,6 +39,10 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun getItemKeyPosition(key: Int) = folders.indexOfFirst { it.hashCode() == key }
 
+    override fun onActionModeCreated() {}
+
+    override fun onActionModeDestroyed() {}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
