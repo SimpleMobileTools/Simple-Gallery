@@ -27,16 +27,16 @@
         android:title="@string/change_view_type"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/show_all"
-        android:title="@string/show_all"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/temporarily_show_hidden"
         android:title="@string/temporarily_show_hidden"
         app:showAsAction="never"/>
     <item
         android:id="@+id/stop_showing_hidden"
         android:title="@string/stop_showing_hidden"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/show_all"
+        android:title="@string/show_all"
         app:showAsAction="never"/>
     <item
         android:id="@+id/show_the_recycle_bin"
