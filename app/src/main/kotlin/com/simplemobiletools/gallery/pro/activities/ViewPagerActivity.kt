@@ -234,6 +234,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return true
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
+            mPos = -1
+            mPrevHashcode = 0
+            refreshViewPager()
+        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
+            toast(R.string.wallpaper_set_successfully)
+        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
+            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
+                goToNextItem()
+            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
+                goToPrevItem()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
     private fun initViewPager() {
         val uri = intent.data
         if (uri != null) {
@@ -902,23 +919,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun resizeImage() {
 
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
-            mPos = -1
-            mPrevHashcode = 0
-            refreshViewPager()
-        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
-            toast(R.string.wallpaper_set_successfully)
-        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
-            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
-                goToNextItem()
-            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
-                goToPrevItem()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, resultData)
     }
 
     private fun checkDeleteConfirmation() {
