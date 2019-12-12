@@ -4,15 +4,14 @@ import android.graphics.Point
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
-import kotlinx.android.synthetic.main.dialog_resize_image.view.image_height
-import kotlinx.android.synthetic.main.dialog_resize_image.view.image_width
 import kotlinx.android.synthetic.main.dialog_resize_image_with_path.view.*
 
-class ResizeWithPathDialog(val activity: BaseSimpleActivity, val size: Point, val path: String, val callback: (newSize: Point) -> Unit) {
+class ResizeWithPathDialog(val activity: BaseSimpleActivity, val size: Point, val path: String, val callback: (newSize: Point, newPath: String) -> Unit) {
     init {
         var realPath = path.getParentPath()
         val view = activity.layoutInflater.inflate(R.layout.dialog_resize_image_with_path, null).apply {
@@ -84,8 +83,36 @@ class ResizeWithPathDialog(val activity: BaseSimpleActivity, val size: Point, va
                             }
 
                             val newSize = Point(getViewValue(widthView), getViewValue(heightView))
-                            callback(newSize)
-                            dismiss()
+
+                            val filename = view.image_name.value
+                            val extension = view.image_extension.value
+                            if (filename.isEmpty()) {
+                                activity.toast(R.string.filename_cannot_be_empty)
+                                return@setOnClickListener
+                            }
+
+                            if (extension.isEmpty()) {
+                                activity.toast(R.string.extension_cannot_be_empty)
+                                return@setOnClickListener
+                            }
+
+                            val newFilename = "$filename.$extension"
+                            val newPath = "${realPath.trimEnd('/')}/$newFilename"
+                            if (!newFilename.isAValidFilename()) {
+                                activity.toast(R.string.filename_invalid_characters)
+                                return@setOnClickListener
+                            }
+
+                            if (activity.getDoesFilePathExist(newPath)) {
+                                val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
+                                ConfirmationDialog(activity, title) {
+                                    callback(newSize, newPath)
+                                    dismiss()
+                                }
+                            } else {
+                                callback(newSize, newPath)
+                                dismiss()
+                            }
                         }
                     }
                 }

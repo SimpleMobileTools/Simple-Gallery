@@ -921,7 +921,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun resizeImage() {
         val currentPath = getCurrentPath()
         val originalSize = currentPath.getImageResolution() ?: return
-        ResizeWithPathDialog(this, originalSize, currentPath) {
+        ResizeWithPathDialog(this, originalSize, currentPath) { newSize, newPath ->
 
         }
     }
