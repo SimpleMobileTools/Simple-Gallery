@@ -66,6 +66,14 @@
         android:title="@string/create_shortcut"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_set_as"
+        android:title="@string/set_as"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_edit"
         android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
@@ -87,14 +95,6 @@
     <item
         android:id="@+id/cab_fix_date_taken"
         android:title="@string/fix_date_taken"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_open_with"
-        android:title="@string/open_with"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_set_as"
-        android:title="@string/set_as"
         app:showAsAction="never"/>
     <item
         android:id="@+id/cab_select_all"
