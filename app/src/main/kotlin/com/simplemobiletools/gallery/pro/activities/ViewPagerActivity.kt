@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -15,6 +16,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.media.ExifInterface
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -57,6 +60,7 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
+import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -918,12 +922,62 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     private fun resizeImage() {
-        val currentPath = getCurrentPath()
-        val originalSize = currentPath.getImageResolution() ?: return
-        ResizeWithPathDialog(this, originalSize, currentPath) { newSize, newPath ->
+        val oldPath = getCurrentPath()
+        val originalSize = oldPath.getImageResolution() ?: return
+        ResizeWithPathDialog(this, originalSize, oldPath) { newSize, newPath ->
+            ensureBackgroundThread {
+                try {
+                    var oldExif: ExifInterface? = null
+                    if (isNougatPlus()) {
+                        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(oldPath)))
+                        oldExif = ExifInterface(inputStream!!)
+                    }
 
+                    val newBitmap = Glide.with(applicationContext).asBitmap().load(oldPath).submit(newSize.x, newSize.y).get()
+
+                    val newFile = File(newPath)
+                    val newFileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
+                    getFileOutputStream(newFileDirItem, true) {
+                        if (it != null) {
+                            saveBitmap(newFile, newBitmap, it, oldExif, File(oldPath).lastModified())
+                        } else {
+                            toast(R.string.image_editing_failed)
+                        }
+                    }
+                } catch (e: OutOfMemoryError) {
+                    toast(R.string.out_of_memory_error)
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                }
+            }
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, oldExif: ExifInterface?, lastModified: Long) {
+        try {
+            bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
+
+            if (isNougatPlus()) {
+                val newExif = ExifInterface(file.absolutePath)
+                oldExif?.copyTo(newExif, false)
+            }
+        } catch (e: Exception) {
+        }
+
+        toast(R.string.file_saved)
+        val paths = arrayListOf(file.absolutePath)
+        rescanPaths(paths) {
+            fixDateTaken(paths, false)
+
+            if (config.keepLastModified) {
+                File(file.absolutePath).setLastModified(lastModified)
+                updateLastModified(file.absolutePath, lastModified)
+            }
+        }
+        out.close()
     }
 
     private fun checkDeleteConfirmation() {
