@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
@@ -605,6 +606,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = 0
+            bottomMargin = 0
+        }
+
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -670,6 +676,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
+        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = smallMargin
+            bottomMargin = smallMargin
+        }
+
         mZoomListener = null
     }
 

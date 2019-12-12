@@ -4,10 +4,12 @@
     android:id="@+id/dir_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingStart="@dimen/small_margin"
-    android:paddingTop="@dimen/small_margin">
+    android:paddingStart="@dimen/medium_margin"
+    android:paddingTop="@dimen/small_margin"
+    android:paddingBottom="@dimen/small_margin">
 
     <com.simplemobiletools.gallery.pro.views.MySquareImageView
         android:id="@+id/dir_thumbnail"
@@ -35,7 +37,8 @@
         android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
         android:background="@drawable/circle_background"
         android:contentDescription="@null"
         android:padding="@dimen/tiny_margin"
@@ -49,8 +52,8 @@
         android:layout_toEndOf="@+id/dir_thumbnail"
         android:ellipsize="end"
         android:maxLines="1"
-        android:paddingLeft="6dp"
-        android:paddingRight="6dp"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/bigger_text_size"/>
 
@@ -64,7 +67,8 @@
         android:alpha="0.4"
         android:ellipsize="end"
         android:maxLines="1"
-        android:paddingStart="6dp"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/smaller_text_size"/>
 
@@ -84,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
         android:gravity="end"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/tiny_margin">
@@ -106,15 +110,6 @@
             android:paddingBottom="@dimen/small_margin"
             android:src="@drawable/ic_pin"
             android:visibility="gone"/>
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/dir_list_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignBottom="@+id/dir_thumbnail"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/dir_thumbnail"
-        android:background="@drawable/divider"/>
-
 </RelativeLayout>
