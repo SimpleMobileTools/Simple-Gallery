@@ -177,7 +177,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
             findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
             findItem(R.id.menu_print).isVisible = currentMedium.isImage() || currentMedium.isRaw()
-            findItem(R.id.menu_resize).isVisible = currentMedium.isImage()
+            findItem(R.id.menu_resize).isVisible = visibleBottomActions and BOTTOM_ACTION_RESIZE == 0 && currentMedium.isImage()
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
@@ -832,6 +832,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_move.setOnClickListener {
             moveFileTo()
         }
+
+        bottom_resize.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RESIZE != 0 && currentMedium?.isImage() == true)
+        bottom_resize.setOnClickListener {
+            resizeImage()
+        }
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -1230,7 +1235,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (bottom_actions.isVisible()) {
                 bottom_actions.animate().alpha(newAlpha).start()
                 arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
-                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
+                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
+                        bottom_resize).forEach {
                     it.isClickable = !mIsFullScreen
                 }
             }
