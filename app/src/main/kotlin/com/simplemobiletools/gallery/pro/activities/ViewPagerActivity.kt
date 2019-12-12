@@ -172,6 +172,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
             findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
             findItem(R.id.menu_print).isVisible = currentMedium.isImage() || currentMedium.isRaw()
+            findItem(R.id.menu_resize).isVisible = currentMedium.isImage()
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
@@ -226,6 +227,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             R.id.menu_save_as -> saveImageAs()
             R.id.menu_create_shortcut -> createShortcut()
+            R.id.menu_resize -> resizeImage()
             R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -896,6 +898,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         restoreRecycleBinPath(getCurrentPath()) {
             refreshViewPager()
         }
+    }
+
+    private fun resizeImage() {
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

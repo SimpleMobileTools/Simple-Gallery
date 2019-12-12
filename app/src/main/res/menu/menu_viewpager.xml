@@ -116,6 +116,10 @@
         android:title="@string/print"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/menu_resize"
+        android:title="@string/resize"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_show_on_map"
         android:title="@string/show_on_map"
         app:showAsAction="never"/>
