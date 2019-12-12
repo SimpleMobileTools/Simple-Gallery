@@ -37,6 +37,14 @@
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_empty_recycle_bin"
         android:title="@string/empty_recycle_bin"
         app:showAsAction="never"/>
@@ -57,11 +65,6 @@
         android:title="@string/unlock_folder"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/cab_select_all"
-        android:icon="@drawable/ic_select_all_vector"
-        android:title="@string/select_all"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/cab_create_shortcut"
         android:title="@string/create_shortcut"
         app:showAsAction="never"/>
@@ -79,11 +82,8 @@
         </menu>
     </item>
     <item
-        android:id="@+id/cab_copy_to"
-        android:title="@string/copy_to"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_move_to"
-        android:title="@string/move_to"
-        app:showAsAction="never"/>
+        android:id="@+id/cab_select_all"
+        android:icon="@drawable/ic_select_all_vector"
+        android:title="@string/select_all"
+        app:showAsAction="ifRoom"/>
 </menu>
