@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 6.10.7 *(2019-12-12)*
+----------------------------
+
+ * Refreshed the thumbnails list views by removing the dividers
+ * Reordered some top menu items for consistency
+ * Added a Resize button to resize images directly from the fullscreen view
+ * Migrate album covers at export/import settings too
+ * Remember the last used path and file name at exporting settings
+ * Fixed a glitch with empty screen at direct subfolder grouping
+ * Many other stability, ux and translation improvements
+
 Version 6.10.6 *(2019-11-28)*
 ----------------------------
 
