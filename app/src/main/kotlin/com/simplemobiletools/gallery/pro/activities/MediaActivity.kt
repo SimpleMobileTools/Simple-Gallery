@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -680,6 +681,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = 0
+            bottomMargin = 0
+        }
+
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -775,6 +781,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
+        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = smallMargin
+            bottomMargin = smallMargin
+        }
+
         mZoomListener = null
     }
 
