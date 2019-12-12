@@ -62,6 +62,10 @@
         android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_edit"
         android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"

@@ -45,6 +45,10 @@
         android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_empty_recycle_bin"
         android:title="@string/empty_recycle_bin"
         app:showAsAction="never"/>
@@ -63,10 +67,6 @@
     <item
         android:id="@+id/cab_unlock"
         android:title="@string/unlock_folder"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_create_shortcut"
-        android:title="@string/create_shortcut"
         app:showAsAction="never"/>
     <item
         android:id="@+id/cab_change_cover_image"

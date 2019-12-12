@@ -15,7 +15,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.media.ExifInterface
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -666,9 +665,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val path = medium.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
             getShortcutImage(path, drawable) {
-                val intent = Intent(this, PhotoVideoActivity::class.java)
-                intent.action = Intent.ACTION_VIEW
-                intent.data = Uri.fromFile(File(path))
+                val intent = Intent(this, ViewPagerActivity::class.java).apply {
+                    putExtra(PATH, path)
+                    putExtra(SHOW_ALL, config.showAll)
+                    putExtra(SHOW_FAVORITES, path == FAVORITES)
+                    putExtra(SHOW_RECYCLE_BIN, path == RECYCLE_BIN)
+                    action = Intent.ACTION_VIEW
+                    flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
 
                 val shortcut = ShortcutInfo.Builder(this, path)
                         .setShortLabel(medium.name)
