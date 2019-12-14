@@ -151,11 +151,11 @@
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
-    <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
+    <string name="toggle_filename">Permuter l\'affichage des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
-    <string name="animate_gifs">Animer le GIFs dans les miniatures</string>
+    <string name="animate_gifs">Animer les miniatures des GIF</string>
     <string name="max_brightness">Luminosité maximale</string>
-    <string name="crop_thumbnails">Recadrer les miniatures en carrés</string>
+    <string name="crop_thumbnails">Recadrer les miniatures en carré</string>
     <string name="show_thumbnail_video_duration">Afficher la durée des vidéos</string>
     <string name="screen_rotation_by">Orientation de l\'affichage</string>
     <string name="screen_rotation_system_setting">Paramètres système</string>
@@ -199,7 +199,7 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
     <string name="toggle_favorite">Ajouter aux favoris</string>
-    <string name="toggle_file_visibility">Changer la visibilité des fichiers</string>
+    <string name="toggle_file_visibility">Visibilité du fichier</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
