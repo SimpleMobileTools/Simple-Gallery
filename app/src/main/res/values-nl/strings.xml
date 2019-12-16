@@ -82,7 +82,7 @@
     <string name="path">Pad</string>
     <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
     <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">Wijzigingen zijn opgeslagen</string>
     <string name="edit_image_with">Afbeelding bewerken met:</string>
     <string name="no_editor_found">Geen app gevonden voor fotobewerking</string>
     <string name="unknown_file_location">Onbekende bestandslocatie</string>
