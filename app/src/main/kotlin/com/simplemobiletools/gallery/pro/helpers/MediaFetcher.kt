@@ -61,7 +61,7 @@ class MediaFetcher(val context: Context) {
             val selection = "${getSelectionQuery(filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
             val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            folders.addAll(parseCursor(cursor))
+            folders.addAll(parseCursor(cursor!!))
 
             val config = context.config
             val shouldShowHidden = config.shouldShowHidden

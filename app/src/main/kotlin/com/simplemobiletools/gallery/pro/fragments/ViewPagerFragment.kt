@@ -81,7 +81,7 @@ abstract class ViewPagerFragment : Fragment() {
         return details.toString().trim()
     }
 
-    fun getPathToLoad(medium: Medium) = if (context!!.isPathOnOTG(medium.path)) medium.path.getOTGPublicPath(context!!) else medium.path
+    fun getPathToLoad(medium: Medium) = if (context?.isPathOnOTG(medium.path) == true) medium.path.getOTGPublicPath(context!!) else medium.path
 
     private fun getFileLastModified(file: File): String {
         val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
@@ -102,7 +102,12 @@ abstract class ViewPagerFragment : Fragment() {
 
     private fun getLatLonAltitude(path: String): String {
         var result = ""
-        val exif = ExifInterface(path)
+        val exif = try {
+            ExifInterface(path)
+        } catch (e: Exception) {
+            return ""
+        }
+
         val latLon = FloatArray(2)
 
         if (exif.getLatLong(latLon)) {

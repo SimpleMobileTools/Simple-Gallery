@@ -71,6 +71,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
+        if (intent.data == null && intent.action == Intent.ACTION_VIEW) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            return
+        }
+
         mUri = intent.data ?: return
         val uri = mUri.toString()
         if (uri.startsWith("content:/") && uri.contains("/storage/")) {
@@ -114,10 +120,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
                 bottom_actions.beGone()
-                handleLockedFolderOpening(mUri!!.path.getParentPath()) { success ->
+                handleLockedFolderOpening(mUri!!.path!!.getParentPath()) { success ->
                     if (success) {
-                        rescanPaths(arrayListOf(mUri!!.path))
-                        sendViewPagerIntent(mUri!!.path)
+                        rescanPaths(arrayListOf(mUri!!.path!!))
+                        sendViewPagerIntent(mUri!!.path!!)
                     }
                     finish()
                 }
@@ -130,7 +136,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                     bottom_actions.beGone()
                     handleLockedFolderOpening(path.getParentPath()) { success ->
                         if (success) {
-                            rescanPaths(arrayListOf(mUri!!.path))
+                            rescanPaths(arrayListOf(mUri!!.path!!))
                             sendViewPagerIntent(path)
                         }
                         finish()
@@ -154,7 +160,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         mIsVideo = type == TYPE_VIDEOS
-        mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, 0, false, 0L)
+        mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -272,7 +278,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun showProperties() {
-        PropertiesDialog(this, mUri!!.path)
+        PropertiesDialog(this, mUri!!.path!!)
     }
 
     private fun isFileTypeVisible(path: String): Boolean {
@@ -301,7 +307,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun initBottomActionButtons() {
         arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map,
-                bottom_toggle_file_visibility, bottom_rename, bottom_copy, bottom_move).forEach {
+                bottom_toggle_file_visibility, bottom_rename, bottom_copy, bottom_move, bottom_resize).forEach {
             it.beGone()
         }
 

@@ -82,6 +82,7 @@
     <string name="path">Jalur</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Sunting gambar dengan:</string>
     <string name="no_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
     <string name="unknown_file_location">Lokasi berkas tidak diketahui</string>
@@ -237,7 +238,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Pengelola &amp; Penyunting Foto</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions.</string>
+    <string name="app_short_description">Menampilkan semua kenangan anda tanpa gangguan.</string>
     <string name="app_long_description">
         Simple Gallery Pro adalah aplikasi galeri luring yang sangat mudah diubahsuai. Mengelola &amp; menyunting foto anda, memulihkan berkas yang terhapus dari keranjang sampah, melindungi &amp; menyembunyikan berkas, dan menampilkan banyak format foto &amp; video, diantaranya RAW, SVG dan masih banyak lainnya.
 

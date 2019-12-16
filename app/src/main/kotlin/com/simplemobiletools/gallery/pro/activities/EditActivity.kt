@@ -145,7 +145,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        uri = intent.data
+        uri = intent.data!!
         if (uri.scheme != "file" && uri.scheme != "content") {
             toast(R.string.unknown_file_location)
             finish()
@@ -153,9 +153,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            val realPath = intent.extras.getString(REAL_FILE_PATH)
+            val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             uri = when {
-                isPathOnOTG(realPath) -> uri
+                isPathOnOTG(realPath!!) -> uri
                 realPath.startsWith("file:/") -> Uri.parse(realPath)
                 else -> Uri.fromFile(File(realPath))
             }
@@ -305,7 +305,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             if (isNougatPlus()) {
                 inputStream = contentResolver.openInputStream(uri)
-                oldExif = ExifInterface(inputStream)
+                oldExif = ExifInterface(inputStream!!)
             }
         } catch (e: Exception) {
         } finally {
@@ -317,7 +317,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         } else if (editor_draw_canvas.isVisible()) {
             val bitmap = editor_draw_canvas.getBitmap()
             if (saveUri.scheme == "file") {
-                SaveAsDialog(this, saveUri.path, true) {
+                SaveAsDialog(this, saveUri.path!!, true) {
                     saveBitmapToFile(bitmap, it, true)
                 }
             } else if (saveUri.scheme == "content") {
@@ -643,7 +643,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun applyFilter(filterItem: FilterItem) {
-        val newBitmap = Bitmap.createBitmap(filterInitialBitmap)
+        val newBitmap = Bitmap.createBitmap(filterInitialBitmap!!)
         default_image_view.setImageBitmap(filterItem.filter.processFilter(newBitmap))
     }
 
@@ -748,7 +748,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
             if (isCropIntent) {
                 if (saveUri.scheme == "file") {
-                    saveBitmapToFile(bitmap, saveUri.path, true)
+                    saveBitmapToFile(bitmap, saveUri.path!!, true)
                 } else {
                     var inputStream: InputStream? = null
                     var outputStream: OutputStream? = null
@@ -757,7 +757,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         bitmap.compress(CompressFormat.JPEG, 100, stream)
                         inputStream = ByteArrayInputStream(stream.toByteArray())
                         outputStream = contentResolver.openOutputStream(saveUri)
-                        inputStream.copyTo(outputStream)
+                        inputStream.copyTo(outputStream!!)
                     } finally {
                         inputStream?.close()
                         outputStream?.close()
@@ -771,7 +771,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     finish()
                 }
             } else if (saveUri.scheme == "file") {
-                SaveAsDialog(this, saveUri.path, true) {
+                SaveAsDialog(this, saveUri.path!!, true) {
                     saveBitmapToFile(bitmap, it, true)
                 }
             } else if (saveUri.scheme == "content") {

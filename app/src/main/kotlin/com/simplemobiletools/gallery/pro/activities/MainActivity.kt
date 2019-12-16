@@ -13,6 +13,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
@@ -605,6 +606,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = 0
+            bottomMargin = 0
+        }
+
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -670,6 +676,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
+        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = smallMargin
+            bottomMargin = smallMargin
+        }
+
         mZoomListener = null
     }
 
@@ -723,10 +736,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun isGetContentIntent(intent: Intent) = intent.action == Intent.ACTION_GET_CONTENT && intent.type != null
 
     private fun isGetImageContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type.startsWith("image/") || intent.type == MediaStore.Images.Media.CONTENT_TYPE)
+            (intent.type!!.startsWith("image/") || intent.type == MediaStore.Images.Media.CONTENT_TYPE)
 
     private fun isGetVideoContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type.startsWith("video/") || intent.type == MediaStore.Video.Media.CONTENT_TYPE)
+            (intent.type!!.startsWith("video/") || intent.type == MediaStore.Video.Media.CONTENT_TYPE)
 
     private fun isGetAnyContentIntent(intent: Intent) = isGetContentIntent(intent) && intent.type == "*/*"
 
@@ -773,14 +786,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun fillExtraOutput(resultData: Intent): Uri? {
-        val file = File(resultData.data.path)
+        val file = File(resultData.data!!.path!!)
         var inputStream: InputStream? = null
         var outputStream: OutputStream? = null
         try {
-            val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
+            val output = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
             inputStream = FileInputStream(file)
             outputStream = contentResolver.openOutputStream(output)
-            inputStream.copyTo(outputStream)
+            inputStream.copyTo(outputStream!!)
         } catch (e: SecurityException) {
             showErrorToast(e)
         } catch (ignored: FileNotFoundException) {
@@ -794,8 +807,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
-        val paths = resultData.extras.getStringArrayList(PICKED_PATHS)
-        val uris = paths.map { getFilePublicUri(File(it), BuildConfig.APPLICATION_ID) } as ArrayList
+        val paths = resultData.extras!!.getStringArrayList(PICKED_PATHS)
+        val uris = paths!!.map { getFilePublicUri(File(it), BuildConfig.APPLICATION_ID) } as ArrayList
         val clipData = ClipData("Attachment", arrayOf("image/*", "video/*"), ClipData.Item(uris.removeAt(0)))
 
         uris.forEach {
@@ -808,8 +821,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val data = resultData.data
-        val path = if (data.toString().startsWith("/")) data.toString() else data.path
-        val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
+        val path = if (data.toString().startsWith("/")) data.toString() else data!!.path
+        val uri = getFilePublicUri(File(path!!), BuildConfig.APPLICATION_ID)
         val type = path.getMimeType()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
@@ -854,6 +867,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         val dirs = getSortedDirectories(newDirs)
+        if (config.groupDirectSubfolders) {
+            mDirs = dirs.clone() as ArrayList<Directory>
+        }
+
         var isPlaceholderVisible = dirs.isEmpty()
 
         runOnUiThread {
@@ -1114,7 +1131,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } else if (it.path != config.tempFolderPath) {
                 val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it?.isMediaFile() == true || (File(it).isDirectory && it?.startsWith("img_", true) == true)
+                    it?.isMediaFile() == true || (File(it!!).isDirectory && it.startsWith("img_", true))
                 } ?: false
 
                 if (!hasMediaFile) {
@@ -1144,7 +1161,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
-                toast("invalid ${it.path}", Toast.LENGTH_LONG)
                 try {
                     mDirectoryDao.deleteDirPath(it.path)
                 } catch (ignored: Exception) {

@@ -54,14 +54,29 @@
         android:title="@string/unhide"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_set_as"
+        android:title="@string/set_as"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_edit"
         android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/cab_select_all"
-        android:icon="@drawable/ic_select_all_vector"
-        android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_add_to_favorites"
@@ -82,19 +97,8 @@
         android:title="@string/fix_date_taken"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/cab_open_with"
-        android:title="@string/open_with"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_set_as"
-        android:title="@string/set_as"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_copy_to"
-        android:title="@string/copy_to"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_move_to"
-        android:title="@string/move_to"
-        app:showAsAction="never"/>
+        android:id="@+id/cab_select_all"
+        android:icon="@drawable/ic_select_all_vector"
+        android:title="@string/select_all"
+        app:showAsAction="ifRoom"/>
 </menu>

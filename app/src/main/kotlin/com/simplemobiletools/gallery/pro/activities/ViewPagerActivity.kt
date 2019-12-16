@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -16,6 +17,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.media.ExifInterface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -45,6 +47,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
+import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -57,6 +60,7 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
+import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -173,6 +177,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
             findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
             findItem(R.id.menu_print).isVisible = currentMedium.isImage() || currentMedium.isRaw()
+            findItem(R.id.menu_resize).isVisible = visibleBottomActions and BOTTOM_ACTION_RESIZE == 0 && currentMedium.isImage()
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
@@ -227,10 +232,28 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             R.id.menu_save_as -> saveImageAs()
             R.id.menu_create_shortcut -> createShortcut()
+            R.id.menu_resize -> resizeImage()
             R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
+            mPos = -1
+            mPrevHashcode = 0
+            refreshViewPager()
+        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
+            toast(R.string.wallpaper_set_successfully)
+        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
+            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
+                goToNextItem()
+            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
+                goToPrevItem()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData)
     }
 
     private fun initViewPager() {
@@ -258,7 +281,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            mPath = intent.extras.getString(REAL_FILE_PATH)
+            mPath = intent.extras!!.getString(REAL_FILE_PATH)!!
         }
 
         if (mPath.isEmpty()) {
@@ -666,9 +689,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val path = medium.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
             getShortcutImage(path, drawable) {
-                val intent = Intent(this, PhotoVideoActivity::class.java)
-                intent.action = Intent.ACTION_VIEW
-                intent.data = Uri.fromFile(File(path))
+                val intent = Intent(this, ViewPagerActivity::class.java).apply {
+                    putExtra(PATH, path)
+                    putExtra(SHOW_ALL, config.showAll)
+                    putExtra(SHOW_FAVORITES, path == FAVORITES)
+                    putExtra(SHOW_RECYCLE_BIN, path == RECYCLE_BIN)
+                    action = Intent.ACTION_VIEW
+                    flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
 
                 val shortcut = ShortcutInfo.Builder(this, path)
                         .setShortLabel(medium.name)
@@ -804,6 +832,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_move.setOnClickListener {
             moveFileTo()
         }
+
+        bottom_resize.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RESIZE != 0 && currentMedium?.isImage() == true)
+        bottom_resize.setOnClickListener {
+            resizeImage()
+        }
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -894,21 +927,62 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
-            mPos = -1
-            mPrevHashcode = 0
-            refreshViewPager()
-        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
-            toast(R.string.wallpaper_set_successfully)
-        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
-            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
-                goToNextItem()
-            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
-                goToPrevItem()
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun resizeImage() {
+        val oldPath = getCurrentPath()
+        val originalSize = oldPath.getImageResolution() ?: return
+        ResizeWithPathDialog(this, originalSize, oldPath) { newSize, newPath ->
+            ensureBackgroundThread {
+                try {
+                    var oldExif: ExifInterface? = null
+                    if (isNougatPlus()) {
+                        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(oldPath)))
+                        oldExif = ExifInterface(inputStream!!)
+                    }
+
+                    val newBitmap = Glide.with(applicationContext).asBitmap().load(oldPath).submit(newSize.x, newSize.y).get()
+
+                    val newFile = File(newPath)
+                    val newFileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
+                    getFileOutputStream(newFileDirItem, true) {
+                        if (it != null) {
+                            saveBitmap(newFile, newBitmap, it, oldExif, File(oldPath).lastModified())
+                        } else {
+                            toast(R.string.image_editing_failed)
+                        }
+                    }
+                } catch (e: OutOfMemoryError) {
+                    toast(R.string.out_of_memory_error)
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                }
             }
         }
-        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, oldExif: ExifInterface?, lastModified: Long) {
+        try {
+            bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
+
+            if (isNougatPlus()) {
+                val newExif = ExifInterface(file.absolutePath)
+                oldExif?.copyTo(newExif, false)
+            }
+        } catch (e: Exception) {
+        }
+
+        toast(R.string.file_saved)
+        val paths = arrayListOf(file.absolutePath)
+        rescanPaths(paths) {
+            fixDateTaken(paths, false)
+
+            if (config.keepLastModified) {
+                File(file.absolutePath).setLastModified(lastModified)
+                updateLastModified(file.absolutePath, lastModified)
+            }
+        }
+        out.close()
     }
 
     private fun checkDeleteConfirmation() {
@@ -1096,9 +1170,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         checkSystemUI()
-        if (isChromebook()) {
-            fullscreenToggled()
-        }
+        fullscreenToggled()
     }
 
     override fun videoEnded(): Boolean {
@@ -1163,7 +1235,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (bottom_actions.isVisible()) {
                 bottom_actions.animate().alpha(newAlpha).start()
                 arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
-                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
+                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
+                        bottom_resize).forEach {
                     it.isClickable = !mIsFullScreen
                 }
             }

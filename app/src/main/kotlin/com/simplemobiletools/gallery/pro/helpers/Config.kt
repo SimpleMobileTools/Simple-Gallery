@@ -94,7 +94,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(isThirdPartyIntent) = prefs.edit().putBoolean(IS_THIRD_PARTY_INTENT, isThirdPartyIntent).apply()
 
     var pinnedFolders: Set<String>
-        get() = prefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
+        get() = prefs.getStringSet(PINNED_FOLDERS, HashSet<String>())!!
         set(pinnedFolders) = prefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
 
     var showAll: Boolean
@@ -133,7 +133,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var excludedFolders: MutableSet<String>
-        get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet())
+        get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet())!!
         set(excludedFolders) = prefs.edit().remove(EXCLUDED_FOLDERS).putStringSet(EXCLUDED_FOLDERS, excludedFolders).apply()
 
     fun addIncludedFolder(path: String) {
@@ -155,7 +155,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var includedFolders: MutableSet<String>
-        get() = prefs.getStringSet(INCLUDED_FOLDERS, HashSet<String>())
+        get() = prefs.getStringSet(INCLUDED_FOLDERS, HashSet<String>())!!
         set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
     var autoplayVideos: Boolean
@@ -263,7 +263,7 @@ class Config(context: Context) : BaseConfig(context) {
     else R.integer.media_columns_vertical_scroll)
 
     var albumCovers: String
-        get() = prefs.getString(ALBUM_COVERS, "")
+        get() = prefs.getString(ALBUM_COVERS, "")!!
         set(albumCovers) = prefs.edit().putString(ALBUM_COVERS, albumCovers).apply()
 
     fun parseAlbumCovers(): ArrayList<AlbumCover> {
@@ -320,7 +320,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(loopSlideshow) = prefs.edit().putBoolean(SLIDESHOW_LOOP, loopSlideshow).apply()
 
     var tempFolderPath: String
-        get() = prefs.getString(TEMP_FOLDER_PATH, "")
+        get() = prefs.getString(TEMP_FOLDER_PATH, "")!!
         set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
 
     var viewTypeFolders: Int
@@ -348,7 +348,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(wasNewAppShown) = prefs.edit().putBoolean(WAS_NEW_APP_SHOWN, wasNewAppShown).apply()
 
     var lastFilepickerPath: String
-        get() = prefs.getString(LAST_FILEPICKER_PATH, "")
+        get() = prefs.getString(LAST_FILEPICKER_PATH, "")!!
         set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
 
     var tempSkipDeleteConfirmation: Boolean
@@ -412,7 +412,7 @@ class Config(context: Context) : BaseConfig(context) {
 
     // if a user hides a folder, then enables temporary hidden folder displaying, make sure we show it properly
     var everShownFolders: Set<String>
-        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, getEverShownFolders())
+        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, getEverShownFolders())!!
         set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 
     private fun getEverShownFolders() = hashSetOf(

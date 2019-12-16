@@ -1,6 +1,6 @@
 Simple Gallery Pro é uma aplicação local para gerir fotos e vídeos. Pode organizar e editar as suas fotos, recuperar ficheiros através da reciclagem, proteger e ocultar ficheiros e ver imagens e vídeos disponíveis em vários formatos tais como RAW, SVG e muito mais.
 
-A aplicação não tem anúncios nem pede permissões desnecessárias. Uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos.
+A aplicação não tem anúncios nem permissões desnecessárias. Uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos.
 
 -------------------------------------------------
 <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b>

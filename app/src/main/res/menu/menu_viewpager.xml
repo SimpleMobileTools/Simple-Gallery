@@ -35,6 +35,52 @@
         </menu>
     </item>
     <item
+        android:id="@+id/menu_properties"
+        android:icon="@drawable/ic_info"
+        android:title="@string/properties"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_rename"
+        android:icon="@drawable/ic_rename_new"
+        android:title="@string/rename"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_hide"
+        android:icon="@drawable/ic_hide"
+        android:title="@string/hide"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_unhide"
+        android:icon="@drawable/ic_unhide_vector"
+        android:title="@string/unhide"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_set_as"
+        android:icon="@drawable/ic_set_as_vector"
+        android:title="@string/set_as"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@drawable/ic_edit_vector"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/menu_add_to_favorites"
         android:icon="@drawable/ic_star_off_vector"
         android:title="@string/add_to_favorites"
@@ -66,62 +112,22 @@
         </menu>
     </item>
     <item
-        android:id="@+id/menu_copy_to"
-        android:title="@string/copy_to"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_move_to"
-        android:title="@string/move_to"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_open_with"
-        android:title="@string/open_with"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_hide"
-        android:title="@string/hide"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_unhide"
-        android:title="@string/unhide"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit_vector"
-        android:title="@string/edit"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_properties"
-        android:icon="@drawable/ic_info"
-        android:title="@string/properties"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_slideshow"
-        android:icon="@drawable/ic_slideshow_vector"
-        android:title="@string/slideshow"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_set_as"
-        android:icon="@drawable/ic_set_as_vector"
-        android:title="@string/set_as"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_rename"
-        android:icon="@drawable/ic_rename_new"
-        android:title="@string/rename"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/menu_print"
         android:title="@string/print"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_create_shortcut"
-        android:title="@string/create_shortcut"
+        android:id="@+id/menu_resize"
+        android:title="@string/resize"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_show_on_map"
         android:title="@string/show_on_map"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_slideshow"
+        android:icon="@drawable/ic_slideshow_vector"
+        android:title="@string/slideshow"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_settings"
         android:title="@string/settings"

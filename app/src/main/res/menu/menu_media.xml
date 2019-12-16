@@ -23,6 +23,18 @@
         android:title="@string/filter_media"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/change_view_type"
+        android:title="@string/change_view_type"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/temporarily_show_hidden"
+        android:title="@string/temporarily_show_hidden"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/stop_showing_hidden"
+        android:title="@string/stop_showing_hidden"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/empty_recycle_bin"
         android:title="@string/empty_recycle_bin"
         app:showAsAction="never"/>
@@ -48,10 +60,6 @@
         android:title="@string/group_by"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/change_view_type"
-        android:title="@string/change_view_type"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/hide_folder"
         android:title="@string/hide_folder"
         app:showAsAction="never"/>
@@ -66,14 +74,6 @@
     <item
         android:id="@+id/create_new_folder"
         android:title="@string/create_new_folder"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/temporarily_show_hidden"
-        android:title="@string/temporarily_show_hidden"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/stop_showing_hidden"
-        android:title="@string/stop_showing_hidden"
         app:showAsAction="never"/>
     <item
         android:id="@+id/increase_column_count"

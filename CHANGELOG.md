@@ -1,6 +1,33 @@
 Changelog
 ==========
 
+Version 6.10.7 *(2019-12-12)*
+----------------------------
+
+ * Refreshed the thumbnails list views by removing the dividers
+ * Reordered some top menu items for consistency
+ * Added a Resize button to resize images directly from the fullscreen view
+ * Migrate album covers at export/import settings too
+ * Remember the last used path and file name at exporting settings
+ * Fixed a glitch with empty screen at direct subfolder grouping
+ * Many other stability, ux and translation improvements
+
+Version 6.10.6 *(2019-11-28)*
+----------------------------
+
+ * Fixed some smaller glitches
+ * Added some stability and translation improvements
+
+Version 6.10.5 *(2019-11-10)*
+----------------------------
+
+ * Remember the last used pattern at batch renaming
+ * Allow adding an incrementing number at pattern batch renaming
+ * Fixed some USB file related issues
+ * Fixed some fullscreen glitches at using split screen
+ * Allow using videos as custom folder covers
+ * Some stability and translation improvements
+
 Version 6.10.4 *(2019-11-05)*
 ----------------------------
 

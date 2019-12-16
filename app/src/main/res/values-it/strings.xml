@@ -82,6 +82,7 @@
     <string name="path">Percorso</string>
     <string name="invalid_image_path">Percorso dell\'immagine non valido</string>
     <string name="image_editing_failed">Modifica dell\'immagine fallita</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Modifica immagine con:</string>
     <string name="no_editor_found">Editor delle immagini non trovato</string>
     <string name="unknown_file_location">Posizione del file sconosciuta</string>

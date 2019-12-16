@@ -82,6 +82,7 @@
     <string name="path">Стаза</string>
     <string name="invalid_image_path">Неисправна стаза слике</string>
     <string name="image_editing_failed">Измена слике неуспешна</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Измени слику са:</string>
     <string name="no_editor_found">Није пронађен едитор слика</string>
     <string name="unknown_file_location">Непозната локација датотеке</string>

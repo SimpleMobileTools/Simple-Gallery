@@ -1,5 +1,10 @@
 package com.simplemobiletools.gallery.pro.adapters
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.os.Handler
 import android.os.Looper
 import android.view.Menu
@@ -14,16 +19,15 @@ import com.simplemobiletools.commons.dialogs.RenameDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
-import com.simplemobiletools.gallery.pro.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.pro.helpers.TYPE_RAWS
-import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_LIST
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
@@ -122,6 +126,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
+            findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
 
             checkHideBtnVisibility(this, selectedItems)
             checkFavoriteBtnVisibility(this, selectedItems)
@@ -149,6 +154,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_rotate_one_eighty -> rotateSelection(180)
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
+            R.id.cab_create_shortcut -> createShortcut()
             R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
@@ -164,6 +170,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     override fun getItemSelectionKey(position: Int) = (media.getOrNull(position) as? Medium)?.path?.hashCode()
 
     override fun getItemKeyPosition(key: Int) = media.indexOfFirst { (it as? Medium)?.path?.hashCode() == key }
+
+    override fun onActionModeCreated() {}
+
+    override fun onActionModeDestroyed() {}
 
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
@@ -339,6 +349,33 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             if (!isCopyOperation) {
                 listener?.refreshItems()
                 activity.updateFavoritePaths(fileDirItems, destinationPath)
+            }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private fun createShortcut() {
+        val manager = activity.getSystemService(ShortcutManager::class.java)
+        if (manager.isRequestPinShortcutSupported) {
+            val path = getSelectedPaths().first()
+            val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
+            activity.getShortcutImage(path, drawable) {
+                val intent = Intent(activity, ViewPagerActivity::class.java).apply {
+                    putExtra(PATH, path)
+                    putExtra(SHOW_ALL, config.showAll)
+                    putExtra(SHOW_FAVORITES, path == FAVORITES)
+                    putExtra(SHOW_RECYCLE_BIN, path == RECYCLE_BIN)
+                    action = Intent.ACTION_VIEW
+                    flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+
+                val shortcut = ShortcutInfo.Builder(activity, path)
+                        .setShortLabel(path.getFilenameFromPath())
+                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                        .setIntent(intent)
+                        .build()
+
+                manager.requestPinShortcut(shortcut, null)
             }
         }
     }

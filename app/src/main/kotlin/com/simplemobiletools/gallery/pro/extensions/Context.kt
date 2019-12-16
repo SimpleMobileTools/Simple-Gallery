@@ -251,7 +251,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
             // /storage/emulated/0/Pictures/Screenshots,
             // but /storage/emulated/0/Pictures is empty, still Pictures with the first folders thumbnails and proper other info
             val parent = File(path).parent
-            if (!folders.contains(parent) && dirs.none { it.path == parent }) {
+            if (parent != null && !folders.contains(parent) && dirs.none { it.path == parent }) {
                 currentPaths.add(parent)
                 val isSortingAscending = config.sorting and SORT_DESCENDING == 0
                 val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
@@ -595,7 +595,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
                 "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
             } else {
-                it.name
+                it.name.removeSuffix(hiddenString).trim()
             }
         }
 

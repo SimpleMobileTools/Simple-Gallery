@@ -82,6 +82,7 @@
     <string name="path">Kelias</string>
     <string name="invalid_image_path">Netinkamas atvaizdo kelias</string>
     <string name="image_editing_failed">Atvaizdo redagavimas nepavyko</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Redaguoti atvaizdą su:</string>
     <string name="no_editor_found">Nerasta atvaizdų redagavimo programėlės</string>
     <string name="unknown_file_location">Nežinoma bylos vieta</string>

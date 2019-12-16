@@ -40,7 +40,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
                 }
 
         activity.getCachedMedia(path) {
-            val media = it.filter { it is Medium && !it.isVideo() } as ArrayList
+            val media = it.filter { it is Medium } as ArrayList
             if (media.isNotEmpty()) {
                 activity.runOnUiThread {
                     gotMedia(media)
@@ -48,7 +48,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             }
         }
 
-        GetMediaAsynctask(activity, path, true, false, false) {
+        GetMediaAsynctask(activity, path, false, false, false) {
             gotMedia(it)
         }.execute()
     }

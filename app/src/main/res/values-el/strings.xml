@@ -82,6 +82,7 @@
     <string name="path">Διαδρομή</string>
     <string name="invalid_image_path">Μη έγκυρη διαδρομή εικόνας</string>
     <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
     <string name="no_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
     <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>

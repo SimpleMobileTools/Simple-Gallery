@@ -82,6 +82,7 @@
     <string name="path">Putanja</string>
     <string name="invalid_image_path">Neispravna putanja slike</string>
     <string name="image_editing_failed">Uređivanje slika nije uspjelo</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Uredi sliku pomoću:</string>
     <string name="no_editor_found">Nije pronađen uređivač slika</string>
     <string name="unknown_file_location">Nepoznata lokacija datoteke</string>

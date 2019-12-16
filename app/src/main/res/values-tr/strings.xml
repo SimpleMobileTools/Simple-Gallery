@@ -82,6 +82,7 @@
     <string name="path">Yol</string>
     <string name="invalid_image_path">Geçersiz resim yolu</string>
     <string name="image_editing_failed">Resim düzenleme başarısız</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Resmi şununla düzenle:</string>
     <string name="no_editor_found">Resim düzenleyici bulunamadı</string>
     <string name="unknown_file_location">Bilinmeyen dosya konumu</string>

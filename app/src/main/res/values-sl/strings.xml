@@ -82,6 +82,7 @@
     <string name="path">Pot</string>
     <string name="invalid_image_path">Napačna pot</string>
     <string name="image_editing_failed">Urejanje slike ni uspelo</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Uredi sliko z:</string>
     <string name="no_editor_found">Ne najdem urejevalnika slik</string>
     <string name="unknown_file_location">Neznana lokacija datoteke</string>

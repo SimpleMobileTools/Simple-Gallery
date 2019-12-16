@@ -237,12 +237,12 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
                 try {
                     val destination = "$recycleBinPath/$source"
                     val fileDocument = getSomeDocumentFile(source)
-                    inputStream = applicationContext.contentResolver.openInputStream(fileDocument?.uri)
+                    inputStream = applicationContext.contentResolver.openInputStream(fileDocument?.uri!!)
                     out = getFileOutputStreamSync(destination, source.getMimeType())
 
                     var copiedSize = 0L
                     val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-                    var bytes = inputStream.read(buffer)
+                    var bytes = inputStream!!.read(buffer)
                     while (bytes >= 0) {
                         out!!.write(buffer, 0, bytes)
                         copiedSize += bytes
@@ -612,7 +612,7 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
 fun Activity.showFileOnMap(path: String) {
     val exif = try {
         if (path.startsWith("content://") && isNougatPlus()) {
-            ExifInterface(contentResolver.openInputStream(Uri.parse(path)))
+            ExifInterface(contentResolver.openInputStream(Uri.parse(path))!!)
         } else {
             ExifInterface(path)
         }
