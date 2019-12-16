@@ -82,7 +82,7 @@
     <string name="path">Διαδρομή</string>
     <string name="invalid_image_path">Μη έγκυρη διαδρομή εικόνας</string>
     <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">Επιτυχής επεξεργασία αρχείου</string>
     <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
     <string name="no_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
     <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
@@ -90,9 +90,9 @@
     <string name="rotate_left">Περιστροφή αριστερά</string>
     <string name="rotate_right">Περιστροφή δεξιά</string>
     <string name="rotate_one_eighty">Περιστροφή κατά 180º</string>
-    <string name="flip">Αναποδογύρισμα</string>
-    <string name="flip_horizontally">Οριζόντιο αναποδογύρισμα</string>
-    <string name="flip_vertically">Κατακόρυφο αναποδογύρισμα</string>
+    <string name="flip">Περιστροφή</string>
+    <string name="flip_horizontally">Οριζόντια περιστροφή</string>
+    <string name="flip_vertically">Κατακόρυφη περιστροφή</string>
     <string name="free_aspect_ratio">Ελεύθερο</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -103,8 +103,8 @@
     <string name="set_as_wallpaper_with">Εφαρμογή ως ταπετσαρία με:</string>
     <string name="setting_wallpaper">Η ταπετσαρία εφαρμόζεται...</string>
     <string name="wallpaper_set_successfully">Η ταπετσαρία εφαρμόστηκε</string>
-    <string name="portrait_aspect_ratio">Αναλογία σε κατακόρυφη προβολή</string>
-    <string name="landscape_aspect_ratio">Αναλογία σε οριζόντια προβολή</string>
+    <string name="portrait_aspect_ratio">Αναλογία κατακόρυφης προβολής</string>
+    <string name="landscape_aspect_ratio">Αναλογία οριζόντιας προβολής</string>
     <string name="home_screen">Αρχική οθόνη</string>
     <string name="lock_screen">Οθόνη κλειδώματος</string>
     <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
@@ -122,7 +122,7 @@
     <string name="no_animation">Χωρίς</string>
     <string name="fade">Εξασθένηση</string>
     <string name="slide">Ολίσθηση</string>
-    <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
+    <string name="slideshow_ended">Τέλος εμφάνισης διαφανειών</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
 
     <!-- View types -->
@@ -151,14 +151,14 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
-    <string name="remember_last_video_position">Απομνημόνευση της τελευταίας θέσης αναπαραγωγής βίντεο</string>
+    <string name="remember_last_video_position">Απομνημόνευση τελευταίας θέσης αναπαραγωγής βίντεο</string>
     <string name="toggle_filename">Αλλαγή προβολής ονόματος αρχείων</string>
     <string name="loop_videos">Επανάληψη βίντεο</string>
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
     <string name="max_brightness">Μέγιστη φωτεινότητα κατά την προβολή πλήρους οθόνης</string>
     <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
     <string name="show_thumbnail_video_duration">Εμφάνιση διάρκειας βίντεο</string>
-    <string name="screen_rotation_by">Περιστροφή σε πλήρη οθόνη απο</string>
+    <string name="screen_rotation_by">Περιστροφή πλήρους οθόνης σύμφωνα με</string>
     <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
     <string name="screen_rotation_device_rotation">Περιστροφή συσκευής</string>
     <string name="screen_rotation_aspect_ratio">Αναλογία εικόνας</string>
