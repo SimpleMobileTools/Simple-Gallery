@@ -82,6 +82,7 @@
     <string name="path">Sökväg</string>
     <string name="invalid_image_path">Ogiltig bildsökväg</string>
     <string name="image_editing_failed">Bilden kunde inte redigeras</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Redigera bilden med:</string>
     <string name="no_editor_found">Ingen bildredigerare hittades</string>
     <string name="unknown_file_location">Okänd filplats</string>

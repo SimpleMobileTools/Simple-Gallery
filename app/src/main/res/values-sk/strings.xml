@@ -82,6 +82,7 @@
     <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava súboru zlyhala</string>
+    <string name="file_edited_successfully">Súbor bol úspešne upravený</string>
     <string name="edit_image_with">Upraviť súbor s:</string>
     <string name="no_editor_found">Nebol nájdený žiadny editor</string>
     <string name="unknown_file_location">Neznáme umiestnenie súboru</string>

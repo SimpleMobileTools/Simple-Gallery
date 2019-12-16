@@ -82,6 +82,7 @@
     <string name="path">Caminho</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="no_editor_found">Editor não encontrado</string>
     <string name="unknown_file_location">Localização desconhecida</string>

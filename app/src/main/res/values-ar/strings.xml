@@ -82,6 +82,7 @@
     <string name="path">المسار</string>
     <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="image_editing_failed">فشل تعديل الصورة</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">تعديل الصورة باستخدام:</string>
     <string name="no_editor_found">لم يتم العثور على أي محرر للصور</string>
     <string name="unknown_file_location">موقع الملف غير معروف</string>

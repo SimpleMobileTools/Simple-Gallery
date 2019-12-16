@@ -82,6 +82,7 @@
     <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad.</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen.</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Bild bearbeiten mit:</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden.</string>
     <string name="unknown_file_location">Unbekannter Dateipfad.</string>

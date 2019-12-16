@@ -82,6 +82,7 @@
     <string name="path">Ścieżka</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
     <string name="image_editing_failed">Edycja obrazu nie powiodła się</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Edytuj obraz w:</string>
     <string name="no_editor_found">Nie znalazłem edytora zdjęć</string>
     <string name="unknown_file_location">Nieznana lokalizacja pliku</string>

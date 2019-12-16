@@ -82,6 +82,7 @@
     <string name="path">Шлях</string>
     <string name="invalid_image_path">Неприпустимий шлях до зображення</string>
     <string name="image_editing_failed">Не вдалося редагувати зображення</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Редагувати зображення за допомогою:</string>
     <string name="no_editor_found">Не знайдено редакторів зображень</string>
     <string name="unknown_file_location">Невідоме розташування файлу</string>

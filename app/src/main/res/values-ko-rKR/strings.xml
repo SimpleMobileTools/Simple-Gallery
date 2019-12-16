@@ -82,6 +82,7 @@
     <string name="path">경로</string>
     <string name="invalid_image_path">유효하지 않은 사진 경로</string>
     <string name="image_editing_failed">사진 편집 실패</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">사진 편집 프로그램 연결:</string>
     <string name="no_editor_found">사진 편집 프로그램 없음</string>
     <string name="unknown_file_location">알 수 없는 파일 위치</string>

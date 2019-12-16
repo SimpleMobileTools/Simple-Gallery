@@ -82,6 +82,7 @@
     <string name="path">Emplacement</string>
     <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">Échec de l\'édition de l\'image</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Modifier l\'image avec :</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu</string>

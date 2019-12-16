@@ -82,6 +82,7 @@
     <string name="path">Bane</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
     <string name="image_editing_failed">Bilderedigering feilet</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Rediger bilde med:</string>
     <string name="no_editor_found">Ingen bilderedigeringsapp funnet</string>
     <string name="unknown_file_location">Ukjent filplassering</string>

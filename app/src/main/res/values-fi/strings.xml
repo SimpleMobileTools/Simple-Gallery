@@ -82,6 +82,7 @@
     <string name="path">Polku</string>
     <string name="invalid_image_path">Kuvan polkua ei ole</string>
     <string name="image_editing_failed">Kuvan muokkaus epäonnistui</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Muokkaa kuvaa:</string>
     <string name="no_editor_found">Kuvamuokkainta ei löytynyt</string>
     <string name="unknown_file_location">Tuntematon tiedostosijainti</string>

@@ -82,6 +82,7 @@
     <string name="path">パス</string>
     <string name="invalid_image_path">無効な画像パス</string>
     <string name="image_editing_failed">画像の編集に失敗しました</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">画像を編集:</string>
     <string name="no_editor_found">画像エディターが見つかりません</string>
     <string name="unknown_file_location">ファイルの場所が不明です</string>

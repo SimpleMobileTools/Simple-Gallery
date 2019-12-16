@@ -82,6 +82,7 @@
     <string name="path">路径</string>
     <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">编辑方式：</string>
     <string name="no_editor_found">没有找到图片编辑器</string>
     <string name="unknown_file_location">未知文件位置</string>

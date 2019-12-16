@@ -82,6 +82,7 @@
     <string name="path">Sti</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="image_editing_failed">Redigering af billede mislykkedes</string>
+    <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Rediger billede med:</string>
     <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="unknown_file_location">Ukendt filplacering</string>
