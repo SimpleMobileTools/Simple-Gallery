@@ -82,7 +82,7 @@
     <string name="path">Ruta</string>
     <string name="invalid_image_path">Ruta de imagen no válida</string>
     <string name="image_editing_failed">Falló la edición de imagen</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">Fichero editado satisfactoriamente</string>
     <string name="edit_image_with">Editar imagen usando:</string>
     <string name="no_editor_found">No se encontró editor de imágenes</string>
     <string name="unknown_file_location">Ubicación del archivo desconocida</string>
