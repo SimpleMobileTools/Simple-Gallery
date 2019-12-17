@@ -633,7 +633,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentPath = getCurrentPath()
         if (needsStupidWritePermissions(currentPath)) {
             handleSAFDialog(currentPath) {
-                rotateBy(degrees)
+                if (it) {
+                    rotateBy(degrees)
+                }
             }
         } else {
             rotateBy(degrees)
@@ -668,6 +670,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath, false) {
             val newPath = it
             handleSAFDialog(it) {
+                if (!it) {
+                    return@handleSAFDialog
+                }
+
                 toast(R.string.saving)
                 ensureBackgroundThread {
                     val photoFragment = getCurrentPhotoFragment() ?: return@ensureBackgroundThread

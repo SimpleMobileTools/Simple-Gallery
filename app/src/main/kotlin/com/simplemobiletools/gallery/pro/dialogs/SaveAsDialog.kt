@@ -8,7 +8,8 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
 
-class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
+class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val cancelCallback: (() -> Unit)? = null,
+                   val callback: (savePath: String) -> Unit) {
 
     init {
         var realPath = path.getParentPath()
@@ -41,7 +42,8 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
+                .setNegativeButton(R.string.cancel) { dialog, which -> cancelCallback?.invoke() }
+                .setOnCancelListener { cancelCallback?.invoke() }
                 .create().apply {
                     activity.setupDialogStuff(view, this, R.string.save_as) {
                         showKeyboard(view.save_as_name)

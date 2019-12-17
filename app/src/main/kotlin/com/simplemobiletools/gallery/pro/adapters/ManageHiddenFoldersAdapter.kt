@@ -81,7 +81,9 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
 
         if (sdCardPaths.isNotEmpty()) {
             activity.handleSAFDialog(sdCardPaths.first()) {
-                unhideFolders(removeFolders)
+                if (it) {
+                    unhideFolders(removeFolders)
+                }
             }
         } else {
             unhideFolders(removeFolders)
