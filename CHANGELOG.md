@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.10.8 *(2019-12-17)*
+----------------------------
+
+ * Added some crashfixes and stability improvements
+
 Version 6.10.7 *(2019-12-12)*
 ----------------------------
 
