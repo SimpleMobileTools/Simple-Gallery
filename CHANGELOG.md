@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.11.0 *(2019-12-17)*
+----------------------------
+
+ * Fully replaced the photo editor with a powerful third party library
+ * Added some crashfixes and stability improvements
+
 Version 6.10.8 *(2019-12-17)*
 ----------------------------
 
