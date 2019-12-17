@@ -6,6 +6,7 @@
     <string name="package_name">com.simplemobiletools.gallery.pro</string>
 
     <!-- Release notes -->
+    <string name="release_277">Fully replaced the photo editor with a powerful third party library (for resizing images use Menu -> Resize from the fullscreen view, until it gets added in the editor)</string>
     <string name="release_258">
         Allow customizing the bottom navigation bar color\n
         Share files in the order they were selected
