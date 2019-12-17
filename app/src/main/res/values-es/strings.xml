@@ -4,8 +4,8 @@
     <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
-    <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluido)</string>
+    <string name="hidden">(Oculto)</string>
+    <string name="excluded">(Excluido)</string>
     <string name="pin_folder">Fijar carpeta</string>
     <string name="unpin_folder">No fijar carpeta</string>
     <string name="pin_to_the_top">Anclar arriba</string>
@@ -32,13 +32,13 @@
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="share_resized">Comparte una versión redimensionada</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Oye,\n\nParece que actualizaste de la aplicación gratuita vieja. Ahora puedes desinstalar la versión vieja, que tiene un botón \'Actualizar a Pro\' en la aprte superior de los ajustes de la app.\n\nSolo tendrás los elementos de la Papelera de Reciclaje eliminados, favoritos desmarcados y también tendrás que reiniciar los ajustes de la app.\n\n¡Gracias!</string>
     <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
     <string name="images">Imágenes</string>
-    <string name="videos">Vídeos</string>
+    <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">Imagenes RAW</string>
     <string name="svgs">SVGs</string>
@@ -47,25 +47,25 @@
     <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
+    <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y también ocultará las subcarpetas. Puede mostrarlas modificando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
     <string name="exclude">Excluir</string>
     <string name="excluded_folders">Carpetas excluidas</string>
     <string name="manage_excluded_folders">Gestionar carpetas excluidas</string>
     <string name="exclude_folder_description">Esto excluirá la selección junto con sus subcarpetas, solamente de Simple Gallery. Puede gestionar las carpetas excluidas en los Ajustes.</string>
     <string name="exclude_folder_parent">¿Excluir mejor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excluir las carpetas las hará junto a sus subcarpetas ocultas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\\n\\nSi desea ocultarlo de otras aplicaciones, utilice la función de Ocultar.</string>
+    <string name="excluded_activity_placeholder">Excluir las carpetas las excluirá junto a sus subcarpetas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\\n\\nSi desea ocultarlo de otras aplicaciones, utilice la función de \"Ocultar\".</string>
     <string name="remove_all">Eliminar todo</string>
     <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
-    <string name="hidden_folders_placeholder">Parece que no tienes carpetas ocultas con \".nomedia\" ficheros.</string>
+    <string name="hidden_folders_placeholder">Parece que no tienes carpetas ocultas con archivos \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
     <string name="manage_included_folders">Gestionar carpetas incluidas</string>
     <string name="add_folder">Agregar carpeta</string>
     <string name="included_activity_placeholder">Si tiene algunas carpetas que contengan multimedia, pero que no fueron reconocidas por la aplicación, puede agregarlas manualmente aquí.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Ningún archivo multimedia ha sido encontrado. Puedes resolverlo añadiendo las carpetas que contengan archivos multimedia manualmente.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -101,7 +101,7 @@
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer como fondo de pantalla con:</string>
-    <string name="setting_wallpaper">Estableciendo fondo de pantalla&#8230;</string>
+    <string name="setting_wallpaper">Estableciendo fondo de pantalla...</string>
     <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
     <string name="portrait_aspect_ratio">Relación de aspecto tipo retrato</string>
     <string name="landscape_aspect_ratio">Relación de aspecto tipo paisaje</string>
@@ -110,19 +110,19 @@
     <string name="home_and_lock_screen">Pantalla de inicio y de bloqueo</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Diapositivas</string>
+    <string name="slideshow">Presentación de diapositivas</string>
     <string name="interval">Intervalo (segundos):</string>
     <string name="include_photos">Incluir fotos</string>
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIFs</string>
     <string name="random_order">Orden aleatorio</string>
     <string name="move_backwards">Mover hacia atrás</string>
-    <string name="loop_slideshow">Presentación de diapositivas</string>
+    <string name="loop_slideshow">Presentación en bucle</string>
     <string name="animation">Animación</string>
     <string name="no_animation">Ninguna</string>
-    <string name="fade">Fusión</string>
+    <string name="fade">Desvanecimiento</string>
     <string name="slide">Desplazamineto</string>
-    <string name="slideshow_ended">La diapositiva terminó</string>
+    <string name="slideshow_ended">La presentación de diapositivas terminó</string>
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
 
     <!-- View types -->
@@ -133,15 +133,15 @@
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
-    <string name="do_not_group_files">No agrupar ficheros</string>
+    <string name="do_not_group_files">No agrupar</string>
     <string name="by_folder">Carpeta</string>
-    <string name="by_last_modified">Último modificado</string>
-    <string name="by_last_modified_daily">Último modificado (diario)</string>
-    <string name="by_last_modified_monthly">Último modificado (mensual)</string>
-    <string name="by_date_taken">Fecha de toma</string>
-    <string name="by_date_taken_daily">Fecha de toma (diario)</string>
-    <string name="by_date_taken_monthly">Fecha de toma (mensual)</string>
-    <string name="by_file_type">Tipo de fichero</string>
+    <string name="by_last_modified">Fecha de modificación</string>
+    <string name="by_last_modified_daily">Fecha de modificacion (Día)</string>
+    <string name="by_last_modified_monthly">Fecha de modificación (Mes)</string>
+    <string name="by_date_taken">Fecha de creación</string>
+    <string name="by_date_taken_daily">Fecha de creación (Día)</string>
+    <string name="by_date_taken_monthly">Fecha de creación (Mes)</string>
+    <string name="by_file_type">Tipo de arhivo</string>
     <string name="by_extension">Extensión</string>
     <string name="grouping_and_sorting">Tenga en cuenta que la agrupación y la clasificación son 2 campos independientes</string>
 
@@ -151,38 +151,38 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
-    <string name="remember_last_video_position">Recuerde la última posición de reproducción de video</string>
+    <string name="remember_last_video_position">Recordar la última posición en la reproducción de video</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
-    <string name="loop_videos">Reproducción continua de vídeos</string>
+    <string name="loop_videos">Reproducción videos en bucle</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
     <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>
     <string name="crop_thumbnails">Recortar miniaturas en cuadrados</string>
-    <string name="show_thumbnail_video_duration">Mostrar duración del video</string>
+    <string name="show_thumbnail_video_duration">Mostrar la duración de los videos</string>
     <string name="screen_rotation_by">Rotar multimedia en pantalla completa según</string>
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
     <string name="black_background_at_fullscreen">Fondo y barra de estado negra en medios de pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
-    <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
+    <string name="hide_system_ui_at_fullscreen">Ocultar la interfaz del sistema en pantalla completa</string>
     <string name="delete_empty_folders">Eliminar carpetas vacias despues de borrar su contenido</string>
-    <string name="allow_photo_gestures">Permite controlar el brillo con gestos verticales</string>
+    <string name="allow_photo_gestures">Permite controlar el brillo en las fotos con gestos verticales</string>
     <string name="allow_video_gestures">Permite controlar el volumen y el brillo del video con gestos verticales</string>
-    <string name="show_media_count">Mostrar el conteo de medios de las carpetas en la vista principal</string>
-    <string name="show_extended_details">Mostrar detalles extendidos sobre medios en pantalla completa</string>
-    <string name="manage_extended_details">Administrar detalles ampliados</string>
+    <string name="show_media_count">Mostrar el número de archivos dentro de las carpetas en la página principal</string>
+    <string name="show_extended_details">Mostrar información de los archivos en pantalla completa</string>
+    <string name="manage_extended_details">Información de lo archivos a mostrar</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo en pantalla completa</string>
-    <string name="allow_instant_change">Permitir el cambio instantáneo de medios haciendo clic en los lados de la pantalla</string>
+    <string name="allow_instant_change">Deslpazarse en los medios haciendo clic en los lados de la pantalla</string>
     <string name="allow_deep_zooming_images">Permitir zoom profundo</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
-    <string name="show_at_bottom">Mostrar algunos botones de acción en la parte inferior de la pantalla</string>
+    <string name="show_at_bottom">Mostrar botones de acción en la parte inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostrar la papelera de reciclaje en la pantalla de carpetas</string>
     <string name="deep_zoomable_images">Imágenes ampliables con zoom</string>
-    <string name="show_highest_quality">Muestra imágenes con la mayor calidad posible</string>
+    <string name="show_highest_quality">Mostrar imágenes con la mayor calidad posible</string>
     <string name="show_recycle_bin_last">Mostrar la Papelera de reciclaje como el último elemento en la pantalla principal</string>
     <string name="allow_down_gesture">Permite cerrar la vista de pantalla completa con un gesto hacia abajo.</string>
-    <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con dos toques dobles</string>
-    <string name="open_videos_on_separate_screen">Siempre abre videos en una pantalla separada con nuevos gestos horizontales</string>
+    <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con un toque doble</string>
+    <string name="open_videos_on_separate_screen">Abrir videos en una pantalla separada con nuevos gestos horizontales</string>
     <string name="show_notch">Mostrar una muesca si está disponible</string>
     <string name="allow_rotating_gestures">Permite girar con gestos</string>
     <string name="file_loading_priority">Prioridad de carga de archivos</string>
@@ -199,8 +199,8 @@
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Administrar los botones de la parte inferior</string>
-    <string name="toggle_favorite">Activar favoritos</string>
-    <string name="toggle_file_visibility">Activar visibilidad de fichero</string>
+    <string name="toggle_favorite">Agregar a favoritos</string>
+    <string name="toggle_file_visibility">Alternar visibilidad de archivo</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">¿Cómo puedo hacer que Simple Gallery sea la galería de dispositivos predeterminada?</string>
@@ -236,54 +236,54 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro - Gestor y editor de fotos</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Explore sus recuerdos sin interrupciones.</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro es una galería altamente personalizable disponible sin conexión. Organiza y edita tus fotos, recupera archivos eliminados con la papelera de reciclaje, protege y oculta archivos y mira una gran variedad de diferentes formatos de fotos y videos incluyendo RAW, SVG y muchos más.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        La app no contiene anuncios ni permisos innecesarios. Ya que la app tampoco requiere acceso a internet, tu privacidad está protegida.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – CARACTERÍSTICAS</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Galería disponible sin conexión sin anuncios ni ventanas emergentes
+        • Editor de fotos – Recorta, rota, redimensiona, dibuja, filtra y más
+        • Acceso a internet no necesario, dándote más privacidad y seguridad
+        • No requiere permisos innecesarios
+        • Búsqueda rápida de imágenes, videos y archivos
+        • Abre y mira muchos tipos de fotos y videos diferentes (RAW, SVG, panorámica, etc.)
+        • Variedad de gestos intuitivos para editar y organizar archivos fácilmente
+        • Montones de formas de filtrar, agrupar y ordenar archivos
+        • Personaliza la apariencia de Simple Gallery Pro
+        • Disponible en 32 lenguajes
+        • Seleccionar archivos como favoritos para acceder rápidamente
+        • Protege tus fotos y videos con patrón, pin o huella digital
+        • Usa pin, patrón y huella digital para proteger la apertura de la app o también funciones específicas
+        • Recupera fotos y videos eliminados desde la papelera de reciclaje
+        • Alterna la visibilidad de archivos para ocultar fotos y videos
+        • Crea una presentación de diapositivas personalizable de tus archivos
+        • Mira información detallada de tus archivos (Resolución, valores EXIF, etc.)
+        • Simple Gallery Pro es de código abierto
+        … ¡y mucho, mucho más!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>EDITOR DE FOTOS</b>
+        Simple Gallery Pro hace más fácil editar tus fotos rápidamente. Corta, gira, rota y redimensiona tus fotos. Si te sientes un poco más creativo, ¡Puedes añadir filtros y dibujar en tus fotos!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>SOPORTA MUCHOS TIPOS DE ARCHIVOS</b>
+        Al contrario de otras galerías y organizadores de fotos, Simple Gallery Pro soporta un enorme rango de tipos de archivos diferentes incluyendo JPEG, PNG, MP4, MKV, RAW, SVG, fotos panorámicas, videos panorámicos y muchos más.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>GALERÍA ALTAMENTE PERSONALZIABLE</b>
+        Desde la IU hasta los botones de funciones en la barra de herramientas inferior, Simple Gallery Pro es altamente personalizable y trabaja de la forma que quieras. ¡Ninguna otra galería tiene este tipo de flexibilidad! Gracias a que es de código abierto, ¡También está disponible en 32 lenguajes!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>RECUPERA FOTOS Y VIDEOS ELIMINADOS</b>
+        ¿Accidentalmente eliminaste una foto o video precioso? ¡No te preocupes! Simple Gallery Pro contiene una práctica papelera de reciclaje donde puedes recuperar fácilmente fotos y videos eliminados.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>PROTEGE Y OCULTA FOTOS, VIDEOS Y ARCHIVOS</b>
+        Usando pin, patrón o el lector de huella de tu dispositivo, puedes proteger y ocultar fotos, videos y álbumes enteros. Puedes proteger la propia aplicación o bloquear funciones específicas en la misma. Por ejemplo, no puedes eliminar un archivo sin un escaneo de huella, ayudando a proteger tus archivos de ser eliminados accidentalmente.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Mira la suite completa de Simple Tools aquí:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
