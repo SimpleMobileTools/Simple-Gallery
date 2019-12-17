@@ -113,7 +113,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         (bottom_editor_crop_rotate_actions.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1)
-        loadCropImageView()
         setupCropRotateActionButtons()
         setupAspectRatioButtons()
 
@@ -128,22 +127,22 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
+
         updateAspectRatio(config.lastEditorCropAspectRatio)
         crop_image_view.guidelines = CropImageView.Guidelines.ON
-        bottom_aspect_ratios.beVisible()
+        loadCropImageView()
     }
 
     private fun loadCropImageView() {
         crop_image_view.apply {
-            beVisible()
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(uri)
             guidelines = CropImageView.Guidelines.ON
 
             if (shouldCropSquare()) {
-                currAspectRatio = ASPECT_RATIO_ONE_ONE
+                updateAspectRatio(ASPECT_RATIO_ONE_ONE)
                 setFixedAspectRatio(true)
-                bottom_aspect_ratio.beGone()
+                bottom_aspect_ratios.beGone()
             }
         }
     }
@@ -312,7 +311,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
 
             if (saveUri.scheme == "file") {
-                saveBitmapToFile(bitmap, saveUri.path!!, true)
+                saveBitmapToFile(bitmap, saveUri.path!!)
             } else {
                 var inputStream: InputStream? = null
                 var outputStream: OutputStream? = null
@@ -339,7 +338,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun saveBitmapToFile(bitmap: Bitmap, path: String, showSavingToast: Boolean) {
+    private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
         if (!packageName.contains("slootelibomelpmis".reversed(), true)) {
             if (baseConfig.appRunCount > 100) {
                 val label = "sknahT .moc.slootelibomelpmis.www morf eno lanigiro eht daolnwod ytefas nwo ruoy roF .ppa eht fo noisrev ekaf a gnisu era uoY".reversed()
@@ -358,7 +357,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
                 getFileOutputStream(fileDirItem, true) {
                     if (it != null) {
-                        saveBitmap(file, bitmap, it, showSavingToast)
+                        saveBitmap(file, bitmap, it)
                     } else {
                         toast(R.string.image_editing_failed)
                     }
@@ -372,10 +371,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     @TargetApi(Build.VERSION_CODES.N)
-    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, showSavingToast: Boolean) {
-        if (showSavingToast) {
-            toast(R.string.saving)
-        }
+    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream) {
+        toast(R.string.saving)
 
         if (resizeWidth > 0 && resizeHeight > 0) {
             val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
