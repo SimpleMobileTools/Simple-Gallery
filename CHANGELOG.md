@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.11.1 *(2019-12-18)*
+----------------------------
+
+ * Removing Text Design from the editor, it takes up too much space
+
 Version 6.11.0 *(2019-12-17)*
 ----------------------------
 
