@@ -24,9 +24,14 @@ import ly.img.android.pesdk.backend.model.state.EditorSaveSettings
 import ly.img.android.pesdk.backend.model.state.manager.SettingsList
 import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
 import ly.img.android.pesdk.ui.model.state.UiConfigFilter
+import ly.img.android.pesdk.ui.model.state.UiConfigMainMenu
 import ly.img.android.pesdk.ui.model.state.UiConfigText
 import ly.img.android.pesdk.ui.model.state.UiConfigTheme
+import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
+import java.util.*
+import kotlin.collections.LinkedHashMap
+import kotlin.collections.set
 
 class NewEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
@@ -175,6 +180,14 @@ class NewEditActivity : SimpleActivity() {
         settingsList.getSettingsModel(UiConfigText::class.java).setFontList(
                 FontPackBasic.getFontPack()
         )
+
+        // do not use Text Design, it takes up too much space
+        val tools = settingsList.getSettingsModel(UiConfigMainMenu::class.java).toolList
+        val newTools = tools.filterNot {
+            it.name!!.isEmpty()
+        }.toMutableList() as ArrayList<ToolItem>
+
+        settingsList.getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
 
         settingsList.getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 

@@ -101,7 +101,6 @@ pesdkConfig {
         include 'ly.img.android.pesdk.ui.mobile_ui:filter'
         include 'ly.img.android.pesdk.ui.mobile_ui:transform'
         include 'ly.img.android.pesdk.ui.mobile_ui:adjustment'
-        include 'ly.img.android.pesdk.ui.mobile_ui:text-design'
 
         // Add asset packs if you need
         include 'ly.img.android.pesdk.assets:font-basic'
