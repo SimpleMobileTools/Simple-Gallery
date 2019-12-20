@@ -177,10 +177,13 @@ class NewEditActivity : SimpleActivity() {
         settingsList.config.getAssetMap(CropAspectAsset::class.java).apply {
             add(CropAspectAsset("my_crop_1_2", 1, 2, false))
             add(CropAspectAsset("my_crop_2_1", 2, 1, false))
+            add(CropAspectAsset("my_crop_19_9", 19, 9, false))
+            add(CropAspectAsset("my_crop_9_19", 9, 19, false))
         }
 
         settingsList.getSettingsModel(UiConfigAspect::class.java).aspectList.apply {
             add(ToggleAspectItem(CropAspectItem("my_crop_2_1"), CropAspectItem("my_crop_1_2")))
+            add(ToggleAspectItem(CropAspectItem("my_crop_19_9"), CropAspectItem("my_crop_9_19")))
         }
 
         settingsList.getSettingsModel(UiConfigFilter::class.java).setFilterList(
