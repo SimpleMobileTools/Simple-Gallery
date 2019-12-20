@@ -140,7 +140,8 @@ class NewEditActivity : SimpleActivity() {
     private val editCopyMoveListener = object : CopyMoveListener {
         override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean, destinationPath: String) {
             if (config.keepLastModified) {
-                updateLastModified(destinationFilePath, sourceFileLastModified)
+                // add 1 s to the last modified time to properly update the thumbnail
+                updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
             }
 
             val paths = arrayListOf(destinationFilePath)
