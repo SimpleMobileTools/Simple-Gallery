@@ -490,4 +490,16 @@ class Config(context: Context) : BaseConfig(context) {
     var spamFoldersChecked: Boolean
         get() = prefs.getBoolean(SPAM_FOLDERS_CHECKED, false)
         set(spamFoldersChecked) = prefs.edit().putBoolean(SPAM_FOLDERS_CHECKED, spamFoldersChecked).apply()
+
+    var editorBrushColor: Int
+        get() = prefs.getInt(EDITOR_BRUSH_COLOR, -1)
+        set(editorBrushColor) = prefs.edit().putInt(EDITOR_BRUSH_COLOR, editorBrushColor).apply()
+
+    var editorBrushHardness: Float
+        get() = prefs.getFloat(EDITOR_BRUSH_HARDNESS, 0.5f)
+        set(editorBrushHardness) = prefs.edit().putFloat(EDITOR_BRUSH_HARDNESS, editorBrushHardness).apply()
+
+    var editorBrushSize: Float
+        get() = prefs.getFloat(EDITOR_BRUSH_SIZE, 0.05f)
+        set(editorBrushSize) = prefs.edit().putFloat(EDITOR_BRUSH_SIZE, editorBrushSize).apply()
 }

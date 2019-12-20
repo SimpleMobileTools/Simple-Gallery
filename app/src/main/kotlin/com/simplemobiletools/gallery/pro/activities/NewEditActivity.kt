@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
 import ly.img.android.pesdk.backend.model.config.CropAspectAsset
+import ly.img.android.pesdk.backend.model.state.BrushSettings
 import ly.img.android.pesdk.backend.model.state.EditorLoadSettings
 import ly.img.android.pesdk.backend.model.state.EditorSaveSettings
 import ly.img.android.pesdk.backend.model.state.manager.SettingsList
@@ -35,6 +36,7 @@ import kotlin.collections.set
 
 class NewEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
+    private val SETTINGS_LIST = "SETTINGS_LIST"
     private val SOURCE_IMAGE_PATH = "SOURCE_IMAGE_PATH"
     private val RESULT_IMAGE_PATH = "RESULT_IMAGE_PATH"
     private var sourceFileLastModified = 0L
@@ -102,6 +104,14 @@ class NewEditActivity : SimpleActivity() {
             val extras = resultData?.extras
             val source = extras?.getString(SOURCE_IMAGE_PATH, "") ?: ""
             imagePathFromEditor = extras?.getString(RESULT_IMAGE_PATH, "") ?: ""
+
+            val settings = extras?.getParcelable<SettingsList>(SETTINGS_LIST)
+            if (settings != null) {
+                val brush = settings.getSettingsModel(BrushSettings::class.java)
+                config.editorBrushColor = brush.brushColor
+                config.editorBrushHardness = brush.brushHardness
+                config.editorBrushSize = brush.brushSize
+            }
 
             if (resultCode != Activity.RESULT_OK || source.isEmpty() || imagePathFromEditor.isEmpty() || source == imagePathFromEditor) {
                 finish()
@@ -193,6 +203,12 @@ class NewEditActivity : SimpleActivity() {
         settingsList.getSettingsModel(UiConfigText::class.java).setFontList(
                 FontPackBasic.getFontPack()
         )
+
+        settingsList.getSettingsModel(BrushSettings::class.java).apply {
+            brushColor = config.editorBrushColor
+            brushHardness = config.editorBrushHardness
+            brushSize = config.editorBrushSize
+        }
 
         // do not use Text Design, it takes up too much space
         val tools = settingsList.getSettingsModel(UiConfigMainMenu::class.java).toolList
