@@ -689,8 +689,6 @@ class SettingsActivity : SimpleActivity() {
                 put(LAST_EDITOR_CROP_ASPECT_RATIO, config.lastEditorCropAspectRatio)
                 put(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, config.lastEditorCropOtherAspectRatioX)
                 put(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, config.lastEditorCropOtherAspectRatioY)
-                put(LAST_EDITOR_DRAW_COLOR, config.lastEditorDrawColor)
-                put(LAST_EDITOR_BRUSH_SIZE, config.lastEditorBrushSize)
                 put(LAST_CONFLICT_RESOLUTION, config.lastConflictResolution)
                 put(LAST_CONFLICT_APPLY_TO_ALL, config.lastConflictApplyToAll)
                 put(EDITOR_BRUSH_COLOR, config.editorBrushColor)
