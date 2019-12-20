@@ -202,6 +202,55 @@
     <string name="toggle_favorite">お気に入り</string>
     <string name="toggle_file_visibility">表示/非表示の切替</string>
 
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
