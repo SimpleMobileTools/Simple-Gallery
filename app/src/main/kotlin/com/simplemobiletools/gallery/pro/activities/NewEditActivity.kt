@@ -19,14 +19,14 @@ import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
+import ly.img.android.pesdk.backend.model.config.CropAspectAsset
 import ly.img.android.pesdk.backend.model.state.EditorLoadSettings
 import ly.img.android.pesdk.backend.model.state.EditorSaveSettings
 import ly.img.android.pesdk.backend.model.state.manager.SettingsList
 import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
-import ly.img.android.pesdk.ui.model.state.UiConfigFilter
-import ly.img.android.pesdk.ui.model.state.UiConfigMainMenu
-import ly.img.android.pesdk.ui.model.state.UiConfigText
-import ly.img.android.pesdk.ui.model.state.UiConfigTheme
+import ly.img.android.pesdk.ui.model.state.*
+import ly.img.android.pesdk.ui.panels.item.CropAspectItem
+import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
 import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
 import java.util.*
@@ -174,6 +174,15 @@ class NewEditActivity : SimpleActivity() {
 
     private fun createPesdkSettingsList(filename: String): SettingsList {
         val settingsList = SettingsList()
+        settingsList.config.getAssetMap(CropAspectAsset::class.java).apply {
+            add(CropAspectAsset("my_crop_1_2", 1, 2, false))
+            add(CropAspectAsset("my_crop_2_1", 2, 1, false))
+        }
+
+        settingsList.getSettingsModel(UiConfigAspect::class.java).aspectList.apply {
+            add(ToggleAspectItem(CropAspectItem("my_crop_2_1"), CropAspectItem("my_crop_1_2")))
+        }
+
         settingsList.getSettingsModel(UiConfigFilter::class.java).setFilterList(
                 FilterPackBasic.getFilterPack()
         )
