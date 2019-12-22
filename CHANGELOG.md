@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.11.2 *(2019-12-21)*
+----------------------------
+
+ * Added a few more aspect ratios in the editor
+ * Remember the last used editor brush settings
+ * Properly refresh the cache of edited images
+
 Version 6.11.1 *(2019-12-18)*
 ----------------------------
 
