@@ -252,7 +252,6 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_mainMenu"/>
     <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
