@@ -82,7 +82,7 @@
     <string name="path">Διαδρομή</string>
     <string name="invalid_image_path">Μη έγκυρη διαδρομή εικόνας</string>
     <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">Επιτυχής επεξεργασία αρχείου</string>
     <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
     <string name="no_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
     <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
@@ -90,9 +90,9 @@
     <string name="rotate_left">Περιστροφή αριστερά</string>
     <string name="rotate_right">Περιστροφή δεξιά</string>
     <string name="rotate_one_eighty">Περιστροφή κατά 180º</string>
-    <string name="flip">Αναποδογύρισμα</string>
-    <string name="flip_horizontally">Οριζόντιο αναποδογύρισμα</string>
-    <string name="flip_vertically">Κατακόρυφο αναποδογύρισμα</string>
+    <string name="flip">Περιστροφή</string>
+    <string name="flip_horizontally">Οριζόντια περιστροφή</string>
+    <string name="flip_vertically">Κατακόρυφη περιστροφή</string>
     <string name="free_aspect_ratio">Ελεύθερο</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -103,8 +103,8 @@
     <string name="set_as_wallpaper_with">Εφαρμογή ως ταπετσαρία με:</string>
     <string name="setting_wallpaper">Η ταπετσαρία εφαρμόζεται...</string>
     <string name="wallpaper_set_successfully">Η ταπετσαρία εφαρμόστηκε</string>
-    <string name="portrait_aspect_ratio">Αναλογία σε κατακόρυφη προβολή</string>
-    <string name="landscape_aspect_ratio">Αναλογία σε οριζόντια προβολή</string>
+    <string name="portrait_aspect_ratio">Αναλογία κατακόρυφης προβολής</string>
+    <string name="landscape_aspect_ratio">Αναλογία οριζόντιας προβολής</string>
     <string name="home_screen">Αρχική οθόνη</string>
     <string name="lock_screen">Οθόνη κλειδώματος</string>
     <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
@@ -122,7 +122,7 @@
     <string name="no_animation">Χωρίς</string>
     <string name="fade">Εξασθένηση</string>
     <string name="slide">Ολίσθηση</string>
-    <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
+    <string name="slideshow_ended">Τέλος εμφάνισης διαφανειών</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
 
     <!-- View types -->
@@ -151,14 +151,14 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
-    <string name="remember_last_video_position">Απομνημόνευση της τελευταίας θέσης αναπαραγωγής βίντεο</string>
+    <string name="remember_last_video_position">Απομνημόνευση τελευταίας θέσης αναπαραγωγής βίντεο</string>
     <string name="toggle_filename">Αλλαγή προβολής ονόματος αρχείων</string>
     <string name="loop_videos">Επανάληψη βίντεο</string>
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
     <string name="max_brightness">Μέγιστη φωτεινότητα κατά την προβολή πλήρους οθόνης</string>
     <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
     <string name="show_thumbnail_video_duration">Εμφάνιση διάρκειας βίντεο</string>
-    <string name="screen_rotation_by">Περιστροφή σε πλήρη οθόνη απο</string>
+    <string name="screen_rotation_by">Περιστροφή πλήρους οθόνης σύμφωνα με</string>
     <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
     <string name="screen_rotation_device_rotation">Περιστροφή συσκευής</string>
     <string name="screen_rotation_aspect_ratio">Αναλογία εικόνας</string>
@@ -201,6 +201,87 @@
     <string name="manage_bottom_actions">Διαχείρηση εμφάνισης λειτουργιών</string>
     <string name="toggle_favorite">Εναλλαγή αγαπημένων</string>
     <string name="toggle_file_visibility">Εναλλαγή προβολής αρχείου</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Προσαρμογή</string>
+    <string name="pesdk_transform_button_resetCrop">Επαναφορά</string>
+    <string name="pesdk_transform_button_squareCrop">Τετράγωνο</string>
+    <string name="pesdk_transform_title_name">Μετατροπή</string>
+    <string name="pesdk_filter_title_name">Φίλτρο</string>
+    <string name="pesdk_filter_asset_none">Χωρίς</string>
+    <string name="pesdk_adjustments_title_name">Ρυθμίσεις</string>
+    <string name="pesdk_adjustments_button_shadowTool">Σκιές</string>
+    <string name="pesdk_adjustments_button_exposureTool">Έκθεση</string>
+    <string name="pesdk_adjustments_button_highlightTool">Φωτισμένα</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Φωτισμός</string>
+    <string name="pesdk_adjustments_button_contrastTool">Αντίθεση</string>
+    <string name="pesdk_adjustments_button_saturationTool">Κορεσμός</string>
+    <string name="pesdk_adjustments_button_clarityTool">Σαφήνεια</string>
+    <string name="pesdk_adjustments_button_gammaTool">Γάμμα</string>
+    <string name="pesdk_adjustments_button_blacksTool">Μαύρα</string>
+    <string name="pesdk_adjustments_button_whitesTool">Λευκά</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Θερμοκρασία</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Οξύτητα</string>
+    <string name="pesdk_adjustments_button_reset">Επαναφορά</string>
+    <string name="pesdk_focus_title_name">Εστίαση</string>
+    <string name="pesdk_focus_title_disabled">Χωρίς</string>
+    <string name="pesdk_focus_button_radial">Ακτίνα</string>
+    <string name="pesdk_focus_button_linear">Γραμμικά</string>
+    <string name="pesdk_focus_button_mirrored">Καθρέπτης</string>
+    <string name="pesdk_focus_button_gaussian">Θόλωση</string>
+    <string name="pesdk_text_title_name">Κείμενο</string>
+    <string name="pesdk_text_title_options">Επιλογή κειμένου</string>
+    <string name="pesdk_text_title_textColor">Χρώμα κειμένου</string>
+    <string name="pesdk_text_title_font">Γραμ/σειρά</string>
+    <string name="pesdk_text_button_add">Προσθήκη</string>
+    <string name="pesdk_text_button_edit">Επεξεργασία</string>
+    <string name="pesdk_text_button_straighten">Ίσιωμα</string>
+    <string name="pesdk_text_button_font">Γραμ/σειρά</string>
+    <string name="pesdk_text_button_color">Χρώμα</string>
+    <string name="pesdk_text_button_backgroundColor">BG Χρώμα</string>
+    <string name="pesdk_text_button_alignment">Ευθυγράμμιση</string>
+    <string name="pesdk_text_button_bringToFront">Σε Γραμ/σειρά</string>
+    <string name="pesdk_text_button_delete">Διαγραφή</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Το κείμενό μου</string>
+    <string name="pesdk_brush_title_name">Βούρτσα</string>
+    <string name="pesdk_brush_button_color">Χρώμα</string>
+    <string name="pesdk_brush_button_size">Μέγεθος</string>
+    <string name="pesdk_brush_button_hardness">Σκληρότητα</string>
+    <string name="pesdk_brush_button_bringToFront">Σε Γραμ/σειρά</string>
+    <string name="pesdk_brush_button_delete">Διαγραφή</string>
+    <string name="pesdk_brush_title_brushColor">Χρώμα Βούρτσας</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">Cancel</string>
+    <string name="pesdk_editor_accept">Accept</string>
+    <string name="pesdk_editor_save">Save</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_grayColor">Gray</string>
+    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
+    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_purpleColor">Purple</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>

@@ -1,0 +1,2 @@
+ * Fully replaced the photo editor with a powerful third party library
+ * Added some crashfixes and stability improvements

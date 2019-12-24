@@ -80,7 +80,7 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or
-            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS
+            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_GESTURE_VIEWS
 
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
@@ -138,6 +138,10 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
     if (needsStupidWritePermissions(path)) {
         handleSAFDialog(file.absolutePath) {
+            if (!it) {
+                return@handleSAFDialog
+            }
+
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)

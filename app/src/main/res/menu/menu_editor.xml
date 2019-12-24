@@ -7,11 +7,6 @@
         android:title="@string/save_as"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/edit"
-        android:icon="@drawable/ic_edit_vector"
-        android:title="@string/edit_with"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/share"
         android:icon="@drawable/ic_share_vector"
         android:title="@string/share"

@@ -544,6 +544,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
 
         activity.handleSAFDialog(SAFPath) {
+            if (!it) {
+                return@handleSAFDialog
+            }
+
             var foldersToDelete = ArrayList<File>(selectedKeys.size)
             selectedDirs.forEach {
                 if (it.areFavorites() || it.isRecycleBin()) {

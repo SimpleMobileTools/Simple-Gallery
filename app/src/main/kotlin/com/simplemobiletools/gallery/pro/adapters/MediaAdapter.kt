@@ -426,6 +426,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
         val SAFPath = getSelectedPaths().firstOrNull { activity.needsStupidWritePermissions(it) } ?: getFirstSelectedItemPath() ?: return
         activity.handleSAFDialog(SAFPath) {
+            if (!it) {
+                return@handleSAFDialog
+            }
+
             val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
             val removeMedia = ArrayList<Medium>(selectedKeys.size)
             val positions = getSelectedItemPositions()

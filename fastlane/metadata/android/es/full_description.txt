@@ -1,0 +1,51 @@
+Simple Gallery Pro es una galería altamente personalizable disponible sin conexión. Organiza y edita tus fotos, recupera archivos eliminados con la papelera de reciclaje, protege y oculta archivos y mira una gran variedad de diferentes formatos de fotos y videos incluyendo RAW, SVG y muchos más.
+
+La app no contiene anuncios ni permisos innecesarios. Ya que la app tampoco requiere acceso a internet, tu privacidad está protegida.
+
+-------------------------------------------------
+<b>SIMPLE GALLERY PRO – CARACTERÍSTICAS</b>
+-------------------------------------------------
+
+• Galería disponible sin conexión sin anuncios ni ventanas emergentes
+• Editor de fotos – Recorta, rota, redimensiona, dibuja, filtra y más
+• Acceso a internet no necesario, dándote más privacidad y seguridad
+• No requiere permisos innecesarios
+• Búsqueda rápida de imágenes, videos y archivos
+• Abre y mira muchos tipos de fotos y videos diferentes (RAW, SVG, panorámica, etc.)
+• Variedad de gestos intuitivos para editar y organizar archivos fácilmente
+• Montones de formas de filtrar, agrupar y ordenar archivos
+• Personaliza la apariencia de Simple Gallery Pro
+• Disponible en 32 lenguajes
+• Seleccionar archivos como favoritos para acceder rápidamente
+• Protege tus fotos y videos con patrón, pin o huella digital
+• Usa pin, patrón y huella digital para proteger la apertura de la app o también funciones específicas
+• Recupera fotos y videos eliminados desde la papelera de reciclaje
+• Alterna la visibilidad de archivos para ocultar fotos y videos
+• Crea una presentación de diapositivas personalizable de tus archivos
+• Mira información detallada de tus archivos (Resolución, valores EXIF, etc.)
+• Simple Gallery Pro es de código abierto
+… ¡y mucho, mucho más!
+
+<b>EDITOR DE FOTOS</b>
+Simple Gallery Pro hace más fácil editar tus fotos rápidamente. Corta, gira, rota y redimensiona tus fotos. Si te sientes un poco más creativo, ¡Puedes añadir filtros y dibujar en tus fotos!
+
+<b>SOPORTA MUCHOS TIPOS DE ARCHIVOS</b>
+Al contrario de otras galerías y organizadores de fotos, Simple Gallery Pro soporta un enorme rango de tipos de archivos diferentes incluyendo JPEG, PNG, MP4, MKV, RAW, SVG, fotos panorámicas, videos panorámicos y muchos más.
+
+<b>GALERÍA ALTAMENTE PERSONALZIABLE</b>
+Desde la IU hasta los botones de funciones en la barra de herramientas inferior, Simple Gallery Pro es altamente personalizable y trabaja de la forma que quieras. ¡Ninguna otra galería tiene este tipo de flexibilidad! Gracias a que es de código abierto, ¡También está disponible en 32 lenguajes!
+
+<b>RECUPERA FOTOS Y VIDEOS ELIMINADOS</b>
+¿Accidentalmente eliminaste una foto o video precioso? ¡No te preocupes! Simple Gallery Pro contiene una práctica papelera de reciclaje donde puedes recuperar fácilmente fotos y videos eliminados.
+
+<b>PROTEGE Y OCULTA FOTOS, VIDEOS Y ARCHIVOS</b>
+Usando pin, patrón o el lector de huella de tu dispositivo, puedes proteger y ocultar fotos, videos y álbumes enteros. Puedes proteger la propia aplicación o bloquear funciones específicas en la misma. Por ejemplo, no puedes eliminar un archivo sin un escaneo de huella, ayudando a proteger tus archivos de ser eliminados accidentalmente.
+
+<b>Mira la suite completa de Simple Tools aquí:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

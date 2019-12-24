@@ -10,6 +10,9 @@
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"
         tools:node="remove"/>
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        tools:node="remove"/>
 
     <uses-sdk
         tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano"/>
@@ -198,7 +201,7 @@
         </activity>
 
         <activity
-            android:name=".activities.EditActivity"
+            android:name=".activities.NewEditActivity"
             android:label="@string/editor">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT"/>
@@ -207,6 +210,11 @@
 
                 <data android:mimeType="image/*"/>
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.EditActivity"
+            android:label="@string/editor">
 
             <intent-filter>
                 <action android:name="com.android.camera.action.CROP"/>
