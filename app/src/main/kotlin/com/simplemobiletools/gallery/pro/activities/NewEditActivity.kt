@@ -114,6 +114,7 @@ class NewEditActivity : SimpleActivity() {
             }
 
             if (resultCode != Activity.RESULT_OK || source.isEmpty() || imagePathFromEditor.isEmpty() || source == imagePathFromEditor) {
+                toast(R.string.image_editing_failed)
                 finish()
             } else {
                 // the image is stored at the internal app storage first, for example /data/user/0/com.simplemobiletools.gallery.pro/files/editor/IMG_20191207_183023.jpg
