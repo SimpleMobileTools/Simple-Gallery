@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.11.3 *(2019-12-25)*
+----------------------------
+
+ * Fixed various editor related glitches
+ * Some translation and other UX improvements
+
 Version 6.11.2 *(2019-12-21)*
 ----------------------------
 
