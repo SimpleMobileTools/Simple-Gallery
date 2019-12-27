@@ -1,0 +1,5 @@
+ * Fixed a few SD card related issues
+ * Moved Focus in the editor as the last tool, to prioritize more popular tools
+ * Added a new Crop aspect ratio 37:18 to be used instead of 18.5x9
+ * Some translation improvements
+ * Last app update for a while now, wishing you a Happy New Year!
