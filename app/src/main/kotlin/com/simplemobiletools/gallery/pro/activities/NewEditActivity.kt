@@ -223,6 +223,14 @@ class NewEditActivity : SimpleActivity() {
             it.name!!.isEmpty()
         }.toMutableList() as ArrayList<ToolItem>
 
+        // move Focus to the end, as it is the least used
+        // on some devices it is not obvious that the toolbar can be scrolled horizontally, so move the best ones to the start to make them visible
+        val focus = newTools.firstOrNull { it.name == getString(R.string.pesdk_focus_title_name) }
+        if (focus != null) {
+            newTools.remove(focus)
+            newTools.add(focus)
+        }
+
         settingsList.getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
 
         settingsList.getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
