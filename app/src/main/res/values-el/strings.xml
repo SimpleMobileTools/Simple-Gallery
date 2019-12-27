@@ -250,38 +250,39 @@
     <string name="pesdk_brush_button_bringToFront">Σε Γραμ/σειρά</string>
     <string name="pesdk_brush_button_delete">Διαγραφή</string>
     <string name="pesdk_brush_title_brushColor">Χρώμα Βούρτσας</string>
-    <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
-    <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="pesdk_editor_accept">Accept</string>
-    <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
-    <string name="pesdk_common_title_colorPicker">Color Picker</string>
-    <string name="pesdk_common_title_transparentColor">Transparent</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
-    <string name="pesdk_common_title_grayColor">Gray</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
-    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
-    <string name="pesdk_common_title_purpleColor">Purple</string>
-    <string name="pesdk_common_title_orchidColor">Orchid</string>
-    <string name="pesdk_common_title_pinkColor">Pink</string>
-    <string name="pesdk_common_title_redColor">Red</string>
-    <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Yellow</string>
-    <string name="pesdk_common_title_oliveColor">Olive</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="pesdk_editor_title_name">Επεξεργαστής</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Κλείσιμο Επεξεργαστή?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Θέλετε να απορρίψετε την εικόνα;</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ναί</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Όχι</string>
+    <string name="pesdk_editor_cancel">Ακύρωση</string>
+    <string name="pesdk_editor_accept">Αποδοχή</string>
+    <string name="pesdk_editor_save">Αποθήκευση</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Εξαγωγή εικόνας…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Εξαγωγή εικόνας %s.</string>
+    <string name="pesdk_common_button_flipH">Αναστροφή Ο</string>
+    <string name="pesdk_common_button_flipV">Αναστροφή Κ</string>
+    <string name="pesdk_common_button_undo">Αναίρεση</string>
+    <string name="pesdk_common_button_redo">Επανάληψη</string>
+    <string name="pesdk_common_title_colorPicker">Επιλογέας χρώματος</string>
+    <string name="pesdk_common_title_transparentColor">Διαφάνεια</string>
+    <string name="pesdk_common_title_whiteColor">Λευκό</string>
+    <string name="pesdk_common_title_grayColor">Γκρί</string>
+    <string name="pesdk_common_title_blackColor">Μαύρο</string>
+    <string name="pesdk_common_title_lightBlueColor">Ανοιχτό μπλέ</string>
+    <string name="pesdk_common_title_blueColor">Μπλέ</string>
+    <string name="pesdk_common_title_purpleColor">Μώβ</string>
+    <string name="pesdk_common_title_orchidColor">Ορχιδέα</string>
+    <string name="pesdk_common_title_pinkColor">Ρόζ</string>
+    <string name="pesdk_common_title_redColor">Κόκκινο</string>
+    <string name="pesdk_common_title_orangeColor">Πορτοκαλί</string>
+    <string name="pesdk_common_title_goldColor">Χρυσό</string>
+    <string name="pesdk_common_title_yellowColor">Κίτρινο</string>
+    <string name="pesdk_common_title_oliveColor">Λαδί</string>
+    <string name="pesdk_common_title_greenColor">Πράσινο</string>
+    <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
+    <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
+
 
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
@@ -321,7 +322,7 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Ξεφυλλίστε τις αναμνήσεις σας χωρίς διακοπές.</string>
     <string name="app_long_description">
-        Η Απλή Συλλογή Pro είναι εκτός σύνδεσης και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
+        Η Απλή Συλλογή Pro είναι χωρίς σύνδεση και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
 
         Η εφαρμογή δεν περιέχει διαφημίσεις και περιττά δικαιώματα. Εφόσον δεν απαιτεί πρόσβαση στο διαδίκτυο, έτσι προστατεύεται το απόρρητό σας.
 
@@ -329,17 +330,17 @@
         <b>ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ-ΑΠΛΗΣ ΣΥΛΛΟΓΗΣ PRO</b>
         -------------------------------------------------
 
-        • Εκτός σύνδεσης χωρίς διαφημίσεις ή αναδυόμενα παράθυρα
-        • Απλής Συλλογής Επεξεργαστής – κόψιμο, περιστροφή, αλλαγή μεγέθους, σχεδίαση, φίλτρα και άλλα
+        • Χωρίς σύνδεση διαφημίσεις ή αναδυόμενα παράθυρα
+        • Επεξεργαστής Απλής Συλλογής – κόψιμο, περιστροφή, αλλαγή μεγέθους, σχεδίαση, φίλτρα και άλλα
         • Δεν απαιτείται πρόσβαση στο διαδίκτυο, παρέχοντας μεγαλύτερη προστασία της ιδιωτικής ζωής και ασφάλειας
         • Δεν απαιτούνται περιττά δικαιώματα
         • Γρήγορη αναζήτηση εικόνων, βίντεο και αρχείων
-        • Άνοιγμα και προβολή πολλών διαφορετικών τύπων φωτογραφιών και βίντεο (RAW, SVG, πανοραμική κλπ)
+        • Άνοιγμα και προβολή πολλών διαφορετικών τύπων φωτογραφιών και βίντεο (RAW, SVG, πανοραμικών κλπ)
         • Μια ποικιλία διαισθητικών χειρονομιών για εύκολη επεξεργασία και οργάνωση αρχείων
         • Πολλοί τρόποι για φιλτράρισμα, ομαδοποίησης και ταξινόμησης αρχείων
         • Προσαρμογή εμφάνισης της Απλής Συλλογής Pro
         • Διατίθεται σε 32 γλώσσες
-        • Σημειώστε τα αρχεία ως αγαπημένα για γρήγορη πρόσβαση
+        • Σημειώστε αρχεία ως αγαπημένα για γρήγορη πρόσβαση
         • Προστατέψτε τις φωτογραφίες σας και βίντεο με μοτίβο, κωδικό ή δακτυλικό αποτύπωμα
         • Χρησιμοποιήστε κωδικό, μοτίβο ή δακτυλικό αποτύπωμα για προστασία έναρξης της εφαρμογής ή συγκεκριμένων λειτουργιών
         • Επαναφορά διαγραμμένων φωτογραφιών και βίντεο από τον κάδο ανακύκλωσης
@@ -358,7 +359,7 @@
         <b>ΠΟΛΥ ΠΡΟΣΑΡΜΟΣΙΜΟΣ ΔΙΑΧΕΙΡΙΣΤΗΣ ΣΥΛΛΟΓΗΣ</b>
         Από το UI στα κουμπιά λειτουργιών στην κάτω γραμμή εργαλείων, η Απλή Συλλογή Pro είναι ιδιαίτερα προσαρμόσιμη και λειτουργεί όπως εσείς θέλετε. Καμιά άλλη εφαρμογή δεν έχει τέτοια ευελιξία! Χάρη στον ανοιχτό κώδικα, είναι επίσης διαθέσιμη σε 32 γλώσσες!
 
-        <b>ΕΠΑΝΑΦΟΡΑ ΔΙΑΓΡΑΜΕΝΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
+        <b>ΕΠΑΝΑΦΟΡΑ ΔΙΑΓΡΑΜΜΕΝΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
         Διαγράψατε τυχαία μια πολύτιμη φωτογραφία ή βίντεο; Μην ανησυχείτε! Η Απλή Συλλογή Pro διαθέτει έναν εύχρηστο κάδο ανακύκλωσης όπου μπορείτε να ανακτήσετε τις διαγραμμένες φωτογραφίες και βίντεο πανεύκολα.
 
         <b>ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΠΟΚΡΥΨΗ ΑΡΧΕΙΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
