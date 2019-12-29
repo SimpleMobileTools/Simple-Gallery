@@ -1,4 +1,4 @@
-<?xml version="Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi." encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Simple Gallery</string>
 	<string name="app_launcher_name">Galéria</string>
@@ -34,6 +34,7 @@
 	<string name="share_resized">Átméretezett verzió megosztása</string>
 	<string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 	<string name="switch_to_file_search">Switch to file search across all visible folders</string>
+	
 	<!-- Filter -->
 	<string name="filter_media">Média szűrő</string>
 	<string name="images">Kép</string>
@@ -44,6 +45,7 @@
 	<string name="portraits">Portraits</string>
 	<string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
 	<string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
+	
 	<!-- Hide / Exclude -->
 	<string name="hide_folder_description">Ez a funkció elrejti a mappát egy \'.nomedia\' fájl hozzáadásával, és elrejti az almappákat is. Láthatóvá teheti ezeket a Beállítások  \"Mutassa a rejtett elemeket\" menüpontban. Folytatja?</string>
 	<string name="exclude">Kizárás</string>
@@ -57,12 +59,14 @@
 	<string name="hidden_folders">Rejtett mappák</string>
 	<string name="manage_hidden_folders">Rejtett mappák kezelése</string>
 	<string name="hidden_folders_placeholder">Úgy tűnik, a mappái nincsenek elrejtve egy \".nomedia\" fájllal.</string>
+	
 	<!-- Include folders -->
 	<string name="include_folders">Befoglalt mappák</string>
 	<string name="manage_included_folders">Befoglalt mappák kezelése</string>
 	<string name="add_folder">Mappa hozzáadása</string>
 	<string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek média fájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is  hozzáadhatja ezeket.\n\nAz elemek hozzáadása nem zár ki más mappákat.</string>
 	<string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák manuális hozzáadásával.</string>
+	
 	<!-- Resizing -->
 	<string name="resize">Átméretezés</string>
 	<string name="resize_and_save">Kiválasztás átméretezése és mentés</string>
@@ -70,6 +74,7 @@
 	<string name="height">Magasság</string>
 	<string name="keep_aspect_ratio">Képarány megtartása</string>
 	<string name="invalid_values">Írjon be érvényes felbontást</string>
+	
 	<!-- Editor -->
 	<string name="editor">Szerkesztő</string>
 	<string name="save">Mentés</string>
@@ -92,6 +97,7 @@
 	<!-- available as an option: 1:1, 4:3, 16:9, free -->
 	<string name="other_aspect_ratio">Egyéb</string>
 	<!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+	
 	<!-- Set wallpaper -->
 	<string name="simple_wallpaper">Simple Wallpaper</string>
 	<string name="set_as_wallpaper">Beállítás háttérképként</string>
@@ -104,6 +110,7 @@
 	<string name="home_screen">Kezdő képernyő</string>
 	<string name="lock_screen">Zárolás képernyő</string>
 	<string name="home_and_lock_screen">Kezdő és zárolás képernyő</string>
+	
 	<!-- Slideshow -->
 	<string name="slideshow">Diavetítés</string>
 	<string name="interval">Időköz (másodperc):</string>
@@ -119,11 +126,13 @@
 	<string name="slide">Csúsztatás</string>
 	<string name="slideshow_ended">A diavetítés vége</string>
 	<string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
+	
 	<!-- View types -->
 	<string name="change_view_type">Nézet típus változtatása</string>
 	<string name="grid">Rács</string>
 	<string name="list">Lista</string>
 	<string name="group_direct_subfolders">Közvetlen almappa csoport</string>
+	
 	<!-- Grouping at media thumbnails -->
 	<string name="group_by">Csoportosítás</string>
 	<string name="do_not_group_files">Nincs csoportosítás</string>
@@ -137,9 +146,11 @@
 	<string name="by_file_type">Fájl típus</string>
 	<string name="by_extension">Kiterjesztés</string>
 	<string name="grouping_and_sorting">Kérjük, vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
+	
 	<!-- Widgets -->
 	<string name="folder_on_widget">Mappa mutatása a widgeten:</string>
 	<string name="show_folder_name">Mutassa a mappa nevét</string>
+	
 	<!-- Settings -->
 	<string name="autoplay_videos">Automatikus videó lejátszás</string>
 	<string name="remember_last_video_position">Emlékezzen a videó utolsó lejátszási pozícióra</string>
@@ -181,15 +192,18 @@
 	<string name="compromise">Kiegyensúlyozott</string>
 	<string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
 	<string name="show_image_file_types">Mutassa a kép fájl típusokat</string>
+	
 	<!-- Setting sections -->
 	<string name="thumbnails">Miniatűrök</string>
 	<string name="fullscreen_media">Teljes képernyős média</string>
 	<string name="extended_details">Bővített részletek</string>
 	<string name="bottom_actions">Gomb műveletek</string>
+	
 	<!-- Bottom actions -->
 	<string name="manage_bottom_actions">Látható gomb műveletek kezelése</string>
 	<string name="toggle_favorite">Kedvencek módosítása</string>
 	<string name="toggle_file_visibility">Fájl láthatóság módosítása</string>
+	
 	<!-- New editor strings -->
 	<string name="pesdk_transform_button_freeCrop">Egyéni</string>
 	<string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -270,6 +284,7 @@
 	<string name="pesdk_common_title_greenColor">Zöld</string>
 	<string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
 	<string name="pesdk_common_title_pipettableColor">Pipetta szín</string>
+	
 	<!-- FAQ -->
 	<string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának?</string>
 	<string name="faq_1_text">Először meg kell találnia az alapértelmezett galériát az eszköz beállításainak Alkalmazások részében. Keressen egy olyan gombot, amely valami olyasmit, mint az \"Legyen alapértelmezett\", kattintson rá, majd válassza a \"Alapértelmezések törlése\" pontot.
@@ -301,6 +316,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
 	<string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a \"Rejtettek ideiglenes mutatása\" elemet a fő képernyőn, vagy válassza a \"Mutassa a rejtett elemeket\" az alkalmazás beállításaiban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza a \"Elrejtés megszüntetés\" lehetőséget. A mappák elrejtése egy rejtett \". nomedia\" fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel is törölheti.</string>
 	<string name="faq_15_title">Miért használ az alkalmazás ennyi helyet?</string>
 	<string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
+	
 	<!-- Strings displayed only on Google Playstore. Optional, but good to have -->
 	<!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
 	<string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
