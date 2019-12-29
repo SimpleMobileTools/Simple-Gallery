@@ -29,10 +29,10 @@
     <string name="force_landscape">Forcer la vue paysage</string>
     <string name="use_default_orientation">Utiliser l\'orientation par défaut</string>
     <string name="fix_date_taken">Corriger les dates de prise de vue</string>
-    <string name="fixing">Correction en cours...</string>
+    <string name="fixing">Correction en cours…</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
-    <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l'ancienne application gratuite. Vous pouvez maintenant désinstaller l'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
+    <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
 
     <!-- Filter -->
@@ -83,7 +83,7 @@
     <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
     <string name="file_edited_successfully">L\'image a été éditée avec succès</string>
-    <string name="edit_image_with">Modifier l\'image avec :</string>
+    <string name="edit_image_with">Modifier l\'image avec:</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu</string>
     <string name="error_saving_file">Impossible de remplacer le fichier source</string>
@@ -100,8 +100,8 @@
     <string name="simple_wallpaper">Fond d\'écran simple</string>
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran</string>
-    <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
-    <string name="setting_wallpaper">Définition du fond d\'écran en cours...</string>
+    <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec:</string>
+    <string name="setting_wallpaper">Définition du fond d\'écran en cours…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini</string>
     <string name="portrait_aspect_ratio">Rapport d\'affichage portrait</string>
     <string name="landscape_aspect_ratio">Rapport d\'affichage paysage</string>
@@ -111,7 +111,7 @@
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
-    <string name="interval">Intervalle (secondes) :</string>
+    <string name="interval">Intervalle (secondes):</string>
     <string name="include_photos">Inclure les images</string>
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIFs</string>
@@ -146,7 +146,7 @@
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Dossier affiché sur le widget :</string>
+    <string name="folder_on_widget">Dossier affiché sur le widget:</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
 
     <!-- Settings -->
@@ -258,7 +258,7 @@
     <string name="pesdk_editor_cancel">Annuler</string>
     <string name="pesdk_editor_accept">Accepter</string>
     <string name="pesdk_editor_save">Enregistrer</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportation de l\'image...</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportation de l\'image…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation de l\'image %s</string>
     <string name="pesdk_common_button_flipH">Symétrie H</string>
     <string name="pesdk_common_button_flipV">Symétrie V</string>
