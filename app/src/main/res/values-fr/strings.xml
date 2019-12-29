@@ -32,7 +32,7 @@
     <string name="fixing">Correction en cours...</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l'ancienne application gratuite. Vous pouvez maintenant désinstaller l'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
 
     <!-- Filter -->
@@ -58,7 +58,7 @@
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Cela n\'effacera pas les dossiers.</string>
     <string name="hidden_folders">Dossiers cachés</string>
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
-    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier cachés avec un fichier \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché avec un fichier \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
@@ -81,8 +81,8 @@
     <string name="rotate">Pivoter</string>
     <string name="path">Emplacement</string>
     <string name="invalid_image_path">Emplacement invalide</string>
-    <string name="image_editing_failed">Échec de l\'édition de l\'image</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
+    <string name="file_edited_successfully">L\'image a été éditée avec succès</string>
     <string name="edit_image_with">Modifier l\'image avec :</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu</string>
@@ -132,7 +132,7 @@
     <string name="group_direct_subfolders">Mode sous-dossiers</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Grouper par</string>
+    <string name="group_by">Grouper par...</string>
     <string name="do_not_group_files">Ne pas grouper les fichiers</string>
     <string name="by_folder">Dossier</string>
     <string name="by_last_modified">Date de modification</string>
@@ -188,7 +188,7 @@
     <string name="file_loading_priority">Priorité de chargement des fichiers</string>
     <string name="speed">Rapide</string>
     <string name="compromise">Compromis</string>
-    <string name="avoid_showing_invalid_files">Eviter l\'affichage de fichiers invalides</string>
+    <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
 
     <!-- Setting sections -->
@@ -203,85 +203,85 @@
     <string name="toggle_file_visibility">Visibilité du fichier</string>
 
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Custom</string>
-    <string name="pesdk_transform_button_resetCrop">Reset</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
-    <string name="pesdk_transform_title_name">Transform</string>
-    <string name="pesdk_filter_title_name">Filter</string>
-    <string name="pesdk_filter_asset_none">None</string>
-    <string name="pesdk_adjustments_title_name">Adjust</string>
-    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
-    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
-    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_transform_button_freeCrop">Libre</string>
+    <string name="pesdk_transform_button_resetCrop">Réinitialiser</string>
+    <string name="pesdk_transform_button_squareCrop">Carré</string>
+    <string name="pesdk_transform_title_name">Transformer</string>
+    <string name="pesdk_filter_title_name">Filtres</string>
+    <string name="pesdk_filter_asset_none">Aucun</string>
+    <string name="pesdk_adjustments_title_name">Ajuster</string>
+    <string name="pesdk_adjustments_button_shadowTool">Ombres</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposition</string>
+    <string name="pesdk_adjustments_button_highlightTool">Détails</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Luminosité</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contraste</string>
     <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
-    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarté</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
-    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
-    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
-    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_adjustments_button_blacksTool">Noirs</string>
+    <string name="pesdk_adjustments_button_whitesTool">Blancs</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Température</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Netteté</string>
+    <string name="pesdk_adjustments_button_reset">Réinitialiser</string>
     <string name="pesdk_focus_title_name">Focus</string>
-    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_title_disabled">Aucun</string>
     <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
-    <string name="pesdk_focus_button_mirrored">Mirrored</string>
-    <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_name">Text</string>
-    <string name="pesdk_text_title_options">Text Options</string>
-    <string name="pesdk_text_title_textColor">Text Color</string>
-    <string name="pesdk_text_title_font">Font</string>
-    <string name="pesdk_text_button_add">Add</string>
-    <string name="pesdk_text_button_edit">Edit</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
-    <string name="pesdk_text_button_font">Font</string>
-    <string name="pesdk_text_button_color">Color</string>
-    <string name="pesdk_text_button_backgroundColor">BG Color</string>
-    <string name="pesdk_text_button_alignment">Alignment</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
-    <string name="pesdk_text_button_delete">Delete</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
-    <string name="pesdk_brush_title_name">Brush</string>
-    <string name="pesdk_brush_button_color">Color</string>
-    <string name="pesdk_brush_button_size">Size</string>
-    <string name="pesdk_brush_button_hardness">Hardness</string>
-    <string name="pesdk_brush_button_bringToFront">To Front</string>
-    <string name="pesdk_brush_button_delete">Delete</string>
-    <string name="pesdk_brush_title_brushColor">Brush Color</string>
-    <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
-    <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="pesdk_editor_accept">Accept</string>
-    <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
-    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_focus_button_linear">Linéaire</string>
+    <string name="pesdk_focus_button_mirrored">Miroir</string>
+    <string name="pesdk_focus_button_gaussian">Gaussien</string>
+    <string name="pesdk_text_title_name">Texte</string>
+    <string name="pesdk_text_title_options">Options du texte</string>
+    <string name="pesdk_text_title_textColor">Couleur du texte</string>
+    <string name="pesdk_text_title_font">Police</string>
+    <string name="pesdk_text_button_add">Ajouter</string>
+    <string name="pesdk_text_button_edit">Éditer</string>
+    <string name="pesdk_text_button_straighten">Redresser</string>
+    <string name="pesdk_text_button_font">Police</string>
+    <string name="pesdk_text_button_color">Couleur</string>
+    <string name="pesdk_text_button_backgroundColor">Fond</string>
+    <string name="pesdk_text_button_alignment">Alignement</string>
+    <string name="pesdk_text_button_bringToFront">Devant</string>
+    <string name="pesdk_text_button_delete">Supprimer</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Votre texte</string>
+    <string name="pesdk_brush_title_name">Pinceau</string>
+    <string name="pesdk_brush_button_color">Couleur</string>
+    <string name="pesdk_brush_button_size">Taille</string>
+    <string name="pesdk_brush_button_hardness">Contour</string>
+    <string name="pesdk_brush_button_bringToFront">Devant</string>
+    <string name="pesdk_brush_button_delete">Supprimer</string>
+    <string name="pesdk_brush_title_brushColor">Couleur du pinceau</string>
+    <string name="pesdk_editor_title_name">Éditeur</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Fermer l\'éditeur ?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Voulez-vous vraiment annuler l\'édition ?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Oui</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
+    <string name="pesdk_editor_cancel">Annuler</string>
+    <string name="pesdk_editor_accept">Accepter</string>
+    <string name="pesdk_editor_save">Enregistrer</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportation de l\'image...</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation de l\'image %s</string>
+    <string name="pesdk_common_button_flipH">Symétrie H</string>
+    <string name="pesdk_common_button_flipV">Symétrie V</string>
+    <string name="pesdk_common_button_undo">Annuler</string>
+    <string name="pesdk_common_button_redo">Refaire</string>
+    <string name="pesdk_common_title_colorPicker">Sélecteur de couleur</string>
     <string name="pesdk_common_title_transparentColor">Transparent</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
-    <string name="pesdk_common_title_grayColor">Gray</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
-    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
-    <string name="pesdk_common_title_purpleColor">Purple</string>
-    <string name="pesdk_common_title_orchidColor">Orchid</string>
-    <string name="pesdk_common_title_pinkColor">Pink</string>
-    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_whiteColor">Blanc</string>
+    <string name="pesdk_common_title_grayColor">Gris</string>
+    <string name="pesdk_common_title_blackColor">Noir</string>
+    <string name="pesdk_common_title_lightBlueColor">Bleu clair</string>
+    <string name="pesdk_common_title_blueColor">Bleu</string>
+    <string name="pesdk_common_title_purpleColor">Violet</string>
+    <string name="pesdk_common_title_orchidColor">Orchidée</string>
+    <string name="pesdk_common_title_pinkColor">Rose</string>
+    <string name="pesdk_common_title_redColor">Rouge</string>
     <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_goldColor">Or</string>
+    <string name="pesdk_common_title_yellowColor">Jaune</string>
     <string name="pesdk_common_title_oliveColor">Olive</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_greenColor">Vert</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
