@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
     <string name="share_resized">Sdílet verzi se změněnou velikostí</string>
     <string name="upgraded_from_free">Zdravím,\n\nzdá se, že jse přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.\n\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.\n\nDěkuji!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Přepnout na vyhledávání souborů ve všech viditelných složkách</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtr médií</string>
@@ -42,7 +42,7 @@
     <string name="gifs">GIFy</string>
     <string name="raw_images">RAW obrázky</string>
     <string name="svgs">SVGčka</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Portréty</string>
     <string name="no_media_with_filters">Se zvolenými filtry nebyly nalezeny žádné médiální soubory.</string>
     <string name="change_filters_underlined"><u>Změnit filtry</u></string>
 
@@ -65,7 +65,7 @@
     <string name="manage_included_folders">Spravovat přidané složky</string>
     <string name="add_folder">Přidat složku</string>
     <string name="included_activity_placeholder">Pokud máte nějaké složky obsahující média, ale nebyly aplikací nalezeny, můžete je zde přidat ručně.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Nebyly nalezeny žádné mediální soubory. Můžete to napravit ručním přidáním složek, které obsahují média.</string>
 
     <!-- Resizing -->
     <string name="resize">Změnit velikost</string>
@@ -82,7 +82,7 @@
     <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava souboru selhala</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">Soubor byl úspěšně upraven</string>
     <string name="edit_image_with">Upravit soubor pomocí:</string>
     <string name="no_editor_found">Nebyl nalezen žádný editor</string>
     <string name="unknown_file_location">Neznámé umístění souboru</string>
@@ -118,10 +118,10 @@
     <string name="random_order">Náhodné pořadí</string>
     <string name="move_backwards">Jít opačným směrem</string>
     <string name="loop_slideshow">Opakovat prezentaci ve smyčce</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Animace</string>
+    <string name="no_animation">Žádná</string>
+    <string name="fade">Prolnutí</string>
+    <string name="slide">Posun</string>
     <string name="slideshow_ended">Prezentace skončila</string>
     <string name="no_media_for_slideshow">Nebyla nalezena žádná média pro prezentaci</string>
 
@@ -136,11 +136,11 @@
     <string name="do_not_group_files">Neseskupovat soubory</string>
     <string name="by_folder">Složky</string>
     <string name="by_last_modified">Data poslední úpravy</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Data poslední úpravy (denně)</string>
+    <string name="by_last_modified_monthly">Data poslední úpravy (měsíčně)</string>
     <string name="by_date_taken">Data pořízení</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Data pořízení (denně)</string>
+    <string name="by_date_taken_monthly">Data pořízení (měsíčně)</string>
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
     <string name="grouping_and_sorting">Mějte prosím na paměti, že seskupování a řazení jsou 2 nezávislé hodnoty</string>
@@ -188,8 +188,8 @@
     <string name="file_loading_priority">Priorita načítání obrázků</string>
     <string name="speed">Rychlost</string>
     <string name="compromise">Kompromis</string>
-    <string name="avoid_showing_invalid_files">Vyvarovat se zobrazení neplatných souborů</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="avoid_showing_invalid_files">Nezobrazovat neplatné soubory</string>
+    <string name="show_image_file_types">Zobrazit typ obrázkových souborů</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhledy</string>
@@ -203,85 +203,85 @@
     <string name="toggle_file_visibility">Přepnutí viditelnosti souboru</string>
 
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Custom</string>
-    <string name="pesdk_transform_button_resetCrop">Reset</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
-    <string name="pesdk_transform_title_name">Transform</string>
-    <string name="pesdk_filter_title_name">Filter</string>
-    <string name="pesdk_filter_asset_none">None</string>
-    <string name="pesdk_adjustments_title_name">Adjust</string>
-    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
-    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
-    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
-    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
-    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_transform_button_freeCrop">Vlastní</string>
+    <string name="pesdk_transform_button_resetCrop">Obnovit</string>
+    <string name="pesdk_transform_button_squareCrop">Čtverec</string>
+    <string name="pesdk_transform_title_name">Transformovat</string>
+    <string name="pesdk_filter_title_name">Filtr</string>
+    <string name="pesdk_filter_asset_none">Žádný</string>
+    <string name="pesdk_adjustments_title_name">Doladění</string>
+    <string name="pesdk_adjustments_button_shadowTool">Stíny</string>
+    <string name="pesdk_adjustments_button_exposureTool">Expozice</string>
+    <string name="pesdk_adjustments_button_highlightTool">Světla</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Jas</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Sytost</string>
+    <string name="pesdk_adjustments_button_clarityTool">Jasnost</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
-    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
-    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
-    <string name="pesdk_adjustments_button_reset">Reset</string>
-    <string name="pesdk_focus_title_name">Focus</string>
-    <string name="pesdk_focus_title_disabled">None</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
-    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_adjustments_button_blacksTool">Černé</string>
+    <string name="pesdk_adjustments_button_whitesTool">Bílé</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Teplota</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Ostrost</string>
+    <string name="pesdk_adjustments_button_reset">Obnovit</string>
+    <string name="pesdk_focus_title_name">Zaostření</string>
+    <string name="pesdk_focus_title_disabled">Žádné</string>
+    <string name="pesdk_focus_button_radial">Radiální</string>
+    <string name="pesdk_focus_button_linear">Lineární</string>
+    <string name="pesdk_focus_button_mirrored">Zrcadlové</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_text_title_name">Text</string>
-    <string name="pesdk_text_title_options">Text Options</string>
-    <string name="pesdk_text_title_textColor">Text Color</string>
-    <string name="pesdk_text_title_font">Font</string>
-    <string name="pesdk_text_button_add">Add</string>
-    <string name="pesdk_text_button_edit">Edit</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
-    <string name="pesdk_text_button_font">Font</string>
-    <string name="pesdk_text_button_color">Color</string>
-    <string name="pesdk_text_button_backgroundColor">BG Color</string>
-    <string name="pesdk_text_button_alignment">Alignment</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
-    <string name="pesdk_text_button_delete">Delete</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
-    <string name="pesdk_brush_title_name">Brush</string>
-    <string name="pesdk_brush_button_color">Color</string>
-    <string name="pesdk_brush_button_size">Size</string>
-    <string name="pesdk_brush_button_hardness">Hardness</string>
-    <string name="pesdk_brush_button_bringToFront">To Front</string>
-    <string name="pesdk_brush_button_delete">Delete</string>
-    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_text_title_options">Nastavení textu</string>
+    <string name="pesdk_text_title_textColor">Barva textu</string>
+    <string name="pesdk_text_title_font">Písmo</string>
+    <string name="pesdk_text_button_add">Přidat</string>
+    <string name="pesdk_text_button_edit">Upravit</string>
+    <string name="pesdk_text_button_straighten">Narovnat</string>
+    <string name="pesdk_text_button_font">Písmo</string>
+    <string name="pesdk_text_button_color">Barva</string>
+    <string name="pesdk_text_button_backgroundColor">Pozadí</string>
+    <string name="pesdk_text_button_alignment">Zarovnání</string>
+    <string name="pesdk_text_button_bringToFront">Do popředí</string>
+    <string name="pesdk_text_button_delete">Vymazat</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Váš text</string>
+    <string name="pesdk_brush_title_name">Štětec</string>
+    <string name="pesdk_brush_button_color">Barva</string>
+    <string name="pesdk_brush_button_size">Velikost</string>
+    <string name="pesdk_brush_button_hardness">Tvrdost</string>
+    <string name="pesdk_brush_button_bringToFront">Do popředí</string>
+    <string name="pesdk_brush_button_delete">Vymazat</string>
+    <string name="pesdk_brush_title_brushColor">Barva štětce</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
-    <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="pesdk_editor_accept">Accept</string>
-    <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
-    <string name="pesdk_common_title_colorPicker">Color Picker</string>
-    <string name="pesdk_common_title_transparentColor">Transparent</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
-    <string name="pesdk_common_title_grayColor">Gray</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
-    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
-    <string name="pesdk_common_title_purpleColor">Purple</string>
-    <string name="pesdk_common_title_orchidColor">Orchid</string>
-    <string name="pesdk_common_title_pinkColor">Pink</string>
-    <string name="pesdk_common_title_redColor">Red</string>
-    <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Yellow</string>
-    <string name="pesdk_common_title_oliveColor">Olive</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Zavřít editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Opravdu chcete zahodit úpravy obrázku?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ano</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Ne</string>
+    <string name="pesdk_editor_cancel">Zrušit</string>
+    <string name="pesdk_editor_accept">Potvrdit</string>
+    <string name="pesdk_editor_save">Uložit</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje se obrázek…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Export obrázku %s.</string>
+    <string name="pesdk_common_button_flipH">Překlopit H</string>
+    <string name="pesdk_common_button_flipV">Překlopit V</string>
+    <string name="pesdk_common_button_undo">Vrátit</string>
+    <string name="pesdk_common_button_redo">Zopakovat vrácené</string>
+    <string name="pesdk_common_title_colorPicker">Výběr barvy</string>
+    <string name="pesdk_common_title_transparentColor">Průsvitná</string>
+    <string name="pesdk_common_title_whiteColor">Bílá</string>
+    <string name="pesdk_common_title_grayColor">Šedá</string>
+    <string name="pesdk_common_title_blackColor">Černá</string>
+    <string name="pesdk_common_title_lightBlueColor">Světle modrá</string>
+    <string name="pesdk_common_title_blueColor">Modrá</string>
+    <string name="pesdk_common_title_purpleColor">Fialová</string>
+    <string name="pesdk_common_title_orchidColor">Orchidej</string>
+    <string name="pesdk_common_title_pinkColor">Růžová</string>
+    <string name="pesdk_common_title_redColor">Červená</string>
+    <string name="pesdk_common_title_orangeColor">Oranžová</string>
+    <string name="pesdk_common_title_goldColor">Zlatá</string>
+    <string name="pesdk_common_title_yellowColor">Žlutá</string>
+    <string name="pesdk_common_title_oliveColor">Olivová</string>
+    <string name="pesdk_common_title_greenColor">Zelená</string>
+    <string name="pesdk_common_title_aquamarinColor">Akvamarín</string>
+    <string name="pesdk_common_title_pipettableColor">Pipetovatelná barva</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Jak nastavím Jednoduchou Galerii jako výchozí galerii?</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchá Galerie Pro - Organizér a editor fotografií</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions.</string>
+    <string name="app_short_description">Prohlížejte své vzpomínky bez přerušení.</string>
     <string name="app_long_description">
         Jednoduchá Galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
 
