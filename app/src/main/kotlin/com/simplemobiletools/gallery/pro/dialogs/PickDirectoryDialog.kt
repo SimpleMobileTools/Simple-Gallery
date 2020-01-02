@@ -14,7 +14,8 @@ import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
-class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
+                          val callback: (path: String) -> Unit) {
     private var dialog: AlertDialog
     private var shownDirectories = ArrayList<Directory>()
     private var allDirectories = ArrayList<Directory>()
@@ -88,7 +89,8 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
         if (allDirectories.isEmpty()) {
             allDirectories = newDirs.clone() as ArrayList<Directory>
         }
-        val distinctDirs = newDirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
+
+        val distinctDirs = newDirs.filter { showFavoritesBin || (!it.isRecycleBin() && !it.areFavorites()) }.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
         val sortedDirs = activity.getSortedDirectories(distinctDirs)
         val dirs = activity.getDirsToShow(sortedDirs, allDirectories, currentPathPrefix).clone() as ArrayList<Directory>
         if (dirs.hashCode() == shownDirectories.hashCode()) {
