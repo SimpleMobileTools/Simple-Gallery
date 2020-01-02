@@ -592,6 +592,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
                     mDirectoryDao.deleteDirPath(it.absolutePath)
                 }
+
+                if (config.deleteEmptyFolders) {
+                    folders.filter { !it.absolutePath.isDownloadsFolder() && it.isDirectory && it.toFileDirItem(this).getProperFileCount(this, true) == 0 }.forEach {
+                        tryDeleteFileDirItem(it.toFileDirItem(this), true, true)
+                    }
+                }
             }
         }
     }
