@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.11.5 *(2020-01-04)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements
+
 Version 6.11.4 *(2019-12-27)*
 ----------------------------
 
