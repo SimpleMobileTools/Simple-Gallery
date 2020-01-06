@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchá galéria Pro - Foto organizér a editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Prehliadajte svoje spomienky bez prerušenia.</string>
+    <string name="app_short_description">Prehliadajte svoje spomienky bez prerušenia s touto foto a video galériou.</string>
     <string name="app_long_description">
         Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
 

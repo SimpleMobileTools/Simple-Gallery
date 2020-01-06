@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Trình quản lý ảnh &amp; biên tập</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Duyệt khoảnh khắc của bạn mà không có bất kỳ gián đoạn.</string>
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
         Simple Gallery Pro là một bộ sưu tập ngoại tuyến có khả năng tùy biến cao. Tổ chức &amp; chỉnh sửa ảnh của bạn, khôi phục các tệp đã xóa bằng thùng rác, bảo vệ &amp; ẩn các tệp và xem được nhiều định dạng ảnh &amp; video bao gồm RAW, SVG và nhiều hơn nữa.    
         Ứng dụng này không chứa quảng cáo và các quyền không cần thiết. Vì ứng dụng không có yêu cầu truy cập internet, quyền riêng tư của bạn sẽ được bảo vệ.
