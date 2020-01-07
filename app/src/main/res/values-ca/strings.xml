@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Navegueu pels vostres records sense interrupcions amb aquesta galeria de foto i vídeo</string>
     <string name="app_long_description">
         Simple Gallery Pro és una galeria fora de línia altament personalitzable. Organitza i edita les teves fotos, recupera fitxers suprimits amb la paperera de reciclatge, protegeix i amaga fitxers, mostra una gran varietat de formats de foto i vídeo incloent RAW, SVG i molt més.
 
