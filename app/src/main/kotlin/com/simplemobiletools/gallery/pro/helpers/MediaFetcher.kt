@@ -545,7 +545,8 @@ class MediaFetcher(val context: Context) {
             TYPE_VIDEOS -> R.string.videos
             TYPE_GIFS -> R.string.gifs
             TYPE_RAWS -> R.string.raw_images
-            else -> R.string.svgs
+            TYPE_SVGS -> R.string.svgs
+            else -> R.string.portraits
         }
         return context.getString(stringId)
     }
