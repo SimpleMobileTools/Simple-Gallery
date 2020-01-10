@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Spravovať vylúčené priečinky</string>
     <string name="exclude_folder_description">Táto funkcia vylúči výber a jeho podpriečinky iba z Jednoduchej galérie. Spravovať vylúčené priečinky je možné v nastaveniach.</string>
     <string name="exclude_folder_parent">Chcete ukryť rodičovský priečinok?</string>
-    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\\n\\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
+    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\n\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
     <string name="remove_all">Odstrániť všetky</string>
     <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených? Táto operácia neodstráni samotný obsah priečinkov.</string>
     <string name="hidden_folders">Skryté priečinky</string>

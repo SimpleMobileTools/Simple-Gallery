@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Gestionar carpetes excloses</string>
     <string name="exclude_folder_description">Això exclou la selecció juntament amb les carpetes, només de Simple Gallery. Pots gestionar les carpetes excloses en els Ajustaments.</string>
     <string name="exclude_folder_parent">Excloure millor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\\n\\nSi vols ocultar-les d’altres aplicacions fes servir la opció Ocultar.</string>
+    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\n\nSi vols ocultar-les d’altres aplicacions fes servir la opció Ocultar.</string>
     <string name="remove_all">Eliminar tot</string>
     <string name="remove_all_description">Eliminar totes les carpetes de la llista d’excloses? Això no eliminarà les carpetes.</string>
     <string name="hidden_folders">Carpetes ocultes</string>

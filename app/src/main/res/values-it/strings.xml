@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Gestisci le cartelle escluse</string>
     <string name="exclude_folder_description">Questo escluderà la selezione e le relative sottocartelle solo da Semplice Galleria. Si possono gestire le cartelle escluse nelle impostazioni.</string>
     <string name="exclude_folder_parent">Vuoi invece escluderne una superiore?</string>
-    <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Semplice Galleria, saranno ancora visibili in altre applicazioni.\\n\\nSe si desidera nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
+    <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Semplice Galleria, saranno ancora visibili in altre applicazioni.\n\nSe si desidera nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
     <string name="remove_all">Rimuovi tutte</string>
     <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
     <string name="hidden_folders">Cartelle nascoste</string>

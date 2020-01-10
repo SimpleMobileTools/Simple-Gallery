@@ -47,13 +47,13 @@
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner, indem im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden die ausgewählten Ordner und alle Unterverzeichnisse auch in anderen Apps nicht angezeigt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option).\\nFortfahren?</string>
+    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner, indem im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden die ausgewählten Ordner und alle Unterverzeichnisse auch in anderen Apps nicht angezeigt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option).\nFortfahren?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
     <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Möchtest du stattdessen einen höherliegenden Ordner ausschließen?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\n\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Liste ausgeblendeter Ordner entfernen? Die Ordner selbst werden nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>

@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Hantera uteslutna mappar</string>
     <string name="exclude_folder_description">Detta utesluter bara den markerade mappen och dess undermappar från Simple Gallery. Du kan hantera uteslutna mappar i Inställningar.</string>
     <string name="exclude_folder_parent">Vill du utesluta en överordnad mapp istället?</string>
-    <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\\n\\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
+    <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\n\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
     <string name="remove_all">Ta bort alla</string>
     <string name="remove_all_description">Vill du ta bort alla mappar från uteslutningslistan? Detta raderar inte mapparna.</string>
     <string name="hidden_folders">Dolda mappar</string>
