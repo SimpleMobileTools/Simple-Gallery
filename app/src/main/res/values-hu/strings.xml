@@ -33,7 +33,7 @@
 	<string name="dates_fixed_successfully">Sikeres dátum javítás</string>
 	<string name="share_resized">Átméretezett verzió megosztása</string>
 	<string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-	<string name="switch_to_file_search">Switch to file search across all visible folders</string>
+	<string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
 	
 	<!-- Filter -->
 	<string name="filter_media">Média szűrő</string>
@@ -82,7 +82,7 @@
 	<string name="path">Elérési útvonal</string>
 	<string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
 	<string name="image_editing_failed">Sikertelen kép szerkesztés</string>
-	<string name="file_edited_successfully">File edited successfully</string>
+	<string name="file_edited_successfully">A fájl szerkesztése sikerült</string>
 	<string name="edit_image_with">Kép szerkesztés ezzel:</string>
 	<string name="no_editor_found">Nem található kép szerkesztő</string>
 	<string name="unknown_file_location">Ismeretlen fájl hely</string>
@@ -94,10 +94,11 @@
 	<string name="flip_horizontally">Tükrözés vízszintesen</string>
 	<string name="flip_vertically">Tükrözés függőlegesen</string>
 	<string name="free_aspect_ratio">Szabad</string>
+	
 	<!-- available as an option: 1:1, 4:3, 16:9, free -->
 	<string name="other_aspect_ratio">Egyéb</string>
-	<!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 	
+	<!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 	<!-- Set wallpaper -->
 	<string name="simple_wallpaper">Simple Wallpaper</string>
 	<string name="set_as_wallpaper">Beállítás háttérképként</string>
@@ -206,12 +207,12 @@
 	
 	<!-- New editor strings -->
 	<string name="pesdk_transform_button_freeCrop">Egyéni</string>
-	<string name="pesdk_transform_button_resetCrop">Reset</string>
+	<string name="pesdk_transform_button_resetCrop">Alaphelyzetbe</string>
 	<string name="pesdk_transform_button_squareCrop">Square</string>
 	<string name="pesdk_transform_title_name">Transform</string>
 	<string name="pesdk_filter_title_name">Szűrő</string>
 	<string name="pesdk_filter_asset_none">Nincs</string>
-	<string name="pesdk_adjustments_title_name">Adjust</string>
+	<string name="pesdk_adjustments_title_name">Beállít</string>
 	<string name="pesdk_adjustments_button_shadowTool">Árnyékok</string>
 	<string name="pesdk_adjustments_button_exposureTool">Exposure</string>
 	<string name="pesdk_adjustments_button_highlightTool">Highlights</string>
@@ -224,7 +225,7 @@
 	<string name="pesdk_adjustments_button_whitesTool">Whites</string>
 	<string name="pesdk_adjustments_button_temperatureTool">Színhőmérséklet</string>
 	<string name="pesdk_adjustments_button_sharpnessTool">Élesség</string>
-	<string name="pesdk_adjustments_button_reset">Reset</string>
+	<string name="pesdk_adjustments_button_reset">Alaphelyzetbe</string>
 	<string name="pesdk_focus_title_name">Fókusz</string>
 	<string name="pesdk_focus_title_disabled">Nincs</string>
 	<string name="pesdk_focus_button_radial">Radial</string>
@@ -242,31 +243,31 @@
 	<string name="pesdk_text_button_color">Szín</string>
 	<string name="pesdk_text_button_backgroundColor">Háttérszín</string>
 	<string name="pesdk_text_button_alignment">Igazítás</string>
-	<string name="pesdk_text_button_bringToFront">To Front</string>
+	<string name="pesdk_text_button_bringToFront">Előre</string>
 	<string name="pesdk_text_button_delete">Törlés</string>
 	<string name="pesdk_text_text_editTextPlaceholder">Saját szöveg</string>
-	<string name="pesdk_brush_title_name">Brush</string>
+	<string name="pesdk_brush_title_name">Ecset</string>
 	<string name="pesdk_brush_button_color">Szín</string>
 	<string name="pesdk_brush_button_size">Méret</string>
-	<string name="pesdk_brush_button_hardness">Hardness</string>
-	<string name="pesdk_brush_button_bringToFront">To Front</string>
+	<string name="pesdk_brush_button_hardness">Keménység</string>
+	<string name="pesdk_brush_button_bringToFront">Előre</string>
 	<string name="pesdk_brush_button_delete">Törlés</string>
-	<string name="pesdk_brush_title_brushColor">Brush Color</string>
+	<string name="pesdk_brush_title_brushColor">Ecset színe</string>
 	<string name="pesdk_editor_title_name">Szerkesztő</string>
-	<string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-	<string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+	<string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt?</string>
+	<string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a képet?</string>
 	<string name="pesdk_editor_button_closeEditorAlertConfirmation">Igen</string>
 	<string name="pesdk_editor_button_closeEditorAlertCancelation">Nem</string>
 	<string name="pesdk_editor_cancel">Mégsem</string>
-	<string name="pesdk_editor_accept">Accept</string>
+	<string name="pesdk_editor_accept">Elfogad</string>
 	<string name="pesdk_editor_save">Mentés</string>
-	<string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-	<string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-	<string name="pesdk_common_button_flipH">Flip H</string>
-	<string name="pesdk_common_button_flipV">Flip V</string>
+	<string name="pesdk_editor_text_exportProgressUnknown">Kép exportálása...</string>
+	<string name="pesdk_editor_text_exportProgress" formatted="false">%s kép exportálása</string>
+	<string name="pesdk_common_button_flipH">Tükrözés vízszintesen</string>
+	<string name="pesdk_common_button_flipV">Tükrözés függőlegesen</string>
 	<string name="pesdk_common_button_undo">Visszavonás</string>
-	<string name="pesdk_common_button_redo">Redo</string>
-	<string name="pesdk_common_title_colorPicker">Color Picker</string>
+	<string name="pesdk_common_button_redo">Visszavom</string>
+	<string name="pesdk_common_title_colorPicker">Színválasztó</string>
 	<string name="pesdk_common_title_transparentColor">Áttetsző</string>
 	<string name="pesdk_common_title_whiteColor">Fehér</string>
 	<string name="pesdk_common_title_grayColor">Szürke</string>
