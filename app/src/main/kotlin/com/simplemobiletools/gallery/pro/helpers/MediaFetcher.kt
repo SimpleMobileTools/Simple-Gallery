@@ -214,7 +214,6 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
                                  getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
-
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
             context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
@@ -229,54 +228,39 @@ class MediaFetcher(val context: Context) {
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
 
-        // used only for Portrait photos starting with "IMG_" for now
-        val subdirs = ArrayList<File>()
-        val covers = ArrayList<String>()
-
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
             RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toMutableList() as ArrayList<File>
-            else -> {
-                val allFiles = File(folder).listFiles() ?: return media
-                val notDirs = ArrayList<File>()
-                allFiles.forEach {
-                    if (it.isDirectory) {
-                        if (showPortraits && it.name.startsWith("img_", true)) {
-                            subdirs.add(it)
-                        }
-                    } else {
-                        notDirs.add(it)
-                    }
-                }
-
-                notDirs
-            }
+            else -> File(folder).listFiles()?.toMutableList() ?: return media
         }
 
-        for (subdir in subdirs) {
-            val portraitFiles = subdir.listFiles() ?: continue
-            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
-            if (cover != null) {
-                files.add(cover)
-                covers.add(cover.absolutePath)
-            }
-        }
-
-        for (file in files) {
+        for (curFile in files) {
+            var file = curFile
             if (shouldStop) {
                 break
             }
 
-            val path = file.absolutePath
-            val isPortrait = covers.contains(path)
-            val isImage = if (isPortrait) false else path.isImageFast()
-            val isVideo = if (isPortrait || isImage) false else path.isVideoFast()
-            val isGif = if (isPortrait || isImage || isVideo) false else path.isGif()
-            val isRaw = if (isPortrait || isImage || isVideo || isGif) false else path.isRawFast()
-            val isSvg = if (isPortrait || isImage || isVideo || isGif || isRaw) false else path.isSvg()
+            var path = file.absolutePath
+            var isPortrait = false
+            val isImage = path.isImageFast()
+            val isVideo = if (isImage) false else path.isVideoFast()
+            val isGif = if (isImage || isVideo) false else path.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
-            if (!isPortrait && !isImage && !isVideo && !isGif && !isRaw && !isSvg)
-                continue
+            if (!isImage && !isVideo && !isGif && !isRaw && !isSvg) {
+                if (showPortraits && file.isDirectory && file.name.startsWith("img_", true)) {
+                    val portraitFiles = file.listFiles() ?: continue
+                    val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
+                    if (cover != null && !files.contains(cover)) {
+                        file = cover
+                        path = cover.absolutePath
+                        isPortrait = true
+                    }
+                } else {
+                    continue
+                }
+            }
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
