@@ -39,9 +39,9 @@
     <string name="filter_media">Filter médií</string>
     <string name="images">Obrázky</string>
     <string name="videos">Videá</string>
-    <string name="gifs">GIFká</string>
+    <string name="gifs">GIF</string>
     <string name="raw_images">RAW obrázky</string>
-    <string name="svgs">SVGčká</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Portréty</string>
     <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
     <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
