@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.11.6 *(2020-01-11)*
+----------------------------
+
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements
+
 Version 6.11.5 *(2020-01-04)*
 ----------------------------
 
