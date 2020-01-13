@@ -33,7 +33,7 @@
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
     <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -65,7 +65,7 @@
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
     <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht gefunden wurden, kannst du deren Ordner hier manuell hinzufügen.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Es konnten keine Mediendateien gefunden werden. Das Problem kann behoben werden, indem die Ordner mit den Mediendateien manuell hinzugefügt werden.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -80,13 +80,13 @@
     <string name="save">Speichern</string>
     <string name="rotate">Drehen</string>
     <string name="path">Pfad</string>
-    <string name="invalid_image_path">Ungültiger Dateipfad.</string>
-    <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen.</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="invalid_image_path">Ungültiger Dateipfad</string>
+    <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
+    <string name="file_edited_successfully">Datei erfolgreich bearbeitet</string>
     <string name="edit_image_with">Bild bearbeiten mit:</string>
-    <string name="no_editor_found">Keine Bildeditor-App gefunden.</string>
-    <string name="unknown_file_location">Unbekannter Dateipfad.</string>
-    <string name="error_saving_file">Konnte Quelldatei nicht überschreiben.</string>
+    <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
+    <string name="unknown_file_location">Unbekannter Dateipfad</string>
+    <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
     <string name="rotate_left">Nach links drehen</string>
     <string name="rotate_right">Nach rechts drehen</string>
     <string name="rotate_one_eighty">Um 180° drehen</string>
@@ -119,11 +119,11 @@
     <string name="move_backwards">Rückwärts abspielen</string>
     <string name="loop_slideshow">Endlos abspielen</string>
     <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
-    <string name="slideshow_ended">Diashow beendet.</string>
-    <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden.</string>
+    <string name="no_animation">Keine</string>
+    <string name="fade">Verblassen</string>
+    <string name="slide">Schieben</string>
+    <string name="slideshow_ended">Diashow beendet</string>
+    <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
 
     <!-- View types -->
     <string name="change_view_type">Darstellung ändern</string>
@@ -136,11 +136,11 @@
     <string name="do_not_group_files">Dateien nicht gruppieren</string>
     <string name="by_folder">Ordner</string>
     <string name="by_last_modified">Datum der letzten Änderung</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Zuletzt geändert (täglich)</string>
+    <string name="by_last_modified_monthly">Zuletzt geändert (monatlich)</string>
     <string name="by_date_taken">Aufnahmedatum</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Aufnahmedatum (täglich)</string>
+    <string name="by_date_taken_monthly">Aufnahmedatum (monatlich)</string>
     <string name="by_file_type">Dateityp (Bilder/Videos)</string>
     <string name="by_extension">Dateierweiterung</string>
     <string name="grouping_and_sorting">Bitte beachte, dass Gruppieren und Sortieren zwei unabhängige Felder sind.</string>
@@ -183,13 +183,13 @@
     <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
     <string name="allow_one_to_one_zoom">Erlaube 1:1 Zoom mit zweimaligem, doppeltem Antippen</string>
     <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="show_notch">Zeige eine Notch, wenn vorhanden</string>
     <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
     <string name="file_loading_priority">Priorität beim Laden von Dateien</string>
     <string name="speed">Geschwindigkeit</string>
     <string name="compromise">Kompromiss</string>
     <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Bilddateitypen anzeigen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
@@ -318,7 +318,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Schlichte Galerie Pro - Foto Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Bewahre deine Andenken ohne Unterbrechungen mit dieser Foto- und Videogalerie</string>
     <string name="app_long_description">
         Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne &amp; bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze &amp; verstecke Dateien und zeige eine Vielzahl von Bilder- &amp; Videoformaten an, unter anderem RAW, SVG und viele mehr.
 
