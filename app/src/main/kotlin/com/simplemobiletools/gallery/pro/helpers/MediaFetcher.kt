@@ -256,6 +256,8 @@ class MediaFetcher(val context: Context) {
                         file = cover
                         path = cover.absolutePath
                         isPortrait = true
+                    } else {
+                        continue
                     }
                 } else {
                     continue
