@@ -64,7 +64,7 @@ abstract class GalleryDatabase : RoomDatabase() {
 
         private val MIGRATION_6_7 = object : Migration(6, 7) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE TABLE IF NOT EXISTS `date_takens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `full_path` TEXT NOT NULL, `parent_path` TEXT NOT NULL, `last_fixed` LONG NOT NULL)")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `date_takens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `full_path` TEXT NOT NULL, `parent_path` TEXT NOT NULL, `last_fixed` INTEGER NOT NULL)")
             }
         }
     }
