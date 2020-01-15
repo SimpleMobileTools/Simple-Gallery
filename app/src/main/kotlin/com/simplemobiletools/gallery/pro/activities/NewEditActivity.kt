@@ -243,6 +243,7 @@ class NewEditActivity : SimpleActivity() {
         settingsList.getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
         settingsList.getSettingsModel(EditorSaveSettings::class.java)
+                .setExportFormat(EditorSaveSettings.FORMAT.AUTO)
                 .setOutputFilePath("$filesDir/editor/$filename")
                 .savePolicy = EditorSaveSettings.SavePolicy.RETURN_SOURCE_OR_CREATE_OUTPUT_IF_NECESSARY
 
