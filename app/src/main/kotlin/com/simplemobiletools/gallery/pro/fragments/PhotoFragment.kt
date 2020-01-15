@@ -490,6 +490,9 @@ class PhotoFragment : ViewPagerFragment() {
                     mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
                     adapter.setCurrentPhoto(coverIndex)
                     mView.photo_portrait_stripe_wrapper.beVisible()
+                    if (mIsFullscreen) {
+                        mView.photo_portrait_stripe_wrapper.alpha = 0f
+                    }
                 }
             }
         }
