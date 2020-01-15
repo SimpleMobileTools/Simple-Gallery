@@ -6,14 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.simplemobiletools.gallery.pro.interfaces.DateTakensDAO
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.interfaces.WidgetsDao
+import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.Widget
 
-@Database(entities = [Directory::class, Medium::class, Widget::class], version = 6)
+@Database(entities = [Directory::class, Medium::class, Widget::class, DateTaken::class], version = 7)
 abstract class GalleryDatabase : RoomDatabase() {
 
     abstract fun DirectoryDao(): DirectoryDao
@@ -21,6 +23,8 @@ abstract class GalleryDatabase : RoomDatabase() {
     abstract fun MediumDao(): MediumDao
 
     abstract fun WidgetsDao(): WidgetsDao
+
+    abstract fun DateTakensDAO(): DateTakensDAO
 
     companion object {
         private var db: GalleryDatabase? = null
@@ -33,6 +37,7 @@ abstract class GalleryDatabase : RoomDatabase() {
                                 .fallbackToDestructiveMigration()
                                 .addMigrations(MIGRATION_4_5)
                                 .addMigrations(MIGRATION_5_6)
+                                .addMigrations(MIGRATION_6_7)
                                 .build()
                     }
                 }
@@ -54,6 +59,12 @@ abstract class GalleryDatabase : RoomDatabase() {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `widgets` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `widget_id` INTEGER NOT NULL, `folder_path` TEXT NOT NULL)")
                 database.execSQL("CREATE UNIQUE INDEX `index_widgets_widget_id` ON `widgets` (`widget_id`)")
+            }
+        }
+
+        private val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS `date_takens` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `full_path` TEXT NOT NULL, `parent_path` TEXT NOT NULL, `last_fixed` LONG NOT NULL)")
             }
         }
     }
