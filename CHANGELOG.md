@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.11.7 *(2020-01-16)*
+----------------------------
+
+ * Do not convert every edited file into a JPG, keep PNGs intact
+ * Fixed a glitch with empty portrait photos being shown as grey thumbnails
+ * Show a FAQ/settings prompt once at pressing Rate Us in the About section
+ * Added a 16:10 editor crop aspect ratio, used mostly on tablets
+ * Do some preparations for better handling Date Taken values and Favorites
+ * Other stability and translation improvements
+
 Version 6.11.6 *(2020-01-11)*
 ----------------------------
 
