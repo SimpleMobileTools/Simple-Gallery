@@ -81,10 +81,10 @@
     <string name="rotate">Поворот</string>
     <string name="path">Путь</string>
     <string name="invalid_image_path">Недопустимый путь изображения</string>
-    <string name="image_editing_failed">Редактирование изображения не удалось</string>
+    <string name="image_editing_failed">Редактирование изображения не выполнено</string>
     <string name="file_edited_successfully">Файл успешно отредактирован</string>
     <string name="edit_image_with">Редактировать изображение в:</string>
-    <string name="no_editor_found">Ни одного редактора изображений не найдено</string>
+    <string name="no_editor_found">Не найдено ни одного редактора изображений</string>
     <string name="unknown_file_location">Неизвестное местоположение файла</string>
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
     <string name="rotate_left">Повернуть влево</string>
@@ -252,14 +252,14 @@
     <string name="pesdk_brush_title_brushColor">Цвет кисти</string>
     <string name="pesdk_editor_title_name">Редактор</string>
     <string name="pesdk_editor_title_closeEditorAlert">Закрыть редактор?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Вы действительно хотите отказаться от изображения?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Вы действительно хотите отказаться от сделанных изменений изображения?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Да</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Нет</string>
     <string name="pesdk_editor_cancel">Отмена</string>
     <string name="pesdk_editor_accept">Принять</string>
     <string name="pesdk_editor_save">Сохранить</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Экспорт изображения…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Экспорт изображения %s.</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Экспорт изображения %s</string>
     <string name="pesdk_common_button_flipH">Г-поворот</string>
     <string name="pesdk_common_button_flipV">В-поворот</string>
     <string name="pesdk_common_button_undo">Отмена</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Галерея Pro - управление изображениями</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Просматривайте свои воспоминания без перерывов с этой фото- и видеогалереей</string>
     <string name="app_long_description">
         Simple Gallery Pro — настраиваемая автономная галерея. Организуйте и редактируйте свои фотографии; восстанавливайте удалённые файлы при помощи функции "корзина"; защищайте и скрывайте личные файлы; просматривайте множество различных фото- и видеоформатов, включая RAW, SVG и многие другие.
 
