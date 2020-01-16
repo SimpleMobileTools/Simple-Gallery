@@ -201,6 +201,8 @@ class NewEditActivity : SimpleActivity() {
             add(CropAspectAsset("my_crop_4_5", 4, 5, false))
             add(CropAspectAsset("my_crop_37_18", 37, 18, false))
             add(CropAspectAsset("my_crop_18_37", 18, 37, false))
+            add(CropAspectAsset("my_crop_16_10", 16, 10, false))
+            add(CropAspectAsset("my_crop_10_16", 10, 16, false))
         }
 
         settingsList.getSettingsModel(UiConfigAspect::class.java).aspectList.apply {
@@ -208,6 +210,7 @@ class NewEditActivity : SimpleActivity() {
             add(ToggleAspectItem(CropAspectItem("my_crop_19_9"), CropAspectItem("my_crop_9_19")))
             add(ToggleAspectItem(CropAspectItem("my_crop_5_4"), CropAspectItem("my_crop_4_5")))
             add(ToggleAspectItem(CropAspectItem("my_crop_37_18"), CropAspectItem("my_crop_18_37")))
+            add(ToggleAspectItem(CropAspectItem("my_crop_16_10"), CropAspectItem("my_crop_10_16")))
         }
 
         settingsList.getSettingsModel(UiConfigFilter::class.java).setFilterList(
