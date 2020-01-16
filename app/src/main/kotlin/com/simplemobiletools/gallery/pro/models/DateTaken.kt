@@ -11,6 +11,6 @@ import androidx.room.PrimaryKey
 data class DateTaken(
         @PrimaryKey(autoGenerate = true) var id: Int?,
         @ColumnInfo(name = "full_path") var fullPath: String,
-        @ColumnInfo(name = "file_name") var fileName: String,
+        @ColumnInfo(name = "filename") var filename: String,
         @ColumnInfo(name = "parent_path") var parentPath: String,
         @ColumnInfo(name = "last_fixed") var lastFixed: Int)
