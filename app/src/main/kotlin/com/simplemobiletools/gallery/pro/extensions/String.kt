@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.media.MediaMetadataRetriever
+import android.os.Environment
 import com.simplemobiletools.commons.extensions.doesThisOrParentHaveNoMedia
 import com.simplemobiletools.commons.helpers.NOMEDIA
 import java.io.File
@@ -70,3 +71,5 @@ fun String.getVideoDuration(): Int {
     }
     return seconds
 }
+
+fun String.isDownloadsFolder() = equals(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString(), true)

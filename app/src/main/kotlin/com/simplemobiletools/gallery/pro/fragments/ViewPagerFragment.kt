@@ -40,7 +40,12 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         val path = "${file.parent.trimEnd('/')}/"
-        val exif = ExifInterface(medium.path)
+        val exif = try {
+            ExifInterface(medium.path)
+        } catch (e: Exception) {
+            return ""
+        }
+
         val details = StringBuilder()
         val detailsFlag = context!!.config.extendedDetails
         if (detailsFlag and EXT_NAME != 0) {

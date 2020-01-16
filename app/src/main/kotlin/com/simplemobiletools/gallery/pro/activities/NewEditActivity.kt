@@ -37,11 +37,11 @@ import kotlin.collections.set
 class NewEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
     private val SETTINGS_LIST = "SETTINGS_LIST"
-    private val SOURCE_IMAGE_PATH = "SOURCE_IMAGE_PATH"
     private val RESULT_IMAGE_PATH = "RESULT_IMAGE_PATH"
     private var sourceFileLastModified = 0L
     private var destinationFilePath = ""
     private var imagePathFromEditor = ""    // delete the file stored at the internal app storage (the editor saves it there) in case moving to the selected location fails
+    private var sourceImageUri: Uri? = null
 
     private lateinit var uri: Uri
     private lateinit var saveUri: Uri
@@ -102,7 +102,6 @@ class NewEditActivity : SimpleActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == PESDK_EDIT_IMAGE) {
             val extras = resultData?.extras
-            val source = extras?.getString(SOURCE_IMAGE_PATH, "") ?: ""
             imagePathFromEditor = extras?.getString(RESULT_IMAGE_PATH, "") ?: ""
 
             val settings = extras?.getParcelable<SettingsList>(SETTINGS_LIST)
@@ -113,11 +112,19 @@ class NewEditActivity : SimpleActivity() {
                 config.editorBrushSize = brush.brushSize
             }
 
-            if (resultCode != Activity.RESULT_OK || source.isEmpty() || imagePathFromEditor.isEmpty() || source == imagePathFromEditor) {
+            if (resultCode != Activity.RESULT_OK || sourceImageUri == null || sourceImageUri.toString().isEmpty() || imagePathFromEditor.isEmpty() || sourceImageUri.toString() == imagePathFromEditor) {
+                toast(R.string.image_editing_failed)
                 finish()
             } else {
                 // the image is stored at the internal app storage first, for example /data/user/0/com.simplemobiletools.gallery.pro/files/editor/IMG_20191207_183023.jpg
                 // first we rename it to the desired name, then move
+                val sourceString = Uri.decode(sourceImageUri.toString())?.toString() ?: ""
+                val source = if (sourceString.isEmpty() || sourceString.startsWith("content")) {
+                    internalStoragePath
+                } else {
+                    sourceString.substringAfter("file://")
+                }
+
                 SaveAsDialog(this, source, true, cancelCallback = {
                     toast(R.string.image_editing_failed)
                     finish()
@@ -172,10 +179,11 @@ class NewEditActivity : SimpleActivity() {
     }
 
     private fun openEditor(inputImage: Uri) {
+        sourceImageUri = inputImage
         val filename = inputImage.toString().getFilenameFromPath()
         val settingsList = createPesdkSettingsList(filename)
 
-        settingsList.getSettingsModel(EditorLoadSettings::class.java).imageSource = inputImage
+        settingsList.getSettingsModel(EditorLoadSettings::class.java).imageSource = sourceImageUri
 
         PhotoEditorBuilder(this)
                 .setSettingsList(settingsList)
@@ -191,12 +199,18 @@ class NewEditActivity : SimpleActivity() {
             add(CropAspectAsset("my_crop_9_19", 9, 19, false))
             add(CropAspectAsset("my_crop_5_4", 5, 4, false))
             add(CropAspectAsset("my_crop_4_5", 4, 5, false))
+            add(CropAspectAsset("my_crop_37_18", 37, 18, false))
+            add(CropAspectAsset("my_crop_18_37", 18, 37, false))
+            add(CropAspectAsset("my_crop_16_10", 16, 10, false))
+            add(CropAspectAsset("my_crop_10_16", 10, 16, false))
         }
 
         settingsList.getSettingsModel(UiConfigAspect::class.java).aspectList.apply {
             add(ToggleAspectItem(CropAspectItem("my_crop_2_1"), CropAspectItem("my_crop_1_2")))
             add(ToggleAspectItem(CropAspectItem("my_crop_19_9"), CropAspectItem("my_crop_9_19")))
             add(ToggleAspectItem(CropAspectItem("my_crop_5_4"), CropAspectItem("my_crop_4_5")))
+            add(ToggleAspectItem(CropAspectItem("my_crop_37_18"), CropAspectItem("my_crop_18_37")))
+            add(ToggleAspectItem(CropAspectItem("my_crop_16_10"), CropAspectItem("my_crop_10_16")))
         }
 
         settingsList.getSettingsModel(UiConfigFilter::class.java).setFilterList(
@@ -219,11 +233,20 @@ class NewEditActivity : SimpleActivity() {
             it.name!!.isEmpty()
         }.toMutableList() as ArrayList<ToolItem>
 
+        // move Focus to the end, as it is the least used
+        // on some devices it is not obvious that the toolbar can be scrolled horizontally, so move the best ones to the start to make them visible
+        val focus = newTools.firstOrNull { it.name == getString(R.string.pesdk_focus_title_name) }
+        if (focus != null) {
+            newTools.remove(focus)
+            newTools.add(focus)
+        }
+
         settingsList.getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
 
         settingsList.getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
         settingsList.getSettingsModel(EditorSaveSettings::class.java)
+                .setExportFormat(EditorSaveSettings.FORMAT.AUTO)
                 .setOutputFilePath("$filesDir/editor/$filename")
                 .savePolicy = EditorSaveSettings.SavePolicy.RETURN_SOURCE_OR_CREATE_OUTPUT_IF_NECESSARY
 

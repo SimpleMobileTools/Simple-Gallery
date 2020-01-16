@@ -1,0 +1,4 @@
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements

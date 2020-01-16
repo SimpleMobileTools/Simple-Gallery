@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 282
-        versionName "6.11.2"
+        versionCode 286
+        versionName "6.11.6"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
         vectorDrawables.useSupportLibrary = true
@@ -69,7 +69,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.21.0'
+    implementation 'com.simplemobiletools:commons:5.21.23'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
@@ -84,7 +84,7 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:8dccb8450b'
     implementation 'com.github.tibbi:subsampling-scale-image-view:d404e74e39'
 
-    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     kapt 'androidx.room:room-compiler:2.2.2'
     implementation 'androidx.room:room-runtime:2.2.2'
@@ -100,6 +100,12 @@ pesdkConfig {
     supportLibVersion "28.0.0"
 
     modules {
+        include 'ly.img.android.pesdk.operation:text'
+        include 'ly.img.android.pesdk.operation:focus'
+        include 'ly.img.android.pesdk.operation:brush'
+        include 'ly.img.android.pesdk.operation:filter'
+        include 'ly.img.android.pesdk.operation:adjustment'
+
         include 'ly.img.android.pesdk.ui.mobile_ui:core'
         include 'ly.img.android.pesdk.ui.mobile_ui:text'
         include 'ly.img.android.pesdk.ui.mobile_ui:focus'
@@ -108,7 +114,8 @@ pesdkConfig {
         include 'ly.img.android.pesdk.ui.mobile_ui:transform'
         include 'ly.img.android.pesdk.ui.mobile_ui:adjustment'
 
-        // Add asset packs if you need
+        include 'ly.img.android.pesdk:serializer'
+
         include 'ly.img.android.pesdk.assets:font-basic'
         include 'ly.img.android.pesdk.assets:filter-basic'
     }

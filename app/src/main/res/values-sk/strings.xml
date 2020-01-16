@@ -39,9 +39,9 @@
     <string name="filter_media">Filter médií</string>
     <string name="images">Obrázky</string>
     <string name="videos">Videá</string>
-    <string name="gifs">GIFká</string>
+    <string name="gifs">GIF</string>
     <string name="raw_images">RAW obrázky</string>
-    <string name="svgs">SVGčká</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Portréty</string>
     <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
     <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Spravovať vylúčené priečinky</string>
     <string name="exclude_folder_description">Táto funkcia vylúči výber a jeho podpriečinky iba z Jednoduchej galérie. Spravovať vylúčené priečinky je možné v nastaveniach.</string>
     <string name="exclude_folder_parent">Chcete ukryť rodičovský priečinok?</string>
-    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\\n\\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
+    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\n\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
     <string name="remove_all">Odstrániť všetky</string>
     <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených? Táto operácia neodstráni samotný obsah priečinkov.</string>
     <string name="hidden_folders">Skryté priečinky</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchá galéria Pro - Foto organizér a editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Prehliadajte svoje spomienky bez prerušenia.</string>
+    <string name="app_short_description">Prehliadajte svoje spomienky bez prerušenia s touto foto a video galériou.</string>
     <string name="app_long_description">
         Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
 

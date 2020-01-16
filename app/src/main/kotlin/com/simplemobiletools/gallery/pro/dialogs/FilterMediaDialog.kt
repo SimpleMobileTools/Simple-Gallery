@@ -45,6 +45,10 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
         if (view.filter_media_portraits.isChecked)
             result += TYPE_PORTRAITS
 
+        if (result == 0) {
+            result = TYPE_DEFAULT_FILTER
+        }
+
         activity.config.filterMedia = result
         callback(result)
     }

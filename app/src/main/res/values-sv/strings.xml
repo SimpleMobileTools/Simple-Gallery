@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Hantera uteslutna mappar</string>
     <string name="exclude_folder_description">Detta utesluter bara den markerade mappen och dess undermappar från Simple Gallery. Du kan hantera uteslutna mappar i Inställningar.</string>
     <string name="exclude_folder_parent">Vill du utesluta en överordnad mapp istället?</string>
-    <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\\n\\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
+    <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\n\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
     <string name="remove_all">Ta bort alla</string>
     <string name="remove_all_description">Vill du ta bort alla mappar från uteslutningslistan? Detta raderar inte mapparna.</string>
     <string name="hidden_folders">Dolda mappar</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions.</string>
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 

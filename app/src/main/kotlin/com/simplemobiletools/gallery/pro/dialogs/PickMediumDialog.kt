@@ -54,7 +54,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
     }
 
     private fun showOtherFolder() {
-        PickDirectoryDialog(activity, path, true) {
+        PickDirectoryDialog(activity, path, true, true) {
             callback(it)
             dialog.dismiss()
         }

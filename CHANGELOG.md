@@ -1,6 +1,36 @@
 Changelog
 ==========
 
+Version 6.11.6 *(2020-01-11)*
+----------------------------
+
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements
+
+Version 6.11.5 *(2020-01-04)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements
+
+Version 6.11.4 *(2019-12-27)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Moved Focus in the editor as the last tool, to prioritize more popular tools
+ * Added a new Crop aspect ratio 37:18 to be used instead of 18.5x9
+ * Some translation improvements
+ * Last app update for a while now, wishing you a Happy New Year!
+
+Version 6.11.3 *(2019-12-25)*
+----------------------------
+
+ * Fixed various editor related glitches
+ * Some translation and other UX improvements
+
 Version 6.11.2 *(2019-12-21)*
 ----------------------------
 
