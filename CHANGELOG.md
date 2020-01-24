@@ -1,6 +1,36 @@
 Changelog
 ==========
 
+Version 6.11.8 *(2020-01-19)*
+----------------------------
+
+ * Reverted Glide to fix some crashes
+
+Version 6.11.7 *(2020-01-16)*
+----------------------------
+
+ * Do not convert every edited file into a JPG, keep PNGs intact
+ * Fixed a glitch with empty portrait photos being shown as grey thumbnails
+ * Show a FAQ/settings prompt once at pressing Rate Us in the About section
+ * Added a 16:10 editor crop aspect ratio, used mostly on tablets
+ * Do some preparations for better handling Date Taken values and Favorites
+ * Other stability and translation improvements
+
+Version 6.11.6 *(2020-01-11)*
+----------------------------
+
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements
+
+Version 6.11.5 *(2020-01-04)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements
+
 Version 6.11.4 *(2019-12-27)*
 ----------------------------
 

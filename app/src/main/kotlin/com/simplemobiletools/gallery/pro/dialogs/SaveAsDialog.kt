@@ -33,6 +33,7 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
 
             save_as_name.setText(name)
             save_as_path.setOnClickListener {
+                activity.hideKeyboard(save_as_path)
                 FilePickerDialog(activity, realPath, false, false, true, true) {
                     save_as_path.text = activity.humanizePath(it)
                     realPath = it

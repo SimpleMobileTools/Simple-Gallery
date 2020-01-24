@@ -50,7 +50,7 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true, true) {
             config.lastFilepickerPath = it
             config.addExcludedFolder(it)
             updateFolders()
