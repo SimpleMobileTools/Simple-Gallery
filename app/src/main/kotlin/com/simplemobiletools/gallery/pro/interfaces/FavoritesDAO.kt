@@ -7,4 +7,7 @@ import androidx.room.Query
 interface FavoritesDAO {
     @Query("SELECT id FROM favorites WHERE full_path = :path COLLATE NOCASE")
     fun isFavorite(path: String): Boolean
+
+    @Query("DELETE FROM favorites WHERE full_path = :path COLLATE NOCASE")
+    fun deleteFavoritePath(path: String)
 }

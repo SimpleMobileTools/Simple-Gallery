@@ -736,8 +736,13 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
 }
 
 fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
+    deleteMediumWithPath(mediumDao, path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+}
+
+fun Context.deleteMediumWithPath(mediumDao: MediumDao, path: String) {
     try {
-        mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+        mediumDao.deleteMediumPath(path)
+        galleryDB.FavoritesDAO().deleteFavoritePath(path)
     } catch (ignored: Exception) {
     }
 }
