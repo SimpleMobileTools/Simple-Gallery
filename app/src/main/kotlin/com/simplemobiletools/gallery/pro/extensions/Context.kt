@@ -674,6 +674,8 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         try {
             if (mediaToDelete.isNotEmpty()) {
                 mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
+                val favorites = mediaToDelete.map { getFavoriteFromPath(it.path) }
+                favoritesDB.deleteFavorites(*favorites.toTypedArray())
             }
         } catch (ignored: Exception) {
         }

@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.pro.interfaces
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.simplemobiletools.gallery.pro.models.Favorite
 
 @Dao
@@ -22,6 +19,9 @@ interface FavoritesDao {
 
     @Query("SELECT id FROM favorites WHERE full_path = :path COLLATE NOCASE")
     fun isFavorite(path: String): Boolean
+
+    @Delete
+    fun deleteFavorites(vararg favorite: Favorite)
 
     @Query("DELETE FROM favorites WHERE full_path = :path COLLATE NOCASE")
     fun deleteFavoritePath(path: String)
