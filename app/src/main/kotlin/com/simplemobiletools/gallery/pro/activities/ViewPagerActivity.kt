@@ -364,8 +364,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (intent.action == "com.android.camera.action.REVIEW") {
             ensureBackgroundThread {
-                val mediumDao = galleryDB.MediumDao()
-                if (mediumDao.getMediaFromPath(mPath).isEmpty()) {
+                if (mediaDB.getMediaFromPath(mPath).isEmpty()) {
                     val type = when {
                         mPath.isVideoFast() -> TYPE_VIDEOS
                         mPath.isGif() -> TYPE_GIFS
@@ -379,7 +378,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val duration = if (type == TYPE_VIDEOS) mPath.getVideoDuration() else 0
                     val ts = System.currentTimeMillis()
                     val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)
-                    mediumDao.insert(medium)
+                    mediaDB.insert(medium)
                 }
             }
         }

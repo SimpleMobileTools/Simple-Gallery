@@ -36,9 +36,7 @@ import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
-import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
-import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -85,16 +83,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
-    private lateinit var mMediumDao: MediumDao
-    private lateinit var mDirectoryDao: DirectoryDao
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
-
-        mMediumDao = galleryDB.MediumDao()
-        mDirectoryDao = galleryDB.DirectoryDao()
 
         if (savedInstanceState == null) {
             config.temporarilyShowHidden = false
@@ -464,7 +456,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
-        getCachedDirectories(getVideosOnly, getImagesOnly, mDirectoryDao) {
+        getCachedDirectories(getVideosOnly, getImagesOnly) {
             gotDirectories(addTempFolderIfNeeded(it))
         }
     }
@@ -569,7 +561,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val pathsToDelete = ArrayList<String>()
             itemsToDelete.mapTo(pathsToDelete) { it.path }
 
-            movePathsInRecycleBin(pathsToDelete, mMediumDao) {
+            movePathsInRecycleBin(pathsToDelete) {
                 if (it) {
                     deleteFilteredFileDirItems(itemsToDelete, folders)
                 } else {
@@ -590,7 +582,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             ensureBackgroundThread {
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
-                    mDirectoryDao.deleteDirPath(it.absolutePath)
+                    directoryDao.deleteDirPath(it.absolutePath)
                 }
 
                 if (config.deleteEmptyFolders) {
@@ -936,16 +928,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 setupAdapter(dirs)
 
                 // update directories and media files in the local db, delete invalid items
-                updateDBDirectory(directory, mDirectoryDao)
+                updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
-                    mMediumDao.insertAll(curMedia)
+                    mediaDB.insertAll(curMedia)
                 }
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly, mMediumDao) {
+                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
                             if (path != null) {
-                                deleteDBPath(mMediumDao, path)
+                                deleteDBPath(path)
                             }
                         }
                     }
@@ -955,7 +947,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (dirPathsToRemove.isNotEmpty()) {
                 val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
                 dirsToRemove.forEach {
-                    mDirectoryDao.deleteDirPath(it.path)
+                    directoryDao.deleteDirPath(it.path)
                 }
                 dirs.removeAll(dirsToRemove)
                 setupAdapter(dirs)
@@ -999,9 +991,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.add(newDir)
             setupAdapter(dirs)
             try {
-                mDirectoryDao.insert(newDir)
+                directoryDao.insert(newDir)
                 if (folder != RECYCLE_BIN) {
-                    mMediumDao.insertAll(newMedia)
+                    mediaDB.insertAll(newMedia)
                 }
             } catch (ignored: Exception) {
             }
@@ -1156,7 +1148,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.useRecycleBin) {
             try {
                 val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-                if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
+                if (binFolder != null && mediaDB.getDeletedMedia().isEmpty()) {
                     invalidDirs.add(binFolder)
                 }
             } catch (ignored: Exception) {
@@ -1168,7 +1160,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(dirs)
             invalidDirs.forEach {
                 try {
-                    mDirectoryDao.deleteDirPath(it.path)
+                    directoryDao.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
                 }
             }
@@ -1218,7 +1210,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             Handler().postDelayed({
                 ensureBackgroundThread {
                     try {
-                        mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                        mediaDB.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
                     } catch (e: Exception) {
                     }
                 }
@@ -1283,7 +1275,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
         ensureBackgroundThread {
-            storeDirectoryItems(directories, mDirectoryDao)
+            storeDirectoryItems(directories)
             removeInvalidDBDirectories()
         }
     }

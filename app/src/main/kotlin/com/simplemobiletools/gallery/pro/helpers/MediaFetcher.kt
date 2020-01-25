@@ -216,7 +216,7 @@ class MediaFetcher(val context: Context) {
         val media = ArrayList<Medium>()
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
-            context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
+            context.getUpdatedDeletedMedia()
         } else {
             ArrayList()
         }

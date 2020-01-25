@@ -18,7 +18,7 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.directoryDB
+import com.simplemobiletools.gallery.pro.extensions.directoryDao
 import com.simplemobiletools.gallery.pro.extensions.getFolderNameFromPath
 import com.simplemobiletools.gallery.pro.extensions.widgetsDB
 import com.simplemobiletools.gallery.pro.models.Widget
@@ -45,7 +45,7 @@ class MyWidgetProvider : AppWidgetProvider() {
                     setText(R.id.widget_folder_name, context.getFolderNameFromPath(it.folderPath))
                 }
 
-                val path = context.directoryDB.getDirectoryThumbnail(it.folderPath) ?: return@forEach
+                val path = context.directoryDao.getDirectoryThumbnail(it.folderPath) ?: return@forEach
                 val options = RequestOptions()
                         .signature(path.getFileSignature())
                         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)

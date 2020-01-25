@@ -198,7 +198,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                             updateDirs(dirs)
                             ensureBackgroundThread {
                                 try {
-                                    activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                                    activity.directoryDao.updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
                                     listener?.refreshItems()
                                 } catch (e: Exception) {
                                     activity.showErrorToast(e)
