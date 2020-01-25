@@ -712,7 +712,7 @@ fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)
 
 fun Context.getFavoritePaths(): ArrayList<String> {
     return try {
-        galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+        galleryDB.FavoritesDAO().getValidFavoritePaths() as ArrayList<String>
     } catch (e: Exception) {
         ArrayList()
     }

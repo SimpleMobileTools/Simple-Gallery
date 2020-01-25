@@ -15,9 +15,6 @@ interface MediumDao {
     @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, video_duration, is_favorite, deleted_ts FROM media WHERE deleted_ts = 0 AND is_favorite = 1")
     fun getFavorites(): List<Medium>
 
-    @Query("SELECT full_path FROM media WHERE deleted_ts = 0 AND is_favorite = 1")
-    fun getFavoritePaths(): List<String>
-
     @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, video_duration, is_favorite, deleted_ts FROM media WHERE deleted_ts != 0")
     fun getDeletedMedia(): List<Medium>
 
