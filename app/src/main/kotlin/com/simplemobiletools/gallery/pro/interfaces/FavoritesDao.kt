@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.simplemobiletools.gallery.pro.models.Favorite
 
 @Dao
-interface FavoritesDAO {
+interface FavoritesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(favorite: Favorite)
 
@@ -25,4 +25,7 @@ interface FavoritesDAO {
 
     @Query("DELETE FROM favorites WHERE full_path = :path COLLATE NOCASE")
     fun deleteFavoritePath(path: String)
+
+    @Query("DELETE FROM favorites")
+    fun clearFavorites()
 }

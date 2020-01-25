@@ -555,7 +555,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                         tryEmptyRecycleBin(false)
                     } else {
                         ensureBackgroundThread {
-                            activity.galleryDB.MediumDao().clearFavorites()
+                            activity.favoritesDB.clearFavorites()
                             listener?.refreshItems()
                         }
                     }

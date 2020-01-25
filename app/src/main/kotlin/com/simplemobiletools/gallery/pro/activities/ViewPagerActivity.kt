@@ -375,7 +375,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         else -> TYPE_IMAGES
                     }
 
-                    val isFavorite = galleryDB.FavoritesDAO().isFavorite(mPath)
+                    val isFavorite = favoritesDB.isFavorite(mPath)
                     val duration = if (type == TYPE_VIDEOS) mPath.getVideoDuration() else 0
                     val ts = System.currentTimeMillis()
                     val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)

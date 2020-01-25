@@ -26,6 +26,7 @@ import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.pro.interfaces.FavoritesDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.interfaces.WidgetsDao
 import com.simplemobiletools.gallery.pro.models.*
@@ -115,6 +116,8 @@ val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(appli
 val Context.widgetsDB: WidgetsDao get() = GalleryDatabase.getInstance(applicationContext).WidgetsDao()
 
 val Context.directoryDB: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
+
+val Context.favoritesDB: FavoritesDao get() = GalleryDatabase.getInstance(applicationContext).FavoritesDao()
 
 val Context.recycleBin: File get() = filesDir
 
@@ -712,7 +715,7 @@ fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)
 
 fun Context.getFavoritePaths(): ArrayList<String> {
     return try {
-        galleryDB.FavoritesDAO().getValidFavoritePaths() as ArrayList<String>
+        favoritesDB.getValidFavoritePaths() as ArrayList<String>
     } catch (e: Exception) {
         ArrayList()
     }
@@ -721,11 +724,10 @@ fun Context.getFavoritePaths(): ArrayList<String> {
 fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
 
 fun Context.updateFavorite(path: String, isFavorite: Boolean) {
-    val favoritesDAO = galleryDB.FavoritesDAO()
     if (isFavorite) {
-        favoritesDAO.insert(getFavoriteFromPath(path))
+        favoritesDB.insert(getFavoriteFromPath(path))
     } else {
-        favoritesDAO.deleteFavoritePath(path)
+        favoritesDB.deleteFavoritePath(path)
     }
 }
 
@@ -750,7 +752,7 @@ fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
 fun Context.deleteMediumWithPath(mediumDao: MediumDao, path: String) {
     try {
         mediumDao.deleteMediumPath(path)
-        galleryDB.FavoritesDAO().deleteFavoritePath(path)
+        favoritesDB.deleteFavoritePath(path)
     } catch (ignored: Exception) {
     }
 }
@@ -840,7 +842,7 @@ fun Context.addPathToDB(path: String) {
 
         try {
             val mediumDao = galleryDB.MediumDao()
-            val isFavorite = galleryDB.FavoritesDAO().isFavorite(path)
+            val isFavorite = favoritesDB.isFavorite(path)
             val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
             val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
                     File(path).length(), type, videoDuration, isFavorite, 0L)
