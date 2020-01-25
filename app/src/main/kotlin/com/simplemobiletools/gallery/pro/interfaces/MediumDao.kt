@@ -34,7 +34,7 @@ interface MediumDao {
     fun deleteOldRecycleBinItems(timestmap: Long)
 
     @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
-    fun updateMedium(oldPath: String, newParentPath: String, newFilename: String, newFullPath: String)
+    fun updateMedium(newFilename: String, newFullPath: String, newParentPath: String, oldPath: String)
 
     @Query("UPDATE OR REPLACE media SET full_path = :newPath, deleted_ts = :deletedTS WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateDeleted(newPath: String, deletedTS: Long, oldPath: String)

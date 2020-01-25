@@ -697,7 +697,8 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
     try {
-        mediaDB.updateMedium(oldPath, newParentPath, newFilename, newPath)
+        mediaDB.updateMedium(newFilename, newPath, newParentPath, oldPath)
+        favoritesDB.updateFavorite(newFilename, newPath, newParentPath, oldPath)
     } catch (ignored: Exception) {
     }
 }
