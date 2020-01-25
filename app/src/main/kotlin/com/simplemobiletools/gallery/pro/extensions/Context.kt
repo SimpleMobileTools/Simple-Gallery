@@ -720,6 +720,15 @@ fun Context.getFavoritePaths(): ArrayList<String> {
 
 fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
 
+fun Context.updateFavorite(path: String, isFavorite: Boolean) {
+    val favoritesDAO = galleryDB.FavoritesDAO()
+    if (isFavorite) {
+        favoritesDAO.insert(getFavoriteFromPath(path))
+    } else {
+        favoritesDAO.deleteFavoritePath(path)
+    }
+}
+
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = try {

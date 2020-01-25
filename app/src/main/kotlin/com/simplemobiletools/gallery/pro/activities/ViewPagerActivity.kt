@@ -864,7 +864,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val medium = getCurrentMedium() ?: return
         medium.isFavorite = !medium.isFavorite
         ensureBackgroundThread {
-            galleryDB.MediumDao().updateFavorite(medium.path, medium.isFavorite)
+            updateFavorite(medium.path, medium.isFavorite)
             if (medium.isFavorite) {
                 mFavoritePaths.add(medium.path)
             } else {
