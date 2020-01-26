@@ -353,7 +353,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
-            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onPositionDiscontinuity(reason: Int) {
+                // Reset progress views when video loops.
+                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                    mSeekBar.progress = 0
+                    mCurrTimeView.text = 0.getFormattedDuration()
+                }
+            }
 
             override fun onRepeatModeChanged(repeatMode: Int) {}
 

@@ -234,7 +234,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
-            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onPositionDiscontinuity(reason: Int) {
+                // Reset progress views when video loops.
+                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                    video_seekbar.progress = 0
+                    video_curr_time.text = 0.getFormattedDuration()
+                }
+            }
 
             override fun onRepeatModeChanged(repeatMode: Int) {}
 
