@@ -317,6 +317,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
         mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
+        if (mConfig.loopVideos) {
+            mExoPlayer?.repeatMode = Player.REPEAT_MODE_ONE
+        }
 
         val isContentUri = mMedium.path.startsWith("content://")
         val uri = if (isContentUri) Uri.parse(mMedium.path) else Uri.fromFile(File(mMedium.path))

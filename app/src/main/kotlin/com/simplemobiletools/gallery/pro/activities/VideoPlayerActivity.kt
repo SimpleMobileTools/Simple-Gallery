@@ -214,6 +214,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
             seekParameters = SeekParameters.CLOSEST_SYNC
             audioStreamType = C.STREAM_TYPE_MUSIC
+            if (config.loopVideos) {
+                repeatMode = Player.REPEAT_MODE_ONE
+            }
             prepare(audioSource)
         }
         initExoPlayerListeners()
