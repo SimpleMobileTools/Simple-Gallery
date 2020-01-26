@@ -1,6 +1,6 @@
-Jednoduchá Galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
+Jednoduchá galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
 
-Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že ani nevyžaduje připojení k internetu je vaše soukromí maximálně chráněno.
+Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že ani nevyžaduje připojení k internetu, je vaše soukromí maximálně chráněno.
 
 -------------------------------------------------
 <b>JEDNODUCHÁ GALERIE PRO – FUNKCE</b>
@@ -14,7 +14,7 @@ Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že an
 • Otevírejte mnoho rozličných formátů fotografií a videí (RAW, SVG, GIF, panorama, atd)
 • Množství intuitivních gest pro jednoduchou úpravu a organizaci souborů
 • Mnoho různých způsobů filtrování, seskupování a řazení souborů
-• Změňte si vzhled Jednoduché galerie pro
+• Změňte si vzhled Jednoduché galerie Pro
 • Dostupná ve 32 jazycích
 • Označte si oblíbené soubory pro rychlý přístup
 • Chraňte své fotografie a videa pomocí pinu, vzoru nebo otiskem prstu
@@ -27,16 +27,16 @@ Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že an
 … a mnoho dalších!
 
 <b>EDITOR OBRÁZKŮ</b>
-Jednoduchá Galerie Pro umožňuje snadnou úpravu obrázků. Ořezávejte, překlápějte, otáčejte či měňte jejich velikost. Pokud se cítíte kreativně, můžete také aplikovat filtry nebo do obrázku kreslit!
+Jednoduchá galerie Pro umožňuje snadnou úpravu obrázků. Ořezávejte, překlápějte, otáčejte či měňte jejich velikost. Pokud se cítíte kreativně, můžete také aplikovat filtry nebo do obrázku kreslit!
 
 <b>PODPORA MNOHA TYPŮ SOUBORŮ</b>
-Na rozdíl od některých galerií podporuje Jednoduchá Galerie Pro velké množství různých druhů souborů včetně JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+Na rozdíl od některých galerií podporuje Jednoduchá galerie Pro velké množství různých druhů souborů včetně JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
 
 <b>Vysoce upravitelný správce galerie</b>
-Od vzhledu až po funkční tlačítka na spodní liště, Jednoduchá Galerie Pro je plně nastavitelná a bude fungovat přesně jak si budete přát. Žádná jiná galerie nenabízí takovou flexibilitu! A díky otevřenému kódu je naše aplikace dostupná ve 32 jazycích!
+Od vzhledu až po funkční tlačítka na spodní liště, Jednoduchá galerie Pro je plně nastavitelná a bude fungovat přesně jak si budete přát. Žádná jiná galerie nenabízí takovou flexibilitu! A díky otevřenému kódu je naše aplikace dostupná ve 32 jazycích!
 
 <b>OBNOVTE SMAZANÉ FOTOGRAFIE A VIDEA</b>
-Smazali jste nechtěně důležitou fotografii nebo video? Žádný strach! Jednoduchá Galerie Pro pro podobné případy nabízí funkci odpadkového koše, odkud smazané fotografie a videa snadno obnovíte.
+Smazali jste nechtěně důležitou fotografii nebo video? Žádný strach! Jednoduchá galerie Pro pro podobné případy nabízí funkci odpadkového koše, odkud smazané fotografie a videa snadno obnovíte.
 
 <b>CHRAŇTE A SKRÝVEJTE SVÉ FOTOGRAFIE A VIDEA</b>
 Použitím pinu, vzoru nebo otisku prstu snadno své fotografie, videa či celá alba ochráníte nebo skryjete. Můžete ochránit i spuštění samotné aplikace, nebo některé její funkce. Například můžete zabránit náhodnému smazání souboru bez potvrzení otiskem prstu.
