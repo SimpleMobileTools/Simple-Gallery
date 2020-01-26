@@ -32,8 +32,8 @@
     <string name="fixing">修正中…</string>
     <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
     <string name="share_resized">リサイズした画像を共有</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Upgrade to Pro\"というボタンが設定の上部にある無料版はアンインストールすることができます。\n\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。\n\nありがとう!</string>
+    <string name="switch_to_file_search">表示されているすべてのフォルダで検索 に切り替え</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
@@ -42,7 +42,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">ポートレイト</string>
     <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 
@@ -82,7 +82,7 @@
     <string name="path">パス</string>
     <string name="invalid_image_path">無効な画像パス</string>
     <string name="image_editing_failed">画像の編集に失敗しました</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="file_edited_successfully">ファイルの編集に成功しました</string>
     <string name="edit_image_with">画像を編集:</string>
     <string name="no_editor_found">画像エディターが見つかりません</string>
     <string name="unknown_file_location">ファイルの場所が不明です</string>
@@ -180,11 +180,11 @@
     <string name="deep_zoomable_images">画像のズームを深くする</string>
     <string name="show_highest_quality">可能な限り高品質で画像を表示</string>
     <string name="show_recycle_bin_last">ごみ箱をメイン画面の最後に表示</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_down_gesture">フルスクリーン表示を下にスワイプするジェスチャーで閉じる</string>
+    <string name="allow_one_to_one_zoom">ダブルタップして 1:1 ズームする</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">ジェスチャーで画像を回転する</string>
     <string name="file_loading_priority">File loading priority</string>
     <string name="speed">Speed</string>
     <string name="compromise">Compromise</string>
@@ -203,69 +203,69 @@
     <string name="toggle_file_visibility">表示/非表示の切替</string>
 
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Custom</string>
-    <string name="pesdk_transform_button_resetCrop">Reset</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
-    <string name="pesdk_transform_title_name">Transform</string>
-    <string name="pesdk_filter_title_name">Filter</string>
-    <string name="pesdk_filter_asset_none">None</string>
-    <string name="pesdk_adjustments_title_name">Adjust</string>
-    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
-    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
-    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
-    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
-    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
-    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
-    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
-    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
-    <string name="pesdk_adjustments_button_reset">Reset</string>
-    <string name="pesdk_focus_title_name">Focus</string>
-    <string name="pesdk_focus_title_disabled">None</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
-    <string name="pesdk_focus_button_mirrored">Mirrored</string>
-    <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_name">Text</string>
-    <string name="pesdk_text_title_options">Text Options</string>
-    <string name="pesdk_text_title_textColor">Text Color</string>
-    <string name="pesdk_text_title_font">Font</string>
-    <string name="pesdk_text_button_add">Add</string>
-    <string name="pesdk_text_button_edit">Edit</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
-    <string name="pesdk_text_button_font">Font</string>
-    <string name="pesdk_text_button_color">Color</string>
-    <string name="pesdk_text_button_backgroundColor">BG Color</string>
-    <string name="pesdk_text_button_alignment">Alignment</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
-    <string name="pesdk_text_button_delete">Delete</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
-    <string name="pesdk_brush_title_name">Brush</string>
-    <string name="pesdk_brush_button_color">Color</string>
-    <string name="pesdk_brush_button_size">Size</string>
-    <string name="pesdk_brush_button_hardness">Hardness</string>
-    <string name="pesdk_brush_button_bringToFront">To Front</string>
-    <string name="pesdk_brush_button_delete">Delete</string>
-    <string name="pesdk_brush_title_brushColor">Brush Color</string>
-    <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
-    <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="pesdk_editor_accept">Accept</string>
-    <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
-    <string name="pesdk_common_title_colorPicker">Color Picker</string>
-    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_transform_button_freeCrop">カスタム</string>
+    <string name="pesdk_transform_button_resetCrop">リセット</string>
+    <string name="pesdk_transform_button_squareCrop">正方形</string>
+    <string name="pesdk_transform_title_name">変形</string>
+    <string name="pesdk_filter_title_name">フィルター</string>
+    <string name="pesdk_filter_asset_none">なし</string>
+    <string name="pesdk_adjustments_title_name">調整</string>
+    <string name="pesdk_adjustments_button_shadowTool">シャドウ</string>
+    <string name="pesdk_adjustments_button_exposureTool">露出</string>
+    <string name="pesdk_adjustments_button_highlightTool">ハイライト</string>
+    <string name="pesdk_adjustments_button_brightnessTool">明るさ</string>
+    <string name="pesdk_adjustments_button_contrastTool">コントラスト</string>
+    <string name="pesdk_adjustments_button_saturationTool">彩度</string>
+    <string name="pesdk_adjustments_button_clarityTool">明瞭度</string>
+    <string name="pesdk_adjustments_button_gammaTool">ガンマ</string>
+    <string name="pesdk_adjustments_button_blacksTool">黒レベル</string>
+    <string name="pesdk_adjustments_button_whitesTool">白レベル</string>
+    <string name="pesdk_adjustments_button_temperatureTool">色温度</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">シャープネス</string>
+    <string name="pesdk_adjustments_button_reset">リセット</string>
+    <string name="pesdk_focus_title_name">ぼかし</string>
+    <string name="pesdk_focus_title_disabled">なし</string>
+    <string name="pesdk_focus_button_radial">円形</string>
+    <string name="pesdk_focus_button_linear">直線</string>
+    <string name="pesdk_focus_button_mirrored">ミラー</string>
+    <string name="pesdk_focus_button_gaussian">ガウス</string>
+    <string name="pesdk_text_title_name">テキスト</string>
+    <string name="pesdk_text_title_options">テキスト オプション</string>
+    <string name="pesdk_text_title_textColor">文字色</string>
+    <string name="pesdk_text_title_font">フォント</string>
+    <string name="pesdk_text_button_add">追加</string>
+    <string name="pesdk_text_button_edit">編集</string>
+    <string name="pesdk_text_button_straighten">まっすぐにする</string>
+    <string name="pesdk_text_button_font">フォント</string>
+    <string name="pesdk_text_button_color">色</string>
+    <string name="pesdk_text_button_backgroundColor">背景色</string>
+    <string name="pesdk_text_button_alignment">配置</string>
+    <string name="pesdk_text_button_bringToFront">前面に</string>
+    <string name="pesdk_text_button_delete">削除</string>
+    <string name="pesdk_text_text_editTextPlaceholder">テキストを入力</string>
+    <string name="pesdk_brush_title_name">ブラシ</string>
+    <string name="pesdk_brush_button_color">色</string>
+    <string name="pesdk_brush_button_size">太さ</string>
+    <string name="pesdk_brush_button_hardness">硬度</string>
+    <string name="pesdk_brush_button_bringToFront">前面に</string>
+    <string name="pesdk_brush_button_delete">削除</string>
+    <string name="pesdk_brush_title_brushColor">ブラシの色</string>
+    <string name="pesdk_editor_title_name">エディター</string>
+    <string name="pesdk_editor_title_closeEditorAlert">エディターを閉じますか?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">画像を破棄して閉じますか?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">はい</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">いいえ</string>
+    <string name="pesdk_editor_cancel">キャンセル</string>
+    <string name="pesdk_editor_accept">了解</string>
+    <string name="pesdk_editor_save">保存</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">画像を保存中……</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">画像を保存中 %s.</string>
+    <string name="pesdk_common_button_flipH">水平方向に反転</string>
+    <string name="pesdk_common_button_flipV">垂直方向に反転</string>
+    <string name="pesdk_common_button_undo">元に戻す</string>
+    <string name="pesdk_common_button_redo">やり直し</string>
+    <string name="pesdk_common_title_colorPicker">カラーピッカー</string>
+    <string name="pesdk_common_title_transparentColor">透明</string>
     <string name="pesdk_common_title_whiteColor">White</string>
     <string name="pesdk_common_title_grayColor">Gray</string>
     <string name="pesdk_common_title_blackColor">Black</string>
@@ -366,6 +366,9 @@
 
         <b>Check out the full suite of Simple Tools here:</b>
         https://www.simplemobiletools.com
+        
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools
