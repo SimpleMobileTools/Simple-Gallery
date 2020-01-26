@@ -681,13 +681,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        if (listener?.videoEnded() == false && mConfig.loopVideos) {
-            playVideo()
-        } else {
-            mSeekBar.progress = mSeekBar.max
-            mCurrTimeView.text = mDuration.getFormattedDuration()
-            pauseVideo()
-        }
+        mSeekBar.progress = mSeekBar.max
+        mCurrTimeView.text = mDuration.getFormattedDuration()
+        pauseVideo()
     }
 
     private fun cleanup() {

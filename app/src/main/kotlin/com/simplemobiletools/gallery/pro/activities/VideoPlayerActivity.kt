@@ -347,13 +347,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         clearLastVideoSavedProgress()
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        if (config.loopVideos) {
-            resumeVideo()
-        } else {
-            video_seekbar.progress = video_seekbar.max
-            video_curr_time.text = mDuration.getFormattedDuration()
-            pauseVideo()
-        }
+        video_seekbar.progress = video_seekbar.max
+        video_curr_time.text = mDuration.getFormattedDuration()
+        pauseVideo()
     }
 
     private fun didVideoEnd(): Boolean {
