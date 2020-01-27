@@ -494,4 +494,8 @@ class Config(context: Context) : BaseConfig(context) {
     var editorBrushSize: Float
         get() = prefs.getFloat(EDITOR_BRUSH_SIZE, 0.05f)
         set(editorBrushSize) = prefs.edit().putFloat(EDITOR_BRUSH_SIZE, editorBrushSize).apply()
+
+    var wereFavoritesMigrated: Boolean
+        get() = prefs.getBoolean(WERE_FAVORITES_MIGRATED, false)
+        set(wereFavoritesMigrated) = prefs.edit().putBoolean(WERE_FAVORITES_MIGRATED, wereFavoritesMigrated).apply()
 }

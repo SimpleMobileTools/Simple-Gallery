@@ -80,6 +80,7 @@ const val SHOW_THUMBNAIL_FILE_TYPES = "show_thumbnail_file_types"
 const val EDITOR_BRUSH_COLOR = "editor_brush_color"
 const val EDITOR_BRUSH_HARDNESS = "editor_brush_hardness"
 const val EDITOR_BRUSH_SIZE = "editor_brush_size"
+const val WERE_FAVORITES_MIGRATED = "were_favorites_migrated"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
