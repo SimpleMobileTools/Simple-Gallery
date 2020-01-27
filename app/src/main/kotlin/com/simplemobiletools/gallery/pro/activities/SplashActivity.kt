@@ -19,6 +19,7 @@ class SplashActivity : BaseSplashActivity() {
             if (config.appRunCount == 0) {
                 config.wereFavoritesMigrated = true
             } else {
+                config.wereFavoritesMigrated = true
                 ensureBackgroundThread {
                     val favorites = ArrayList<Favorite>()
                     val favoritePaths = mediaDB.getFavorites().map { it.path }.toMutableList() as ArrayList<String>
@@ -26,7 +27,6 @@ class SplashActivity : BaseSplashActivity() {
                         favorites.add(getFavoriteFromPath(it))
                     }
                     favoritesDB.insertAll(favorites)
-                    config.wereFavoritesMigrated = true
 
                     runOnUiThread {
                         launchActivity()
