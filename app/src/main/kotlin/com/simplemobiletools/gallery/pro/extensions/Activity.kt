@@ -31,6 +31,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
+import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
@@ -414,6 +415,8 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
         val operations = ArrayList<ContentProviderOperation>()
 
         ensureBackgroundThread {
+            val dateTakens = ArrayList<DateTaken>()
+
             for (path in paths) {
                 val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
                         ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
@@ -443,6 +446,8 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 mediaDB.updateFavoriteDateTaken(path, timestamp)
                 didUpdateFile = true
 
+                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt())
+                dateTakens.add(dateTaken)
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)
                 }
@@ -454,6 +459,10 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
             }
 
             if (hasRescanned || pathsToRescan.isEmpty()) {
+                if (dateTakens.isNotEmpty()) {
+                    dateTakensDB.insertAll(dateTakens)
+                }
+
                 runOnUiThread {
                     if (showToasts) {
                         toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
