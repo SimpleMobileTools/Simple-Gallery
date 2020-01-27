@@ -23,9 +23,6 @@ interface FavoritesDao {
     @Query("UPDATE OR REPLACE favorites SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateFavorite(newFilename: String, newFullPath: String, newParentPath: String, oldPath: String)
 
-    @Delete
-    fun deleteFavorites(vararg favorite: Favorite)
-
     @Query("DELETE FROM favorites WHERE full_path = :path COLLATE NOCASE")
     fun deleteFavoritePath(path: String)
 
