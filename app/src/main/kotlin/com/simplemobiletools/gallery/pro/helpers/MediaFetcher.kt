@@ -407,13 +407,17 @@ class MediaFetcher(val context: Context) {
                     try {
                         val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         if (dateTaken != 0L) {
-                            val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                            dateTakens[path] = dateTaken
+                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                            dateTakens[name] = dateTaken
                         }
                     } catch (e: Exception) {
                     }
                 } while (cursor.moveToNext())
             }
+        }
+
+        context.dateTakensDB.getDateTakensFromPath(folder).forEach {
+            dateTakens[it.filename] = it.taken
         }
 
         return dateTakens
