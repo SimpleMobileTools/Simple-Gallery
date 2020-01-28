@@ -1,0 +1,8 @@
+ * Properly handle sorting by date taken after using "Fix Date Taken values" on the wrong files
+ * Fixed some issues at copying files, when the source was on an SD card
+ * Change the way Favorite items are stored, to avoid accidental removal
+ * Improved video looping (by ForgottenUmbrella)
+ * Recognize a new type of panoramic photos
+ * Properly remember last video playback position if the video is paused on exit
+ * Properly color the top status bar icons at using light primary colors
+ * Other UX and translation improvements
