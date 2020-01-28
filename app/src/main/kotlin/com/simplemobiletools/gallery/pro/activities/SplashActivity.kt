@@ -18,6 +18,7 @@ class SplashActivity : BaseSplashActivity() {
         } else {
             if (config.appRunCount == 0) {
                 config.wereFavoritesMigrated = true
+                launchActivity()
             } else {
                 config.wereFavoritesMigrated = true
                 ensureBackgroundThread {
