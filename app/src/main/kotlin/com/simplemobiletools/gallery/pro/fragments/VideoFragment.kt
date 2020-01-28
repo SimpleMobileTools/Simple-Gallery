@@ -317,6 +317,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
         mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
+        if (mConfig.loopVideos) {
+            mExoPlayer?.repeatMode = Player.REPEAT_MODE_ONE
+        }
 
         val isContentUri = mMedium.path.startsWith("content://")
         val uri = if (isContentUri) Uri.parse(mMedium.path) else Uri.fromFile(File(mMedium.path))
@@ -350,7 +353,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
-            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onPositionDiscontinuity(reason: Int) {
+                // Reset progress views when video loops.
+                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                    mSeekBar.progress = 0
+                    mCurrTimeView.text = 0.getFormattedDuration()
+                }
+            }
 
             override fun onRepeatModeChanged(repeatMode: Int) {}
 
@@ -672,13 +681,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        if (listener?.videoEnded() == false && mConfig.loopVideos) {
-            playVideo()
-        } else {
-            mSeekBar.progress = mSeekBar.max
-            mCurrTimeView.text = mDuration.getFormattedDuration()
-            pauseVideo()
-        }
+        mSeekBar.progress = mSeekBar.max
+        mCurrTimeView.text = mDuration.getFormattedDuration()
+        pauseVideo()
     }
 
     private fun cleanup() {
