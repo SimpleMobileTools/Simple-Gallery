@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 288
-        versionName "6.11.8"
+        versionCode 289
+        versionName "6.12.0"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
         vectorDrawables.useSupportLibrary = true
@@ -69,7 +69,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.21.25'
+    implementation 'com.simplemobiletools:commons:5.21.28'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'

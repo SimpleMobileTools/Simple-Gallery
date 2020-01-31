@@ -198,7 +198,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                             updateDirs(dirs)
                             ensureBackgroundThread {
                                 try {
-                                    activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                                    activity.directoryDao.updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
                                     listener?.refreshItems()
                                 } catch (e: Exception) {
                                     activity.showErrorToast(e)
@@ -555,7 +555,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                         tryEmptyRecycleBin(false)
                     } else {
                         ensureBackgroundThread {
-                            activity.galleryDB.MediumDao().clearFavorites()
+                            activity.mediaDB.clearFavorites()
+                            activity.favoritesDB.clearFavorites()
                             listener?.refreshItems()
                         }
                     }

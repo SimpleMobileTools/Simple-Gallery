@@ -18,9 +18,9 @@ abstract class GalleryDatabase : RoomDatabase() {
 
     abstract fun WidgetsDao(): WidgetsDao
 
-    abstract fun DateTakensDAO(): DateTakensDAO
+    abstract fun DateTakensDao(): DateTakensDao
 
-    abstract fun FavoritesDAO(): FavoritesDAO
+    abstract fun FavoritesDao(): FavoritesDao
 
     companion object {
         private var db: GalleryDatabase? = null

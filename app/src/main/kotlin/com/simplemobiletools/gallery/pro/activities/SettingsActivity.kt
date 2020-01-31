@@ -13,10 +13,7 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
-import com.simplemobiletools.gallery.pro.extensions.galleryDB
-import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -593,7 +590,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupEmptyRecycleBin() {
         ensureBackgroundThread {
             try {
-                mRecycleBinContentSize = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
+                mRecycleBinContentSize = mediaDB.getDeletedMedia().sumByLong { it.size }
             } catch (ignored: Exception) {
             }
             runOnUiThread {

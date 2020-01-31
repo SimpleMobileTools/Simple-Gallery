@@ -39,9 +39,7 @@ import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
-import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
-import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
@@ -78,9 +76,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
-    private lateinit var mMediumDao: MediumDao
-    private lateinit var mDirectoryDao: DirectoryDao
-
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
     }
@@ -88,9 +83,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media)
-
-        mMediumDao = galleryDB.MediumDao()
-        mDirectoryDao = galleryDB.DirectoryDao()
 
         intent.apply {
             mIsGetImageIntent = getBooleanExtra(GET_IMAGE_INTENT, false)
@@ -495,9 +487,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun restoreAllFiles() {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
-        restoreRecycleBinPaths(paths, mMediumDao) {
+        restoreRecycleBinPaths(paths) {
             ensureBackgroundThread {
-                mDirectoryDao.deleteDirPath(RECYCLE_BIN)
+                directoryDao.deleteDirPath(RECYCLE_BIN)
             }
             finish()
         }
@@ -584,7 +576,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (mLoadedInitialPhotos) {
             startAsyncTask()
         } else {
-            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent, mMediumDao) {
+            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
                 if (it.isEmpty()) {
                     runOnUiThread {
                         media_refresh_layout.isRefreshing = true
@@ -608,7 +600,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 try {
                     gotMedia(newMedia, false)
                     oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !getDoesFilePathExist(it.path) }.forEach {
-                        mMediumDao.deleteMediumPath(it.path)
+                        mediaDB.deleteMediumPath(it.path)
                     }
                 } catch (e: Exception) {
                 }
@@ -627,7 +619,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             if (mPath == FAVORITES) {
                 ensureBackgroundThread {
-                    mDirectoryDao.deleteDirPath(FAVORITES)
+                    directoryDao.deleteDirPath(FAVORITES)
                 }
             }
 
@@ -641,7 +633,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun deleteDBDirectory() {
         ensureBackgroundThread {
             try {
-                mDirectoryDao.deleteDirPath(mPath)
+                directoryDao.deleteDirPath(mPath)
             } catch (ignored: Exception) {
             }
         }
@@ -897,7 +889,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
             try {
-                mMediumDao.insertAll(mediaToInsert)
+                mediaDB.insertAll(mediaToInsert)
             } catch (e: Exception) {
             }
         }
@@ -913,7 +905,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 
-            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, mMediumDao) {
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
                     deleteFilteredFiles(filtered)
                 } else {
@@ -940,7 +932,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
-                        deleteDBPath(mMediumDao, it.path)
+                        deleteDBPath(it.path)
                     }
                 }
             }
