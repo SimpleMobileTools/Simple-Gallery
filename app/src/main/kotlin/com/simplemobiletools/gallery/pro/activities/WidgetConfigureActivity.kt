@@ -150,7 +150,7 @@ class WidgetConfigureActivity : SimpleActivity() {
     }
 
     private fun changeSelectedFolder() {
-        PickDirectoryDialog(this, "", false) {
+        PickDirectoryDialog(this, "", false, true) {
             updateFolderImage(it)
         }
     }
@@ -163,7 +163,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
 
         ensureBackgroundThread {
-            val path = directoryDB.getDirectoryThumbnail(folderPath)
+            val path = directoryDao.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
                     loadJpg(path, config_image, config.cropThumbnails)

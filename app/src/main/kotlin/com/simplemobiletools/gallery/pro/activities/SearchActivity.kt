@@ -315,7 +315,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 
-            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, galleryDB.MediumDao()) {
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
                     deleteFilteredFiles(filtered)
                 } else {
@@ -342,7 +342,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
-                        deleteDBPath(galleryDB.MediumDao(), it.path)
+                        deleteDBPath(it.path)
                     }
                 }
             }

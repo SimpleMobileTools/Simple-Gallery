@@ -95,6 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toStartOf="@+id/settings_file_loading_priority"
+                android:ellipsize="end"
+                android:lines="1"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingRight="@dimen/medium_margin"
                 android:text="@string/file_loading_priority"/>

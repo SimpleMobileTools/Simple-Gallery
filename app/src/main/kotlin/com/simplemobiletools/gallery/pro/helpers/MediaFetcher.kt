@@ -214,10 +214,9 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
                                  getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
-
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
-            context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
+            context.getUpdatedDeletedMedia()
         } else {
             ArrayList()
         }
@@ -227,56 +226,43 @@ class MediaFetcher(val context: Context) {
         val checkFileExistence = config.fileLoadingPriority == PRIORITY_VALIDITY
         val showHidden = config.shouldShowHidden
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
-        val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
-
-        // used only for Portrait photos starting with "IMG_" for now
-        val subdirs = ArrayList<File>()
-        val covers = ArrayList<String>()
+        val dateTakens = if (getProperDateTaken && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
             RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toMutableList() as ArrayList<File>
-            else -> {
-                val allFiles = File(folder).listFiles() ?: return media
-                val notDirs = ArrayList<File>()
-                allFiles.forEach {
-                    if (it.isDirectory) {
-                        if (showPortraits && it.name.startsWith("img_", true)) {
-                            subdirs.add(it)
-                        }
-                    } else {
-                        notDirs.add(it)
-                    }
-                }
-
-                notDirs
-            }
+            else -> File(folder).listFiles()?.toMutableList() ?: return media
         }
 
-        for (subdir in subdirs) {
-            val portraitFiles = subdir.listFiles() ?: continue
-            val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
-            if (cover != null) {
-                files.add(cover)
-                covers.add(cover.absolutePath)
-            }
-        }
-
-        for (file in files) {
+        for (curFile in files) {
+            var file = curFile
             if (shouldStop) {
                 break
             }
 
-            val path = file.absolutePath
-            val isPortrait = covers.contains(path)
-            val isImage = if (isPortrait) false else path.isImageFast()
-            val isVideo = if (isPortrait || isImage) false else path.isVideoFast()
-            val isGif = if (isPortrait || isImage || isVideo) false else path.isGif()
-            val isRaw = if (isPortrait || isImage || isVideo || isGif) false else path.isRawFast()
-            val isSvg = if (isPortrait || isImage || isVideo || isGif || isRaw) false else path.isSvg()
+            var path = file.absolutePath
+            var isPortrait = false
+            val isImage = path.isImageFast()
+            val isVideo = if (isImage) false else path.isVideoFast()
+            val isGif = if (isImage || isVideo) false else path.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
-            if (!isPortrait && !isImage && !isVideo && !isGif && !isRaw && !isSvg)
-                continue
+            if (!isImage && !isVideo && !isGif && !isRaw && !isSvg) {
+                if (showPortraits && file.isDirectory && file.name.startsWith("img_", true)) {
+                    val portraitFiles = file.listFiles() ?: continue
+                    val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
+                    if (cover != null && !files.contains(cover)) {
+                        file = cover
+                        path = cover.absolutePath
+                        isPortrait = true
+                    } else {
+                        continue
+                    }
+                } else {
+                    continue
+                }
+            }
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
@@ -316,7 +302,7 @@ class MediaFetcher(val context: Context) {
                 val videoDuration = if (getVideoDurations && isVideo) path.getVideoDuration() else 0
 
                 if (getProperDateTaken) {
-                    dateTaken = dateTakens.remove(filename) ?: lastModified
+                    dateTaken = dateTakens.remove(path) ?: lastModified
                 }
 
                 val type = when {
@@ -404,30 +390,42 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getFolderDateTakens(folder: String): HashMap<String, Long> {
-        val projection = arrayOf(
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.DATE_TAKEN
-        )
-
-        val uri = MediaStore.Files.getContentUri("external")
-        val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
-        val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
-
         val dateTakens = HashMap<String, Long>()
-        val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-        cursor?.use {
-            if (cursor.moveToFirst()) {
-                do {
-                    try {
-                        val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                        if (dateTaken != 0L) {
-                            val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                            dateTakens[path] = dateTaken
+        if (folder != FAVORITES) {
+            val projection = arrayOf(
+                    MediaStore.Images.Media.DISPLAY_NAME,
+                    MediaStore.Images.Media.DATE_TAKEN
+            )
+
+            val uri = MediaStore.Files.getContentUri("external")
+            val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
+            val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
+
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            cursor?.use {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                            if (dateTaken != 0L) {
+                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                                dateTakens["$folder/$name"] = dateTaken
+                            }
+                        } catch (e: Exception) {
                         }
-                    } catch (e: Exception) {
-                    }
-                } while (cursor.moveToNext())
+                    } while (cursor.moveToNext())
+                }
             }
+        }
+
+        val dateTakenValues = if (folder == FAVORITES) {
+            context.dateTakensDB.getAllDateTakens()
+        } else {
+            context.dateTakensDB.getDateTakensFromPath(folder)
+        }
+
+        dateTakenValues.forEach {
+            dateTakens[it.fullPath] = it.taken
         }
 
         return dateTakens
@@ -470,7 +468,6 @@ class MediaFetcher(val context: Context) {
     }
 
     fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
-        val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
         val pathToCheck = if (path.isEmpty()) SHOW_ALL else path
         val currentGrouping = context.config.getFolderGrouping(pathToCheck)
         if (currentGrouping and GROUP_BY_NONE != 0) {
@@ -483,6 +480,7 @@ class MediaFetcher(val context: Context) {
             return thumbnailItems
         }
 
+        val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
         media.forEach {
             val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
@@ -561,7 +559,8 @@ class MediaFetcher(val context: Context) {
             TYPE_VIDEOS -> R.string.videos
             TYPE_GIFS -> R.string.gifs
             TYPE_RAWS -> R.string.raw_images
-            else -> R.string.svgs
+            TYPE_SVGS -> R.string.svgs
+            else -> R.string.portraits
         }
         return context.getString(stringId)
     }

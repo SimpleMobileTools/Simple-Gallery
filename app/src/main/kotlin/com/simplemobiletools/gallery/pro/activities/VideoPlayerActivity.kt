@@ -214,6 +214,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
             seekParameters = SeekParameters.CLOSEST_SYNC
             audioStreamType = C.STREAM_TYPE_MUSIC
+            if (config.loopVideos) {
+                repeatMode = Player.REPEAT_MODE_ONE
+            }
             prepare(audioSource)
         }
         initExoPlayerListeners()
@@ -231,7 +234,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
-            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onPositionDiscontinuity(reason: Int) {
+                // Reset progress views when video loops.
+                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                    video_seekbar.progress = 0
+                    video_curr_time.text = 0.getFormattedDuration()
+                }
+            }
 
             override fun onRepeatModeChanged(repeatMode: Int) {}
 
@@ -338,13 +347,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         clearLastVideoSavedProgress()
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        if (config.loopVideos) {
-            resumeVideo()
-        } else {
-            video_seekbar.progress = video_seekbar.max
-            video_curr_time.text = mDuration.getFormattedDuration()
-            pauseVideo()
-        }
+        video_seekbar.progress = video_seekbar.max
+        video_curr_time.text = mDuration.getFormattedDuration()
+        pauseVideo()
     }
 
     private fun didVideoEnd(): Boolean {

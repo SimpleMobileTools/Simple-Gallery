@@ -490,6 +490,9 @@ class PhotoFragment : ViewPagerFragment() {
                     mView.photo_portrait_stripe.scrollBy((coverIndex - fakeItemsCnt) * itemWidth, 0)
                     adapter.setCurrentPhoto(coverIndex)
                     mView.photo_portrait_stripe_wrapper.beVisible()
+                    if (mIsFullscreen) {
+                        mView.photo_portrait_stripe_wrapper.alpha = 0f
+                    }
                 }
             }
         }
@@ -654,7 +657,9 @@ class PhotoFragment : ViewPagerFragment() {
         mIsPanorama = try {
             val inputStream = if (mMedium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(mMedium.path)) else File(mMedium.path).inputStream()
             val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, mMedium.name), HashMap<String, Any>())
-            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) || imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true)
+            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
+                    imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
+                    imageParser.contains("GPano:FullPanoWidthPixels=")
         } catch (e: Exception) {
             false
         } catch (e: OutOfMemoryError) {

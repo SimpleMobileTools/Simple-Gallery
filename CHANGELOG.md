@@ -1,6 +1,57 @@
 Changelog
 ==========
 
+Version 6.12.0 *(2020-01-28)*
+----------------------------
+
+ * Properly handle sorting by date taken after using "Fix Date Taken values" on the wrong files
+ * Fixed some issues at copying files, when the source was on an SD card
+ * Change the way Favorite items are stored, to avoid accidental removal
+ * Improved video looping (by ForgottenUmbrella)
+ * Recognize a new type of panoramic photos
+ * Properly remember last video playback position if the video is paused on exit
+ * Properly color the top status bar icons at using light primary colors
+ * Other UX and translation improvements
+
+Version 6.11.8 *(2020-01-19)*
+----------------------------
+
+ * Reverted Glide to fix some crashes
+
+Version 6.11.7 *(2020-01-16)*
+----------------------------
+
+ * Do not convert every edited file into a JPG, keep PNGs intact
+ * Fixed a glitch with empty portrait photos being shown as grey thumbnails
+ * Show a FAQ/settings prompt once at pressing Rate Us in the About section
+ * Added a 16:10 editor crop aspect ratio, used mostly on tablets
+ * Do some preparations for better handling Date Taken values and Favorites
+ * Other stability and translation improvements
+
+Version 6.11.6 *(2020-01-11)*
+----------------------------
+
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements
+
+Version 6.11.5 *(2020-01-04)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements
+
+Version 6.11.4 *(2019-12-27)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Moved Focus in the editor as the last tool, to prioritize more popular tools
+ * Added a new Crop aspect ratio 37:18 to be used instead of 18.5x9
+ * Some translation improvements
+ * Last app update for a while now, wishing you a Happy New Year!
+
 Version 6.11.3 *(2019-12-25)*
 ----------------------------
 

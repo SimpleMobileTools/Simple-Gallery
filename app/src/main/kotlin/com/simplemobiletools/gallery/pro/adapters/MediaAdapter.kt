@@ -266,10 +266,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun toggleFavorites(add: Boolean) {
         ensureBackgroundThread {
-            val mediumDao = activity.galleryDB.MediumDao()
             getSelectedItems().forEach {
                 it.isFavorite = add
-                mediumDao.updateFavorite(it.path, add)
+                activity.updateFavorite(it.path, add)
             }
             activity.runOnUiThread {
                 listener?.refreshItems()
