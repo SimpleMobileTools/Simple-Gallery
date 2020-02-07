@@ -899,7 +899,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         try {
             for (directory in dirs) {
-                if (mShouldStopFetching) {
+                if (mShouldStopFetching || isDestroyed || isFinishing) {
                     return
                 }
 
@@ -972,7 +972,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         // check the remaining folders which were not cached at all yet
         for (folder in foldersToScan) {
-            if (mShouldStopFetching) {
+            if (mShouldStopFetching || isDestroyed || isFinishing) {
                 return
             }
 
