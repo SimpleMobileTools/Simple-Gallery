@@ -247,7 +247,7 @@ class NewEditActivity : SimpleActivity() {
 
         settingsList.getSettingsModel(EditorSaveSettings::class.java)
                 .setExportFormat(EditorSaveSettings.FORMAT.AUTO)
-                .setOutputFilePath("$filesDir/editor/$filename")
+                .setOutputFilePath("$cacheDir/editor/$filename")
                 .savePolicy = EditorSaveSettings.SavePolicy.RETURN_SOURCE_OR_CREATE_OUTPUT_IF_NECESSARY
 
         return settingsList
