@@ -92,31 +92,28 @@ dependencies {
 }
 
 // Apply the PESDKPlugin
-apply plugin: 'ly.img.android.pesdk'
+apply plugin: 'ly.img.android.sdk'
 
-pesdkConfig {
-    licencePath 'pesdk_license'
+imglyConfig {
+    pesdk {
+        enabled true
+        licencePath 'pesdk_license'
+    }
 
     supportLibVersion "28.0.0"
 
     modules {
-        include 'ly.img.android.pesdk.operation:text'
-        include 'ly.img.android.pesdk.operation:focus'
-        include 'ly.img.android.pesdk.operation:brush'
-        include 'ly.img.android.pesdk.operation:filter'
-        include 'ly.img.android.pesdk.operation:adjustment'
+        include 'ui:core'
+        include 'ui:text'
+        include 'ui:focus'
+        include 'ui:brush'
+        include 'ui:filter'
+        include 'ui:transform'
+        include 'ui:adjustment'
 
-        include 'ly.img.android.pesdk.ui.mobile_ui:core'
-        include 'ly.img.android.pesdk.ui.mobile_ui:text'
-        include 'ly.img.android.pesdk.ui.mobile_ui:focus'
-        include 'ly.img.android.pesdk.ui.mobile_ui:brush'
-        include 'ly.img.android.pesdk.ui.mobile_ui:filter'
-        include 'ly.img.android.pesdk.ui.mobile_ui:transform'
-        include 'ly.img.android.pesdk.ui.mobile_ui:adjustment'
+        include 'backend:serializer'
 
-        include 'ly.img.android.pesdk:serializer'
-
-        include 'ly.img.android.pesdk.assets:font-basic'
-        include 'ly.img.android.pesdk.assets:filter-basic'
+        include 'assets:font-basic'
+        include 'assets:filter-basic'
     }
 }
