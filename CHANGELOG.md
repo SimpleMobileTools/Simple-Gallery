@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.12.1 *(2020-02-10)*
+----------------------------
+
+ * Improved the performance of the initial screen loading
+ * Fixed some editor related glitches
+
 Version 6.12.0 *(2020-01-28)*
 ----------------------------
 
