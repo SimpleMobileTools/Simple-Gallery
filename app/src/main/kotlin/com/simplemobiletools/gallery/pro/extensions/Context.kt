@@ -182,9 +182,9 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
                 }
             }
             sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
-            sorting and SORT_BY_SIZE != 0 -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
-            sorting and SORT_BY_DATE_MODIFIED != 0 -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
-            else -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
+            sorting and SORT_BY_SIZE != 0 -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
+            sorting and SORT_BY_DATE_MODIFIED != 0 -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
+            else -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
         }
 
         if (sorting and SORT_DESCENDING != 0) {
