@@ -165,25 +165,26 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     dirs.sortWith(Comparator { o1, o2 ->
         o1 as Directory
         o2 as Directory
+
         var result = when {
             sorting and SORT_BY_NAME != 0 -> {
                 if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
-                    AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+                    AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
                 } else {
-                    o1.name.toLowerCase().compareTo(o2.name.toLowerCase())
+                    o1.sortValue.toLowerCase().compareTo(o2.sortValue.toLowerCase())
                 }
             }
             sorting and SORT_BY_PATH != 0 -> {
                 if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
-                    AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+                    AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
                 } else {
-                    o1.path.toLowerCase().compareTo(o2.path.toLowerCase())
+                    o1.sortValue.toLowerCase().compareTo(o2.sortValue.toLowerCase())
                 }
             }
-            sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
-            sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
-            sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
-            else -> o1.taken.compareTo(o2.taken)
+            sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
+            sorting and SORT_BY_SIZE != 0 -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
+            sorting and SORT_BY_DATE_MODIFIED != 0 -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
+            else -> (o1.sortValue.toLong()).compareTo(o2.sortValue.toLong())
         }
 
         if (sorting and SORT_DESCENDING != 0) {
@@ -252,7 +253,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
             val parent = File(path).parent
             if (parent != null && !folders.contains(parent) && dirs.none { it.path == parent }) {
                 currentPaths.add(parent)
-                val isSortingAscending = config.sorting and SORT_DESCENDING == 0
+                val isSortingAscending = config.sorting.isSortingAscending()
                 val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
                 if (subDirs.isNotEmpty()) {
                     val lastModified = if (isSortingAscending) {
@@ -281,7 +282,8 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                             dateTaken,
                             subDirs.sumByLong { it.size },
                             getPathLocation(parent),
-                            mediaTypes)
+                            mediaTypes,
+                            "")
 
                     directory.containsMediaFilesDirectly = false
                     dirs.add(directory)
@@ -479,7 +481,7 @@ fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directo
     val tempFolderPath = config.tempFolderPath
     return if (tempFolderPath.isNotEmpty()) {
         val directories = ArrayList<Directory>()
-        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, getPathLocation(tempFolderPath), 0)
+        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, getPathLocation(tempFolderPath), 0, "")
         directories.add(newFolder)
         directories.addAll(dirs)
         directories
@@ -706,7 +708,7 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 
 fun Context.updateDBDirectory(directory: Directory) {
     try {
-        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types, directory.sortValue)
     } catch (ignored: Exception) {
     }
 }
@@ -858,6 +860,7 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
                                      includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
     val OTGPath = config.OTGPath
     var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
+
     albumCovers.forEach {
         if (it.path == path && getDoesFilePathExist(it.tmb, OTGPath)) {
             thumbnail = it.tmb
@@ -876,7 +879,36 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
     val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
     val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
     val mediaTypes = curMedia.getDirMediaTypes()
-    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
+    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes, getDirectorySortingValue(curMedia))
+}
+
+fun Context.getDirectorySortingValue(media: ArrayList<Medium>): String {
+    val sorting = config.directorySorting
+    val sorted = when {
+        sorting and SORT_BY_NAME != 0 -> media.sortedBy { it.name }
+        sorting and SORT_BY_PATH != 0 -> media.sortedBy { it.path }
+        sorting and SORT_BY_SIZE != 0 -> media.sortedBy { it.size }
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> media.sortedBy { it.modified }
+        sorting and SORT_BY_DATE_TAKEN != 0 -> media.sortedBy { it.taken }
+        else -> media
+    }
+
+    val relevantMedium = if (sorting.isSortingAscending()) {
+        sorted.first()
+    } else {
+        sorted.last()
+    }
+
+    val result: Any = when {
+        sorting and SORT_BY_NAME != 0 -> relevantMedium.name
+        sorting and SORT_BY_PATH != 0 -> relevantMedium.path
+        sorting and SORT_BY_SIZE != 0 -> relevantMedium.size
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> relevantMedium.modified
+        sorting and SORT_BY_DATE_TAKEN != 0 -> relevantMedium.taken
+        else -> 0
+    }
+
+    return result.toString()
 }
 
 fun Context.updateDirectoryPath(path: String) {
@@ -886,7 +918,7 @@ fun Context.updateDirectoryPath(path: String) {
     val hiddenString = getString(R.string.hidden)
     val albumCovers = config.parseAlbumCovers()
     val includedFolders = config.includedFolders
-    val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
+    val isSortingAscending = config.directorySorting.isSortingAscending()
     val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
     val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
@@ -919,5 +951,3 @@ fun Context.getFileDateTaken(path: String): Long {
 
     return 0L
 }
-
-fun Context.isChromebook() = packageManager.hasSystemFeature("org.chromium.arc.device_management")

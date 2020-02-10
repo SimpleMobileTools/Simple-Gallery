@@ -472,7 +472,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
             directories_grid.adapter = null
-            if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
+            if (config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.directorySorting and SORT_BY_DATE_TAKEN != 0) {
                 getDirectories()
             } else {
                 ensureBackgroundThread {
@@ -893,7 +893,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val tempFolderPath = config.tempFolderPath
         val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
         val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
-        val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0
+        var getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
@@ -902,6 +902,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             for (directory in dirs) {
                 if (mShouldStopFetching || isDestroyed || isFinishing) {
                     return
+                }
+
+                if (!getProperLastModified) {
+                    getProperLastModified = config.getFileSorting(directory.path) and SORT_BY_DATE_MODIFIED != 0
                 }
 
                 val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
@@ -927,6 +931,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     taken = newDir.taken
                     this@apply.size = newDir.size
                     types = newDir.types
+                    sortValue = getDirectorySortingValue(curMedia)
                 }
 
                 setupAdapter(dirs)
@@ -975,6 +980,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         for (folder in foldersToScan) {
             if (mShouldStopFetching || isDestroyed || isFinishing) {
                 return
+            }
+
+            if (!getProperLastModified) {
+                getProperLastModified = config.getFileSorting(folder) and SORT_BY_DATE_MODIFIED != 0
             }
 
             val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)

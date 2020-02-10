@@ -21,7 +21,7 @@ class MediaFetcher(val context: Context) {
     var shouldStop = false
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperLastModified: Boolean,
-                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean, sortMedia: Boolean = true): ArrayList<Medium> {
+                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -38,9 +38,7 @@ class MediaFetcher(val context: Context) {
             curMedia.addAll(newMedia)
         }
 
-        if (sortMedia) {
-            sortMedia(curMedia, context.config.getFileSorting(curPath))
-        }
+        sortMedia(curMedia, context.config.getFileSorting(curPath))
 
         return curMedia
     }
