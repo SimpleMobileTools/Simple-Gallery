@@ -888,9 +888,10 @@ fun Context.updateDirectoryPath(path: String) {
     val includedFolders = config.includedFolders
     val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
     val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
+    val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
     val favoritePaths = getFavoritePaths()
-    val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+    val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
     val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
     updateDBDirectory(directory)
 }
