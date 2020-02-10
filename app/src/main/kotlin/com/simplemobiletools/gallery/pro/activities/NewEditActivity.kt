@@ -1,8 +1,11 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
+import android.media.ExifInterface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.core.util.Pair
@@ -11,6 +14,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.CONFLICT_OVERWRITE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.interfaces.CopyMoveListener
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
@@ -32,6 +36,7 @@ import ly.img.android.pesdk.ui.panels.item.CropAspectItem
 import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
 import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
+import java.io.InputStream
 import kotlin.collections.set
 
 class NewEditActivity : SimpleActivity() {
@@ -42,6 +47,7 @@ class NewEditActivity : SimpleActivity() {
     private var destinationFilePath = ""
     private var imagePathFromEditor = ""    // delete the file stored at the internal app storage (the editor saves it there) in case moving to the selected location fails
     private var sourceImageUri: Uri? = null
+    private var oldExif: ExifInterface? = null
 
     private lateinit var uri: Uri
     private lateinit var saveUri: Uri
@@ -125,6 +131,11 @@ class NewEditActivity : SimpleActivity() {
                     sourceString.substringAfter("file://")
                 }
 
+                if (source == imagePathFromEditor) {
+                    finish()
+                    return
+                }
+
                 SaveAsDialog(this, source, true, cancelCallback = {
                     toast(R.string.image_editing_failed)
                     finish()
@@ -132,6 +143,7 @@ class NewEditActivity : SimpleActivity() {
                     destinationFilePath = it
                     handleSAFDialog(destinationFilePath) {
                         if (it) {
+                            storeOldExif(source)
                             sourceFileLastModified = File(source).lastModified()
                             val newFile = File("${imagePathFromEditor.getParentPath()}/${destinationFilePath.getFilenameFromPath()}")
                             File(imagePathFromEditor).renameTo(newFile)
@@ -154,11 +166,33 @@ class NewEditActivity : SimpleActivity() {
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun storeOldExif(sourcePath: String) {
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(Uri.fromFile(File(sourcePath)))
+                oldExif = ExifInterface(inputStream!!)
+            }
+        } catch (ignored: Exception) {
+        } finally {
+            inputStream?.close()
+        }
+    }
+
     private val editCopyMoveListener = object : CopyMoveListener {
         override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean, destinationPath: String) {
             if (config.keepLastModified) {
                 // add 1 s to the last modified time to properly update the thumbnail
                 updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
+
+                try {
+                    if (isNougatPlus()) {
+                        val newExif = ExifInterface(destinationFilePath)
+                        oldExif?.copyTo(newExif, false)
+                    }
+                } catch (ignored: Exception) {
+                }
             }
 
             val paths = arrayListOf(destinationFilePath)
