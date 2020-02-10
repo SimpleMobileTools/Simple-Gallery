@@ -45,7 +45,7 @@ class NewEditActivity : SimpleActivity() {
     private val RESULT_IMAGE_PATH = "RESULT_IMAGE_PATH"
     private var sourceFileLastModified = 0L
     private var destinationFilePath = ""
-    private var imagePathFromEditor = ""    // delete the file stored at the internal app storage (the editor saves it there) in case moving to the selected location fails
+    private var cacheImagePathFromEditor = ""    // delete the file stored at the internal app cache storage (the editor saves it there) in case moving to the selected location fails
     private var sourceImageUri: Uri? = null
     private var oldExif: ExifInterface? = null
 
@@ -108,7 +108,7 @@ class NewEditActivity : SimpleActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == PESDK_EDIT_IMAGE) {
             val extras = resultData?.extras
-            imagePathFromEditor = extras?.getString(RESULT_IMAGE_PATH, "") ?: ""
+            cacheImagePathFromEditor = extras?.getString(RESULT_IMAGE_PATH, "") ?: ""
 
             val settings = extras?.getParcelable<SettingsList>(SETTINGS_LIST)
             if (settings != null) {
@@ -118,7 +118,7 @@ class NewEditActivity : SimpleActivity() {
                 config.editorBrushSize = brush.brushSize
             }
 
-            if (resultCode != Activity.RESULT_OK || sourceImageUri == null || sourceImageUri.toString().isEmpty() || imagePathFromEditor.isEmpty() || sourceImageUri.toString() == imagePathFromEditor) {
+            if (resultCode != Activity.RESULT_OK || sourceImageUri == null || sourceImageUri.toString().isEmpty() || cacheImagePathFromEditor.isEmpty() || sourceImageUri.toString() == cacheImagePathFromEditor) {
                 toast(R.string.image_editing_failed)
                 finish()
             } else {
@@ -131,7 +131,7 @@ class NewEditActivity : SimpleActivity() {
                     sourceString.substringAfter("file://")
                 }
 
-                if (source == imagePathFromEditor) {
+                if (source == cacheImagePathFromEditor) {
                     finish()
                     return
                 }
@@ -145,8 +145,8 @@ class NewEditActivity : SimpleActivity() {
                         if (it) {
                             storeOldExif(source)
                             sourceFileLastModified = File(source).lastModified()
-                            val newFile = File("${imagePathFromEditor.getParentPath()}/${destinationFilePath.getFilenameFromPath()}")
-                            File(imagePathFromEditor).renameTo(newFile)
+                            val newFile = File("${cacheImagePathFromEditor.getParentPath()}/${destinationFilePath.getFilenameFromPath()}")
+                            File(cacheImagePathFromEditor).renameTo(newFile)
                             val sourceFile = FileDirItem(newFile.absolutePath, newFile.name)
 
                             val conflictResolutions = LinkedHashMap<String, Int>()
@@ -156,7 +156,7 @@ class NewEditActivity : SimpleActivity() {
                             CopyMoveTask(this, false, true, conflictResolutions, editCopyMoveListener, true).execute(pair)
                         } else {
                             toast(R.string.image_editing_failed)
-                            File(imagePathFromEditor).delete()
+                            File(cacheImagePathFromEditor).delete()
                             finish()
                         }
                     }
@@ -207,7 +207,7 @@ class NewEditActivity : SimpleActivity() {
 
         override fun copyFailed() {
             toast(R.string.unknown_error_occurred)
-            File(imagePathFromEditor).delete()
+            File(cacheImagePathFromEditor).delete()
             finish()
         }
     }
