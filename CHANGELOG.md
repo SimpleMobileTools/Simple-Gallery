@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.12.2 *(2020-02-10)*
+----------------------------
+
+ * Fixed some sorting and thumbnail related issues
+
 Version 6.12.1 *(2020-02-10)*
 ----------------------------
 
