@@ -71,7 +71,7 @@ abstract class GalleryDatabase : RoomDatabase() {
 
         private val MIGRATION_7_8 = object : Migration(7, 8) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE directories ADD COLUMN sort_value TEXT NOT NULL")
+                database.execSQL("ALTER TABLE directories ADD COLUMN sort_value TEXT default '' NOT NULL")
             }
         }
     }
