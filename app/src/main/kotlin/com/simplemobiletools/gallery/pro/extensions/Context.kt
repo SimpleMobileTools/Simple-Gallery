@@ -879,30 +879,28 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
     val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
     val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
     val mediaTypes = curMedia.getDirMediaTypes()
-    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes, getDirectorySortingValue(curMedia))
+    val sortValue = getDirectorySortingValue(curMedia, path, dirName, size)
+    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes, sortValue)
 }
 
-fun Context.getDirectorySortingValue(media: ArrayList<Medium>): String {
+fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, name: String, size: Long): String {
     val sorting = config.directorySorting
     val sorted = when {
-        sorting and SORT_BY_NAME != 0 -> media.sortedBy { it.name }
-        sorting and SORT_BY_PATH != 0 -> media.sortedBy { it.path }
-        sorting and SORT_BY_SIZE != 0 -> media.sortedBy { it.size }
+        sorting and SORT_BY_NAME != 0 -> return name
+        sorting and SORT_BY_PATH != 0 -> return path
+        sorting and SORT_BY_SIZE != 0 -> return size.toString()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> media.sortedBy { it.modified }
         sorting and SORT_BY_DATE_TAKEN != 0 -> media.sortedBy { it.taken }
         else -> media
     }
 
     val relevantMedium = if (sorting.isSortingAscending()) {
-        sorted.first()
+        sorted.firstOrNull() ?: return ""
     } else {
-        sorted.last()
+        sorted.lastOrNull() ?: return ""
     }
 
     val result: Any = when {
-        sorting and SORT_BY_NAME != 0 -> relevantMedium.name
-        sorting and SORT_BY_PATH != 0 -> relevantMedium.path
-        sorting and SORT_BY_SIZE != 0 -> relevantMedium.size
         sorting and SORT_BY_DATE_MODIFIED != 0 -> relevantMedium.modified
         sorting and SORT_BY_DATE_TAKEN != 0 -> relevantMedium.taken
         else -> 0

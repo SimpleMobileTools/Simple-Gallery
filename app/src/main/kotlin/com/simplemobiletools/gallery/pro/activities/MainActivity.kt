@@ -931,7 +931,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     taken = newDir.taken
                     this@apply.size = newDir.size
                     types = newDir.types
-                    sortValue = getDirectorySortingValue(curMedia)
+                    sortValue = getDirectorySortingValue(curMedia, path, name, size)
                 }
 
                 setupAdapter(dirs)
