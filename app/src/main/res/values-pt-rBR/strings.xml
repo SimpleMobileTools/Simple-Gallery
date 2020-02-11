@@ -300,7 +300,7 @@
     <string name="faq_7_title">Uma das minhas pastas não aparece, ou nem todos os seus itens são exibidos. O que posso fazer?</string>
     <string name="faq_7_text">Isso pode ocorrer por diversos motivos, mas resolver o problema é fácil. Entre em Configurações --> Gerenciar pastas incluídas, toque no botão \"+\", e selecione a pasta em questão.</string>
     <string name="faq_8_title">Como posso fazer para exibir apenas certas pastas?</string>
-    <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -> Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -> Gerenciar pastas incluídas.</string>
+    <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -> Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -> Gerenciar pastas incluídas.
         Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funçoes recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
     <string name="faq_10_title">Posso recortar imagens usando este app?</string>
     <string name="faq_10_text">Sim, você pode recortar imagens no editor, arrastando os cantos da imagem. Você pode entrar no editor fazendo um toque longo na imagem e selecionando Editar, ou selecionando Editar a partir da visualização de tela cheia.</string>
