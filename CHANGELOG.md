@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.12.4 *(2020-02-11)*
+----------------------------
+
+ * Fixed some folder sorting related glitches
+
 Version 6.12.3 *(2020-02-10)*
 ----------------------------
 
