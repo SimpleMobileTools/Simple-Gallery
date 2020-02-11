@@ -5,15 +5,15 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluído)</string>
+    <string name="excluded">(ignorado)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
-    <string name="show_all">Mostrar conteúdo de todas as pastas</string>
+    <string name="show_all">Exibir conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a visualização de pastas</string>
     <string name="other_folder">Outra pasta</string>
-    <string name="show_on_map">Mostrar no mapa</string>
+    <string name="show_on_map">Exibir no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Reduzir número de colunas</string>
@@ -32,7 +32,7 @@
     <string name="fixing">Corrigindo…</string>
     <string name="dates_fixed_successfully">Datas corrigidas com sucesso</string>
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
-    <string name="upgraded_from_free">Olá,\n\nparece que você atualizou o antigo aplicativo gratuito. Agora você poderá desinstalar a velha versão que tem o botão  de atualizar para a versão Pro no topo das Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
+    <string name="upgraded_from_free">Olá,\n\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de atualizar para a versão Pro no topo da pagina de Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
     <string name="switch_to_file_search">Alternar para a pesquisa de arquivos em todas as pastas visíveis</string>
 
     <!-- Filter -->
@@ -47,25 +47,25 @@
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta opção oculta a pasta com a adição de um arquivo \".nomedia\" dentro dela, o que também ocultará todas as subpastas que estejam dentro da mesma. Você poderá voltar a exibir estas pastas com a opção \"Mostrar pastas ocultas\". Continuar?</string>
+    <string name="hide_folder_description">Esta opção oculta a pasta ao adicionar um arquivo \".nomedia\" dentro dela, o que também ocultará todas as suas subpastas. Você poderá voltar a exibir estas pastas com a opção \"Exibir pastas ocultas\". Continuar?</string>
     <string name="exclude">Ignorar</string>
     <string name="excluded_folders">Pastas ignoradas</string>
     <string name="manage_excluded_folders">Gerenciar pastas ignoradas</string>
-    <string name="exclude_folder_description">Esta ação deixará de exibir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas ignoradas nas Configurações do aplicativo.</string>
+    <string name="exclude_folder_description">Esta ação deixará de exibir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas ignoradas nas configurações do aplicativo.</string>
     <string name="exclude_folder_parent">Ignorar a pasta raiz ao invés desta?</string>
-    <string name="excluded_activity_placeholder">Ignorar uma pasta apenas deixa de exibi-la nesta galeria. Ela continuará visível para outros aplicativos.\n\nSe você quiser ocultar a pasta para todos os aplicativos, utilize a função ocultar.</string>
+    <string name="excluded_activity_placeholder">Ignorar uma pasta apenas deixa de exibi-la nesta galeria. Ela continuará visível para outros aplicativos.\n\nSe você quiser ocultar a pasta para todos os aplicativos, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de pastas ignoradas? Esta ação não exclui as pastas.</string>
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
-    <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta ocultada por um arquivo \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Pastas incluídas</string>
-    <string name="manage_included_folders">Gerenciar pastas incluídas</string>
+    <string name="include_folders">Pastas inclusas</string>
+    <string name="manage_included_folders">Gerenciar pastas inclusas</string>
     <string name="add_folder">Adicionar pasta</string>
-    <string name="included_activity_placeholder">Se você possuir pastas com dados multimídia não reconhecidos pelo aplicativo, aqui você pode adicioná-las manualmente.</string>
-    <string name="no_media_add_included">Nenhum arquivo de mídia foi encontrado. Como alternativa você pode tentar incluir manualmente as pastas com arquivos de mídia.</string>
+    <string name="included_activity_placeholder">Se você possuir pastas contendo mídia, mas que não foram reconhecidas pelo aplicativo, aqui você pode adicioná-las manualmente.</string>
+    <string name="no_media_add_included">Nenhum arquivo de mídia foi encontrado. Você pode resolver isso incluindo manualmente as pastas com arquivos de mídia.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -84,8 +84,8 @@
     <string name="image_editing_failed">Falha na edição da imagem</string>
     <string name="file_edited_successfully">Arquivo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
-    <string name="no_editor_found">Editor não encontrado</string>
-    <string name="unknown_file_location">Localização desconhecida</string>
+    <string name="no_editor_found">Nenhum editor de imagem encontrado</string>
+    <string name="unknown_file_location">Localização de arquivo desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o arquivo original</string>
     <string name="rotate_left">Girar para a esquerda</string>
     <string name="rotate_right">Girar para a direita</string>
@@ -101,7 +101,7 @@
     <string name="set_as_wallpaper">Definir como papel de parede</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como papel de parede</string>
     <string name="set_as_wallpaper_with">Definir papel de parede com:</string>
-    <string name="setting_wallpaper">Definindo como papel de parede</string>
+    <string name="setting_wallpaper">Definindo como papel de parede&#8230;</string>
     <string name="wallpaper_set_successfully">Papel de parede definido com sucesso</string>
     <string name="portrait_aspect_ratio">Retrato</string>
     <string name="landscape_aspect_ratio">Paisagem</string>
@@ -116,7 +116,7 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIFs</string>
     <string name="random_order">Ordem aleatória</string>
-    <string name="move_backwards">Retroceder</string>
+    <string name="move_backwards">Ordem inversa</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="animation">Animação</string>
     <string name="no_animation">Nenhuma</string>
@@ -151,8 +151,8 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
-    <string name="remember_last_video_position">Lembrar da última posição de reprodução de vídeo</string>
-    <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
+    <string name="remember_last_video_position">Lembrar posição da última reprodução de vídeo</string>
+    <string name="toggle_filename">Exibir/ocultar nome do arquivo</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animar GIFs nas miniaturas</string>
     <string name="max_brightness">Maximizar o brilho ao visualizar mídia em tela cheia</string>
@@ -162,48 +162,48 @@
     <string name="screen_rotation_system_setting">Padrão do sistema</string>
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
-    <string name="black_background_at_fullscreen">Fundo de tela e barra de status preta quando em visualização de tela cheia</string>
+    <string name="black_background_at_fullscreen">Fundo preto quando mídia estiver em tela cheia</string>
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema quando em tela cheia</string>
     <string name="delete_empty_folders">Apagar pastas vazias após excluir o seu conteúdo</string>
     <string name="allow_photo_gestures">Permitir controle do brilho com gestos na vertical</string>
     <string name="allow_video_gestures">Permitir controle do volume e brilho com gestos na vertical</string>
-    <string name="show_media_count">Mostrar quantidade de arquivos em cada pasta na tela inicial</string>
+    <string name="show_media_count">Exibir quantidade de arquivos em cada pasta na tela inicial</string>
     <string name="show_extended_details">Exibir detalhes adicionais quando em tela cheia</string>
     <string name="manage_extended_details">Gerenciar detalhes adicionais</string>
     <string name="one_finger_zoom">Permitir zoom com um dedo quando em exibição de tela cheia</string>
-    <string name="allow_instant_change">Tocar na lateral da tela navega para a próxima imagem ou vídeo</string>
+    <string name="allow_instant_change">Permitir a troca instantânea de mídia tocando nas laterais da tela</string>
     <string name="allow_deep_zooming_images">Permitir zoom aprofundado para imagens</string>
     <string name="hide_extended_details">Ocultar detalhes adicionais quando a barra de status estiver oculta</string>
-    <string name="show_at_bottom">Mostrar alguns botões de ação na parte inferior da tela</string>
-    <string name="show_recycle_bin">Mostrar a Lixeira na tela inicial</string>
+    <string name="show_at_bottom">Exibir alguns botões de ação na parte inferior da tela</string>
+    <string name="show_recycle_bin">Exibir a Lixeira na tela inicial</string>
     <string name="deep_zoomable_images">Zoom aprofundado para imagens</string>
-    <string name="show_highest_quality">Mostrar imagens na maior qualidade possível</string>
-    <string name="show_recycle_bin_last">Mostrar a Lixeira como o último item na tela inicial</string>
-    <string name="allow_down_gesture">Gesto para baixo sai da exibição em tela cheia</string>
-    <string name="allow_one_to_one_zoom">Dois toques duplos fazem zoom 1:1</string>
+    <string name="show_highest_quality">Exibir imagens na maior qualidade possível</string>
+    <string name="show_recycle_bin_last">Exibir a Lixeira como o último item na tela inicial</string>
+    <string name="allow_down_gesture">Permite fechar a exibição em tela cheia com um gesto para baixo</string>
+    <string name="allow_one_to_one_zoom">Permitir zoom 1:1 com dois toques duplos</string>
     <string name="open_videos_on_separate_screen">Sempre abrir vídeos em uma tela separada com novos gestos horizontais</string>
-    <string name="show_notch">Mostrar o notch, se existente</string>
+    <string name="show_notch">Exibir o notch, se existente</string>
     <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
     <string name="file_loading_priority">Prioridade de carregamento de arquivos</string>
     <string name="speed">Velocidade</string>
     <string name="compromise">Meio termo</string>
     <string name="avoid_showing_invalid_files">Evitar a exibição de arquivos inválidos</string>
-    <string name="show_image_file_types">Mostrar tipos de arquivo de imagem</string>
+    <string name="show_image_file_types">Exibir tipos de arquivo de imagem</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Mídia em tela cheia</string>
     <string name="extended_details">Detalhes adicionais</string>
-    <string name="bottom_actions">Botões de ação</string>
+    <string name="bottom_actions">Barra inferior</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Gerenciar botões de ação</string>
-    <string name="toggle_favorite">Favoritar/Desfavoritar</string>
-    <string name="toggle_file_visibility">Exibir/Ocultar arquivo</string>
+    <string name="manage_bottom_actions">Gerenciar botões visíveis</string>
+    <string name="toggle_favorite">Favoritar/desfavoritar</string>
+    <string name="toggle_file_visibility">Exibir/ocultar arquivo</string>
 
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Personalizadar</string>
+    <string name="pesdk_transform_button_freeCrop">Personalizar</string>
     <string name="pesdk_transform_button_resetCrop">Redefinir</string>
     <string name="pesdk_transform_button_squareCrop">Quadrado</string>
     <string name="pesdk_transform_title_name">Modificar</string>
@@ -284,44 +284,46 @@
     <string name="pesdk_common_title_pipettableColor">Cor pipetável</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">O que devo fazer para que a Simple Galeria seja o aplicativo de galeria padrão do meu aparelho?</string>
-    <string name="faq_1_text">Primeiro, você deve encontrar o aplicativo padrão atual nas configurações do seu aparelho, e apertar o botão que diz "Limpar Padrões".
-    Na próxima vez que você abrir uma imagem ou vídeo, você deverá ver um seletor do aplicativo, no qual você terá a oportunidade de selecionar a Simple Galeria como o app padrão.</string>
-    <string name="faq_2_title">Eu protegi o app com senha, mas me esqueci da senha. O que posso fazer?</string>
-    <string name="faq_2_text">Você pode resolver isto de duas formas. A primeira é reinstalar o aplicativo. A segunda é ir nas configurações do seu dispositivo e selecionar a opção "Restaurar preferências do app".</string>
-    <string name="faq_3_title">Como posso fazer para que uma pasta sempre apareça no topo da lista?</string>
-    <string name="faq_3_text">Faça um toque longo na pasta em questão, e depois toque no ícone de alfinete na parte superior da tela para fixar a pasta ao topo. Se você fixar múltiplas pastas, elas serão ordenadas de acordo como seu critério de ordenação padrão.</string>
+    <string name="faq_1_title">Como posso fazer do Simple Galeria a galeria padrão do dispositivo?</string>
+    <string name="faq_1_text">Primeiro, você deve encontrar o aplicativo padrão atual nas configurações do seu dispositivo, procurar um botão que diga algo como "Abrir por padrão", clicar nele e selecionar \"Limpar padrão\"
+        Na próxima vez que você abrir uma imagem ou vídeo, você deverá ver um seletor do aplicativo, no qual você terá a oportunidade de selecionar a Simple Galeria como o app padrão.</string>
+    <string name="faq_2_title">Eu protegi o app com senha, mas a esqueci. O que posso fazer?</string>
+    <string name="faq_2_text">Você pode resolver isto de duas formas. Você pode reinstalar o aplicativo ou  ir nas configurações do seu dispositivo e selecionar a opção "Limpar armazenamento". Isto irá redefinir todas as suas configurações, não removerá nenhum arquivo de mídia.</string>
+    <string name="faq_3_title">O que posso fazer para que uma pasta sempre apareça no topo da lista?</string>
+    <string name="faq_3_text">Faça um toque longo na pasta em questão, e depois toque no ícone de alfinete na parte superior da tela, isto irá fixá-la no topo. Você também pode fixar várias pastas; os itens fixados serão classificados pelo método de ordenação padrão.</string>
     <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast-forward)?</string>
     <string name="faq_4_text">Você pode fazer um gesto horizontal como dedo, ou tocar nos números de tempo atual ou tempo total do vídeo, que se encontram próximos à barra de posicionamento.</string>
     <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta?</string>
-    <string name="faq_5_text">O opção de ignorar deixa de exibir a pasta apenas na  Simple Galeria, enquanto a opção de ocultar afeta todo o sistema, e também irá deixar de exibir a pasta em outros apps de galeria. A função de ocultar cria um arquivo vazio chamado \".nomedia\" na raiz da pasta em questão. Caso você queira fazer a pasta voltar a ser exibida, você pode excluir o arquivo \".nomedia\" usando o gerenciador de arquivos.</string>
+    <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser.</string>
     <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista?</string>
-    <string name="faq_6_text">Você pode pedir para a Simple Galeria ignorar estas pastas, adicionando a pasta raiz onde você guarda as suas músicas à lista de pastas ignoradas. Uma maneira de fazer isso é fazer um toque longo em uma destas pastas, e selecionar a opção Ignorar e, em seguida, seleciona a pasta pai.</string>
+    <string name="faq_6_text">Pode acontecer de que algumas pastas incomuns apareçam. Você pode utlizar a opção Ignorar nestas pastas, adicionando-as a lista de pastas ignoradas. Uma maneira de fazer isso é realizar um toque longo em uma destas pastas, selecionar a opção Ignorar e, em seguida, selecionar a pasta pai.</string>
     <string name="faq_7_title">Uma das minhas pastas não aparece, ou nem todos os seus itens são exibidos. O que posso fazer?</string>
     <string name="faq_7_text">Isso pode ocorrer por diversos motivos, mas resolver o problema é fácil. Entre em Configurações --> Gerenciar pastas incluídas, toque no botão \"+\", e selecione a pasta em questão.</string>
     <string name="faq_8_title">Como posso fazer para exibir apenas certas pastas?</string>
     <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -> Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -> Gerenciar pastas incluídas.</string>
+        Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funçoes recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
     <string name="faq_10_title">Posso recortar imagens usando este app?</string>
     <string name="faq_10_text">Sim, você pode recortar imagens no editor, arrastando os cantos da imagem. Você pode entrar no editor fazendo um toque longo na imagem e selecionando Editar, ou selecionando Editar a partir da visualização de tela cheia.</string>
     <string name="faq_11_title">É possível exibir os meus arquivos de mídia em subgrupos ao invés de em uma única grande lista?</string>
-    <string name="faq_11_text">Você pode usar a opção \"Agrupar por\" para agrupar os seus arquivos de mídia por data, formato ou outros critérios. Se a opção \"Mostrar conteúdo de todas as pastas\" estiver ativada, você também poderá agrupar por subpasta.</string>
+    <string name="faq_11_text">Você pode usar a opção \"Agrupar por\" para agrupar os seus arquivos de mídia por data, formato ou outros critérios. Se a opção \"Exibir conteúdo de todas as pastas\" estiver ativada, você também poderá agrupar por subpasta.</string>
     <string name="faq_12_title">A ordenação por Data da Foto não funciona corretamente. O que posso fazer?</string>
     <string name="faq_12_text">Isto pode ter ocorrer caso as suas fotos tenham sido copiadas de outro local. Para resolver o problema, você pode selecionar a função \"Corrigir data da foto\" no menu deste aplicativo.</string>
     <string name="faq_13_title">Algumas imagens exibem artefatos de exibição, como bandas de cor. Como posso melhorar a qualidade da exibição?</string>
-    <string name="faq_13_text">O nosso método atual para a exibição de imagens funciona bem na grande maioria dos casos, mas caso você queira uma qualidade ainda melhor, ative a opção \"Mostrar imagens na maior qualidade possível\" na seção \"Zoom aprofundado para imagens\" das configurações deste aplicativo.</string>
+    <string name="faq_13_text">O nosso método atual para a exibição de imagens funciona bem na grande maioria dos casos, mas caso você queira uma qualidade ainda melhor, ative a opção \"Exibir imagens na maior qualidade possível\" na seção \"Zoom aprofundado para imagens\" das configurações deste aplicativo.</string>
     <string name="faq_14_title">Eu ocultei um arquivo/pasta. Como posso desfazer isso?</string>
-    <string name="faq_14_text">Você pode pressionar no item do menu \"Mostrar temporariamente itens ocultos\", localizado na tela principal. Você também pode alterar para \"Mostrar itens ocultos\" nas configurações do aplicativo e ver os itens escondidos. Se você quiser reexibir, basta pressionar e selecionar \"Mostrar\". As pastas estão ocultas, adicionando um arquivo oculto \".nomedia\" dentro delas e você pode excluir o arquivo com qualquer gerenciador de arquivos também.</string>
-    <string name="faq_15_title">Porque este app gasta tanto espaço?</string>
-    <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode gastar até 250 MB. Se o app estiver gastando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se sua Lixeira estiver usando muito espaço apesar disso você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de configurações deste app.</string>
+    <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser.</string>
+    <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
+    <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Galeria Pro - Gerenciador de Imagens</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Navegue por suas memórias sem distrações com esta galeria de fotos e vídeos</string>
     <string name="app_long_description">
         A Simple Galeria Pro é uma galeria de imagens e vídeos altamente customizável. Organize e edite suas fotos e vídeos, recupere arquivos movidos para a lixeira, proteja e oculte seus arquivos, e visualize arquivos em uma grande variedade de formatos, incluindo RAW, SVG, e muito mais.
-        Este app não inclui anúncios ou permissões desnecessárias e também não acessa a internet. Sua privacidade está protegida.
+        
+		Este app não inclui anúncios ou permissões desnecessárias e também não acessa a internet. Sua privacidade está protegida.
 
         -------------------------------------------------
         <b>SIMPLE GALERIA PRO – FUNCIONALIDADES</b>
@@ -364,6 +366,9 @@
         <b>Dê uma olhada nos nossos outros aplicativos Simple:</b>
         https://www.simplemobiletools.com
 
+        <b>Site dedicado do Simple Galeria Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools
 
@@ -372,7 +377,7 @@
     </string>
 
     <!--
-        Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
+        Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
 </resources>
