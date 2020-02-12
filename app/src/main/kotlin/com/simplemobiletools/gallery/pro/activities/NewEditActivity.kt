@@ -185,14 +185,14 @@ class NewEditActivity : SimpleActivity() {
             if (config.keepLastModified) {
                 // add 1 s to the last modified time to properly update the thumbnail
                 updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
+            }
 
-                try {
-                    if (isNougatPlus()) {
-                        val newExif = ExifInterface(destinationFilePath)
-                        oldExif?.copyTo(newExif, false)
-                    }
-                } catch (ignored: Exception) {
+            try {
+                if (isNougatPlus()) {
+                    val newExif = ExifInterface(destinationFilePath)
+                    oldExif?.copyTo(newExif, false)
                 }
+            } catch (ignored: Exception) {
             }
 
             val paths = arrayListOf(destinationFilePath)
