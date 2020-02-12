@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.12.5 *(2020-02-12)*
+----------------------------
+
+ * Fixed some sorting related glitches
+ * Keep the old last modified value at file editing
+
 Version 6.12.4 *(2020-02-11)*
 ----------------------------
 
