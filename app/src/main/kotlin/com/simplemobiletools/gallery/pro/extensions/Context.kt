@@ -859,7 +859,10 @@ fun Context.addPathToDB(path: String) {
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
                                      includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
     val OTGPath = config.OTGPath
-    var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
+    val grouped = MediaFetcher(this).groupMedia(curMedia, path)
+    val sortedMedia = grouped.filter { it is Medium }.toMutableList() as ArrayList<Medium>
+
+    var thumbnail = sortedMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
 
     albumCovers.forEach {
         if (it.path == path && getDoesFilePathExist(it.tmb, OTGPath)) {
@@ -917,8 +920,19 @@ fun Context.updateDirectoryPath(path: String) {
     val albumCovers = config.parseAlbumCovers()
     val includedFolders = config.includedFolders
     val isSortingAscending = config.directorySorting.isSortingAscending()
-    val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
-    val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0
+
+    val sorting = config.getFileSorting(path)
+    val grouping = config.getFolderGrouping(path)
+    val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+            sorting and SORT_BY_DATE_TAKEN != 0 ||
+            grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+            grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+    val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+            sorting and SORT_BY_DATE_MODIFIED != 0 ||
+            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+            grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)

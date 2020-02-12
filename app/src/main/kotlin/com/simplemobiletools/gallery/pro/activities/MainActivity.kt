@@ -902,8 +902,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     return
                 }
 
-                val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 || config.getFileSorting(directory.path) and SORT_BY_DATE_TAKEN != 0
-                val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.getFileSorting(directory.path) and SORT_BY_DATE_MODIFIED != 0
+                val sorting = config.getFileSorting(directory.path)
+                val grouping = config.getFolderGrouping(directory.path)
+                val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                        sorting and SORT_BY_DATE_TAKEN != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+                val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
                 val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
                 val newDir = if (curMedia.isEmpty()) {
@@ -979,8 +988,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 return
             }
 
-            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 || config.getFileSorting(folder) and SORT_BY_DATE_TAKEN != 0
-            val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.getFileSorting(folder) and SORT_BY_DATE_MODIFIED != 0
+            val sorting = config.getFileSorting(folder)
+            val grouping = config.getFolderGrouping(folder)
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                    sorting and SORT_BY_DATE_TAKEN != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+            val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
             val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
             if (newMedia.isEmpty()) {
