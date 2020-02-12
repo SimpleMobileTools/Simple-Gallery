@@ -857,11 +857,10 @@ fun Context.addPathToDB(path: String) {
 }
 
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
-                                     includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
+                                     includedFolders: MutableSet<String>, getProperFileSize: Boolean): Directory {
     val OTGPath = config.OTGPath
     val grouped = MediaFetcher(this).groupMedia(curMedia, path)
     val sortedMedia = grouped.filter { it is Medium }.toMutableList() as ArrayList<Medium>
-
     var thumbnail = sortedMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
 
     albumCovers.forEach {
@@ -874,6 +873,7 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
         thumbnail = thumbnail.getOTGPublicPath(applicationContext)
     }
 
+    val isSortingAscending = config.directorySorting.isSortingAscending()
     val defaultMedium = Medium(0, "", "", "", 0L, 0L, 0L, 0, 0, false, 0L)
     val firstItem = curMedia.firstOrNull() ?: defaultMedium
     val lastItem = curMedia.lastOrNull() ?: defaultMedium
@@ -919,7 +919,6 @@ fun Context.updateDirectoryPath(path: String) {
     val hiddenString = getString(R.string.hidden)
     val albumCovers = config.parseAlbumCovers()
     val includedFolders = config.includedFolders
-    val isSortingAscending = config.directorySorting.isSortingAscending()
 
     val sorting = config.getFileSorting(path)
     val grouping = config.getFolderGrouping(path)
@@ -936,7 +935,7 @@ fun Context.updateDirectoryPath(path: String) {
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
-    val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+    val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
     updateDBDirectory(directory)
 }
 

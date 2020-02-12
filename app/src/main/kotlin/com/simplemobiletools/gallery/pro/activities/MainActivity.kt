@@ -891,7 +891,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
         val tempFolderPath = config.tempFolderPath
-        val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
@@ -921,7 +920,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                     directory
                 } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
@@ -1014,7 +1013,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
 
-            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
             try {
