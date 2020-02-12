@@ -860,8 +860,7 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
                                      includedFolders: MutableSet<String>, getProperFileSize: Boolean): Directory {
     val OTGPath = config.OTGPath
     val grouped = MediaFetcher(this).groupMedia(curMedia, path)
-    val sortedMedia = grouped.filter { it is Medium }.toMutableList() as ArrayList<Medium>
-    var thumbnail = sortedMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
+    var thumbnail: String? = null
 
     albumCovers.forEach {
         if (it.path == path && getDoesFilePathExist(it.tmb, OTGPath)) {
@@ -869,8 +868,13 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
         }
     }
 
-    if (config.OTGPath.isNotEmpty() && thumbnail.startsWith(config.OTGPath)) {
-        thumbnail = thumbnail.getOTGPublicPath(applicationContext)
+    if (thumbnail == null) {
+        val sortedMedia = grouped.filter { it is Medium }.toMutableList() as ArrayList<Medium>
+        thumbnail = sortedMedia.firstOrNull { getDoesFilePathExist(it.path, OTGPath) }?.path ?: ""
+    }
+
+    if (config.OTGPath.isNotEmpty() && thumbnail!!.startsWith(config.OTGPath)) {
+        thumbnail = thumbnail!!.getOTGPublicPath(applicationContext)
     }
 
     val isSortingAscending = config.directorySorting.isSortingAscending()
@@ -883,7 +887,7 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
     val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
     val mediaTypes = curMedia.getDirMediaTypes()
     val sortValue = getDirectorySortingValue(curMedia, path, dirName, size)
-    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes, sortValue)
+    return Directory(null, path, thumbnail!!, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes, sortValue)
 }
 
 fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, name: String, size: Long): String {
