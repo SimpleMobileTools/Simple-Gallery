@@ -39,7 +39,6 @@ import java.io.FileInputStream
 
 class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
-    private val DOUBLE_TAP_SKIP_MS = 10000
 
     private var mIsFullscreen = false
     private var mWasFragmentInit = false
@@ -137,8 +136,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     val instantWidth = viewWidth / 7
                     val clickedX = e?.rawX ?: 0f
                     when {
-                        clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_MS, false)
-                        clickedX >= viewWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_MS, true)
+                        clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
+                        clickedX >= viewWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
                         else -> togglePlayPause()
                     }
 
@@ -544,7 +543,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val curr = mExoPlayer!!.currentPosition
         val newProgress = if (forward) curr + millis else curr - millis
         val roundProgress = Math.round(newProgress / 1000f)
-        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt(), roundProgress), 0)
+        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt() / 1000, roundProgress), 0)
         setPosition(limitedProgress)
         if (!mIsPlaying) {
             togglePlayPause()

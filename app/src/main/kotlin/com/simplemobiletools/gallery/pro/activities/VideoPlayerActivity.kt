@@ -163,6 +163,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
         video_surface_frame.setOnClickListener { toggleFullscreen() }
+        video_surface_frame.controller.settings.swallowDoubleTaps = true
 
         video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
         video_next_file.setOnClickListener { handleNextFile() }
@@ -170,8 +171,24 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
         video_prev_file.setOnClickListener { handlePrevFile() }
 
+
+        val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onDoubleTap(e: MotionEvent?): Boolean {
+                val instantWidth = mScreenWidth / 7
+                val clickedX = e?.rawX ?: 0f
+                when {
+                    clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
+                    clickedX >= mScreenWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
+                    else -> togglePlayPause()
+                }
+
+                return true
+            }
+        })
+
         video_surface_frame.setOnTouchListener { view, event ->
             handleEvent(event)
+            gestureDetector.onTouchEvent(event)
             false
         }
 
@@ -475,11 +492,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             return
         }
 
-        val curr = mExoPlayer!!.currentPosition
         val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
-        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        doSkip(twoPercents, forward)
+    }
+
+    private fun doSkip(millis: Int, forward: Boolean) {
+        val curr = mExoPlayer!!.currentPosition
+        val newProgress = if (forward) curr + millis else curr - millis
         val roundProgress = Math.round(newProgress / 1000f)
-        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt(), roundProgress), 0)
+        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt() / 1000, roundProgress), 0)
         setPosition(limitedProgress)
         if (!mIsPlaying) {
             togglePlayPause()
