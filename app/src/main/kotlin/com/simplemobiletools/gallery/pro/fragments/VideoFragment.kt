@@ -39,6 +39,7 @@ import java.io.FileInputStream
 
 class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
+    private val DOUBLE_TAP_SKIP_MS = 10000
 
     private var mIsFullscreen = false
     private var mWasFragmentInit = false
@@ -86,6 +87,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
             video_preview.setOnClickListener { toggleFullscreen() }
+            video_surface_frame.controller.settings.swallowDoubleTaps = true
 
             video_play_outline.setOnClickListener {
                 if (mConfig.openVideosOnSeparateScreen) {
@@ -127,6 +129,19 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                         clickedX >= viewWidth - instantWidth -> listener?.goToNextItem()
                         else -> toggleFullscreen()
                     }
+                    return true
+                }
+
+                override fun onDoubleTap(e: MotionEvent?): Boolean {
+                    val viewWidth = width
+                    val instantWidth = viewWidth / 7
+                    val clickedX = e?.rawX ?: 0f
+                    when {
+                        clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_MS, false)
+                        clickedX >= viewWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_MS, true)
+                        else -> togglePlayPause()
+                    }
+
                     return true
                 }
             })
@@ -521,9 +536,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mPositionAtPause = 0L
-        val curr = mExoPlayer!!.currentPosition
         val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
-        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        doSkip(twoPercents, forward)
+    }
+
+    private fun doSkip(millis: Int, forward: Boolean) {
+        val curr = mExoPlayer!!.currentPosition
+        val newProgress = if (forward) curr + millis else curr - millis
         val roundProgress = Math.round(newProgress / 1000f)
         val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt(), roundProgress), 0)
         setPosition(limitedProgress)
