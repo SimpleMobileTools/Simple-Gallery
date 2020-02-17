@@ -767,9 +767,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun updateInstantSwitchWidths() {
-        val newWidth = resources.getDimension(R.dimen.instant_change_bar_width) + if (activity?.portrait == false) activity!!.navigationBarWidth else 0
-        mView.instant_prev_item.layoutParams.width = newWidth.toInt()
-        mView.instant_next_item.layoutParams.width = newWidth.toInt()
+        mView.instant_prev_item.layoutParams.width = mScreenWidth / 7
+        mView.instant_next_item.layoutParams.width = mScreenWidth / 7
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
