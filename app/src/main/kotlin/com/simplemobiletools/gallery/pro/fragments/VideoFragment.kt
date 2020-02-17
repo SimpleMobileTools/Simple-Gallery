@@ -243,12 +243,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         activity!!.updateTextColors(mView.video_holder)
         val allowVideoGestures = mConfig.allowVideoGestures
         mTextureView.beGoneIf(mConfig.openVideosOnSeparateScreen || mIsPanorama)
-        mView.apply {
-            video_surface_frame.beGoneIf(mTextureView.isGone())
+        mView.video_surface_frame.beGoneIf(mTextureView.isGone())
 
-            video_volume_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
-            video_brightness_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
-        }
+        mVolumeSideScroll.beVisibleIf(allowVideoGestures && !mIsPanorama)
+        mBrightnessSideScroll.beVisibleIf(allowVideoGestures && !mIsPanorama)
 
         checkExtendedDetails()
         initTimeHolder()
