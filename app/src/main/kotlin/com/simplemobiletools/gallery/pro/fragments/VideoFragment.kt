@@ -81,14 +81,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         mConfig = context!!.config
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
-            instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
-            instant_next_item.setOnClickListener { listener?.goToNextItem() }
             panorama_outline.setOnClickListener { openPanorama() }
             video_curr_time.setOnClickListener { skip(false) }
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
             video_preview.setOnClickListener { toggleFullscreen() }
-            video_surface_frame.setOnClickListener { toggleFullscreen() }
+
             video_play_outline.setOnClickListener {
                 if (mConfig.openVideosOnSeparateScreen) {
                     launchVideoPlayer()
@@ -114,6 +112,25 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mTextureView = video_surface
             mTextureView.surfaceTextureListener = this@VideoFragment
 
+            val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+                override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+                    if (!mConfig.allowInstantChange) {
+                        toggleFullscreen()
+                        return true
+                    }
+
+                    val viewWidth = width
+                    val twentyPercent = viewWidth / 5
+                    val clickedX = e?.rawX ?: 0f
+                    when {
+                        clickedX <= twentyPercent -> listener?.goToPrevItem()
+                        clickedX >= viewWidth - twentyPercent -> listener?.goToNextItem()
+                        else -> toggleFullscreen()
+                    }
+                    return true
+                }
+            })
+
             if (mConfig.allowDownGesture) {
                 video_preview.setOnTouchListener { view, event ->
                     handleEvent(event)
@@ -124,8 +141,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     if (video_surface_frame.controller.state.zoom == 1f) {
                         handleEvent(event)
                     }
+
+                    gestureDetector.onTouchEvent(event)
                     false
                 }
+
             }
         }
 
@@ -172,11 +192,19 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
             mView.apply {
                 mBrightnessSideScroll.initialize(activity!!, slide_info, true, container) { x, y ->
-                    video_holder.performClick()
+                    if (mConfig.allowInstantChange) {
+                        listener?.goToPrevItem()
+                    } else {
+                        toggleFullscreen()
+                    }
                 }
 
                 mVolumeSideScroll.initialize(activity!!, slide_info, false, container) { x, y ->
-                    video_holder.performClick()
+                    if (mConfig.allowInstantChange) {
+                        listener?.goToNextItem()
+                    } else {
+                        toggleFullscreen()
+                    }
                 }
 
                 video_surface.onGlobalLayout {
@@ -192,7 +220,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             restoreLastVideoSavedPosition()
         }
 
-        updateInstantSwitchWidths()
         return mView
     }
 
@@ -201,16 +228,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mConfig = context!!.config      // make sure we get a new config, in case the user changed something in the app settings
         activity!!.updateTextColors(mView.video_holder)
         val allowVideoGestures = mConfig.allowVideoGestures
-        val allowInstantChange = mConfig.allowInstantChange
         mTextureView.beGoneIf(mConfig.openVideosOnSeparateScreen || mIsPanorama)
         mView.apply {
             video_surface_frame.beGoneIf(mTextureView.isGone())
 
             video_volume_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
             video_brightness_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
-
-            instant_prev_item.beVisibleIf(allowInstantChange)
-            instant_next_item.beVisibleIf(allowInstantChange)
         }
 
         checkExtendedDetails()
@@ -251,7 +274,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         setVideoSize()
         initTimeHolder()
         checkExtendedDetails()
-        updateInstantSwitchWidths()
         mView.video_surface_frame.onGlobalLayout {
             mView.video_surface_frame.controller.resetState()
         }
@@ -451,12 +473,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             putExtra(PATH, mMedium.path)
             startActivity(this)
         }
-    }
-
-    private fun updateInstantSwitchWidths() {
-        val newWidth = resources.getDimension(R.dimen.instant_change_bar_width) + if (activity?.portrait == false) activity!!.navigationBarWidth else 0
-        mView.instant_prev_item.layoutParams.width = newWidth.toInt()
-        mView.instant_next_item.layoutParams.width = newWidth.toInt()
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
