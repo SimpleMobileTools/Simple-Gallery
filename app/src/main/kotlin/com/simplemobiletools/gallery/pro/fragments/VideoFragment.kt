@@ -120,11 +120,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     }
 
                     val viewWidth = width
-                    val twentyPercent = viewWidth / 5
+                    val instantWidth = viewWidth / 7
                     val clickedX = e?.rawX ?: 0f
                     when {
-                        clickedX <= twentyPercent -> listener?.goToPrevItem()
-                        clickedX >= viewWidth - twentyPercent -> listener?.goToNextItem()
+                        clickedX <= instantWidth -> listener?.goToPrevItem()
+                        clickedX >= viewWidth - instantWidth -> listener?.goToNextItem()
                         else -> toggleFullscreen()
                     }
                     return true
