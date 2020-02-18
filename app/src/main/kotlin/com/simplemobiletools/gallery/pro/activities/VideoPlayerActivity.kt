@@ -196,13 +196,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_surface.surfaceTextureListener = this
 
         if (config.allowVideoGestures) {
-            video_brightness_controller.initialize(this, slide_info, true, video_player_holder) { x, y ->
+            video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }
+            })
 
-            video_volume_controller.initialize(this, slide_info, false, video_player_holder) { x, y ->
+            video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }
+            })
         } else {
             video_brightness_controller.beGone()
             video_volume_controller.beGone()

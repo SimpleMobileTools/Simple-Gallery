@@ -111,7 +111,7 @@ class PhotoFragment : ViewPagerFragment() {
             instant_prev_item.parentView = container
             instant_next_item.parentView = container
 
-            photo_brightness_controller.initialize(activity!!, slide_info, true, container) { x, y ->
+            photo_brightness_controller.initialize(activity!!, slide_info, true, container, singleTap = { x, y ->
                 mView.apply {
                     if (subsampling_view.isVisible()) {
                         subsampling_view.sendFakeClick(x, y)
@@ -119,7 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
                         gestures_view.sendFakeClick(x, y)
                     }
                 }
-            }
+            })
 
             if (context.config.allowDownGesture) {
                 gif_view.setOnTouchListener { v, event ->

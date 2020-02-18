@@ -205,21 +205,21 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             setVideoSize()
 
             mView.apply {
-                mBrightnessSideScroll.initialize(activity!!, slide_info, true, container) { x, y ->
+                mBrightnessSideScroll.initialize(activity!!, slide_info, true, container, singleTap = { x, y ->
                     if (mConfig.allowInstantChange) {
                         listener?.goToPrevItem()
                     } else {
                         toggleFullscreen()
                     }
-                }
+                })
 
-                mVolumeSideScroll.initialize(activity!!, slide_info, false, container) { x, y ->
+                mVolumeSideScroll.initialize(activity!!, slide_info, false, container, singleTap = { x, y ->
                     if (mConfig.allowInstantChange) {
                         listener?.goToNextItem()
                     } else {
                         toggleFullscreen()
                     }
-                }
+                })
 
                 video_surface.onGlobalLayout {
                     if (mIsFragmentVisible && mConfig.autoplayVideos && !mConfig.openVideosOnSeparateScreen) {
