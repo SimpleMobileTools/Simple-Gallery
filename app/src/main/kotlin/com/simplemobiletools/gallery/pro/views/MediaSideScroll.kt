@@ -6,6 +6,7 @@ import android.media.AudioManager
 import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -13,8 +14,6 @@ import android.widget.TextView
 import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.audioManager
-import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DISTANCE
-import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DURATION
 import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
 
 // allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
@@ -51,6 +50,15 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         }
     }
 
+    private val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+        override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+            if (e != null) {
+                callback(e.rawX, e.rawY)
+            }
+            return true
+        }
+    })
+
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         if (mPassTouches) {
             if (ev.actionMasked == MotionEvent.ACTION_DOWN) {
@@ -66,6 +74,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
             return false
         }
 
+        gestureDetector.onTouchEvent(event)
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
@@ -107,12 +116,6 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-                if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                    callback(event.rawX, event.rawY)
-                }
-
                 if (mIsBrightnessScroll) {
                     mTouchDownValue = mTempBrightness
                 }
