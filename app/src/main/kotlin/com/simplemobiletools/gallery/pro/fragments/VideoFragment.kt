@@ -206,7 +206,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     } else {
                         toggleFullscreen()
                     }
-                }, doubleTap = {x, y ->
+                }, doubleTap = { x, y ->
                     doSkip(false)
                 })
 
@@ -216,7 +216,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     } else {
                         toggleFullscreen()
                     }
-                }, doubleTap = {x, y ->
+                }, doubleTap = { x, y ->
                     doSkip(true)
                 })
 

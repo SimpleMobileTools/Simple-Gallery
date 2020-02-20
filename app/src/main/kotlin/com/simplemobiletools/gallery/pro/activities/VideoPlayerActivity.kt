@@ -194,13 +194,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         if (config.allowVideoGestures) {
             video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }, doubleTap = {x, y ->
+            }, doubleTap = { x, y ->
                 doSkip(false)
             })
 
             video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }, doubleTap = {x, y ->
+            }, doubleTap = { x, y ->
                 doSkip(true)
             })
         } else {
@@ -497,11 +497,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun skip(forward: Boolean) {
-        if (mExoPlayer == null) {
-            return
+        if (mExoPlayer != null) {
+            doSkip(forward)
         }
-
-        doSkip(forward)
     }
 
     private fun doSkip(forward: Boolean) {
