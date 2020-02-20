@@ -292,7 +292,7 @@
     <string name="faq_3_title">Bagaimana agar album selalu muncul paling atas di dalam daftar?</string>
     <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, hal tersebut akan membuat album tetap berada di bagian paling atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
     <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
-    <string name="faq_4_text">Anda bisa menyeret jari anda secara horizontal pada pemutar video, atau klik pada teks durasi saat ini atau maks dekat bilah laju. Hal tersebut akan memundurkan atau memajukan laju video.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
     <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery saja, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder dari aplikasi galeri yang lain. Cara kerjanya dengan membuat berkas \".nomedia\" kosong pada folder yang diinginkan, yang bisa anda hapus juga dengan aplikasi pengelola berkas.</string>
     <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>

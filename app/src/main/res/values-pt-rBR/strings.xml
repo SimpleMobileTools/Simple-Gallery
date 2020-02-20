@@ -291,8 +291,8 @@
     <string name="faq_2_text">Você pode resolver isto de duas formas. Você pode reinstalar o aplicativo ou  ir nas configurações do seu dispositivo e selecionar a opção "Limpar armazenamento". Isto irá redefinir todas as suas configurações, não removerá nenhum arquivo de mídia.</string>
     <string name="faq_3_title">O que posso fazer para que uma pasta sempre apareça no topo da lista?</string>
     <string name="faq_3_text">Faça um toque longo na pasta em questão, e depois toque no ícone de alfinete na parte superior da tela, isto irá fixá-la no topo. Você também pode fixar várias pastas; os itens fixados serão classificados pelo método de ordenação padrão.</string>
-    <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast-forward)?</string>
-    <string name="faq_4_text">Você pode fazer um gesto horizontal como dedo, ou tocar nos números de tempo atual ou tempo total do vídeo, que se encontram próximos à barra de posicionamento.</string>
+    <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast forward)?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta?</string>
     <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser.</string>
     <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista?</string>

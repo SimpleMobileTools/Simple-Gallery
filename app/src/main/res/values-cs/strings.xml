@@ -292,7 +292,7 @@
     <string name="faq_3_title">Jak mohu dosáhnout, aby bylo dané album stále zobrazeno jako první?</string>
     <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to ji připne nahoru. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
     <string name="faq_4_title">Jak mohu video posunout vpřed?</string>
-    <string name="faq_4_text">Můžete toho dosáhnout buď tažením prstu vodorovně přes okno přehrávače nebo klepnutím na text aktuální či celkové délky videa, který najdete po bocích indikátoru aktuální pozice. To posune video buď zpět nebo vpřed.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
     <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>

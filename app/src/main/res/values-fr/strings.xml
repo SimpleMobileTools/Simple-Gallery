@@ -291,7 +291,7 @@
     <string name="faq_3_title">Comment faire pour qu\'un album soit toujours affiché tout en haut ?</string>
     <string name="faq_3_text">Vous devez simplement à effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
-    <string name="faq_4_text">Vous pouvez soit faire glisser votre doigt horizontalement sur le lecteur vidéo, soit cliquer sur le texte en cours ou la durée maximale près de la barre de recherche.  Cela déplacera la vidéo vers l\'arrière ou vers l\'avant.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier ?</string>
     <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Cacher un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>

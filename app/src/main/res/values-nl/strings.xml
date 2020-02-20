@@ -292,7 +292,7 @@
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
-    <string name="faq_4_text">Sleep horizontaal over de videospeler, of klik bij de zoekbalk op de cijfers die de huidige voortgang of de lengte weergeven. Hierbij zal de video respectievelijk terug- of vooruitspringen.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
     <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan).</string>
     <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>

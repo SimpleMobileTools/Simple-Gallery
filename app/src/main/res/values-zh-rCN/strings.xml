@@ -291,7 +291,7 @@
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
     <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
-    <string name="faq_4_text">只需在视频播放器上左右滑动，或点击底栏进度条两侧的时间文本，即可前进或后退视频。</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>

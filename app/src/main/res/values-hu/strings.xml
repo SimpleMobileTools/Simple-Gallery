@@ -295,7 +295,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
 	<string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen?</string>
 	<string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
 	<string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
-	<string name="faq_4_text">Húzhatja az ujját vízszintesen a videolejátszón, vagy kattintson az aktuális vagy a max. időtartam szövegekre a keresősáv közelében. Ez visszafelé vagy előre mozgatja a videót.</string>
+	<string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
 	<string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
 	<string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is.</string>
 	<string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>

@@ -292,7 +292,7 @@
     <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen?</string>
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen?</string>
-    <string name="faq_4_text">Du kannst deinen Finger horizontal über den Videoplayer ziehen oder in der Nähe der Suchleiste auf die aktuelle oder maximale Dauer klicken. Das Video wird so entweder vorwärts oder rückwärts bewegt.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen \'Verstecken\' und \'Ausschließen\' eines Ordners?</string>
     <string name="faq_5_text">\'Ausschließen\' verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt wird. \'Verstecken\' hingegen versteckt den Ordner auch vor anderen Apps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager wieder löschen kannst.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>

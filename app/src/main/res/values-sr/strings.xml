@@ -292,7 +292,7 @@
     <string name="faq_3_title">Како да подесим да се неки албум увек појављује на врху?</string>
     <string name="faq_3_text">Дуго притисните на жељени албум и изаберите Закачи икону у менију за акције, то ће га поставити на врх. Можете да закачите више фасцикли истовремено, с тим што ће бити сортирани према подразумевајућем методу за сортирање.</string>
     <string name="faq_4_title">Како да премотавам видео снимке?</string>
-    <string name="faq_4_text">Можете да вучете прст хоризонтално преко видео плејера, или да кликнете на тренутно или максимално поред траке за премотавање. То ће премотати видео назад или напред.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле?</string>
     <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером.</string>
     <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују?</string>

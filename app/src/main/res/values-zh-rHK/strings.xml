@@ -292,7 +292,7 @@
     <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
     <string name="faq_3_text">你可以長按想要的相冊，然後在操作選單中選擇[圖釘]圖示，就會釘選於頂端。你也能釘選多個資料夾，釘選的項目會依預設的排序方法來排序。</string>
     <string name="faq_4_title">我如何快轉影片?</string>
-    <string name="faq_4_text">你可以在影片播放器上水平滑動你的手指，或者點擊進度條附近的當前或總時長文字。這會使影片快轉或倒轉。</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
     <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。</string>
     <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
