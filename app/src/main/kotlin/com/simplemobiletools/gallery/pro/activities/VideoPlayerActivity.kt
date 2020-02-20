@@ -195,13 +195,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
             }, doubleTap = {x, y ->
-                doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
+                doSkip(false)
             })
 
             video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
             }, doubleTap = {x, y ->
-                doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
+                doSkip(true)
             })
         } else {
             video_brightness_controller.beGone()
@@ -307,8 +307,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private fun handleDoubleTap(x: Float) {
         val instantWidth = mScreenWidth / 7
         when {
-            x <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
-            x >= mScreenWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
+            x <= instantWidth -> doSkip(false)
+            x >= mScreenWidth - instantWidth -> doSkip(true)
             else -> togglePlayPause()
         }
     }
@@ -501,13 +501,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             return
         }
 
-        val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
-        doSkip(twoPercents, forward)
+        doSkip(forward)
     }
 
-    private fun doSkip(millis: Int, forward: Boolean) {
+    private fun doSkip(forward: Boolean) {
         val curr = mExoPlayer!!.currentPosition
-        val newProgress = if (forward) curr + millis else curr - millis
+        val newProgress = if (forward) curr + FAST_FORWARD_VIDEO_MS else curr - FAST_FORWARD_VIDEO_MS
         val roundProgress = Math.round(newProgress / 1000f)
         val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt() / 1000, roundProgress), 0)
         setPosition(limitedProgress)
