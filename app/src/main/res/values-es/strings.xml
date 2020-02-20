@@ -292,7 +292,7 @@
     <string name="faq_3_title">¿Cómo puedo hacer que un álbum siempre aparezca en la parte superior?</string>
     <string name="faq_3_text">Puede aguantar pulsado el álbum deseado y seleccionar el ícono Pin en el menú de acción, que lo fijará en la parte superior. También puede anclar varias carpetas, los artículos fijados se ordenarán por el método de clasificación predeterminado.</string>
     <string name="faq_4_title">¿Cómo puedo avanzar videos?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Puede hacerlo tocando dos veces el costado de la pantalla o tocando los textos de duración actual o máxima cerca de la barra de búsqueda. Si habilita la apertura de videos en una pantalla separada en la configuración de la aplicación, también puede usar gestos horizontales.</string>
     <string name="faq_5_title">¿Cuál es la diferencia entre ocultar y excluir una carpeta?</string>
     <string name="faq_5_text">Excluir evita mostrar la carpeta solo en Simple Gallery, mientras que Ocultar funciona en el sistema y oculta la carpeta de otras galerías también. Funciona al crear un archivo \".nomedia \" vacío en la carpeta determinada, que luego puede eliminar también con cualquier administrador de archivos.</string>
     <string name="faq_6_title">¿Por qué aparecen las carpetas con la portada de la música o las pegatinas?</string>
