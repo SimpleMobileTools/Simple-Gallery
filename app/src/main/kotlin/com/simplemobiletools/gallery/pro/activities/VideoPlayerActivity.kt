@@ -174,12 +174,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onDoubleTap(e: MotionEvent?): Boolean {
-                val instantWidth = mScreenWidth / 7
-                val clickedX = e?.rawX ?: 0f
-                when {
-                    clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
-                    clickedX >= mScreenWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
-                    else -> togglePlayPause()
+                if (e != null) {
+                    handleDoubleTap(e.rawX)
                 }
 
                 return true
@@ -198,10 +194,14 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         if (config.allowVideoGestures) {
             video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
+            }, doubleTap = {x, y ->
+                doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
             })
 
             video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
+            }, doubleTap = {x, y ->
+                doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
             })
         } else {
             video_brightness_controller.beGone()
@@ -301,6 +301,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             } else {
                 video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
             }
+        }
+    }
+
+    private fun handleDoubleTap(x: Float) {
+        val instantWidth = mScreenWidth / 7
+        when {
+            x <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
+            x >= mScreenWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
+            else -> togglePlayPause()
         }
     }
 

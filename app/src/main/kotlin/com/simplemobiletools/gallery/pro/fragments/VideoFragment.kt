@@ -132,13 +132,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
 
                 override fun onDoubleTap(e: MotionEvent?): Boolean {
-                    val viewWidth = width
-                    val instantWidth = viewWidth / 7
-                    val clickedX = e?.rawX ?: 0f
-                    when {
-                        clickedX <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
-                        clickedX >= viewWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
-                        else -> togglePlayPause()
+                    if (e != null) {
+                        handleDoubleTap(e.rawX)
                     }
 
                     return true
@@ -211,6 +206,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     } else {
                         toggleFullscreen()
                     }
+                }, doubleTap = {x, y ->
+                    doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
                 })
 
                 mVolumeSideScroll.initialize(activity!!, slide_info, false, container, singleTap = { x, y ->
@@ -219,6 +216,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     } else {
                         toggleFullscreen()
                     }
+                }, doubleTap = {x, y ->
+                    doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
                 })
 
                 video_surface.onGlobalLayout {
@@ -426,6 +425,16 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun toggleFullscreen() {
         listener?.fragmentClicked()
+    }
+
+    private fun handleDoubleTap(x: Float) {
+        val viewWidth = mView.width
+        val instantWidth = viewWidth / 7
+        when {
+            x <= instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, false)
+            x >= viewWidth - instantWidth -> doSkip(DOUBLE_TAP_SKIP_VIDEO_MS, true)
+            else -> togglePlayPause()
+        }
     }
 
     private fun checkExtendedDetails() {
