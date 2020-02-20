@@ -292,7 +292,7 @@
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
     <string name="faq_3_text">Podeu prémer l’àlbum desitjat i seleccionar la icona de la xinxeta al menú d’acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s’ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Podeu fer-ho tocant dues vegades el costat de la pantalla o tocant els textos de durada actual o màxima a prop de la barra de cerca. Si activeu l\’obertura de vídeos en una pantalla diferent a la configuració de l\’aplicació, també podeu fer servir gestos horitzontals.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
