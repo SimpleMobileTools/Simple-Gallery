@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 287
-        versionName "6.11.7"
+        versionCode 294
+        versionName "6.12.5"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
         vectorDrawables.useSupportLibrary = true
@@ -69,11 +69,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.21.24'
+    implementation 'com.simplemobiletools:commons:5.22.10'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.18'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
@@ -81,10 +81,10 @@ dependencies {
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
-    implementation 'com.github.tibbi:gestureviews:8dccb8450b'
+    implementation 'com.github.tibbi:gestureviews:512f929d82'
     implementation 'com.github.tibbi:subsampling-scale-image-view:d404e74e39'
 
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
     kapt 'androidx.room:room-compiler:2.2.2'
     implementation 'androidx.room:room-runtime:2.2.2'
@@ -92,31 +92,28 @@ dependencies {
 }
 
 // Apply the PESDKPlugin
-apply plugin: 'ly.img.android.pesdk'
+apply plugin: 'ly.img.android.sdk'
 
-pesdkConfig {
-    licencePath 'pesdk_license'
+imglyConfig {
+    pesdk {
+        enabled true
+        licencePath 'pesdk_license'
+    }
 
     supportLibVersion "28.0.0"
 
     modules {
-        include 'ly.img.android.pesdk.operation:text'
-        include 'ly.img.android.pesdk.operation:focus'
-        include 'ly.img.android.pesdk.operation:brush'
-        include 'ly.img.android.pesdk.operation:filter'
-        include 'ly.img.android.pesdk.operation:adjustment'
+        include 'ui:core'
+        include 'ui:text'
+        include 'ui:focus'
+        include 'ui:brush'
+        include 'ui:filter'
+        include 'ui:transform'
+        include 'ui:adjustment'
 
-        include 'ly.img.android.pesdk.ui.mobile_ui:core'
-        include 'ly.img.android.pesdk.ui.mobile_ui:text'
-        include 'ly.img.android.pesdk.ui.mobile_ui:focus'
-        include 'ly.img.android.pesdk.ui.mobile_ui:brush'
-        include 'ly.img.android.pesdk.ui.mobile_ui:filter'
-        include 'ly.img.android.pesdk.ui.mobile_ui:transform'
-        include 'ly.img.android.pesdk.ui.mobile_ui:adjustment'
+        include 'backend:serializer'
 
-        include 'ly.img.android.pesdk:serializer'
-
-        include 'ly.img.android.pesdk.assets:font-basic'
-        include 'ly.img.android.pesdk.assets:filter-basic'
+        include 'assets:font-basic'
+        include 'assets:filter-basic'
     }
 }

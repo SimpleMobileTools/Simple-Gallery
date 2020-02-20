@@ -292,7 +292,7 @@
     <string name="faq_3_title">Làm thế nào tôi có thể làm cho một album luôn xuất hiện ở đầu?</string>
     <string name="faq_3_text">Bạn có thể nhấn và giữ album mong muốn và chọn biểu tượng Ghim ở menu hành động, nó sẽ ghim nó lên trên cùng. Bạn cũng có thể ghim nhiều thư mục, các mục được ghim sẽ được sắp xếp theo phương pháp sắp xếp mặc định.</string>
     <string name="faq_4_title">Làm cách nào tôi có tua video nhanh?</string>
-    <string name="faq_4_text">Bạn có thể kéo ngón tay của mình theo chiều ngang trên trình phát video hoặc nhấp vào văn bản thời lượng hiện tại hoặc tối đa gần thanh tìm kiếm. Điều đó sẽ di chuyển video hoặc lùi hoặc tiến.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Sự khác biệt giữa ẩn và loại trừ một thư mục là gì?</string>
     <string name="faq_5_text">Loại trừ ngăn chỉ hiển thị thư mục trong Thư viện đơn giản, trong khi Ẩn hoạt động theo hệ thống và nó cũng ẩn thư mục khỏi các phòng trưng bày khác. Nó hoạt động bằng cách tạo một tệp \".nomedia\" trong thư mục đã cho, sau đó bạn cũng có thể xóa bằng bất kỳ trình quản lý tệp nào.</string>
     <string name="faq_6_title">Tại sao hiển thị các thư mục với ảnh bìa  hoặc nhãn dán?</string>

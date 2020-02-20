@@ -98,12 +98,12 @@
 
     <com.simplemobiletools.gallery.pro.views.InstantItemSwitch
         android:id="@+id/instant_prev_item"
-        android:layout_width="@dimen/instant_change_bar_width"
+        android:layout_width="1dp"
         android:layout_height="match_parent"/>
 
     <com.simplemobiletools.gallery.pro.views.InstantItemSwitch
         android:id="@+id/instant_next_item"
-        android:layout_width="@dimen/instant_change_bar_width"
+        android:layout_width="1dp"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"/>
 

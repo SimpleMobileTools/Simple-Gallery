@@ -292,7 +292,7 @@
     <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim?</string>
     <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş öğeler varsayılan sıralama yöntemine göre sıralanır.</string>
     <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
-    <string name="faq_4_text">Parmağınızı video oynatıcı üzerinde yatay olarak sürükleyebilir veya videoyu ileri veya geri hareket ettirecek arama çubuğunun yanındaki geçerli veya maksimum süre metinlerine tıklayabilirsiniz.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
     <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz.</string>
     <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
@@ -317,9 +317,9 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici &amp; Düzenleyici</string>
+    <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici, Düzenleyici</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Bu fotoğraf ve video galerisinde kesintisiz olarak anılarınıza göz atın</string>
     <string name="app_long_description">
         Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
 

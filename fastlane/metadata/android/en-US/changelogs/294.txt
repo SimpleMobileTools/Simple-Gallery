@@ -1,0 +1,2 @@
+ * Fixed some sorting related glitches
+ * Keep the old last modified value at file editing

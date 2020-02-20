@@ -32,7 +32,7 @@
     <string name="fixing">Opravuji…</string>
     <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
     <string name="share_resized">Sdílet verzi se změněnou velikostí</string>
-    <string name="upgraded_from_free">Zdravím,\n\nzdá se, že jse přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.\n\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.\n\nDěkuji!</string>
+    <string name="upgraded_from_free">Zdravím,\n\nzdá se, že jste přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.\n\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.\n\nDěkuji!</string>
     <string name="switch_to_file_search">Přepnout na vyhledávání souborů ve všech viditelných složkách</string>
 
     <!-- Filter -->
@@ -43,7 +43,7 @@
     <string name="raw_images">RAW obrázky</string>
     <string name="svgs">SVGčka</string>
     <string name="portraits">Portréty</string>
-    <string name="no_media_with_filters">Se zvolenými filtry nebyly nalezeny žádné médiální soubory.</string>
+    <string name="no_media_with_filters">Se zvolenými filtry nebyly nalezeny žádné mediální soubory.</string>
     <string name="change_filters_underlined"><u>Změnit filtry</u></string>
 
     <!-- Hide / Exclude -->
@@ -53,7 +53,7 @@
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
     <string name="exclude_folder_description">Tato funkce vyloučí výběr včetně podsložek jen z Jednoduché galerie. V nastavení můžete spravovat vyloučené složky.</string>
     <string name="exclude_folder_parent">Chcete vyloučit nadřazenou složku?</string>
-    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
+    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
     <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
     <string name="hidden_folders">Skryté složky</string>
@@ -111,7 +111,7 @@
 
     <!-- Slideshow -->
     <string name="slideshow">Prezentace</string>
-    <string name="interval">Interval (vteřin):</string>
+    <string name="interval">Interval (sekund):</string>
     <string name="include_photos">Zahrnout fotografie</string>
     <string name="include_videos">Zahrnout videa</string>
     <string name="include_gifs">Zahrnout GIFy</string>
@@ -169,10 +169,10 @@
     <string name="allow_photo_gestures">Povolit ovládání jasu vertikálními tahy</string>
     <string name="allow_video_gestures">Povolit ovládání hlasitosti a jasu videí vertikálními tahy</string>
     <string name="show_media_count">Zobrazit počet médií ve složce na hlavní obrazovce</string>
-    <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovkové média</string>
+    <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovková média</string>
     <string name="manage_extended_details">Spravovat rozšířené vlastnosti</string>
     <string name="one_finger_zoom">Povolit přibližování jedním prstem v celoobrazovkovém režimu</string>
-    <string name="allow_instant_change">Povolit okamžité přepínání médií ťuknutím na okraj obrazovky</string>
+    <string name="allow_instant_change">Povolit okamžité přepínání médií klepnutím na okraj obrazovky</string>
     <string name="allow_deep_zooming_images">Povolit hluboké přibližování obrázků</string>
     <string name="hide_extended_details">Skrýt rozšířené vlastnosti pokud je skrytá stavová lišta</string>
     <string name="show_at_bottom">Zobrazit některá akční tlačítka ve spodní části obrazovky</string>
@@ -198,7 +198,7 @@
     <string name="bottom_actions">Spodní akční tlačítka</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Upravit viditelné spodní akční tlačítka</string>
+    <string name="manage_bottom_actions">Upravit viditelná spodní akční tlačítka</string>
     <string name="toggle_favorite">Přepnutí oblíbenosti</string>
     <string name="toggle_file_visibility">Přepnutí viditelnosti souboru</string>
 
@@ -284,17 +284,17 @@
     <string name="pesdk_common_title_pipettableColor">Pipetovatelná barva</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Jak nastavím Jednoduchou Galerii jako výchozí galerii?</string>
+    <string name="faq_1_title">Jak nastavím Jednoduchou galerii jako výchozí galerii?</string>
     <string name="faq_1_text">Nejdříve musíte najít v nastavení zařízení, v sekci Aplikace, současnou výchozí galerii, zvolit tlačítko s textem ve smyslu \"Nastavení výchozího otevírání\" a následně \"Vymazat výchozí nastavení\".
-        Pokud poté zkusíte otevřít obrázek nebo video, zobrazí se seznam aplikací, kde můžete zvolit Jednoduchou Galerii a nastavit ji jako výchozí.</string>
+        Pokud poté zkusíte otevřít obrázek nebo video, zobrazí se seznam aplikací, kde můžete zvolit Jednoduchou galerii a nastavit ji jako výchozí.</string>
     <string name="faq_2_title">Uzamknul jsem aplikaci heslem, ale zapomněl jsem ho. Co můžu udělat?</string>
-    <string name="faq_2_text">Můžete to vyriešǐť 2 způsoby. Můžete aplikaci buď přeinstalovat nebo ji najít v nastavení zařízení a zvolit \"Vymazat data\". Vymažou se pouze nastavení aplikace, nikoliv soubory.</string>
+    <string name="faq_2_text">Můžete to vyriešit 2 způsoby. Můžete aplikaci buď přeinstalovat nebo ji najít v nastavení zařízení a zvolit \"Vymazat data\". Vymažou se pouze nastavení aplikace, nikoliv soubory.</string>
     <string name="faq_3_title">Jak mohu dosáhnout, aby bylo dané album stále zobrazeno jako první?</string>
-    <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to ji připne na vrch. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
+    <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to ji připne nahoru. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
     <string name="faq_4_title">Jak mohu video posunout vpřed?</string>
-    <string name="faq_4_text">Můžete toho dosáhnout buď tažením prstu vodorovně přes okno přehrávače nebo ťuknutím na text aktuální či celkové délky videa, které najdete po bocích indikátoru aktuální pozice. To posune video buď zpět nebo vpřed.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
-    <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché Galerie, skrytí ji ukryje vrámci celého systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů.</string>
+    <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
     <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt jejich vybráním pomocí dlouhého podržení a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení nadřazené složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
     <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím?</string>
@@ -317,13 +317,13 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Jednoduchá Galerie Pro - Organizér a editor fotografií</string>
+    <string name="app_title">Jednoduchá galerie Pro - Organizér fotografií</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Prohlížejte svoje vzpomínky bez prerušení s touto foto a video galerií.</string>
     <string name="app_long_description">
-        Jednoduchá Galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
+        Jednoduchá galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
 
-        Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že ani nevyžaduje připojení k internetu je vaše soukromí maximálně chráněno.
+        Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že ani nevyžaduje připojení k internetu, je vaše soukromí maximálně chráněno.
 
         -------------------------------------------------
         <b>JEDNODUCHÁ GALERIE PRO – FUNKCE</b>
@@ -337,7 +337,7 @@
         • Otevírejte mnoho rozličných formátů fotografií a videí (RAW, SVG, GIF, panorama, atd)
         • Množství intuitivních gest pro jednoduchou úpravu a organizaci souborů
         • Mnoho různých způsobů filtrování, seskupování a řazení souborů
-        • Změňte si vzhled Jednoduché galerie pro
+        • Změňte si vzhled Jednoduché galerie Pro
         • Dostupná ve 32 jazycích
         • Označte si oblíbené soubory pro rychlý přístup
         • Chraňte své fotografie a videa pomocí pinu, vzoru nebo otiskem prstu
@@ -350,16 +350,16 @@
         … a mnoho dalších!
 
         <b>EDITOR OBRÁZKŮ</b>
-        Jednoduchá Galerie Pro umožňuje snadnou úpravu obrázků. Ořezávejte, překlápějte, otáčejte či měňte jejich velikost. Pokud se cítíte kreativně, můžete také aplikovat filtry nebo do obrázku kreslit!
+        Jednoduchá galerie Pro umožňuje snadnou úpravu obrázků. Ořezávejte, překlápějte, otáčejte či měňte jejich velikost. Pokud se cítíte kreativně, můžete také aplikovat filtry nebo do obrázku kreslit!
 
         <b>PODPORA MNOHA TYPŮ SOUBORŮ</b>
-        Na rozdíl od některých galerií podporuje Jednoduchá Galerie Pro velké množství různých druhů souborů včetně JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+        Na rozdíl od některých galerií podporuje Jednoduchá galerie Pro velké množství různých druhů souborů včetně JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
 
         <b>Vysoce upravitelný správce galerie</b>
-        Od vzhledu až po funkční tlačítka na spodní liště, Jednoduchá Galerie Pro je plně nastavitelná a bude fungovat přesně jak si budete přát. Žádná jiná galerie nenabízí takovou flexibilitu! A díky otevřenému kódu je naše aplikace dostupná ve 32 jazycích!
+        Od vzhledu až po funkční tlačítka na spodní liště, Jednoduchá galerie Pro je plně nastavitelná a bude fungovat přesně jak si budete přát. Žádná jiná galerie nenabízí takovou flexibilitu! A díky otevřenému kódu je naše aplikace dostupná ve 32 jazycích!
 
         <b>OBNOVTE SMAZANÉ FOTOGRAFIE A VIDEA</b>
-        Smazali jste nechtěně důležitou fotografii nebo video? Žádný strach! Jednoduchá Galerie Pro pro podobné případy nabízí funkci odpadkového koše, odkud smazané fotografie a videa snadno obnovíte.
+        Smazali jste nechtěně důležitou fotografii nebo video? Žádný strach! Jednoduchá galerie Pro pro podobné případy nabízí funkci odpadkového koše, odkud smazané fotografie a videa snadno obnovíte.
 
         <b>CHRAŇTE A SKRÝVEJTE SVÉ FOTOGRAFIE A VIDEA</b>
         Použitím pinu, vzoru nebo otisku prstu snadno své fotografie, videa či celá alba ochráníte nebo skryjete. Můžete ochránit i spuštění samotné aplikace, nebo některé její funkce. Například můžete zabránit náhodnému smazání souboru bez potvrzení otiskem prstu.

@@ -31,7 +31,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
-import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
@@ -223,7 +223,7 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     deleteFile(fileDirItem, allowDeleteFolder) {
         if (deleteFromDatabase) {
             ensureBackgroundThread {
-                deleteDBPath(galleryDB.MediumDao(), fileDirItem.path)
+                deleteDBPath(fileDirItem.path)
                 runOnUiThread {
                     callback?.invoke(it)
                 }
@@ -234,7 +234,7 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     }
 }
 
-fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: ((wasSuccess: Boolean) -> Unit)?) {
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
     ensureBackgroundThread {
         var pathsCnt = paths.size
         val OTGPath = config.OTGPath
@@ -261,7 +261,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
                     out?.flush()
 
                     if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
-                        mediumDao.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
+                        mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
                     }
                 } catch (e: Exception) {
@@ -277,7 +277,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
                 val lastModified = file.lastModified()
                 try {
                     if (file.copyRecursively(internalFile, true)) {
-                        mediumDao.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
+                        mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
 
                         if (config.keepLastModified) {
@@ -295,10 +295,10 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
 }
 
 fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit) {
-    restoreRecycleBinPaths(arrayListOf(path), galleryDB.MediumDao(), callback)
+    restoreRecycleBinPaths(arrayListOf(path), callback)
 }
 
-fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
+fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
     ensureBackgroundThread {
         val newPaths = ArrayList<String>()
         for (source in paths) {
@@ -328,7 +328,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
                 out?.flush()
 
                 if (File(source).length() == copiedSize) {
-                    mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
+                    mediaDB.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
                 newPaths.add(destination)
 
@@ -357,8 +357,8 @@ fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
     ensureBackgroundThread {
         try {
             recycleBin.deleteRecursively()
-            galleryDB.MediumDao().clearRecycleBin()
-            galleryDB.DirectoryDao().deleteRecycleBin()
+            mediaDB.clearRecycleBin()
+            directoryDao.deleteRecycleBin()
             toast(R.string.recycle_bin_emptied)
             callback?.invoke()
         } catch (e: Exception) {
@@ -413,9 +413,10 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
     try {
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
-        val mediumDao = galleryDB.MediumDao()
 
         ensureBackgroundThread {
+            val dateTakens = ArrayList<DateTaken>()
+
             for (path in paths) {
                 val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
                         ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
@@ -442,9 +443,11 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                     operations.clear()
                 }
 
-                mediumDao.updateFavoriteDateTaken(path, timestamp)
+                mediaDB.updateFavoriteDateTaken(path, timestamp)
                 didUpdateFile = true
 
+                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt())
+                dateTakens.add(dateTaken)
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)
                 }
@@ -456,6 +459,10 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
             }
 
             if (hasRescanned || pathsToRescan.isEmpty()) {
+                if (dateTakens.isNotEmpty()) {
+                    dateTakensDB.insertAll(dateTakens)
+                }
+
                 runOnUiThread {
                     if (showToasts) {
                         toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)

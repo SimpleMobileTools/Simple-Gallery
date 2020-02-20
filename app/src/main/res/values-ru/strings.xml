@@ -292,7 +292,7 @@
     <string name="faq_3_title">Как я могу сделать альбом всегда отображающимся сверху?</string>
     <string name="faq_3_text">Вы можете длительным нажатием на желаемый альбом открыть меню действий в нём выбрать пункт \"Закрепить\". Можно закрепить несколько альбомов (папок); прикреплённые элементы будут отсортированы по методу сортировки по умолчанию.</string>
     <string name="faq_4_title">Как ускорить перемотку видео?</string>
-    <string name="faq_4_text">Вы можете либо перемещать пальцем по горизонтали над видеопроигрывателем, либо нажать на цифры текущего положения или максимальной длительности видео рядом с панелью поиска, что приведёт к перемещению позиции воспроизведения назад или вперёд.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">В чём разница между скрытием и исключением папки?</string>
     <string name="faq_5_text">Исключение запрещает отображение папки только в Simple Gallery, в то время как скрытие работает системно и скрывает папку из других галерей. Это достигается путём создания пустого файла \".nomedia\" в данной папке, который впоследствии можно удалить любым файловым менеджером.</string>
     <string name="faq_6_title">Почему отображаются папки с музыкальными обложками?</string>

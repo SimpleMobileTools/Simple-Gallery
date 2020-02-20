@@ -111,7 +111,7 @@ class PhotoFragment : ViewPagerFragment() {
             instant_prev_item.parentView = container
             instant_next_item.parentView = container
 
-            photo_brightness_controller.initialize(activity!!, slide_info, true, container) { x, y ->
+            photo_brightness_controller.initialize(activity!!, slide_info, true, container, singleTap = { x, y ->
                 mView.apply {
                     if (subsampling_view.isVisible()) {
                         subsampling_view.sendFakeClick(x, y)
@@ -119,7 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
                         gestures_view.sendFakeClick(x, y)
                     }
                 }
-            }
+            })
 
             if (context.config.allowDownGesture) {
                 gif_view.setOnTouchListener { v, event ->
@@ -657,7 +657,9 @@ class PhotoFragment : ViewPagerFragment() {
         mIsPanorama = try {
             val inputStream = if (mMedium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(mMedium.path)) else File(mMedium.path).inputStream()
             val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, mMedium.name), HashMap<String, Any>())
-            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) || imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true)
+            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
+                    imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
+                    imageParser.contains("GPano:FullPanoWidthPixels=")
         } catch (e: Exception) {
             false
         } catch (e: OutOfMemoryError) {
@@ -765,9 +767,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun updateInstantSwitchWidths() {
-        val newWidth = resources.getDimension(R.dimen.instant_change_bar_width) + if (activity?.portrait == false) activity!!.navigationBarWidth else 0
-        mView.instant_prev_item.layoutParams.width = newWidth.toInt()
-        mView.instant_next_item.layoutParams.width = newWidth.toInt()
+        mView.instant_prev_item.layoutParams.width = mScreenWidth / 7
+        mView.instant_next_item.layoutParams.width = mScreenWidth / 7
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {

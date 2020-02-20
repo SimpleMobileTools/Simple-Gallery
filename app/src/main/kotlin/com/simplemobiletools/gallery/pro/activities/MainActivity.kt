@@ -36,9 +36,7 @@ import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
-import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
-import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -75,6 +73,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
+    private var mLastMediaFetcher: MediaFetcher? = null
     private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
@@ -85,16 +84,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
-    private lateinit var mMediumDao: MediumDao
-    private lateinit var mDirectoryDao: DirectoryDao
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
-
-        mMediumDao = galleryDB.MediumDao()
-        mDirectoryDao = galleryDB.DirectoryDao()
 
         if (savedInstanceState == null) {
             config.temporarilyShowHidden = false
@@ -253,6 +246,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             unregisterFileUpdateListener()
 
             if (!config.showAll) {
+                mLastMediaFetcher?.shouldStop = true
                 GalleryDatabase.destroyInstance()
             }
         }
@@ -464,7 +458,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
-        getCachedDirectories(getVideosOnly, getImagesOnly, mDirectoryDao) {
+        getCachedDirectories(getVideosOnly, getImagesOnly) {
             gotDirectories(addTempFolderIfNeeded(it))
         }
     }
@@ -478,7 +472,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
             directories_grid.adapter = null
-            if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
+            if (config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.directorySorting and SORT_BY_DATE_TAKEN != 0) {
                 getDirectories()
             } else {
                 ensureBackgroundThread {
@@ -569,7 +563,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val pathsToDelete = ArrayList<String>()
             itemsToDelete.mapTo(pathsToDelete) { it.path }
 
-            movePathsInRecycleBin(pathsToDelete, mMediumDao) {
+            movePathsInRecycleBin(pathsToDelete) {
                 if (it) {
                     deleteFilteredFileDirItems(itemsToDelete, folders)
                 } else {
@@ -590,7 +584,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             ensureBackgroundThread {
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
-                    mDirectoryDao.deleteDirPath(it.absolutePath)
+                    directoryDao.deleteDirPath(it.absolutePath)
                 }
 
                 if (config.deleteEmptyFolders) {
@@ -889,33 +883,44 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         // cached folders have been loaded, recheck folders one by one starting with the first displayed
-        val mediaFetcher = MediaFetcher(applicationContext)
+        mLastMediaFetcher?.shouldStop = true
+        mLastMediaFetcher = MediaFetcher(applicationContext)
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
         val tempFolderPath = config.tempFolderPath
-        val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
-        val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
 
         try {
             for (directory in dirs) {
-                if (mShouldStopFetching) {
+                if (mShouldStopFetching || isDestroyed || isFinishing) {
                     return
                 }
 
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+                val sorting = config.getFileSorting(directory.path)
+                val grouping = config.getFolderGrouping(directory.path)
+                val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                        sorting and SORT_BY_DATE_TAKEN != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+                val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+                val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
                         dirPathsToRemove.add(directory.path)
                     }
                     directory
                 } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
@@ -931,21 +936,22 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     taken = newDir.taken
                     this@apply.size = newDir.size
                     types = newDir.types
+                    sortValue = getDirectorySortingValue(curMedia, path, name, size)
                 }
 
                 setupAdapter(dirs)
 
                 // update directories and media files in the local db, delete invalid items
-                updateDBDirectory(directory, mDirectoryDao)
+                updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
-                    mMediumDao.insertAll(curMedia)
+                    mediaDB.insertAll(curMedia)
                 }
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly, mMediumDao) {
+                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
                             if (path != null) {
-                                deleteDBPath(mMediumDao, path)
+                                deleteDBPath(path)
                             }
                         }
                     }
@@ -955,7 +961,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (dirPathsToRemove.isNotEmpty()) {
                 val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
                 dirsToRemove.forEach {
-                    mDirectoryDao.deleteDirPath(it.path)
+                    directoryDao.deleteDirPath(it.path)
                 }
                 dirs.removeAll(dirsToRemove)
                 setupAdapter(dirs)
@@ -963,7 +969,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (ignored: Exception) {
         }
 
-        val foldersToScan = mediaFetcher.getFoldersToScan()
+        val foldersToScan = mLastMediaFetcher!!.getFoldersToScan()
         foldersToScan.add(FAVORITES)
         if (config.showRecycleBinAtFolders) {
             foldersToScan.add(RECYCLE_BIN)
@@ -977,11 +983,23 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         // check the remaining folders which were not cached at all yet
         for (folder in foldersToScan) {
-            if (mShouldStopFetching) {
+            if (mShouldStopFetching || isDestroyed || isFinishing) {
                 return
             }
 
-            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+            val sorting = config.getFileSorting(folder)
+            val grouping = config.getFolderGrouping(folder)
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                    sorting and SORT_BY_DATE_TAKEN != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+            val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+            val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
             if (newMedia.isEmpty()) {
                 continue
             }
@@ -995,13 +1013,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
 
-            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
             try {
-                mDirectoryDao.insert(newDir)
+                directoryDao.insert(newDir)
                 if (folder != RECYCLE_BIN) {
-                    mMediumDao.insertAll(newMedia)
+                    mediaDB.insertAll(newMedia)
                 }
             } catch (ignored: Exception) {
             }
@@ -1156,7 +1174,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.useRecycleBin) {
             try {
                 val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-                if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
+                if (binFolder != null && mediaDB.getDeletedMedia().isEmpty()) {
                     invalidDirs.add(binFolder)
                 }
             } catch (ignored: Exception) {
@@ -1168,7 +1186,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(dirs)
             invalidDirs.forEach {
                 try {
-                    mDirectoryDao.deleteDirPath(it.path)
+                    directoryDao.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
                 }
             }
@@ -1218,7 +1236,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             Handler().postDelayed({
                 ensureBackgroundThread {
                     try {
-                        mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                        mediaDB.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
                     } catch (e: Exception) {
                     }
                 }
@@ -1283,7 +1301,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
         ensureBackgroundThread {
-            storeDirectoryItems(directories, mDirectoryDao)
+            storeDirectoryItems(directories)
             removeInvalidDBDirectories()
         }
     }

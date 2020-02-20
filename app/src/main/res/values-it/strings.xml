@@ -292,7 +292,7 @@
     <string name="faq_3_title">Come posso fare apparire un album sempre in cima?</string>
     <string name="faq_3_text">Si può toccare a lungo l\'album desiderato e selezionare l\'icona puntina nel menù azioni, ciò lo fisserà in cima. Si possono anche fissare varie cartelle, gli elementi fissati saranno ordinati dal metodo di ordinamento predefinito.</string>
     <string name="faq_4_title">Come avanzo velocemente nei video?</string>
-    <string name="faq_4_text">Si possono trascinare le proprie dita orrizontalmente sul video, oppure cliccando i testi accanto alla barra di avanzamento. In questo modo il video andrà avanti o indietro.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella?</string>
     <string name="faq_5_text">Escludere impedisce la visualizzazione della cartella solo in Semplice Galleria, mentre nascondere ha effetto in tutto il sistema e nasconde la cartella anche alle altre gallerie. Funziona creando un file vuoto \".nomedia\" nella cartella in questione, si possono anche rimuovere successivamente con qualsiasi gestore dei file.</string>
     <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica?</string>

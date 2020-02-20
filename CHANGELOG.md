@@ -1,6 +1,51 @@
 Changelog
 ==========
 
+Version 6.12.5 *(2020-02-12)*
+----------------------------
+
+ * Fixed some sorting related glitches
+ * Keep the old last modified value at file editing
+
+Version 6.12.4 *(2020-02-11)*
+----------------------------
+
+ * Fixed some folder sorting related glitches
+
+Version 6.12.3 *(2020-02-10)*
+----------------------------
+
+ * Fixed image disappearing at using the Editor
+ * Properly copy over EXIF values after editing an image
+
+Version 6.12.2 *(2020-02-10)*
+----------------------------
+
+ * Fixed some sorting and thumbnail related issues
+
+Version 6.12.1 *(2020-02-10)*
+----------------------------
+
+ * Improved the performance of the initial screen loading
+ * Fixed some editor related glitches
+
+Version 6.12.0 *(2020-01-28)*
+----------------------------
+
+ * Properly handle sorting by date taken after using "Fix Date Taken values" on the wrong files
+ * Fixed some issues at copying files, when the source was on an SD card
+ * Change the way Favorite items are stored, to avoid accidental removal
+ * Improved video looping (by ForgottenUmbrella)
+ * Recognize a new type of panoramic photos
+ * Properly remember last video playback position if the video is paused on exit
+ * Properly color the top status bar icons at using light primary colors
+ * Other UX and translation improvements
+
+Version 6.11.8 *(2020-01-19)*
+----------------------------
+
+ * Reverted Glide to fix some crashes
+
 Version 6.11.7 *(2020-01-16)*
 ----------------------------
 

@@ -163,6 +163,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
         video_surface_frame.setOnClickListener { toggleFullscreen() }
+        video_surface_frame.controller.settings.swallowDoubleTaps = true
 
         video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
         video_next_file.setOnClickListener { handleNextFile() }
@@ -170,8 +171,20 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
         video_prev_file.setOnClickListener { handlePrevFile() }
 
+
+        val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onDoubleTap(e: MotionEvent?): Boolean {
+                if (e != null) {
+                    handleDoubleTap(e.rawX)
+                }
+
+                return true
+            }
+        })
+
         video_surface_frame.setOnTouchListener { view, event ->
             handleEvent(event)
+            gestureDetector.onTouchEvent(event)
             false
         }
 
@@ -179,13 +192,17 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_surface.surfaceTextureListener = this
 
         if (config.allowVideoGestures) {
-            video_brightness_controller.initialize(this, slide_info, true, video_player_holder) { x, y ->
+            video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }
+            }, doubleTap = { x, y ->
+                doSkip(false)
+            })
 
-            video_volume_controller.initialize(this, slide_info, false, video_player_holder) { x, y ->
+            video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
                 toggleFullscreen()
-            }
+            }, doubleTap = { x, y ->
+                doSkip(true)
+            })
         } else {
             video_brightness_controller.beGone()
             video_volume_controller.beGone()
@@ -214,6 +231,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
             seekParameters = SeekParameters.CLOSEST_SYNC
             audioStreamType = C.STREAM_TYPE_MUSIC
+            if (config.loopVideos) {
+                repeatMode = Player.REPEAT_MODE_ONE
+            }
             prepare(audioSource)
         }
         initExoPlayerListeners()
@@ -231,7 +251,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
-            override fun onPositionDiscontinuity(reason: Int) {}
+            override fun onPositionDiscontinuity(reason: Int) {
+                // Reset progress views when video loops.
+                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                    video_seekbar.progress = 0
+                    video_curr_time.text = 0.getFormattedDuration()
+                }
+            }
 
             override fun onRepeatModeChanged(repeatMode: Int) {}
 
@@ -275,6 +301,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             } else {
                 video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
             }
+        }
+    }
+
+    private fun handleDoubleTap(x: Float) {
+        val instantWidth = mScreenWidth / 7
+        when {
+            x <= instantWidth -> doSkip(false)
+            x >= mScreenWidth - instantWidth -> doSkip(true)
+            else -> togglePlayPause()
         }
     }
 
@@ -338,13 +373,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         clearLastVideoSavedProgress()
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        if (config.loopVideos) {
-            resumeVideo()
-        } else {
-            video_seekbar.progress = video_seekbar.max
-            video_curr_time.text = mDuration.getFormattedDuration()
-            pauseVideo()
-        }
+        video_seekbar.progress = video_seekbar.max
+        video_curr_time.text = mDuration.getFormattedDuration()
+        pauseVideo()
     }
 
     private fun didVideoEnd(): Boolean {
@@ -466,15 +497,16 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun skip(forward: Boolean) {
-        if (mExoPlayer == null) {
-            return
+        if (mExoPlayer != null) {
+            doSkip(forward)
         }
+    }
 
+    private fun doSkip(forward: Boolean) {
         val curr = mExoPlayer!!.currentPosition
-        val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
-        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        val newProgress = if (forward) curr + FAST_FORWARD_VIDEO_MS else curr - FAST_FORWARD_VIDEO_MS
         val roundProgress = Math.round(newProgress / 1000f)
-        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt(), roundProgress), 0)
+        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt() / 1000, roundProgress), 0)
         setPosition(limitedProgress)
         if (!mIsPlaying) {
             togglePlayPause()
