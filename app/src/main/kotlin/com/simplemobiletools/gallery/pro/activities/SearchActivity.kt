@@ -134,11 +134,14 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                 media_grid.adapter = this
             }
             setupLayoutManager()
-        } else {
+            measureRecyclerViewContent(mAllMedia)
+        } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mAllMedia)
+            measureRecyclerViewContent(mAllMedia)
+        } else {
+            textChanged(mLastSearchedText)
         }
 
-        measureRecyclerViewContent(mAllMedia)
         setupScrollDirection()
     }
 
