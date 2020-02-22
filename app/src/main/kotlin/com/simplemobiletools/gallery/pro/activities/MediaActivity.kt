@@ -60,6 +60,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
+    private var mLastSearchedText = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -301,6 +302,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (mIsSearchOpen) {
+                        mLastSearchedText = newText
                         searchQueryChanged(newText)
                     }
                     return true
@@ -319,6 +321,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 if (mIsSearchOpen) {
                     mIsSearchOpen = false
+                    mLastSearchedText = ""
+
                     media_refresh_layout.isEnabled = config.enablePullToRefresh
                     searchQueryChanged("")
                 }
@@ -389,11 +393,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 media_grid.adapter = this
             }
             setupLayoutManager()
-        } else {
+            measureRecyclerViewContent(mMedia)
+        } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
+            measureRecyclerViewContent(mMedia)
+        } else {
+            searchQueryChanged(mLastSearchedText)
         }
 
-        measureRecyclerViewContent(mMedia)
         setupScrollDirection()
     }
 
