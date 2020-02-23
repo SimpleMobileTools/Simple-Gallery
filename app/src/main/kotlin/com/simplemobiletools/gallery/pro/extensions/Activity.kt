@@ -453,6 +453,14 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 }
             }
 
+            if (!didUpdateFile) {
+                toast(R.string.no_date_takens_found)
+                runOnUiThread {
+                    callback?.invoke()
+                }
+                return@ensureBackgroundThread
+            }
+
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
             if (resultSize == 0) {
                 didUpdateFile = false
