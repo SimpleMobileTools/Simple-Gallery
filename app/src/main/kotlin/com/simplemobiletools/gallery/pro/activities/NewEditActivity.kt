@@ -119,7 +119,7 @@ class NewEditActivity : SimpleActivity() {
             }
 
             if (resultCode != Activity.RESULT_OK || sourceImageUri == null || sourceImageUri.toString().isEmpty() || cacheImagePathFromEditor.isEmpty() || sourceImageUri.toString() == cacheImagePathFromEditor) {
-                toast(R.string.image_editing_failed)
+                toast(R.string.image_editing_cancelled)
                 finish()
             } else {
                 // the image is stored at the internal app storage first, for example /data/user/0/com.simplemobiletools.gallery.pro/cache/editor/IMG_20191207_183023.jpg
