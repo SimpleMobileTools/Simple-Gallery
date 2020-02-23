@@ -31,6 +31,7 @@
     <string name="fix_date_taken">修復拍照日期數值</string>
     <string name="fixing">修復中…</string>
     <string name="dates_fixed_successfully">日期修復成功</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">分享調整大小的版本</string>
     <string name="upgraded_from_free">嘿\n\n你似乎從舊版免費應用程式升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。\n\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。\n\n感謝!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">路徑</string>
     <string name="invalid_image_path">無效的圖片路徑</string>
     <string name="image_editing_failed">圖片編輯失敗</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">編輯圖片:</string>
     <string name="no_editor_found">找不到圖片編輯器</string>

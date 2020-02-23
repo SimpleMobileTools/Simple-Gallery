@@ -31,6 +31,7 @@
     <string name="fix_date_taken">إصلاح تاريخ إلتقاط القيمة</string>
     <string name="fixing">جارٍ الإصلاح…</string>
     <string name="dates_fixed_successfully">تم إصلاح التواريخ بنجاح</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">مشاركة الصورة الذي تم تغيير حجمها</string>
     <string name="upgraded_from_free">مرحباً,\n\nيبدو أنك قمت بترقية التطبيق المجاني القديم. يمكنك الآن إلغاء تثبيت الإصدار القديم، الذي يحتوي على زر \'الترقية إلى Pro\' في أعلي إعدادات التطبيق.\n\nسيتم حذف عناصر سلة المحذوفات فقط، كما سيتم حذف العناصر المفضلة، كما سيتعين عليك إعادة ضبط إعدادات التطبيق .\n\nشكراً!</string>
     <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
@@ -82,6 +83,7 @@
     <string name="path">المسار</string>
     <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="image_editing_failed">فشل تعديل الصورة</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">تعديل الصورة باستخدام:</string>
     <string name="no_editor_found">لم يتم العثور على أي محرر للصور</string>

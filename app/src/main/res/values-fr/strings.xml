@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corriger les dates de prise de vue</string>
     <string name="fixing">Correction en cours…</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
@@ -82,6 +83,7 @@
     <string name="path">Emplacement</string>
     <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">L\'image a été éditée avec succès</string>
     <string name="edit_image_with">Modifier l\'image avec:</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>

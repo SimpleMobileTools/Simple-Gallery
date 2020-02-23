@@ -67,7 +67,6 @@ class MediaFetcher(val context: Context) {
             val includedPaths = config.includedFolders
             folders.filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
-            context.showErrorToast(e)
             ArrayList()
         }
     }

@@ -958,7 +958,7 @@ fun Context.getFileDateTaken(path: String): Long {
             do {
                 try {
                     return cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                } catch (e: Exception) {
+                } catch (ignored: Exception) {
                 }
             } while (cursor.moveToNext())
         }

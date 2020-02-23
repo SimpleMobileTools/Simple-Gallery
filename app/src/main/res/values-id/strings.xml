@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
     <string name="fixing">Memperbaiki…</string>
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
     <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
     <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
@@ -82,6 +83,7 @@
     <string name="path">Jalur</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Sunting gambar dengan:</string>
     <string name="no_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
