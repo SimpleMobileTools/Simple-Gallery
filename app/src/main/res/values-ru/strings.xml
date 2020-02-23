@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Исправить дату</string>
     <string name="fixing">Исправление…</string>
     <string name="dates_fixed_successfully">Даты исправлены</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Дата съёмки не найдена</string>
     <string name="share_resized">Поделиться изменённой версией</string>
     <string name="upgraded_from_free">Привет,\n\nпохоже, что вы обновились со старого бесплатного приложения. Теперь вы можете удалить старую версию, которая содержит кнопку \"Обновить до Pro\" в верхней части настроек приложения.\n\nБудет очищена корзина, сняты отметки избранного, а также вам придётся сбросить настройки приложения.\n\nСпасибо!</string>
     <string name="switch_to_file_search">Переключиться на поиск файлов по всем видимым папкам</string>
@@ -83,7 +83,7 @@
     <string name="path">Путь</string>
     <string name="invalid_image_path">Недопустимый путь изображения</string>
     <string name="image_editing_failed">Редактирование изображения не выполнено</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">Редактирование изображения отменено</string>
     <string name="file_edited_successfully">Файл успешно отредактирован</string>
     <string name="edit_image_with">Редактировать изображение в:</string>
     <string name="no_editor_found">Не найдено ни одного редактора изображений</string>
