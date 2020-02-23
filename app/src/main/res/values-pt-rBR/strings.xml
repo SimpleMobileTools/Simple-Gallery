@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corrigir data da foto</string>
     <string name="fixing">Corrigindo…</string>
     <string name="dates_fixed_successfully">Datas corrigidas com sucesso</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de atualizar para a versão Pro no topo da pagina de Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
     <string name="switch_to_file_search">Alternar para a pesquisa de arquivos em todas as pastas visíveis</string>
@@ -82,6 +83,7 @@
     <string name="path">Caminho</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">Arquivo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="no_editor_found">Nenhum editor de imagem encontrado</string>

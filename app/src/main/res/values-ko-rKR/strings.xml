@@ -31,6 +31,7 @@
     <string name="fix_date_taken">찍은 날짜 값 교정</string>
     <string name="fixing">교정 중...</string>
     <string name="dates_fixed_successfully">교정이 완료되었습니다</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">크기변경 버전 공유</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">경로</string>
     <string name="invalid_image_path">유효하지 않은 사진 경로</string>
     <string name="image_editing_failed">사진 편집 실패</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">사진 편집 프로그램 연결:</string>
     <string name="no_editor_found">사진 편집 프로그램 없음</string>

@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
     <string name="upgraded_from_free">Živjo,\n\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.\n\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.\n\nHvala!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Pot</string>
     <string name="invalid_image_path">Napačna pot</string>
     <string name="image_editing_failed">Urejanje slike ni uspelo</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Uredi sliko z:</string>
     <string name="no_editor_found">Ne najdem urejevalnika slik</string>

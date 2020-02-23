@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
     <string name="fixing">Korrigiere…</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
     <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
@@ -82,6 +83,7 @@
     <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">Datei erfolgreich bearbeitet</string>
     <string name="edit_image_with">Bild bearbeiten mit:</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>

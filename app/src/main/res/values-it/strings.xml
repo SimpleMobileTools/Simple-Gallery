@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Correggi valore Data acquisizione</string>
     <string name="fixing">Correzione in corso…</string>
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
     <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
@@ -82,6 +83,7 @@
     <string name="path">Percorso</string>
     <string name="invalid_image_path">Percorso dell\'immagine non valido</string>
     <string name="image_editing_failed">Modifica dell\'immagine fallita</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Modifica immagine con:</string>
     <string name="no_editor_found">Editor delle immagini non trovato</string>

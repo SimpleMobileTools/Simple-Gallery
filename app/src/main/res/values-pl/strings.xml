@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Napraw datę utworzenia</string>
     <string name="fixing">Naprawiam…</string>
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Udostępnij zmienioną wersję</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Ścieżka</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
     <string name="image_editing_failed">Edycja obrazu nie powiodła się</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Edytuj obraz w:</string>
     <string name="no_editor_found">Nie znalazłem edytora zdjęć</string>
