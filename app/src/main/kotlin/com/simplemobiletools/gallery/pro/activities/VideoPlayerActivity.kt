@@ -159,8 +159,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             fullscreenToggled(isFullscreen)
         }
 
-        video_curr_time.setOnClickListener { skip(false) }
-        video_duration.setOnClickListener { skip(true) }
+        video_curr_time.setOnClickListener { doSkip(false) }
+        video_duration.setOnClickListener { doSkip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
         video_surface_frame.setOnClickListener { toggleFullscreen() }
         video_surface_frame.controller.settings.swallowDoubleTaps = true
@@ -494,12 +494,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 mTimerHandler.postDelayed(this, 1000)
             }
         })
-    }
-
-    private fun skip(forward: Boolean) {
-        if (mExoPlayer != null) {
-            doSkip(forward)
-        }
     }
 
     private fun doSkip(forward: Boolean) {
