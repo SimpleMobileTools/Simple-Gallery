@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.13.0 *(2020-02-28)*
+----------------------------
+
+ * Allow fast forwarding videos by double clicking on screen sides
+ * Fixed an issue with the  editor producing low quality outputs in some cases
+ * Improve some error messages, make them clearer
+ * Many translation and stability improvements
+
 Version 6.12.5 *(2020-02-12)*
 ----------------------------
 

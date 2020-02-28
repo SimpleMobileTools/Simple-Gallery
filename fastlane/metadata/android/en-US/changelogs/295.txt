@@ -1,0 +1,4 @@
+ * Allow fast forwarding videos by double clicking on screen sides
+ * Fixed an issue with the  editor producing low quality outputs in some cases
+ * Improve some error messages, make them clearer
+ * Many translation and stability improvements
