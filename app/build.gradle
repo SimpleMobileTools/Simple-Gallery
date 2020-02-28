@@ -20,7 +20,7 @@ android {
         versionCode 294
         versionName "6.12.5"
         multiDexEnabled true
-        setProperty("archivesBaseName", "gallery")
+        setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
     }
 
