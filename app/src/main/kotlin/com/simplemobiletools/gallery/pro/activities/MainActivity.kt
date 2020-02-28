@@ -1315,6 +1315,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(225, R.string.release_225))
             add(Release(258, R.string.release_258))
             add(Release(277, R.string.release_277))
+            add(Release(295, R.string.release_295))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }
