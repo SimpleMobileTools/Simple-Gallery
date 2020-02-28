@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Çekilen tarih değerini düzelt</string>
     <string name="fixing">Düzeltiliyor…</string>
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Çekilen Tarih bulunamadı</string>
     <string name="share_resized">Yeniden boyutlandırılmış sürümü paylaş</string>
     <string name="upgraded_from_free">Merhaba,\n\neski ücretsiz uygulamadan yükseltmiş gibisiniz. Artık uygulama ayarlarının en üst kısmında \'Pro\'ya Yükselt\' düğmesi olan eski sürümü kaldırabilirsiniz.\n\nYalnızca Geri Dönüşüm Kutusu öğelerinin silinmesi, sık kullanılanların işaretlerinin kaldırılması ve uygulama ayarlarınızı sıfırlamanız gerekir.\n\nTeşekkürler!</string>
     <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
@@ -294,7 +294,7 @@
     <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim?</string>
     <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş öğeler varsayılan sıralama yöntemine göre sıralanır.</string>
     <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Ekranın yan tarafına iki kez dokunarak veya arama çubuğunun yanındaki geçerli veya maksimum süre metinlerine dokunarak bunu yapabilirsiniz. Videoları uygulama ayarlarından ayrı bir ekranda açmayı etkinleştirirseniz yatay hareketleri de kullanabilirsiniz.</string>
     <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
     <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz.</string>
     <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
