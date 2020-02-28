@@ -53,6 +53,16 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
+    flavorDimensions "licensing"
+    productFlavors {
+        proprietary { }
+        foss {
+            // We're not using PhotoEditor here, so changing the name is fine.
+            applicationIdSuffix ".foss"
+            versionNameSuffix "-foss"
+        }
+    }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -92,28 +102,30 @@ dependencies {
 }
 
 // Apply the PESDKPlugin
-apply plugin: 'ly.img.android.sdk'
+if (is_proprietary) {
+    apply plugin: 'ly.img.android.sdk'
 
-imglyConfig {
-    pesdk {
-        enabled true
-        licencePath 'pesdk_license'
-    }
+    imglyConfig {
+        pesdk {
+            enabled true
+            licencePath 'pesdk_license'
+        }
 
-    supportLibVersion "28.0.0"
+        supportLibVersion "28.0.0"
 
-    modules {
-        include 'ui:core'
-        include 'ui:text'
-        include 'ui:focus'
-        include 'ui:brush'
-        include 'ui:filter'
-        include 'ui:transform'
-        include 'ui:adjustment'
+        modules {
+            include 'ui:core'
+            include 'ui:text'
+            include 'ui:focus'
+            include 'ui:brush'
+            include 'ui:filter'
+            include 'ui:transform'
+            include 'ui:adjustment'
 
-        include 'backend:serializer'
+            include 'backend:serializer'
 
-        include 'assets:font-basic'
-        include 'assets:filter-basic'
+            include 'assets:font-basic'
+            include 'assets:filter-basic'
+        }
     }
 }
