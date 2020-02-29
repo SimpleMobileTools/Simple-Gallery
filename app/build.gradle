@@ -59,10 +59,7 @@ android {
     flavorDimensions "licensing"
     productFlavors {
         proprietary { }
-        foss {
-            // We're not using PhotoEditor here, so changing the name is fine.
-            applicationIdSuffix ".foss"
-        }
+        foss { }
     }
 
     lintOptions {
