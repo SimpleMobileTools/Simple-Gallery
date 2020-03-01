@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.13.3 *(2020-03-01)*
+----------------------------
+
+ * Avoid showing the "No Date Takens found" error in some cases
+
 Version 6.13.2 *(2020-03-01)*
 ----------------------------
 
