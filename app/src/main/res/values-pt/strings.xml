@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Corrigir data de obtenção</string>
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Não foram encontrados dados para a data de obtenção da fotografia</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você utilizou a opção de atualização existente na versão antiga. Agora já pode desinstalar essa versão antiga.\n\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados mas também terá que repor as predefinições da aplicação.\n\nObrigado!</string>
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
@@ -83,8 +83,8 @@
     <string name="path">Caminho</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_editing_cancelled">Edição de imagem cancelada</string>
+    <string name="file_edited_successfully">Imagem editada com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="no_editor_found">Editor não encontrado</string>
     <string name="unknown_file_location">Localização desconhecida</string>
@@ -242,14 +242,14 @@
     <string name="pesdk_text_button_color">Cor</string>
     <string name="pesdk_text_button_backgroundColor">Cor de fundo</string>
     <string name="pesdk_text_button_alignment">Alinhamento</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_bringToFront">Para a frente</string>
     <string name="pesdk_text_button_delete">Apagar</string>
     <string name="pesdk_text_text_editTextPlaceholder">O seu texto</string>
     <string name="pesdk_brush_title_name">Pincel</string>
     <string name="pesdk_brush_button_color">Cor</string>
     <string name="pesdk_brush_button_size">Tamanho</string>
     <string name="pesdk_brush_button_hardness">Espessura</string>
-    <string name="pesdk_brush_button_bringToFront">para a frente</string>
+    <string name="pesdk_brush_button_bringToFront">Para a frente</string>
     <string name="pesdk_brush_button_delete">Apagar</string>
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
@@ -261,7 +261,7 @@
     <string name="pesdk_editor_accept">Aceitar</string>
     <string name="pesdk_editor_save">Guardar</string>
     <string name="pesdk_editor_text_exportProgressUnknown">A exportar imagem…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar a imagem %s.</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar imagem %s.</string>
     <string name="pesdk_common_button_flipH">Inversão horizontal</string>
     <string name="pesdk_common_button_flipV">Inversão vertical</string>
     <string name="pesdk_common_button_undo">Desfazer</string>
