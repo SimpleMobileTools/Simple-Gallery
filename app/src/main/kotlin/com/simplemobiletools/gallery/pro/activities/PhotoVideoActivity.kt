@@ -359,4 +359,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun goToNextItem() {}
 
     override fun launchViewVideoIntent(path: String) {}
+
+    override fun isSlideShowActive() = false
 }

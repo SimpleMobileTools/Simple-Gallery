@@ -1185,6 +1185,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return mIsSlideshowActive
     }
 
+    override fun isSlideShowActive() = mIsSlideshowActive
+
     override fun goToPrevItem() {
         view_pager.setCurrentItem(view_pager.currentItem - 1, false)
         checkOrientation()

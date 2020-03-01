@@ -31,6 +31,8 @@ abstract class ViewPagerFragment : Fragment() {
         fun goToNextItem()
 
         fun launchViewVideoIntent(path: String)
+
+        fun isSlideShowActive(): Boolean
     }
 
     fun getMediumExtendedDetails(medium: Medium): String {
