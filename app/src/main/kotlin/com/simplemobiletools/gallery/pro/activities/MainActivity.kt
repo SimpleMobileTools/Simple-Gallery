@@ -1155,7 +1155,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } else if (it.path != config.tempFolderPath) {
                 val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it?.isMediaFile() == true || (File(it!!).isDirectory && it.startsWith("img_", true))
+                    it != null && (it.isMediaFile() || (File(it).isDirectory && it.startsWith("img_", true)))
                 } ?: false
 
                 if (!hasMediaFile) {
