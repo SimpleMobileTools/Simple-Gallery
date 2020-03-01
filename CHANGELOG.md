@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.13.2 *(2020-03-01)*
+----------------------------
+
+ * Properly handle videos at slideshows
+ * Fixed some gestures during video playback
+ * Fixed a glitch with videos randomly restarting in some cases
+
 Version 6.13.1 *(2020-02-28)*
 ----------------------------
 
