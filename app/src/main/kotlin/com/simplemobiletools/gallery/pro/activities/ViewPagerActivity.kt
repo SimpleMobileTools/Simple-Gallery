@@ -1104,7 +1104,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {
         val media = thumbnailItems.asSequence().filter { it is Medium && !mIgnoredPaths.contains(it.path) }.map { it as Medium }.toMutableList() as ArrayList<Medium>
-        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
+        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode || (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true) {
             return
         }
 

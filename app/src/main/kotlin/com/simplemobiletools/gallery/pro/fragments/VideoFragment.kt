@@ -44,7 +44,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mWasFragmentInit = false
     private var mIsPanorama = false
     private var mIsFragmentVisible = false
-    private var mIsPlaying = false
     private var mIsDragged = false
     private var mWasVideoStarted = false
     private var mWasPlayerInited = false
@@ -55,6 +54,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mDuration = 0
     private var mPositionWhenInit = 0
     private var mPositionAtPause = 0L
+    var mIsPlaying = false
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(1, 1)
