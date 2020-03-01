@@ -140,7 +140,7 @@ abstract class ViewPagerFragment : Fragment() {
                 val diffY = mTouchDownY - event.y
 
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
+                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && context?.config?.allowDownGesture == true) {
                     activity?.supportFinishAfterTransition()
                 }
                 mIgnoreCloseDown = false

@@ -140,21 +140,18 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
             })
 
-            if (mConfig.allowDownGesture) {
-                video_preview.setOnTouchListener { view, event ->
+            video_preview.setOnTouchListener { view, event ->
+                handleEvent(event)
+                false
+            }
+
+            video_surface_frame.setOnTouchListener { view, event ->
+                if (video_surface_frame.controller.state.zoom == 1f) {
                     handleEvent(event)
-                    false
                 }
 
-                video_surface_frame.setOnTouchListener { view, event ->
-                    if (video_surface_frame.controller.state.zoom == 1f) {
-                        handleEvent(event)
-                    }
-
-                    gestureDetector.onTouchEvent(event)
-                    false
-                }
-
+                gestureDetector.onTouchEvent(event)
+                false
             }
         }
 
