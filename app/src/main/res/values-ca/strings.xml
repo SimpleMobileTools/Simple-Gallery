@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Fixar la data de presa</string>
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">No s\’han trobat valors presos per data</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
     <string name="upgraded_from_free">Hola,\n\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó "Actualitza a Pro" a la part superior de la configuració de l’aplicació.\nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablirla configuració de la vostra aplicació.\n\nGràcies!</string>
     <string name="switch_to_file_search">Canvia a la cerca de fitxers a totes les carpetes visibles</string>
@@ -83,7 +83,7 @@
     <string name="path">Ruta</string>
     <string name="invalid_image_path">Ruta de imatge no vàlida</string>
     <string name="image_editing_failed">Ha fallat la edició de la imatge</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">S\'ha cancel·lat l\'edició de la imatge</string>
     <string name="file_edited_successfully">Fitxer editar satisfactoriament</string>
     <string name="edit_image_with">Editar imatge utilitzant:</string>
     <string name="no_editor_found">No s’ha trobat cap editor d’imatges</string>
