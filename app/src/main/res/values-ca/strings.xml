@@ -83,7 +83,7 @@
     <string name="path">Ruta</string>
     <string name="invalid_image_path">Ruta de imatge no vàlida</string>
     <string name="image_editing_failed">Ha fallat la edició de la imatge</string>
-    <string name="image_editing_cancelled">S'ha cancel·lat l\'edició de la imatge</string>
+    <string name="image_editing_cancelled">S\'ha cancel·lat l\'edició de la imatge</string>
     <string name="file_edited_successfully">Fitxer editar satisfactoriament</string>
     <string name="edit_image_with">Editar imatge utilitzant:</string>
     <string name="no_editor_found">No s’ha trobat cap editor d’imatges</string>
