@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Fijar fecha de toma</string>
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">No se han encontrado valores de fechas tomadas</string>
     <string name="share_resized">Comparte una versión redimensionada</string>
     <string name="upgraded_from_free">Oye,\n\nParece que actualizaste de la aplicación gratuita vieja. Ahora puedes desinstalar la versión vieja, que tiene un botón \'Actualizar a Pro\' en la aprte superior de los ajustes de la app.\n\nSolo tendrás los elementos de la Papelera de Reciclaje eliminados, favoritos desmarcados y también tendrás que reiniciar los ajustes de la app.\n\n¡Gracias!</string>
     <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
@@ -83,7 +83,7 @@
     <string name="path">Ruta</string>
     <string name="invalid_image_path">Ruta de imagen no válida</string>
     <string name="image_editing_failed">Falló la edición de imagen</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">Edición de imagen cancelada</string>
     <string name="file_edited_successfully">Fichero editado satisfactoriamente</string>
     <string name="edit_image_with">Editar imagen usando:</string>
     <string name="no_editor_found">No se encontró editor de imágenes</string>
