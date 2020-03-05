@@ -20,7 +20,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     if (file.name.startsWith("img_", true)) {
         val files = file.list()
         if (files != null) {
-            if (files.any { it.contains("portrait", true) && it.contains("burst", true) }) {
+            if (files.any { it.contains("burst", true) }) {
                 return false
             }
         }
