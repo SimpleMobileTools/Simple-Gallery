@@ -19,3 +19,5 @@ indent_style = space
 indent_size = 4
 continuation_indent_size = 8
 
+[*.xml]
+continuation_indent_size = 4
