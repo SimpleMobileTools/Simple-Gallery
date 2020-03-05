@@ -475,6 +475,14 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_ROTATING_WITH_GESTURES, true)
         set(allowRotatingWithGestures) = prefs.edit().putBoolean(ALLOW_ROTATING_WITH_GESTURES, allowRotatingWithGestures).apply()
 
+    var lastEditorDrawColor: Int
+        get() = prefs.getInt(LAST_EDITOR_DRAW_COLOR, primaryColor)
+        set(lastEditorDrawColor) = prefs.edit().putInt(LAST_EDITOR_DRAW_COLOR, lastEditorDrawColor).apply()
+
+    var lastEditorBrushSize: Int
+        get() = prefs.getInt(LAST_EDITOR_BRUSH_SIZE, 50)
+        set(lastEditorBrushSize) = prefs.edit().putInt(LAST_EDITOR_BRUSH_SIZE, lastEditorBrushSize).apply()
+
     var showNotch: Boolean
         get() = prefs.getBoolean(SHOW_NOTCH, true)
         set(showNotch) = prefs.edit().putBoolean(SHOW_NOTCH, showNotch).apply()
