@@ -122,8 +122,8 @@
     <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
     <string name="animation">Animasyon</string>
     <string name="no_animation">Hiçbiri</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="fade">Karart</string>
+    <string name="slide">Kaydır</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
 
@@ -369,7 +369,7 @@
         <b>Tüm Basit Araçlar paketini buradan inceleyin:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>Basit Galeri Pro'nun bağımsız web sitesi:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
