@@ -44,7 +44,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mWasFragmentInit = false
     private var mIsPanorama = false
     private var mIsFragmentVisible = false
-    private var mIsPlaying = false
     private var mIsDragged = false
     private var mWasVideoStarted = false
     private var mWasPlayerInited = false
@@ -55,6 +54,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mDuration = 0
     private var mPositionWhenInit = 0
     private var mPositionAtPause = 0L
+    var mIsPlaying = false
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(1, 1)
@@ -140,21 +140,18 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
             })
 
-            if (mConfig.allowDownGesture) {
-                video_preview.setOnTouchListener { view, event ->
+            video_preview.setOnTouchListener { view, event ->
+                handleEvent(event)
+                false
+            }
+
+            video_surface_frame.setOnTouchListener { view, event ->
+                if (video_surface_frame.controller.state.zoom == 1f) {
                     handleEvent(event)
-                    false
                 }
 
-                video_surface_frame.setOnTouchListener { view, event ->
-                    if (video_surface_frame.controller.state.zoom == 1f) {
-                        handleEvent(event)
-                    }
-
-                    gestureDetector.onTouchEvent(event)
-                    false
-                }
-
+                gestureDetector.onTouchEvent(event)
+                false
             }
         }
 
@@ -350,7 +347,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
         mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
-        if (mConfig.loopVideos) {
+        if (mConfig.loopVideos && listener?.isSlideShowActive() == false) {
             mExoPlayer?.repeatMode = Player.REPEAT_MODE_ONE
         }
 
@@ -546,6 +543,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun doSkip(forward: Boolean) {
+        if (mExoPlayer == null) {
+            return
+        }
+
         val curr = mExoPlayer!!.currentPosition
         val newProgress = if (forward) curr + FAST_FORWARD_VIDEO_MS else curr - FAST_FORWARD_VIDEO_MS
         val roundProgress = Math.round(newProgress / 1000f)
@@ -721,9 +722,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        mSeekBar.progress = mSeekBar.max
-        mCurrTimeView.text = mDuration.getFormattedDuration()
-        pauseVideo()
+        if (listener?.videoEnded() == false && mConfig.loopVideos) {
+            playVideo()
+        } else {
+            mSeekBar.progress = mSeekBar.max
+            mCurrTimeView.text = mDuration.getFormattedDuration()
+            pauseVideo()
+        }
     }
 
     private fun cleanup() {
