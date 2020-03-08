@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.13.4 *(2020-03-08)*
+----------------------------
+
+ * Fixed some hiding, excluding and including related glitches
+ * Flipped Pin and Properties icons at the top menu for better user experience
+ * Avoid showing Portrait image folders at the main folders screen
+
 Version 6.13.3 *(2020-03-01)*
 ----------------------------
 
