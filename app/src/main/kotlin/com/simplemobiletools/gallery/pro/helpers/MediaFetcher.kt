@@ -56,7 +56,7 @@ class MediaFetcher(val context: Context) {
             val filterMedia = context.config.filterMedia
             val uri = MediaStore.Files.getContentUri("external")
             val projection = arrayOf(MediaStore.Images.Media.DATA)
-            val selection = "${getSelectionQuery(filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
+            val selection = getSelectionQuery(filterMedia)
             val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
             folders.addAll(parseCursor(cursor!!))
@@ -96,7 +96,6 @@ class MediaFetcher(val context: Context) {
 
     private fun getSelectionQuery(filterMedia: Int): String {
         val query = StringBuilder()
-        query.append("(")
         if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
@@ -128,9 +127,7 @@ class MediaFetcher(val context: Context) {
             query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
         }
 
-        var selectionQuery = query.toString().trim().removeSuffix("OR")
-        selectionQuery += ") AND "
-        return selectionQuery
+        return query.toString().trim().removeSuffix("OR")
     }
 
     private fun getSelectionArgsQuery(filterMedia: Int): ArrayList<String> {
@@ -174,7 +171,7 @@ class MediaFetcher(val context: Context) {
         val config = context.config
         val includedFolders = config.includedFolders
         val OTGPath = config.OTGPath
-        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it, OTGPath) }.toMutableList() as ArrayList
+        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it, OTGPath) }.toHashSet()
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -194,11 +191,11 @@ class MediaFetcher(val context: Context) {
 
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
-        foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
+        foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) }.toHashSet()
         return foldersToScan.distinctBy { it.getDistinctPath() }.toMutableSet() as LinkedHashSet<String>
     }
 
-    private fun addFolder(curFolders: ArrayList<String>, folder: String) {
+    private fun addFolder(curFolders: HashSet<String>, folder: String) {
         curFolders.add(folder)
         val files = File(folder).listFiles() ?: return
         for (file in files) {
