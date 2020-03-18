@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Виправити дату зйомки</string>
     <string name="fixing">Виправлення…</string>
     <string name="dates_fixed_successfully">Дати успішно виправлені</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
     <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
     <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
@@ -82,6 +83,7 @@
     <string name="path">Шлях</string>
     <string name="invalid_image_path">Неприпустимий шлях до зображення</string>
     <string name="image_editing_failed">Не вдалося редагувати зображення</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Редагувати зображення за допомогою:</string>
     <string name="no_editor_found">Не знайдено редакторів зображень</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Як зробити альбом завжди доступним у верхній частині?</string>
     <string name="faq_3_text">Ви можете виконати довге натискання на бажаному альбомі і вибрати піктограму \"Закріпити\" у меню дій, що закріпить його вгорі. Ви також можете закріпити декілька тек; закріплені елементи будуть відсортовані за методом сортування за-замовчуванням.</string>
     <string name="faq_4_title">Як я можу швидко прокручувати відео?</string>
-    <string name="faq_4_text">Ви можете або провести пальцем горизонтально під час відтворення відео, або натиснути на текст поточної або максимальної тривалості відео біля прогрес-бару, що прокрутить відео або назад, або вперед.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">В чому полягає різниця між приховуванням та виключенням теки?</string>
     <string name="faq_5_text">\"Виключити\" запобігає відображенню теки тільки в додатку Simple Gallery, в той час як \"Приховати\" працює на системному рівні і приховує теку і в інших галереях також. Це здійснюється шляхом створення порожнього файлу \".nomedia\" в заданій теці, який може бути видалений пізніше будь-яким файловим менеджером.</string>
     <string name="faq_6_title">Чому відображаються теки з музичними обкладинками або стікерами?</string>
@@ -366,6 +368,9 @@
 
         <b>Перегляньте повний набір додатків Simple Tools тут:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

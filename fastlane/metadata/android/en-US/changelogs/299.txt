@@ -1,0 +1,4 @@
+ * Fixed some hiding, excluding and including related glitches
+ * Flipped Pin and Properties icons at the top menu for better user experience
+ * Avoid showing Portrait image folders at the main folders screen
+ * Reverted back to the old image editor in the FOSS app version

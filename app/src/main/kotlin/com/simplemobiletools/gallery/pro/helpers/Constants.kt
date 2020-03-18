@@ -73,6 +73,8 @@ const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
 const val ALLOW_ROTATING_WITH_GESTURES = "allow_rotating_with_gestures"
+const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
+const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 const val SHOW_NOTCH = "show_notch"
 const val FILE_LOADING_PRIORITY = "file_loading_priority"
 const val SPAM_FOLDERS_CHECKED = "spam_folders_checked"
@@ -118,6 +120,7 @@ const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000
 const val HIDE_SYSTEM_UI_DELAY = 500L
 const val MAX_PRINT_SIDE_SIZE = 4096
+const val FAST_FORWARD_VIDEO_MS = 10000
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

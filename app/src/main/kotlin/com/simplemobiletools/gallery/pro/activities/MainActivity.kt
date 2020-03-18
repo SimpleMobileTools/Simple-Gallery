@@ -73,6 +73,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
+    private var mLastMediaFetcher: MediaFetcher? = null
     private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
@@ -245,6 +246,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             unregisterFileUpdateListener()
 
             if (!config.showAll) {
+                mLastMediaFetcher?.shouldStop = true
                 GalleryDatabase.destroyInstance()
             }
         }
@@ -470,7 +472,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
             directories_grid.adapter = null
-            if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
+            if (config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.directorySorting and SORT_BY_DATE_TAKEN != 0) {
                 getDirectories()
             } else {
                 ensureBackgroundThread {
@@ -881,33 +883,44 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         // cached folders have been loaded, recheck folders one by one starting with the first displayed
-        val mediaFetcher = MediaFetcher(applicationContext)
+        mLastMediaFetcher?.shouldStop = true
+        mLastMediaFetcher = MediaFetcher(applicationContext)
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
         val tempFolderPath = config.tempFolderPath
-        val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
-        val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
 
         try {
             for (directory in dirs) {
-                if (mShouldStopFetching) {
+                if (mShouldStopFetching || isDestroyed || isFinishing) {
                     return
                 }
 
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+                val sorting = config.getFileSorting(directory.path)
+                val grouping = config.getFolderGrouping(directory.path)
+                val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                        sorting and SORT_BY_DATE_TAKEN != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+                val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+                val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
                         dirPathsToRemove.add(directory.path)
                     }
                     directory
                 } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
@@ -923,6 +936,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     taken = newDir.taken
                     this@apply.size = newDir.size
                     types = newDir.types
+                    sortValue = getDirectorySortingValue(curMedia, path, name, size)
                 }
 
                 setupAdapter(dirs)
@@ -955,7 +969,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (ignored: Exception) {
         }
 
-        val foldersToScan = mediaFetcher.getFoldersToScan()
+        val foldersToScan = mLastMediaFetcher!!.getFoldersToScan()
         foldersToScan.add(FAVORITES)
         if (config.showRecycleBinAtFolders) {
             foldersToScan.add(RECYCLE_BIN)
@@ -969,11 +983,23 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         // check the remaining folders which were not cached at all yet
         for (folder in foldersToScan) {
-            if (mShouldStopFetching) {
+            if (mShouldStopFetching || isDestroyed || isFinishing) {
                 return
             }
 
-            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+            val sorting = config.getFileSorting(folder)
+            val grouping = config.getFolderGrouping(folder)
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                    sorting and SORT_BY_DATE_TAKEN != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+            val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+            val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
             if (newMedia.isEmpty()) {
                 continue
             }
@@ -987,7 +1013,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
 
-            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
             try {
@@ -1129,7 +1155,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } else if (it.path != config.tempFolderPath) {
                 val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it?.isMediaFile() == true || (File(it!!).isDirectory && it.startsWith("img_", true))
+                    it != null && (it.isMediaFile() || (File(it).isDirectory && it.startsWith("img_", true)))
                 } ?: false
 
                 if (!hasMediaFile) {
@@ -1289,6 +1315,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(225, R.string.release_225))
             add(Release(258, R.string.release_258))
             add(Release(277, R.string.release_277))
+            add(Release(295, R.string.release_295))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

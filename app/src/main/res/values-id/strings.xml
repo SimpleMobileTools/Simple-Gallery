@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
     <string name="fixing">Memperbaiki…</string>
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
     <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
     <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
@@ -82,6 +83,7 @@
     <string name="path">Jalur</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Sunting gambar dengan:</string>
     <string name="no_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Bagaimana agar album selalu muncul paling atas di dalam daftar?</string>
     <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, hal tersebut akan membuat album tetap berada di bagian paling atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
     <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
-    <string name="faq_4_text">Anda bisa menyeret jari anda secara horizontal pada pemutar video, atau klik pada teks durasi saat ini atau maks dekat bilah laju. Hal tersebut akan memundurkan atau memajukan laju video.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
     <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery saja, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder dari aplikasi galeri yang lain. Cara kerjanya dengan membuat berkas \".nomedia\" kosong pada folder yang diinginkan, yang bisa anda hapus juga dengan aplikasi pengelola berkas.</string>
     <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>
@@ -366,6 +368,9 @@
 
         <b>Lihat semua aplikasi Simple Tools di sini:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

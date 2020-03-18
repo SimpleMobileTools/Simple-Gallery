@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Поправи вредност за датум креирања</string>
     <string name="fixing">Исправљам…</string>
     <string name="dates_fixed_successfully">Датуми успешно исправљени</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Подели верзију са промењеним димензијама</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Стаза</string>
     <string name="invalid_image_path">Неисправна стаза слике</string>
     <string name="image_editing_failed">Измена слике неуспешна</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Измени слику са:</string>
     <string name="no_editor_found">Није пронађен едитор слика</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Како да подесим да се неки албум увек појављује на врху?</string>
     <string name="faq_3_text">Дуго притисните на жељени албум и изаберите Закачи икону у менију за акције, то ће га поставити на врх. Можете да закачите више фасцикли истовремено, с тим што ће бити сортирани према подразумевајућем методу за сортирање.</string>
     <string name="faq_4_title">Како да премотавам видео снимке?</string>
-    <string name="faq_4_text">Можете да вучете прст хоризонтално преко видео плејера, или да кликнете на тренутно или максимално поред траке за премотавање. То ће премотати видео назад или напред.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле?</string>
     <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером.</string>
     <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују?</string>
@@ -366,6 +368,9 @@
 
         <b>Погледајте цео пакет Simple Tools овде:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Фејсбук:</b>
         https://www.facebook.com/simplemobiletools

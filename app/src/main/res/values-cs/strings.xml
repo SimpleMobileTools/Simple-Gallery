@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Opravit datum vytvoření</string>
     <string name="fixing">Opravuji…</string>
     <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Sdílet verzi se změněnou velikostí</string>
     <string name="upgraded_from_free">Zdravím,\n\nzdá se, že jste přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.\n\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.\n\nDěkuji!</string>
     <string name="switch_to_file_search">Přepnout na vyhledávání souborů ve všech viditelných složkách</string>
@@ -82,6 +83,7 @@
     <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava souboru selhala</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">Soubor byl úspěšně upraven</string>
     <string name="edit_image_with">Upravit soubor pomocí:</string>
     <string name="no_editor_found">Nebyl nalezen žádný editor</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Jak mohu dosáhnout, aby bylo dané album stále zobrazeno jako první?</string>
     <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to ji připne nahoru. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
     <string name="faq_4_title">Jak mohu video posunout vpřed?</string>
-    <string name="faq_4_text">Můžete toho dosáhnout buď tažením prstu vodorovně přes okno přehrávače nebo klepnutím na text aktuální či celkové délky videa, který najdete po bocích indikátoru aktuální pozice. To posune video buď zpět nebo vpřed.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
     <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
@@ -366,6 +368,9 @@
 
         <b>Prohlédněte si celou sadu Jednoduchých aplikací na:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

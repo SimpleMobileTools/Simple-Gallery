@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Datum opname corrigeren</string>
     <string name="fixing">Corrigeren…</string>
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
+    <string name="no_date_takens_found">Geen opnamedatums gevonden</string>
     <string name="share_resized">Verkleinde versie delen</string>
     <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \"Upgraden naar Pro\" bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
     <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
@@ -82,6 +83,7 @@
     <string name="path">Pad</string>
     <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
     <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
+    <string name="image_editing_cancelled">Afbeelding bewerken is geannuleerd</string>
     <string name="file_edited_successfully">Wijzigingen zijn opgeslagen</string>
     <string name="edit_image_with">Afbeelding bewerken met:</string>
     <string name="no_editor_found">Geen app gevonden voor fotobewerking</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
-    <string name="faq_4_text">Sleep horizontaal over de videospeler, of klik bij de zoekbalk op de cijfers die de huidige voortgang of de lengte weergeven. Hierbij zal de video respectievelijk terug- of vooruitspringen.</string>
+    <string name="faq_4_text">Dubbelklik op de zijkant van het scherm, of tik op de cijfers die de voortgang of de lengte van de video weergeven om resp. terug of vooruit te springen. Als de instelling om video\'s in een apart scherm te openen is ingeschakeld, dan kunnen ook horizontale veeggebaren worden gebruikt.</string>
     <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
     <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan).</string>
     <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>
@@ -366,6 +368,9 @@
 
         <b>Kijk ook eens naar de hele collectie apps van Simple Tools:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

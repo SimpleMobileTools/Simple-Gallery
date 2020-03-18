@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Share a resized version</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Ruta</string>
     <string name="invalid_image_path">Ruta a imaxe non válida</string>
     <string name="image_editing_failed">Fallo na edición da imaxe</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Editar imaxe con:</string>
     <string name="no_editor_found">Non se atopou ningún editor</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Cómo podo facer que un álbume apareza sempre arriba de todo?</string>
     <string name="faq_3_text">Pode manter premido o álbume e escoller a icona de Fixar no menú de accións, esto fixarao arriba. Pode fixar varios cartafoles tambén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
     <string name="faq_4_title">Cómo podo aumentar a velocidade de reprodución de vídeo?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
     <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros.</string>
     <string name="faq_6_title">Por qué aparecen cartafoles de música con portadas ou pegatinas?</string>
@@ -366,6 +368,9 @@
 
         <b>Check out the full suite of Simple Tools here:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

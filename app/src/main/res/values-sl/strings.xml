@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
     <string name="upgraded_from_free">Živjo,\n\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.\n\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.\n\nHvala!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Pot</string>
     <string name="invalid_image_path">Napačna pot</string>
     <string name="image_editing_failed">Urejanje slike ni uspelo</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Uredi sliko z:</string>
     <string name="no_editor_found">Ne najdem urejevalnika slik</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
-    <string name="faq_4_text">To lahko storite tako, da s prstom vodoravno potegnete čez predvajalnik ali kliknete na izpis trenutnega oz. skupnega trajanja, kar bo videoposnetek premaknilo naprej ali nazaj.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
@@ -366,6 +368,9 @@
 
         <b>Check out the full suite of Simple Tools here:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

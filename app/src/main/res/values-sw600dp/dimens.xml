@@ -5,6 +5,5 @@
     <dimen name="sd_card_icon_size">30dp</dimen>
     <dimen name="selection_check_size">38dp</dimen>
     <dimen name="tmb_shadow_height">70dp</dimen>
-    <dimen name="instant_change_bar_width">100dp</dimen>
     <dimen name="lock_padding">80dp</dimen>
 </resources>

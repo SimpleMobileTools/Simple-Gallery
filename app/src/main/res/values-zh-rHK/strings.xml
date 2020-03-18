@@ -31,6 +31,7 @@
     <string name="fix_date_taken">修復拍照日期數值</string>
     <string name="fixing">修復中…</string>
     <string name="dates_fixed_successfully">日期修復成功</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">分享調整大小的版本</string>
     <string name="upgraded_from_free">嘿\n\n你似乎從舊版免費應用程式升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。\n\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。\n\n感謝!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">路徑</string>
     <string name="invalid_image_path">無效的圖片路徑</string>
     <string name="image_editing_failed">圖片編輯失敗</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">編輯圖片:</string>
     <string name="no_editor_found">找不到圖片編輯器</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
     <string name="faq_3_text">你可以長按想要的相冊，然後在操作選單中選擇[圖釘]圖示，就會釘選於頂端。你也能釘選多個資料夾，釘選的項目會依預設的排序方法來排序。</string>
     <string name="faq_4_title">我如何快轉影片?</string>
-    <string name="faq_4_text">你可以在影片播放器上水平滑動你的手指，或者點擊進度條附近的當前或總時長文字。這會使影片快轉或倒轉。</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
     <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。</string>
     <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
@@ -366,6 +368,9 @@
 
         <b>於此查看簡易工具系列全套:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

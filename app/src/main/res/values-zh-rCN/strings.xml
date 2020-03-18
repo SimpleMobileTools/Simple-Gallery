@@ -31,6 +31,7 @@
     <string name="fix_date_taken">修复拍摄日期</string>
     <string name="fixing">正在修复…</string>
     <string name="dates_fixed_successfully">日期修复成功</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">调整尺寸并分享</string>
     <string name="upgraded_from_free">嘿，\n\n你似乎已经从旧的免费版应用升级。你现在可以卸载旧版本，在该版本的应用设置顶部有一个“升级到专业版”按钮。\n\n此操作会删除回收站项目，取消标记收藏项目，并重置应用设置。\n\n谢谢！</string>
     <string name="switch_to_file_search">切换文件搜索范围为所有可见的文件夹</string>
@@ -82,6 +83,7 @@
     <string name="path">路径</string>
     <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">编辑方式：</string>
     <string name="no_editor_found">没有找到图片编辑器</string>
@@ -291,7 +293,7 @@
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
     <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
-    <string name="faq_4_text">只需在视频播放器上左右滑动，或点击底栏进度条两侧的时间文本，即可前进或后退视频。</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
@@ -364,6 +366,9 @@
 
         <b>查看简约系列的所有应用:</b>
         https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

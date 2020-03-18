@@ -7,9 +7,9 @@ import com.simplemobiletools.commons.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
 
-fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { startsWith(it, true) }
+fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { equals(it, true) } || includedPaths.any { "$this/".startsWith("$it/", true) }
 
-fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { startsWith(it, true) }
+fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
 
 fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
     if (isEmpty()) {
@@ -20,7 +20,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     if (file.name.startsWith("img_", true)) {
         val files = file.list()
         if (files != null) {
-            if (files.any { it.contains("portrait", true) && it.contains("burst", true) }) {
+            if (files.any { it.contains("burst", true) }) {
                 return false
             }
         }
@@ -32,7 +32,12 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
         return true
     }
 
-    val containsNoMedia = if (showHidden) false else File(this, NOMEDIA).exists()
+    val containsNoMedia = if (showHidden) {
+        false
+    } else {
+        File(this, NOMEDIA).exists()
+    }
+
     return if (!showHidden && containsNoMedia) {
         false
     } else if (excludedPaths.contains(this)) {

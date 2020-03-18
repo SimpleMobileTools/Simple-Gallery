@@ -1,6 +1,66 @@
 Changelog
 ==========
 
+Version 6.13.4 *(2020-03-08)*
+----------------------------
+
+ * Fixed some hiding, excluding and including related glitches
+ * Flipped Pin and Properties icons at the top menu for better user experience
+ * Avoid showing Portrait image folders at the main folders screen
+
+Version 6.13.3 *(2020-03-01)*
+----------------------------
+
+ * Avoid showing the "No Date Takens found" error in some cases
+
+Version 6.13.2 *(2020-03-01)*
+----------------------------
+
+ * Properly handle videos at slideshows
+ * Fixed some gestures during video playback
+ * Fixed a glitch with videos randomly restarting in some cases
+
+Version 6.13.1 *(2020-02-28)*
+----------------------------
+
+ * Adding a quick crashfix
+
+Version 6.13.0 *(2020-02-28)*
+----------------------------
+
+ * Allow fast forwarding videos by double clicking on screen sides
+ * Fixed an issue with the  editor producing low quality outputs in some cases
+ * Improve some error messages, make them clearer
+ * Many translation and stability improvements
+
+Version 6.12.5 *(2020-02-12)*
+----------------------------
+
+ * Fixed some sorting related glitches
+ * Keep the old last modified value at file editing
+
+Version 6.12.4 *(2020-02-11)*
+----------------------------
+
+ * Fixed some folder sorting related glitches
+
+Version 6.12.3 *(2020-02-10)*
+----------------------------
+
+ * Fixed image disappearing at using the Editor
+ * Properly copy over EXIF values after editing an image
+
+Version 6.12.2 *(2020-02-10)*
+----------------------------
+
+ * Fixed some sorting and thumbnail related issues
+
+Version 6.12.1 *(2020-02-10)*
+----------------------------
+
+ * Improved the performance of the initial screen loading
+ * Fixed some editor related glitches
+
 Version 6.12.0 *(2020-01-28)*
 ----------------------------
 

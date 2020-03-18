@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Share a resized version</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -82,6 +83,7 @@
     <string name="path">Path</string>
     <string name="invalid_image_path">Invalid image path</string>
     <string name="image_editing_failed">Image editing failed</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="edit_image_with">Edit image with:</string>
     <string name="no_editor_found">No image editor found</string>
@@ -291,8 +293,8 @@
     <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_title">How can I fast forward videos?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>

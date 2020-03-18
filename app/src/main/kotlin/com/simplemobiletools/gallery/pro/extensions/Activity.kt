@@ -80,7 +80,7 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or
-            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_GESTURE_VIEWS
+            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS
 
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
@@ -156,13 +156,10 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     } else {
         try {
             file.createNewFile()
-            applicationContext.scanFileRecursively(file) {
-                callback()
-            }
         } catch (e: Exception) {
             showErrorToast(e)
-            callback()
         }
+        callback()
     }
 }
 
@@ -451,6 +448,17 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)
                 }
+            }
+
+            if (!didUpdateFile) {
+                if (showToasts) {
+                    toast(R.string.no_date_takens_found)
+                }
+
+                runOnUiThread {
+                    callback?.invoke()
+                }
+                return@ensureBackgroundThread
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size

@@ -30,7 +30,8 @@
     <string name="use_default_orientation">Použiť predvolenú orientáciu</string>
     <string name="fix_date_taken">Opraviť dátum vytvorenia</string>
     <string name="fixing">Opravuje sa…</string>
-    <string name="dates_fixed_successfully">Dátumy boli úspešne opravené</string>
+    <string name="dates_fixed_successfully">Dátumy vytvorenia boli úspešne opravené</string>
+    <string name="no_date_takens_found">Nenašli sa žiadne dátumy vytvorenia</string>
     <string name="share_resized">Zdieľať verziu so zmenenou veľkosťou</string>
     <string name="upgraded_from_free">Zdravím,\n\nvyzerá to tak, že ste zo starej bezplatnej apky prešlie na novú, platenú. Starú apku, ktorá má na vrchu nastavení tlačidlo \'Stiahnuť Pro verziu\', môžete už odinštalovať.\n\nStratíte tým iba súbory v odpadkovom koši, obľúbené položky budú odznačené a tiež si budete musieť opäť nastaviť položky v nastaveniach aplikácie.\n\nVďaka!</string>
     <string name="switch_to_file_search">Prepnúť na vyhľadávanie súborov vo všetkých viditeľných priečinkoch</string>
@@ -82,6 +83,7 @@
     <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava súboru zlyhala</string>
+    <string name="image_editing_cancelled">Úprava súboru bola zrušená</string>
     <string name="file_edited_successfully">Súbor bol úspešne upravený</string>
     <string name="edit_image_with">Upraviť súbor s:</string>
     <string name="no_editor_found">Nebol nájdený žiadny editor</string>
@@ -182,7 +184,7 @@
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
     <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
     <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
-    <string name="open_videos_on_separate_screen">Vždy otvárať videá na vlastnej obrazovke s novými vodorovnými gestami</string>
+    <string name="open_videos_on_separate_screen">Vždy otvárať videá na novej obrazovke s novými vodorovnými gestami</string>
     <string name="show_notch">Zobraziť výrez obrazovky, ak je dostupný</string>
     <string name="allow_rotating_gestures">Povoliť otáčanie obrázkov gestami</string>
     <string name="file_loading_priority">Priorita pri načítavaní súborov</string>
@@ -291,8 +293,8 @@
     <string name="faq_2_text">Viete to vyriešǐť 2 spôsobmi. Môžete apku buď preinštalovať, alebo ju nájsť v nastaveniach zariadenia a zvoliť \"Vymazať údaje\". Vymaže to iba nastavenia, nie súbory.</string>
     <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý?</string>
     <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
-    <string name="faq_4_title">Ako viem posunúť video vpred?</string>
-    <string name="faq_4_text">Môžete to dosiahnuť vodorovným potiahnutím prsta cez video prehrávač, alebo kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
+    <string name="faq_4_title">Ako viem posunúť video rýchlo vpred?</string>
+    <string name="faq_4_text">Viete to dosiahnuť dvojitým kliknutím na boky obrazovky, alebo kliknutím na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. Ak v nastaveniach apky zapnete možnosť spúšťania videí na novej obrazovke, budete môcť použiť aj vodorovné gestá.</string>
     <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
     <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
     <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
@@ -366,6 +368,9 @@
 
         <b>Pozrite si celú sadu aplikácií na:</b>
         https://www.simplemobiletools.com
+
+        <b>Vlastná stránka Jednoduchej Galérie Pro:</b>
+        https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
         https://www.facebook.com/simplemobiletools

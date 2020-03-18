@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Sửa giá trị ngày chụp</string>
     <string name="fixing">Đang sửa…</string>
     <string name="dates_fixed_successfully">Sửa ngày thành công</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Chia sẻ phiên bản đã thay đổi kích thước</string>
     <string name="upgraded_from_free">Xin chào, có vẻ như bạn đã nâng cấp từ ứng dụng miễn phí cũ. Giờ đây, bạn có thể gỡ cài đặt phiên bản cũ có nút \'Nâng cấp lên Pro\' ở đầu Cài đặt ứng dụng. \n\nBạn sẽ chỉ xóa các mục Thùng rác, các mục yêu thích không được đánh dấu và bạn cũng sẽ phải đặt lại cài đặt ứng dụng của bạn.\n\nCảm ơn!</string>
     <string name="switch_to_file_search">Chuyển sang tìm kiếm tệp trên tất cả các thư mục hiển thị</string>
@@ -82,6 +83,7 @@
     <string name="path">Đường dẫn</string>
     <string name="invalid_image_path">Đường dẫn hình ảnh không hợp lệ</string>
     <string name="image_editing_failed">Thất bại</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="file_edited_successfully">Tập tin được chỉnh sửa thành công</string>
     <string name="edit_image_with">Chỉnh sửa hình ảnh với:</string>
     <string name="no_editor_found">Không tìm thấy trình chỉnh sửa hình ảnh</string>
@@ -292,7 +294,7 @@
     <string name="faq_3_title">Làm thế nào tôi có thể làm cho một album luôn xuất hiện ở đầu?</string>
     <string name="faq_3_text">Bạn có thể nhấn và giữ album mong muốn và chọn biểu tượng Ghim ở menu hành động, nó sẽ ghim nó lên trên cùng. Bạn cũng có thể ghim nhiều thư mục, các mục được ghim sẽ được sắp xếp theo phương pháp sắp xếp mặc định.</string>
     <string name="faq_4_title">Làm cách nào tôi có tua video nhanh?</string>
-    <string name="faq_4_text">Bạn có thể kéo ngón tay của mình theo chiều ngang trên trình phát video hoặc nhấp vào văn bản thời lượng hiện tại hoặc tối đa gần thanh tìm kiếm. Điều đó sẽ di chuyển video hoặc lùi hoặc tiến.</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Sự khác biệt giữa ẩn và loại trừ một thư mục là gì?</string>
     <string name="faq_5_text">Loại trừ ngăn chỉ hiển thị thư mục trong Thư viện đơn giản, trong khi Ẩn hoạt động theo hệ thống và nó cũng ẩn thư mục khỏi các phòng trưng bày khác. Nó hoạt động bằng cách tạo một tệp \".nomedia\" trong thư mục đã cho, sau đó bạn cũng có thể xóa bằng bất kỳ trình quản lý tệp nào.</string>
     <string name="faq_6_title">Tại sao hiển thị các thư mục với ảnh bìa  hoặc nhãn dán?</string>
