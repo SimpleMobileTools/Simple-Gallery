@@ -77,6 +77,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var mIsPanorama = false
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var mCurrentPortraitPhotoPath = ""
+    private var mOriginalPath = ""
     private var mImageOrientation = -1
     private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
@@ -99,6 +100,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         mMedium = arguments!!.getSerializable(MEDIUM) as Medium
+        mOriginalPath = mMedium.path
 
         mView.apply {
             subsampling_view.setOnClickListener { photoClicked() }
@@ -158,24 +160,23 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
-            val originalPath = mMedium.path
-            mMedium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: mMedium.path
+            mMedium.path = context!!.getRealPathFromURI(Uri.parse(mOriginalPath)) ?: mMedium.path
 
             if (mMedium.path.isEmpty()) {
                 var out: FileOutputStream? = null
                 try {
-                    var inputStream = context!!.contentResolver.openInputStream(Uri.parse(originalPath))
+                    var inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
                     val exif = ExifInterface()
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-                    inputStream = context!!.contentResolver.openInputStream(Uri.parse(originalPath))
+                    inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
                     exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
                     exif.removeCompressedThumbnail()
 
-                    val file = File(context!!.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
+                    val file = File(context!!.externalCacheDir, Uri.parse(mOriginalPath).lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
                     mMedium.path = file.absolutePath
@@ -444,7 +445,12 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception?) {}
+                override fun onError(e: Exception?) {
+                    if (mMedium.path != mOriginalPath) {
+                        mMedium.path = mOriginalPath
+                        loadImage()
+                    }
+                }
             })
         } catch (ignored: Exception) {
         }
