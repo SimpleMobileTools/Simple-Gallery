@@ -24,7 +24,6 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -63,15 +62,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         setContentView(R.layout.activity_video_player)
         setupOrientation()
         checkNotchSupport()
-
-        handlePermission(PERMISSION_WRITE_STORAGE) {
-            if (it) {
-                initPlayer()
-            } else {
-                toast(R.string.no_storage_permissions)
-                finish()
-            }
-        }
+        initPlayer()
     }
 
     override fun onResume() {
