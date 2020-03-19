@@ -10,13 +10,13 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 299
         versionName "6.13.4"
         multiDexEnabled true
@@ -96,9 +96,9 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    kapt 'androidx.room:room-compiler:2.2.2'
-    implementation 'androidx.room:room-runtime:2.2.2'
-    annotationProcessor 'androidx.room:room-compiler:2.2.2'
+    kapt 'androidx.room:room-compiler:2.2.4'
+    implementation 'androidx.room:room-runtime:2.2.4'
+    annotationProcessor 'androidx.room:room-compiler:2.2.4'
 }
 
 // Apply the PESDKPlugin
