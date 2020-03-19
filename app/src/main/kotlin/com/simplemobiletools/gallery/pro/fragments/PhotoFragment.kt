@@ -449,6 +449,7 @@ class PhotoFragment : ViewPagerFragment() {
                     if (mMedium.path != mOriginalPath) {
                         mMedium.path = mOriginalPath
                         loadImage()
+                        checkIfPanorama()
                     }
                 }
             })
