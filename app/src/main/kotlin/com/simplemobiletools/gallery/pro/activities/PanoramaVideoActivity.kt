@@ -13,7 +13,6 @@ import android.widget.SeekBar
 import com.google.vr.sdk.widgets.video.VrVideoEventListener
 import com.google.vr.sdk.widgets.video.VrVideoView
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
@@ -44,14 +43,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         supportActionBar?.hide()
 
         checkNotchSupport()
-        handlePermission(PERMISSION_WRITE_STORAGE) {
-            if (it) {
-                checkIntent()
-            } else {
-                toast(R.string.no_storage_permissions)
-                finish()
-            }
-        }
+        checkIntent()
     }
 
     override fun onResume() {
@@ -99,9 +91,14 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         try {
             val options = VrVideoView.Options()
             options.inputType = VrVideoView.Options.TYPE_MONO
+            val uri = if (path.startsWith("content://")) {
+                Uri.parse(path)
+            } else {
+                Uri.fromFile(File(path))
+            }
 
             vr_video_view.apply {
-                loadVideo(Uri.fromFile(File(path)), options)
+                loadVideo(uri, options)
                 pauseVideo()
 
                 setFlingingEnabled(true)
