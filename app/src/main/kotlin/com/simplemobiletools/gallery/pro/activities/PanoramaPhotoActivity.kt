@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -14,7 +15,6 @@ import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -48,14 +48,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
             explore.setImageResource(if (isExploreEnabled) R.drawable.ic_explore_vector else R.drawable.ic_explore_off_vector)
         }
 
-        handlePermission(PERMISSION_WRITE_STORAGE) {
-            if (it) {
-                checkIntent()
-            } else {
-                toast(R.string.no_storage_permissions)
-                finish()
-            }
-        }
+        checkIntent()
     }
 
     override fun onResume() {
@@ -144,7 +137,12 @@ open class PanoramaPhotoActivity : SimpleActivity() {
 
         for (i in 0..10) {
             try {
-                bitmap = BitmapFactory.decodeFile(path, options)
+                bitmap = if (path.startsWith("content://")) {
+                    val inputStream = contentResolver.openInputStream(Uri.parse(path))
+                    BitmapFactory.decodeStream(inputStream)
+                } else {
+                    BitmapFactory.decodeFile(path, options)
+                }
                 break
             } catch (e: OutOfMemoryError) {
                 options.inSampleSize *= 2
