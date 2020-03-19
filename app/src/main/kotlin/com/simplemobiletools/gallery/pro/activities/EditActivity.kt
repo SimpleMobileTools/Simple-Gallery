@@ -11,6 +11,7 @@ import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
@@ -27,7 +28,6 @@ import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
@@ -75,8 +75,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val CROP_ROTATE_NONE = 0
     private val CROP_ROTATE_ASPECT_RATIO = 1
 
-    private lateinit var uri: Uri
     private lateinit var saveUri: Uri
+    private var uri: Uri? = null
     private var resizeWidth = 0
     private var resizeHeight = 0
     private var drawColor = 0
@@ -90,6 +90,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var wasDrawCanvasPositioned = false
     private var oldExif: ExifInterface? = null
     private var filterInitialBitmap: Bitmap? = null
+    private var originalUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,14 +100,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        handlePermission(PERMISSION_WRITE_STORAGE) {
-            if (it) {
-                initEditActivity()
-            } else {
-                toast(R.string.no_storage_permissions)
-                finish()
-            }
-        }
+        initEditActivity()
     }
 
     override fun onResume() {
@@ -146,7 +140,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         uri = intent.data!!
-        if (uri.scheme != "file" && uri.scheme != "content") {
+        originalUri = uri
+        if (uri!!.scheme != "file" && uri!!.scheme != "content") {
             toast(R.string.unknown_file_location)
             finish()
             return
@@ -160,14 +155,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 else -> Uri.fromFile(File(realPath))
             }
         } else {
-            (getRealPathFromURI(uri))?.apply {
+            (getRealPathFromURI(uri!!))?.apply {
                 uri = Uri.fromFile(File(this))
             }
         }
 
         saveUri = when {
             intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
-            else -> uri
+            else -> uri!!
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
@@ -209,7 +204,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 .load(uri)
                 .apply(options)
                 .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                        if (uri != originalUri) {
+                            uri = originalUri
+                            Handler().post {
+                                loadDefaultImageView()
+                            }
+                        }
+                        return false
+                    }
 
                     override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                         val currentFilter = getFiltersAdapter()?.getCurrentFilter()
@@ -304,7 +307,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         var inputStream: InputStream? = null
         try {
             if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(uri)
+                inputStream = contentResolver.openInputStream(uri!!)
                 oldExif = ExifInterface(inputStream!!)
             }
         } catch (e: Exception) {
