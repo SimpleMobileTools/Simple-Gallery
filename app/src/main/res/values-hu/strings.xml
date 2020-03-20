@@ -19,8 +19,7 @@
 	<string name="reduce_column_count">Csökkentse az oszlopok számát</string>
 	<string name="change_cover_image">Borítókép változtatása</string>
 	<string name="select_photo">Válasszon fotót</string>
-	<string name="use_default">Alapértelmezett használata</string>
-	<string name="volume">Hangerő</string>
+    <string name="volume">Hangerő</string>
 	<string name="brightness">Fényerő</string>
 	<string name="lock_orientation">Tájolás zárolása</string>
 	<string name="unlock_orientation">Tájolás feloldása</string>
@@ -78,15 +77,13 @@
 	
 	<!-- Editor -->
 	<string name="editor">Szerkesztő</string>
-	<string name="save">Mentés</string>
-	<string name="rotate">Forgatás</string>
-	<string name="path">Elérési útvonal</string>
-	<string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
+    <string name="rotate">Forgatás</string>
+    <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
 	<string name="image_editing_failed">Sikertelen kép szerkesztés</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
 	<string name="file_edited_successfully">A fájl szerkesztése sikerült</string>
-	<string name="edit_image_with">Kép szerkesztés ezzel:</string>
-	<string name="no_editor_found">Nem található kép szerkesztő</string>
+    <string name="edit_image_with">Kép szerkesztés ezzel:</string>
+    <string name="no_editor_found">Nem található kép szerkesztő</string>
 	<string name="unknown_file_location">Ismeretlen fájl hely</string>
 	<string name="error_saving_file">Nem lehet felülírni a forrás fájlt</string>
 	<string name="rotate_left">Forgatás balra</string>

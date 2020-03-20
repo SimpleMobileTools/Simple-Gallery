@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Μείωση αριθμού στηλών</string>
     <string name="change_cover_image">Αλλαγή εξώφυλλου φακέλου</string>
     <string name="select_photo">Επιλογή φωτογραφίας</string>
-    <string name="use_default">Χρήση προεπιλεγμένης</string>
     <string name="volume">Ένταση</string>
     <string name="brightness">Φωτεινότητα</string>
     <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Επεξεργαστής</string>
-    <string name="save">Αποθήκευση</string>
     <string name="rotate">Περιστροφή</string>
-    <string name="path">Διαδρομή</string>
     <string name="invalid_image_path">Μη έγκυρη διαδρομή εικόνας</string>
     <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
     <string name="image_editing_cancelled">Η επεξεργασία εικόνας ακυρώθηκε</string>

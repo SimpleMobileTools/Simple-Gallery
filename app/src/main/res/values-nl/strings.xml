@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Minder kolommen</string>
     <string name="change_cover_image">Afbeelding omslag wijzigen</string>
     <string name="select_photo">Foto selecteren</string>
-    <string name="use_default">Standaard gebruiken</string>
     <string name="volume">Volume</string>
     <string name="brightness">Helderheid</string>
     <string name="lock_orientation">Schermoriëntatie vergrendelen</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Bewerken</string>
-    <string name="save">Opslaan</string>
     <string name="rotate">Draaien</string>
-    <string name="path">Pad</string>
     <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
     <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
     <string name="image_editing_cancelled">Afbeelding bewerken is geannuleerd</string>

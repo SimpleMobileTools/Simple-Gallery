@@ -19,7 +19,6 @@
     <string name="reduce_column_count">減少欄數</string>
     <string name="change_cover_image">更換封面圖片</string>
     <string name="select_photo">選擇相片</string>
-    <string name="use_default">使用預設</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="lock_orientation">鎖定方向</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">編輯器</string>
-    <string name="save">儲存</string>
     <string name="rotate">旋轉</string>
-    <string name="path">路徑</string>
     <string name="invalid_image_path">無效的圖片路徑</string>
     <string name="image_editing_failed">圖片編輯失敗</string>
     <string name="image_editing_cancelled">圖片編輯取消</string>

@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Sütun sayısını azalt</string>
     <string name="change_cover_image">Kapak resmini değiştir</string>
     <string name="select_photo">Fotoğraf seç</string>
-    <string name="use_default">Varsayılanı kullan</string>
     <string name="volume">Ses</string>
     <string name="brightness">Parlaklık</string>
     <string name="lock_orientation">Yönü kilitle</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Düzenleyici</string>
-    <string name="save">Kaydet</string>
     <string name="rotate">Döndür</string>
-    <string name="path">Yol</string>
     <string name="invalid_image_path">Geçersiz resim yolu</string>
     <string name="image_editing_failed">Resim düzenleme başarısız</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

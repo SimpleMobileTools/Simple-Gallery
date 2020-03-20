@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Snížit počet sloupců</string>
     <string name="change_cover_image">Změnit obal alba</string>
     <string name="select_photo">Vybrat fotografii</string>
-    <string name="use_default">Použít výchozí</string>
     <string name="volume">Hlasitost</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknout orientaci</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Uložit</string>
     <string name="rotate">Otočit</string>
-    <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava souboru selhala</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

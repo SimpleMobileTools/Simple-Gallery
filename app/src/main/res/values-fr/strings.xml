@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Supprimer une colonne</string>
     <string name="change_cover_image">Changer l\'image du dossier</string>
     <string name="select_photo">Choisir une image</string>
-    <string name="use_default">Image par défaut</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
     <string name="lock_orientation">Verrouiller la rotation</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Éditeur</string>
-    <string name="save">Sauvegarder</string>
     <string name="rotate">Pivoter</string>
-    <string name="path">Emplacement</string>
     <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
     <string name="image_editing_cancelled">L\'édition de l\'image a été annulé</string>

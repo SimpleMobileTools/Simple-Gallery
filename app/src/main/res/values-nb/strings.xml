@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Reduser antall kolonner</string>
     <string name="change_cover_image">Endre omslagsbilde</string>
     <string name="select_photo">Velg foto</string>
-    <string name="use_default">Bruk standard</string>
     <string name="volume">Volum</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås skjermorientering</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Redigering</string>
-    <string name="save">Lagre</string>
     <string name="rotate">Roter</string>
-    <string name="path">Bane</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
     <string name="image_editing_failed">Bilderedigering feilet</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
