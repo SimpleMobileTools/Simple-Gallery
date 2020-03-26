@@ -38,7 +38,7 @@ class MediaFetcher(val context: Context) {
             curMedia.addAll(newMedia)
         }
 
-        sortMedia(curMedia, context.config.getFileSorting(curPath))
+        sortMedia(curMedia, context.config.getFolderSorting(curPath))
 
         return curMedia
     }

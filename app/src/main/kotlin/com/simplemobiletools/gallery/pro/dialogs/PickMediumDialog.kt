@@ -73,7 +73,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
-        val sorting = activity.config.getFileSorting(if (path.isEmpty()) SHOW_ALL else path)
+        val sorting = activity.config.getFolderSorting(if (path.isEmpty()) SHOW_ALL else path)
         view.apply {
             media_grid.adapter = adapter
 

@@ -22,7 +22,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
     private var view: View
 
     init {
-        currSorting = if (isDirectorySorting) config.directorySorting else config.getFileSorting(pathToUse)
+        currSorting = if (isDirectorySorting) config.directorySorting else config.getFolderSorting(pathToUse)
         view = activity.layoutInflater.inflate(R.layout.dialog_change_sorting, null).apply {
             use_for_this_folder_divider.beVisibleIf(showFolderCheckbox || (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
 
@@ -97,9 +97,9 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             config.directorySorting = sorting
         } else {
             if (view.sorting_dialog_use_for_this_folder.isChecked) {
-                config.saveFileSorting(pathToUse, sorting)
+                config.saveCustomSorting(pathToUse, sorting)
             } else {
-                config.removeFileSorting(pathToUse)
+                config.removeCustomSorting(pathToUse)
                 config.sorting = sorting
             }
         }

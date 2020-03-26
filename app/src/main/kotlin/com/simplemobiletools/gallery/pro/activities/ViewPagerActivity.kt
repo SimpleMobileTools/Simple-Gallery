@@ -1095,7 +1095,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun refreshViewPager() {
-        if (config.getFileSorting(mDirectory) and SORT_BY_RANDOM == 0) {
+        if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
             GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
                 gotMedia(it)
             }.execute()
