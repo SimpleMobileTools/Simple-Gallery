@@ -186,7 +186,7 @@
     <string name="allow_rotating_gestures">允許用手勢來旋轉圖片</string>
     <string name="file_loading_priority">檔案讀取優先權</string>
     <string name="speed">速度</string>
-    <string name="compromise">折衷</string>
+    <string name="compromise">妥協</string>
     <string name="avoid_showing_invalid_files">避免顯示無效的檔案</string>
     <string name="show_image_file_types">顯示圖片檔案類型</string>
 
@@ -366,7 +366,7 @@
         <b>於此查看簡易工具系列全套:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>簡易相簿 Pro的獨立網站:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
