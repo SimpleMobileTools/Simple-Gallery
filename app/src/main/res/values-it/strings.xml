@@ -30,7 +30,7 @@
     <string name="fix_date_taken">Correggi valore Data acquisizione</string>
     <string name="fixing">Correzione in corso…</string>
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Nessun valore trovato per data creazione</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
     <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
@@ -80,8 +80,8 @@
     <string name="rotate">Ruota</string>
     <string name="invalid_image_path">Percorso dell\'immagine non valido</string>
     <string name="image_editing_failed">Modifica dell\'immagine fallita</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_editing_cancelled">Modifica immagine annullata</string>
+    <string name="file_edited_successfully">File modificato correttamente</string>
     <string name="edit_image_with">Modifica immagine con:</string>
     <string name="no_editor_found">Editor delle immagini non trovato</string>
     <string name="unknown_file_location">Posizione del file sconosciuta</string>
@@ -291,7 +291,7 @@
     <string name="faq_3_title">Come posso fare apparire un album sempre in cima?</string>
     <string name="faq_3_text">Si può toccare a lungo l\'album desiderato e selezionare l\'icona puntina nel menù azioni, ciò lo fisserà in cima. Si possono anche fissare varie cartelle, gli elementi fissati saranno ordinati dal metodo di ordinamento predefinito.</string>
     <string name="faq_4_title">Come avanzo velocemente nei video?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Puoi farlo con un doppio tocco del lato dello schermo o toccando i testi di durata attuale o massima vicino alla barra. Se attivi l\'apertura di video su uno schermo separato nelle impostazioni, puoi anche usare i gesti orizzontali.</string>
     <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella?</string>
     <string name="faq_5_text">Escludere impedisce la visualizzazione della cartella solo in Semplice Galleria, mentre nascondere ha effetto in tutto il sistema e nasconde la cartella anche alle altre gallerie. Funziona creando un file vuoto \".nomedia\" nella cartella in questione, si possono anche rimuovere successivamente con qualsiasi gestore dei file.</string>
     <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica?</string>
@@ -318,7 +318,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Semplice Galleria Pro - gestore di foto &amp; editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Sfoglia le tue memorie senza interruzioni con questa galleria di foto e video</string>
     <string name="app_long_description">
         Semplice Galleria Pro è una galleria offline altamente personalizzabile. Organizza, modifica le tue foto, recupera file con il cestino, progetti e nascondi file e visualizza una grande varietà di formati foto e video, inclusi RAW, SVG e molti altri.
 
@@ -366,7 +366,7 @@
         <b>Controlla le altre applicazioni qui:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>Sito internet di Semplice Galleria Pro:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
