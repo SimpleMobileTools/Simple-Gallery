@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.14.1 *(2020-04-14)*
+----------------------------
+
+ * Fixed some SD card file related glitches
+ * Improved some third party intent handling
+ * Added some translation and stability improvements
+
 Version 6.14.0 *(2020-03-19)*
 ----------------------------
 
