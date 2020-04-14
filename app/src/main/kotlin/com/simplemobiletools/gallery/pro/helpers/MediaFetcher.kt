@@ -5,7 +5,8 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Environment
 import android.provider.BaseColumns
-import android.provider.MediaStore
+import android.provider.MediaStore.Files
+import android.provider.MediaStore.Images
 import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -54,8 +55,8 @@ class MediaFetcher(val context: Context) {
             ).filter { context.getDoesFilePathExist(it, OTGPath) })
 
             val filterMedia = context.config.filterMedia
-            val uri = MediaStore.Files.getContentUri("external")
-            val projection = arrayOf(MediaStore.Images.Media.DATA)
+            val uri = Files.getContentUri("external")
+            val projection = arrayOf(Images.Media.DATA)
             val selection = getSelectionQuery(filterMedia)
             val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
@@ -72,8 +73,8 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getLatestFileFolders(): LinkedHashSet<String> {
-        val uri = MediaStore.Files.getContentUri("external")
-        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
+        val uri = Files.getContentUri("external")
+        val projection = arrayOf(Images.ImageColumns.DATA)
         val parents = LinkedHashSet<String>()
         val sorting = "${BaseColumns._ID} DESC LIMIT 50"
         var cursor: Cursor? = null
@@ -81,7 +82,7 @@ class MediaFetcher(val context: Context) {
             cursor = context.contentResolver.query(uri, projection, null, null, sorting)
             if (cursor?.moveToFirst() == true) {
                 do {
-                    val path = cursor.getStringValue(MediaStore.Images.ImageColumns.DATA) ?: continue
+                    val path = cursor.getStringValue(Images.ImageColumns.DATA) ?: continue
                     parents.add(path.getParentPath())
                 } while (cursor.moveToNext())
             }
@@ -98,33 +99,33 @@ class MediaFetcher(val context: Context) {
         val query = StringBuilder()
         if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
-                query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+                query.append("${Images.Media.DATA} LIKE ? OR ")
             }
         }
 
         if (filterMedia and TYPE_PORTRAITS != 0) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
-            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+            query.append("${Images.Media.DATA} LIKE ? OR ")
+            query.append("${Images.Media.DATA} LIKE ? OR ")
         }
 
         if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
-                query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+                query.append("${Images.Media.DATA} LIKE ? OR ")
             }
         }
 
         if (filterMedia and TYPE_GIFS != 0) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+            query.append("${Images.Media.DATA} LIKE ? OR ")
         }
 
         if (filterMedia and TYPE_RAWS != 0) {
             rawExtensions.forEach {
-                query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+                query.append("${Images.Media.DATA} LIKE ? OR ")
             }
         }
 
         if (filterMedia and TYPE_SVGS != 0) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+            query.append("${Images.Media.DATA} LIKE ? OR ")
         }
 
         return query.toString().trim().removeSuffix("OR")
@@ -176,7 +177,7 @@ class MediaFetcher(val context: Context) {
         cursor.use {
             if (cursor.moveToFirst()) {
                 do {
-                    val path = cursor.getStringValue(MediaStore.Images.Media.DATA)
+                    val path = cursor.getStringValue(Images.Media.DATA)
                     val parentPath = File(path).parent ?: continue
                     if (!includedFolders.contains(parentPath) && !foldersToIgnore.contains(parentPath)) {
                         foldersToScan.add(parentPath)
@@ -395,12 +396,12 @@ class MediaFetcher(val context: Context) {
         val dateTakens = HashMap<String, Long>()
         if (folder != FAVORITES) {
             val projection = arrayOf(
-                    MediaStore.Images.Media.DISPLAY_NAME,
-                    MediaStore.Images.Media.DATE_TAKEN
+                    Images.Media.DISPLAY_NAME,
+                    Images.Media.DATE_TAKEN
             )
 
-            val uri = MediaStore.Files.getContentUri("external")
-            val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
+            val uri = Files.getContentUri("external")
+            val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
             val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
 
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
@@ -408,9 +409,9 @@ class MediaFetcher(val context: Context) {
                 if (cursor.moveToFirst()) {
                     do {
                         try {
-                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                            val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
                             if (dateTaken != 0L) {
-                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
                                 dateTakens["$folder/$name"] = dateTaken
                             }
                         } catch (e: Exception) {

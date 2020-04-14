@@ -9,6 +9,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.provider.MediaStore.Images
+import android.provider.MediaStore.Video
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -736,24 +738,24 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun isGetContentIntent(intent: Intent) = intent.action == Intent.ACTION_GET_CONTENT && intent.type != null
 
     private fun isGetImageContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type!!.startsWith("image/") || intent.type == MediaStore.Images.Media.CONTENT_TYPE)
+            (intent.type!!.startsWith("image/") || intent.type == Images.Media.CONTENT_TYPE)
 
     private fun isGetVideoContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type!!.startsWith("video/") || intent.type == MediaStore.Video.Media.CONTENT_TYPE)
+            (intent.type!!.startsWith("video/") || intent.type == Video.Media.CONTENT_TYPE)
 
     private fun isGetAnyContentIntent(intent: Intent) = isGetContentIntent(intent) && intent.type == "*/*"
 
     private fun isSetWallpaperIntent(intent: Intent?) = intent?.action == Intent.ACTION_SET_WALLPAPER
 
-    private fun hasImageContentData(intent: Intent) = (intent.data == MediaStore.Images.Media.EXTERNAL_CONTENT_URI ||
-            intent.data == MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+    private fun hasImageContentData(intent: Intent) = (intent.data == Images.Media.EXTERNAL_CONTENT_URI ||
+            intent.data == Images.Media.INTERNAL_CONTENT_URI)
 
-    private fun hasVideoContentData(intent: Intent) = (intent.data == MediaStore.Video.Media.EXTERNAL_CONTENT_URI ||
-            intent.data == MediaStore.Video.Media.INTERNAL_CONTENT_URI)
+    private fun hasVideoContentData(intent: Intent) = (intent.data == Video.Media.EXTERNAL_CONTENT_URI ||
+            intent.data == Video.Media.INTERNAL_CONTENT_URI)
 
-    private fun isImageType(intent: Intent) = (intent.type?.startsWith("image/") == true || intent.type == MediaStore.Images.Media.CONTENT_TYPE)
+    private fun isImageType(intent: Intent) = (intent.type?.startsWith("image/") == true || intent.type == Images.Media.CONTENT_TYPE)
 
-    private fun isVideoType(intent: Intent) = (intent.type?.startsWith("video/") == true || intent.type == MediaStore.Video.Media.CONTENT_TYPE)
+    private fun isVideoType(intent: Intent) = (intent.type?.startsWith("video/") == true || intent.type == Video.Media.CONTENT_TYPE)
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (resultCode == Activity.RESULT_OK) {

@@ -3,7 +3,8 @@ package com.simplemobiletools.gallery.pro.activities
 import android.annotation.SuppressLint
 import android.database.ContentObserver
 import android.net.Uri
-import android.provider.MediaStore
+import android.provider.MediaStore.Images
+import android.provider.MediaStore.Video
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
@@ -70,8 +71,8 @@ open class SimpleActivity : BaseSimpleActivity() {
 
     protected fun registerFileUpdateListener() {
         try {
-            contentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, observer)
-            contentResolver.registerContentObserver(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, true, observer)
+            contentResolver.registerContentObserver(Images.Media.EXTERNAL_CONTENT_URI, true, observer)
+            contentResolver.registerContentObserver(Video.Media.EXTERNAL_CONTENT_URI, true, observer)
         } catch (ignored: Exception) {
         }
     }

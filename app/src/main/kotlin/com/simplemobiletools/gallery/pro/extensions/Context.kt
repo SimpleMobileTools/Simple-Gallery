@@ -7,7 +7,8 @@ import android.content.Intent
 import android.database.Cursor
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
-import android.provider.MediaStore
+import android.provider.MediaStore.Files
+import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
@@ -303,11 +304,11 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     ensureBackgroundThread {
         val folders = ArrayList<String>()
 
-        val uri = MediaStore.Files.getContentUri("external")
-        val projection = arrayOf(MediaStore.Files.FileColumns.DATA)
-        val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
-        val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
-        val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
+        val uri = Files.getContentUri("external")
+        val projection = arrayOf(Files.FileColumns.DATA)
+        val selection = "${Files.FileColumns.MEDIA_TYPE} = ? AND ${Files.FileColumns.TITLE} LIKE ?"
+        val selectionArgs = arrayOf(Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
+        val sortOrder = "${Files.FileColumns.DATE_MODIFIED} DESC"
         val OTGPath = config.OTGPath
 
         var cursor: Cursor? = null
@@ -315,7 +316,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
             cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
             if (cursor?.moveToFirst() == true) {
                 do {
-                    val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
+                    val path = cursor.getStringValue(Files.FileColumns.DATA) ?: continue
                     val noMediaFile = File(path)
                     if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
                         folders.add("${noMediaFile.parent}/")
@@ -886,11 +887,11 @@ fun Context.updateDirectoryPath(path: String) {
 
 fun Context.getFileDateTaken(path: String): Long {
     val projection = arrayOf(
-            MediaStore.Images.Media.DATE_TAKEN
+            Images.Media.DATE_TAKEN
     )
 
-    val uri = MediaStore.Files.getContentUri("external")
-    val selection = "${MediaStore.Images.Media.DATA} = ?"
+    val uri = Files.getContentUri("external")
+    val selection = "${Images.Media.DATA} = ?"
     val selectionArgs = arrayOf(path)
 
     val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
@@ -898,7 +899,7 @@ fun Context.getFileDateTaken(path: String): Long {
         if (cursor.moveToFirst()) {
             do {
                 try {
-                    return cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                    return cursor.getLongValue(Images.Media.DATE_TAKEN)
                 } catch (ignored: Exception) {
                 }
             } while (cursor.moveToNext())

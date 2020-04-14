@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.jobs
 
 import android.annotation.TargetApi
 import android.app.job.JobInfo
+import android.app.job.JobInfo.TriggerContentUri
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.app.job.JobService
@@ -12,6 +13,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.MediaStore
+import android.provider.MediaStore.Images
+import android.provider.MediaStore.Video
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -24,8 +27,8 @@ class NewPhotoFetcher : JobService() {
     companion object {
         const val PHOTO_VIDEO_CONTENT_JOB = 1
         private val MEDIA_URI = Uri.parse("content://${MediaStore.AUTHORITY}/")
-        private val PHOTO_PATH_SEGMENTS = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.pathSegments
-        private val VIDEO_PATH_SEGMENTS = MediaStore.Video.Media.EXTERNAL_CONTENT_URI.pathSegments
+        private val PHOTO_PATH_SEGMENTS = Images.Media.EXTERNAL_CONTENT_URI.pathSegments
+        private val VIDEO_PATH_SEGMENTS = Video.Media.EXTERNAL_CONTENT_URI.pathSegments
     }
 
     private val mHandler = Handler()
@@ -38,15 +41,15 @@ class NewPhotoFetcher : JobService() {
 
     fun scheduleJob(context: Context) {
         val componentName = ComponentName(context, NewPhotoFetcher::class.java)
-        val photoUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        val videoUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        val photoUri = Images.Media.EXTERNAL_CONTENT_URI
+        val videoUri = Video.Media.EXTERNAL_CONTENT_URI
         JobInfo.Builder(PHOTO_VIDEO_CONTENT_JOB, componentName).apply {
-            addTriggerContentUri(JobInfo.TriggerContentUri(photoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
-            addTriggerContentUri(JobInfo.TriggerContentUri(videoUri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
-            addTriggerContentUri(JobInfo.TriggerContentUri(MEDIA_URI, 0))
+            addTriggerContentUri(TriggerContentUri(photoUri, TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
+            addTriggerContentUri(TriggerContentUri(videoUri, TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
+            addTriggerContentUri(TriggerContentUri(MEDIA_URI, 0))
 
             try {
-                context.getSystemService(JobScheduler::class.java).schedule(build())
+                context.getSystemService(JobScheduler::class.java)?.schedule(build())
             } catch (ignored: Exception) {
             }
         }
@@ -54,7 +57,7 @@ class NewPhotoFetcher : JobService() {
 
     fun isScheduled(context: Context): Boolean {
         val jobScheduler = context.getSystemService(JobScheduler::class.java)
-        val jobs = jobScheduler.allPendingJobs ?: return false
+        val jobs = jobScheduler.allPendingJobs
         return jobs.any { it.id == PHOTO_VIDEO_CONTENT_JOB }
     }
 
@@ -77,17 +80,17 @@ class NewPhotoFetcher : JobService() {
                         if (selection.isNotEmpty()) {
                             selection.append(" OR ")
                         }
-                        selection.append("${MediaStore.Images.ImageColumns._ID} = '$id'")
+                        selection.append("${Images.ImageColumns._ID} = '$id'")
                     }
 
                     var cursor: Cursor? = null
                     try {
-                        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
-                        val uris = arrayListOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+                        val projection = arrayOf(Images.ImageColumns.DATA)
+                        val uris = arrayListOf(Images.Media.EXTERNAL_CONTENT_URI, Video.Media.EXTERNAL_CONTENT_URI)
                         uris.forEach {
                             cursor = contentResolver.query(it, projection, selection.toString(), null, null)
                             while (cursor!!.moveToNext()) {
-                                val path = cursor!!.getStringValue(MediaStore.Images.ImageColumns.DATA)
+                                val path = cursor!!.getStringValue(Images.ImageColumns.DATA)
                                 affectedFolderPaths.add(path.getParentPath())
                                 addPathToDB(path)
                             }

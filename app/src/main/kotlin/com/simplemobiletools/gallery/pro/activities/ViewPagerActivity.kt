@@ -20,7 +20,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.provider.MediaStore
+import android.provider.MediaStore.Images
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
@@ -261,10 +261,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (uri != null) {
             var cursor: Cursor? = null
             try {
-                val proj = arrayOf(MediaStore.Images.Media.DATA)
+                val proj = arrayOf(Images.Media.DATA)
                 cursor = contentResolver.query(uri, proj, null, null, null)
                 if (cursor?.moveToFirst() == true) {
-                    mPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
+                    mPath = cursor.getStringValue(Images.Media.DATA)
                 }
             } finally {
                 cursor?.close()
