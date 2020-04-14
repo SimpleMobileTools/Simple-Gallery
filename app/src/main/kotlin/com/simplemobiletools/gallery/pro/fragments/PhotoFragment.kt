@@ -399,6 +399,10 @@ class PhotoFragment : ViewPagerFragment() {
             options.diskCacheStrategy(DiskCacheStrategy.NONE)
         }
 
+        if (context == null) {
+            return
+        }
+
         Glide.with(context!!)
                 .load(getFilePathToShow())
                 .apply(options)
