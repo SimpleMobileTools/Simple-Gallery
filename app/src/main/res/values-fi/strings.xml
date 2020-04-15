@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Vähennä sarakkeita</string>
     <string name="change_cover_image">Vaihda kansikuva</string>
     <string name="select_photo">Valitse kuva</string>
-    <string name="use_default">Käytä oletuksia</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
     <string name="lock_orientation">Lukitse näytönkierto</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Editori</string>
-    <string name="save">Tallenna</string>
     <string name="rotate">Käännä</string>
-    <string name="path">Polku</string>
     <string name="invalid_image_path">Kuvan polkua ei ole</string>
     <string name="image_editing_failed">Kuvan muokkaus epäonnistui</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

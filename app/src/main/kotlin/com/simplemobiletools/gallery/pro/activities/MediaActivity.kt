@@ -159,7 +159,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text_label.setTextColor(config.textColor)
         media_empty_text.setTextColor(getAdjustedPrimaryColor())
 
-        if (mMedia.isEmpty() || config.getFileSorting(mPath) and SORT_BY_RANDOM == 0) {
+        if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
             tryLoadGallery()
         }
     }
@@ -413,7 +413,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.isHorizontal = true
         media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
-        val sorting = config.getFileSorting(if (mShowAll) SHOW_ALL else mPath)
+        val sorting = config.getFolderSorting(if (mShowAll) SHOW_ALL else mPath)
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
@@ -437,7 +437,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isDestroyed || config.getFileSorting(mPath) and SORT_BY_RANDOM != 0) {
+        if (isDestroyed || config.getFolderSorting(mPath) and SORT_BY_RANDOM != 0) {
             return
         }
 

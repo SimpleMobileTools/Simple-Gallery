@@ -1,6 +1,28 @@
 Changelog
 ==========
 
+Version 6.14.1 *(2020-04-14)*
+----------------------------
+
+ * Fixed some SD card file related glitches
+ * Improved some third party intent handling
+ * Added some translation and stability improvements
+
+Version 6.14.0 *(2020-03-19)*
+----------------------------
+
+ * Properly delete playing videos
+ * Removed the Manage Hidden Folders settings button on Android 10+, it no longer works
+ * Added many changes under the hood in preparation for handling Scoped Storage soon
+ * Do not require the Storage permission at some third party intents
+
+Version 6.13.4 *(2020-03-08)*
+----------------------------
+
+ * Fixed some hiding, excluding and including related glitches
+ * Flipped Pin and Properties icons at the top menu for better user experience
+ * Avoid showing Portrait image folders at the main folders screen
+
 Version 6.13.3 *(2020-03-01)*
 ----------------------------
 

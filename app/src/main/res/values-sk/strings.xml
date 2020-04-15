@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
-    <string name="use_default">Použiť predvolený</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Uložiť</string>
     <string name="rotate">Otočiť</string>
-    <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava súboru zlyhala</string>
     <string name="image_editing_cancelled">Úprava súboru bola zrušená</string>

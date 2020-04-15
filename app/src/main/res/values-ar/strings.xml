@@ -19,7 +19,6 @@
     <string name="reduce_column_count">تقليل عدد الأعمدة</string>
     <string name="change_cover_image">تغيير صورة الغلاف</string>
     <string name="select_photo">تحديد صورة</string>
-    <string name="use_default">إستخدام كإفتراضي</string>
     <string name="volume">الصوت</string>
     <string name="brightness">السبوع</string>
     <string name="lock_orientation">قفل الاتجاه</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">تعديل</string>
-    <string name="save">حفظ</string>
     <string name="rotate">تدوير</string>
-    <string name="path">المسار</string>
     <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="image_editing_failed">فشل تعديل الصورة</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

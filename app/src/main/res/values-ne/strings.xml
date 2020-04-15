@@ -19,7 +19,6 @@
     <string name="reduce_column_count">कोलम सङ्खा घटाउनुहोस</string>
     <string name="change_cover_image">कभर तस्बिर परिवर्तन गर्नुहोस</string>
     <string name="select_photo">फोटो चयन गर्नुहोस</string>
-    <string name="use_default">डिफल्ट प्रयोग गर्नुहोस</string>
     <string name="volume">भोलुम</string>
     <string name="brightness">उज्यालोपन</string>
     <string name="lock_orientation">Lock orientation</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">सम्पादक</string>
-    <string name="save">बचत</string>
     <string name="rotate">घुमाउने</string>
-    <string name="path">Path</string>
     <string name="invalid_image_path">Invalid image path</string>
     <string name="image_editing_failed">Image editing failed</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

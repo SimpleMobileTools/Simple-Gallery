@@ -19,7 +19,6 @@
     <string name="reduce_column_count">列数を減らす</string>
     <string name="change_cover_image">カバー画像を変更</string>
     <string name="select_photo">写真を選択</string>
-    <string name="use_default">デフォルトに戻す</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
     <string name="lock_orientation">画面の向きを固定する</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">画像編集</string>
-    <string name="save">保存</string>
     <string name="rotate">回転</string>
-    <string name="path">パス</string>
     <string name="invalid_image_path">無効な画像パス</string>
     <string name="image_editing_failed">画像の編集に失敗しました</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

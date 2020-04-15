@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Færre kolonner</string>
     <string name="change_cover_image">Skift cover-billede</string>
     <string name="select_photo">Vælg billede</string>
-    <string name="use_default">Brug standard</string>
     <string name="volume">Lydstyrke</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås orientering</string>
@@ -31,7 +30,7 @@
     <string name="fix_date_taken">Fiks eksponeringsdato</string>
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Ingen eksponeringsdatoer er fundet</string>
     <string name="share_resized">Del en skaleret version</string>
     <string name="upgraded_from_free">Hej\n\nDet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \"Opgrader til Pro\"-knap i toppen af appens indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte din apps indstillinger.\n\nTak!</string>
     <string name="switch_to_file_search">Skift til filsøgning på tværs af synlige mapper</string>
@@ -78,13 +77,11 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Gem</string>
     <string name="rotate">Roter</string>
-    <string name="path">Sti</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="image_editing_failed">Redigering af billede mislykkedes</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_editing_cancelled">Billede redigering annulleret</string>
+    <string name="file_edited_successfully">Fil redigeret med succes</string>
     <string name="edit_image_with">Rediger billede med:</string>
     <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="unknown_file_location">Ukendt filplacering</string>

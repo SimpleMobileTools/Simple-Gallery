@@ -20,7 +20,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.provider.MediaStore
+import android.provider.MediaStore.Images
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
@@ -261,10 +261,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (uri != null) {
             var cursor: Cursor? = null
             try {
-                val proj = arrayOf(MediaStore.Images.Media.DATA)
+                val proj = arrayOf(Images.Media.DATA)
                 cursor = contentResolver.query(uri, proj, null, null, null)
                 if (cursor?.moveToFirst() == true) {
-                    mPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
+                    mPath = cursor.getStringValue(Images.Media.DATA)
                 }
             } finally {
                 cursor?.close()
@@ -1033,7 +1033,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             mIgnoredPaths.add(fileDirItem.path)
             val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
             runOnUiThread {
-                gotMedia(media)
+                gotMedia(media, true)
             }
 
             movePathsInRecycleBin(arrayListOf(path)) {
@@ -1055,7 +1055,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mIgnoredPaths.add(fileDirItem.path)
         val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
         runOnUiThread {
-            gotMedia(media)
+            gotMedia(media, true)
         }
 
         tryDeleteFileDirItem(fileDirItem, false, true) {
@@ -1095,16 +1095,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun refreshViewPager() {
-        if (config.getFileSorting(mDirectory) and SORT_BY_RANDOM == 0) {
+        if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
             GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
                 gotMedia(it)
             }.execute()
         }
     }
 
-    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {
+    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>, ignorePlayingVideos: Boolean = false) {
         val media = thumbnailItems.asSequence().filter { it is Medium && !mIgnoredPaths.contains(it.path) }.map { it as Medium }.toMutableList() as ArrayList<Medium>
-        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode || (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true) {
+        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
+            return
+        }
+
+        if (!ignorePlayingVideos && (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true) {
             return
         }
 

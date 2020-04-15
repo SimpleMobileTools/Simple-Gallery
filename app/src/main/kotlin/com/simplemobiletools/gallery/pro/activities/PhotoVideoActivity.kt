@@ -150,9 +150,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI(true)
         val bundle = Bundle()
         val file = File(mUri.toString())
+        val intentType = intent.type ?: ""
         val type = when {
-            filename.isVideoFast() -> TYPE_VIDEOS
-            filename.isGif() -> TYPE_GIFS
+            filename.isVideoFast() || intentType.startsWith("video/") -> TYPE_VIDEOS
+            filename.isGif() || intentType.equals("image/gif", true) -> TYPE_GIFS
             filename.isRawFast() -> TYPE_RAWS
             filename.isSvg() -> TYPE_SVGS
             file.isPortrait() -> TYPE_PORTRAITS

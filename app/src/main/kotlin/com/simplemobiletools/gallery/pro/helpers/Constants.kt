@@ -4,7 +4,6 @@ import com.simplemobiletools.commons.helpers.MONTH_SECONDS
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
-const val SORT_FOLDER_PREFIX = "sort_folder_"
 const val GROUP_FOLDER_PREFIX = "group_folder_"
 const val VIEW_TYPE_PREFIX = "view_type_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"

@@ -212,7 +212,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.isHorizontal = true
         media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
-        val sorting = config.getFileSorting(SHOW_ALL)
+        val sorting = config.getFolderSorting(SHOW_ALL)
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid) {

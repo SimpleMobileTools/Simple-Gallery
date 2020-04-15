@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Smanji broj stupaca</string>
     <string name="change_cover_image">Promjeni naslovnu sliku</string>
     <string name="select_photo">Odaberi sliku</string>
-    <string name="use_default">Koristi zadano</string>
     <string name="volume">Glasnoća</string>
     <string name="brightness">Svjetlina</string>
     <string name="lock_orientation">Zaključaj orijentaciju slike</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Uređivač</string>
-    <string name="save">Spremi</string>
     <string name="rotate">Rotiraj</string>
-    <string name="path">Putanja</string>
     <string name="invalid_image_path">Neispravna putanja slike</string>
     <string name="image_editing_failed">Uređivanje slika nije uspjelo</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -18,9 +19,11 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.io.File
+import java.io.InputStream
 import java.util.*
 
 class SettingsActivity : SimpleActivity() {
+    private val PICK_IMPORT_SOURCE_INTENT = 1
     private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,6 +97,14 @@ class SettingsActivity : SimpleActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        if (requestCode == PICK_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+            val inputStream = contentResolver.openInputStream(resultData.data!!)
+            parseFile(inputStream)
+        }
+    }
+
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
@@ -159,6 +170,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupManageHiddenFolders() {
+        settings_manage_hidden_folders_holder.beVisibleIf(!isQPlus())
         settings_manage_hidden_folders_holder.setOnClickListener {
             handleHiddenFolderPasswordProtection {
                 startActivity(Intent(this, HiddenFoldersActivity::class.java))
@@ -700,20 +712,32 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupImportSettings() {
         settings_import_holder.setOnClickListener {
-            FilePickerDialog(this) {
-                ensureBackgroundThread {
-                    try {
-                        parseFile(it)
-                    } catch (e: Exception) {
-                        showErrorToast(e)
+            if (isQPlus()) {
+                Intent(Intent.ACTION_GET_CONTENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "text/plain"
+                    startActivityForResult(this, PICK_IMPORT_SOURCE_INTENT)
+                }
+            } else {
+                handlePermission(PERMISSION_READ_STORAGE) {
+                    if (it) {
+                        FilePickerDialog(this) {
+                            ensureBackgroundThread {
+                                parseFile(File(it).inputStream())
+                            }
+                        }
                     }
                 }
             }
         }
     }
 
-    private fun parseFile(path: String) {
-        val inputStream = File(path).inputStream()
+    private fun parseFile(inputStream: InputStream?) {
+        if (inputStream == null) {
+            toast(R.string.unknown_error_occurred)
+            return
+        }
+
         var importedItems = 0
         val configValues = LinkedHashMap<String, Any>()
         inputStream.bufferedReader().use {

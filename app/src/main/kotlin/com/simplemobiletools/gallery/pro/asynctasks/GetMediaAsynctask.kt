@@ -20,7 +20,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
     override fun doInBackground(vararg params: Void): ArrayList<ThumbnailItem> {
         val pathToUse = if (showAll) SHOW_ALL else mPath
         val folderGrouping = context.config.getFolderGrouping(pathToUse)
-        val fileSorting = context.config.getFileSorting(pathToUse)
+        val fileSorting = context.config.getFolderSorting(pathToUse)
         val getProperDateTaken = fileSorting and SORT_BY_DATE_TAKEN != 0 ||
                 folderGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
                 folderGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
@@ -40,7 +40,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
                 media.addAll(newMedia)
             }
 
-            mediaFetcher.sortMedia(media, context.config.getFileSorting(SHOW_ALL))
+            mediaFetcher.sortMedia(media, context.config.getFolderSorting(SHOW_ALL))
             media
         } else {
             mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)

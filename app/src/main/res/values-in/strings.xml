@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Kurangi jumlah kolom</string>
     <string name="change_cover_image">Ubah gambar kover</string>
     <string name="select_photo">Pilih foto</string>
-    <string name="use_default">Gunakan default</string>
     <string name="volume">Volume</string>
     <string name="brightness">Kecerahan</string>
     <string name="lock_orientation">Kunci orientasi</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Penyunting</string>
-    <string name="save">Simpan</string>
     <string name="rotate">Rotasi</string>
-    <string name="path">Jalur</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>

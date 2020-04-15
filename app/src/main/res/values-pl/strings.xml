@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
     <string name="change_cover_image">Zmień okładkę</string>
     <string name="select_photo">Wybierz obraz</string>
-    <string name="use_default">Użyj domyślnej</string>
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
     <string name="lock_orientation">Zablokuj orientację ekranu</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Edycja</string>
-    <string name="save">Zapisz</string>
     <string name="rotate">Obróć</string>
-    <string name="path">Ścieżka</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
     <string name="image_editing_failed">Edycja obrazu nie powiodła się</string>
     <string name="image_editing_cancelled">Anulowano edycję obrazu</string>
@@ -191,7 +188,7 @@
     <string name="speed">Szybkość</string>
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Unikaj pokazywania niewłaściwych plików</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Pokazuj rozszerzenia zdjęć</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>

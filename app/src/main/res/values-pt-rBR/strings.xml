@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Reduzir número de colunas</string>
     <string name="change_cover_image">Trocar imagem de capa</string>
     <string name="select_photo">Selecionar foto</string>
-    <string name="use_default">Usar padrão</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Travar orientação</string>
@@ -31,7 +30,7 @@
     <string name="fix_date_taken">Corrigir data da foto</string>
     <string name="fixing">Corrigindo…</string>
     <string name="dates_fixed_successfully">Datas corrigidas com sucesso</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Nenhum valor de data foi encontrado</string>
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de atualizar para a versão Pro no topo da pagina de Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
     <string name="switch_to_file_search">Alternar para a pesquisa de arquivos em todas as pastas visíveis</string>
@@ -78,12 +77,10 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Salvar</string>
     <string name="rotate">Girar</string>
-    <string name="path">Caminho</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">Edição de imagem cancelada</string>
     <string name="file_edited_successfully">Arquivo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="no_editor_found">Nenhum editor de imagem encontrado</string>
@@ -294,7 +291,7 @@
     <string name="faq_3_title">O que posso fazer para que uma pasta sempre apareça no topo da lista?</string>
     <string name="faq_3_text">Faça um toque longo na pasta em questão, e depois toque no ícone de alfinete na parte superior da tela, isto irá fixá-la no topo. Você também pode fixar várias pastas; os itens fixados serão classificados pelo método de ordenação padrão.</string>
     <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast forward)?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Você pode fazer isso tocando duas vezes na lateral da tela ou tocando nos textos atuais ou de duração máxima próximos à barra de busca. Se você ativar a abertura de vídeos em uma tela separada nas configurações do aplicativo, também poderá usar gestos horizontais.</string>
     <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta?</string>
     <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser.</string>
     <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista?</string>

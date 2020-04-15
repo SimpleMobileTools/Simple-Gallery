@@ -19,7 +19,6 @@
     <string name="reduce_column_count">显示更少项目</string>
     <string name="change_cover_image">更换封面图片</string>
     <string name="select_photo">选择图片</string>
-    <string name="use_default">使用默认</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定屏幕方向</string>
@@ -31,7 +30,7 @@
     <string name="fix_date_taken">修复拍摄日期</string>
     <string name="fixing">正在修复…</string>
     <string name="dates_fixed_successfully">日期修复成功</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">没有找到拍摄日期</string>
     <string name="share_resized">调整尺寸并分享</string>
     <string name="upgraded_from_free">嘿，\n\n你似乎已经从旧的免费版应用升级。你现在可以卸载旧版本，在该版本的应用设置顶部有一个“升级到专业版”按钮。\n\n此操作会删除回收站项目，取消标记收藏项目，并重置应用设置。\n\n谢谢！</string>
     <string name="switch_to_file_search">切换文件搜索范围为所有可见的文件夹</string>
@@ -42,8 +41,8 @@
     <string name="videos">视频</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW 图片</string>
-    <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="svgs">SVG 矢量图</string>
+    <string name="portraits">人像</string>
     <string name="no_media_with_filters">没有媒体文件匹配选定的筛选条件。</string>
     <string name="change_filters_underlined"><u>更改筛选条件</u></string>
 
@@ -78,13 +77,11 @@
 
     <!-- Editor -->
     <string name="editor">编辑器</string>
-    <string name="save">保存</string>
     <string name="rotate">旋转</string>
-    <string name="path">路径</string>
     <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="image_editing_cancelled">取消图片编辑</string>
+    <string name="file_edited_successfully">文件编辑成功</string>
     <string name="edit_image_with">编辑方式：</string>
     <string name="no_editor_found">没有找到图片编辑器</string>
     <string name="unknown_file_location">未知文件位置</string>
@@ -205,85 +202,85 @@
     <string name="toggle_file_visibility">隐藏文件</string>
 
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Custom</string>
-    <string name="pesdk_transform_button_resetCrop">Reset</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
-    <string name="pesdk_transform_title_name">Transform</string>
-    <string name="pesdk_filter_title_name">Filter</string>
-    <string name="pesdk_filter_asset_none">None</string>
-    <string name="pesdk_adjustments_title_name">Adjust</string>
-    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
-    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
-    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
-    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
-    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
-    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
-    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
-    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
-    <string name="pesdk_adjustments_button_reset">Reset</string>
-    <string name="pesdk_focus_title_name">Focus</string>
-    <string name="pesdk_focus_title_disabled">None</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
-    <string name="pesdk_focus_button_mirrored">Mirrored</string>
-    <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_name">Text</string>
-    <string name="pesdk_text_title_options">Text Options</string>
-    <string name="pesdk_text_title_textColor">Text Color</string>
-    <string name="pesdk_text_title_font">Font</string>
-    <string name="pesdk_text_button_add">Add</string>
-    <string name="pesdk_text_button_edit">Edit</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
-    <string name="pesdk_text_button_font">Font</string>
-    <string name="pesdk_text_button_color">Color</string>
-    <string name="pesdk_text_button_backgroundColor">BG Color</string>
-    <string name="pesdk_text_button_alignment">Alignment</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
-    <string name="pesdk_text_button_delete">Delete</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
-    <string name="pesdk_brush_title_name">Brush</string>
-    <string name="pesdk_brush_button_color">Color</string>
-    <string name="pesdk_brush_button_size">Size</string>
-    <string name="pesdk_brush_button_hardness">Hardness</string>
-    <string name="pesdk_brush_button_bringToFront">To Front</string>
-    <string name="pesdk_brush_button_delete">Delete</string>
-    <string name="pesdk_brush_title_brushColor">Brush Color</string>
-    <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
-    <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="pesdk_editor_accept">Accept</string>
-    <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
-    <string name="pesdk_common_title_colorPicker">Color Picker</string>
-    <string name="pesdk_common_title_transparentColor">Transparent</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
-    <string name="pesdk_common_title_grayColor">Gray</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
-    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
-    <string name="pesdk_common_title_purpleColor">Purple</string>
-    <string name="pesdk_common_title_orchidColor">Orchid</string>
-    <string name="pesdk_common_title_pinkColor">Pink</string>
-    <string name="pesdk_common_title_redColor">Red</string>
-    <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Yellow</string>
-    <string name="pesdk_common_title_oliveColor">Olive</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="pesdk_transform_button_freeCrop">自定义</string>
+    <string name="pesdk_transform_button_resetCrop">重置</string>
+    <string name="pesdk_transform_button_squareCrop">正方形</string>
+    <string name="pesdk_transform_title_name">裁剪旋转</string>
+    <string name="pesdk_filter_title_name">滤镜</string>
+    <string name="pesdk_filter_asset_none">无</string>
+    <string name="pesdk_adjustments_title_name">调整</string>
+    <string name="pesdk_adjustments_button_shadowTool">阴影</string>
+    <string name="pesdk_adjustments_button_exposureTool">曝光</string>
+    <string name="pesdk_adjustments_button_highlightTool">高光</string>
+    <string name="pesdk_adjustments_button_brightnessTool">亮度</string>
+    <string name="pesdk_adjustments_button_contrastTool">对比度</string>
+    <string name="pesdk_adjustments_button_saturationTool">饱和度</string>
+    <string name="pesdk_adjustments_button_clarityTool">清晰度</string>
+    <string name="pesdk_adjustments_button_gammaTool">伽马</string>
+    <string name="pesdk_adjustments_button_blacksTool">黑色</string>
+    <string name="pesdk_adjustments_button_whitesTool">白色</string>
+    <string name="pesdk_adjustments_button_temperatureTool">色温</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">锐化</string>
+    <string name="pesdk_adjustments_button_reset">重置</string>
+    <string name="pesdk_focus_title_name">对焦</string>
+    <string name="pesdk_focus_title_disabled">无</string>
+    <string name="pesdk_focus_button_radial">放射</string>
+    <string name="pesdk_focus_button_linear">线性</string>
+    <string name="pesdk_focus_button_mirrored">镜像</string>
+    <string name="pesdk_focus_button_gaussian">高斯</string>
+    <string name="pesdk_text_title_name">文字</string>
+    <string name="pesdk_text_title_options">文字选项</string>
+    <string name="pesdk_text_title_textColor">文字颜色</string>
+    <string name="pesdk_text_title_font">字体</string>
+    <string name="pesdk_text_button_add">添加</string>
+    <string name="pesdk_text_button_edit">编辑</string>
+    <string name="pesdk_text_button_straighten">拉伸</string>
+    <string name="pesdk_text_button_font">字体</string>
+    <string name="pesdk_text_button_color">颜色</string>
+    <string name="pesdk_text_button_backgroundColor">背景颜色</string>
+    <string name="pesdk_text_button_alignment">对齐</string>
+    <string name="pesdk_text_button_bringToFront">移到最上层</string>
+    <string name="pesdk_text_button_delete">删除</string>
+    <string name="pesdk_text_text_editTextPlaceholder">你的文字</string>
+    <string name="pesdk_brush_title_name">笔刷</string>
+    <string name="pesdk_brush_button_color">颜色</string>
+    <string name="pesdk_brush_button_size">尺寸</string>
+    <string name="pesdk_brush_button_hardness">硬度</string>
+    <string name="pesdk_brush_button_bringToFront">移到最上层</string>
+    <string name="pesdk_brush_button_delete">删除</string>
+    <string name="pesdk_brush_title_brushColor">笔刷颜色</string>
+    <string name="pesdk_editor_title_name">编辑器</string>
+    <string name="pesdk_editor_title_closeEditorAlert">关闭编辑器?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">您确定要放弃编辑吗?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">是</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">否</string>
+    <string name="pesdk_editor_cancel">取消</string>
+    <string name="pesdk_editor_accept">接受</string>
+    <string name="pesdk_editor_save">保存</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">图片导出中…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">图片%s导出中。</string>
+    <string name="pesdk_common_button_flipH">水平翻转</string>
+    <string name="pesdk_common_button_flipV">垂直翻转</string>
+    <string name="pesdk_common_button_undo">复原</string>
+    <string name="pesdk_common_button_redo">取消复原</string>
+    <string name="pesdk_common_title_colorPicker">选色器</string>
+    <string name="pesdk_common_title_transparentColor">透明</string>
+    <string name="pesdk_common_title_whiteColor">白色</string>
+    <string name="pesdk_common_title_grayColor">灰色</string>
+    <string name="pesdk_common_title_blackColor">黑色</string>
+    <string name="pesdk_common_title_lightBlueColor">浅蓝</string>
+    <string name="pesdk_common_title_blueColor">蓝色</string>
+    <string name="pesdk_common_title_purpleColor">紫色</string>
+    <string name="pesdk_common_title_orchidColor">淡紫</string>
+    <string name="pesdk_common_title_pinkColor">粉红</string>
+    <string name="pesdk_common_title_redColor">红色</string>
+    <string name="pesdk_common_title_orangeColor">橘色</string>
+    <string name="pesdk_common_title_goldColor">金色</string>
+    <string name="pesdk_common_title_yellowColor">黄色</string>
+    <string name="pesdk_common_title_oliveColor">橄榄绿</string>
+    <string name="pesdk_common_title_greenColor">绿色</string>
+    <string name="pesdk_common_title_aquamarinColor">碧绿</string>
+    <string name="pesdk_common_title_pipettableColor">取色器</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
@@ -293,7 +290,7 @@
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
     <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">您可以双击屏幕边缘或点击搜索栏附近的当前或总时长的文字。 如果您在应用设置中启用了在独立页面播放视频，则也可以使用水平手势。</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
@@ -319,7 +316,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">简约图库 Pro - 图片管理 &amp; 编辑</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">使用此照片和视频库来毫无阻碍地浏览您的回忆</string>
     <string name="app_long_description">
         简约图库 Pro 是一个高度可定制的图库。管理并编辑你的照片，从回收站中恢复已删除的照片，保护并隐藏文件，查看RAW，SVG等等多种照片和视频格式。
 
@@ -367,7 +364,7 @@
         <b>查看简约系列的所有应用:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>简约图库 Pro的独立网站：</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>

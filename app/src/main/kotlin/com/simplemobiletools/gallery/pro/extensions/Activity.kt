@@ -13,6 +13,7 @@ import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
+import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -428,10 +429,10 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
 
                 val uri = getFileUri(path)
                 ContentProviderOperation.newUpdate(uri).apply {
-                    val selection = "${MediaStore.Images.Media.DATA} = ?"
+                    val selection = "${Images.Media.DATA} = ?"
                     val selectionArgs = arrayOf(path)
                     withSelection(selection, selectionArgs)
-                    withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
+                    withValue(Images.Media.DATE_TAKEN, timestamp)
                     operations.add(build())
                 }
 

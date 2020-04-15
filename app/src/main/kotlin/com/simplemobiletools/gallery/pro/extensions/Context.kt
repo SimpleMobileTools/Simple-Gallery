@@ -4,13 +4,11 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.database.Cursor
-import android.graphics.Point
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
-import android.provider.MediaStore
-import android.view.WindowManager
+import android.provider.MediaStore.Files
+import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
@@ -39,63 +37,7 @@ import java.util.LinkedHashSet
 import kotlin.Comparator
 import kotlin.collections.ArrayList
 
-val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
-val Context.windowManager: WindowManager get() = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-val Context.navigationBarRight: Boolean get() = usableScreenSize.x < realScreenSize.x
-val Context.navigationBarBottom: Boolean get() = usableScreenSize.y < realScreenSize.y
-val Context.navigationBarHeight: Int get() = if (navigationBarBottom) navigationBarSize.y else 0
-val Context.navigationBarWidth: Int get() = if (navigationBarRight) navigationBarSize.x else 0
-
-internal val Context.navigationBarSize: Point
-    get() = when {
-        navigationBarRight -> Point(newNavigationBarHeight, usableScreenSize.y)
-        navigationBarBottom -> Point(usableScreenSize.x, newNavigationBarHeight)
-        else -> Point()
-    }
-
-internal val Context.newNavigationBarHeight: Int
-    get() {
-        var navigationBarHeight = 0
-        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            navigationBarHeight = resources.getDimensionPixelSize(resourceId)
-        }
-        return navigationBarHeight
-    }
-
-internal val Context.statusBarHeight: Int
-    get() {
-        var statusBarHeight = 0
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            statusBarHeight = resources.getDimensionPixelSize(resourceId)
-        }
-        return statusBarHeight
-    }
-
-internal val Context.actionBarHeight: Int
-    get() {
-        val styledAttributes = theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
-        val actionBarHeight = styledAttributes.getDimension(0, 0f)
-        styledAttributes.recycle()
-        return actionBarHeight.toInt()
-    }
-
-
-val Context.usableScreenSize: Point
-    get() {
-        val size = Point()
-        windowManager.defaultDisplay.getSize(size)
-        return size
-    }
-
-val Context.realScreenSize: Point
-    get() {
-        val size = Point()
-        windowManager.defaultDisplay.getRealSize(size)
-        return size
-    }
 
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
@@ -362,11 +304,11 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     ensureBackgroundThread {
         val folders = ArrayList<String>()
 
-        val uri = MediaStore.Files.getContentUri("external")
-        val projection = arrayOf(MediaStore.Files.FileColumns.DATA)
-        val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
-        val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
-        val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
+        val uri = Files.getContentUri("external")
+        val projection = arrayOf(Files.FileColumns.DATA)
+        val selection = "${Files.FileColumns.MEDIA_TYPE} = ? AND ${Files.FileColumns.TITLE} LIKE ?"
+        val selectionArgs = arrayOf(Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
+        val sortOrder = "${Files.FileColumns.DATE_MODIFIED} DESC"
         val OTGPath = config.OTGPath
 
         var cursor: Cursor? = null
@@ -374,7 +316,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
             cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
             if (cursor?.moveToFirst() == true) {
                 do {
-                    val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
+                    val path = cursor.getStringValue(Files.FileColumns.DATA) ?: continue
                     val noMediaFile = File(path)
                     if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
                         folders.add("${noMediaFile.parent}/")
@@ -658,7 +600,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }) as ArrayList<Medium>
 
         val pathToUse = if (path.isEmpty()) SHOW_ALL else path
-        mediaFetcher.sortMedia(media, config.getFileSorting(pathToUse))
+        mediaFetcher.sortMedia(media, config.getFolderSorting(pathToUse))
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
         val OTGPath = config.OTGPath
@@ -924,7 +866,7 @@ fun Context.updateDirectoryPath(path: String) {
     val albumCovers = config.parseAlbumCovers()
     val includedFolders = config.includedFolders
 
-    val sorting = config.getFileSorting(path)
+    val sorting = config.getFolderSorting(path)
     val grouping = config.getFolderGrouping(path)
     val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
             sorting and SORT_BY_DATE_TAKEN != 0 ||
@@ -945,11 +887,11 @@ fun Context.updateDirectoryPath(path: String) {
 
 fun Context.getFileDateTaken(path: String): Long {
     val projection = arrayOf(
-            MediaStore.Images.Media.DATE_TAKEN
+            Images.Media.DATE_TAKEN
     )
 
-    val uri = MediaStore.Files.getContentUri("external")
-    val selection = "${MediaStore.Images.Media.DATA} = ?"
+    val uri = Files.getContentUri("external")
+    val selection = "${Images.Media.DATA} = ?"
     val selectionArgs = arrayOf(path)
 
     val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
@@ -957,7 +899,7 @@ fun Context.getFileDateTaken(path: String): Long {
         if (cursor.moveToFirst()) {
             do {
                 try {
-                    return cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                    return cursor.getLongValue(Images.Media.DATE_TAKEN)
                 } catch (ignored: Exception) {
                 }
             } while (cursor.moveToNext())

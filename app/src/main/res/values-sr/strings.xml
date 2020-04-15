@@ -19,7 +19,6 @@
     <string name="reduce_column_count">Смањи број колона</string>
     <string name="change_cover_image">Промени насловну слику</string>
     <string name="select_photo">Изабери фотографију</string>
-    <string name="use_default">Користи подразумевано</string>
     <string name="volume">Јачина звука</string>
     <string name="brightness">Осветљење</string>
     <string name="lock_orientation">Закључај оријентацију</string>
@@ -78,9 +77,7 @@
 
     <!-- Editor -->
     <string name="editor">Едитор</string>
-    <string name="save">Сачувај</string>
     <string name="rotate">Ротирај</string>
-    <string name="path">Стаза</string>
     <string name="invalid_image_path">Неисправна стаза слике</string>
     <string name="image_editing_failed">Измена слике неуспешна</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
