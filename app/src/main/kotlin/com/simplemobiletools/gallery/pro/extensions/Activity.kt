@@ -648,17 +648,7 @@ fun Activity.showFileOnMap(path: String) {
 
     val latLon = FloatArray(2)
     if (exif.getLatLong(latLon)) {
-        val uriBegin = "geo:${latLon[0]},${latLon[1]}"
-        val query = "${latLon[0]}, ${latLon[1]}"
-        val encodedQuery = Uri.encode(query)
-        val uriString = "$uriBegin?q=$encodedQuery&z=16"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
-        val packageManager = packageManager
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        } else {
-            toast(R.string.no_app_found)
-        }
+        showLocationOnMap("${latLon[0]}, ${latLon[1]}")
     } else {
         toast(R.string.unknown_location)
     }
