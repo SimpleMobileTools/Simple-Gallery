@@ -253,12 +253,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                                 }
                             }
                         }
-                    } else {
-                        config.addIncludedFolder(path)
-                        activity.runOnUiThread {
-                            listener?.refreshItems()
-                            finishActMode()
-                        }
                     }
                 }
             }

@@ -146,7 +146,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
-                applicationContext.scanFileRecursively(file) {
+                applicationContext.scanPathRecursively(file.absolutePath) {
                     callback()
                 }
             } else {
