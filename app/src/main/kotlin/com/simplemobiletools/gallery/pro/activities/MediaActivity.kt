@@ -108,7 +108,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             registerFileUpdateListener()
         }
 
-        media_empty_text.setOnClickListener {
+        media_empty_text_placeholder_2.setOnClickListener {
             showFilterMediaDialog()
         }
 
@@ -156,11 +156,17 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         invalidateOptionsMenu()
-        media_empty_text_label.setTextColor(config.textColor)
-        media_empty_text.setTextColor(getAdjustedPrimaryColor())
+        media_empty_text_placeholder.setTextColor(config.textColor)
+        media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
-            tryLoadGallery()
+            handleLockedFolderOpening(mPath) { success ->
+                if (success) {
+                    tryLoadGallery()
+                } else {
+                    finish()
+                }
+            }
         }
     }
 
@@ -339,10 +345,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, mPath)
                 runOnUiThread {
                     if (grouped.isEmpty()) {
-                        media_empty_text_label.text = getString(R.string.no_items_found)
-                        media_empty_text_label.beVisible()
+                        media_empty_text_placeholder.text = getString(R.string.no_items_found)
+                        media_empty_text_placeholder.beVisible()
                     } else {
-                        media_empty_text_label.beGone()
+                        media_empty_text_placeholder.beGone()
                     }
 
                     getMediaAdapter()?.updateMedia(grouped)
@@ -876,13 +882,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         runOnUiThread {
             media_refresh_layout.isRefreshing = false
-            media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
-            media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_empty_text_placeholder.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_empty_text_placeholder_2.beVisibleIf(media.isEmpty() && !isFromCache)
 
-            if (media_empty_text_label.isVisible()) {
-                media_empty_text_label.text = getString(R.string.no_media_with_filters)
+            if (media_empty_text_placeholder.isVisible()) {
+                media_empty_text_placeholder.text = getString(R.string.no_media_with_filters)
             }
-            media_grid.beVisibleIf(media_empty_text_label.isGone())
+            media_grid.beVisibleIf(media_empty_text_placeholder.isGone())
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
             val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID

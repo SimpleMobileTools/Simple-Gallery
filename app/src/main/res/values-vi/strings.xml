@@ -293,7 +293,7 @@
     <string name="faq_4_title">Làm cách nào tôi có tua video nhanh?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Sự khác biệt giữa ẩn và loại trừ một thư mục là gì?</string>
-    <string name="faq_5_text">Loại trừ ngăn chỉ hiển thị thư mục trong Thư viện đơn giản, trong khi Ẩn hoạt động theo hệ thống và nó cũng ẩn thư mục khỏi các phòng trưng bày khác. Nó hoạt động bằng cách tạo một tệp \".nomedia\" trong thư mục đã cho, sau đó bạn cũng có thể xóa bằng bất kỳ trình quản lý tệp nào.</string>
+    <string name="faq_5_text">Loại trừ ngăn chỉ hiển thị thư mục trong Thư viện đơn giản, trong khi Ẩn hoạt động theo hệ thống và nó cũng ẩn thư mục khỏi các phòng trưng bày khác. Nó hoạt động bằng cách tạo một tệp \".nomedia\" trong thư mục đã cho, sau đó bạn cũng có thể xóa bằng bất kỳ trình quản lý tệp nào. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Tại sao hiển thị các thư mục với ảnh bìa  hoặc nhãn dán?</string>
     <string name="faq_6_text">Nó có thể xảy ra rằng bạn sẽ thấy một số album bất thường xuất hiện. Bạn có thể dễ dàng loại trừ chúng bằng cách nhấn  giữ và chọn Loại trừ. Trong hộp thoại tiếp theo bạn có thể chọn thư mục mẹ sau đó, rất có thể nó sẽ ngăn các album liên quan khác xuất hiện.</string>
     <string name="faq_7_title">Một thư mục chứa hình ảnh không hiển thị hoặc không hiển thị tất cả các mục. Tôi có thể làm gì?</string>

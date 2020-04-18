@@ -293,7 +293,7 @@
     <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko?</string>
-    <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle.</string>
+    <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>
     <string name="faq_6_text">Gali atsitikti taip, kad pamatysite keletą neįprastų albumų. Galite lengvai juos pašalinti, ilgai paspaudę juos ir pasirinkdami "Išskirti". Kitame dialoge galite pasirinkti tėvinį aplanką, greičiausiai bus išvengta kitų panašių albumų.</string>
     <string name="faq_7_title">Aplankas su nuotraukomis nerodomas, ką aš galiu padaryti?</string>

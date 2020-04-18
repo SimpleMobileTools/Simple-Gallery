@@ -22,23 +22,25 @@
             android:visibility="gone"/>
 
         <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/directories_empty_text_label"
+            android:id="@+id/directories_empty_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/directories_switch_searching"
             android:gravity="center_horizontal"
-            android:paddingLeft="@dimen/big_margin"
+            android:alpha="0.8"
+            android:textStyle="italic"
+            android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
-            android:paddingRight="@dimen/big_margin"
+            android:paddingEnd="@dimen/activity_margin"
             android:text="@string/no_media_with_filters"
             android:textSize="@dimen/bigger_text_size"
             android:visibility="gone"/>
 
         <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/directories_empty_text"
+            android:id="@+id/directories_empty_placeholder_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/directories_empty_text_label"
+            android:layout_below="@+id/directories_empty_placeholder"
             android:layout_centerHorizontal="true"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin"

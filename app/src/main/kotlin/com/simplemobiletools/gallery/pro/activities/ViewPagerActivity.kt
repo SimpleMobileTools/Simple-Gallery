@@ -306,6 +306,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        showSystemUI(true)
+
+        handleLockedFolderOpening(mPath.getParentPath()) { success ->
+            if (success) {
+                initContinue()
+            } else {
+                finish()
+            }
+        }
+    }
+
+    private fun initContinue() {
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
                 if (!config.isHiddenPasswordProtectionOn) {
@@ -315,8 +327,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
             config.isThirdPartyIntent = true
         }
-
-        showSystemUI(true)
 
         val isShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
         val isShowingRecycleBin = intent.getBooleanExtra(SHOW_RECYCLE_BIN, false)

@@ -293,7 +293,7 @@
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
-    <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+    <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
     <string name="faq_6_text">Lahko se zgodi, da se vam prikažejo nepoznani albumi, ki vsebujejo tovrstne datoteke. Lahko jih preprosto skrijete tako, da z dolgim pritiskom na album prikličete meni in tam izberete Izključi. V naslednjem oknu lahko izberete tudi nadrejeno mapo, obstaja pa verjetnost, da bo to preprečilo tudi prikazovanje ostalih povezanih albumov.</string>
     <string name="faq_7_title">Mapa s slikami se ne prikaže. Kaj naj naredim?</string>

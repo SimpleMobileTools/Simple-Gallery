@@ -146,7 +146,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
-                applicationContext.scanFileRecursively(file) {
+                applicationContext.scanPathRecursively(file.absolutePath) {
                     callback()
                 }
             } else {
@@ -173,6 +173,8 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
 
     tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
+        deleteFromMediaStore(file.absolutePath)
+        rescanFolderMedia(path)
     }
 }
 
@@ -648,17 +650,7 @@ fun Activity.showFileOnMap(path: String) {
 
     val latLon = FloatArray(2)
     if (exif.getLatLong(latLon)) {
-        val uriBegin = "geo:${latLon[0]},${latLon[1]}"
-        val query = "${latLon[0]}, ${latLon[1]}"
-        val encodedQuery = Uri.encode(query)
-        val uriString = "$uriBegin?q=$encodedQuery&z=16"
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
-        val packageManager = packageManager
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        } else {
-            toast(R.string.no_app_found)
-        }
+        showLocationOnMap("${latLon[0]}, ${latLon[1]}")
     } else {
         toast(R.string.unknown_location)
     }

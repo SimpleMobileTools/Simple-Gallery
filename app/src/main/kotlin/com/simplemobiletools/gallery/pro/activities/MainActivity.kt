@@ -196,8 +196,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
         invalidateOptionsMenu()
-        directories_empty_text_label.setTextColor(config.textColor)
-        directories_empty_text.setTextColor(getAdjustedPrimaryColor())
+
+        directories_empty_placeholder.setTextColor(config.textColor)
+        directories_empty_placeholder_2.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.underlineText()
 
@@ -1009,8 +1010,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (isPlaceholderVisible) {
                 isPlaceholderVisible = false
                 runOnUiThread {
-                    directories_empty_text_label.beGone()
-                    directories_empty_text.beGone()
+                    directories_empty_placeholder.beGone()
+                    directories_empty_placeholder_2.beGone()
                     directories_grid.beVisible()
                 }
             }
@@ -1052,32 +1053,32 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
-        directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
-        directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
+        directories_empty_placeholder.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
+        directories_empty_placeholder_2.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
 
         if (mIsSearchOpen) {
-            directories_empty_text_label.text = getString(R.string.no_items_found)
-            directories_empty_text.beGone()
+            directories_empty_placeholder.text = getString(R.string.no_items_found)
+            directories_empty_placeholder_2.beGone()
         } else if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
-            directories_empty_text_label.text = getString(R.string.no_media_add_included)
-            directories_empty_text.text = getString(R.string.add_folder)
+            directories_empty_placeholder.text = getString(R.string.no_media_add_included)
+            directories_empty_placeholder_2.text = getString(R.string.add_folder)
 
-            directories_empty_text.setOnClickListener {
+            directories_empty_placeholder_2.setOnClickListener {
                 showAddIncludedFolderDialog {
                     refreshItems()
                 }
             }
         } else {
-            directories_empty_text_label.text = getString(R.string.no_media_with_filters)
-            directories_empty_text.text = getString(R.string.change_filters_underlined)
+            directories_empty_placeholder.text = getString(R.string.no_media_with_filters)
+            directories_empty_placeholder_2.text = getString(R.string.change_filters_underlined)
 
-            directories_empty_text.setOnClickListener {
+            directories_empty_placeholder_2.setOnClickListener {
                 showFilterMediaDialog()
             }
         }
 
-        directories_empty_text.underlineText()
-        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
+        directories_empty_placeholder_2.underlineText()
+        directories_grid.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
