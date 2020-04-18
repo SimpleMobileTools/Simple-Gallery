@@ -293,7 +293,7 @@
     <string name="faq_4_title">Како да премотавам видео снимке?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле?</string>
-    <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером.</string>
+    <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују?</string>
     <string name="faq_6_text">Може се десити да се приказују неки необични албуми. Можете их лако изузети дугим притиском, а затим одабиром Изузми. У следећем дијалогу можете изабрати фасциклу родитеља, шансе су да ће спречити све остале албуме од приказивања.</string>
     <string name="faq_7_title">Фасцикла са сликама се не приказује, или не приказује све ставке. Шта да урадим?</string>

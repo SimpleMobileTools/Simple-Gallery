@@ -293,7 +293,7 @@
     <string name="faq_4_title">Jak mohu video posunout vpřed?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
-    <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů.</string>
+    <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
     <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt jejich vybráním pomocí dlouhého podržení a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení nadřazené složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
     <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím?</string>

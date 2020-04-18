@@ -293,7 +293,7 @@
     <string name="faq_4_title">Cómo podo aumentar a velocidade de reprodución de vídeo?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
-    <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros.</string>
+    <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Por qué aparecen cartafoles de música con portadas ou pegatinas?</string>
     <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
     <string name="faq_7_title">Un cartafol con imaxes non aparece, qué podo facer? </string>

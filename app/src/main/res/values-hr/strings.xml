@@ -293,7 +293,7 @@
     <string name="faq_4_title">Kako mogu ubrzati video?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Koja je razlika između skrivanja i izuzimanja mape?</string>
-    <string name="faq_5_text">Izuzimanje sprječava prikaz mape samo u Jednostavnoj galeriji, a skrivanje radi na razini sustava i skriva mapu iz drugih galerija. Djeluje stvaranjem praznih \".nomedia\" datoteka u zadanoj mapi, koju možete ukloniti pomoću bilo kojeg upraviteljem datoteka.</string>
+    <string name="faq_5_text">Izuzimanje sprječava prikaz mape samo u Jednostavnoj galeriji, a skrivanje radi na razini sustava i skriva mapu iz drugih galerija. Djeluje stvaranjem praznih \".nomedia\" datoteka u zadanoj mapi, koju možete ukloniti pomoću bilo kojeg upraviteljem datoteka. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Zašto se prikazuju mape s naslovnicama albuma i minijaturama slika?</string>
     <string name="faq_6_text">Može se dogoditi da vidite neke neobične albume. Možete ih jednostavno izuzeti tako da ih dugo pritisnete i odaberete Izuzmi. U sljedećem dijaloškom okviru možete odabrati glavnu mapu, čime će te spriječiti prikazivanje ostalih povezanih albuma.</string>
     <string name="faq_7_title">Mapa s fotografijama se ne prikazuje, što mogu učiniti?</string>

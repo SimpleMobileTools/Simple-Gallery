@@ -293,7 +293,7 @@
     <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Hvad er forskellen på at skjule og ekskludere en mappe?</string>
-    <string name="faq_5_text">Eksludering forhindrer kun visning af mappen i Simple Gallery, mens Skjul virker på systemniveau og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette en tom \".nomedia\"-fil i den givne mappe, som du kan slette med enhver filhåndterings-app.</string>
+    <string name="faq_5_text">Eksludering forhindrer kun visning af mappen i Simple Gallery, mens Skjul virker på systemniveau og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette en tom \".nomedia\"-fil i den givne mappe, som du kan slette med enhver filhåndterings-app. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Hvorfor dukker mapper med musikomslag eller klistermærker op?</string>
     <string name="faq_6_text">Det kan ske at du vil se nogle udsædvanlige albummmer. Du kan nemt ekskludere disse, ved at holde fingeren nede på disse og vælge Ekskluder. I den næste dialogboks kan du vælge den ovenliggende mappe, da andre relaterede albummer så sandsynligvis også vil blive forhindret i at blive vist.</string>
     <string name="faq_7_title">En mappe med billeder dukker ikke op, eller den viser ikke alle elementer. Hvad kan jeg gøre?</string>

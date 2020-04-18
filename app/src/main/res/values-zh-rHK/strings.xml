@@ -293,7 +293,7 @@
     <string name="faq_4_title">我如何快轉影片?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
-    <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。</string>
+    <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。 Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
     <string name="faq_6_text">這情況可能發生，你會看到一些異常的相冊出現。你可以長按再選擇[排除]來輕易排除他們。在下個對話框，你可以選擇上層資料夾，有可能讓其他相關相冊也避免出現。</string>
     <string name="faq_7_title">有一個圖片資料夾沒有顯示出來，怎麼辦?</string>

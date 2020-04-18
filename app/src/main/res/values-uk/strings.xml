@@ -293,7 +293,7 @@
     <string name="faq_4_title">Як я можу швидко прокручувати відео?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">В чому полягає різниця між приховуванням та виключенням теки?</string>
-    <string name="faq_5_text">\"Виключити\" запобігає відображенню теки тільки в додатку Simple Gallery, в той час як \"Приховати\" працює на системному рівні і приховує теку і в інших галереях також. Це здійснюється шляхом створення порожнього файлу \".nomedia\" в заданій теці, який може бути видалений пізніше будь-яким файловим менеджером.</string>
+    <string name="faq_5_text">\"Виключити\" запобігає відображенню теки тільки в додатку Simple Gallery, в той час як \"Приховати\" працює на системному рівні і приховує теку і в інших галереях також. Це здійснюється шляхом створення порожнього файлу \".nomedia\" в заданій теці, який може бути видалений пізніше будь-яким файловим менеджером. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Чому відображаються теки з музичними обкладинками або стікерами?</string>
     <string name="faq_6_text">Може так трапитися, що з\'являться деякі незвичні альбоми. Їх можна легко виключити довгим натисканням і вибором \"Виключити\". В наступному діалозі у вас буде можливість обрати бітьківську теку. Швидше за все, це дозволить також запобігти появі інших пов\'язаних альбомів.</string>
     <string name="faq_7_title">Тека з зображеннями не відображається, що мені робити?</string>
