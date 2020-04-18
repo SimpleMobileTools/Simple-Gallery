@@ -39,7 +39,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        media_empty_text_label.setTextColor(config.textColor)
+        media_empty_text_placeholder.setTextColor(config.textColor)
         getAllMedia()
     }
 
@@ -108,10 +108,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                 val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, "")
                 runOnUiThread {
                     if (grouped.isEmpty()) {
-                        media_empty_text_label.text = getString(R.string.no_items_found)
-                        media_empty_text_label.beVisible()
+                        media_empty_text_placeholder.text = getString(R.string.no_items_found)
+                        media_empty_text_placeholder.beVisible()
                     } else {
-                        media_empty_text_label.beGone()
+                        media_empty_text_placeholder.beGone()
                     }
 
                     getMediaAdapter()?.updateMedia(grouped)
