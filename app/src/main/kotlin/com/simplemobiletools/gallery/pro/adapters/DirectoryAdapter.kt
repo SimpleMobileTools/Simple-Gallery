@@ -235,21 +235,20 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     hideFolders(selectedPaths)
                 }
             }
-            return
-        }
-
-        selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
-            val path = it
-            activity.handleLockedFolderOpening(path) { success ->
-                if (success) {
-                    if (path.containsNoMedia()) {
-                        activity.removeNoMedia(path) {
-                            if (activity.config.shouldShowHidden) {
-                                updateFolderNames()
-                            } else {
-                                activity.runOnUiThread {
-                                    listener?.refreshItems()
-                                    finishActMode()
+        } else {
+            selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
+                val path = it
+                activity.handleLockedFolderOpening(path) { success ->
+                    if (success) {
+                        if (path.containsNoMedia()) {
+                            activity.removeNoMedia(path) {
+                                if (activity.config.shouldShowHidden) {
+                                    updateFolderNames()
+                                } else {
+                                    activity.runOnUiThread {
+                                        listener?.refreshItems()
+                                        finishActMode()
+                                    }
                                 }
                             }
                         }
