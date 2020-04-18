@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.14.2 *(2020-04-18)*
+----------------------------
+
+ * Fixed some Photo Editor bugs
+ * Properly handle locked folders at opening from widgets and shortcuts
+ * Open the map at clicking the coordinates at the Properties window
+ * Properly sort items at the Other Folder dialog at copy/move
+ * Fixed some folder un/hiding related glitches
+ * A couple other translation and UX improvements
+
 Version 6.14.1 *(2020-04-14)*
 ----------------------------
 
