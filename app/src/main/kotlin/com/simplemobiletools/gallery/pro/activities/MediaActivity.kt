@@ -160,8 +160,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
-            handleLockedFolderOpening(mPath) {
-                if (it) {
+            handleLockedFolderOpening(mPath) { success ->
+                if (success) {
                     tryLoadGallery()
                 } else {
                     finish()
