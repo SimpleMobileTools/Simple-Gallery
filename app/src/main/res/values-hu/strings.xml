@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galéria</string>
@@ -20,7 +20,7 @@
     <string name="change_cover_image">Borítókép változtatása</string>
     <string name="select_photo">Válasszon fotót</string>
     <string name="volume">Hangerő</string>
-    <string name="brightness">Fényerő</string>
+    <string name="brightness">Fényesség</string>
     <string name="lock_orientation">Tájolás zárolása</string>
     <string name="unlock_orientation">Tájolás feloldása</string>
     <string name="change_orientation">Tájolás változtatása</string>
@@ -80,7 +80,7 @@
     <string name="rotate">Forgatás</string>
     <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
     <string name="image_editing_failed">Sikertelen kép szerkesztés</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">A képszerkesztés megszakítva</string>
     <string name="file_edited_successfully">A fájl szerkesztése sikerült</string>
     <string name="edit_image_with">Kép szerkesztés ezzel:</string>
     <string name="no_editor_found">Nem található kép szerkesztő</string>
@@ -92,12 +92,9 @@
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
-    <string name="free_aspect_ratio">Szabad</string>
+    <string name="free_aspect_ratio">Szabad</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
-    <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Egyéb</string>
-
-    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Beállítás háttérképként</string>
@@ -207,7 +204,7 @@
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Egyéni</string>
     <string name="pesdk_transform_button_resetCrop">Alaphelyzetbe</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_button_squareCrop">Négyzet</string>
     <string name="pesdk_transform_title_name">Transform</string>
     <string name="pesdk_filter_title_name">Szűrő</string>
     <string name="pesdk_filter_asset_none">Nincs</string>
@@ -215,7 +212,7 @@
     <string name="pesdk_adjustments_button_shadowTool">Árnyékok</string>
     <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
     <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
-    <string name="pesdk_adjustments_button_brightnessTool">Fényesség</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Fényerő</string>
     <string name="pesdk_adjustments_button_contrastTool">Kontraszt</string>
     <string name="pesdk_adjustments_button_saturationTool">Színtelítettség</string>
     <string name="pesdk_adjustments_button_clarityTool">Világosság</string>
@@ -378,6 +375,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
