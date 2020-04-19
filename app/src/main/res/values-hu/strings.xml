@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><resources>
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galéria</string>
     <string name="edit">Szerkesztés</string>
@@ -91,8 +92,8 @@
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
-    <string name="free_aspect_ratio">Szabad</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Egyéb</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Szabad</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -292,7 +293,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
     <string name="faq_6_text">Lehet, hogy látni fog néhány szokatlan album megjelenést. Könnyen kizárhatja a hosszú megnyomással és a Kizárás kiválasztásával. A következő párbeszédablakban kiválaszthatja a szülő mappát, és valószínűleg megakadályozza, hogy a többi kapcsolódó album is megjelenjen.</string>
     <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek?</string>
