@@ -457,7 +457,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun initTimeHolder() {
         var right = 0
-        var bottom = context!!.navigationBarHeight
+        var bottom = if (context!!.navigationBarBottom) context!!.navigationBarHeight else 0
         if (mConfig.bottomActions) {
             bottom += resources.getDimension(R.dimen.bottom_actions_height).toInt()
         }
