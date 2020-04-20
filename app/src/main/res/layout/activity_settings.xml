@@ -113,13 +113,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/visibility_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/visibility_label"
             android:layout_width="wrap_content"
@@ -215,13 +208,6 @@
                 app:switchPadding="@dimen/medium_margin"/>
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/videos_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/videos_label"
@@ -348,13 +334,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/thumbnails_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/thumbnails_label"
             android:layout_width="wrap_content"
@@ -480,13 +459,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/scrolling_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/scrolling_label"
             android:layout_width="wrap_content"
@@ -565,13 +537,6 @@
                 app:switchPadding="@dimen/medium_margin"/>
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/fullscreen_media_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/fullscreen_media_label"
@@ -776,13 +741,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/deep_zoomable_images_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/deep_zoomable_images_label"
             android:layout_width="wrap_content"
@@ -885,13 +843,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/extended_details_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/extended_details_label"
             android:layout_width="wrap_content"
@@ -966,13 +917,6 @@
                 android:text="@string/manage_extended_details"/>
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/security_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/security_label"
@@ -1053,13 +997,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/file_operations_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/file_operations_label"
             android:layout_width="wrap_content"
@@ -1139,13 +1076,6 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/bottom_actions_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
-
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/bottom_actions_label"
             android:layout_width="wrap_content"
@@ -1199,13 +1129,6 @@
                 android:text="@string/manage_bottom_actions"/>
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/recycle_bin_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/recycle_bin_label"
@@ -1317,13 +1240,6 @@
                 android:clickable="false"/>
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/migrating_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/divider_grey"
-            android:importantForAccessibility="no"/>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/migrating_label"
