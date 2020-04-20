@@ -758,7 +758,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActionsLayout() {
-        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        val useNavigationBarHeight = if (navigationBarBottom) navigationBarHeight else 0
+        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + useNavigationBarHeight
         if (config.bottomActions) {
             bottom_actions.beVisible()
         } else {
