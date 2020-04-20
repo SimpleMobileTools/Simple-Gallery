@@ -866,6 +866,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             if (isVideo) {
                 val extras = HashMap<String, Boolean>()
                 extras[SHOW_FAVORITES] = mPath == FAVORITES
+
+                if (shouldSkipAuthentication()) {
+                    extras[SKIP_AUTHENTICATION] = true
+                }
                 openPath(path, false, extras)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
