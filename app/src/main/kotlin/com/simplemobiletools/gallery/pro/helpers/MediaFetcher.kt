@@ -549,7 +549,7 @@ class MediaFetcher(val context: Context) {
         return if (timestamp.areDigitsOnly()) {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp.toLong()
-            val format = if (showDay) "dd MMM yyyy" else "MMM yyyy"
+            val format = if (showDay) context.config.dateFormat else "MMMM yyyy"
             DateFormat.format(format, cal).toString()
         } else {
             ""
