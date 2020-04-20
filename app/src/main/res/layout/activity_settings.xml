@@ -117,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/visibility"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -213,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/videos"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -338,7 +338,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/thumbnails"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -463,7 +463,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/scrolling"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -542,7 +542,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/fullscreen_media"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -745,7 +745,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/deep_zoomable_images"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -847,7 +847,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/extended_details"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -922,7 +922,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/security"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -1001,7 +1001,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/file_operations"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -1080,7 +1080,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/bottom_actions"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -1134,7 +1134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/recycle_bin"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
@@ -1245,7 +1245,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/section_margin"
             android:text="@string/migrating"
             android:textAllCaps="true"
             android:textSize="@dimen/smaller_text_size" />
