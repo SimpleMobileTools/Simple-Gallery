@@ -160,11 +160,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
-            handleLockedFolderOpening(mPath) { success ->
-                if (success) {
-                    tryLoadGallery()
-                } else {
-                    finish()
+            if (shouldSkipAuthentication()) {
+                tryLoadGallery()
+            } else {
+                handleLockedFolderOpening(mPath) { success ->
+                    if (success) {
+                        tryLoadGallery()
+                    } else {
+                        finish()
+                    }
                 }
             }
         }
@@ -274,8 +278,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun startSlideshow() {
         if (mMedia.isNotEmpty()) {
             Intent(this, ViewPagerActivity::class.java).apply {
-                val item = mMedia.firstOrNull { it is Medium } as? Medium
-                        ?: return
+                val item = mMedia.firstOrNull { it is Medium } as? Medium ?: return
+                putExtra(SKIP_AUTHENTICATION, shouldSkipAuthentication())
                 putExtra(PATH, item.path)
                 putExtra(SHOW_ALL, mShowAll)
                 putExtra(SLIDESHOW_START_ON_ENTER, true)
@@ -865,6 +869,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 openPath(path, false, extras)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
+                    putExtra(SKIP_AUTHENTICATION, shouldSkipAuthentication())
                     putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
                     putExtra(SHOW_FAVORITES, mPath == FAVORITES)
@@ -931,6 +936,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             deleteFilteredFiles(filtered)
         }
     }
+
+    private fun shouldSkipAuthentication() = intent.getBooleanExtra(SKIP_AUTHENTICATION, false)
 
     private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
         deleteFiles(filtered) {

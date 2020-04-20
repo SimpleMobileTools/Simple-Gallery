@@ -835,6 +835,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         handleLockedFolderOpening(path) { success ->
             if (success) {
                 Intent(this, MediaActivity::class.java).apply {
+                    putExtra(SKIP_AUTHENTICATION, true)
                     putExtra(DIRECTORY, path)
                     handleMediaIntent(this)
                 }

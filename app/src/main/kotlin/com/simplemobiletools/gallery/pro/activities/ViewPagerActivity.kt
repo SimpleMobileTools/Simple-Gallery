@@ -308,11 +308,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI(true)
 
-        handleLockedFolderOpening(mPath.getParentPath()) { success ->
-            if (success) {
-                initContinue()
-            } else {
-                finish()
+        if (intent.getBooleanExtra(SKIP_AUTHENTICATION, false)) {
+            initContinue()
+        } else {
+            handleLockedFolderOpening(mPath.getParentPath()) { success ->
+                if (success) {
+                    initContinue()
+                } else {
+                    finish()
+                }
             }
         }
     }
