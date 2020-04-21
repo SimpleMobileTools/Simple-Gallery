@@ -292,7 +292,7 @@
     <string name="faq_4_title">如何快进/快退视频？</string>
     <string name="faq_4_text">您可以双击屏幕边缘或点击搜索栏附近的当前或总时长的文字。 如果您在应用设置中启用了在独立页面播放视频，则也可以使用水平手势。</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
-    <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
     <string name="faq_6_text">你可能会看到一些不寻常的相册出现。你可以通过长按它们并选择“排除”来排除它们。在之后的对话框中，你可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>
     <string name="faq_7_title">有的图片文件夹没有显示，怎么回事？</string>
@@ -364,7 +364,7 @@
         <b>查看简约系列的所有应用:</b>
         https://www.simplemobiletools.com
 
-        <b>简约图库 Pro的独立网站：</b>
+        <b>简约图库 Pro 的独立网站：</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
