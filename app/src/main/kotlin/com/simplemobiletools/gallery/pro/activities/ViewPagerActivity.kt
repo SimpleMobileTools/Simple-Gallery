@@ -399,8 +399,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActions() {
-        initBottomActionsLayout()
         initBottomActionButtons()
+        initBottomActionsLayout()
     }
 
     private fun initFavorites() {

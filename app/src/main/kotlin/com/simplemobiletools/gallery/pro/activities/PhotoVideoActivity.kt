@@ -282,8 +282,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActions() {
-        initBottomActionsLayout()
         initBottomActionButtons()
+        initBottomActionsLayout()
     }
 
     private fun initBottomActionsLayout() {
