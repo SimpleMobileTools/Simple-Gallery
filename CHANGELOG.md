@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.14.3 *(2020-04-21)*
+----------------------------
+
+ * Use the selected date format grouped thumbnail section titles too
+ * Fixed a glitch related to locked folders asking authentication too often
+ * Refresh the UI here and there a bit
+
 Version 6.14.2 *(2020-04-18)*
 ----------------------------
 
