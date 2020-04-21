@@ -504,7 +504,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mSeekBar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
-        arrayOf(mView.video_curr_time, mView.video_duration).forEach {
+        arrayOf(mView.video_curr_time, mView.video_duration, mView.video_toggle_play_pause).forEach {
             it.isClickable = !mIsFullscreen
         }
 
