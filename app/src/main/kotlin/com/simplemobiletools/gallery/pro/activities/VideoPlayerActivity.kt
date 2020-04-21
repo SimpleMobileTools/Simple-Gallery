@@ -290,7 +290,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             if (config.autoplayVideos) {
                 resumeVideo()
             } else {
-                video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+                video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
             }
         }
     }
@@ -305,7 +305,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun resumeVideo() {
-        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline_vector)
         if (mExoPlayer == null) {
             return
         }
@@ -322,7 +322,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun pauseVideo() {
-        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
         if (mExoPlayer == null) {
             return
         }

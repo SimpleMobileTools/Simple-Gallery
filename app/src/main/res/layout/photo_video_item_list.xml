@@ -55,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/small_margin"
         android:paddingBottom="6dp"
-        android:src="@drawable/img_play_outline_empty"
+        android:src="@drawable/ic_play_outline_vector"
         android:visibility="gone"/>
 
     <TextView
