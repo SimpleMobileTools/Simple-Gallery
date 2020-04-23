@@ -479,8 +479,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private fun checkIfPanorama() {
         try {
             val fis = FileInputStream(File(mMedium.path))
-            fis.use { fis ->
-                context!!.parseFileChannel(mMedium.path, fis.channel, 0, 0, 0) {
+            fis.use {
+                context!!.parseFileChannel(mMedium.path, it.channel, 0, 0, 0) {
                     mIsPanorama = true
                 }
             }
@@ -591,8 +591,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
         }
 
-        if (mExoPlayer == null)
+        if (mExoPlayer == null) {
             return
+        }
 
         if (mIsPlaying) {
             mExoPlayer!!.playWhenReady = true
