@@ -31,6 +31,8 @@ import java.io.File
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mIsSearchOpen = false
     private var mLastSearchedText = ""
+    private var mDateFormat = ""
+    private var mTimeFormat = ""
 
     private var mSearchMenuItem: MenuItem? = null
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -40,6 +42,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         media_empty_text_placeholder.setTextColor(config.textColor)
+        mDateFormat = config.dateFormat
+        mTimeFormat = getTimeFormat()
         getAllMedia()
     }
 
@@ -232,7 +236,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         if (mediaAdapter?.isASectionTitle(index) == true) {
             realIndex++
         }
-        return mediaAdapter?.getItemBubbleText(realIndex, sorting) ?: ""
+        return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
     }
 
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {

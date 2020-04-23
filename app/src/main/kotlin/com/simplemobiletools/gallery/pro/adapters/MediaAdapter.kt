@@ -493,7 +493,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }, INSTANT_LOAD_DURATION)
     }
 
-    fun getItemBubbleText(position: Int, sorting: Int) = (media[position] as? Medium)?.getBubbleText(sorting, activity)
+    fun getItemBubbleText(position: Int, sorting: Int, dateFormat: String, timeFormat: String): String {
+        return (media[position] as? Medium)?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: ""
+    }
 
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
