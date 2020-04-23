@@ -122,6 +122,8 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
         val sorting = activity.config.directorySorting
+        val dateFormat = activity.config.dateFormat
+        val timeFormat = activity.getTimeFormat()
         view.apply {
             directories_grid.adapter = adapter
 
@@ -134,12 +136,12 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             if (scrollHorizontally) {
                 directories_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_horizontal_fastscroller.setViews(directories_grid) {
-                    directories_horizontal_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity))
+                    directories_horizontal_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }
             } else {
                 directories_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_vertical_fastscroller.setViews(directories_grid) {
-                    directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity))
+                    directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }
             }
         }
