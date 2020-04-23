@@ -894,16 +894,14 @@ fun Context.getFileDateTaken(path: String): Long {
     val selection = "${Images.Media.DATA} = ?"
     val selectionArgs = arrayOf(path)
 
-    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
-    cursor?.use {
-        if (cursor.moveToFirst()) {
-            do {
-                try {
-                    return cursor.getLongValue(Images.Media.DATE_TAKEN)
-                } catch (ignored: Exception) {
-                }
-            } while (cursor.moveToNext())
+    try {
+        val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
+        cursor?.use {
+            if (cursor.moveToFirst()) {
+                return cursor.getLongValue(Images.Media.DATE_TAKEN)
+            }
         }
+    } catch (ignored: Exception) {
     }
 
     return 0L
