@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.14.4 *(2020-04-24)*
+----------------------------
+
+ * Improved the performance on multiple places
+ * Removed some unnecessary permissions added recently
+ * Fixed some photo editor glitches
+ * Show Portrait images by default only on Android 9+
+
 Version 6.14.3 *(2020-04-21)*
 ----------------------------
 
