@@ -22,7 +22,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
@@ -36,7 +35,10 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
-import com.simplemobiletools.gallery.pro.dialogs.*
+import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
+import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
@@ -221,13 +223,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = mPath.containsNoMedia(this)
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
-
-            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
-            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
-            findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
 
             findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
             findItem(R.id.empty_disable_recycle_bin).isVisible = mPath == RECYCLE_BIN
@@ -264,9 +261,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             R.id.folder_view -> switchToFolderView()
             R.id.change_view_type -> changeViewType()
             R.id.group -> showGroupByDialog()
-            R.id.hide_folder -> tryHideFolder()
-            R.id.unhide_folder -> unhideFolder()
-            R.id.exclude_folder -> tryExcludeFolder()
             R.id.create_new_folder -> createNewFolder()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
@@ -542,43 +536,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mLoadedInitialPhotos = false
             media_grid.adapter = null
             getMedia()
-        }
-    }
-
-    private fun tryHideFolder() {
-        if (config.wasHideFolderTooltipShown) {
-            hideFolder()
-        } else {
-            ConfirmationDialog(this, getString(R.string.hide_folder_description)) {
-                config.wasHideFolderTooltipShown = true
-                hideFolder()
-            }
-        }
-    }
-
-    private fun hideFolder() {
-        addNoMedia(mPath) {
-            runOnUiThread {
-                if (!config.shouldShowHidden) {
-                    finish()
-                } else {
-                    invalidateOptionsMenu()
-                }
-            }
-        }
-    }
-
-    private fun unhideFolder() {
-        removeNoMedia(mPath) {
-            runOnUiThread {
-                invalidateOptionsMenu()
-            }
-        }
-    }
-
-    private fun tryExcludeFolder() {
-        ExcludeFolderDialog(this, arrayListOf(mPath)) {
-            finish()
         }
     }
 
