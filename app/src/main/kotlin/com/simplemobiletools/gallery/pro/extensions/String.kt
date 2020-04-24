@@ -1,9 +1,10 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.content.Context
 import android.media.MediaMetadataRetriever
 import android.os.Environment
-import com.simplemobiletools.commons.extensions.doesThisOrParentHaveNoMedia
-import com.simplemobiletools.commons.helpers.NOMEDIA
+import com.simplemobiletools.commons.extensions.containsNoMedia
+import com.simplemobiletools.commons.extensions.doesParentHaveNoMedia
 import java.io.File
 import java.io.IOException
 
@@ -11,7 +12,7 @@ fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedP
 
 fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
 
-fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
+fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean, context: Context): Boolean {
     if (isEmpty()) {
         return false
     }
@@ -35,7 +36,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        File(this, NOMEDIA).exists()
+        file.containsNoMedia(context)
     }
 
     return if (!showHidden && containsNoMedia) {
@@ -49,7 +50,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
         var containsNoMediaOrDot = containsNoMedia || contains("/.")
         if (!containsNoMediaOrDot) {
-            containsNoMediaOrDot = file.doesThisOrParentHaveNoMedia()
+            containsNoMediaOrDot = file.doesParentHaveNoMedia(context)
         }
         !containsNoMediaOrDot
     } else {

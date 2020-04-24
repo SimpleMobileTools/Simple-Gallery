@@ -370,7 +370,7 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
     val dirName = getFolderNameFromPath(path)
-    return if (path.doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
+    return if (path.doesThisOrParentHaveNoMedia(this) && !path.isThisOrParentIncluded(includedFolders)) {
         "$dirName $hidden"
     } else {
         dirName
@@ -516,7 +516,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
-        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, this) } as ArrayList<Directory>
         val filterMedia = config.filterMedia
 
         filteredDirectories = (when {
@@ -534,7 +534,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 
         val hiddenString = resources.getString(R.string.hidden)
         filteredDirectories.forEach {
-            it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
+            it.name = if (it.path.doesThisOrParentHaveNoMedia(this) && !it.path.isThisOrParentIncluded(includedPaths)) {
                 "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
             } else {
                 it.name.removeSuffix(hiddenString).trim()
@@ -543,7 +543,6 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 
         val clone = filteredDirectories.clone() as ArrayList<Directory>
         callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
-
         removeInvalidDBDirectories(filteredDirectories)
     }
 }
