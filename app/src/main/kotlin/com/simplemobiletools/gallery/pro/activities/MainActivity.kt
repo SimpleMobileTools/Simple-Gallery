@@ -954,6 +954,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 if (!directory.isRecycleBin()) {
                     mediaDB.insertAll(curMedia)
                 }
+
                 getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
@@ -1163,7 +1164,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } else if (it.path != config.tempFolderPath) {
                 val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it != null && (it.isMediaFile() || (File(it).isDirectory && it.startsWith("img_", true)))
+                    it != null && (it.isMediaFile() || (it.startsWith("img_", true) && File(it).isDirectory))
                 } ?: false
 
                 if (!hasMediaFile) {

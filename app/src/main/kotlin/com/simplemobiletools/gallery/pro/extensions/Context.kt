@@ -564,7 +564,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             val foldersToAdd = ArrayList<String>()
             for (folder in foldersToScan) {
                 val allFiles = File(folder).listFiles() ?: continue
-                allFiles.filter { it.isDirectory && it.name.startsWith("img_", true) }.forEach {
+                allFiles.filter { it.name.startsWith("img_", true) && it.isDirectory }.forEach {
                     foldersToAdd.add(it.absolutePath)
                 }
             }
