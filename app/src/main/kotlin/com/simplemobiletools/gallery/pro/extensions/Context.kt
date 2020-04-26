@@ -604,23 +604,25 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
         val OTGPath = config.OTGPath
 
-        val mediaToDelete = ArrayList<Medium>()
-        media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
-            if (it.path.startsWith(recycleBinPath)) {
-                deleteDBPath(it.path)
-            } else {
-                mediaToDelete.add(it)
-            }
-        }
-
         try {
-            if (mediaToDelete.isNotEmpty()) {
-                mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
-
-                mediaToDelete.filter { it.isFavorite }.forEach {
-                    favoritesDB.deleteFavoritePath(it.path)
+            val mediaToDelete = ArrayList<Medium>()
+            Thread {
+                media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
+                    if (it.path.startsWith(recycleBinPath)) {
+                        deleteDBPath(it.path)
+                    } else {
+                        mediaToDelete.add(it)
+                    }
                 }
-            }
+
+                if (mediaToDelete.isNotEmpty()) {
+                    mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
+
+                    mediaToDelete.filter { it.isFavorite }.forEach {
+                        favoritesDB.deleteFavoritePath(it.path)
+                    }
+                }
+            }.start()
         } catch (ignored: Exception) {
         }
     }
