@@ -7,6 +7,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"
         tools:node="remove"/>
@@ -283,6 +284,15 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info"/>
+        </receiver>
+
+        <receiver android:name=".receivers.BootCompletedReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
         </receiver>
 
         <service
