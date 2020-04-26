@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.14.6 *(2020-04-26)*
+----------------------------
+
+ * Added a few more stability and performance improvements
+
 Version 6.14.5 *(2020-04-26)*
 ----------------------------
 
