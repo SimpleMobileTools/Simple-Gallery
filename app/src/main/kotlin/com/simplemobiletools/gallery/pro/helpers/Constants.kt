@@ -171,13 +171,7 @@ const val TYPE_RAWS = 8
 const val TYPE_SVGS = 16
 const val TYPE_PORTRAITS = 32
 
-fun getDefaultFileFilter(): Int {
-    var types = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
-    if (isPiePlus()) {
-        types += TYPE_PORTRAITS
-    }
-    return types
-}
+fun getDefaultFileFilter() = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
 
 const val LOCATION_INTERNAL = 1
 const val LOCATION_SD = 2
