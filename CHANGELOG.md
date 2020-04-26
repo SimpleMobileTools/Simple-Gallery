@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.14.5 *(2020-04-26)*
+----------------------------
+
+ * Disable Portrait photo showing by default, until it gets improved
+ * Added a couple other performance improvements here and there
+
 Version 6.14.4 *(2020-04-24)*
 ----------------------------
 
