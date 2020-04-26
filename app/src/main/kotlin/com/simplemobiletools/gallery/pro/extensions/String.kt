@@ -36,7 +36,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        file.containsNoMedia(context)
+        file.containsNoMedia()
     }
 
     return if (!showHidden && containsNoMedia) {
@@ -50,7 +50,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
         var containsNoMediaOrDot = containsNoMedia || contains("/.")
         if (!containsNoMediaOrDot) {
-            containsNoMediaOrDot = file.doesParentHaveNoMedia(context)
+            containsNoMediaOrDot = file.doesParentHaveNoMedia()
         }
         !containsNoMediaOrDot
     } else {
