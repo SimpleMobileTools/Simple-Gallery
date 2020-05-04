@@ -16,7 +16,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.6.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         if (is_proprietary) {
-            classpath 'ly.img.android.pesdk:plugin:7.2.1'
+            classpath 'ly.img.android.pesdk:plugin:7.2.2'
         }
 
         // NOTE: Do not place your application dependencies here; they belong
