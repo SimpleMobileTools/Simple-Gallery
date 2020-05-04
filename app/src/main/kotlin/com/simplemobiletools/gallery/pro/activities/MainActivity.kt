@@ -425,7 +425,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkDefaultSpamFolders() {
         if (!config.spamFoldersChecked) {
             val spamFolders = arrayListOf(
-                    "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
+                "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
             )
 
             val OTGPath = config.OTGPath
@@ -1030,16 +1030,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
-            try {
-                // make sure to create a new thread for these operations, dont just use the common bg thread
-                Thread {
+
+            // make sure to create a new thread for these operations, dont just use the common bg thread
+            Thread {
+                try {
                     directoryDao.insert(newDir)
                     if (folder != RECYCLE_BIN) {
                         mediaDB.insertAll(newMedia)
                     }
-                }.start()
-            } catch (ignored: Exception) {
-            }
+                } catch (ignored: Exception) {
+                }
+            }.start()
         }
 
         mLoadedInitialPhotos = true
@@ -1213,7 +1214,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
     private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
-            ?: ""
+        ?: ""
 
     private fun setupLatestMediaId() {
         ensureBackgroundThread {
