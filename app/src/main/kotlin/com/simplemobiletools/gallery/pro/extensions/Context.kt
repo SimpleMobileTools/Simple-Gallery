@@ -606,6 +606,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
         try {
             val mediaToDelete = ArrayList<Medium>()
+            // creating a new thread intentionally, do not reuse the common background thread
             Thread {
                 media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
                     if (it.path.startsWith(recycleBinPath)) {
@@ -699,7 +700,6 @@ fun Context.deleteDBPath(path: String) {
 fun Context.deleteMediumWithPath(path: String) {
     try {
         mediaDB.deleteMediumPath(path)
-        favoritesDB.deleteFavoritePath(path)
     } catch (ignored: Exception) {
     }
 }
