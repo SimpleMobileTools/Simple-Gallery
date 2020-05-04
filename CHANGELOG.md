@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.14.7 *(2020-05-04)*
+----------------------------
+
+ * Fixed a glitch with some favorite items disappearing
+ * Improve folder hiding, add the new .nomedia file into MediaStore
+ * Improve the performance of getting video file duration
+ * A few other improvements here and there
+
 Version 6.14.6 *(2020-04-26)*
 ----------------------------
 
