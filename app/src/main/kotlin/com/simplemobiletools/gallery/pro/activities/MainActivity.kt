@@ -546,7 +546,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
         when {
             fileDirItems.isEmpty() -> return
-            fileDirItems.size == 1 -> toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+            fileDirItems.size == 1 -> {
+                try {
+                    toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                }
+            }
             else -> {
                 val baseString = if (config.useRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
                 val deletingItems = resources.getQuantityString(baseString, fileDirItems.size, fileDirItems.size)
