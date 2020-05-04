@@ -330,7 +330,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupTimer() {
-        activity!!.runOnUiThread(object : Runnable {
+        activity?.runOnUiThread(object : Runnable {
             override fun run() {
                 if (mExoPlayer != null && !mIsDragged && mIsPlaying) {
                     mCurrTime = (mExoPlayer!!.currentPosition / 1000).toInt()
@@ -687,9 +687,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupVideoDuration() {
-        mDuration = mMedium.path.getVideoDuration()
-        setupTimeHolder()
-        setPosition(0)
+        ensureBackgroundThread {
+            mDuration = mMedium.path.getVideoDuration()
+            activity?.runOnUiThread {
+                setupTimeHolder()
+                setPosition(0)
+            }
+        }
     }
 
     private fun videoPrepared() {
