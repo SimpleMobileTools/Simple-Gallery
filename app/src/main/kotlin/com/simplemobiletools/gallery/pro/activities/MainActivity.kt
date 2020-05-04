@@ -1056,21 +1056,30 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             directories_refresh_layout.isRefreshing = false
             checkPlaceholderVisibility(dirs)
         }
-        checkInvalidDirectories(dirs)
 
-        val everShownFolders = config.everShownFolders as HashSet
-        dirs.mapTo(everShownFolders) { it.path }
+        checkInvalidDirectories(dirs)
+        if (mDirs.size > 50) {
+            excludeSpamFolders()
+        }
+
+        val excludedFolders = config.excludedFolders
+        val everShownFolders = HashSet<String>()
+
+        // do not add excluded folders and their subfolders at everShownFolders
+        dirs.filter { dir ->
+            if (excludedFolders.any { dir.path.startsWith(it) }) {
+                return@filter false
+            }
+            return@filter true
+        }.mapTo(everShownFolders) { it.path }
 
         try {
+            // catch some extreme exceptions like too many everShownFolders for storing, shouldnt really happen
             config.everShownFolders = everShownFolders
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
         mDirs = dirs.clone() as ArrayList<Directory>
-
-        if (mDirs.size > 55) {
-            excludeSpamFolders()
-        }
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
