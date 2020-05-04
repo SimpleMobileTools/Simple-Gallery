@@ -29,7 +29,6 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.activities.VideoActivity
 import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.getVideoDuration
 import com.simplemobiletools.gallery.pro.extensions.hasNavBar
 import com.simplemobiletools.gallery.pro.extensions.parseFileChannel
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -688,7 +687,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun setupVideoDuration() {
         ensureBackgroundThread {
-            mDuration = mMedium.path.getVideoDuration()
+            mDuration = context?.getVideoDuration(mMedium.path) ?: 0
+
             activity?.runOnUiThread {
                 setupTimeHolder()
                 setPosition(0)

@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.content.Context
-import android.media.MediaMetadataRetriever
 import android.os.Environment
 import com.simplemobiletools.commons.extensions.containsNoMedia
 import com.simplemobiletools.commons.extensions.doesParentHaveNoMedia
@@ -65,17 +64,6 @@ fun String.getDistinctPath(): String {
     } catch (e: IOException) {
         toLowerCase()
     }
-}
-
-fun String.getVideoDuration(): Int {
-    var seconds = 0
-    try {
-        val retriever = MediaMetadataRetriever()
-        retriever.setDataSource(this)
-        seconds = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
-    } catch (e: Exception) {
-    }
-    return seconds
 }
 
 fun String.isDownloadsFolder() = equals(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString(), true)
