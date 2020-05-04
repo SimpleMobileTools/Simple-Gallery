@@ -84,24 +84,24 @@ fun SimpleActivity.launchAbout() {
             LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS
 
     val faqItems = arrayListOf(
-            FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
-            FAQItem(R.string.faq_1_title, R.string.faq_1_text),
-            FAQItem(R.string.faq_2_title, R.string.faq_2_text),
-            FAQItem(R.string.faq_3_title, R.string.faq_3_text),
-            FAQItem(R.string.faq_4_title, R.string.faq_4_text),
-            FAQItem(R.string.faq_5_title, R.string.faq_5_text),
-            FAQItem(R.string.faq_6_title, R.string.faq_6_text),
-            FAQItem(R.string.faq_7_title, R.string.faq_7_text),
-            FAQItem(R.string.faq_8_title, R.string.faq_8_text),
-            FAQItem(R.string.faq_10_title, R.string.faq_10_text),
-            FAQItem(R.string.faq_11_title, R.string.faq_11_text),
-            FAQItem(R.string.faq_12_title, R.string.faq_12_text),
-            FAQItem(R.string.faq_13_title, R.string.faq_13_text),
-            FAQItem(R.string.faq_14_title, R.string.faq_14_text),
-            FAQItem(R.string.faq_15_title, R.string.faq_15_text),
-            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
-            FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons),
-            FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons))
+        FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
+        FAQItem(R.string.faq_1_title, R.string.faq_1_text),
+        FAQItem(R.string.faq_2_title, R.string.faq_2_text),
+        FAQItem(R.string.faq_3_title, R.string.faq_3_text),
+        FAQItem(R.string.faq_4_title, R.string.faq_4_text),
+        FAQItem(R.string.faq_5_title, R.string.faq_5_text),
+        FAQItem(R.string.faq_6_title, R.string.faq_6_text),
+        FAQItem(R.string.faq_7_title, R.string.faq_7_text),
+        FAQItem(R.string.faq_8_title, R.string.faq_8_text),
+        FAQItem(R.string.faq_10_title, R.string.faq_10_text),
+        FAQItem(R.string.faq_11_title, R.string.faq_11_text),
+        FAQItem(R.string.faq_12_title, R.string.faq_12_text),
+        FAQItem(R.string.faq_13_title, R.string.faq_13_text),
+        FAQItem(R.string.faq_14_title, R.string.faq_14_text),
+        FAQItem(R.string.faq_15_title, R.string.faq_15_text),
+        FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
+        FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons),
+        FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons))
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
@@ -156,7 +156,11 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
         }
     } else {
         try {
-            file.createNewFile()
+            if (file.createNewFile()) {
+                rescanFolderMedia(file.absolutePath)
+            } else {
+                toast(R.string.unknown_error_occurred)
+            }
         } catch (e: Exception) {
             showErrorToast(e)
         }
@@ -419,7 +423,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
 
             for (path in paths) {
                 val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
-                        ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+                    ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
 
                 // some formats contain a "T" in the middle, some don't
                 // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
@@ -611,18 +615,18 @@ fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream, degrees: Int) 
 fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> Unit) {
     ensureBackgroundThread {
         val options = RequestOptions()
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .fitCenter()
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .fitCenter()
 
         val size = resources.getDimension(R.dimen.shortcut_size).toInt()
         val builder = Glide.with(this)
-                .asDrawable()
-                .load(tmb)
-                .apply(options)
-                .centerCrop()
-                .into(size, size)
+            .asDrawable()
+            .load(tmb)
+            .apply(options)
+            .centerCrop()
+            .into(size, size)
 
         try {
             (drawable as LayerDrawable).setDrawableByLayerId(R.id.shortcut_image, builder.get())
