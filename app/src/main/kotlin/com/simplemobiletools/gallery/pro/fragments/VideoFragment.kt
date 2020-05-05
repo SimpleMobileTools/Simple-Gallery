@@ -687,7 +687,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun setupVideoDuration() {
         ensureBackgroundThread {
-            mDuration = context?.getVideoDuration(mMedium.path) ?: 0
+            mDuration = context?.getDuration(mMedium.path) ?: 0
 
             activity?.runOnUiThread {
                 setupTimeHolder()

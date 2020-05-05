@@ -789,7 +789,7 @@ fun Context.addPathToDB(path: String) {
 
         try {
             val isFavorite = favoritesDB.isFavorite(path)
-            val videoDuration = if (type == TYPE_VIDEOS) getVideoDuration(path) ?: 0 else 0
+            val videoDuration = if (type == TYPE_VIDEOS) getDuration(path) ?: 0 else 0
             val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
                 File(path).length(), type, videoDuration, isFavorite, 0L)
 

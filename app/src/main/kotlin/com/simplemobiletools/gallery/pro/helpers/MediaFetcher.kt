@@ -294,7 +294,7 @@ class MediaFetcher(val context: Context) {
             } else {
                 val lastModified = if (getProperLastModified) file.lastModified() else 0L
                 var dateTaken = lastModified
-                val videoDuration = if (getVideoDurations && isVideo) context.getVideoDuration(path) ?: 0 else 0
+                val videoDuration = if (getVideoDurations && isVideo) context.getDuration(path) ?: 0 else 0
 
                 if (getProperDateTaken) {
                     var newDateTaken = dateTakens.remove(path)
@@ -383,7 +383,7 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", "${context.config.OTGPath}/"))
-            val videoDuration = if (getVideoDurations) context.getVideoDuration(path) ?: 0 else 0
+            val videoDuration = if (getVideoDurations) context.getDuration(path) ?: 0 else 0
             val isFavorite = favoritePaths.contains(path)
             val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
             media.add(medium)

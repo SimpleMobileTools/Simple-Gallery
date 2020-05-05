@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.27.4'
+    implementation 'com.simplemobiletools:commons:5.27.7'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
@@ -94,7 +94,7 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:512f929d82'
     implementation 'com.github.tibbi:subsampling-scale-image-view:381878c078'
 
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
     kapt 'androidx.room:room-compiler:2.2.5'
     implementation 'androidx.room:room-runtime:2.2.5'
