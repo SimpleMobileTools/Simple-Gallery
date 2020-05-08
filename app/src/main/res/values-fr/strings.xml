@@ -80,9 +80,9 @@
     <string name="rotate">Pivoter</string>
     <string name="invalid_image_path">Emplacement invalide</string>
     <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
-    <string name="image_editing_cancelled">L\'édition de l\'image a été annulé</string>
+    <string name="image_editing_cancelled">L\'édition de l\'image a été annulée</string>
     <string name="file_edited_successfully">L\'image a été éditée avec succès</string>
-    <string name="edit_image_with">Modifier l\'image avec:</string>
+    <string name="edit_image_with">Modifier l\'image avec :</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu</string>
     <string name="error_saving_file">Impossible de remplacer le fichier source</string>
@@ -99,7 +99,7 @@
     <string name="simple_wallpaper">Fond d\'écran simple</string>
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran</string>
-    <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec:</string>
+    <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
     <string name="setting_wallpaper">Définition du fond d\'écran en cours…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini</string>
     <string name="portrait_aspect_ratio">Rapport d\'affichage portrait</string>
@@ -110,7 +110,7 @@
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
-    <string name="interval">Intervalle (secondes):</string>
+    <string name="interval">Intervalle (secondes) :</string>
     <string name="include_photos">Inclure les images</string>
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIFs</string>
@@ -145,7 +145,7 @@
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Dossier affiché sur le widget:</string>
+    <string name="folder_on_widget">Dossier affiché sur le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
 
     <!-- Settings -->
@@ -222,7 +222,7 @@
     <string name="pesdk_adjustments_button_temperatureTool">Température</string>
     <string name="pesdk_adjustments_button_sharpnessTool">Netteté</string>
     <string name="pesdk_adjustments_button_reset">Réinitialiser</string>
-    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_name">Floutage</string>
     <string name="pesdk_focus_title_disabled">Aucun</string>
     <string name="pesdk_focus_button_radial">Radial</string>
     <string name="pesdk_focus_button_linear">Linéaire</string>
@@ -288,11 +288,11 @@
     <string name="faq_2_title">J\'ai verrouillé l\'application avec un mot de passe et je ne m\'en rappelle plus. Que faire ?</string>
     <string name="faq_2_text">Il y a deux façons de procéder. Soit vous réinstallez l\'application, soit vous recherchez l\'application dans les paramètres de l\'appareil et appuyez sur \"Effacer les données\". Cela va seulement réinitialiser les paramètres de l\'application et ne supprimera pas vos fichiers.</string>
     <string name="faq_3_title">Comment faire pour qu\'un album soit toujours affiché tout en haut ?</string>
-    <string name="faq_3_text">Vous devez simplement à effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
+    <string name="faq_3_text">Vous devez simplement effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Appuyez deux fois sur le côté de l\'écran, ou appuyez sur la valeur de durée actuelle ou maximale près de la barre de recherche. Si vous activez l\'ouverture des vidéos sur un écran séparé dans les paramètres de l\'application, vous pouvez également utiliser des gestes horizontaux.</string>
     <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier ?</string>
-    <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Cacher un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Cacher un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris pour les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers. Notez que certains appareils ne permettent pas de masquer certains dossiers tels qu\'Appareil photo, Captures d'écran et Téléchargements.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
     <string name="faq_6_text">Il est possible que des albums qui ne devraient pas être affichés le soient. Vous pouvez les exclure facilement en les sélectionnant par un appui prolongé, puis en choisissant l\'option \"Exclure\", après quoi vous pouvez aussi sélectionner le dossier parent, ce qui devrait éviter l\'apparition d\'albums similaires.</string>
     <string name="faq_7_title">Un dossier avec des images n\'apparaît pas. Que faire ?</string>
