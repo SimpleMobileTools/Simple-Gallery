@@ -400,11 +400,13 @@ class Config(context: Context) : BaseConfig(context) {
         set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 
     private fun getEverShownFolders() = hashSetOf(
-            internalStoragePath,
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
-            "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots"
+        internalStoragePath,
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
+        "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots",
+        "internalStoragePath/WhatsApp/Media/WhatsApp Images",
+        "internalStoragePath/WhatsApp/Media/WhatsApp Video"
     )
 
     var showRecycleBinAtFolders: Boolean
