@@ -1063,7 +1063,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         val excludedFolders = config.excludedFolders
-        val everShownFolders = HashSet<String>()
+        val everShownFolders = config.everShownFolders.toMutableSet() as HashSet<String>
 
         // do not add excluded folders and their subfolders at everShownFolders
         dirs.filter { dir ->
@@ -1079,6 +1079,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
+
         mDirs = dirs.clone() as ArrayList<Directory>
     }
 
