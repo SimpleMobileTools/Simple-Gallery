@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.NewAppsIconsDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
@@ -51,7 +52,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
-    private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
 
     private var mIsPickImageIntent = false
     private var mIsPickVideoIntent = false
@@ -118,12 +118,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mIsPasswordProtectionPending = config.isAppPasswordProtectionOn
         setupLatestMediaId()
 
-        // notify some users about the Clock app
-        /*if (System.currentTimeMillis() < 1523750400000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(NEW_APP_PACKAGE)) {
-            config.wasNewAppShown = true
-            NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
-        }*/
-
         if (!config.wereFavoritesPinned) {
             config.addPinnedFolders(hashSetOf(FAVORITES))
             config.wereFavoritesPinned = true
@@ -160,6 +154,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 toast(R.string.no_storage_permissions)
                 finish()
             }
+        }
+
+        // notify some users about the Dialer, SMS Messenger and Voice Recorder apps
+        if (!config.wasMessengerRecorderShown && config.appRunCount > 35) {
+            NewAppsIconsDialog(this)
+            config.wasMessengerRecorderShown = true
         }
     }
 

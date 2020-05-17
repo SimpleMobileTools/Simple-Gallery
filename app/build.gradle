@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.28.3'
+    implementation 'com.simplemobiletools:commons:5.28.4'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
