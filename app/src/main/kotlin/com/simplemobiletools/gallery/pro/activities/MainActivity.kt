@@ -958,11 +958,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 setupAdapter(dirs)
 
-                // update directories and media files in the local db, delete invalid items
+                // update directories and media files in the local db, delete invalid items. Intentionally creating a new thread
                 updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
                     Thread {
-                        mediaDB.insertAll(curMedia)
+                        try {
+                            mediaDB.insertAll(curMedia)
+                        } catch (ignored: Exception) {
+                        }
                     }.start()
                 }
 
