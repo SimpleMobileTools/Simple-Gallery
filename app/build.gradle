@@ -111,8 +111,6 @@ if (is_proprietary) {
             licencePath 'pesdk_license'
         }
 
-        supportLibVersion "28.0.0"
-
         modules {
             include 'ui:core'
             include 'ui:text'
