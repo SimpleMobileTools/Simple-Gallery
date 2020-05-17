@@ -28,7 +28,9 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.activities.VideoActivity
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.hasNavBar
+import com.simplemobiletools.gallery.pro.extensions.parseFileChannel
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.views.MediaSideScroll
@@ -327,7 +329,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupTimer() {
-        activity!!.runOnUiThread(object : Runnable {
+        activity?.runOnUiThread(object : Runnable {
             override fun run() {
                 if (mExoPlayer != null && !mIsDragged && mIsPlaying) {
                     mCurrTime = (mExoPlayer!!.currentPosition / 1000).toInt()
@@ -476,8 +478,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private fun checkIfPanorama() {
         try {
             val fis = FileInputStream(File(mMedium.path))
-            fis.use { fis ->
-                context!!.parseFileChannel(mMedium.path, fis.channel, 0, 0, 0) {
+            fis.use {
+                context!!.parseFileChannel(mMedium.path, it.channel, 0, 0, 0) {
                     mIsPanorama = true
                 }
             }
@@ -501,7 +503,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mSeekBar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
-        arrayOf(mView.video_curr_time, mView.video_duration).forEach {
+        arrayOf(mView.video_curr_time, mView.video_duration, mView.video_toggle_play_pause).forEach {
             it.isClickable = !mIsFullscreen
         }
 
@@ -588,8 +590,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
         }
 
-        if (mExoPlayer == null)
+        if (mExoPlayer == null) {
             return
+        }
 
         if (mIsPlaying) {
             mExoPlayer!!.playWhenReady = true
@@ -634,7 +637,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         if (!wasEnded || !mConfig.loopVideos) {
-            mPlayPauseButton.setImageResource(R.drawable.ic_pause_outline)
+            mPlayPauseButton.setImageResource(R.drawable.ic_pause_outline_vector)
         }
 
         if (!mWasVideoStarted) {
@@ -660,7 +663,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mExoPlayer?.playWhenReady = false
         }
 
-        mPlayPauseButton.setImageResource(R.drawable.ic_play_outline)
+        mPlayPauseButton.setImageResource(R.drawable.ic_play_outline_vector)
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         mPositionAtPause = mExoPlayer?.currentPosition ?: 0L
         releaseExoPlayer()
@@ -683,9 +686,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupVideoDuration() {
-        mDuration = mMedium.path.getVideoDuration()
-        setupTimeHolder()
-        setPosition(0)
+        ensureBackgroundThread {
+            mDuration = context?.getDuration(mMedium.path) ?: 0
+
+            activity?.runOnUiThread {
+                setupTimeHolder()
+                setPosition(0)
+            }
+        }
     }
 
     private fun videoPrepared() {

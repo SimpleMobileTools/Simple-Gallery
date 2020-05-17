@@ -189,6 +189,7 @@
     <string name="compromise">Компромисс</string>
     <string name="avoid_showing_invalid_files">Пропускать файлы с ошибками</string>
     <string name="show_image_file_types">Показывать типы файлов изображений</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

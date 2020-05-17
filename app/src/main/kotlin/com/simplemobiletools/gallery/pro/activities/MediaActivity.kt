@@ -22,7 +22,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
@@ -36,7 +35,10 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
-import com.simplemobiletools.gallery.pro.dialogs.*
+import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
+import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
@@ -61,6 +63,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
     private var mLastSearchedText = ""
+    private var mDateFormat = ""
+    private var mTimeFormat = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -122,6 +126,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        mDateFormat = config.dateFormat
+        mTimeFormat = getTimeFormat()
+
         if (mStoredAnimateGifs != config.animateGifs) {
             getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -160,11 +167,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
-            handleLockedFolderOpening(mPath) { success ->
-                if (success) {
-                    tryLoadGallery()
-                } else {
-                    finish()
+            if (shouldSkipAuthentication()) {
+                tryLoadGallery()
+            } else {
+                handleLockedFolderOpening(mPath) { success ->
+                    if (success) {
+                        tryLoadGallery()
+                    } else {
+                        finish()
+                    }
                 }
             }
         }
@@ -212,13 +223,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = mPath.containsNoMedia()
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
-
-            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
-            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
-            findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
 
             findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
             findItem(R.id.empty_disable_recycle_bin).isVisible = mPath == RECYCLE_BIN
@@ -255,9 +261,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             R.id.folder_view -> switchToFolderView()
             R.id.change_view_type -> changeViewType()
             R.id.group -> showGroupByDialog()
-            R.id.hide_folder -> tryHideFolder()
-            R.id.unhide_folder -> unhideFolder()
-            R.id.exclude_folder -> tryExcludeFolder()
             R.id.create_new_folder -> createNewFolder()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
@@ -274,8 +277,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun startSlideshow() {
         if (mMedia.isNotEmpty()) {
             Intent(this, ViewPagerActivity::class.java).apply {
-                val item = mMedia.firstOrNull { it is Medium } as? Medium
-                        ?: return
+                val item = mMedia.firstOrNull { it is Medium } as? Medium ?: return
+                putExtra(SKIP_AUTHENTICATION, shouldSkipAuthentication())
                 putExtra(PATH, item.path)
                 putExtra(SHOW_ALL, mShowAll)
                 putExtra(SLIDESHOW_START_ON_ENTER, true)
@@ -439,7 +442,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (mediaAdapter?.isASectionTitle(index) == true) {
             realIndex++
         }
-        return mediaAdapter?.getItemBubbleText(realIndex, sorting) ?: ""
+        return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
     }
 
     private fun checkLastMediaChanged() {
@@ -533,43 +536,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mLoadedInitialPhotos = false
             media_grid.adapter = null
             getMedia()
-        }
-    }
-
-    private fun tryHideFolder() {
-        if (config.wasHideFolderTooltipShown) {
-            hideFolder()
-        } else {
-            ConfirmationDialog(this, getString(R.string.hide_folder_description)) {
-                config.wasHideFolderTooltipShown = true
-                hideFolder()
-            }
-        }
-    }
-
-    private fun hideFolder() {
-        addNoMedia(mPath) {
-            runOnUiThread {
-                if (!config.shouldShowHidden) {
-                    finish()
-                } else {
-                    invalidateOptionsMenu()
-                }
-            }
-        }
-    }
-
-    private fun unhideFolder() {
-        removeNoMedia(mPath) {
-            runOnUiThread {
-                invalidateOptionsMenu()
-            }
-        }
-    }
-
-    private fun tryExcludeFolder() {
-        ExcludeFolderDialog(this, arrayListOf(mPath)) {
-            finish()
         }
     }
 
@@ -862,9 +828,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             if (isVideo) {
                 val extras = HashMap<String, Boolean>()
                 extras[SHOW_FAVORITES] = mPath == FAVORITES
+
+                if (shouldSkipAuthentication()) {
+                    extras[SKIP_AUTHENTICATION] = true
+                }
                 openPath(path, false, extras)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
+                    putExtra(SKIP_AUTHENTICATION, shouldSkipAuthentication())
                     putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
                     putExtra(SHOW_FAVORITES, mPath == FAVORITES)
@@ -902,7 +873,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
             try {
-                mediaDB.insertAll(mediaToInsert)
+                Thread {
+                    mediaDB.insertAll(mediaToInsert)
+                }.start()
             } catch (e: Exception) {
             }
         }
@@ -931,6 +904,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             deleteFilteredFiles(filtered)
         }
     }
+
+    private fun shouldSkipAuthentication() = intent.getBooleanExtra(SKIP_AUTHENTICATION, false)
 
     private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
         deleteFiles(filtered) {

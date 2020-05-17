@@ -189,6 +189,7 @@
     <string name="compromise">折衷</string>
     <string name="avoid_showing_invalid_files">避免顯示無效的檔案</string>
     <string name="show_image_file_types">Show image file types</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>

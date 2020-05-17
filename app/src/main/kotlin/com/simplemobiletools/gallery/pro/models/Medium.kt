@@ -48,11 +48,11 @@ data class Medium(
 
     fun isHidden() = name.startsWith('.')
 
-    fun getBubbleText(sorting: Int, context: Context) = when {
+    fun getBubbleText(sorting: Int, context: Context, dateFormat: String, timeFormat: String) = when {
         sorting and SORT_BY_NAME != 0 -> name
         sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
-        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context)
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context, dateFormat, timeFormat)
         else -> taken.formatDate(context)
     }
 

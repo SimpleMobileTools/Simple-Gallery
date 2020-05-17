@@ -1,0 +1,2 @@
+ * Disable Portrait photo showing by default, until it gets improved
+ * Added a couple other performance improvements here and there

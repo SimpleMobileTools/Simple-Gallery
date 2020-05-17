@@ -189,6 +189,7 @@
     <string name="compromise">Kompromiss</string>
     <string name="avoid_showing_invalid_files">Unngå visning av ugyldige filer</string>
     <string name="show_image_file_types">Vis bildefiltyper</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getTimeFormat
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
@@ -74,6 +75,8 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
         val sorting = activity.config.getFolderSorting(if (path.isEmpty()) SHOW_ALL else path)
+        val dateFormat = activity.config.dateFormat
+        val timeFormat = activity.getTimeFormat()
         view.apply {
             media_grid.adapter = adapter
 
@@ -86,12 +89,14 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             if (scrollHorizontally) {
                 media_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_horizontal_fastscroller.setViews(media_grid) {
-                    media_horizontal_fastscroller.updateBubbleText((media[it] as? Medium)?.getBubbleText(sorting, activity) ?: "")
+                    val medium = (media[it] as? Medium)
+                    media_horizontal_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
                 }
             } else {
                 media_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_vertical_fastscroller.setViews(media_grid) {
-                    media_vertical_fastscroller.updateBubbleText((media[it] as? Medium)?.getBubbleText(sorting, activity) ?: "")
+                    val medium = (media[it] as? Medium)
+                    media_vertical_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
                 }
             }
         }

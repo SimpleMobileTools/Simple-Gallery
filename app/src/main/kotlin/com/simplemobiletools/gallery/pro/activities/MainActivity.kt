@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.NewAppsIconsDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
@@ -51,7 +52,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
-    private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
 
     private var mIsPickImageIntent = false
     private var mIsPickVideoIntent = false
@@ -71,6 +71,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
     private var mOpenedSubfolders = arrayListOf("")     // used at "Group direct subfolders" for navigating Up with the back button
+    private var mDateFormat = ""
+    private var mTimeFormat = ""
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
@@ -116,12 +118,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mIsPasswordProtectionPending = config.isAppPasswordProtectionOn
         setupLatestMediaId()
 
-        // notify some users about the Clock app
-        /*if (System.currentTimeMillis() < 1523750400000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(NEW_APP_PACKAGE)) {
-            config.wasNewAppShown = true
-            NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
-        }*/
-
         if (!config.wereFavoritesPinned) {
             config.addPinnedFolders(hashSetOf(FAVORITES))
             config.wereFavoritesPinned = true
@@ -151,6 +147,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_switch_searching.setOnClickListener {
             launchSearchActivity()
         }
+
+        // just request the permission, tryLoadGallery will then trigger in onResume
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (!it) {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
+        }
+
+        // notify some users about the Dialer, SMS Messenger and Voice Recorder apps
+        if (!config.wasMessengerRecorderShown && config.appRunCount > 35) {
+            NewAppsIconsDialog(this)
+            config.wasMessengerRecorderShown = true
+        }
     }
 
     override fun onStart() {
@@ -161,6 +171,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     override fun onResume() {
         super.onResume()
         config.isThirdPartyIntent = false
+        mDateFormat = config.dateFormat
+        mTimeFormat = getTimeFormat()
 
         if (mStoredAnimateGifs != config.animateGifs) {
             getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
@@ -413,7 +425,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkDefaultSpamFolders() {
         if (!config.spamFoldersChecked) {
             val spamFolders = arrayListOf(
-                    "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
+                "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
             )
 
             val OTGPath = config.OTGPath
@@ -427,27 +439,22 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun tryLoadGallery() {
-        handlePermission(PERMISSION_WRITE_STORAGE) {
-            if (it) {
-                if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
-                    ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
-                    config.wasUpgradedFromFreeShown = true
-                }
-
-                checkOTGPath()
-                checkDefaultSpamFolders()
-
-                if (config.showAll) {
-                    showAllMedia()
-                } else {
-                    getDirectories()
-                }
-
-                setupLayoutManager()
-            } else {
-                toast(R.string.no_storage_permissions)
-                finish()
+        if (hasPermission(PERMISSION_WRITE_STORAGE)) {
+            if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+                ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
+                config.wasUpgradedFromFreeShown = true
             }
+
+            checkOTGPath()
+            checkDefaultSpamFolders()
+
+            if (config.showAll) {
+                showAllMedia()
+            } else {
+                getDirectories()
+            }
+
+            setupLayoutManager()
         }
     }
 
@@ -539,7 +546,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
         when {
             fileDirItems.isEmpty() -> return
-            fileDirItems.size == 1 -> toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+            fileDirItems.size == 1 -> {
+                try {
+                    toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                }
+            }
             else -> {
                 val baseString = if (config.useRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
                 val deletingItems = resources.getQuantityString(baseString, fileDirItems.size, fileDirItems.size)
@@ -835,6 +848,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         handleLockedFolderOpening(path) { success ->
             if (success) {
                 Intent(this, MediaActivity::class.java).apply {
+                    putExtra(SKIP_AUTHENTICATION, true)
                     putExtra(DIRECTORY, path)
                     handleMediaIntent(this)
                 }
@@ -944,11 +958,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 setupAdapter(dirs)
 
-                // update directories and media files in the local db, delete invalid items
+                // update directories and media files in the local db, delete invalid items. Intentionally creating a new thread
                 updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
-                    mediaDB.insertAll(curMedia)
+                    Thread {
+                        try {
+                            mediaDB.insertAll(curMedia)
+                        } catch (ignored: Exception) {
+                        }
+                    }.start()
                 }
+
                 getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
@@ -1019,13 +1039,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
-            try {
-                directoryDao.insert(newDir)
-                if (folder != RECYCLE_BIN) {
-                    mediaDB.insertAll(newMedia)
+
+            // make sure to create a new thread for these operations, dont just use the common bg thread
+            Thread {
+                try {
+                    directoryDao.insert(newDir)
+                    if (folder != RECYCLE_BIN) {
+                        mediaDB.insertAll(newMedia)
+                    }
+                } catch (ignored: Exception) {
                 }
-            } catch (ignored: Exception) {
-            }
+            }.start()
         }
 
         mLoadedInitialPhotos = true
@@ -1035,21 +1059,31 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             directories_refresh_layout.isRefreshing = false
             checkPlaceholderVisibility(dirs)
         }
-        checkInvalidDirectories(dirs)
 
-        val everShownFolders = config.everShownFolders as HashSet
-        dirs.mapTo(everShownFolders) { it.path }
+        checkInvalidDirectories(dirs)
+        if (mDirs.size > 50) {
+            excludeSpamFolders()
+        }
+
+        val excludedFolders = config.excludedFolders
+        val everShownFolders = config.everShownFolders.toMutableSet() as HashSet<String>
+
+        // do not add excluded folders and their subfolders at everShownFolders
+        dirs.filter { dir ->
+            if (excludedFolders.any { dir.path.startsWith(it) }) {
+                return@filter false
+            }
+            return@filter true
+        }.mapTo(everShownFolders) { it.path }
 
         try {
+            // catch some extreme exceptions like too many everShownFolders for storing, shouldnt really happen
             config.everShownFolders = everShownFolders
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
-        mDirs = dirs.clone() as ArrayList<Directory>
 
-        if (mDirs.size > 55) {
-            excludeSpamFolders()
-        }
+        mDirs = dirs.clone() as ArrayList<Directory>
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
@@ -1059,7 +1093,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (mIsSearchOpen) {
             directories_empty_placeholder.text = getString(R.string.no_items_found)
             directories_empty_placeholder_2.beGone()
-        } else if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
+        } else if (dirs.isEmpty() && config.filterMedia == getDefaultFileFilter()) {
             directories_empty_placeholder.text = getString(R.string.no_media_add_included)
             directories_empty_placeholder_2.text = getString(R.string.add_folder)
 
@@ -1158,7 +1192,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } else if (it.path != config.tempFolderPath) {
                 val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any {
-                    it != null && (it.isMediaFile() || (File(it).isDirectory && it.startsWith("img_", true)))
+                    it != null && (it.isMediaFile() || (it.startsWith("img_", true) && File(it).isDirectory))
                 } ?: false
 
                 if (!hasMediaFile) {
@@ -1198,8 +1232,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this)
-            ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
+        ?: ""
 
     private fun setupLatestMediaId() {
         ensureBackgroundThread {

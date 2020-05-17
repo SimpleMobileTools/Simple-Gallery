@@ -189,6 +189,7 @@
     <string name="compromise">Compromis</string>
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
@@ -293,7 +294,7 @@
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
     <string name="faq_4_text">Dubbelklik op de zijkant van het scherm, of tik op de cijfers die de voortgang of de lengte van de video weergeven om resp. terug of vooruit te springen. Als de instelling om video\'s in een apart scherm te openen is ingeschakeld, dan kunnen ook horizontale veeggebaren worden gebruikt.</string>
     <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
-    <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan). Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan). Op sommige apparaten is het echter niet mogelijk om specifieke mappen, zoals Camera, Screenshots en Downloads, te verbergen.</string>
     <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>
     <string name="faq_6_text">Soms worden er wat ongebruikelijke afbeeldingen van andere apps getoond. Deze zijn gemakkelijk uit het overzicht te halen door lang te drukken op de map en vervolgens te kiezen voor \"Uitsluiten\". In het daaropvolgende venster is ook de bovenliggende map te kiezen; dit zou het tonen van soortgelijke ongewenste items kunnen voorkomen.</string>
     <string name="faq_7_title">Een bepaalde map met afbeeldingen wordt niet getoond. Wat kan ik doen?</string>

@@ -189,6 +189,7 @@
     <string name="compromise">균형</string>
     <string name="avoid_showing_invalid_files">잘못된 파일 보이지 않기</string>
     <string name="show_image_file_types">사진 파일 종류 표시</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>

@@ -216,16 +216,16 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                     }
 
                     val directory = Directory(newDirId++,
-                            parent,
-                            subDirs.first().tmb,
-                            getFolderNameFromPath(parent),
-                            subDirs.sumBy { it.mediaCnt },
-                            lastModified,
-                            dateTaken,
-                            subDirs.sumByLong { it.size },
-                            getPathLocation(parent),
-                            mediaTypes,
-                            "")
+                        parent,
+                        subDirs.first().tmb,
+                        getFolderNameFromPath(parent),
+                        subDirs.sumBy { it.mediaCnt },
+                        lastModified,
+                        dateTaken,
+                        subDirs.sumByLong { it.size },
+                        getPathLocation(parent),
+                        mediaTypes,
+                        "")
 
                     directory.containsMediaFilesDirectly = false
                     dirs.add(directory)
@@ -442,15 +442,15 @@ fun Context.getPathLocation(path: String): Int {
 
 fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .priority(Priority.LOW)
-            .format(DecodeFormat.PREFER_ARGB_8888)
+        .signature(path.getFileSignature())
+        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        .priority(Priority.LOW)
+        .format(DecodeFormat.PREFER_ARGB_8888)
 
     val builder = Glide.with(applicationContext)
-            .asBitmap()
-            .load(path)
+        .asBitmap()
+        .load(path)
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options).into(target)
@@ -458,34 +458,34 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
 
 fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-            .priority(Priority.LOW)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        .signature(path.getFileSignature())
+        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+        .priority(Priority.LOW)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
     val builder = Glide.with(applicationContext)
-            .load(path)
+        .load(path)
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options)
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(target)
+        .transition(DrawableTransitionOptions.withCrossFade())
+        .into(target)
 }
 
 fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-            .priority(Priority.LOW)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+        .signature(path.getFileSignature())
+        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+        .priority(Priority.LOW)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
     val builder = Glide.with(applicationContext)
-            .asBitmap() // make sure the GIF wont animate
-            .load(path)
+        .asBitmap() // make sure the GIF wont animate
+        .load(path)
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options)
-            .into(target)
+        .into(target)
 }
 
 fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
@@ -493,12 +493,12 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
 
     val options = RequestOptions().signature(path.getFileSignature())
     Glide.with(applicationContext)
-            .`as`(PictureDrawable::class.java)
-            .listener(SvgSoftwareLayerSetter())
-            .load(path)
-            .apply(options)
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(target)
+        .`as`(PictureDrawable::class.java)
+        .listener(SvgSoftwareLayerSetter())
+        .load(path)
+        .apply(options)
+        .transition(DrawableTransitionOptions.withCrossFade())
+        .into(target)
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
@@ -516,7 +516,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
-        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, this) } as ArrayList<Directory>
         val filterMedia = config.filterMedia
 
         filteredDirectories = (when {
@@ -543,7 +543,6 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 
         val clone = filteredDirectories.clone() as ArrayList<Directory>
         callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
-
         removeInvalidDBDirectories(filteredDirectories)
     }
 }
@@ -565,7 +564,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             val foldersToAdd = ArrayList<String>()
             for (folder in foldersToScan) {
                 val allFiles = File(folder).listFiles() ?: continue
-                allFiles.filter { it.isDirectory && it.name.startsWith("img_", true) }.forEach {
+                allFiles.filter { it.name.startsWith("img_", true) && it.isDirectory }.forEach {
                     foldersToAdd.add(it.absolutePath)
                 }
             }
@@ -605,23 +604,26 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
         val OTGPath = config.OTGPath
 
-        val mediaToDelete = ArrayList<Medium>()
-        media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
-            if (it.path.startsWith(recycleBinPath)) {
-                deleteDBPath(it.path)
-            } else {
-                mediaToDelete.add(it)
-            }
-        }
-
         try {
-            if (mediaToDelete.isNotEmpty()) {
-                mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
-
-                mediaToDelete.filter { it.isFavorite }.forEach {
-                    favoritesDB.deleteFavoritePath(it.path)
+            val mediaToDelete = ArrayList<Medium>()
+            // creating a new thread intentionally, do not reuse the common background thread
+            Thread {
+                media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
+                    if (it.path.startsWith(recycleBinPath)) {
+                        deleteDBPath(it.path)
+                    } else {
+                        mediaToDelete.add(it)
+                    }
                 }
-            }
+
+                if (mediaToDelete.isNotEmpty()) {
+                    mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
+
+                    mediaToDelete.filter { it.isFavorite }.forEach {
+                        favoritesDB.deleteFavoritePath(it.path)
+                    }
+                }
+            }.start()
         } catch (ignored: Exception) {
         }
     }
@@ -698,7 +700,6 @@ fun Context.deleteDBPath(path: String) {
 fun Context.deleteMediumWithPath(path: String) {
     try {
         mediaDB.deleteMediumPath(path)
-        favoritesDB.deleteFavoritePath(path)
     } catch (ignored: Exception) {
     }
 }
@@ -788,9 +789,9 @@ fun Context.addPathToDB(path: String) {
 
         try {
             val isFavorite = favoritesDB.isFavorite(path)
-            val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
+            val videoDuration = if (type == TYPE_VIDEOS) getDuration(path) ?: 0 else 0
             val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                    File(path).length(), type, videoDuration, isFavorite, 0L)
+                File(path).length(), type, videoDuration, isFavorite, 0L)
 
             mediaDB.insert(medium)
         } catch (ignored: Exception) {
@@ -887,23 +888,21 @@ fun Context.updateDirectoryPath(path: String) {
 
 fun Context.getFileDateTaken(path: String): Long {
     val projection = arrayOf(
-            Images.Media.DATE_TAKEN
+        Images.Media.DATE_TAKEN
     )
 
     val uri = Files.getContentUri("external")
     val selection = "${Images.Media.DATA} = ?"
     val selectionArgs = arrayOf(path)
 
-    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
-    cursor?.use {
-        if (cursor.moveToFirst()) {
-            do {
-                try {
-                    return cursor.getLongValue(Images.Media.DATE_TAKEN)
-                } catch (ignored: Exception) {
-                }
-            } while (cursor.moveToNext())
+    try {
+        val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
+        cursor?.use {
+            if (cursor.moveToFirst()) {
+                return cursor.getLongValue(Images.Media.DATE_TAKEN)
+            }
         }
+    } catch (ignored: Exception) {
     }
 
     return 0L

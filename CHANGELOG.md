@@ -1,6 +1,55 @@
 Changelog
 ==========
 
+Version 6.14.8 *(2020-05-05)*
+----------------------------
+
+ * Added some crashfixes
+
+Version 6.14.7 *(2020-05-04)*
+----------------------------
+
+ * Fixed a glitch with some favorite items disappearing
+ * Improve folder hiding, add the new .nomedia file into MediaStore
+ * Improve the performance of getting video file duration
+ * A few other improvements here and there
+
+Version 6.14.6 *(2020-04-26)*
+----------------------------
+
+ * Added a few more stability and performance improvements
+
+Version 6.14.5 *(2020-04-26)*
+----------------------------
+
+ * Disable Portrait photo showing by default, until it gets improved
+ * Added a couple other performance improvements here and there
+
+Version 6.14.4 *(2020-04-24)*
+----------------------------
+
+ * Improved the performance on multiple places
+ * Removed some unnecessary permissions added recently
+ * Fixed some photo editor glitches
+ * Show Portrait images by default only on Android 9+
+
+Version 6.14.3 *(2020-04-21)*
+----------------------------
+
+ * Use the selected date format grouped thumbnail section titles too
+ * Fixed a glitch related to locked folders asking authentication too often
+ * Refresh the UI here and there a bit
+
+Version 6.14.2 *(2020-04-18)*
+----------------------------
+
+ * Fixed some Photo Editor bugs
+ * Properly handle locked folders at opening from widgets and shortcuts
+ * Open the map at clicking the coordinates at the Properties window
+ * Properly sort items at the Other Folder dialog at copy/move
+ * Fixed some folder un/hiding related glitches
+ * A couple other translation and UX improvements
+
 Version 6.14.1 *(2020-04-14)*
 ----------------------------
 

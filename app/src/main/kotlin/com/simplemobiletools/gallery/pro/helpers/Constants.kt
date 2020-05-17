@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.pro.helpers
 
 import com.simplemobiletools.commons.helpers.MONTH_SECONDS
+import com.simplemobiletools.commons.helpers.isPiePlus
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -132,6 +133,7 @@ const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
 const val SHOULD_INIT_FRAGMENT = "should_init_fragment"
 const val PORTRAIT_PATH = "portrait_path"
+const val SKIP_AUTHENTICATION = "skip_authentication"
 
 // rotations
 const val ROTATE_BY_SYSTEM_SETTING = 0
@@ -168,7 +170,8 @@ const val TYPE_GIFS = 4
 const val TYPE_RAWS = 8
 const val TYPE_SVGS = 16
 const val TYPE_PORTRAITS = 32
-const val TYPE_DEFAULT_FILTER = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS or TYPE_PORTRAITS
+
+fun getDefaultFileFilter() = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
 
 const val LOCATION_INTERNAL = 1
 const val LOCATION_SD = 2

@@ -308,11 +308,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI(true)
 
-        handleLockedFolderOpening(mPath.getParentPath()) { success ->
-            if (success) {
-                initContinue()
-            } else {
-                finish()
+        if (intent.getBooleanExtra(SKIP_AUTHENTICATION, false)) {
+            initContinue()
+        } else {
+            handleLockedFolderOpening(mPath.getParentPath()) { success ->
+                if (success) {
+                    initContinue()
+                } else {
+                    finish()
+                }
             }
         }
     }
@@ -385,7 +389,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
 
                     val isFavorite = favoritesDB.isFavorite(mPath)
-                    val duration = if (type == TYPE_VIDEOS) mPath.getVideoDuration() else 0
+                    val duration = if (type == TYPE_VIDEOS) getDuration(mPath) ?: 0 else 0
                     val ts = System.currentTimeMillis()
                     val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)
                     mediaDB.insert(medium)
@@ -395,8 +399,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActions() {
-        initBottomActionsLayout()
         initBottomActionButtons()
+        initBottomActionsLayout()
     }
 
     private fun initFavorites() {
@@ -1165,6 +1169,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     private fun checkOrientation() {
         if (!mIsOrientationLocked && config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
             var flipSides = false

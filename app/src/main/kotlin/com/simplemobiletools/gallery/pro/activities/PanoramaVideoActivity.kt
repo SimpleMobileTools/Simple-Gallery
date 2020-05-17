@@ -130,7 +130,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
                             mIsPlaying = true
                             resumeVideo()
                         } else {
-                            video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+                            video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
                         }
                         video_toggle_play_pause.beVisible()
                     }
@@ -190,7 +190,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     }
 
     private fun resumeVideo() {
-        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline_vector)
         if (mCurrTime == mDuration) {
             setVideoProgress(0)
             mPlayOnReady = true
@@ -203,7 +203,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
 
     private fun pauseVideo() {
         vr_video_view.pauseVideo()
-        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -247,7 +247,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             }
             explore.requestLayout()
         }
-        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
 
         cardboard.setOnClickListener {
             vr_video_view.displayMode = CARDBOARD_DISPLAY_MODE

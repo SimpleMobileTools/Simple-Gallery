@@ -49,9 +49,9 @@ class MediaFetcher(val context: Context) {
             val OTGPath = context.config.OTGPath
             val folders = getLatestFileFolders()
             folders.addAll(arrayListOf(
-                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString(),
-                    "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/Camera",
-                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString()
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString(),
+                "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/Camera",
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString()
             ).filter { context.getDoesFilePathExist(it, OTGPath) })
 
             val filterMedia = context.config.filterMedia
@@ -66,7 +66,7 @@ class MediaFetcher(val context: Context) {
             val shouldShowHidden = config.shouldShowHidden
             val excludedPaths = config.excludedFolders
             val includedPaths = config.includedFolders
-            folders.filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) }.toMutableList() as ArrayList<String>
+            folders.filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, context) }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
             ArrayList()
         }
@@ -172,7 +172,7 @@ class MediaFetcher(val context: Context) {
         val config = context.config
         val includedFolders = config.includedFolders
         val OTGPath = config.OTGPath
-        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it, OTGPath) }.toHashSet()
+        val foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it, OTGPath) }.toHashSet()
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -192,8 +192,8 @@ class MediaFetcher(val context: Context) {
 
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
-        foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) }.toHashSet()
-        return foldersToScan.distinctBy { it.getDistinctPath() }.toMutableSet() as LinkedHashSet<String>
+        return foldersToScan.distinctBy { it.getDistinctPath() }
+            .filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden, context) }.toMutableSet() as LinkedHashSet<String>
     }
 
     private fun addFolder(curFolders: HashSet<String>, folder: String) {
@@ -244,7 +244,7 @@ class MediaFetcher(val context: Context) {
             val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
             if (!isImage && !isVideo && !isGif && !isRaw && !isSvg) {
-                if (showPortraits && file.isDirectory && file.name.startsWith("img_", true)) {
+                if (showPortraits && file.name.startsWith("img_", true) && file.isDirectory) {
                     val portraitFiles = file.listFiles() ?: continue
                     val cover = portraitFiles.firstOrNull { it.name.contains("cover", true) } ?: portraitFiles.firstOrNull()
                     if (cover != null && !files.contains(cover)) {
@@ -294,7 +294,7 @@ class MediaFetcher(val context: Context) {
             } else {
                 val lastModified = if (getProperLastModified) file.lastModified() else 0L
                 var dateTaken = lastModified
-                val videoDuration = if (getVideoDurations && isVideo) path.getVideoDuration() else 0
+                val videoDuration = if (getVideoDurations && isVideo) context.getDuration(path) ?: 0 else 0
 
                 if (getProperDateTaken) {
                     var newDateTaken = dateTakens.remove(path)
@@ -383,7 +383,7 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", "${context.config.OTGPath}/"))
-            val videoDuration = if (getVideoDurations) path.getVideoDuration() else 0
+            val videoDuration = if (getVideoDurations) context.getDuration(path) ?: 0 else 0
             val isFavorite = favoritePaths.contains(path)
             val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
             media.add(medium)
@@ -396,8 +396,8 @@ class MediaFetcher(val context: Context) {
         val dateTakens = HashMap<String, Long>()
         if (folder != FAVORITES) {
             val projection = arrayOf(
-                    Images.Media.DISPLAY_NAME,
-                    Images.Media.DATE_TAKEN
+                Images.Media.DISPLAY_NAME,
+                Images.Media.DATE_TAKEN
             )
 
             val uri = Files.getContentUri("external")
@@ -494,7 +494,7 @@ class MediaFetcher(val context: Context) {
 
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
         val sorted = if (currentGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 ||
-                currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0) {
+            currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0) {
             mediumGroups.toSortedMap(if (sortDescending) compareByDescending {
                 it.toLongOrNull() ?: 0L
             } else {
@@ -549,7 +549,7 @@ class MediaFetcher(val context: Context) {
         return if (timestamp.areDigitsOnly()) {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp.toLong()
-            val format = if (showDay) "dd MMM yyyy" else "MMM yyyy"
+            val format = if (showDay) context.config.dateFormat else "MMMM yyyy"
             DateFormat.format(format, cal).toString()
         } else {
             ""

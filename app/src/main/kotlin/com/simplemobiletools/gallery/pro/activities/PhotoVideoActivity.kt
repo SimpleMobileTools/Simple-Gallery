@@ -103,12 +103,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     if (isFileTypeVisible(realPath)) {
                         bottom_actions.beGone()
-                        handleLockedFolderOpening(realPath.getParentPath()) { success ->
-                            if (success) {
-                                sendViewPagerIntent(realPath)
-                            }
-                            finish()
-                        }
+                        sendViewPagerIntent(realPath)
+                        finish()
                         return
                     }
                 } else {
@@ -120,13 +116,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
                 bottom_actions.beGone()
-                handleLockedFolderOpening(mUri!!.path!!.getParentPath()) { success ->
-                    if (success) {
-                        rescanPaths(arrayListOf(mUri!!.path!!))
-                        sendViewPagerIntent(mUri!!.path!!)
-                    }
-                    finish()
-                }
+                rescanPaths(arrayListOf(mUri!!.path!!))
+                sendViewPagerIntent(mUri!!.path!!)
+                finish()
             }
             return
         } else {
@@ -134,13 +126,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
                 if (isFileTypeVisible(path)) {
                     bottom_actions.beGone()
-                    handleLockedFolderOpening(path.getParentPath()) { success ->
-                        if (success) {
-                            rescanPaths(arrayListOf(mUri!!.path!!))
-                            sendViewPagerIntent(path)
-                        }
-                        finish()
-                    }
+                    rescanPaths(arrayListOf(mUri!!.path!!))
+                    sendViewPagerIntent(path)
+                    finish()
                     return
                 }
             }
@@ -237,6 +225,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun sendViewPagerIntent(path: String) {
         Intent(this, ViewPagerActivity::class.java).apply {
+            putExtra(SKIP_AUTHENTICATION, intent.getBooleanExtra(SKIP_AUTHENTICATION, false))
             putExtra(SHOW_FAVORITES, intent.getBooleanExtra(SHOW_FAVORITES, false))
             putExtra(IS_VIEW_INTENT, true)
             putExtra(IS_FROM_GALLERY, mIsFromGallery)
@@ -293,8 +282,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActions() {
-        initBottomActionsLayout()
         initBottomActionButtons()
+        initBottomActionsLayout()
     }
 
     private fun initBottomActionsLayout() {

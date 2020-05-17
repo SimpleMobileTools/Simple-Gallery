@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 301
-        versionName "6.14.1"
+        versionCode 309
+        versionName "6.14.8"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
@@ -58,8 +58,8 @@ android {
 
     flavorDimensions "licensing"
     productFlavors {
-        proprietary { }
-        foss { }
+        proprietary {}
+        foss {}
     }
 
     lintOptions {
@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.25.25'
+    implementation 'com.simplemobiletools:commons:5.28.4'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
@@ -110,8 +110,6 @@ if (is_proprietary) {
             enabled true
             licencePath 'pesdk_license'
         }
-
-        supportLibVersion "28.0.0"
 
         modules {
             include 'ui:core'
