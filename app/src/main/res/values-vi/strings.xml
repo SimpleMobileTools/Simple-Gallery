@@ -189,6 +189,7 @@
     <string name="compromise">Thỏa hiệp</string>
     <string name="avoid_showing_invalid_files">Tránh hiển thị các tệp không hợp lệ</string>
     <string name="show_image_file_types">Hiển thị các loại tệp hình ảnh</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Hình thu nhỏ</string>

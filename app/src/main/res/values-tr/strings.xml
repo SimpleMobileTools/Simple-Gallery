@@ -189,6 +189,7 @@
     <string name="compromise">Ödünsüz</string>
     <string name="avoid_showing_invalid_files">Geçersiz dosyaları göstermekten kaçın</string>
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>

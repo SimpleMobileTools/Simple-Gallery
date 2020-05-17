@@ -189,6 +189,7 @@
     <string name="compromise">Compromiso</string>
     <string name="avoid_showing_invalid_files">Non mostrar ficheiros inválidos</string>
     <string name="show_image_file_types">Mostrar tipos de ficheiros de imaxe</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>

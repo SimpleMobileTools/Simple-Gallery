@@ -189,6 +189,7 @@
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Izogni se prikazovanju napačnih datotek</string>
     <string name="show_image_file_types">Show image file types</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

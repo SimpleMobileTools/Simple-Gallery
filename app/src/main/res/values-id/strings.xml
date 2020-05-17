@@ -189,6 +189,7 @@
     <string name="compromise">Kompromi</string>
     <string name="avoid_showing_invalid_files">Hindari menampilkan berkas yang tidak valid</string>
     <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>

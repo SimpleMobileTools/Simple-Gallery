@@ -189,6 +189,7 @@
     <string name="compromise">Compromès</string>
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
     <string name="show_image_file_types">Mostra els tipus de fitxers d\’imatges</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
