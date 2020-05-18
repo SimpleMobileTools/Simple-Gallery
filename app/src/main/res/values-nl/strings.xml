@@ -189,7 +189,7 @@
     <string name="compromise">Compromis</string>
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Bij video\'s inzoomen met dubbelklikken</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
