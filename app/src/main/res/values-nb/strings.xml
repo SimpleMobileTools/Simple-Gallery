@@ -30,7 +30,7 @@
     <string name="fix_date_taken">Korriger Dato tatt-verdi</string>
     <string name="fixing">Korrigerer…</string>
     <string name="dates_fixed_successfully">Datoer er korrigerte</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Ingen verdier for Dato tatt er funnet</string>
     <string name="share_resized">Del versjon med endret størrelse</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Skift til filsøk i alle synlige mapper</string>
@@ -80,7 +80,7 @@
     <string name="rotate">Roter</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
     <string name="image_editing_failed">Bilderedigering feilet</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">Bilderedigering avbrutt</string>
     <string name="file_edited_successfully">Fil vellykket redigert</string>
     <string name="edit_image_with">Rediger bilde med:</string>
     <string name="no_editor_found">Ingen bilderedigeringsapp funnet</string>
@@ -189,7 +189,7 @@
     <string name="compromise">Kompromiss</string>
     <string name="avoid_showing_invalid_files">Unngå visning av ugyldige filer</string>
     <string name="show_image_file_types">Vis bildefiltyper</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Tillat zooming av videoer ved å dobbelttrykke dem</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
