@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.14.9 *(2020-05-18)*
+----------------------------
+
+ * Fixing some glitches with hidden folders not being shown when appropriate
+ * Added some stability and translation improvements
+
 Version 6.14.8 *(2020-05-05)*
 ----------------------------
 
