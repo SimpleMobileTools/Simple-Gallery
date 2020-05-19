@@ -189,7 +189,7 @@
     <string name="compromise">Qualidade</string>
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
     <string name="show_image_file_types">Mostrar o tipo de imagem</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
