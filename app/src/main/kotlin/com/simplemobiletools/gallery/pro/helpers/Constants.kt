@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.pro.helpers
 
 import com.simplemobiletools.commons.helpers.MONTH_SECONDS
-import com.simplemobiletools.commons.helpers.isPiePlus
+import com.simplemobiletools.commons.helpers.isQPlus
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -171,7 +171,13 @@ const val TYPE_RAWS = 8
 const val TYPE_SVGS = 16
 const val TYPE_PORTRAITS = 32
 
-fun getDefaultFileFilter() = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
+fun getDefaultFileFilter(): Int {
+    var mask = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
+    if (isQPlus()) {
+        mask += TYPE_PORTRAITS
+    }
+    return mask
+}
 
 const val LOCATION_INTERNAL = 1
 const val LOCATION_SD = 2
