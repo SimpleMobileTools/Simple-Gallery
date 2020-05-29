@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.14.10 *(2020-05-29)*
+----------------------------
+
+ * Updated the image editor, fix a glitch with black preview
+ * Show Portrait images by default on Android 10
+ * Use a nicer icon on older devices
+ * Some translation and stability improvements
+
 Version 6.14.9 *(2020-05-18)*
 ----------------------------
 
