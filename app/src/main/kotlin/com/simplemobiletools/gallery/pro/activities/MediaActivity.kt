@@ -872,12 +872,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLatestMediaDateId = getLatestMediaByDateId()
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
-            try {
-                Thread {
+            Thread {
+                try {
                     mediaDB.insertAll(mediaToInsert)
-                }.start()
-            } catch (e: Exception) {
-            }
+                } catch (e: Exception) {
+                }
+            }.start()
         }
     }
 
