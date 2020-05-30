@@ -315,7 +315,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">المعرض البسيط الـ Pro - محرر ومدير الصور</string>
+    <string name="app_title">المعرض البسيط (Pro) - محرر ومدير الصور</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">أستعرض ذكرياتك دون أي انقطاع مع معرض الصور والفيديو هذا</string>
     <string name="app_long_description">
