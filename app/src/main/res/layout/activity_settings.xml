@@ -29,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/customize_colors" />
+                android:text="@string/customize_colors"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -52,6 +53,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/use_english_language"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -73,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/change_date_and_time_format" />
+                android:text="@string/change_date_and_time_format"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -98,7 +101,8 @@
                 android:lines="1"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/file_loading_priority" />
+                android:text="@string/file_loading_priority"
+                android:textStyle="bold" />
 
             <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_file_loading_priority"
@@ -108,6 +112,7 @@
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="@null"
                 android:clickable="false"
+                android:textStyle="bold"
                 tools:text="@string/compromise" />
 
         </RelativeLayout>
@@ -120,7 +125,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/visibility"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_manage_included_folders_holder"
@@ -139,7 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_included_folders" />
+                android:text="@string/manage_included_folders"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -160,7 +167,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_excluded_folders" />
+                android:text="@string/manage_excluded_folders"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -181,7 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_hidden_folders" />
+                android:text="@string/manage_hidden_folders"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -204,6 +213,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_hidden_items"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -216,7 +226,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/videos"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_autoplay_videos_holder"
@@ -237,6 +248,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/autoplay_videos"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -260,6 +272,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/remember_last_video_position"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -283,6 +296,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/loop_videos"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -306,6 +320,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/open_videos_on_separate_screen"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -329,6 +344,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_video_gestures"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -341,7 +357,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/thumbnails"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_animate_gifs_holder"
@@ -362,6 +379,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/animate_gifs"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -385,6 +403,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/crop_thumbnails"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -408,6 +427,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_thumbnail_video_duration"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -431,6 +451,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_image_file_types"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -454,6 +475,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_media_count"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -466,7 +488,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/scrolling"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_show_info_bubble_holder"
@@ -487,6 +510,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_info_bubble"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -510,6 +534,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/scroll_thumbnails_horizontally"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -533,6 +558,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/enable_pull_to_refresh"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -545,7 +571,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/fullscreen_media"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_max_brightness_holder"
@@ -566,6 +593,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/max_brightness"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -589,6 +617,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/black_background_at_fullscreen"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -612,6 +641,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/hide_system_ui_at_fullscreen"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -635,6 +665,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_instant_change"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -658,6 +689,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_photo_gestures"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -681,6 +713,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_down_gesture"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -704,6 +737,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_notch"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -727,7 +761,8 @@
                 android:layout_toStartOf="@+id/settings_screen_rotation"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/screen_rotation_by" />
+                android:text="@string/screen_rotation_by"
+                android:textStyle="bold" />
 
             <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_screen_rotation"
@@ -736,7 +771,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="@null"
-                android:clickable="false" />
+                android:clickable="false"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -748,7 +784,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/deep_zoomable_images"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_allow_zooming_images_holder"
@@ -769,6 +806,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_deep_zooming_images"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -792,6 +830,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_rotating_gestures"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -815,6 +854,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_highest_quality"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -838,6 +878,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_one_to_one_zoom"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -850,7 +891,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/extended_details"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_show_extended_details_holder"
@@ -871,6 +913,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_extended_details"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
         </RelativeLayout>
 
@@ -893,6 +936,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/hide_extended_details"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
         </RelativeLayout>
 
@@ -913,7 +957,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_extended_details" />
+                android:text="@string/manage_extended_details"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -925,7 +970,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/security"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_hidden_item_password_protection_holder"
@@ -946,6 +992,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/password_protect_hidden_items"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -969,6 +1016,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/password_protect_whole_app"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -992,6 +1040,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/password_protect_file_deletion"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1004,7 +1053,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/file_operations"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_delete_empty_folders_holder"
@@ -1025,6 +1075,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/delete_empty_folders"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1048,6 +1099,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/keep_last_modified"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1071,6 +1123,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/skip_delete_confirmation"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1083,7 +1136,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/bottom_actions"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_bottom_actions_holder"
@@ -1104,6 +1158,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_at_bottom"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1125,7 +1180,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_bottom_actions" />
+                android:text="@string/manage_bottom_actions"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -1137,7 +1193,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/recycle_bin"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_use_recycle_bin_holder"
@@ -1158,6 +1215,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/move_items_into_recycle_bin"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1181,6 +1239,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_recycle_bin"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1204,6 +1263,7 @@
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_recycle_bin_last"
+                android:textStyle="bold"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>
@@ -1227,7 +1287,8 @@
                 android:layout_toStartOf="@+id/settings_empty_recycle_bin_size"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/empty_recycle_bin" />
+                android:text="@string/empty_recycle_bin"
+                android:textStyle="bold" />
 
             <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_empty_recycle_bin_size"
@@ -1236,7 +1297,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="@null"
-                android:clickable="false" />
+                android:clickable="false"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -1248,7 +1310,8 @@
             android:layout_marginTop="@dimen/section_margin"
             android:text="@string/migrating"
             android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:textSize="@dimen/smaller_text_size"
+            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/settings_export_holder"
@@ -1267,7 +1330,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/export_settings" />
+                android:text="@string/export_settings"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
@@ -1288,7 +1352,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/import_settings" />
+                android:text="@string/import_settings"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </LinearLayout>
