@@ -1,0 +1,4 @@
+ * Rescan the internal storage from time to time, look for new folders containing media
+ * Improve the Search user experience, do not reset it at opening an item
+ * Fixed some editor glitches
+ * Speed up fullscreen image loading

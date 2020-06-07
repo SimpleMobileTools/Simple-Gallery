@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.15.0 *(2020-06-07)*
+----------------------------
+
+ * Rescan the internal storage from time to time, look for new folders containing media
+ * Improve the Search user experience, do not reset it at opening an item
+ * Fixed some editor glitches
+ * Speed up fullscreen image loading
+
 Version 6.14.10 *(2020-05-29)*
 ----------------------------
 
