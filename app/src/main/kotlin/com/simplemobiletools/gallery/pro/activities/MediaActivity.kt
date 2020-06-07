@@ -162,9 +162,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
-        invalidateOptionsMenu()
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
+
+        if (!mIsSearchOpen) {
+            invalidateOptionsMenu()
+        }
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
             if (shouldSkipAuthentication()) {
@@ -195,7 +198,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
