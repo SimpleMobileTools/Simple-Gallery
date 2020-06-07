@@ -1347,7 +1347,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-        } catch (e: Exception) {
+        } catch (ignored: Exception) {
         }
 
         return folders
