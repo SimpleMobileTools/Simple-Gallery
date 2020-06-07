@@ -1078,6 +1078,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }.mapTo(everShownFolders) { it.path }
 
         try {
+            // scan the internal storage from time to time for new folders
+            if (config.appRunCount == 1 || config.appRunCount % 30 == 0) {
+                everShownFolders.addAll(getFoldersWithMedia(config.internalStoragePath))
+            }
+
             // catch some extreme exceptions like too many everShownFolders for storing, shouldnt really happen
             config.everShownFolders = everShownFolders
         } catch (e: Exception) {
@@ -1325,6 +1330,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } catch (e: Exception) {
             }
         }
+    }
+
+    private fun getFoldersWithMedia(path: String): HashSet<String> {
+        val folders = HashSet<String>()
+        try {
+            val files = File(path).listFiles()
+            if (files != null) {
+                files.sortBy { !it.isDirectory }
+                for (file in files) {
+                    if (file.isDirectory && !file.startsWith("${config.internalStoragePath}/Android")) {
+                        folders.addAll(getFoldersWithMedia(file.absolutePath))
+                    } else if (file.isFile && file.isMediaFile()) {
+                        folders.add(file.parent ?: "")
+                        break
+                    }
+                }
+            }
+        } catch (e: Exception) {
+        }
+
+        return folders
     }
 
     override fun refreshItems() {
