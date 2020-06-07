@@ -207,25 +207,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
-        invalidateOptionsMenu()
 
         directories_empty_placeholder.setTextColor(config.textColor)
         directories_empty_placeholder_2.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.underlineText()
 
-        if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
-            handleAppPasswordProtection {
-                mWasProtectionHandled = it
-                if (it) {
-                    mIsPasswordProtectionPending = false
-                    tryLoadGallery()
-                } else {
-                    finish()
+        if (!mIsSearchOpen) {
+            invalidateOptionsMenu()
+            if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
+                handleAppPasswordProtection {
+                    mWasProtectionHandled = it
+                    if (it) {
+                        mIsPasswordProtectionPending = false
+                        tryLoadGallery()
+                    } else {
+                        finish()
+                    }
                 }
+            } else {
+                tryLoadGallery()
             }
-        } else {
-            tryLoadGallery()
         }
     }
 
@@ -239,7 +241,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
