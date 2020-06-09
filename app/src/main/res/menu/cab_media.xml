@@ -97,6 +97,10 @@
         android:title="@string/fix_date_taken"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_date_taken_from_filename"
+        android:title="@string/date_taken_from_filename"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_select_all"
         android:icon="@drawable/ic_select_all_vector"
         android:title="@string/select_all"

@@ -158,6 +158,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
+            R.id.cab_date_taken_from_filename -> DateTakenFromFileName()
             R.id.cab_set_as -> setAs()
             R.id.cab_delete -> checkDeleteConfirmation()
         }
@@ -387,7 +388,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
         }
     }
-
+    private fun DateTakenFromFileName() {
+        ensureBackgroundThread {
+            activity.DateTakenFromFileName(getSelectedPaths(), true) {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }
+    }
     private fun checkDeleteConfirmation() {
         if (config.isDeletePasswordProtectionOn) {
             activity.handleDeletePasswordProtection {

@@ -28,6 +28,7 @@
     <string name="force_landscape">Force landscape</string>
     <string name="use_default_orientation">Use default orientation</string>
     <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="date_taken_from_filename">Date Taken form File Name</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>

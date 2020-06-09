@@ -107,8 +107,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun textChanged(text: String) {
         ensureBackgroundThread {
             try {
-                val filtered = mAllMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
-                filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
+                val neg = text.startsWith("!")
+                val text2 = if (!neg) text else text.substring(1)
+                val filtered = mAllMedia.filter { it is Medium && (if (neg) !it.name.contains(text2, true) else it.name.contains(text2, true)) } as ArrayList
+                filtered.sortBy { it is Medium && !it.name.startsWith(text2, true) }
                 val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, "")
                 runOnUiThread {
                     if (grouped.isEmpty()) {

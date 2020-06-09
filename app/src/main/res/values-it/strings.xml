@@ -28,6 +28,7 @@
     <string name="force_landscape">Forza orizzontale</string>
     <string name="use_default_orientation">Usa l\'orientamento predefinito</string>
     <string name="fix_date_taken">Correggi valore Data acquisizione</string>
+    <string name="date_taken_from_filename">Data acquisizione da Nome file</string>
     <string name="fixing">Correzione in corso…</string>
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="no_date_takens_found">Nessun valore trovato per data creazione</string>

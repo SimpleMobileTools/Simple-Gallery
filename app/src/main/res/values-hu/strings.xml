@@ -376,6 +376,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="date_taken_from_filename">Date Taken form File Name</string>
 
     <!--
         Haven't found some strings? There's more at

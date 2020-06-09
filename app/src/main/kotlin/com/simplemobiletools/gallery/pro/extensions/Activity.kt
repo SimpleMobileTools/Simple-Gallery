@@ -12,6 +12,8 @@ import android.graphics.drawable.LayerDrawable
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
+import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
@@ -34,10 +36,7 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -454,6 +453,197 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 dateTakens.add(dateTaken)
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)
+                }
+            }
+
+            if (!didUpdateFile) {
+                if (showToasts) {
+                    toast(R.string.no_date_takens_found)
+                }
+
+                runOnUiThread {
+                    callback?.invoke()
+                }
+                return@ensureBackgroundThread
+            }
+
+            val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
+            if (resultSize == 0) {
+                didUpdateFile = false
+            }
+
+            if (hasRescanned || pathsToRescan.isEmpty()) {
+                if (dateTakens.isNotEmpty()) {
+                    dateTakensDB.insertAll(dateTakens)
+                }
+
+                runOnUiThread {
+                    if (showToasts) {
+                        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+                    }
+
+                    callback?.invoke()
+                }
+            } else {
+                rescanPaths(pathsToRescan) {
+                    fixDateTaken(paths, showToasts, true)
+                }
+            }
+        }
+    } catch (e: Exception) {
+        if (showToasts) {
+            showErrorToast(e)
+        }
+    }
+}
+
+fun Activity.DateTakenFromFileName(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
+    val BATCH_SIZE = 50
+    if (showToasts) {
+        toast(R.string.fixing)
+    }
+
+    val pathsToRescan = ArrayList<String>()
+    try {
+        var didUpdateFile = false
+        val operations = ArrayList<ContentProviderOperation>()
+
+        ensureBackgroundThread {
+            val dateTakens = ArrayList<DateTaken>()
+
+            for (path in paths) {
+                try {
+                    val name = path.getFilenameFromPath()
+
+                    //if (exif.getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL) != null)
+                    //    continue;
+
+                    // try to get DATETIME from file name
+                    // supported  formats:
+                    // *YYYYMMDD*
+                    // *YYYYMMDD[-_]*
+                    // *YYYYMMDD[- _]hhmmss*
+                    // *YYYYMMDDhhmmss*
+                    val re = "([0-9]{4,4})([0-9]{2,2})([0-9]{2,2})[ _-]?(([0-9]{2,2})([0-9]{2,2})([0-9]{2,2}))?".toRegex();
+                    if (!re.containsMatchIn(name)) {
+                        continue;
+                    }
+                    val m = re.find(name)
+                    if (m?.groups?.size!! < 4) {
+                        continue
+                    }
+                    val year = m.groups.get(1)?.value
+                    val month = m.groups.get(2)?.value
+                    val day = m.groups.get(3)?.value
+
+                    val iYear = year!!.toInt(10)
+                    val iMonth = month!!.toInt(10)
+                    val iDay = day!!.toInt(10)
+
+                    if (iYear < 1900 || iYear > 2100 || iMonth > 12 || iDay > 31)
+                        continue
+
+                    // if not time specified in file name defaults to 12:00:00
+                    var hour: String? = "12"
+                    var minute: String? = "00"
+                    var second: String? = "00"
+                    if (m.groups.size > 7) {
+                        hour = m.groups.get(5)?.value ?: hour
+                        minute = m.groups.get(6)?.value ?: minute
+                        second = m.groups.get(7)?.value ?: second
+                    }
+
+                    val iHour = hour!!.toInt(10)
+                    val iMinute = minute!!.toInt(10)
+                    val iSecond = second!!.toInt(10)
+
+                    if (iHour > 23 || iMinute > 59 || iSecond > 59) {
+                        hour = "12"
+                        minute = "00"
+                        second = "00"
+                    }
+
+                    if (iYear < 1900 || iYear > 2100 || iMonth > 12 || iDay > 31)
+                        continue
+
+                    val separator = ":" // "-"
+                    val t = " " // "\'T\'"
+                    var dateTime = "${year}${separator}${month}${separator}${day}${t}${hour}:${minute}:${second}"
+                    val format = "yyyy${separator}MM${separator}dd\'${t}\'kk:mm:ss"
+                    val formatter = SimpleDateFormat(format, Locale.getDefault())
+                    var timestamp = formatter.parse(dateTime).time
+
+                    val dateLastModified = SimpleDateFormat("yyyy${separator}MM${separator}dd").format(
+                            Date(File(path).lastModified())
+                    );
+                    val timeStampLastModified = SimpleDateFormat(format).format(
+                            Date(File(path).lastModified())
+                    );
+
+                    if (hour!! == "12" && minute!! == "00" && second!! == "00" &&
+                            dateTime.startsWith(dateLastModified)) {
+                        // looks like last modified timestamp is the correct date
+                        dateTime = timeStampLastModified
+                        timestamp = File(path).lastModified()
+                    }
+
+                    val tmpPath = "$recycleBinPath/.tmp_${path.getFilenameFromPath()}"
+                    val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
+                    val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+
+                    val l = java.util.concurrent.locks.ReentrantLock()
+                    val c = l.newCondition()
+
+                    (this as BaseSimpleActivity).copyFile(path, tmpPath)
+                    val exif = ExifInterface(tmpPath)
+                    exif.setAttribute(ExifInterface.TAG_DATETIME_ORIGINAL, dateTime)
+                    exif.setAttribute(ExifInterface.TAG_DATETIME, dateTime)
+                    exif.saveAttributes()
+                    runOnUiThread() {
+                        (this as BaseSimpleActivity).tryDeleteFileDirItem(fileDirItem, false, true) {
+                            l.lock()
+                            c.signal()
+                            l.unlock()
+                        }
+                    }
+                    l.lock()
+                    c.await()
+                    l.unlock()
+                    (this as BaseSimpleActivity).copyFile(tmpPath, path)
+                    runOnUiThread() {
+                        (this as BaseSimpleActivity).tryDeleteFileDirItem(tmpFileDirItem, false, true)
+                    }
+                    try {
+                        File(path).setLastModified(timestamp)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                    val uri = getFileUri(path)
+                    ContentProviderOperation.newUpdate(uri).apply {
+                        val selection = "${Images.Media.DATA} = ?"
+                        val selectionArgs = arrayOf(path)
+                        withSelection(selection, selectionArgs)
+                        withValue(Images.Media.DATE_TAKEN, timestamp)
+                        operations.add(build())
+                    }
+
+                    if (operations.size % BATCH_SIZE == 0) {
+                        (this as BaseSimpleActivity).contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                        operations.clear()
+                    }
+
+                    mediaDB.updateFavoriteDateTaken(path, timestamp)
+                    didUpdateFile = true
+
+                    val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt())
+                    dateTakens.add(dateTaken)
+                    if (!hasRescanned) {
+                        pathsToRescan.add(path)
+                    }
+                }
+                catch(e: Exception)
+                {
+                    e.printStackTrace()
                 }
             }
 
