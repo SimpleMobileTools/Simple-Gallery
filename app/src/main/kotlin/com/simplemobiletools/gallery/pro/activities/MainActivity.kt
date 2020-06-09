@@ -207,25 +207,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
-        invalidateOptionsMenu()
 
         directories_empty_placeholder.setTextColor(config.textColor)
         directories_empty_placeholder_2.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
         directories_switch_searching.underlineText()
 
-        if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
-            handleAppPasswordProtection {
-                mWasProtectionHandled = it
-                if (it) {
-                    mIsPasswordProtectionPending = false
-                    tryLoadGallery()
-                } else {
-                    finish()
+        if (!mIsSearchOpen) {
+            invalidateOptionsMenu()
+            if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
+                handleAppPasswordProtection {
+                    mWasProtectionHandled = it
+                    if (it) {
+                        mIsPasswordProtectionPending = false
+                        tryLoadGallery()
+                    } else {
+                        finish()
+                    }
                 }
+            } else {
+                tryLoadGallery()
             }
-        } else {
-            tryLoadGallery()
         }
     }
 
@@ -239,7 +241,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
@@ -1077,6 +1078,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }.mapTo(everShownFolders) { it.path }
 
         try {
+            // scan the internal storage from time to time for new folders
+            if (config.appRunCount == 1 || config.appRunCount % 30 == 0) {
+                everShownFolders.addAll(getFoldersWithMedia(config.internalStoragePath))
+            }
+
             // catch some extreme exceptions like too many everShownFolders for storing, shouldnt really happen
             config.everShownFolders = everShownFolders
         } catch (e: Exception) {
@@ -1324,6 +1330,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             } catch (e: Exception) {
             }
         }
+    }
+
+    private fun getFoldersWithMedia(path: String): HashSet<String> {
+        val folders = HashSet<String>()
+        try {
+            val files = File(path).listFiles()
+            if (files != null) {
+                files.sortBy { !it.isDirectory }
+                for (file in files) {
+                    if (file.isDirectory && !file.startsWith("${config.internalStoragePath}/Android")) {
+                        folders.addAll(getFoldersWithMedia(file.absolutePath))
+                    } else if (file.isFile && file.isMediaFile()) {
+                        folders.add(file.parent ?: "")
+                        break
+                    }
+                }
+            }
+        } catch (ignored: Exception) {
+        }
+
+        return folders
     }
 
     override fun refreshItems() {
