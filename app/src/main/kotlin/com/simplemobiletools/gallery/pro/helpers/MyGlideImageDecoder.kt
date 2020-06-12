@@ -7,13 +7,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.signature.ObjectKey
 import com.davemorrissey.labs.subscaleview.ImageDecoder
 
-class MyGlideImageDecoder(val degrees: Int) : ImageDecoder {
+class MyGlideImageDecoder(val degrees: Int, val signature: ObjectKey) : ImageDecoder {
 
     override fun decode(context: Context, uri: Uri): Bitmap {
         val options = RequestOptions()
             .format(DecodeFormat.PREFER_ARGB_8888)
+            .signature(signature)
             .fitCenter()
 
         val builder = Glide.with(context)

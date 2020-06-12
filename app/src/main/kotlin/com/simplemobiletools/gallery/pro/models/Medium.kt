@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.extensions.getFilenameExtension
@@ -86,4 +87,6 @@ data class Medium(
 
         return calendar.timeInMillis.toString()
     }
+
+    fun getSignature() = ObjectKey("$path-$modified")
 }
