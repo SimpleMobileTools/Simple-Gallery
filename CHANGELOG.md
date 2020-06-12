@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.15.1 *(2020-06-12)*
+----------------------------
+
+ * Fixed a glitch at caching fullscreen images
+ * Improved batch renaming with patterns
+
 Version 6.15.0 *(2020-06-07)*
 ----------------------------
 
