@@ -1,0 +1,51 @@
+Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne & bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze & verstecke Dateien und zeige eine Vielzahl von Bilder- & Videoformaten an, unter anderem RAW, SVG und viele mehr.
+
+Die App enthält keine Werbung und verlangt keine unnötigen Berechtigungen. Da die App auch keinen Internetzugang benötigt, ist deine Privatsphäre geschützt.
+
+-------------------------------------------------
+<b>SCHLICHTE GALERIE PRO – EIGENSCHAFTEN</b>
+-------------------------------------------------
+
+• Offline Galerie ohne Werbung und Popups
+• Schlichte Galerie Fotoeditor – Zuschneiden, Drehen, Ändern der Größe, Zeichnen, Filtern & mehr
+• Kein Internetzugriff benötigt – mehr Privatsphäre und Sicherheit für dich
+• Keine unnötigen Berechtigungen erforderlich
+• Suche schnell nach Bildern, Videos & Dateien
+• Öffne & zeige verschiedene Bild- und Videoformate an (RAW, SVG, Panoramabilder usw.)
+• Eine Vielzahl von intuitiven Gesten zur einfachen Bearbeitung & Ordnung von Dateien
+• Viele Möglichkeiten Dateien zu filtern, gruppieren & sortieren
+• Personalisiere das Erscheinungsbild der Galerie
+• Verfügbar in 32 Sprachen
+• Markiere Dateien als Favoriten, um schnell auf diese zuzugreifen
+• Schütze deine Fotos & Videos mit einem Muster, PIN oder Fingerabdruck
+• Nutze PIN, Muster & Fingerabruck zum Schutz der gesamten App oder auch bestimmter Funktionen
+• Stelle gelöschte Bilder & Videos aus dem Papierkorb wieder her
+• Ändere die Sichtbarkeit von Dateien und Ordnern, um Fotos und Videos zu verstecken
+• Erstelle eine eigene Diashow deiner Dateien
+• Zeige detaillierte Informationen deiner Dateien an (Auflösung, EXIF Werte usw.)
+• Schlichte Galerie Pro ist Open Source
+… und viele, viele mehr!
+
+<b>FOTOEDITOR</b>
+Schlichte Galerie Pro macht es schnell und einfach deine Bilder zu bearbeiten. Schneide Bilder zu, drehe sie und ändere die Größe. Wenn du dich etwas kreativer fühlst, kannst du Filter hinzufügen und auf deinen Bildern malen!
+
+<b>UNTERSTÜTZUNG FÜR VIELE DATEITYPEN</b>
+Im Gegensatz zu einigen anderen Galerien unterstütz Schlichte Galerie Pro eine Vielzahl verschiedener Dateitypen. Unter anderem JPEG, PNG, MP4, MKV, RAW, SVG, Panoramabilder, Panoramavideos und viele mehr.
+
+<b>STARK INDIVIDUALISIERBARE GALERIE</b>
+Von der Benutzeroberfläche zu den Funktionen in der unteren Symbolleiste, Schlichte Galerie Pro ist stark anpassbar und funktioniert ganz nach deinen Wünschen. Keine Andere Galere verfügt über dieses Maß an Flexibilität. Danke Open Source sind wir in 32 Sprachen verfügbar!
+
+<b>WIEDERHERSTELLUNG GELÖSCHTER FOTOS & VIDEOS</b>
+Versehentlich ein wertvolles Foto oder Video gelöscht? Keine Sorge! Schlichte Galerie Pro verfügt über einen praktischen Papierkorb, aus dem du gelöschte Bilder & Videos leicht wiederherstellen kannst.
+
+<b>SCHÜTZE UND VERSTECKE FOTOS, VIDEOS & DATEIEN</b>
+Mit einem PIN, Muster oder dem Fingerabdrucksensor deines Gerätes kannst du Fotos, Videos und komplette Alben verstecken und schützen. Du kannst auch die App selber schützen oder bestimmte Funktionen der App sperren. Beispielsweise kannst du eine Datei nicht ohne Scan des Fingerabdrucks löschen, um deine Dateien vor versehentlichem Löschen zu schützen.
+
+<b>Schau dir die vollständige Serie der Schlichten Apps hier an:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

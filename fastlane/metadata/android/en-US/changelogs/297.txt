@@ -1,0 +1,3 @@
+ * Properly handle videos at slideshows
+ * Fixed some gestures during video playback
+ * Fixed a glitch with videos randomly restarting in some cases

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Галерея</string>
+    <string name="edit">Редагувати</string>
+    <string name="open_camera">Запустити камеру</string>
+    <string name="hidden">(приховане)</string>
+    <string name="excluded">(виключене)</string>
+    <string name="pin_folder">Закріпити теку</string>
+    <string name="unpin_folder">Відкріпити теку</string>
+    <string name="pin_to_the_top">Закріпити зверху</string>
+    <string name="show_all">Показати вміст усіх тек</string>
+    <string name="all_folders">Усі теки</string>
+    <string name="folder_view">Перемкнути у перегляд за теками</string>
+    <string name="other_folder">Інша тека</string>
+    <string name="show_on_map">Показати на мапі</string>
+    <string name="unknown_location">Невідоме розташування</string>
+    <string name="increase_column_count">Збільшити кількість колонок</string>
+    <string name="reduce_column_count">Зменшити кількість колонок</string>
+    <string name="change_cover_image">Змінити обкладинку</string>
+    <string name="select_photo">Вибрати фото</string>
+    <string name="volume">Об\'єм</string>
+    <string name="brightness">Яскравість</string>
+    <string name="lock_orientation">Закріпити орієнтацію</string>
+    <string name="unlock_orientation">Відкріпити орієнтацію</string>
+    <string name="change_orientation">Змінити орієнтацію</string>
+    <string name="force_portrait">Примусова портретна орієнтація</string>
+    <string name="force_landscape">Примусова ландшафтна орієнтація</string>
+    <string name="use_default_orientation">Орієнтація за-замовчуванням</string>
+    <string name="fix_date_taken">Виправити дату зйомки</string>
+    <string name="fixing">Виправлення…</string>
+    <string name="dates_fixed_successfully">Дати успішно виправлені</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Поділитися зображенням іншого розміру</string>
+    <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
+    <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Фільтр мультимедійних файлів</string>
+    <string name="images">Зображення</string>
+    <string name="videos">Відео</string>
+    <string name="gifs">GIF-зображення</string>
+    <string name="raw_images">RAW-зображення</string>
+    <string name="svgs">SVG-зображення</string>
+    <string name="portraits">Портрети</string>
+    <string name="no_media_with_filters">З вибраними фільтрами мультимедійні файли не знайдено.</string>
+    <string name="change_filters_underlined"><u>Змінити фільтри</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Ця функція приховує теку шляхом додавання в неї файлу \".nomedia\"; це також приховає і підтеки. Ви можете побачити приховані теки, обравши опцію \'Показати приховані елементи\' в \"Налаштуваннях\". Продовжити?</string>
+    <string name="exclude">Виключити</string>
+    <string name="excluded_folders">Виключені теки</string>
+    <string name="manage_excluded_folders">Керування виключеними теками</string>
+    <string name="exclude_folder_description">Ця дія виключить обрані теки з їх підтеками тільки з Simple Gallery. Керувати виключеними теками можна у \"Налаштуваннях\".</string>
+    <string name="exclude_folder_parent">Виключити батьківську теку натомість?</string>
+    <string name="excluded_activity_placeholder">Виключення тек приховає їх разом з їх підтеками тільки у Simple Gallery, але вони все ще будуть видимі у інших додатках.\n\nЯкщо ви хочете приховати їх і від інших додатків, використовуйте функцію \"Приховати\".</string>
+    <string name="remove_all">Видалити все</string>
+    <string name="remove_all_description">Видалити всі теки зі списку виключених? Це не видалить теки з пристрою.</string>
+    <string name="hidden_folders">Приховані теки</string>
+    <string name="manage_hidden_folders">Керування прихованими теками</string>
+    <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Включені теки</string>
+    <string name="manage_included_folders">Керування включеними теками</string>
+    <string name="add_folder">Додати теку</string>
+    <string name="included_activity_placeholder">Якщо у вас є теки з медіафайлами, але вони не були розпізнані додатком, ви можете додати їх тут вручну.\n\nДодавання елементів сюди не виключить будь-яку іншу теку.</string>
+    <string name="no_media_add_included">Жоден медіафайл не знайдено. Ви можете додати теки з медіафайлами вручну, щоб вирішити цю проблему.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Змінити розмір</string>
+    <string name="resize_and_save">Змінити розмір вибраного і зберегти</string>
+    <string name="width">Ширина</string>
+    <string name="height">Висота</string>
+    <string name="keep_aspect_ratio">Зберігати співвідношення сторін</string>
+    <string name="invalid_values">Введіть допустиму роздільну здатність</string>
+
+    <!-- Editor -->
+    <string name="editor">Редактор</string>
+    <string name="rotate">Обернути</string>
+    <string name="invalid_image_path">Неприпустимий шлях до зображення</string>
+    <string name="image_editing_failed">Не вдалося редагувати зображення</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="edit_image_with">Редагувати зображення за допомогою:</string>
+    <string name="no_editor_found">Не знайдено редакторів зображень</string>
+    <string name="unknown_file_location">Невідоме розташування файлу</string>
+    <string name="error_saving_file">Не вдалося перезаписати вихідний файл</string>
+    <string name="rotate_left">Обернути ліворуч</string>
+    <string name="rotate_right">Обернути праворуч</string>
+    <string name="rotate_one_eighty">Обернути на 180º</string>
+    <string name="flip">Віддзеркалити</string>
+    <string name="flip_horizontally">Віддзеркалити горизонтально</string>
+    <string name="flip_vertically">Віддзеркалити вертикально</string>
+    <string name="free_aspect_ratio">Вільне</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Інше</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Встановити як шпалери</string>
+    <string name="set_as_wallpaper_failed">Не вдалося встановити шпалери</string>
+    <string name="set_as_wallpaper_with">Встановити шпалери за допомогою:</string>
+    <string name="setting_wallpaper">Встановлення шпалер…</string>
+    <string name="wallpaper_set_successfully">Шпалери успішно встановлено</string>
+    <string name="portrait_aspect_ratio">Співвідношення сторін у портретній орієнтації</string>
+    <string name="landscape_aspect_ratio">Співвідношення сторін у ландшафтній орієнтації</string>
+    <string name="home_screen">Домашній екран</string>
+    <string name="lock_screen">Екран блокування</string>
+    <string name="home_and_lock_screen">Домашній екран і екран блокування</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Слайдшоу</string>
+    <string name="interval">Інтервал (секунди):</string>
+    <string name="include_photos">Включити фото</string>
+    <string name="include_videos">Включити відео</string>
+    <string name="include_gifs">Включити GIF-зображення</string>
+    <string name="random_order">Випадковий порядок</string>
+    <string name="move_backwards">Рухатися назад</string>
+    <string name="loop_slideshow">Зациклити показ слайдів</string>
+    <string name="animation">Анімація</string>
+    <string name="no_animation">Немає</string>
+    <string name="fade">Згасання</string>
+    <string name="slide">Зміщення</string>
+    <string name="slideshow_ended">Слайдшоу закінчено</string>
+    <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Змінити тип перегляду</string>
+    <string name="grid">Сітка</string>
+    <string name="list">Список</string>
+    <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Групувати за…</string>
+    <string name="do_not_group_files">Не групувати файли</string>
+    <string name="by_folder">текою</string>
+    <string name="by_last_modified">останньою зміною</string>
+    <string name="by_last_modified_daily">останньою зміною (по днях)</string>
+    <string name="by_last_modified_monthly">останньою зміною (по місяцях)</string>
+    <string name="by_date_taken">датою зйомки</string>
+    <string name="by_date_taken_daily">датою зйомки (по днях)</string>
+    <string name="by_date_taken_monthly">датою зйомки (по місяцях)</string>
+    <string name="by_file_type">типом файлу</string>
+    <string name="by_extension">розширенням</string>
+    <string name="grouping_and_sorting">Зверніть увагу, що групування і сортування - це два окремих поля</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Тека, що відображається на віджеті:</string>
+    <string name="show_folder_name">Показувати ім\'я теки</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Відтворювати відео автоматично</string>
+    <string name="remember_last_video_position">Запам\'ятовувати місце зупинки перегляду</string>
+    <string name="toggle_filename">Перемкнути відображення імені файлу</string>
+    <string name="loop_videos">Зациклити відео</string>
+    <string name="animate_gifs">Анімувати ескізи GIF-файлів</string>
+    <string name="max_brightness">Максимальна яскравість екрана при повноекранному перегляді медіафайлу</string>
+    <string name="crop_thumbnails">Обрізати ескізи у квадрат</string>
+    <string name="show_thumbnail_video_duration">Показувати тривалість відео</string>
+    <string name="screen_rotation_by">При повноекранному перегляді обертати за…</string>
+    <string name="screen_rotation_system_setting">системними налаштуваннями</string>
+    <string name="screen_rotation_device_rotation">поворотом пристрою</string>
+    <string name="screen_rotation_aspect_ratio">співвідношенням сторін</string>
+    <string name="black_background_at_fullscreen">Чорне тло і рядок стану при повноекранному перегляді</string>
+    <string name="scroll_thumbnails_horizontally">Гортати ескізи горизонтально</string>
+    <string name="hide_system_ui_at_fullscreen">Автоматично приховувати системний інтерфейс при повноекранному перегляді</string>
+    <string name="delete_empty_folders">Видаляти порожні теки після видалення їх вмісту</string>
+    <string name="allow_photo_gestures">Дозволити керування яскравістю фотографій вертикальними жестами</string>
+    <string name="allow_video_gestures">Дозволити керування яскравістю та гучністю відео вертикальними жестами</string>
+    <string name="show_media_count">Показувати кількість файлів у теці на головному екрані</string>
+    <string name="show_extended_details">Показувати розширені подробиці при повноекранному перегляді</string>
+    <string name="manage_extended_details">Керування розширеними подробицями</string>
+    <string name="one_finger_zoom">Дозволити масштабування одним пальцем при повноекранному перегляді</string>
+    <string name="allow_instant_change">Дозволити миттєво змінювати медіафайл натисканням на сторони екрана</string>
+    <string name="allow_deep_zooming_images">Дозволити глибоке масштабування зображень</string>
+    <string name="hide_extended_details">Приховати розширені подробиці, коли рядок стану прихований</string>
+    <string name="show_at_bottom">Показати деякі кнопки дій внизу екрана</string>
+    <string name="show_recycle_bin">Показувати \"Кошик\" на головному екрані</string>
+    <string name="deep_zoomable_images">Глибокомасштабовані зображення</string>
+    <string name="show_highest_quality">Показувати зображення в найвищій можливій якості</string>
+    <string name="show_recycle_bin_last">Показувати \"Кошик\" останнім елементом на головному екрані</string>
+    <string name="allow_down_gesture">Дозволити закриття повноекранного перегляду свайпом згори вниз</string>
+    <string name="allow_one_to_one_zoom">Дозволити масштабування до 1:1 подвійним тапом</string>
+    <string name="open_videos_on_separate_screen">Завжди відкривати відео на окремому екрані з новими горизонтальними жестами</string>
+    <string name="show_notch">Показувати мітку, якщо доступна</string>
+    <string name="allow_rotating_gestures">Дозволити обертання зображень жестами</string>
+    <string name="file_loading_priority">Пріоритет завантаження файлів</string>
+    <string name="speed">Швидкість</string>
+    <string name="compromise">Компроміс</string>
+    <string name="avoid_showing_invalid_files">Запобігати показу пошкоджених файлів</string>
+    <string name="show_image_file_types">Показувати типи файлів зображень</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Ескізи</string>
+    <string name="fullscreen_media">Повноекранний перегляд</string>
+    <string name="extended_details">Розширені подробиці</string>
+    <string name="bottom_actions">Кнопки дій внизу екрана</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Керування видимими кнопками дій внизу екрана</string>
+    <string name="toggle_favorite">Перемкнути улюблене</string>
+    <string name="toggle_file_visibility">Перемкнути видимість файлу</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">Cancel</string>
+    <string name="pesdk_editor_accept">Accept</string>
+    <string name="pesdk_editor_save">Save</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_grayColor">Gray</string>
+    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
+    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_purpleColor">Purple</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Як зробити Simple Gallery галереєю за-замовчуванням?</string>
+    <string name="faq_1_text">Спочатку необхідно знайти поточну галерею за-замовчуванням в розділі \"Додатки\" налаштувань вашого пристрою. Знайдіть і натисніть на кнопку \"Використовувати за-замовчуванням\" абощо, потім оберіть \"Очистити замовчування\".
+        Наступного разу коли ви намагатиметеся відкрити зображення або відео, ви побачите вікно з вибором додатків для цього. Оберіть Simple Gallery та зробіть його додатком за-замовчуванням.</string>
+    <string name="faq_2_title">Я заблокував додаток за допомогою пароля і забув його. Що я можу зробити?</string>
+    <string name="faq_2_text">Ви можете вирішити цю проблему двома способами: перевстановити додаток або знайти його в розділі \"Додатки\" налаштувань вашого пристрою та обрати \"Очистити дані\". Це скине усі ваші налаштування додатка, але не видалить жодного медіафайлу.</string>
+    <string name="faq_3_title">Як зробити альбом завжди доступним у верхній частині?</string>
+    <string name="faq_3_text">Ви можете виконати довге натискання на бажаному альбомі і вибрати піктограму \"Закріпити\" у меню дій, що закріпить його вгорі. Ви також можете закріпити декілька тек; закріплені елементи будуть відсортовані за методом сортування за-замовчуванням.</string>
+    <string name="faq_4_title">Як я можу швидко прокручувати відео?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">В чому полягає різниця між приховуванням та виключенням теки?</string>
+    <string name="faq_5_text">\"Виключити\" запобігає відображенню теки тільки в додатку Simple Gallery, в той час як \"Приховати\" працює на системному рівні і приховує теку і в інших галереях також. Це здійснюється шляхом створення порожнього файлу \".nomedia\" в заданій теці, який може бути видалений пізніше будь-яким файловим менеджером. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Чому відображаються теки з музичними обкладинками або стікерами?</string>
+    <string name="faq_6_text">Може так трапитися, що з\'являться деякі незвичні альбоми. Їх можна легко виключити довгим натисканням і вибором \"Виключити\". В наступному діалозі у вас буде можливість обрати бітьківську теку. Швидше за все, це дозволить також запобігти появі інших пов\'язаних альбомів.</string>
+    <string name="faq_7_title">Тека з зображеннями не відображається, що мені робити?</string>
+    <string name="faq_7_text">У цього може бути кілька причин, проте вирішення доволі просте. Перейдіть в \"Налаштування\" -> \"Керування виключеними теками\", оберіть \"Плюс\" та перейдіть до потрібної теки.</string>
+    <string name="faq_8_title">Що робити, якщо я хочу, щоб лише кілька окремих тек були видимими?</string>
+    <string name="faq_8_text">Додавання теки до \"Включених тек\" автоматично не виключає нічого. Що ви можете зробити, то це перейти в \"Налаштування\" -> \"Керування виключеними теками\", виключити кореневу теку \"/\", потім додати бажані теки через \"Налаштування\" -> \"Керування включеними теками\".
+        Це зробить видимими лише обрані теки. Якщо тека є одночасно і виключеною, і включеною, вона відобразиться, оскільки і виключення, і включення є рекурсивним.</string>
+    <string name="faq_10_title">Чи можу я обрізати зображення у цьому додатку?</string>
+    <string name="faq_10_text">Так, обрізати зображення можна у редакторі шляхом перетягування кутів зображення. Відкрити редактор можна або довгим натисканням на ескіз зображення і наступним вибором \"Редагувати\", або вибором \"Редагувати\" при повноекранному перегляді.</string>
+    <string name="faq_11_title">Чи можу я якимось чином згрупувати ескізи медіафайлів?</string>
+    <string name="faq_11_text">Звісно, просто скористайтеся пунктом меню \"Групувати за…\", знаходячись на екрані ескізів. Групувати файли можна за кількома критеріями, включаючи дату зйомки. Якщо ви використовуєте функцію \"Показати вміст усіх тек\", ви також можете групувати їх за теками.</string>
+    <string name="faq_12_title">Сортування за датою зйомки, здається, працює некоректно. Як я можу це виправити?</string>
+    <string name="faq_12_text">Найбільш вірогідна причина цього - копіювання фалів з іншого місця. Це можна виправити, обравши ескізи файлів і потім - \"Виправити дату зйомки\".</string>
+    <string name="faq_13_title">Я бачу деякі кольорові нашарування на зображенні. Як я можу покращити якість?</string>
+    <string name="faq_13_text">Поточне рішення для показу зображень відмінно працює в переважній більшості випадків, але якщо вам потрібна ще краща якість зображень, ви можете увімкнути опцію \"Показувати зображення в найвищій можливій якості\" в розділі \"Глибокомасштабовані зображення\" налаштувань додатка.</string>
+    <string name="faq_14_title">Я приховав файл / теку. Як я можу відмінити цю дію?</string>
+    <string name="faq_14_text">Щоб побачити приховані елементи, ви можете або натиснути пункт меню \"Тимчасово показати приховані елементи\" на головному екрані, або перемкнути опцію \"Показати приховані елементи\" в налаштуваннях додатка. Якщо ви більше не хочете приховувати елемент, довго натисніть на нього і оберіть \"Не приховувати\". Теки приховуються шляхом створення прихованого файлу \".nomedia\" в них, тож ви також можете видалити цей файл будь-яким файловим менеджером.</string>
+    <string name="faq_15_title">Чому додаток займає так багато місця?</string>
+    <string name="faq_15_text">Кеш додатка може займати до 500 МБ, він забезпечує швидше завантаження зображень. Якщо додаток займає ще більше місця, найбільш вірогідно, це спричинено видаленими елементами у Кошику. Вони враховуються у загальному розмірі додатка. Ви можете очистити Кошик, відкривши його та видаливши всі файли, або через налаштування додатка. Кожен файл у Кошику автоматично видаляється через 30 днів.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - фотоменеджер і редактор</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_long_description">
+        Simple Gallery Pro - це офлайн-галерея з великою кількістю налаштувань. Впорядковуйте та редагуйте ваші фото, відновлюйте видалені файли з кошика, захищайте та приховуйте файли і переглядайте фото і відео різноманітних форматів, включаючи RAW, SVG та багато іншого.
+
+        Цей додаток не містить реклами і непотрібних дозволів. Оскільки додаток не потребує доступу в інтернет, ваша приватність захищена.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – ФУНКЦІЇ</b>
+        -------------------------------------------------
+
+        • Офлайн-галерея без реклами чи спливаючих заставок
+        • Фоторедактор Simple gallery – обрізайте, обертайте, змінюйте розмір, малюйте, накладайте фільтри та інше
+        • Інтернет-з\'єднання не потрібне, що дає більше приватності і безпеки
+        • Не потребуються зайві дозволи
+        • Швидкий пошук зображень, відео і файлів
+        • Відкривайте та переглядайте багато різних фото- і відеоформатів (RAW, SVG, панорамні фото тощо)
+        • Різноманітні інтуїтивно зрозумілі жести для легкого редагуваання та упорядкування файлів
+        • Багато способів фільтрувати, групувати і сортувати файли
+        • Налаштуйте зовнішній вигляд Simple Gallery Pro
+        • Доступна 32 мовами
+        • Позначайте файли як улюблені для швидкого доступу
+        • Захищайте ваші фото і відео графічним ключем, PIN-кодом або відбитком пальця
+        • Використовуйте графічний ключ, PIN-код і відбиток пальця також для блокування запуску галереї або окремих її функцій
+        • Відновлюйте видалені фото і відео з кошика
+        • Змінюйте видимість файлів, щоб приховати фото і відео
+        • Створюйте налаштовуване слайд-шоу з ваших файлів
+        • Переглядайте детальну інформацію про ваші файли (роздільна здатність, записи EXIF тощо)
+        • Simple Gallery Pro є додатком з відкритим джерельним кодом
+        … та багато-багато іншого!
+
+        <b>ФОТОРЕДАКТОР</b>
+        Simple Gallery Pro дозволяє легко редагувати ваші зображення на льоту. Обрізайте, віддзеркалюйте, обертайте та змінюйте розмір своїх зображень. Якщо ви почуваєтеся креативно, можете додавати фільтри та малювати на ваших зображеннях!
+
+        <b>ПІДТРИМКА БАГАТЬОХ ТИПІВ ФАЙЛІВ</b>
+        На відміну від деяких інших переглядачів та організаторів галереї, Simple Gallery Pro підтримує величезний перелік різноманітних типів файлів, включаючи JPEG, PNG, MP4, MKV, RAW, SVG, панорамні фото, панорамні відео та багато іншого.
+
+        <b>МЕНЕДЖЕР ГАЛЕРЕЇ З БЕЗЛІЧЧЮ НАЛАШТУВАНЬ</b>
+        Від зовнішнього вигляду до функціональних кнопок у нижній панелі інструментів: Simple Gallery Pro має безліч налаштувань та працює у потрібний вам спосіб. Жодний інший менеджер галереї не має такої гнучкості! Завдяки відкритому джерельному коду цей додаток доступний 32 мовами!
+
+        <b>ВІДНОВЛЮЙТЕ ВИДАЛЕНІ ФОТО І ВІДЕО</b>
+        Випадково видалили дорогоцінне фото чи відео? Не хвилюйтеся! Simple Gallery Pro пропонує зручний кошик, звідки можна легко відновити видалені фото і відео.
+
+        <b>ЗАХИЩАЙТЕ І ПРИХОВУЙТЕ ФОТО, ВІДЕО І ФАЙЛИ</b>
+        Використовуючи PIN-код, графічний ключ чи сканер відбитка пальця на вашому пристрої, ви можете захистити та приховати фото, відео та цілі альбоми. Ви можете захистити сам додаток або заблокувати окремі його функції. Наприклад, заборона видалення файлів без сканування відбитку пальця допоможе захистити ваші файли від випадкового видалення.
+
+        <b>Перегляньте повний набір додатків Simple Tools тут:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

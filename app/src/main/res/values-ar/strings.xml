@@ -1,189 +1,380 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">الاستوديو البسيط</string>
-    <string name="app_launcher_name">الاستوديو</string>
+    <string name="app_name">الاستديو البسيط</string>
+    <string name="app_launcher_name">الاستديو</string>
     <string name="edit">تعديل</string>
     <string name="open_camera">فتح الكاميرا</string>
-    <string name="hidden">(مخفية)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="hidden">(مخفي)</string>
+    <string name="excluded">(مستبعد)</string>
     <string name="pin_folder">تثبيت المجلد</string>
-    <string name="unpin_folder">ازالة تثبيت الملف</string>
-    <string name="pin_to_the_top">Pin to the top</string>
-    <string name="show_all">عرض كل محتوى المجلدات</string>
+    <string name="unpin_folder">إلغاء تثبيت المجلد</string>
+    <string name="pin_to_the_top">تثبيت في الأعلى</string>
+    <string name="show_all">إظهار كل محتويات المجلدات</string>
     <string name="all_folders">كل المجلدات</string>
     <string name="folder_view">التبديل إلى عرض المجلد</string>
     <string name="other_folder">مجلد آخر</string>
-    <string name="show_on_map">عرض على الخريطة</string>
+    <string name="show_on_map">عرض علي الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
     <string name="increase_column_count">زيادة عدد الأعمدة</string>
     <string name="reduce_column_count">تقليل عدد الأعمدة</string>
     <string name="change_cover_image">تغيير صورة الغلاف</string>
-    <string name="select_photo">اختر الصور</string>
-    <string name="use_default">استخدم الافتراضي</string>
+    <string name="select_photo">تحديد صورة</string>
     <string name="volume">الصوت</string>
     <string name="brightness">السطوع</string>
-    <string name="lock_orientation">غلق الاتجاه</string>
+    <string name="lock_orientation">قفل الاتجاه</string>
     <string name="unlock_orientation">فتح الاتجاه</string>
+    <string name="change_orientation">تغيير الاتجاه</string>
+    <string name="force_portrait">فرض الإتجاه العمودي</string>
+    <string name="force_landscape">فرض الإتجاه الأفقي</string>
+    <string name="use_default_orientation">إستخدام الإتجاه الافتراضي</string>
+    <string name="fix_date_taken">إصلاح تاريخ إلتقاط القيمة</string>
+    <string name="fixing">جارٍ الإصلاح…</string>
+    <string name="dates_fixed_successfully">تم إصلاح التواريخ بنجاح</string>
+    <string name="no_date_takens_found">لم يتم العثور على تاريخ التقاط القيم</string>
+    <string name="share_resized">مشاركة الصورة الذي تم تغيير حجمها</string>
+    <string name="upgraded_from_free">مرحباً,\n\nيبدو أنك قمت بترقية التطبيق المجاني القديم. يمكنك الآن إلغاء تثبيت الإصدار القديم، الذي يحتوي على زر \'الترقية إلى Pro\' في أعلي إعدادات التطبيق.\n\nسيتم حذف عناصر سلة المحذوفات فقط، كما سيتم حذف العناصر المفضلة، كما سيتعين عليك إعادة ضبط إعدادات التطبيق .\n\nشكراً!</string>
+    <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
 
     <!-- Filter -->
-    <string name="filter_media">فلتر الميديا</string>
+    <string name="filter_media">فلترة الوسائط</string>
     <string name="images">الصور</string>
-    <string name="videos">الفديوهات</string>
-    <string name="gifs">الصور المتحركة</string>
-    <string name="no_media_with_filters">لم يتم العثور على ملفات وسائط مع الفلاتر المحددة</string>
-    <string name="change_filters_underlined"><u >تغيير الفلاتر</u></string>
+    <string name="videos">الفيديوهات</string>
+    <string name="gifs">الصور المتحركة (GIF)</string>
+    <string name="raw_images">صور الخام (RAW)</string>
+    <string name="svgs">صور الرسومات المتجهة (SVG)</string>
+    <string name="portraits">صور البورتريه</string>
+    <string name="no_media_with_filters">لم يتم العثور على ملفات وسائط مع الفلاتر المحددة.</string>
+    <string name="change_filters_underlined"><u>تغيير الفلاتر</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">هذه الميزة تخفي المجلد عن طريق إضافة ملف \'.nomedia\' بداخله، فإنه سيتم إخفاء كافة المجلدات الفرعية أيضا. يمكنك رؤيتها عن طريق تبديل الخيار \"إظهار العناصر المخفية\" في الإعدادات. استمر؟</string>
-    <string name="exclude">استبعد</string>
+    <string name="hide_folder_description">تقوم هذه الوظيفة باخفاء المجلد عن طريق إضافة ملف \'. nomedia \' إليه ، وستقوم باخفاء كل المجلدات الفرعية أيضًا. يمكنك رؤيتهم عن طريق تبديل خيار \'إظهار العناصر المخفية \' في الإعدادات. هل تريد المتابعة؟</string>
+    <string name="exclude">إستبعاد</string>
     <string name="excluded_folders">المجلدات المستبعدة</string>
-    <string name="manage_excluded_folders">ادارة المجلدات المستبعدة</string>
-    <string name="exclude_folder_description">سيؤدي هذا إلى استبعاد التحديد مع مجلداته الفرعية من الاستوديو فقط. يمكنك إدارة المجلدات المستبعدة في الإعدادات</string>
-    <string name="exclude_folder_parent">هل تريد استبعاد أحد الوالدين بدلا من ذلك؟</string>
-    <string name="excluded_activity_placeholder">باستثناء المجلدات سيجعلها جنبا إلى جنب مع المجلدات الفرعية مخبأة فقط في الاستوديو ، فإنها لا تزال مرئية في تطبيقات أخرى.\n
-  \n
-  إذا كنت تريد إخفاءها من تطبيقات أخرى أيضا، استخدم ميزة الإخفاء</string>
-    <string name="remove_all">حذف الكل</string>
-    <string name="remove_all_description">هل تريد إزالة جميع المجلدات من القائمة المستبعدة؟ لن يؤدي هذا إلى حذف المجلدات</string>
+    <string name="manage_excluded_folders">إدارة المجلدات المستبعدة</string>
+    <string name="exclude_folder_description">سيؤدي ذلك الي إستبعاد التحديد مع المجلدات الفرعية من "الاستديو" فقط.. يمكنك إدارة المجلدات المستبعدة في الإعدادات.</string>
+    <string name="exclude_folder_parent">إستبعاد المجلد الأصل بدلاً  من ذلك(المحدد)؟</string>
+    <string name="excluded_activity_placeholder">سيؤدي إستبعاد المجلدات الي جعلها مع المجلدات الفرعية مخفية  في "الاستديو" فقط, وستظل مرئية في تطبيقات أخرى. \n\nإذا كنت تريد إخفاءها من التطبيقات الأخرى أيضاً ، فاستخدم وظيفة الإخفاء.</string>
+    <string name="remove_all">إزالة الكل</string>
+    <string name="remove_all_description">هل تريد إزالة كافة المجلدات من قائمة  المجلدات المستبعدة ؟ لن يؤدي هذا إلي حذف المجلدات.</string>
     <string name="hidden_folders">المجلدات المخفية</string>
     <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
-    <string name="hidden_folders_placeholder">يبدو أنك لا تملك أي مجلد مخفي بملف \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">يبدو أنه لا توجد لديك أي مجلدات مخفية بملف \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
-    <string name="add_folder">اضافة مجلد</string>
-    <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الملتيميديا ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدويا هنا.\n
-  \n
-  لن تؤدي إضافة بعض العناصر هنا إلى استبعاد أي مجلد آخر.</string>
+    <string name="add_folder">إضافة مجلد</string>
+    <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الوسائط ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدوياً هنا.\n\nلن تؤدي إضافة بعض العناصر هنا إلى إستبعاد أي مجلد آخر.</string>
+    <string name="no_media_add_included">لم يتم العثور علي أي ملفات وسائط.يمكنك حلها عن طريق إضافة المجلدات التي تحتوي على ملفات وسائط يدوياً.</string>
 
     <!-- Resizing -->
-    <string name="resize">تحجيم</string>
-    <string name="resize_and_save">تغيير حجم التحديد وحفظ</string>
+    <string name="resize">تغيير الحجم</string>
+    <string name="resize_and_save">تغيير حجم التحديد والحفظ</string>
     <string name="width">العرض</string>
-    <string name="height">الارتفاع</string>
-    <string name="keep_aspect_ratio">إبقاء نسبة القياس</string>
-    <string name="invalid_values">الرجاء إدخال درجة دقة صحيحة</string>
+    <string name="height">الإرتفاع</string>
+    <string name="keep_aspect_ratio">الحفاظ على نسبة الأبعاد</string>
+    <string name="invalid_values">يرجى إدخال دقة صالحة</string>
 
     <!-- Editor -->
     <string name="editor">تعديل</string>
-    <string name="save">حفظ</string>
-    <string name="rotate">التدوير</string>
-    <string name="path">المسار</string>
-    <string name="invalid_image_path">مسار صورة غير صحيح</string>
+    <string name="rotate">تدوير</string>
+    <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="image_editing_failed">فشل تعديل الصورة</string>
+    <string name="image_editing_cancelled">تم إلغاء تعديل الصورة</string>
+    <string name="file_edited_successfully">تم تعديل الملف بنجاح</string>
     <string name="edit_image_with">تعديل الصورة باستخدام:</string>
     <string name="no_editor_found">لم يتم العثور على أي محرر للصور</string>
-    <string name="unknown_file_location">موقع ملف غير معروف</string>
-    <string name="error_saving_file">تعذر الكتابة فوق الملف المصدر</string>
+    <string name="unknown_file_location">موقع الملف غير معروف</string>
+    <string name="error_saving_file">لا يمكن إستبدال الملف الأصل</string>
     <string name="rotate_left">تدوير لليسار</string>
     <string name="rotate_right">تدوير لليمين</string>
-    <string name="rotate_one_eighty">تدوير 180º</string>
-    <string name="flip">قلب</string>
-    <string name="flip_horizontally">قلب أفقيا</string>
-    <string name="flip_vertically">قلب عموديا</string>
-    <string name="edit_with">تعديل باستخدام</string>
+    <string name="rotate_one_eighty">تدوير بزاوية 180º</string>
+    <string name="flip">انعكاس</string>
+    <string name="flip_horizontally">انعكاس أفقياً</string>
+    <string name="flip_vertically">انعكاس عمودياً</string>
+    <string name="free_aspect_ratio">حر</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">أخري</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">خلفية بسيطة</string>
-    <string name="set_as_wallpaper">تعيين كخلفية الشاشة</string>
-    <string name="set_as_wallpaper_failed">فشل الإعداد كخلفية</string>
-    <string name="set_as_wallpaper_with">تعيين كخلفية بواسطة:</string>
-    <string name="setting_wallpaper">... جار تعيين الخلفية ...</string>
-    <string name="wallpaper_set_successfully">تم تعيبن الخلفية بنجاح</string>
-    <string name="portrait_aspect_ratio">صورة نسبة العرض إلى الارتفاع</string>
-    <string name="landscape_aspect_ratio">نسبة العرض إلى الارتفاع في المناظر الطبيعية</string>
+    <string name="set_as_wallpaper">تعيين كخلفية</string>
+    <string name="set_as_wallpaper_failed">فشل التعيين كخلفية</string>
+    <string name="set_as_wallpaper_with">تعيين كخلفية باستخدام:</string>
+    <string name="setting_wallpaper">جارٍ تعيين الخلفية…</string>
+    <string name="wallpaper_set_successfully">تم تعيين الخلفية بنجاح</string>
+    <string name="portrait_aspect_ratio">نسبة الأبعاد العمودية</string>
+    <string name="landscape_aspect_ratio">نسبة الأبعاد الأفقية</string>
     <string name="home_screen">الشاشة الرئيسية</string>
     <string name="lock_screen">شاشة القفل</string>
-    <string name="home_and_lock_screen">الرئيسية وشاشة القفل</string>
+    <string name="home_and_lock_screen">الشاشة الرئيسية وشاشة القفل</string>
 
     <!-- Slideshow -->
     <string name="slideshow">عرض الشرائح</string>
     <string name="interval">الفاصل الزمني (بالثواني):</string>
     <string name="include_photos">تضمين الصور</string>
-    <string name="include_videos">تضمين الفديو</string>
-    <string name="include_gifs">تضمين GIF</string>
+    <string name="include_videos">تضمين مقاطع الفيديو</string>
+    <string name="include_gifs">تضمين الصور المتحركة (Gif)</string>
     <string name="random_order">ترتيب عشوائي</string>
-    <string name="use_fade">استخدام تاثير التلاشي</string>
-    <string name="move_backwards">ارجع للخلف</string>
+    <string name="move_backwards">تحريك للخلف</string>
     <string name="loop_slideshow">حلقة عرض الشرائح</string>
-    <string name="slideshow_ended">انتهى عرض الشرائح</string>
-    <string name="no_media_for_slideshow">لم يتم العثور على وسائط لعرض الشرائح</string>
+    <string name="animation">الحركة</string>
+    <string name="no_animation">لا شيء</string>
+    <string name="fade">تلاشى</string>
+    <string name="slide">انزلاق</string>
+    <string name="slideshow_ended">أنتهى عرض الشرائح</string>
+    <string name="no_media_for_slideshow">لم يتم العثور علي أي وسائط لعرض الشرائح</string>
 
     <!-- View types -->
-    <string name="change_view_type">تغيير طريقة العرض</string>
+    <string name="change_view_type">تغيير نوع العرض</string>
     <string name="grid">الشبكة</string>
     <string name="list">القائمة</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">تجميع المجلدات الفرعية مباشرة</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">تجميع حسب</string>
+    <string name="do_not_group_files">عدم تجميع الملفات</string>
+    <string name="by_folder">المجلد</string>
+    <string name="by_last_modified">آخر تعديل</string>
+    <string name="by_last_modified_daily">آخر تعديل (يومياً)</string>
+    <string name="by_last_modified_monthly">آخر تعديل (شهرياً)</string>
+    <string name="by_date_taken">تاريخ الإلتقاط</string>
+    <string name="by_date_taken_daily">تاريخ الإلتقاط (يومياً)</string>
+    <string name="by_date_taken_monthly">آخر تعديل (شهرياً)</string>
+    <string name="by_file_type">نوع الملف</string>
+    <string name="by_extension">الإمتداد</string>
+    <string name="grouping_and_sorting">يرجى ملاحظة أن التجميع والفرز هما حقلان مستقلان</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">المجلد الظاهر فى الويدجت:</string>
+    <string name="show_folder_name">إظهار اسم المجلد</string>
 
     <!-- Settings -->
-    <string name="autoplay_videos">تشغيل الفديوهات تلقائيا</string>
-    <string name="toggle_filename">تبديل رؤية اسم الملف</string>
-    <string name="loop_videos">حلقة الفيديو</string>
-    <string name="animate_gifs">عرض صور GIF المتحركة في الصور المصغرة</string>
-    <string name="max_brightness">أقصى سطوع عند عرض الوسائط</string>
-    <string name="crop_thumbnails">قص الصور المصغرة الى مستطيلات</string>
-    <string name="screen_rotation_by">تدوير وسائط ملء الشاشة بواسطة</string>
-    <string name="screen_rotation_system_setting">اعدادات النظام</string>
+    <string name="autoplay_videos">تشغيل مقاطع الفيديو تلقائياً</string>
+    <string name="remember_last_video_position">تذكر آخر موضع لتشغيل الفيديو</string>
+    <string name="toggle_filename">تبديل رؤية إسم الملف</string>
+    <string name="loop_videos">حلقة مقاطع الفيديو</string>
+    <string name="animate_gifs">تحريك الصور المتحركة (Gif) في الصور المصغرة</string>
+    <string name="max_brightness">أقصى سطوع عند عرض وسائط ملء الشاشة</string>
+    <string name="crop_thumbnails">إقتصاص الصور المصغرة إلى مربعات</string>
+    <string name="show_thumbnail_video_duration">إظهار مدة الفيديوهات</string>
+    <string name="screen_rotation_by">تدوير وسائط ملء الشاشة باستخدام</string>
+    <string name="screen_rotation_system_setting">إعدادات النظام</string>
     <string name="screen_rotation_device_rotation">تدوير الجهاز</string>
-    <string name="screen_rotation_aspect_ratio">الابعاد</string>
-    <string name="black_background_at_fullscreen">اجعل الخلفية وشريط الحالة باللون الاسود عند عرض المحتوى في كامل الشاشة</string>
-    <string name="scroll_thumbnails_horizontally">قم بتمرير الصور المصغرة أفقيا</string>
-    <string name="hide_system_ui_at_fullscreen">إخفاء واجهة النظام تلقائيا عند العرض في وضع ملء الشاشة</string>
-    <string name="delete_empty_folders">احذف المجلدات الفارغة بعد حذف محتواها</string>
-    <string name="allow_photo_gestures">السماح بالتحكم في سطوع الصورة باستخدام الإيماءات الرأسية</string>
-    <string name="allow_video_gestures">السماح بالتحكم في صوت الفيديو والسطوع  بالإيماءات العمودية</string>
-    <string name="show_media_count">إظهار عدد لوسائط المجلد على طريقة العرض الرئيسية</string>
-    <string name="replace_share_with_rotate">استبدال خيار المشاركة مع خيار  تدوير في القائمة ملء الشاشة</string>
-    <string name="show_extended_details">عرض تفاصيل موسعة على وسائط ملء الشاشة</string>
-    <string name="manage_extended_details">إدارة المجلدات المستبعدة</string>
+    <string name="screen_rotation_aspect_ratio">نسبة الأبعاد</string>
+    <string name="black_background_at_fullscreen">جعل الخلفية باللون الأسود في وسائط ملء الشاشة</string>
+    <string name="scroll_thumbnails_horizontally">تمرير الصور المصغرة أفقياً</string>
+    <string name="hide_system_ui_at_fullscreen">إخفاء واجهة مستخدم النظام تلقائياً في وضع ملء الشاشة</string>
+    <string name="delete_empty_folders">حذف المجلدات الفارغة بعد حذف محتواها</string>
+    <string name="allow_photo_gestures">السماح بالتحكم في سطوع الصور باستخدام الإيماءات العمودية</string>
+    <string name="allow_video_gestures">السماح بالتحكم في مستوي صوت الفيديو والسطوع باستخدام الإيماءات العمودية</string>
+    <string name="show_media_count">إظهار عدد وسائط المجلد في العرض الرئيسي</string>
+    <string name="show_extended_details">إظهار التفاصيل الموسعة عبر وسائط ملء الشاشة</string>
+    <string name="manage_extended_details">إدارة التفاصيل الموسعة</string>
     <string name="one_finger_zoom">السماح بتكبير الوسائط بأصبع واحد في وضع ملء الشاشة</string>
-    <string name="allow_instant_change">السماح بتغيير الوسائط على الفور من خلال النقر على جوانب الشاشة</string>
-    <string name="replace_zoomable_images">استبدل الصور التي يمكن تكبيرها بعمق باستخدام صور ذات جودة أفضل</string>
+    <string name="allow_instant_change">السماح بتغيير الوسائط علي الفور من خلال النقر علي جوانب الشاشة</string>
+    <string name="allow_deep_zooming_images">السماح بالتكبير العميق للصور</string>
     <string name="hide_extended_details">إخفاء التفاصيل الموسعة عند إخفاء شريط الحالة</string>
-    <string name="do_extra_check">قم بإجراء فحص إضافي لتجنب إظهار الملفات التالفة</string>
+    <string name="show_at_bottom">إظهار بعض أزرار الإجراءات في أسفل الشاشة</string>
+    <string name="show_recycle_bin">إظهار "سلة المحذوفات" في شاشة المجلدات</string>
+    <string name="deep_zoomable_images">الصور القابلة للتكبير العميق</string>
+    <string name="show_highest_quality">عرض الصور بأعلى جودة ممكنة</string>
+    <string name="show_recycle_bin_last">إظهار "سلة المحذوفات" كعنصر آخر علي الشاشة الرئيسية</string>
+    <string name="allow_down_gesture">السماح بإغلاق عرض ملء الشاشة باستخدام إيماءه لأسفل</string>
+    <string name="allow_one_to_one_zoom">السماح بالتكبير 1:1 باستخدام النقر مزدوجاّ</string>
+    <string name="open_videos_on_separate_screen">فتح مقاطع الفيديو دائماً علي شاشة منفصلة مع إيماءات أفقية جديدة</string>
+    <string name="show_notch">عرض النوتش إذا كان متوفر</string>
+    <string name="allow_rotating_gestures">السماح بتدوير الصور باستخدام الإيماءات</string>
+    <string name="file_loading_priority">أولوية تحميل الملفات</string>
+    <string name="speed">بسرعة</string>
+    <string name="compromise">إختيار وسط</string>
+    <string name="avoid_showing_invalid_files">تجنب إظهار الملفات غير الصالحة</string>
+    <string name="show_image_file_types">إظهار أنواع ملفات الصور</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">المصغرات</string>
+    <string name="thumbnails">الصور المصغرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
-    <string name="extended_details">تفاصيل موسعة</string>
+    <string name="extended_details">التفاصيل الموسعة</string>
+    <string name="bottom_actions"> إجراءات الأزرار السفلية</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">إدارة إجراءات الأزرار المرئية</string>
+    <string name="toggle_favorite">تبديل المفضل</string>
+    <string name="toggle_file_visibility">تبديل رؤية الملف</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">مخصص</string>
+    <string name="pesdk_transform_button_resetCrop">إعادة تعيين</string>
+    <string name="pesdk_transform_button_squareCrop">مربع</string>
+    <string name="pesdk_transform_title_name">تحويل</string>
+    <string name="pesdk_filter_title_name">فلتر</string>
+    <string name="pesdk_filter_asset_none">لا شيء</string>
+    <string name="pesdk_adjustments_title_name">ضبط</string>
+    <string name="pesdk_adjustments_button_shadowTool">ظلال</string>
+    <string name="pesdk_adjustments_button_exposureTool">التعرض</string>
+    <string name="pesdk_adjustments_button_highlightTool">أكثر وضوحاً</string>
+    <string name="pesdk_adjustments_button_brightnessTool">السطوع</string>
+    <string name="pesdk_adjustments_button_contrastTool">التباين</string>
+    <string name="pesdk_adjustments_button_saturationTool">التشبع</string>
+    <string name="pesdk_adjustments_button_clarityTool">الوضوح</string>
+    <string name="pesdk_adjustments_button_gammaTool">جاما</string>
+    <string name="pesdk_adjustments_button_blacksTool">دراجات الأسود</string>
+    <string name="pesdk_adjustments_button_whitesTool">دراجات الأبيض</string>
+    <string name="pesdk_adjustments_button_temperatureTool">درجة الحرارة</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">الحدة</string>
+    <string name="pesdk_adjustments_button_reset">إعادة تعيين</string>
+    <string name="pesdk_focus_title_name">تركيز</string>
+    <string name="pesdk_focus_title_disabled">لا شيء</string>
+    <string name="pesdk_focus_button_radial">قطري</string>
+    <string name="pesdk_focus_button_linear">خطي</string>
+    <string name="pesdk_focus_button_mirrored">مرآة</string>
+    <string name="pesdk_focus_button_gaussian">جاوس</string>
+    <string name="pesdk_text_title_name">النص</string>
+    <string name="pesdk_text_title_options">خيارات النص</string>
+    <string name="pesdk_text_title_textColor">لون الخط</string>
+    <string name="pesdk_text_title_font">الخط</string>
+    <string name="pesdk_text_button_add">إضافة</string>
+    <string name="pesdk_text_button_edit">تعديل</string>
+    <string name="pesdk_text_button_straighten">الصلابة</string>
+    <string name="pesdk_text_button_font">الخط</string>
+    <string name="pesdk_text_button_color">اللون</string>
+    <string name="pesdk_text_button_backgroundColor">لون الخلفية</string>
+    <string name="pesdk_text_button_alignment">محاذاة</string>
+    <string name="pesdk_text_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_text_button_delete">حذف</string>
+    <string name="pesdk_text_text_editTextPlaceholder">النص الخاص بك</string>
+    <string name="pesdk_brush_title_name">الفرشاة</string>
+    <string name="pesdk_brush_button_color">اللون</string>
+    <string name="pesdk_brush_button_size">الحجم</string>
+    <string name="pesdk_brush_button_hardness">الصلابة</string>
+    <string name="pesdk_brush_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_brush_button_delete">حذف</string>
+    <string name="pesdk_brush_title_brushColor">لون الفرشاة</string>
+    <string name="pesdk_editor_title_name">المحرر</string>
+    <string name="pesdk_editor_title_closeEditorAlert">هل تريد إغلاق المحرر؟</string>
+    <string name="pesdk_editor_text_closeEditorAlert">هل تريد فعلاً تجاهل الصورة؟</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">نعم</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">لا</string>
+    <string name="pesdk_editor_cancel">إلغاء</string>
+    <string name="pesdk_editor_accept">موافق</string>
+    <string name="pesdk_editor_save">حفظ</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">جارٍ تصدير الصورة…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">جارٍ تصدير الصورة %s.</string>
+    <string name="pesdk_common_button_flipH">أنعكاس أفقي</string>
+    <string name="pesdk_common_button_flipV">أنعكاس رأسي</string>
+    <string name="pesdk_common_button_undo">تراجع</string>
+    <string name="pesdk_common_button_redo">إعادة</string>
+    <string name="pesdk_common_title_colorPicker">لاقط اللون</string>
+    <string name="pesdk_common_title_transparentColor">شفاف</string>
+    <string name="pesdk_common_title_whiteColor">أبيض</string>
+    <string name="pesdk_common_title_grayColor">رمادي</string>
+    <string name="pesdk_common_title_blackColor">أسود</string>
+    <string name="pesdk_common_title_lightBlueColor">أزرق فاتح</string>
+    <string name="pesdk_common_title_blueColor">أزرق</string>
+    <string name="pesdk_common_title_purpleColor">بنفسجي</string>
+    <string name="pesdk_common_title_orchidColor">أرجواني</string>
+    <string name="pesdk_common_title_pinkColor">وردي</string>
+    <string name="pesdk_common_title_redColor">أحمر</string>
+    <string name="pesdk_common_title_orangeColor">برتقالي</string>
+    <string name="pesdk_common_title_goldColor">ذهبي</string>
+    <string name="pesdk_common_title_yellowColor">أصفر</string>
+    <string name="pesdk_common_title_oliveColor">زيتوني</string>
+    <string name="pesdk_common_title_greenColor">أخضر</string>
+    <string name="pesdk_common_title_aquamarinColor">زبرجد</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable لون</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">كيف يمكنني جعل الاستوديو البسيط معرض الأجهزة الافتراضي؟</string>
-    <string name="faq_1_text">أولاً ، عليك العثور على المعرض الافتراضي حاليًا في قسم التطبيقات في إعدادات جهازك ، ابحث عن زر يقول مثلا \"فتح افتراضيًا\" ، وانقر عليه ، ثم حدد \"مسح الإعدادات الافتراضية\". في المرة التالية التي ستحاول فيها فتح صورة أو فيديو ، يجب أن تذهب الى منتقي التطبيقات ، حيث يمكنك اختيار تطبيق الاستوديو البسيط وجعله التطبيق الافتراضي.</string>
-    <string name="faq_2_title">أغلقت التطبيق بكلمة مرور ، لكني نسيت ذلك. ماذا افعل؟</string>
-    <string name="faq_2_text">يمكنك حلها بطريقتين. يمكنك إما إعادة تثبيت التطبيق ، أو العثور على التطبيق في إعدادات جهازك وتحديد \"مسح البيانات\". سيقوم بإعادة ضبط جميع إعداداتك ، ولن يزيل أي ملفات وسائط.</string>
-    <string name="faq_3_title">كيف يمكنني جعل الألبوم يظهر دائمًا في الجزء العلوي؟</string>
-    <string name="faq_3_text">يمكنك الضغط لفترة طويلة على الألبوم المطلوب وتحديد أيقونة الدبوس في الإجراء ، والتي سوف تثبيته إلى الأعلى. يمكنك تثبيت عدة مجلدات أيضًا ، وسيتم ترتيب العناصر المثبتة حسب طريقة الفرز الافتراضية.</string>
-    <string name="faq_4_title">كيف يمكنني تقديم مقاطع فيديو بسرعة؟</string>
-    <string name="faq_4_text">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
-    <string name="faq_5_title">ما الفرق بين إخفاء واستبعاد مجلد؟</string>
-    <string name="faq_5_text">يمنع الاستبعاد من عرض المجلد في الاستوديو البسيط فقط ، بينما يقوم بإخفاء بالعمل على مستوى النظام ككل ويقوم بإخفاء المجلد من المعارض الأخرى أيضًا. وهو يعمل عن طريق إنشاء ملف \".nomedia\" فارغ في المجلد المحدد ، والذي يمكنك بعد ذلك إزالته مع أي مدير ملفات أيضًا.</string>
-    <string name="faq_6_title">لماذا تظهر المجلدات التي تحتوي على ملصقات أو ملصقات موسيقى تغطيها؟</string>
-    <string name="faq_6_text">يمكن أن يحدث ذلك سترى بعض ألبومات غير عادية تظهر. يمكنك استبعادها بسهولة عن طريق الضغط عليها وتحديد \"استبعاد\". في مربع الحوار التالي ، يمكنك بعد ذلك تحديد المجلد الأصلي ، ومن المحتمل أن يؤدي ذلك إلى منع ظهور الألبومات الأخرى ذات الصلة أيضًا.</string>
-    <string name="faq_7_title">لا يظهر مجلد به صور ، فماذا أفعل؟</string>
-    <string name="faq_7_text">يمكن أن يكون ذلك لأسباب متعددة ، ولكن حلها أمر سهل. أذهب إلى الإعدادات -> إدارة المجلدات المضمنة ، اضغط علامة الزائد وانتقل إلى المجلد المطلوب.</string>
-    <string name="faq_8_title">ماذا لو كنت أرغب في رؤية بعض المجلدات الخاصة؟</string>
-    <string name="faq_8_text">لا يؤدي إضافة مجلد في \"المجلدات المضمنة\" إلى استبعاد أي شيء تلقائيًا. ما يمكنك فعله هو الذهاب إلى الإعدادات -> إدارة المجلدات المستبعدة ، واستبعاد المجلد الجذر \"/\" ، ثم إضافة المجلدات المطلوبة في الإعدادات -> إدارة المجلدات المضمنة. سيؤدي ذلك إلى إظهار المجلدات المحددة فقط ، حيث أن الاستبعاد والتضمين يكونان متكررين ، وإذا تم استبعاد أحد المجلدات وإدراجه ، فسيظهر.</string>
-    <string name="faq_9_title">الصور بملء الشاشة لها آثار غريبة ، هل يمكنني تحسين الجودة؟</string>
-    <string name="faq_9_text">نعم ، هناك تبديل في الإعدادات يقول \"استبدل صورًا ذات زووم عميق بجودة أفضل منها\" ، يمكنك استخدام ذلك. سيؤدي ذلك إلى تحسين جودة الصور ، ولكن ستظهر بشكل واضح عند محاولة التكبير كثيرًا.</string>
-    <string name="faq_10_title">هل يمكنني قص الصور باستخدام هذا التطبيق؟</string>
-    <string name="faq_10_text">نعم ، يمكنك اقتصاص الصور في المحرر ، عن طريق سحب زوايا الصورة. يمكنك الوصول إلى المحرر إما عن طريق الضغط لفترة طويلة على صورة مصغرة وتحديد تحرير ، أو تحديد تحرير من العرض بملء الشاشة.</string>
+    <string name="faq_1_title">كيف يمكنني جعل تطبيق الاستديو معرض الجهاز الإفتراضي ؟</string>
+    <string name="faq_1_text">أولا، يجب عليك العثور على المعرض الإفتراضي الحالي في قسم "التطبيقات" من إعدادات الجهاز، أبحث عن زر يقول شيئاً مثل \"فتح كافتراضي/"، ثم أنقر عليه، ثم حدد \"مسح الإعدادات الإفتراضية\".  في المرة القادمة التي ستحاول فيها فتح صورة أو مقطع فيديو يجب أن تري إختيار تطبيق، حيث يمكنك تحديد تطبيق "الاستديو" وجعله التطبيق الإفتراضي.</string>
+    <string name="faq_2_title">لقد أغلقت التطبيق بكلمة مرور، لكنني نسيت ذلك. ماذا يمكنني أن أفعل؟</string>
+    <string name="faq_2_text">يمكنك حلها بطريقتين. يمكنك أما إعادة تثبيت التطبيق أو أبحث عن التطبيق في اعدادات جهازك وحدد \"مسح البيانات\". سيتم إعادة تعيين كل إعداداتك، ولن يقوم بإزالة أي ملفات وسائط.</string>
+    <string name="faq_3_title">كيف يمكنني جعل ألبوماً يظهر دائماً في الأعلى ؟</string>
+    <string name="faq_3_text">يمكنك الضغط مطولاً علي الألبوم المطلوب وحدد أيقونة "التثبيت" في قائمة الإجراءات، التي ستقوم بتثبيته في الأعلي. يمكنك تثبيت مجلدات متعددة أيضا، سيتم فرز العناصر المثبتة حسب طريقة الفرز الإفتراضية.</string>
+    <string name="faq_4_title">كيف يمكنني تسريع مقاطع الفيديو؟</string>
+    <string name="faq_4_text">يمكنك القيام بذلك عن طريق النقر المزدوج على جانب الشاشة, أو النقر على نصوص المدة الحالية أو القصوى بالقرب من شريط التمرير. إذا قمت بتمكين فتح مقاطع الفيديو على شاشة منفصلة في إعدادات التطبيق، يمكنك استخدام الإيماءات الأفقية أيضاً.</string>
+    <string name="faq_5_title">ما هو الفرق بين إخفاء المجلد وإستبعاده ؟</string>
+    <string name="faq_5_text">لاحظ أن بعض الأجهزة لا تسمح بإخفاء المجلدات مثل الكاميرا ولقطات الشاشة والتنزيلات. الإستبعاد يمنع عرض المجلد فقط في الاستديو، بينما الإخفاء يعمل على مستوى النظام ويخفي المجلد من المعارض الأخرى أيضاً. يعمل عن طريق إنشاء ملف فارغ \ ".nomedia \" في المجلد المحدد ، والذي يمكنك إزالته بعد ذلك بواسطة أي مدير ملفات أيضًا.</string>
+    <string name="faq_6_title">لماذا تظهر المجلدات مع صورة غلاف الموسيقى أو الملصقات؟</string>
+    <string name="faq_6_text">قد يحدث أن ترى بعض الألبومات غير العادية تظهر. يمكنك بسهولة إستبعادهم بالضغط مطولاً عليهم  وأختر إستبعاد. في مربع الحوار التالي يمكنك بعد ذلك تحديد المجلد الاصل، من المحتمل ان يمنع ظهور الألبومات الأخري ذات الصلة أيضاً.</string>
+    <string name="faq_7_title">المجلد الذي به صور لا يظهر، أو لا يظهر كل العناصر. ماذا يمكنني أن أفعل؟</string>
+    <string name="faq_7_text">قد يكون لهذا عدة أسباب، ولكن حل هذه المشكلة أمر سهل. فقط أذهب إلى الإعدادات -> إدارة المجلدات المضمنة، وأختر علامة زائد (+) وأنتقل إلى المجلد المطلوب.</string>
+    <string name="faq_8_title">ماذا أفعل لو كنت أريد بعض المجلدات المحددة مرئية فقط؟</string>
+    <string name="faq_8_text">إضافة مجلد إلى المجلدات المضمنة لا يستبعد تلقائياً أي شيء. ما يمكنك القيام به هو الإنتقال إلى الإعدادات -> إدارة المجلدات المستبعدة، إستبعاد المجلد الأصل \"/\"، ثم إضافة المجلدات المطلوبة في الإعدادات -> إدارة المجلدات المضمنة.  سيؤدي ذلك إلى جعل المجلدات المحددة مرئية فقط، حيث أن كل من الاستبعاد والتضمين منعكسين وإذا كان أحد المجلدات مستبعداً ومضمن معاً، فسوف يظهر.</string>
+    <string name="faq_10_title">هل يمكنني إقتصاص الصور باستخدام هذا التطبيق؟</string>
+    <string name="faq_10_text">نعم ، يمكنك إقتصاص الصور في المحرر ، عن طريق سحب زوايا الصورة. يمكنك الوصول إلى المحرر إما بالضغط مطولاً على الصورة المصغرة وأختر تعديل ، أو أختر تعديل من عرض ملء الشاشة.</string>
+    <string name="faq_11_title">هل يمكنني بطريقة ما تجميع الصور المصغرة لملف الوسائط؟</string>
+    <string name="faq_11_text">بالتأكيد، فقط تستخدم عنصر القائمة \"تجميع حسب\" أثناء عرض الصور المصغرة.يمكنك تجميع الملفات حسب معايير متعددة، بما في ذلك تاريخ الإلتقاط. إذا كنت تستخدم وظيفة \"إظهار كل محتويات المجلدات\" فيمكنك تجميعها حسب المجلدات أيضا.</string>
+    <string name="faq_12_title">يبدو ان الفرز حسب تاريخ الإلتقاط لا يعمل بشكل صحيح، كيف يمكنني إصلاحه؟</string>
+    <string name="faq_12_text">غالباً ما يكون ذلك بسبب الملفات التي يتم نسخها من مكان ما. يمكنك اصلاحه عن طريق تحديد الصور المصغرة للملف وأختر \"إصلاح تاريخ إلتقاط القيمة\".</string>
+    <string name="faq_13_title">أرى بعض التباين اللونى على الصور. كيف يمكنني تحسين الجودة؟</string>
+    <string name="faq_13_text">الحل الحالي لعرض الصور يعمل بشكل جيد في الأغلبية العظمي للحالات، ولكن إذا كنت تريد تحسين جودة الصور، يمكنك تمكين خيار \"عرض الصور بأعلي جودة ممكنة\" من اعدادات التطبيق، من قسم \"الصور العميقة القابلة للتكبير\".</string>
+    <string name="faq_14_title">لقد قمت بإخفاء ملف/مجلد. كيف يمكنني إظهاره؟</string>
+    <string name="faq_14_text">يمكنك  أما أن تضغط علي عنصر القائمة "إظهار العناصر المخفية مؤقتاً" علي الشاشه الرئيسية أو تفعيل خيار \"إظهار العناصر المخفية" في إعدادات التطبيق لرؤية العنصر المخفي. إذا كنت تريد إظهاره ، فقط أضغط مطولاً عليه وأختر \" إظهار\". يتم إخفاء المجلدات عن طريق إضافة ملف مخفي ". nomedia/" إليهم، يمكنك حذف الملف بواسطة أي مدير ملفات أيضاً.</string>
+    <string name="faq_15_title">لماذا يشغل التطبيق مساحة كبيرة؟</string>
+    <string name="faq_15_text">يمكن لذاكرة التخزين المؤقت للتطبيق أن تصل سعتها إلى 250 ميجابايت، ، مما يضمن سرعة تحميل الصور. إذا كان التطبيق يشغل مساحة أكبر ، فمن المحتمل أن يكون ذلك بسبب وجود عناصر في "سلة المحذوفات". يتم حساب هذه الملفات إلى حجم التطبيق. يمكنك مسح "سلة المحذوفات" عن طريق فتحها وحذف جميع الملفات ، أو من إعدادات التطبيق. يتم حذف كل ملف في "سلة المحذوفات" تلقائياً بعد 30 يوماً.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">المعرض البسيط (Pro) - محرر ومدير الصور</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">استوديو لعرض الصور والفيديو بدون اعلانات.</string>
-    <string name="app_long_description">أداة بسيطة تستخدام لعرض الصور ومقاطع الفيديو. يمكن فرز العناصر حسب التاريخ والحجم والاسم على حد سواء تصاعدي أو تنازلي، يمكن تكبير الصور. يتم عرض ملفات الوسائط في أعمدة متعددة اعتمادا على حجم الشاشة، يمكنك تغيير عدد الأعمدة عبر إيماءاة القرص . يمكن إعادة تسميته، مشاركة، حذف، نسخ، نقل. ويمكن أيضا اقتصاص الصور، استدارة، او قلب أو تعيين كخلفية مباشرة من التطبيق. يتم عرض المحتوى أيضا للاستخدام طرف ثالث لمعاينة الصور / الفيديو، إضافة المرفقات في برامج البريد الإلكتروني الخ انه مثالي للاستخدام اليومي. لا يحتوي على إعلانات أو أذونات لا حاجة لها. مفتوح المصدر بشكل كلي ، ويوفر الألوان للتخصيص. هذا التطبيق هو مجرد قطعة واحدة من سلسلة أكبر من التطبيقات. يمكنك العثور على بقيتهم هنا\n
-  https://www.simplemobiletools.com</string>
+    <string name="app_short_description">أستعرض ذكرياتك دون أي انقطاع مع معرض الصور والفيديو هذا</string>
+    <string name="app_long_description">
+        (تطبيق المعرض البسيط الـ Pro)  هو معرض بدون إنترنت قابل للتخصيص بدرجة كبيرة يتمتع بتنظيم الصور وتحريرها وإستعادة الملفات المحذوفة من خلال "سلة المحذوفات" وحماية الملفات وإخفاؤها وعرض مجموعة كبيرة من تنسيقات الصور والفيديو المختلفة بما في ذلك تنسيقات RAW و SVG وغير ذلك الكثير.
+
+        لا يحتوي التطبيق على إعلانات وأذونات غير ضرورية. نظراً لأن التطبيق لا يتطلب الوصول إلى الإنترنت أيضاً ، فإن خصوصيتك محمية.
+
+        -------------------------------------------------
+        <b>المعرض البسيط الـ Pro - الميزات</b>
+        -------------------------------------------------
+
+        معرض بدون إنترنت بدون إعلانات أو نوافذ منبثقة
+        • محرر صور (معرض البسيط) - قص، تدوير، تغيير حجم، رسم، فلاتر وغير ذلك
+        • لا حاجة للوصول إلى الإنترنت، مما يمنحك المزيد من الخصوصية والأمان
+
+        • لا توجد أذونات غير ضرورية مطلوبة
+        • البحث بسرعة عن الصور ومقاطع الفيديو والملفات
+        • فتح وعرض العديد من أنواع مختلفة من الصور والفيديو (RAW ، SVG ، بانورامية الخ)
+        • مجموعة متنوعة من الإيماءات البسيطة لتحرير الملفات وتنظيمها بسهولة
+        • الكثير من الطرق لفلترة الملفات وتجميعها وفرزها
+        • تخصيص مظهر للتطبيق
+        • متوفر بـ ٣٢ لغة
+        • وضع علامة علي الملفات كمفضلة للوصول السريع
+        • تمتع بحماية صورك ومقاطع الفيديو باستخدام نمط أو رمز PIN أو بصمة إصبع
+        • أستخدم رمز الـ PIN والنقش وبصمة الاصبع لحماية تشغيل التطبيق أو وظائف معينة أيضاً
+        • إستعادة الصور ومقاطع الفيديو المحذوفة من "سلة المحذوفات"
+        • تبديل  رؤية الملفات لإخفاء الصور ومقاطع الفيديو
+        • إنشاء عرض شرائح قابل للتخصيص لملفاتك
+        • عرض معلومات تفصيلية لملفاتك (دقة الوضوح، قيم EXIF، إلخ)
+        • تطبيق المعرض هو مصدر مفتوح
+        … والكثير الكثير!
+        <b>محرر معرض الصور</b>
+        يساعد (تطبيق المعرض البسيط الـ Pro ) على تسهيل تحرير الصور بسرعة فائقة. قص الصور وقلبها وتدويرها وتغيير حجمها.  إذا كنت تشعر بقدر أكبر من الإبداع، يمكنك إضافة الفلاتر والرسم على صورك!
+
+
+        <b>يدعم العديد من انواع الملفات</b>
+        على عكس بعض تطبيقات معرض الصور الأخري ومنظمي الصور ، يدعم (تطبيق المعرض البسيط الـ Pro )مجموعة كبيرة من أنواع الملفات المختلفة بما في ذلك  JPEG و PNG و MP4 و MKV و RAW و SVG والصور البانورامية ومقاطع الفيديو البانورامية وغيرها الكثير.
+
+        <b>مدير معرض الصور القابل للتخصيص بدرجة كبيرة</b>
+        بدءاً من واجهة المستخدم وحتى أزرار الوظائف الموجودة على شريط الأدوات السفلي، يتسم (تطبيق المعرض البسيط الـ Pro ) بأنه قابل للتخصيص بدرجة كبيرة ويعمل بالطريقة التي تريدها في الإستخدام. لا يوجد أي مدير معرض آخر يتمتع بهذا النوع من المرونة! بفضل كونه مفتوح المصدر ، نحن متاحون أيضاً بـ 32 لغة!
+
+        <b>إسترداد الصور ومقاطع الفيديو المحذوفة</b>
+        حذف صورة أو فيديو ثمين عن طريق الخطأ لا تقلق نظراً لأن(تطبيق المعرض البسيط الـ Pro) يتميز بسلة محذوفات سهلة الاستخدام يمكنك من خلالها إسترداد الصور ومقاطع الفيديو المحذوفة بسهولة.
+
+        <b>حماية وإخفاء الصور والفيديوهات والملفات</b>
+        باستخدام رمز الـ PIN أو النمط أو الماسح الضوئي لبصمة الاصبع لجهازك يمكنك حماية الصور ومقاطع الفيديو والألبومات بأكملها وإخفائها. يمكنك حماية التطبيق نفسه أو وضع قفل الأمان علي وظائف معينة للتطبيق علي سبيل المثال، لا يمكنك حذف ملف دون إجراء مسح ضوئي لبصمة الاصبع، مما يساعد علي حماية ملفاتك من الحذف غير المقصود.
+
+        <b>أطلع على المجموعة الكاملة من تطبيقات البسيط هنا:</b>
+        https://www.simplemobiletools.com
+
+        <b>موقع مستقل لتطبيق المعرض البسيط الـ Pro : </b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>صفحة الفيسبوك:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>موقع رديت:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
 
     <!--
         Haven't found some strings? There's more at

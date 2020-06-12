@@ -5,11 +5,11 @@
     <string name="edit">Düzenle</string>
     <string name="open_camera">Kamerayı aç</string>
     <string name="hidden">(gizli)</string>
-    <string name="excluded">(excluded)</string>
-    <string name="pin_folder">Pin klasör</string>
-    <string name="unpin_folder">Klasörü çöz</string>
-    <string name="pin_to_the_top">Pin to the top</string>
-    <string name="show_all">Tüm klasörlerin içeriğini göster</string>
+    <string name="excluded">(hariç)</string>
+    <string name="pin_folder">Klasörü sabitle</string>
+    <string name="unpin_folder">Klasörü ayır</string>
+    <string name="pin_to_the_top">Üste sabitle</string>
+    <string name="show_all">Tüm klasör içeriğini göster</string>
     <string name="all_folders">Tüm klasörler</string>
     <string name="folder_view">Klasör görünümüne geç</string>
     <string name="other_folder">Diğer klasör</string>
@@ -17,41 +17,55 @@
     <string name="unknown_location">Bilinmeyen konum</string>
     <string name="increase_column_count">Sütun sayısını artır</string>
     <string name="reduce_column_count">Sütun sayısını azalt</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="change_cover_image">Kapak resmini değiştir</string>
+    <string name="select_photo">Fotoğraf seç</string>
+    <string name="volume">Ses</string>
+    <string name="brightness">Parlaklık</string>
+    <string name="lock_orientation">Yönü kilitle</string>
+    <string name="unlock_orientation">Yönün kilidini aç</string>
+    <string name="change_orientation">Yönü değiştir</string>
+    <string name="force_portrait">Dikeye zorla</string>
+    <string name="force_landscape">Yataya zorla</string>
+    <string name="use_default_orientation">Varsayılan yönü kullan</string>
+    <string name="fix_date_taken">Çekilen tarih değerini düzelt</string>
+    <string name="fixing">Düzeltiliyor…</string>
+    <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
+    <string name="no_date_takens_found">Çekilen Tarih bulunamadı</string>
+    <string name="share_resized">Yeniden boyutlandırılmış sürümü paylaş</string>
+    <string name="upgraded_from_free">Merhaba,\n\neski ücretsiz uygulamadan yükseltmiş gibisiniz. Artık uygulama ayarlarının en üst kısmında \'Pro\'ya Yükselt\' düğmesi olan eski sürümü kaldırabilirsiniz.\n\nYalnızca Geri Dönüşüm Kutusu öğelerinin silinmesi, sık kullanılanların işaretlerinin kaldırılması ve uygulama ayarlarınızı sıfırlamanız gerekir.\n\nTeşekkürler!</string>
+    <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="filter_media">Medyayı filtrele</string>
+    <string name="images">Resimler</string>
+    <string name="videos">Videolar</string>
+    <string name="gifs">GIF\'ler</string>
+    <string name="raw_images">RAW resimler</string>
+    <string name="svgs">SVG\'ler</string>
+    <string name="portraits">Portreler</string>
+    <string name="no_media_with_filters">Seçilen filtrelerle hiçbir medya dosyası bulunamadı.</string>
+    <string name="change_filters_underlined"><u>Filtreleri değiştir</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
-    <string name="exclude">Dışlama</string>
+    <string name="hide_folder_description">Bu işlev, klasöre bir \'.nomedia\' dosyası ekleyerek gizler, tüm alt klasörleri de gizler. Ayarlar\'dan \'Gizli öğeleri göster\' seçeneğini değiştirerek onları görebilirsiniz. Devam edilsin mi?</string>
+    <string name="exclude">Hariç tut</string>
     <string name="excluded_folders">Hariç tutulan klasörler</string>
     <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
-    <string name="exclude_folder_description">Bu, seçimi alt klasörleriyle birlikte yalnızca Basit Galeri\'den hariç tutacaktır. Dışlanan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
-    <string name="exclude_folder_parent">Bunun yerine ebeveynleri hariç tutun?</string>
-    <string name="excluded_activity_placeholder">Klasörler hariç tutulduğunda, onları Basit Galeri\'de gizli olan alt klasörleriyle bir araya getirirler, ancak yine de diğer uygulamalarda görünür olurlar.\n\nBunları diğer uygulamalardan gizlemek isterseniz, Gizle işlevini kullanın.</string>
-    <string name="remove_all">Hepsini sil</string>
-    <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="exclude_folder_description">Bu, alt klasörleriyle birlikte seçimi yalnızca Basit Galeriden hariç tutacaktır. Hariç tutulan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
+    <string name="exclude_folder_parent">Bunun yerine bir üst dizin hariç tutulsun mu?</string>
+    <string name="excluded_activity_placeholder">Klasörleri hariç tutmak, onları yalnızca Basit Galeri\'de gizlenen alt klasörleriyle bir araya getirecek, diğer uygulamalarda görünmeye devam edecektir.\n\nBunları diğer uygulamalardan gizlemek istiyorsanız, Gizle işlevini kullanın.</string>
+    <string name="remove_all">Tümünü kaldır</string>
+    <string name="remove_all_description">Tüm klasörler hariç tutulanlar listesinden kaldırılsın mı? Bu klasörleri silmez.</string>
+    <string name="hidden_folders">Gizli klasörler</string>
+    <string name="manage_hidden_folders">Gizli klasörleri yönet</string>
+    <string name="hidden_folders_placeholder">\".nomedia\" dosyasıyla gizlenmiş herhangi bir klasörünüz yok gibi görünüyor.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>
     <string name="manage_included_folders">Dahil edilen klasörleri yönet</string>
     <string name="add_folder">Klasör ekle</string>
-    <string name="included_activity_placeholder">Ortam içeren, ancak uygulama tarafından tanınmayan bazı klasörleriniz varsa, bunları el ile buradan ekleyebilirsiniz.</string>
+    <string name="included_activity_placeholder">Medya içeren, ancak uygulama tarafından tanınmayan bazı klasörleriniz varsa, bunları elle ekleyebilirsiniz.\n\nBuraya bazı öğeler eklemek başka bir klasörü hariç tutmaz.</string>
+    <string name="no_media_add_included">Hiçbir medya dosyası bulunamadı. Medya dosyalarını içeren klasörleri elle ekleyerek çözebilirsiniz.</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
@@ -59,137 +73,308 @@
     <string name="width">Genişlik</string>
     <string name="height">Yükseklik</string>
     <string name="keep_aspect_ratio">En-boy oranını koru</string>
-    <string name="invalid_values">Lütfen geçerli bir çözüm önerisi girin</string>
+    <string name="invalid_values">Lütfen geçerli bir çözünürlük girin</string>
 
     <!-- Editor -->
-    <string name="editor">Editör</string>
-    <string name="save">Kaydet</string>
+    <string name="editor">Düzenleyici</string>
     <string name="rotate">Döndür</string>
-    <string name="path">Yol</string>
-    <string name="invalid_image_path">Görüntü yolu geçersiz</string>
+    <string name="invalid_image_path">Geçersiz resim yolu</string>
     <string name="image_editing_failed">Resim düzenleme başarısız</string>
-    <string name="edit_image_with">İle resmi düzenle:</string>
-    <string name="no_editor_found">Resim editörü bulunamadı</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">Dosya başarıyla düzenlendi</string>
+    <string name="edit_image_with">Resmi şununla düzenle:</string>
+    <string name="no_editor_found">Resim düzenleyici bulunamadı</string>
     <string name="unknown_file_location">Bilinmeyen dosya konumu</string>
     <string name="error_saving_file">Kaynak dosyanın üzerine yazılamadı</string>
     <string name="rotate_left">Sola döndür</string>
     <string name="rotate_right">Sağa döndür</string>
-    <string name="rotate_one_eighty">Ters çevir 180º</string>
+    <string name="rotate_one_eighty">180º döndür</string>
     <string name="flip">Çevir</string>
-    <string name="flip_horizontally">Yatay</string>
-    <string name="flip_vertically">Dikey</string>
-    <string name="edit_with">Edit with</string>
+    <string name="flip_horizontally">Yatay olarak çevir</string>
+    <string name="flip_vertically">Dikey olarak çevir</string>
+    <string name="free_aspect_ratio">Serbest</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Diğer</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Basit Duvar Kağıdı</string>
     <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
-    <string name="set_as_wallpaper_failed">Duvar Kağıdı Olarak Ayarlanılamıyor</string>
-    <string name="set_as_wallpaper_with">İle duvar kağıdı olarak ayarla:</string>
-    <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
+    <string name="set_as_wallpaper_failed">Duvar kağıdı olarak ayarlanmadı</string>
+    <string name="set_as_wallpaper_with">Şununla duvar kağıdı olarak ayarla:</string>
+    <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor&#8230;</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="portrait_aspect_ratio">Dikey en boy oranı</string>
+    <string name="landscape_aspect_ratio">Yatay en boy oranı</string>
+    <string name="home_screen">Ana ekran</string>
+    <string name="lock_screen">Kilit ekranı</string>
+    <string name="home_and_lock_screen">Ana ve kilit ekranı</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos</string>
-    <string name="include_videos">Include videos</string>
-    <string name="include_gifs">Include GIFs</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="loop_slideshow">Loop slideshow</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">Slayt gösterisi</string>
+    <string name="interval">Süre (saniye):</string>
+    <string name="include_photos">Fotoğrafları dahil et</string>
+    <string name="include_videos">Videoları dahil et</string>
+    <string name="include_gifs">GIF\'leri dahil et</string>
+    <string name="random_order">Rastgele sırala</string>
+    <string name="move_backwards">Geriye doğru git</string>
+    <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
+    <string name="animation">Animasyon</string>
+    <string name="no_animation">Hiçbiri</string>
+    <string name="fade">Karart</string>
+    <string name="slide">Kaydır</string>
+    <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
+    <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="change_view_type">Görünüm türünü değiştir</string>
+    <string name="grid">Izgara</string>
+    <string name="list">Liste</string>
+    <string name="group_direct_subfolders">Doğrudan alt klasörleri gruplandır</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Gruplandırma</string>
+    <string name="do_not_group_files">Dosyaları gruplandırma</string>
+    <string name="by_folder">Klasör</string>
+    <string name="by_last_modified">Son değiştirilme</string>
+    <string name="by_last_modified_daily">Son değiştirilme (günlük)</string>
+    <string name="by_last_modified_monthly">Son değiştirilme (aylık)</string>
+    <string name="by_date_taken">Çekildiği tarih</string>
+    <string name="by_date_taken_daily">Çekildiği tarih (günlük)</string>
+    <string name="by_date_taken_monthly">Çekildiği tarih (aylık)</string>
+    <string name="by_file_type">Dosya türü</string>
+    <string name="by_extension">Uzantı</string>
+    <string name="grouping_and_sorting">Lütfen gruplandırmanın ve sıralamanın 2 bağımsız alan olduğunu unutmayın</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Widget\'ta gösterilen klasör:</string>
+    <string name="show_folder_name">Klasör adını göster</string>
 
     <!-- Settings -->
-    <string name="autoplay_videos">Videoları otomatik olarak oynat</string>
-    <string name="toggle_filename">Dosya adı görünürlüğünü değiştir</string>
-    <string name="loop_videos">Videolar döngüsü</string>
-    <string name="animate_gifs">Küçük resimlerde GIF\'leri canlandırın</string>
-    <string name="max_brightness">Ortam görüntülerken azami parlaklık</string>
+    <string name="autoplay_videos">Videoları otomatik oynat</string>
+    <string name="remember_last_video_position">Son video oynatma konumunu hatırla</string>
+    <string name="toggle_filename">Dosya adı görünürlüğünü aç/kapat</string>
+    <string name="loop_videos">Videoları tekrarla</string>
+    <string name="animate_gifs">Küçük resimlerdeki GIF\'leri hareketlendir</string>
+    <string name="max_brightness">Tam ekran medya görüntülerken maksimum parlaklık</string>
     <string name="crop_thumbnails">Küçük resimleri karelere kırp</string>
-    <string name="screen_rotation_by">Tarafından tam ekran medyayı döndür</string>
-    <string name="screen_rotation_system_setting">Sistem ayarı</string>
-    <string name="screen_rotation_device_rotation">Cihaz döndürme</string>
-    <string name="screen_rotation_aspect_ratio">En-boy oranı</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="show_thumbnail_video_duration">Video sürelerini göster</string>
+    <string name="screen_rotation_by">Tam ekran medyayı döndür</string>
+    <string name="screen_rotation_system_setting">Sistem ayarları</string>
+    <string name="screen_rotation_device_rotation">Cihaz yönü</string>
+    <string name="screen_rotation_aspect_ratio">En boy oranı</string>
+    <string name="black_background_at_fullscreen">Tam ekran medyada siyah arka plan ve durum çubuğu</string>
+    <string name="scroll_thumbnails_horizontally">Küçük resimleri yatay olarak kaydır</string>
+    <string name="hide_system_ui_at_fullscreen">Tam ekran medyada sistem arayüzünü otomatik gizle</string>
+    <string name="delete_empty_folders">İçeriğini sildikten sonra boş klasörleri sil</string>
+    <string name="allow_photo_gestures">Dikey hareketlerle fotoğraf parlaklığının kontrolüne izin ver</string>
+    <string name="allow_video_gestures">Video sesini ve parlaklığını dikey hareketlerle kontrol etmeye izin ver</string>
+    <string name="show_media_count">Ana görünümde klasör medya sayısını göster</string>
+    <string name="show_extended_details">Tam ekran medya üzerinde genişletilmiş ayrıntıları göster</string>
+    <string name="manage_extended_details">Genişletilmiş ayrıntıları yönet</string>
+    <string name="one_finger_zoom">Tam ekran medyalarda tek parmakla yakınlaştırmaya izin ver</string>
+    <string name="allow_instant_change">Ekran kenarlarına tıklayarak anında medya değiştirmeye izin ver</string>
+    <string name="allow_deep_zooming_images">Derin yakınlaştırma resimlerine izin ver</string>
+    <string name="hide_extended_details">Durum çubuğu gizlendiğinde genişletilmiş ayrıntıları gizle</string>
+    <string name="show_at_bottom">Ekranın alt kısmındaki bazı eylem düğmelerini göster</string>
+    <string name="show_recycle_bin">Geri dönüşüm kutusu\'nu klasörler ekranında gösterme</string>
+    <string name="deep_zoomable_images">Derin yakınlaştırılabilir resimler</string>
+    <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
+    <string name="show_recycle_bin_last">Geri dönüşüm kutusu\'nu ana ekranda son öğe olarak göster</string>
+    <string name="allow_down_gesture">Tam ekran görünümünü aşağı hareketi ile kapatmaya izin ver</string>
+    <string name="allow_one_to_one_zoom">İki çift dokunuşla 1:1 yakınlaştırmaya izin ver</string>
+    <string name="open_videos_on_separate_screen">Videoları yeni yatay hareketlerle daima ayrı bir ekranda aç</string>
+    <string name="show_notch">Varsa bir çentik göster</string>
+    <string name="allow_rotating_gestures">Hareketlerle resimlerin döndürülmesine izin ver</string>
+    <string name="file_loading_priority">Dosya yükleme önceliği</string>
+    <string name="speed">Hız</string>
+    <string name="compromise">Ödünsüz</string>
+    <string name="avoid_showing_invalid_files">Geçersiz dosyaları göstermekten kaçın</string>
+    <string name="show_image_file_types">Resim dosyası türlerini göster</string>
+    <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Küçük resimler</string>
+    <string name="fullscreen_media">Tam ekran medya</string>
+    <string name="extended_details">Genişletilmiş ayrıntılar</string>
+    <string name="bottom_actions">Alt eylemler</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Görünür alt eylemleri yönet</string>
+    <string name="toggle_favorite">Favoriyi göster/gizle</string>
+    <string name="toggle_file_visibility">Dosya görünürlüğünü aç/kapat</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Özel</string>
+    <string name="pesdk_transform_button_resetCrop">Sıfırla</string>
+    <string name="pesdk_transform_button_squareCrop">Kare</string>
+    <string name="pesdk_transform_title_name">Dönüştür</string>
+    <string name="pesdk_filter_title_name">Filtre</string>
+    <string name="pesdk_filter_asset_none">Yok</string>
+    <string name="pesdk_adjustments_title_name">Ayarla</string>
+    <string name="pesdk_adjustments_button_shadowTool">Gölgeler</string>
+    <string name="pesdk_adjustments_button_exposureTool">Pozlama</string>
+    <string name="pesdk_adjustments_button_highlightTool">Vurgular</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Parlaklık</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Doygunluk</string>
+    <string name="pesdk_adjustments_button_clarityTool">Berraklık</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gama</string>
+    <string name="pesdk_adjustments_button_blacksTool">Siyahlar</string>
+    <string name="pesdk_adjustments_button_whitesTool">Beyazlar</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Sıcaklık</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Netlik</string>
+    <string name="pesdk_adjustments_button_reset">Sıfırla</string>
+    <string name="pesdk_focus_title_name">Odak</string>
+    <string name="pesdk_focus_title_disabled">Yok</string>
+    <string name="pesdk_focus_button_radial">Radyal</string>
+    <string name="pesdk_focus_button_linear">Doğrusal</string>
+    <string name="pesdk_focus_button_mirrored">Aynalı</string>
+    <string name="pesdk_focus_button_gaussian">Gauss</string>
+    <string name="pesdk_text_title_name">Metin</string>
+    <string name="pesdk_text_title_options">Metin Seçenekleri</string>
+    <string name="pesdk_text_title_textColor">Metin Rengi</string>
+    <string name="pesdk_text_title_font">Yazı Tipi</string>
+    <string name="pesdk_text_button_add">Ekle</string>
+    <string name="pesdk_text_button_edit">Düzenle</string>
+    <string name="pesdk_text_button_straighten">Düzle</string>
+    <string name="pesdk_text_button_font">Yazı Tipi</string>
+    <string name="pesdk_text_button_color">Renk</string>
+    <string name="pesdk_text_button_backgroundColor">Arka Renk</string>
+    <string name="pesdk_text_button_alignment">Hizalama</string>
+    <string name="pesdk_text_button_bringToFront">Öne</string>
+    <string name="pesdk_text_button_delete">Sil</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Metniniz</string>
+    <string name="pesdk_brush_title_name">Fırça</string>
+    <string name="pesdk_brush_button_color">Renk</string>
+    <string name="pesdk_brush_button_size">Boyut</string>
+    <string name="pesdk_brush_button_hardness">Sertlik</string>
+    <string name="pesdk_brush_button_bringToFront">Öne</string>
+    <string name="pesdk_brush_button_delete">Sil</string>
+    <string name="pesdk_brush_title_brushColor">Fırça Rengi</string>
+    <string name="pesdk_editor_title_name">Editör</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Editör kapatılsın mı?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikler kaydedilmeden çıkılsın mı?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Evet</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Hayır</string>
+    <string name="pesdk_editor_cancel">İptal</string>
+    <string name="pesdk_editor_accept">Kabul Et</string>
+    <string name="pesdk_editor_save">Kaydet</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Resim dışa aktarılıyor…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Resim dışa aktarılıyor %s.</string>
+    <string name="pesdk_common_button_flipH">Yatay Çevir</string>
+    <string name="pesdk_common_button_flipV">Dikey Çevir</string>
+    <string name="pesdk_common_button_undo">Geri Al</string>
+    <string name="pesdk_common_button_redo">Yinele</string>
+    <string name="pesdk_common_title_colorPicker">Renk Seçici</string>
+    <string name="pesdk_common_title_transparentColor">Şeffaf</string>
+    <string name="pesdk_common_title_whiteColor">Beyaz</string>
+    <string name="pesdk_common_title_grayColor">Gri</string>
+    <string name="pesdk_common_title_blackColor">Siyah</string>
+    <string name="pesdk_common_title_lightBlueColor">Açık Mavi</string>
+    <string name="pesdk_common_title_blueColor">Mavi</string>
+    <string name="pesdk_common_title_purpleColor">Mor</string>
+    <string name="pesdk_common_title_orchidColor">Orkide</string>
+    <string name="pesdk_common_title_pinkColor">Pembe</string>
+    <string name="pesdk_common_title_redColor">Kırmızı</string>
+    <string name="pesdk_common_title_orangeColor">Turuncu</string>
+    <string name="pesdk_common_title_goldColor">Altın</string>
+    <string name="pesdk_common_title_yellowColor">Sarı</string>
+    <string name="pesdk_common_title_oliveColor">Zeytin</string>
+    <string name="pesdk_common_title_greenColor">Yeşil</string>
+    <string name="pesdk_common_title_aquamarinColor">Akuamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipetlenebilir renk</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">Basit Galeri\'yi nasıl varsayılan cihaz galerisi yapabilirim?</string>
+    <string name="faq_1_text">Önce cihaz ayarlarınızın Uygulamalar bölümünde varsayılan galeriyi bulmanız, \"Varsayılan olarak aç\" gibi bir şey söyleyen bir düğme aramanız, üzerine tıklamanız ve ardından \"Varsayılanları Temizle\"yi seçmeniz gerekir.
+        Gelecek sefer video veya resim açmayı denediğinizde, Basit Galeri\'yi seçip varsayılan uygulama haline getirebileceğiniz bir uygulama seçicisini görmelisiniz.</string>
+    <string name="faq_2_title">Uygulamayı bir şifre ile kilitledim ama unuttum. Ne yapabilirim?</string>
+    <string name="faq_2_text">Bunu 2 şekilde çözebilirsiniz. Uygulamayı yeniden yükleyebilir veya uygulamayı cihaz ayarlarınızdan bulabilir ve \"Verileri temizle\"yi seçebilirsiniz. Tüm ayarlarınızı sıfırlar, herhangi bir medya dosyasını kaldırmaz.</string>
+    <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim?</string>
+    <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş öğeler varsayılan sıralama yöntemine göre sıralanır.</string>
+    <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
+    <string name="faq_4_text">Ekranın yan tarafına iki kez dokunarak veya arama çubuğunun yanındaki geçerli veya maksimum süre metinlerine dokunarak bunu yapabilirsiniz. Videoları uygulama ayarlarından ayrı bir ekranda açmayı etkinleştirirseniz yatay hareketleri de kullanabilirsiniz.</string>
+    <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
+    <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz. Bazı cihazların Kamera, Ekran Görüntüleri ve İndirilenler gibi klasörlerin gizlenmesine izin vermediğini unutmayın.</string>
+    <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
+    <string name="faq_6_text">Bazı olağandışı albümlerin ortaya çıktığını göreceksiniz. Onları uzun süre basarak ve Hariç tut\'u seçerek kolayca hariç tutabilirsiniz. Bir sonraki iletişim kutusunda, üst klasörü seçebilirsiniz, ancak diğer ilgili albümlerin de gösterilmesini önleyecektir.</string>
+    <string name="faq_7_title">Resimler içeren bir klasör görünmüyor, ne yapabilirim?</string>
+    <string name="faq_7_text">Bunun birden fazla nedeni olabilir, ancak bunu çözmek kolaydır. Sadece Ayarlar -> Dahil Edilen Klasörleri Yönet\'e gidin, Artı\'yı seçin ve gerekli klasöre gidin.</string>
+    <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur?</string>
+    <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -> Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -> Dahil Edilen Klasörleri Yönet.
+        Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
+    <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim?</string>
+    <string name="faq_10_text">Evet, görüntü köşelerini sürükleyerek resimleri düzenleyicide kırpabilirsiniz. Düzenleyiciye, bir resim küçük resmine uzun basıp Düzenle\'yi seçerek veya tam ekran görünümünden Düzenle\'yi seçerek ulaşabilirsiniz.</string>
+    <string name="faq_11_title">Medya dosyası küçük resimlerini bir şekilde gruplayabilir miyim?</string>
+    <string name="faq_11_text">Elbette, küçük resimler görünümünde \"Gruplandırma\" menü öğesini kullanın. Çekildiği Tarih de dahil olmak üzere dosyaları birçok kritere göre gruplayabilirsiniz. \"Tüm klasörleri göster\" işlevini kullanırsanız, bunları klasörlere göre de gruplayabilirsiniz.</string>
+    <string name="faq_12_title">Çekildiği Tarihe Göre Sıralama düzgün çalışmıyor gibi görünüyor, nasıl düzeltebilirim?</string>
+    <string name="faq_12_text">Büyük olasılıkla bir yerden kopyalanan dosyalardan kaynaklanır. Dosya küçük resimlerini seçip \"Çekilen tarih değerini düzelt\" seçeneğini seçerek düzeltebilirsiniz.</string>
+    <string name="faq_13_title">Görüntülerde renk şeritleri görüyorum. Kaliteyi nasıl arttırabilirim?</string>
+    <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
+    <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
+    <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz.</string>
+    <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
+    <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici, Düzenleyici</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Fotoğrafları ve videoları reklamsız görüntülemek için kullanılan bir galeri.</string>
+    <string name="app_short_description">Bu fotoğraf ve video galerisinde kesintisiz olarak anılarınıza göz atın</string>
     <string name="app_long_description">
-        Fotoğrafları ve videoları görüntülemek için kullanılabilecek basit bir araç. Öğeler tarihine, boyutuna, adına göre artan veya azalan olarak sıralanabilir, fotoğraflar yakınlaştırılabilir. Medya dosyaları, ekranın boyutuna bağlı olarak birden fazla sütunda gösterilir, sıkıştırma hareketleriyle sütun sayısını değiştirebilirsiniz. Yeniden adlandırılabilir, paylaşılabilir, silinebilir, kopyalanabilir, taşınabilirler. Resimler ayrıca kırpılabilir, döndürülebilir veya doğrudan uygulama\'dan Duvar kağıdı olarak ayarlanabilir.
+        Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
 
-        Galeri, görüntüleri/videoları önizlemek, e-posta istemcilerine ek ekler yapmak için üçüncü taraf kullanımı için de önerilir. Bu\'s günlük kullanım için mükemmel.
+        Uygulama hiçbir reklam ve gereksiz izinler içermez. Uygulama internet erişimi gerektirmediğinden gizliliğiniz de korunur.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        -------------------------------------------------
+        <b>BASİT GALERİ PRO – ÖZELLİKLER</b>
+        -------------------------------------------------
 
-        Reklam içermeyen veya gereksiz izinler. Tamamen açık kaynaktır, özelleştirilebilir renkler sağlar.
+        • Reklamsız veya açılır penceresiz, çevrimdışı galeri
+        • Basit galeri fotoğraf editörü - kırpma, döndürme, yeniden boyutlandırma, çizim, filtreler ve daha fazlası
+        • İnternet erişimi gerekmez, size daha fazla gizlilik ve güvenlik sunar
+        • Gereksiz izinler gerekmez
+        • Resimleri, videoları ve dosyaları hızlıca arama
+        • Birçok farklı fotoğraf ve video türünü (RAW, SVG, panoramik vb.) açma ve görüntüleme
+        • Dosyaları kolayca düzenlemek ve organize etmek için çeşitli sezgisel hareketler
+        • Dosyaları filtrelemenin, gruplandırmanın ve sıralamanın birçok yolu
+        • Basit Galeri Pro\'nun görünümünü özelleştirme
+        • 32 dilde mevcut
+        • Hızlı erişim için dosyaları sık kullanılan olarak işaretleme
+        • Fotoğraflarınızı ve videolarınızı desen, pin veya parmak izi ile koruma
+        • Uygulama başlatılmasını veya belirli işlevleri de korumak için pin, desen ve parmak izi kullanma
+        • Silinen fotoğrafları ve videoları geri dönüşüm kutusundan kurtarma
+        • Fotoğrafları ve videoları gizlemek için dosyaların görünürlüğünü değiştirme
+        • Dosyalarınızın özelleştirilebilir bir slayt gösterisini oluşturma
+        • Dosyalarınızın ayrıntılı bilgilerini (çözünürlük, EXIF değerleri vb.) görüntüleme
+        • Basit Galeri Pro açık kaynak kodludur
+        … ve çok daha fazlası!
 
-        Bu uygulama, daha büyük bir uygulama serisinden sadece bir parça. Geri kalanını şu adresten bulabilirsiniz https://www.simplemobiletools.com
+        <b>FOTOĞRAF GALERİSİ EDİTÖRÜ</b>
+        Basit Galeri Pro, fotoğraflarınızı anında düzenlemenizi kolaylaştırır. Resimlerinizi kırpın, çevirin, döndürün ve yeniden boyutlandırın. Kendinizi biraz daha yaratıcı hissediyorsanız, filtre ekleyebilir ve resimlerinizi çizebilirsiniz!
+
+        <b>BİRÇOK DOSYA TÜRÜ İÇİN DESTEK</b>
+        Diğer galeri görüntüleyicilerinden ve fotoğraf düzenleyicilerinden farklı olarak, Basit Galeri Pro, JPEG, PNG, MP4, MKV, RAW, SVG, Panoramik fotoğraflar, Panoramik videolar ve daha pek çok farklı dosya türünü destekler.
+
+        <b>SON DERECE ÖZELLEŞTİRİLEBİLİR GALERİ YÖNETİCİSİ</b>
+        Kullanıcı arayüzünden alt araç çubuğundaki işlev düğmelerine kadar, Basit Galeri Pro oldukça özelleştirilebilirdir ve istediğiniz şekilde çalışır. Başka hiçbir galeri yöneticisi bu tür bir esnekliğe sahip değildir! Açık kaynak olması sayesinde 32 dilde de kullanıma hazırız!
+
+        <b>SİLİNEN FOTOĞRAFLARI VE VİDEOLARI KURTARIN</b>
+        Yanlışlıkla önemli bir fotoğrafı veya videoyu mu sildiniz? Endişelenmeyin! Basit Galeri Pro, silinmiş fotoğrafları ve videoları kolayca kurtarabileceğiniz kullanışlı bir geri dönüşüm kutusuna sahiptir.
+
+        <b>FOTOĞRAFLARI, VİDEOLARI VE DOSYALARI KORUYUN VE GİZLEYİN</b>
+        Pin, desen veya cihazınızın parmak izi tarayıcısını kullanarak fotoğrafları, videoları ve albümün tamamını koruyabilir ve gizleyebilirsiniz. Uygulamanın kendisini koruyabilir veya uygulamanın belirli işlevlerine kilitler yerleştirebilirsiniz. Örneğin, parmak izi taraması olmadan bir dosyayı silemez ve dosyalarınızı yanlışlıkla silmeye karşı korumaya yardımcı olabilirsiniz.
+
+        <b>Tüm Basit Araçlar paketini buradan inceleyin:</b>
+        https://www.simplemobiletools.com
+
+        <b>Basit Galeri Pro\'nun bağımsız web sitesi:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

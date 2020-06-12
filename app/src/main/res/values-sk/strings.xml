@@ -19,17 +19,30 @@
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
-    <string name="use_default">Použiť predvolený</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
     <string name="unlock_orientation">Odomknúť otočenie obrazovky</string>
+    <string name="change_orientation">Zmeniť otočenie obrazovky</string>
+    <string name="force_portrait">Vynútiť orientáciu na výšku</string>
+    <string name="force_landscape">Vynútiť orientáciu na šírku</string>
+    <string name="use_default_orientation">Použiť predvolenú orientáciu</string>
+    <string name="fix_date_taken">Opraviť dátum vytvorenia</string>
+    <string name="fixing">Opravuje sa…</string>
+    <string name="dates_fixed_successfully">Dátumy vytvorenia boli úspešne opravené</string>
+    <string name="no_date_takens_found">Nenašli sa žiadne dátumy vytvorenia</string>
+    <string name="share_resized">Zdieľať verziu so zmenenou veľkosťou</string>
+    <string name="upgraded_from_free">Zdravím,\n\nvyzerá to tak, že ste zo starej bezplatnej apky prešlie na novú, platenú. Starú apku, ktorá má na vrchu nastavení tlačidlo \'Stiahnuť Pro verziu\', môžete už odinštalovať.\n\nStratíte tým iba súbory v odpadkovom koši, obľúbené položky budú odznačené a tiež si budete musieť opäť nastaviť položky v nastaveniach aplikácie.\n\nVďaka!</string>
+    <string name="switch_to_file_search">Prepnúť na vyhľadávanie súborov vo všetkých viditeľných priečinkoch</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
     <string name="images">Obrázky</string>
     <string name="videos">Videá</string>
-    <string name="gifs">GIFká</string>
+    <string name="gifs">GIF</string>
+    <string name="raw_images">RAW obrázky</string>
+    <string name="svgs">SVG</string>
+    <string name="portraits">Portréty</string>
     <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
     <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
 
@@ -40,7 +53,7 @@
     <string name="manage_excluded_folders">Spravovať vylúčené priečinky</string>
     <string name="exclude_folder_description">Táto funkcia vylúči výber a jeho podpriečinky iba z Jednoduchej galérie. Spravovať vylúčené priečinky je možné v nastaveniach.</string>
     <string name="exclude_folder_parent">Chcete ukryť rodičovský priečinok?</string>
-    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\\n\\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
+    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\n\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
     <string name="remove_all">Odstrániť všetky</string>
     <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených? Táto operácia neodstráni samotný obsah priečinkov.</string>
     <string name="hidden_folders">Skryté priečinky</string>
@@ -52,6 +65,7 @@
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
     <string name="add_folder">Pridať priečinok</string>
     <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.\n\nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
+    <string name="no_media_add_included">Nenašli sa žiadne súbory s médiami. Viete to napraviť manuálnym pridaním priečinkov, ktoré obsahujú médiá.</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
@@ -63,11 +77,11 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Uložiť</string>
     <string name="rotate">Otočiť</string>
-    <string name="path">Cesta</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="image_editing_failed">Úprava súboru zlyhala</string>
+    <string name="image_editing_cancelled">Úprava súboru bola zrušená</string>
+    <string name="file_edited_successfully">Súbor bol úspešne upravený</string>
     <string name="edit_image_with">Upraviť súbor s:</string>
     <string name="no_editor_found">Nebol nájdený žiadny editor</string>
     <string name="unknown_file_location">Neznáme umiestnenie súboru</string>
@@ -78,7 +92,8 @@
     <string name="flip">Preklopiť</string>
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
-    <string name="edit_with">Upraviť s</string>
+    <string name="free_aspect_ratio">Voľný</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Iný</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>
@@ -100,9 +115,12 @@
     <string name="include_videos">Zahrnúť videá</string>
     <string name="include_gifs">Zahrnúť GIFy</string>
     <string name="random_order">Náhodné poradie</string>
-    <string name="use_fade">Používať miznúce animácie</string>
     <string name="move_backwards">Ísť opačným smerom</string>
     <string name="loop_slideshow">Automaticky reštartovať prezentáciu</string>
+    <string name="animation">Animácia:</string>
+    <string name="no_animation">Žiadna</string>
+    <string name="fade">Prelínanie</string>
+    <string name="slide">Posúvanie</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
@@ -117,41 +135,153 @@
     <string name="do_not_group_files">Nezoskupovať súbory</string>
     <string name="by_folder">Priečinka</string>
     <string name="by_last_modified">Dátumu poslednej úpravy</string>
+    <string name="by_last_modified_daily">Dátumu poslednej úpravy (denne)</string>
+    <string name="by_last_modified_monthly">Dátumu poslednej úpravy (mesačne)</string>
     <string name="by_date_taken">Dátumu vytvorenia</string>
+    <string name="by_date_taken_daily">Dátumu vytvorenia (denne)</string>
+    <string name="by_date_taken_monthly">Dátumu vytvorenia (mesačne)</string>
     <string name="by_file_type">Typu súboru</string>
     <string name="by_extension">Prípony</string>
+    <string name="grouping_and_sorting">Prosím vedzte, že radenie a zoskupovanie súborov sú 2 nezávislé hodnoty</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Priečinok zobrazený vo widgete:</string>
+    <string name="show_folder_name">Zobraziť názov priečinka</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
+    <string name="remember_last_video_position">Zapamätať si pozíciu posledného prehraného videa</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
     <string name="crop_thumbnails">Orezať náhľady na štvorce</string>
+    <string name="show_thumbnail_video_duration">Zobraziť dĺžku videí</string>
     <string name="screen_rotation_by">Otáčať obrazovku podľa Rotate fullscreen media by</string>
     <string name="screen_rotation_system_setting">Systémového nastavenia</string>
     <string name="screen_rotation_device_rotation">Otočenia zariadenia</string>
     <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
-    <string name="black_background_at_fullscreen">Čierne pozadie a stavová lišta pri médiách na celú obrazovku</string>
+    <string name="black_background_at_fullscreen">Čierne pozadie pri médiách na celú obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
     <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Povoliť ovládanie jasu vertikálnymi ťahmi</string>
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
     <string name="show_media_count">Zobraziť počet médií v priečinku na hlavnej obrazovke</string>
-    <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
     <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
     <string name="one_finger_zoom">Povoliť približovanie jedným prstom v celoobrazovkovom režime</string>
     <string name="allow_instant_change">Povoliť instantné prepínanie médií kliknutím na okraj obrazovky</string>
-    <string name="replace_zoomable_images">Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou</string>
+    <string name="allow_deep_zooming_images">Povoliť hlboké približovanie obrázkov</string>
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
-    <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
+    <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
+    <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
+    <string name="deep_zoomable_images">Hlboko priblížiteľné obrázky</string>
+    <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
+    <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
+    <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
+    <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
+    <string name="open_videos_on_separate_screen">Vždy otvárať videá na novej obrazovke s novými vodorovnými gestami</string>
+    <string name="show_notch">Zobraziť výrez obrazovky, ak je dostupný</string>
+    <string name="allow_rotating_gestures">Povoliť otáčanie obrázkov gestami</string>
+    <string name="file_loading_priority">Priorita pri načítavaní súborov</string>
+    <string name="speed">Rýchlosť</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Nezobrazovať neplatné súbory</string>
+    <string name="show_image_file_types">Zobraziť typ obrázkových súborov</string>
+    <string name="allow_zooming_videos">Povoliť približovanie videí dvojitým ťuknutím</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšírené vlastnosti</string>
+    <string name="bottom_actions">Spodné akčné tlačidlá</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
+    <string name="toggle_favorite">Prepnutie obľúbenosti</string>
+    <string name="toggle_file_visibility">Prepnutie viditeľnosti súboru</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Vlastný</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Štvorec</string>
+    <string name="pesdk_transform_title_name">Transformovať</string>
+    <string name="pesdk_filter_title_name">Filtre</string>
+    <string name="pesdk_filter_asset_none">Žiadny</string>
+    <string name="pesdk_adjustments_title_name">Doladenie</string>
+    <string name="pesdk_adjustments_button_shadowTool">Tiene</string>
+    <string name="pesdk_adjustments_button_exposureTool">Expozícia</string>
+    <string name="pesdk_adjustments_button_highlightTool">Zdôraznenie</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Jas</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Sýtosť</string>
+    <string name="pesdk_adjustments_button_clarityTool">Jasnosť</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Čierne</string>
+    <string name="pesdk_adjustments_button_whitesTool">Biele</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Teplota</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Ostrosť</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Zaostrenie</string>
+    <string name="pesdk_focus_title_disabled">Žiadne</string>
+    <string name="pesdk_focus_button_radial">Lúčovité</string>
+    <string name="pesdk_focus_button_linear">Lineárne</string>
+    <string name="pesdk_focus_button_mirrored">Zrkadlovité</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Nastavenia textu</string>
+    <string name="pesdk_text_title_textColor">Farba textu</string>
+    <string name="pesdk_text_title_font">Písmo</string>
+    <string name="pesdk_text_button_add">Pridať</string>
+    <string name="pesdk_text_button_edit">Upraviť</string>
+    <string name="pesdk_text_button_straighten">Narovnať</string>
+    <string name="pesdk_text_button_font">Písmo</string>
+    <string name="pesdk_text_button_color">Farba</string>
+    <string name="pesdk_text_button_backgroundColor">Pozadie</string>
+    <string name="pesdk_text_button_alignment">Zarovnanie</string>
+    <string name="pesdk_text_button_bringToFront">Dopredu</string>
+    <string name="pesdk_text_button_delete">Vymazať</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Váš text</string>
+    <string name="pesdk_brush_title_name">Štetec</string>
+    <string name="pesdk_brush_button_color">Farba</string>
+    <string name="pesdk_brush_button_size">Veľkosť</string>
+    <string name="pesdk_brush_button_hardness">Tvrdosť</string>
+    <string name="pesdk_brush_button_bringToFront">Dopredu</string>
+    <string name="pesdk_brush_button_delete">Vymazať</string>
+    <string name="pesdk_brush_title_brushColor">Farba štetca</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Zavrieť editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Ozaj chcete zahodiť úpravy obrázka?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Áno</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Nie</string>
+    <string name="pesdk_editor_cancel">Zrušiť</string>
+    <string name="pesdk_editor_accept">Prijať</string>
+    <string name="pesdk_editor_save">Uložiť</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje sa obrázok…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportovanie obrázka %s.</string>
+    <string name="pesdk_common_button_flipH">Preklopiť H</string>
+    <string name="pesdk_common_button_flipV">Preklopiť V</string>
+    <string name="pesdk_common_button_undo">Späť</string>
+    <string name="pesdk_common_button_redo">Opäť spraviť</string>
+    <string name="pesdk_common_title_colorPicker">Výber farieb</string>
+    <string name="pesdk_common_title_transparentColor">Priesvitná</string>
+    <string name="pesdk_common_title_whiteColor">Biela</string>
+    <string name="pesdk_common_title_grayColor">Sivá</string>
+    <string name="pesdk_common_title_blackColor">Čierna</string>
+    <string name="pesdk_common_title_lightBlueColor">Svetlomodrá</string>
+    <string name="pesdk_common_title_blueColor">Modrá</string>
+    <string name="pesdk_common_title_purpleColor">Fialová</string>
+    <string name="pesdk_common_title_orchidColor">Orchidea</string>
+    <string name="pesdk_common_title_pinkColor">Ružová</string>
+    <string name="pesdk_common_title_redColor">Červená</string>
+    <string name="pesdk_common_title_orangeColor">Oranžová</string>
+    <string name="pesdk_common_title_goldColor">Zlatá</string>
+    <string name="pesdk_common_title_yellowColor">Žltá</string>
+    <string name="pesdk_common_title_oliveColor">Olivová</string>
+    <string name="pesdk_common_title_greenColor">Zelená</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipetovateľná farba</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>
@@ -161,35 +291,90 @@
     <string name="faq_2_text">Viete to vyriešǐť 2 spôsobmi. Môžete apku buď preinštalovať, alebo ju nájsť v nastaveniach zariadenia a zvoliť \"Vymazať údaje\". Vymaže to iba nastavenia, nie súbory.</string>
     <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý?</string>
     <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
-    <string name="faq_4_title">Ako viem posunúť video vpred?</string>
-    <string name="faq_4_text">Môžete kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
+    <string name="faq_4_title">Ako viem posunúť video rýchlo vpred?</string>
+    <string name="faq_4_text">Viete to dosiahnuť dvojitým kliknutím na boky obrazovky, alebo kliknutím na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. Ak v nastaveniach apky zapnete možnosť spúšťania videí na novej obrazovke, budete môcť použiť aj vodorovné gestá.</string>
     <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
-    <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
+    <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov. Vedzte ale, že na niektorých zariadeniach nie je možné ukryť priečinky ako Kamera, Screenshoty a Stiahnuté.</string>
     <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
     <string name="faq_6_text">Môže sa stať, že sa vám zobrazia aj nezvyčajné priečinky. Viete ich ale jednoducho ukryť pomocou ich zvolenia dlhým podržaním a zvolením Vylúčiť. Ak na nasledovnom dialógu zvolíte vylúčenie rodičovského priečinka, pravdepodobne budú vylúčené aj ostatné, podobné priečinky.</string>
-    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, čo môžem urobiť?</string>
+    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, alebo priečinok nezobrazuje všetky položky. Čo s tým môžem urobiť?</string>
     <string name="faq_7_text">Môže to mať viacero dôvodov, riešenie je ale jednoduché. Choďte do Nastavenia -> Spravovať pridané priečinky, zvoľte Plus a zvoľte vytúžený priečinok.</string>
     <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
     <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
         To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
-    <string name="faq_9_title">Fotky na celú obrazovku majú zhoršenú kvalitu, viem ju nejak zlepšiť?</string>
-    <string name="faq_9_text">Áno, v nastaveniach je prepínač s textom \"Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou\", môžete ho skúsiť. Spôsobí to vyššiu kvalitu obrázkov, po priblížení sa ale budú rozmazávať oveľa skôr.</string>
     <string name="faq_10_title">Dá sa s touto aplikáciou orezať obrázky?</string>
     <string name="faq_10_text">Áno, orezanie je možné v editore, potiahnutím rohov obrázkov. Do editoru sa môžete dostať buď dlhým podržaním náhľadu obrázku a zvolením menu položky Upraviť, alebo zvolením Upraviť pri celoobrazovkovom režime.</string>
+    <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov?</string>
+    <string name="faq_11_text">Áno, použitím funkcie \"Zoskupiť podľa\" na menu obrazovky s náhľadmi. Zoskupenie je možné na základe rozličných kritérií vrátane Dátumu vytvorenia. Ak použijete funkciu \"Zobraziť obsah všetkých priečinkov\", viete ich zoskupiť aj podľa priečinkov.</string>
+    <string name="faq_12_title">Radenie podľa dátumu vytvorenia nefunguje správne, ako ho viem opraviť?</string>
+    <string name="faq_12_text">Je to pravdepodobne spôsobené kopírovaním súborov. Viete to opraviť označením jednotlivých náhľadov súborov a zvoliť \"Opraviť dátum vytvorenia\".</string>
+    <string name="faq_13_title">Na obrázkoch vidno nejaké farebné pásy. Ako viem zlepšiť kvalitu obrázkov?</string>
+    <string name="faq_13_text">Súčasné riešenie funguje správne v drvivej väčšine prípadov, ak ale chcete zobraziť obrázky v lepšej kvalite, môžete povoliť možnosť \"Zobraziť obrázky v najlepšej možnej kvalite\" v nastaveniach aplikácie, v sekcií \"Hlboko priblížiteľné obrázky\".</string>
+    <string name="faq_14_title">Skryl som súbor/priečinok, ako ho viem odkryť?</string>
+    <string name="faq_14_text">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov.</string>
+    <string name="faq_15_title">Prečo apka zaberá toľko miesta?</string>
+    <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Jednoduchá galéria Pro - Foto organizér a editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
+    <string name="app_short_description">Prehliadajte svoje spomienky bez prerušenia s touto foto a video galériou.</string>
     <string name="app_long_description">
-        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovať. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
+        Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
 
-        Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
+        Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá prístup na internet, vaše súkromie je chránené.
 
-        Prístup ku odtlačkom prstov je potrebný pre uzamykanie skrytých položiek, alebo celej apky.
+        -------------------------------------------------
+        <b>JEDNODUCHÁ GALÉRIA PRO - FUNKCIE</b>
+        -------------------------------------------------
 
-        Neobsahuje žiadne reklamy a nepotrebné oprávnenia. Je opensource, poskytuje možnosť zmeny farieb.
+        • Offline galéria bez reklám a vyskakujúcich okien
+        • Editor Jednoduchej Galérie - orezávajte, otáčajte, meňte veľkosť, kreslite, používajte filtre a viac
+        • Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia a bezpečia
+        • Nie sú potrebné žiadne podozrivé oprávnenia
+        • Rýchlo prehliadajte obrázky a videá
+        • Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, panoramatické atď)
+        • Množstvo intuitívnych gest pre jednoduchú úpravu a organizovanie súborov
+        • Veľa rôznych spôsobov filtrovania, zoskupovania a radenia súborov
+        • Zmeňte si vzhľad Jednoduchej Galérie
+        • Dostupná v 32 jazykoch
+        • Označte obľúbené súbory pre rýchly prístup
+        • Chráňte vaše obrázky a videá vzorom, PIN kódom alebo odtlačkom prstov
+        • Použite PIN kód, vzor, alebo odtlačky prstov na zabezpečenie spúšťania apky, alebo niektorých funkcií
+        • Obnovte vymazané fotky a videá pomocou odpadkového koša
+        • Prepnite viditeľnosť súborov pre ich ochranu
+        • Vytvorte zo súborov prezentáciu
+        • Prezrite si detailné informácie o súboroch (rozlíšenie, EXIF hodnoty atď)
+        • Jednoduchá Galéria Pro má otvorený zdrojový kód
+        … a mnoho mnoho ďalšieho!
 
-        Táto aplikácia je iba jednou zo skupiny aplikácií. Ostatné viete nájsť na https://www.simplemobiletools.com
+        <b>EDITOR OBRÁZKOV</b>
+        Jednoduchá Galéria Pro umožňuje ľahkú úpravu obrázkov. Orezávajte, preklápajte, alebo meňte ich veľkosť. Ak sa cítite kreatívne, môžete aj aplikovať filtre, alebo na nich kresliť!
+
+        <b>PODPORA PRE MNOŽSTVO TYPOV SÚBOROV</b>
+        Na rozdiel od niektorých galérií podporuje Jednoduchá Galéria množstvo rôznych druhov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+
+        <b>VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV</b>
+        Od vzhľadu po funkcie na spodej lište, Jednoduchá Galéria je upraviteľná a bude fungovať presne tak, ako chcete. Žiadna iná galéria nie je taká flexibilná! Vďaka otvorenému zdrojovému kódu je apka dostupná v 32 jazykoch!
+
+        <b>OBNOVTE VYMAZANÉ FOTKY A VIDEÁ</b>
+        Vymazali ste náhodou dôležitú fotku, alebo video? Jednoduchá Galéria Pro obsahuje užitočný odpadkový kôš, vďaka ktorému viete jednoducho obnoviť vymazané súbory.
+
+        <b>OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ</b>
+        Použitím PIN kódu, vzoru, alebo odtlačkov prstov viete vaše súbory ochrániť, alebo ukryť. Taktiež viete ochrániť aj buď spúšťanie apky ako takej, alebo niektoré jej funkcie. Napríklad tým viete zabrániť náhodnému vymazaniu súborov bez vašich odtlačkov prstov.
+
+        <b>Pozrite si celú sadu aplikácií na:</b>
+        https://www.simplemobiletools.com
+
+        <b>Vlastná stránka Jednoduchej Galérie Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

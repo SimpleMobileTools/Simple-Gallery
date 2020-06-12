@@ -3,83 +3,127 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.simplemobiletools.gallery"
-        minSdkVersion 16
-        targetSdkVersion 27
-        versionCode 179
-        versionName "4.1.1"
+        applicationId "com.simplemobiletools.gallery.pro"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 312
+        versionName "6.15.0"
         multiDexEnabled true
-        setProperty("archivesBaseName", "gallery")
+        setProperty("archivesBaseName", "gallery-$versionCode")
+        vectorDrawables.useSupportLibrary = true
     }
 
     signingConfigs {
-        release
+        if (keystorePropertiesFile.exists()) {
+            release {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
     }
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
+            // we cannot change the original package name, else PhotoEditorSDK won't work
+            //applicationIdSuffix ".debug"
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        if (is_proprietary) {
+            main.java.srcDirs += 'src/proprietary/kotlin'
+        }
+    }
+
+    flavorDimensions "licensing"
+    productFlavors {
+        proprietary {}
+        foss {}
     }
 
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
     }
-}
 
-ext {
-    leakCanaryVersion = '1.5.4'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/library_release.kotlin_module'
+    }
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:4.1.4'
-    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.simplemobiletools:commons:5.29.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
-    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
+    implementation 'com.google.vr:sdk-panowidget:1.180.0'
+    implementation 'com.google.vr:sdk-videowidget:1.180.0'
+    implementation 'org.apache.sanselan:sanselan:0.97-incubator'
+    implementation 'info.androidhive:imagefilters:1.0.7'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.caverock:androidsvg-aar:1.3'
+    implementation 'com.github.tibbi:gestureviews:512f929d82'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:81c021514c'
 
-    kapt "android.arch.persistence.room:compiler:1.1.0"
-    implementation "android.arch.persistence.room:runtime:1.1.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.0"
+    kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.0-fork'
-
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    kapt 'androidx.room:room-compiler:2.2.5'
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
 }
 
-Properties props = new Properties()
-def propFile = new File('signing.properties')
-if (propFile.canRead()) {
-    props.load(new FileInputStream(propFile))
+// Apply the PESDKPlugin
+if (is_proprietary) {
+    apply plugin: 'ly.img.android.sdk'
 
-    if (props != null && props.containsKey('STORE_FILE') && props.containsKey('KEY_ALIAS') && props.containsKey('PASSWORD')) {
-        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
-        android.signingConfigs.release.storePassword = props['PASSWORD']
-        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
-        android.signingConfigs.release.keyPassword = props['PASSWORD']
-    } else {
-        println 'signing.properties found but some entries are missing'
-        android.buildTypes.release.signingConfig = null
+    imglyConfig {
+        pesdk {
+            enabled true
+            licencePath 'pesdk_license'
+        }
+
+        modules {
+            include 'ui:core'
+            include 'ui:text'
+            include 'ui:focus'
+            include 'ui:brush'
+            include 'ui:filter'
+            include 'ui:transform'
+            include 'ui:adjustment'
+
+            include 'backend:serializer'
+
+            include 'assets:font-basic'
+            include 'assets:filter-basic'
+        }
     }
-} else {
-    println 'signing.properties not found'
-    android.buildTypes.release.signingConfig = null
 }

@@ -5,7 +5,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ausgenommen)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -19,30 +19,43 @@
     <string name="reduce_column_count">Kacheln vergrößern</string>
     <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
-    <string name="use_default">Standard</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
-    <string name="lock_orientation">Bildschirmausrichtung sperren</string>
-    <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
+    <string name="lock_orientation">Bildausrichtung sperren</string>
+    <string name="unlock_orientation">Bildausrichtung entsperren</string>
+    <string name="change_orientation">Bildausrichtung ändern</string>
+    <string name="force_portrait">Bildausrichtung im Hochformat</string>
+    <string name="force_landscape">Bildausrichtung im Querformat</string>
+    <string name="use_default_orientation">Automatische Bildausrichtung</string>
+    <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
+    <string name="fixing">Korrigiere…</string>
+    <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Teile eine verkleinerte Version</string>
+    <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
+    <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
+    <string name="raw_images">RAW-Bilder</string>
+    <string name="svgs">SVGs</string>
+    <string name="portraits">Portraits</string>
+    <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden.</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
+    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner, indem im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden die ausgewählten Ordner und alle Unterverzeichnisse auch in anderen Apps nicht angezeigt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option).\nFortfahren?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
     <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Möchtest du stattdessen einen höherliegenden Ordner ausschließen?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\n\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
-    <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
+    <string name="remove_all_description">Alle Ordner aus der Liste ausgeblendeter Ordner entfernen? Die Ordner selbst werden nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
     <string name="hidden_folders_placeholder">Keinen mit einer \".nomedia\"-Datei versteckten Ordner gefunden.</string>
@@ -52,6 +65,7 @@
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
     <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht gefunden wurden, kannst du deren Ordner hier manuell hinzufügen.</string>
+    <string name="no_media_add_included">Es konnten keine Mediendateien gefunden werden. Das Problem kann behoben werden, indem die Ordner mit den Mediendateien manuell hinzugefügt werden.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -59,16 +73,16 @@
     <string name="width">Breite</string>
     <string name="height">Höhe</string>
     <string name="keep_aspect_ratio">Seitenverhältnis beibehalten</string>
-    <string name="invalid_values">Bitte eine gültige Auflösung eingeben</string>
+    <string name="invalid_values">Bitte eine gültige Auflösung eingeben.</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Speichern</string>
     <string name="rotate">Drehen</string>
-    <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
-    <string name="edit_image_with">Bild bearbeiten mit</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">Datei erfolgreich bearbeitet</string>
+    <string name="edit_image_with">Bild bearbeiten mit:</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateipfad</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
@@ -78,20 +92,21 @@
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
-    <string name="edit_with">Bearbeiten mit</string>
+    <string name="free_aspect_ratio">Beliebiges</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Anderes</string>                            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
-    <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
+    <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen.</string>
     <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit</string>
     <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
-    <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
+    <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt.</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
-    <string name="home_screen">Homescreen</string>
+    <string name="home_screen">Startbildschirm</string>
     <string name="lock_screen">Sperrbildschirm</string>
-    <string name="home_and_lock_screen">Home- und Sperrbildschirm</string>
+    <string name="home_and_lock_screen">Start- und Sperrbildschirm</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
@@ -100,96 +115,265 @@
     <string name="include_videos">Videos verwenden</string>
     <string name="include_gifs">GIFs verwenden</string>
     <string name="random_order">Zufällige Reihenfolge</string>
-    <string name="use_fade">Übergänge animieren</string>
     <string name="move_backwards">Rückwärts abspielen</string>
     <string name="loop_slideshow">Endlos abspielen</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">Keine</string>
+    <string name="fade">Verblassen</string>
+    <string name="slide">Schieben</string>
     <string name="slideshow_ended">Diashow beendet</string>
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
 
     <!-- View types -->
     <string name="change_view_type">Darstellung ändern</string>
-    <string name="grid">Gitter</string>
+    <string name="grid">Gitternetz</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Gruppieren nach</string>
+    <string name="do_not_group_files">Dateien nicht gruppieren</string>
+    <string name="by_folder">Ordner</string>
+    <string name="by_last_modified">Datum der letzten Änderung</string>
+    <string name="by_last_modified_daily">Zuletzt geändert (täglich)</string>
+    <string name="by_last_modified_monthly">Zuletzt geändert (monatlich)</string>
+    <string name="by_date_taken">Aufnahmedatum</string>
+    <string name="by_date_taken_daily">Aufnahmedatum (täglich)</string>
+    <string name="by_date_taken_monthly">Aufnahmedatum (monatlich)</string>
+    <string name="by_file_type">Dateityp (Bilder/Videos)</string>
+    <string name="by_extension">Dateierweiterung</string>
+    <string name="grouping_and_sorting">Bitte beachte, dass Gruppieren und Sortieren zwei unabhängige Felder sind.</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
+    <string name="show_folder_name">Ordnernamen anzeigen</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
+    <string name="remember_last_video_position">Letzte Videowiedergabeposition erinnern</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
-    <string name="loop_videos">Videos in Endlosschleife spielen</string>
+    <string name="loop_videos">Videos in Endlosschleife abspielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
     <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
-    <string name="screen_rotation_by">Im Vollbild ausrichten nach</string>
+    <string name="show_thumbnail_video_duration">Videodauer anzeigen</string>
+    <string name="screen_rotation_by">Im Vollbild ausrichten nach:</string>
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
     <string name="black_background_at_fullscreen">Schwarzer Hintergrund &amp; schwarze Systemleiste im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
-    <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="delete_empty_folders">Leere Ordner automatisch löschen</string>
     <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
-    <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
-    <string name="show_extended_details">Eigenschaften im Vollbild anzeigen</string>
+    <string name="show_extended_details">Dateieigenschaften in Vollbild-Anzeige einblenden</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
     <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
-    <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
-    <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
-    <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
+    <string name="allow_deep_zooming_images">Starkes Zoomen zulassen</string>
+    <string name="hide_extended_details">Dateieigenschaften im Vollbild nicht anzeigen, wenn die Systemleiste versteckt ist</string>
+    <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
+    <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
+    <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
+    <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
+    <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
+    <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
+    <string name="allow_one_to_one_zoom">Erlaube 1:1 Zoom mit zweimaligem, doppeltem Antippen</string>
+    <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten</string>
+    <string name="show_notch">Zeige eine Notch, wenn vorhanden</string>
+    <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
+    <string name="file_loading_priority">Priorität beim Laden von Dateien</string>
+    <string name="speed">Geschwindigkeit</string>
+    <string name="compromise">Kompromiss</string>
+    <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
+    <string name="show_image_file_types">Bilddateitypen anzeigen</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Vollbild-Medien</string>
+    <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
     <string name="extended_details">Erweiterte Details</string>
+    <string name="bottom_actions">Funktionen am unteren Bildschirmrand</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Funktionen auswählen</string>
+    <string name="toggle_favorite">Favoriten umschalten</string>
+    <string name="toggle_file_visibility">Schaltet die Sichtbarkeit von Dateien um</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Benutzerdefiniert</string>
+    <string name="pesdk_transform_button_resetCrop">Zurücksetzen</string>
+    <string name="pesdk_transform_button_squareCrop">Quadrat</string>
+    <string name="pesdk_transform_title_name">Umwandeln</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">Kein</string>
+    <string name="pesdk_adjustments_title_name">Anpassen</string>
+    <string name="pesdk_adjustments_button_shadowTool">Schatten</string>
+    <string name="pesdk_adjustments_button_exposureTool">Belichtung</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Helligkeit</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Sättigung</string>
+    <string name="pesdk_adjustments_button_clarityTool">Struktur</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Schwarz</string>
+    <string name="pesdk_adjustments_button_whitesTool">Weiß</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperatur</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Schärfe</string>
+    <string name="pesdk_adjustments_button_reset">Zurücksetzen</string>
+    <string name="pesdk_focus_title_name">Fokus</string>
+    <string name="pesdk_focus_title_disabled">Kein</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Gespiegelt</string>
+    <string name="pesdk_focus_button_gaussian">Gaußsch</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Textoptionen</string>
+    <string name="pesdk_text_title_textColor">Textfarbe</string>
+    <string name="pesdk_text_title_font">Schriftart</string>
+    <string name="pesdk_text_button_add">Hinzufügen</string>
+    <string name="pesdk_text_button_edit">Bearbeiten</string>
+    <string name="pesdk_text_button_straighten">Begradigen</string>
+    <string name="pesdk_text_button_font">Schrift</string>
+    <string name="pesdk_text_button_color">Farbe</string>
+    <string name="pesdk_text_button_backgroundColor">Hintergrund</string>
+    <string name="pesdk_text_button_alignment">Ausrichtung</string>
+    <string name="pesdk_text_button_bringToFront">Nach Vorne</string>
+    <string name="pesdk_text_button_delete">Löschen</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Dein Text</string>
+    <string name="pesdk_brush_title_name">Pinsel</string>
+    <string name="pesdk_brush_button_color">Farbe</string>
+    <string name="pesdk_brush_button_size">Größe</string>
+    <string name="pesdk_brush_button_hardness">Stärke</string>
+    <string name="pesdk_brush_button_bringToFront">Nach Vorne</string>
+    <string name="pesdk_brush_button_delete">Löschen</string>
+    <string name="pesdk_brush_title_brushColor">Pinselfarbe</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Editor schließen?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Möchtest du das Bild wirklich verwerfen?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Nein</string>
+    <string name="pesdk_editor_cancel">Abbrechen</string>
+    <string name="pesdk_editor_accept">Akzeptieren</string>
+    <string name="pesdk_editor_save">Speichern</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Bild wird exportiert…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Bild %s wird exportiert.</string>
+    <string name="pesdk_common_button_flipH">H spiegeln</string>
+    <string name="pesdk_common_button_flipV">V spiegeln</string>
+    <string name="pesdk_common_button_undo">Rückgängig</string>
+    <string name="pesdk_common_button_redo">Wiederholen</string>
+    <string name="pesdk_common_title_colorPicker">Farbauswahl</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">Weiß</string>
+    <string name="pesdk_common_title_grayColor">Grau</string>
+    <string name="pesdk_common_title_blackColor">Schwarz</string>
+    <string name="pesdk_common_title_lightBlueColor">Hellblau</string>
+    <string name="pesdk_common_title_blueColor">Blau</string>
+    <string name="pesdk_common_title_purpleColor">Violett</string>
+    <string name="pesdk_common_title_orchidColor">Orchidee</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Rot</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Geld</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Grün</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettierbare Farbe</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>
     <string name="faq_1_text">Zunächst musst du unter \"Apps\" in den Geräteeinstellungen die aktuelle Standardgalerie finden. Suche nach einer Bedienfläche wie \"Standardmässig öffnen\", betätige diese und wähle \"Standardeinstellungen löschen\". 
-        Das nächste Mal, wenn du ein Bild oder ein Video öffnest, sollte ein Appwähler erscheinen und Schlichte Gallerie als Standard ausgewählt werden können.</string>
-    <string name="faq_2_title">Ich habe die App mit einem Passwort geschützt, aber ich habe es vergessen. Was kann ich tun?</string>
-    <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder du installierst die App erneut oder du gehst unter Apps in den Geräteeinstellungen und wählst \"Daten löschen\". Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
+        Das nächste Mal, wenn du ein Bild oder ein Video öffnest, sollte ein Auswahlfenster erscheinen und es möglich sein, Schlichte Galerie als Standard-App auszuwählen.</string>
+    <string name="faq_2_title">Ich habe die App mit einem Passwort geschützt und es vergessen. Was kann ich tun?</string>
+    <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder du installierst die App erneut oder du wählst in den Geräteeinstellungen \'Apps\' aus und dann \"Daten löschen\". Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
     <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen?</string>
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
-    <string name="faq_4_title">Wie kann ich Videos vorspulen?</string>
-    <string name="faq_4_text">Du kannst auf den Text der aktuellen oder der maximalen Dauer nahe der Suchleiste drücken, um das Video zurück- oder vorzuspulen.</string>
-    <string name="faq_5_title">Was ist der Unterschied zwischen Verstecken und Ausschliessen eines Ordners?</string>
-    <string name="faq_5_text">Ausschliessen verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt, Verstecken hingegen funktioniert systemweit und versteckt den Ordner auch vor anderen Gallerieapps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager löschen kannst.</string>
+    <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Was ist der Unterschied zwischen \'Verstecken\' und \'Ausschließen\' eines Ordners?</string>
+    <string name="faq_5_text">\'Ausschließen\' verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt wird. \'Verstecken\' hingegen versteckt den Ordner auch vor anderen Apps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager wieder löschen kannst. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
-    <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschliessen durch gedrückt halten und Auswählen von Ausschliessen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
-    <string name="faq_7_title">Ein Ordner mit Bilder wird nicht angezeigt. Was kann ich tun?</string>
-    <string name="faq_7_text">Dies kann mehrere Gründe haben, aber es zu lösen ist einfach. Gehe einfach zu Einstellungen  -> Einbezogene Ordner verwalten, wähle das Plus aus und navigiere zum gewünschten Ordner.</string>
-    <string name="faq_8_title">Was ist, wenn ich nur ein paar definierte Ordner sichtbar haben will?</string>
-    <string name="faq_8_text">Einen Ordner zu den einbezogenen Ordner hinzuzufügen schliesst nicht automatisch alle anderen aus. Eine Möglichkeit ist, in Einstellungen  -> Ausgeschlossene Ordner verwalten den Stammordner \"/\" auszuschliessen und dann alle gewünschten Ordner in Einstellungen  -> Einbezogene Ordner verwalten hinzuzufügen. 
-        Dadurch werden nur die ausgewählten Ordner sichtbar, da Auschliessen und Einbeziehen rekursiv erfolgen und wenn ein Ordner ausgeschlossen und einbezogen wurde, wird er dennoch angezeigt.</string>
-    <string name="faq_9_title">Vollbildfotos haben seltsame Artefakte. Kann ich die Qualität verbessern?</string>
-    <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
+    <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschließen durch gedrückt halten und Auswählen von Ausschließen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
+    <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt. Was kann ich tun?</string>
+    <string name="faq_7_text">Öffne die Galerie-Einstellungen, wähle dort \'Einbezogene Ordner verwalten\', dann das Plus-Zeichen oben rechts und navigiere zum gewünschten Ordner.</string>
+    <string name="faq_8_title">Wie kann ich erreichen, dass nur ein paar definierte Ordner sichtbar sind?</string>
+    <string name="faq_8_text">Einen Ordner zu den \'einbezogenen Ordnern\' hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen \'Ausgeschlossene Ordner verwalten\' zu wählen, den Stammordner \"/\" auszuschliessen und dann alle gewünschten Ordner in \'Einbezogene Ordner verwalten\' hinzuzufügen.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
+    <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
+    <string name="faq_11_text">Verwende dazu den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Du kannst Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Du die Funktion \"Alle Ordnerinhalte anzeigen\" verwendest, kannst du sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren?</string>
+    <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass deine Bilder von woanders kopiert worden sind. In diesem Fall solltest du die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markieren und dann im Menü oben rechts die Funktion \'Aufnahmedatum korrigieren\' ausführen.</string>
+    <string name="faq_13_title">Ich sehe Banding (streifiger Farbverlauf) auf den Bildern. Wie kann ich die Qualität verbessern?</string>
+    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert gut, aber für eine noch bessere Bildqualität kann die Einstellung \"Zeige Bilder in der höchstmöglichen Qualität\" im Menü unter \"Stark vergrösserbare Bilder\" gesetzt werden.</string>
+    <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen?</string>
+    <string name="faq_14_text">Du kannst entweder auf \"Verstecktes temporär anzeigen\" im Hauptmenü drücken oder die Einstellung \"Versteckte Elemente anzeigen\" setzen. Wenn du es sichtbar einstellen willst, drücke lange darauf und wähle \"Nicht verstecken\" aus. Ordner werden durch eine versteckte, in ihnen gespeicherte \".nomedia\"-Datei versteckt und das Löschen der Datei ist mit jedem Dateimanger möglich.</string>
+    <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz?</string>
+    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Diese Dateien zählen zum Speicherplatz der App dazu. Du kannst den Papierkorb leeren, indem du ihn öffnest und alle Dateien darin löschst, oder den entsprechenden Button in den Einstellungen betätigst. All 30 Tage wird der Papierkorb automatisch geleert.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Schlichte Galerie Pro - Foto Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
+    <string name="app_short_description">Bewahre deine Andenken ohne Unterbrechungen mit dieser Foto- und Videogalerie</string>
     <string name="app_long_description">
-        Eine schlichte App zum Betrachten von Bildern und Videos. Alle Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
+        Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne &amp; bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze &amp; verstecke Dateien und zeige eine Vielzahl von Bilder- &amp; Videoformaten an, unter anderem RAW, SVG und viele mehr.
 
-        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zur Vorschau von Bildern/Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
+        Die App enthält keine Werbung und verlangt keine unnötigen Berechtigungen. Da die App auch keinen Internetzugang benötigt, ist deine Privatsphäre geschützt.
 
-        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
+        -------------------------------------------------
+        <b>SCHLICHTE GALERIE PRO – EIGENSCHAFTEN</b>
+        -------------------------------------------------
 
-        Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
+        • Offline Galerie ohne Werbung und Popups
+        • Schlichte Galerie Fotoeditor – Zuschneiden, Drehen, Ändern der Größe, Zeichnen, Filtern &amp; mehr
+        • Kein Internetzugriff benötigt – mehr Privatsphäre und Sicherheit für dich
+        • Keine unnötigen Berechtigungen erforderlich
+        • Suche schnell nach Bildern, Videos &amp; Dateien
+        • Öffne &amp; zeige verschiedene Bild- und Videoformate an (RAW, SVG, Panoramabilder usw.)
+        • Eine Vielzahl von intuitiven Gesten zur einfachen Bearbeitung &amp; Ordnung von Dateien
+        • Viele Möglichkeiten Dateien zu filtern, gruppieren &amp; sortieren
+        • Personalisiere das Erscheinungsbild der Galerie
+        • Verfügbar in 32 Sprachen
+        • Markiere Dateien als Favoriten, um schnell auf diese zuzugreifen
+        • Schütze deine Fotos &amp; Videos mit einem Muster, PIN oder Fingerabdruck
+        • Nutze PIN, Muster &amp; Fingerabruck zum Schutz der gesamten App oder auch bestimmter Funktionen
+        • Stelle gelöschte Bilder &amp; Videos aus dem Papierkorb wieder her
+        • Ändere die Sichtbarkeit von Dateien und Ordnern, um Fotos und Videos zu verstecken
+        • Erstelle eine eigene Diashow deiner Dateien
+        • Zeige detaillierte Informationen deiner Dateien an (Auflösung, EXIF Werte usw.)
+        • Schlichte Galerie Pro ist Open Source
+        … und viele, viele mehr!
 
-        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
+        <b>FOTOEDITOR</b>
+        Schlichte Galerie Pro macht es schnell und einfach deine Bilder zu bearbeiten. Schneide Bilder zu, drehe sie und ändere die Größe. Wenn du dich etwas kreativer fühlst, kannst du Filter hinzufügen und auf deinen Bildern malen!
+
+        <b>UNTERSTÜTZUNG FÜR VIELE DATEITYPEN</b>
+        Im Gegensatz zu einigen anderen Galerien unterstütz Schlichte Galerie Pro eine Vielzahl verschiedener Dateitypen. Unter anderem JPEG, PNG, MP4, MKV, RAW, SVG, Panoramabilder, Panoramavideos und viele mehr.
+
+        <b>STARK INDIVIDUALISIERBARE GALERIE</b>
+        Von der Benutzeroberfläche zu den Funktionen in der unteren Symbolleiste, Schlichte Galerie Pro ist stark anpassbar und funktioniert ganz nach deinen Wünschen. Keine Andere Galere verfügt über dieses Maß an Flexibilität. Danke Open Source sind wir in 32 Sprachen verfügbar!
+
+        <b>WIEDERHERSTELLUNG GELÖSCHTER FOTOS &amp; VIDEOS</b>
+        Versehentlich ein wertvolles Foto oder Video gelöscht? Keine Sorge! Schlichte Galerie Pro verfügt über einen praktischen Papierkorb, aus dem du gelöschte Bilder &amp; Videos leicht wiederherstellen kannst.
+
+        <b>SCHÜTZE UND VERSTECKE FOTOS, VIDEOS &amp; DATEIEN</b>
+        Mit einem PIN, Muster oder dem Fingerabdrucksensor deines Gerätes kannst du Fotos, Videos und komplette Alben verstecken und schützen. Du kannst auch die App selber schützen oder bestimmte Funktionen der App sperren. Beispielsweise kannst du eine Datei nicht ohne Scan des Fingerabdrucks löschen, um deine Dateien vor versehentlichem Löschen zu schützen.
+
+        <b>Schau dir die vollständige Serie der Schlichten Apps hier an:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

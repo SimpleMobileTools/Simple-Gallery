@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/photo_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/photo_view"
+    <com.alexvasilkov.gestures.GestureImageView
+        android:id="@+id/gestures_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"/>
+        android:layout_height="match_parent"/>
+
+    <com.alexvasilkov.gestures.GestureFrameLayout
+        android:id="@+id/gif_view_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <pl.droidsonroids.gif.GifTextureView
+            android:id="@+id/gif_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"/>
+
+    </com.alexvasilkov.gestures.GestureFrameLayout>
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/subsampling_view"
@@ -18,24 +32,34 @@
         android:layout_height="match_parent"
         android:visibility="gone"/>
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <ImageView
+        android:id="@+id/panorama_outline"
+        android:layout_width="@dimen/play_outline_size_big"
+        android:layout_height="@dimen/play_outline_size_big"
+        android:layout_centerInParent="true"
+        android:padding="20dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_panorama_outline"
+        android:visibility="gone"/>
+
+    <TextView
         android:id="@+id/photo_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"
         android:background="@color/gradient_grey_start"
         android:padding="@dimen/small_margin"
+        android:textColor="@color/theme_dark_text_color"
         android:textSize="@dimen/smaller_text_size"
         android:visibility="gone"
         tools:text="My image\nAnother line"/>
 
-    <com.simplemobiletools.gallery.helpers.MediaSideScroll
+    <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/photo_brightness_controller"
         android:layout_width="@dimen/media_side_slider_width"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
     <TextView
@@ -48,23 +72,39 @@
         android:alpha="0"
         android:background="@drawable/black_rounded_background"
         android:gravity="center"
-        android:paddingBottom="@dimen/medium_margin"
         android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
         android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="@dimen/medium_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/extra_big_text_size"/>
 
-    <com.simplemobiletools.gallery.views.InstantItemSwitch
+    <RelativeLayout
+        android:id="@+id/photo_portrait_stripe_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/portrait_photos_stripe_height"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photo_portrait_stripe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+
+    </RelativeLayout>
+
+    <com.simplemobiletools.gallery.pro.views.InstantItemSwitch
         android:id="@+id/instant_prev_item"
-        android:layout_width="@dimen/instant_change_bar_width"
+        android:layout_width="1dp"
         android:layout_height="match_parent"/>
 
-    <com.simplemobiletools.gallery.views.InstantItemSwitch
+    <com.simplemobiletools.gallery.pro.views.InstantItemSwitch
         android:id="@+id/instant_next_item"
-        android:layout_width="@dimen/instant_change_bar_width"
+        android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

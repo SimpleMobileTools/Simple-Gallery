@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/video_player_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.alexvasilkov.gestures.GestureFrameLayout
+        android:id="@+id/video_surface_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextureView
+            android:id="@+id/video_surface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"/>
+
+    </com.alexvasilkov.gestures.GestureFrameLayout>
+
+    <com.simplemobiletools.gallery.pro.views.MediaSideScroll
+        android:id="@+id/video_volume_controller"
+        android:layout_width="@dimen/media_side_slider_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"/>
+
+    <com.simplemobiletools.gallery.pro.views.MediaSideScroll
+        android:id="@+id/video_brightness_controller"
+        android:layout_width="@dimen/media_side_slider_width"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/top_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_status_action_height"
+        android:background="@drawable/gradient_background_flipped"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/video_bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/video_time_holder"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background"
+        tools:ignore="UnknownIdInLayout"/>
+
+    <include layout="@layout/bottom_video_time_holder"/>
+
+    <TextView
+        android:id="@+id/slide_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:background="@drawable/black_rounded_background"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="@dimen/medium_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/extra_big_text_size"/>
+
+</RelativeLayout>

@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingLeft="@dimen/big_margin"
-        android:paddingRight="@dimen/big_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/big_margin"
         android:text="@string/excluded_activity_placeholder"
         android:visibility="gone"/>
 

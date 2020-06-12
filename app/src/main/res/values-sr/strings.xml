@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Једноставна галерија</string>
+    <string name="app_launcher_name">Галерија</string>
+    <string name="edit">Измени</string>
+    <string name="open_camera">Отвори камеру</string>
+    <string name="hidden">(скривено)</string>
+    <string name="excluded">(изузето)</string>
+    <string name="pin_folder">Прикачи фасциклу</string>
+    <string name="unpin_folder">Раскачи фасциклу</string>
+    <string name="pin_to_the_top">Закачи на врх</string>
+    <string name="show_all">Прикажи садржај свих фасцикли</string>
+    <string name="all_folders">Све фасцикле</string>
+    <string name="folder_view">Пређи на преглед фасцикли</string>
+    <string name="other_folder">Друга фасцикла</string>
+    <string name="show_on_map">Прикажи на мапи</string>
+    <string name="unknown_location">Непозната локација</string>
+    <string name="increase_column_count">Повећај број колона</string>
+    <string name="reduce_column_count">Смањи број колона</string>
+    <string name="change_cover_image">Промени насловну слику</string>
+    <string name="select_photo">Изабери фотографију</string>
+    <string name="volume">Јачина звука</string>
+    <string name="brightness">Осветљење</string>
+    <string name="lock_orientation">Закључај оријентацију</string>
+    <string name="unlock_orientation">Откључај оријентацију</string>
+    <string name="change_orientation">Измени оријентацију</string>
+    <string name="force_portrait">Форсирај портрет</string>
+    <string name="force_landscape">Форсирај пејзаж</string>
+    <string name="use_default_orientation">Користи подразумевајућу оријентацију</string>
+    <string name="fix_date_taken">Поправи вредност за датум креирања</string>
+    <string name="fixing">Исправљам…</string>
+    <string name="dates_fixed_successfully">Датуми успешно исправљени</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Подели верзију са промењеним димензијама</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Филтрирај медију</string>
+    <string name="images">Слике</string>
+    <string name="videos">Видео снимци</string>
+    <string name="gifs">ГИФови</string>
+    <string name="raw_images">Сирове слике</string>
+    <string name="svgs">СВГови</string>
+    <string name="portraits">Portraits</string>
+    <string name="no_media_with_filters">Нема пронађених медија датотека са изабраним филтерима.</string>
+    <string name="change_filters_underlined"><u>Измени филтере</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Ова функција скрива фасциклу додавањем \'.nomedia\' фајла у њу, она ће такође сакрити све подфасцикле. Можете их видети притиском на опцију \'Прикажи скривене ставке\' у подешавањима. Настави?</string>
+    <string name="exclude">Изузми</string>
+    <string name="excluded_folders">Изузете фасцикле</string>
+    <string name="manage_excluded_folders">Управљај изузетим фасциклама</string>
+    <string name="exclude_folder_description">Ово ће изузети одабир заједно са подфасциклама само из Једноставне галерије. Можете управљати изузетим фасциклама у подешавањима.</string>
+    <string name="exclude_folder_parent">Изузми родитеља уместо овог?</string>
+    <string name="excluded_activity_placeholder">Изузимање фасцикли ће их заједно са њиховим подфасциклама учинити скривеним само у Једноставној галерији, они ће и даље бити видљиви у другим апликацијама. \n\nАко желите да их сакријете од других апликација, употребите Сакриј функцију.</string>
+    <string name="remove_all">Уклони све</string>
+    <string name="remove_all_description">Уклони све фасцикле са листе изузетих? Ово неће обрисати фасцикле.</string>
+    <string name="hidden_folders">Скривене фасцикле</string>
+    <string name="manage_hidden_folders">Управљај скривеним фасциклама</string>
+    <string name="hidden_folders_placeholder">Изгледа да немате ни једну фасциклу скривену са \".nomedia\" датотеком.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Укључене фасцикле</string>
+    <string name="manage_included_folders">Управљај укљученим фасциклама</string>
+    <string name="add_folder">Додај фасциклу</string>
+    <string name="included_activity_placeholder">Ако имате неке фасцикле које садрже медију, али нису препознате од стране апликације, можете их додати ручно овде. \n\nДодавањем неких ставки овде нећете изузети неку другу фасциклу.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Промена величине</string>
+    <string name="resize_and_save">Промени величину одабраног и сачувај</string>
+    <string name="width">Ширина</string>
+    <string name="height">Висина</string>
+    <string name="keep_aspect_ratio">Задржи пропорције</string>
+    <string name="invalid_values">Унесите исправну резолуцију</string>
+
+    <!-- Editor -->
+    <string name="editor">Едитор</string>
+    <string name="rotate">Ротирај</string>
+    <string name="invalid_image_path">Неисправна стаза слике</string>
+    <string name="image_editing_failed">Измена слике неуспешна</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="edit_image_with">Измени слику са:</string>
+    <string name="no_editor_found">Није пронађен едитор слика</string>
+    <string name="unknown_file_location">Непозната локација датотеке</string>
+    <string name="error_saving_file">Не могу да препишем изворну датотеку</string>
+    <string name="rotate_left">Ротирај лево</string>
+    <string name="rotate_right">Ротирај десно</string>
+    <string name="rotate_one_eighty">Ротирај за 180º</string>
+    <string name="flip">Заврти</string>
+    <string name="flip_horizontally">Заврти хоризонтално</string>
+    <string name="flip_vertically">Заврти вертикално</string>
+    <string name="free_aspect_ratio">Слободна пропорција</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Друга пропорција</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Једноставна позадина</string>
+    <string name="set_as_wallpaper">Подеси као позадину</string>
+    <string name="set_as_wallpaper_failed">Подешавање позадине неуспешно</string>
+    <string name="set_as_wallpaper_with">Подеси као позадину са:</string>
+    <string name="setting_wallpaper">Подешавам позадину&#8230;</string>
+    <string name="wallpaper_set_successfully">Позадина је успешно подешена</string>
+    <string name="portrait_aspect_ratio">Пропорција портрета</string>
+    <string name="landscape_aspect_ratio">Пропорција пејзажа</string>
+    <string name="home_screen">Почетни екран</string>
+    <string name="lock_screen">Закључај екран</string>
+    <string name="home_and_lock_screen">Почетни и закључани екран</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Слајдшоу</string>
+    <string name="interval">Интервал (секунди):</string>
+    <string name="include_photos">Садржи слике</string>
+    <string name="include_videos">Садржи видео снимке</string>
+    <string name="include_gifs">Садржи ГИФове</string>
+    <string name="random_order">Насумични редослед</string>
+    <string name="move_backwards">Помери уназад</string>
+    <string name="loop_slideshow">Понављај слајдшоу</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
+    <string name="slideshow_ended">Слајдшоу се завршио</string>
+    <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Промени тип прегледа</string>
+    <string name="grid">Мрежа</string>
+    <string name="list">Листа</string>
+    <string name="group_direct_subfolders">Групирај директне подфасцикле</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Групиши према</string>
+    <string name="do_not_group_files">Не групиши датотеке</string>
+    <string name="by_folder">Фасцикла</string>
+    <string name="by_last_modified">Задње измењено</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_date_taken">Датум настанка</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_file_type">Тип датотеке</string>
+    <string name="by_extension">Тип датотеке</string>
+    <string name="grouping_and_sorting">Имајте на уму да су груписање и сортирање 2 различите ствари</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Фасцикла приказана у виџету:</string>
+    <string name="show_folder_name">Прикажи име фасцикле</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Пуштај видео снимке аутоматски</string>
+    <string name="remember_last_video_position">Запамти позицију задње пуштаног видеа</string>
+    <string name="toggle_filename">Измени видљивост датотеке</string>
+    <string name="loop_videos">Пуштај видео снимке у недоглед</string>
+    <string name="animate_gifs">Анимирај ГИФове на сличицама</string>
+    <string name="max_brightness">Максимално осветљење када се пушта медиј преко целог екрана</string>
+    <string name="crop_thumbnails">Скрати сличице у квадрате</string>
+    <string name="show_thumbnail_video_duration">Прикажи дужину видео снимака</string>
+    <string name="screen_rotation_by">Ротирај медиј преко целог екрана за</string>
+    <string name="screen_rotation_system_setting">Системска подешавања</string>
+    <string name="screen_rotation_device_rotation">Ротација уређаја</string>
+    <string name="screen_rotation_aspect_ratio">Пропорције</string>
+    <string name="black_background_at_fullscreen">Црна позадина на приказу преко целог екрана</string>
+    <string name="scroll_thumbnails_horizontally">Скролуј сличице хоризонтално</string>
+    <string name="hide_system_ui_at_fullscreen">Аутоматски сакриј системски кориснички интерфејс приликом пуштања преко целог екрана</string>
+    <string name="delete_empty_folders">Обриши празне фасцикле након брисања њиховог садржаја</string>
+    <string name="allow_photo_gestures">Дозволи контролисање осветљења слика са вертикалним покретима</string>
+    <string name="allow_video_gestures">Дозволи контролисање јачине звука видео снимка и осветљења са вертикалним покретима</string>
+    <string name="show_media_count">Прикажи број медија у фасцикли на главном прегледу</string>
+    <string name="show_extended_details">Прикажи више детаља преко медија пуштеног преко целог екрана</string>
+    <string name="manage_extended_details">Управљај дотатним детаљима</string>
+    <string name="one_finger_zoom">Омогући зумирање једним прстом код медија на целом екрану</string>
+    <string name="allow_instant_change">Дозволи брзо мењање медија кликом на стране екрана</string>
+    <string name="allow_deep_zooming_images">Дозволи дубоко зумирање слика</string>
+    <string name="hide_extended_details">Сакриј додатне детаље када је статусна трака скривена</string>
+    <string name="show_at_bottom">Прикажи дугмиће за неке акције на дну екрана</string>
+    <string name="show_recycle_bin">Прикажи канту за отпатке на екрану са фасциклама</string>
+    <string name="deep_zoomable_images">Дубоко зумирајуће слике</string>
+    <string name="show_highest_quality">Прикажи слике у највећем могућем квалитету</string>
+    <string name="show_recycle_bin_last">Прикажи канту за отпатке као задњу ставку на главном екрану</string>
+    <string name="allow_down_gesture">Дозволи затварање приказа преко целог екрана са покретом на доле</string>
+    <string name="allow_one_to_one_zoom">Дозволи 1:1 зумирање са два дводупла притиска на екран</string>
+    <string name="open_videos_on_separate_screen">Увек отварај видео снимке наз асебном екрану са новим хоризонталним гестикулацијама</string>
+    <string name="show_notch">Прикажи исечак уколико је доступан</string>
+    <string name="allow_rotating_gestures">Дозволи ротацију слика гестикулацијама</string>
+    <string name="file_loading_priority">Приоритет приликом учитавања фајла</string>
+    <string name="speed">Брзина</string>
+    <string name="compromise">Компромис</string>
+    <string name="avoid_showing_invalid_files">Не приказуј оштећене датотеке</string>
+    <string name="show_image_file_types">Show image file types</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Сличице</string>
+    <string name="fullscreen_media">Медији преко целог екрана</string>
+    <string name="extended_details">Додатни детаљи</string>
+    <string name="bottom_actions">Акције на дну</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Управљај са видљивим акцијама на дну</string>
+    <string name="toggle_favorite">Укључи/искључи омиљени</string>
+    <string name="toggle_file_visibility">Укључи/искључи видљивост датотеке</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">Cancel</string>
+    <string name="pesdk_editor_accept">Accept</string>
+    <string name="pesdk_editor_save">Save</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_grayColor">Gray</string>
+    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
+    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_purpleColor">Purple</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Како да подесим Једноставну галерију да буде главна галерија уређаја?</string>
+    <string name="faq_1_text">Први морате да нађете тренутну главну галерију у Апликације секцији подешавања вашег уређаја, потражите дугме које каже нешто попут \"Отвори по дифолту\", кликни на то, затим изабери \"Уклони дифолт\".
+        Следећи пут када покушате да отворите слику или видео требало би да видите изабирач апликација, где можете да изаберете Једноставну галерију и учините је подразумевајућом апликацијом.</string>
+    <string name="faq_2_title">Закључао сам апликацију са шифром и заборавио шифру. Како да решим проблем?</string>
+    <string name="faq_2_text">Постоје 2 начина. Можете да обришете апликацију, или да нађете апликацију у подешавањима и кликнете на \"Обриши податке\". То ће ресетовати сва подешавања, али неће обрисати медија фајлове.</string>
+    <string name="faq_3_title">Како да подесим да се неки албум увек појављује на врху?</string>
+    <string name="faq_3_text">Дуго притисните на жељени албум и изаберите Закачи икону у менију за акције, то ће га поставити на врх. Можете да закачите више фасцикли истовремено, с тим што ће бити сортирани према подразумевајућем методу за сортирање.</string>
+    <string name="faq_4_title">Како да премотавам видео снимке?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле?</string>
+    <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују?</string>
+    <string name="faq_6_text">Може се десити да се приказују неки необични албуми. Можете их лако изузети дугим притиском, а затим одабиром Изузми. У следећем дијалогу можете изабрати фасциклу родитеља, шансе су да ће спречити све остале албуме од приказивања.</string>
+    <string name="faq_7_title">Фасцикла са сликама се не приказује, или не приказује све ставке. Шта да урадим?</string>
+    <string name="faq_7_text">Може бити више разлога, али решење је лако. Идите у Подешавања -> Управљај садржаним фасциклама, изаберите плус и изаберите жељену фасциклу.</string>
+    <string name="faq_8_title">Шта ако желим само неколико одређених фасцикли у приказу?</string>
+    <string name="faq_8_text">Додавањем фасцикли у Садржаним фасциклама не изузима аутоматски ништа. Оно што можете је да одете у Подешавања -> Управљај изузетим фасциклама, изузмете почетну фасциклу \"/\", а затим додате жељене фасцикле у Подешавања -> Управљај садржаним фасциклама.
+        То ће учинити да се само одређене фасцикле приказују, јер и изузимање и укључивање су рекурзивни и ако је нека фасцикла и изузета и садржана, она ће се појавити.</string>
+    <string name="faq_10_title">Да ли могу да исечем слику са овом апликацијом?</string>
+    <string name="faq_10_text">Да, можете да сечете слике са едитором, повлачењем ивица слике. Можете ући у едитор дугим притиском на сличицу слике и одабирањем Измени, или избором Измени из приказа преко целог екрана.</string>
+    <string name="faq_11_title">Да ли могу да групишем сличице медија?</string>
+    <string name="faq_11_text">Да, само употребите \"Групиши према\" мени ставку док сте у прегледу са сличицама. Можете да групишете датотеке према више критеријума, укључујући датум креирања. Ако користите \"Прикажи садржај свих фасцикли\" функцију, можете да их групишете и према фасциклама.</string>
+    <string name="faq_12_title">Сортирање према датуму креирања не ради како треба, како да га поправим?</string>
+    <string name="faq_12_text">Највероватнији узрок су датотеке које се копирају од некле. То можете поправити селектовањем сличице датотеке и изабиром \"Исправи датум креирања\".</string>
+    <string name="faq_13_title">Имам проблема са приказом боја у сликама. Како да унапредим квалитет приказа слика?</string>
+    <string name="faq_13_text">Тренутно решење за приказивање слика функционише добро у већини случајева, али ако хоћете још бољи квалитет слика, можете да укључите \"Прикажи слике у најбољем могућем квалитету\" у подешавањима апликације, у \"Дубоко зумирање слика\" секцији.</string>
+    <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново?</string>
+    <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_long_description">
+        Једноставна галерија Про је високо прилагодљива галерија којој није неопходан интернет да би радила. Организуј и измени своје слике, опорави обрисане датотеке са кантом за отпатке, заштити и сакриј датотеке имај увид у огромну количину различитих фотографија и видео формата укључујући RAW, SVG и многих других.
+
+        Апликација не садржи огласе и сувишне дозволе. С обзиром да апликација не захтева приступ интернету, ваша приватност је заштићена.
+
+        -------------------------------------------------
+        <b>ЈЕДНОСТАВНА ГАЛЕРИЈА ПРО – МОГУћНОСТИ</b>
+        -------------------------------------------------
+
+        • Галерија којој није неопходан интернет, не садржи огласе и искачуће рекламе
+        • Једноставна галерија фото едитор - исеци, ротирај, измени димензије, цртај, примени филтере и још тога
+        • Није вам неопходан приступ интернету за рад, што вам даје више приватности и сигурности
+        • Нису неопходне сувишне дозволе за рад галерије
+        • Брза претрага слика, видео снимака и датотека
+        • Отвори и прегледај доста различитих фотографија и видео типова (RAW, SVG, panoramic итд)
+        • Разноликост интуитивних гестикулација да на лак начин измените и организујете датотеке
+        • Доста начина за филтрирање, груписање и сортирање датотека
+        • Прилагодите изглед Једноставне галерије Про
+        • Доступна на 32 језика
+        • Означите датотеке као омиљене да имате брз приступ истим
+        • Заштитите ваше фотографије и видео снимке са шаблоном, пином или отиском прста
+        • Употребите пин, шаблон и отисак прста да заштитите покретање апликације или одређене функције
+        • Опоравите обрисане фотографије и видео снимке из канте за отпатке
+        • Измените видљивост фајлова да сакријете фотографије и видео снимке
+        • Направите прилагођени слајдшоу за ваше датотеке
+        • Имајте увид у детаљне информације ваших датотека (резолуције, EXIF вредности итд..)
+        • Једноставна галерија Про је отвореног кода
+        … и још доста тога!
+
+        <b>ЕДИТОР ФОТО ГАЛЕРИЈЕ</b>
+        Једноставна галерија Про чини једноставним да измените ваше слике у ходу. Исеците, заокрените, ротирајте или измените величину ваших слика. Ако се осећате креативним, можете додати филтере или насликати своје слике!
+
+        <b>ПОДРШКА ЗА МНОГЕ ТИПОВЕ ФАЈЛОВА</b>
+        За разлику од неких других галерија програма и организатора фотографија, Једноставна галерија Про подржава велики спектар различитих типова датотека укључујући JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic фотографије, Panoramic видео снимци и још доста других.
+
+        <b>ВИСОКО ПРИЛАГОДЉИВ МЕНАЏЕР ГАЛЕРИЈА</b>
+        Од корисничког интерфејса до функцијских дугмића на доњој линији са алаткама, Једноставна галерија Про је високо прилагодљива и ради онако како ви желите. Ни један други менаџер за галерију има ову врсту флексибилности! Захваљујући томе што је отвореног кода, ми смо доступни на 33 језика!
+
+        <b>ОПОРАВИ ОБРИСАНЕ ФОТОГРАФИЈЕ И ВИДЕО СНИМКЕ</b>
+        Случајно обрисане драгоцене фотографије или видео снимци? Не брините! Једноставна галерија Про поседује згодну канту за отпатке из које можете опоравити обрисане фотографије и видео снимке на лак начин.
+
+        <b>ЗАШТИТИ И САКРИЈ ФОТОГРАФИЈЕ, ВИДЕО СНИМКЕ и ДАТОТЕКЕ</b>
+        Употребом пина, шаблона или скенера за отисак прста на вашем уређају можете заштитити фотографије, видео снимке и читаве албуме. Можете заштитити и саму апликацију или ставити кључеве на одређене функције у апликацији. Например, не могу се обрисати датотеке без скенирања отиска прста, што у великој мери може спречити нежељено или случајно брисање.
+
+        <b>Погледајте цео пакет Simple Tools овде:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Фејсбук:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

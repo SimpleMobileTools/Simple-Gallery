@@ -19,8 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:paddingLeft="@dimen/normal_margin"
         android:paddingStart="@dimen/normal_margin">
 
         <include layout="@layout/fastscroller_handle_vertical"/>
@@ -31,9 +29,8 @@
         android:id="@+id/media_horizontal_fastscroller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:paddingTop="@dimen/normal_margin">
 
         <include layout="@layout/fastscroller_handle_horizontal"/>

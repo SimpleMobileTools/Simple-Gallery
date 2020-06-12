@@ -6,9 +6,9 @@
     <string name="open_camera">Åbn kamera</string>
     <string name="hidden">(skjult)</string>
     <string name="excluded">(ekskluderet)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_folder">Fastgør mappe</string>
+    <string name="unpin_folder">Fjern fastgørelse af mappe</string>
+    <string name="pin_to_the_top">Fastgør til toppen</string>
     <string name="show_all">Vis indholdet af alle mapper</string>
     <string name="all_folders">Alle mapper</string>
     <string name="folder_view">Skift til mappevisning</string>
@@ -17,24 +17,37 @@
     <string name="unknown_location">Ukendt placering</string>
     <string name="increase_column_count">Flere kolonner</string>
     <string name="reduce_column_count">Færre kolonner</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
+    <string name="change_cover_image">Skift cover-billede</string>
+    <string name="select_photo">Vælg billede</string>
+    <string name="volume">Lydstyrke</string>
+    <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås orientering</string>
     <string name="unlock_orientation">Lås orientering op</string>
+    <string name="change_orientation">Skift orientering</string>
+    <string name="force_portrait">Tving portræt</string>
+    <string name="force_landscape">Tving landskab</string>
+    <string name="use_default_orientation">Brug standard orientering</string>
+    <string name="fix_date_taken">Fiks eksponeringsdato</string>
+    <string name="fixing">Fikser…</string>
+    <string name="dates_fixed_successfully">Datoer fikset med succes</string>
+    <string name="no_date_takens_found">Ingen eksponeringsdatoer er fundet</string>
+    <string name="share_resized">Del en skaleret version</string>
+    <string name="upgraded_from_free">Hej\n\nDet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \"Opgrader til Pro\"-knap i toppen af appens indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte din apps indstillinger.\n\nTak!</string>
+    <string name="switch_to_file_search">Skift til filsøgning på tværs af synlige mapper</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer medier</string>
     <string name="images">Billeder</string>
     <string name="videos">Videoer</string>
     <string name="gifs">GIF\'er</string>
+    <string name="raw_images">RAW-billeder</string>
+    <string name="svgs">SVG\'er</string>
+    <string name="portraits">Portrætter</string>
     <string name="no_media_with_filters">Der blev ikke fundet nogen filer med det valgte filter.</string>
     <string name="change_filters_underlined"><u>Skift filter</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Denne funktion skjuler mappen og dens eventueller undermapper ved at oprette en \'.nomedia\'-fil i den. Du kan se dem ved at klikke på \'Vis skjulte\' i indstillingerne. Fortsæt?</string>
+    <string name="hide_folder_description">Denne funktion skjuler mappen og dens eventuelle undermapper ved at oprette en \".nomedia\"-fil i den. Du kan se dem ved at klikke på \"Vis skjulte\" i indstillingerne. Fortsæt?</string>
     <string name="exclude">Ekskluder</string>
     <string name="excluded_folders">Ekskluderede mapper</string>
     <string name="manage_excluded_folders">Administrer ekskluderede mapper</string>
@@ -52,22 +65,23 @@
     <string name="manage_included_folders">Administrer inkluderede mapper</string>
     <string name="add_folder">Tilføj mappe</string>
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
+    <string name="no_media_add_included">Ingen mediefiler er fundet. Dette kan løses ved manuelt at tilføje mapper som indeholder mediefiler.</string>
 
     <!-- Resizing -->
     <string name="resize">Skaler</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize_and_save">Skaler valgte elementer og gem</string>
+    <string name="width">Bredde</string>
+    <string name="height">Højde</string>
+    <string name="keep_aspect_ratio">Bevar billedforhold</string>
+    <string name="invalid_values">Indtast en gyldig opløsning</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Gem</string>
     <string name="rotate">Roter</string>
-    <string name="path">Sti</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="image_editing_failed">Redigering af billede mislykkedes</string>
+    <string name="image_editing_cancelled">Billede redigering annulleret</string>
+    <string name="file_edited_successfully">Fil redigeret med succes</string>
     <string name="edit_image_with">Rediger billede med:</string>
     <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="unknown_file_location">Ukendt filplacering</string>
@@ -78,7 +92,8 @@
     <string name="flip">Spejlvend</string>
     <string name="flip_horizontally">Spejlvend vandret</string>
     <string name="flip_vertically">Spejlvend lodret</string>
-    <string name="edit_with">Rediger med</string>
+    <string name="free_aspect_ratio">Fri</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Andet</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -100,9 +115,12 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
-    <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">Ingen</string>
+    <string name="fade">Udton</string>
+    <string name="slide">Glid</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 
@@ -110,24 +128,35 @@
     <string name="change_view_type">Skift visning</string>
     <string name="grid">Gitter</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Gruppér direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Gruppér efter</string>
+    <string name="do_not_group_files">Gruppér ikke filer</string>
+    <string name="by_folder">Mappe</string>
+    <string name="by_last_modified">Sidst ændret</string>
+    <string name="by_last_modified_daily">Sidst ændret (daglig)</string>
+    <string name="by_last_modified_monthly">Sidst ændret (månedlig)</string>
+    <string name="by_date_taken">Eksponeringsdato</string>
+    <string name="by_date_taken_daily">Eksponeringsdato (daglig)</string>
+    <string name="by_date_taken_monthly">Eksponeringsdato (månedlig)</string>
+    <string name="by_file_type">Filtype</string>
+    <string name="by_extension">Filendelse</string>
+    <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Mappe vist på widget:</string>
+    <string name="show_folder_name">Vis mappenavn</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Afspil automatisk videoer</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="remember_last_video_position">Husk sidste position ved videoafspilning</string>
+    <string name="toggle_filename">Skift filnavnets synlighed</string>
     <string name="loop_videos">Kør videoer i sløjfe</string>
-    <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
+    <string name="animate_gifs">Animer GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
     <string name="crop_thumbnails">Beskær miniaturer til kvadrater</string>
+    <string name="show_thumbnail_video_duration">Vis varighed på video</string>
     <string name="screen_rotation_by">Roter fuldskærmsmedier efter</string>
     <string name="screen_rotation_system_setting">Systemindstilling</string>
     <string name="screen_rotation_device_rotation">Enhedens orientering</string>
@@ -137,59 +166,215 @@
     <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemets brugerflade ved fuldskærmsvisning af medier</string>
     <string name="delete_empty_folders">Slet tomme mapper efter sletning af deres indhold</string>
     <string name="allow_photo_gestures">Tillad kontrol af lysstyrke på billeder med lodrette bevægelser</string>
-    <string name="allow_video_gestures">Tillad kontrol af videolyd og lysstyrke med lodrette bevægelser</string>
+    <string name="allow_video_gestures">Tillad kontrol af lyd- og lysstyrke på videoer med lodrette bevægelser</string>
     <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
-    <string name="replace_share_with_rotate">Erstat Del med Roter i fuldskærmsmenuen</string>
     <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
-    <string name="replace_zoomable_images">Erstat stærkt zoombare billeder med nogle i bedre kvalitet</string>
+    <string name="allow_deep_zooming_images">Tillad dyb zooming af billeder</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
-    <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
+    <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
+    <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
+    <string name="deep_zoomable_images">Dybt zoombare billeder</string>
+    <string name="show_highest_quality">Vis billeder i den højst mulige kvalitet</string>
+    <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
+    <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
+    <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
+    <string name="open_videos_on_separate_screen">Åbn altid videoer på en separat skærm med nye vandrette bevægelser</string>
+    <string name="show_notch">Vis \"notch\" hvis tilgængelig</string>
+    <string name="allow_rotating_gestures">Tillad rotering af billeder med bevægelser</string>
+    <string name="file_loading_priority">Prioritering af filindlæsning</string>
+    <string name="speed">Hastighed</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Undgå at vise ugyldige filer</string>
+    <string name="show_image_file_types">Vis billeders filtyper</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Miniaturer</string>
+    <string name="fullscreen_media">Fuldskærmsmedier</string>
     <string name="extended_details">Flere oplysninger</string>
+    <string name="bottom_actions">Handlingsknapper</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Administrer synlige handlingsknapper</string>
+    <string name="toggle_favorite">Favorit</string>
+    <string name="toggle_file_visibility">Synlighed</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">Cancel</string>
+    <string name="pesdk_editor_accept">Accept</string>
+    <string name="pesdk_editor_save">Save</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_grayColor">Gray</string>
+    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
+    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_purpleColor">Purple</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">Hvordan kan jeg gøre Simple Gallery til min enheds standardgalleri?</string>
+    <string name="faq_1_text">Først skal du finde det nuværende standardgalleri, i Apps-sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
+        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standardapp.</string>
+    <string name="faq_2_title">Jeg har låst appen med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
+    <string name="faq_2_text">Du har to muligheder. Du kan enten geninstallere appen, eller finde den i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogen mediefiler.</string>
+    <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
+    <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnestift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
+    <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Hvad er forskellen på at skjule og ekskludere en mappe?</string>
+    <string name="faq_5_text">Eksludering forhindrer kun visning af mappen i Simple Gallery, mens Skjul virker på systemniveau og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette en tom \".nomedia\"-fil i den givne mappe, som du kan slette med enhver filhåndterings-app. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Hvorfor dukker mapper med musikomslag eller klistermærker op?</string>
+    <string name="faq_6_text">Det kan ske at du vil se nogle udsædvanlige albummmer. Du kan nemt ekskludere disse, ved at holde fingeren nede på disse og vælge Ekskluder. I den næste dialogboks kan du vælge den ovenliggende mappe, da andre relaterede albummer så sandsynligvis også vil blive forhindret i at blive vist.</string>
+    <string name="faq_7_title">En mappe med billeder dukker ikke op, eller den viser ikke alle elementer. Hvad kan jeg gøre?</string>
+    <string name="faq_7_text">Der kan være flere grunde, men en løsning er nem. Gå til Indstillinger -> Administrer inkluderede mapper, vælg plusset og naviger til mappen.</string>
+    <string name="faq_8_title">Hvad hvis jeg kun ønsker få et par bestemte mapper vist?</string>
+    <string name="faq_8_text">At tilføje en mappe ved de Inkluderede mapper, ekskluderer ikke automatisk alt. Det du kan gøre, er at gå til Indstillinger -> Adminsterer ekskluderede mapper, eksludere rodmappen \"/\", og så tilføje de ønskede mapper under Indstillinger -> Administrer inkluderede mapper.
+        Det vil kun gøre de valgte mapper synlige, da både ekskludering og inkludering virker reskursivt, og hvis en mappe både er ekskluderet og inkluderet, vil den blive vist.</string>
+    <string name="faq_10_title">Kan jeg beskære billeder med denne app?</string>
+    <string name="faq_10_text">Ja, du kan beskære billeder i editoren, ved at trække i billedets kanter. Du kan gå til editoren, ved enten at holde fingeren nede på et miniaturebillede og vælge Rediger, eller vælge Rediger fra fuldskærmsvisningen.</string>
+    <string name="faq_11_title">Kan jeg på en eller anden måde gruppere miniaturebilleder til mediefiler?</string>
+    <string name="faq_11_text">Sagtens, brug menupunktet \"Gruppér efter\", mens du ser miniaturebillederne. Du kan gruppere flere efter flere kriterier, inklusiv eksponeringsdato. Hvis du bruger funktionen \"Vis indholdet af alle mapper\", kan du også gruppere dem efter mapper.</string>
+    <string name="faq_12_title">Sortering efter eksponeringsdato ser ikke ud til at fungere. Hvordan kan jeg fikse det?</string>
+    <string name="faq_12_text">Det skyldes højst sandsynligt at filerne er kopieret fra et andet sted. Du kan fikse det ved at vælge filens miniature, og vælge \"Fiks eksponeringsdato\".</string>
+    <string name="faq_13_title">Jeg ser noget \"color banding\" på billederne. Hvordan kan jeg forbedre kvaliteten?</string>
+    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i appens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
+    <string name="faq_14_title">Jeg har en skjult fil/mappe. Hvordan kan jeg få den vist igen?</string>
+    <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i appens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\"-fil i dem, som du også kan slette med enhver filhåndterings-app.</string>
+    <string name="faq_15_title">Hvorfor fylder appen så meget?</string>
+    <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Billedhåndtering</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+        Simple Gallery Pro er et offline-galleri med mange tilpasningsmuligheder. Organiser og rediger dine billeder, gendan slettede filer via papirkurven, beskyt og skjul filer og se adskillige forskellige billed- og videoformater inklusiv RAW, SVG og mange flere.
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        Appen indeholder ingen reklamer og kræver ingen unødvendige tilladelser. Da den heller ikke kræver adgang til internettet, er dit privatliv også beskyttet.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FUNKTIONER</b>
+        -------------------------------------------------
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        • Offline galleri uden reklamer eller pop op\'er
+        • Simple gallerys billedbehandler – beskær, roter, tilpas størrelse, tegn, filtrer mm.
+        • Inget krav om internetadgang - en stor fordel for dit privatliv og din sikkerhed
+        • Ingen krav om unødvendige tilladelser
+        • Hurtig søgning efter billeder, videoer &amp; filer
+        • Åbn &amp; se mange forskellige foto- og videoformater (RAW, SVG, panoramic osv.)
+        • En række intuitive bevægelser til nem redigering og organisering af filer
+        • Mange muligheder for filtrering, gruppering og sortering af filer
+        • Tilpas udseendet af Simple Gallery Pro
+        • Tilgængelig på 32 sprog
+        • Marker filer som favoriter for hurtig adgang
+        • Beskyt dine billeder &amp; videoer med et mønster, pinkode eller fingeraftryk
+        • Brug mønster, pinkode eller fingeraftryk til beskyttelse af åbning af appen eller specifikke funktioner
+        • Gendan slettede billeder &amp; videoer via papirkurven
+        • Skift mellem vis/skjul filer for at skjule billeder &amp; videoer
+        • Opret et redigerbart slideshow med dine filer
+        • Se detaljeret information om dine filer (opløsning, EXIF-værdier osv.)
+        • Simple Gallery Pro er open source
+        … og meget mere!
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        <b>FOTOGALLERI - EDITOR</b>
+        Simple Gallery Pro gør det nemt at redigere dine billeder i en fart. Beskær, flip, roter og tilpas størrelsen på dine billeder. Føler du dig lidt mere kreativ, kan du tilføje filtre og tegne oveni dine billeder!
+
+        <b>UNDERSTØTTELSE AF MANGE FILTYPER</b>
+        I modsætning til mange andre gallerier supporterer Simple Gallery Pro en masse forskellige filtyper inklusiv JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic-foto, Panoramic-videoer og mange flere.
+
+        <b>GALLERI MED MASSER AF TILPASNINGSMULIGHEDER</b>
+        Simple Gallery Pro kan tilpasses lige fra brugerfladen til funktionsknapper på nederste værktøjslinje og fungere lige efter dit ønske. Inget andet galleri er så fleksibelt! Takket være at det er open sourse, er det også tilgængeligt på 32 sprog!
+
+        <b>GENDAN SLETTEDE BILLEDER &amp; VIDEOER</b>
+        Er du ved en fejl kommet til at slette et billede eller en video? Intet problem! Simple Gallery Pro har en handy papirkurv hvorfra du nemt kan gendanne slettede billeder &amp; videoer.
+
+        <b>BESKYT &amp; SKJUL FOTOS, VIDEOER &amp; FILER</b>
+        Du kan beskytte og skjule billeder, videoer og hele album med en pinkode, et mønster eller din enheds fingeraftryksscanner. Du kan også beskytte selve appen eller låse specifikke funktioner i appen. Du kan for eksempel låse sletning af en fil uden scanning af fingeraftryk og dermed beskytte filer mod at blive slettet ved en fejl.
+
+        <b>Se hele suiten af Simple Tools her:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

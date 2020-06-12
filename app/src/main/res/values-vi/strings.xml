@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Thư viện</string>
+    <string name="edit">Biên tập</string>
+    <string name="open_camera">Mở Camera</string>
+    <string name="hidden">(ẩn)</string>
+    <string name="excluded">(không bao gồm)</string>
+    <string name="pin_folder">Ghim thư mục</string>
+    <string name="unpin_folder">Bỏ ghim thư mục</string>
+    <string name="pin_to_the_top">Ghim lên đầu</string>
+    <string name="show_all">Hiển thị tất cả nội dung thư mục</string>
+    <string name="all_folders">Tất cả các thư mục</string>
+    <string name="folder_view">Chuyển sang xem thư mục</string>
+    <string name="other_folder">Thư mục khác</string>
+    <string name="show_on_map">Hiển thị trên bản đồ</string>
+    <string name="unknown_location">Vị trí không xác định</string>
+    <string name="increase_column_count">Tăng số lượng cột</string>
+    <string name="reduce_column_count">Giảm số lượng cột</string>
+    <string name="change_cover_image">Thay đổi ảnh bìa</string>
+    <string name="select_photo">Chọn ảnh</string>
+    <string name="volume">Âm lượng</string>
+    <string name="brightness">Độ sáng</string>
+    <string name="lock_orientation">Khóa xoay màn hình</string>
+    <string name="unlock_orientation">Mở khóa xoay</string>
+    <string name="change_orientation">Thay đổi hướng màn hình</string>
+    <string name="force_portrait">Bắt buộc dọc</string>
+    <string name="force_landscape">Bắt buộc ngang</string>
+    <string name="use_default_orientation">Sử dụng hướng mặc định</string>
+    <string name="fix_date_taken">Sửa giá trị ngày chụp</string>
+    <string name="fixing">Đang sửa…</string>
+    <string name="dates_fixed_successfully">Sửa ngày thành công</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Chia sẻ phiên bản đã thay đổi kích thước</string>
+    <string name="upgraded_from_free">Xin chào, có vẻ như bạn đã nâng cấp từ ứng dụng miễn phí cũ. Giờ đây, bạn có thể gỡ cài đặt phiên bản cũ có nút \'Nâng cấp lên Pro\' ở đầu Cài đặt ứng dụng. \n\nBạn sẽ chỉ xóa các mục Thùng rác, các mục yêu thích không được đánh dấu và bạn cũng sẽ phải đặt lại cài đặt ứng dụng của bạn.\n\nCảm ơn!</string>
+    <string name="switch_to_file_search">Chuyển sang tìm kiếm tệp trên tất cả các thư mục hiển thị</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Lọc</string>
+    <string name="images">Hình ảnh</string>
+    <string name="videos">Video</string>
+    <string name="gifs">Ảnh GIF</string>
+    <string name="raw_images">Ảnh RAW</string>
+    <string name="svgs">SVGs</string>
+    <string name="portraits">Chân dung</string>
+    <string name="no_media_with_filters">Không có tập tin phương tiện nào được tìm thấy với các bộ lọc được chọn.</string>
+    <string name="change_filters_underlined"><u>Thay đổi bộ lọc</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Chức năng này ẩn thư mục bằng cách thêm tệp \'.nomedia\' vào nó, nó cũng sẽ ẩn tất cả các thư mục con. Bạn có thể nhìn thấy chúng bằng cách bật tùy chọn \'Hiển thị các mục bị ẩn\' trong Cài đặt. Tiếp tục?</string>
+    <string name="exclude">Loại trừ</string>
+    <string name="excluded_folders">Các thư mục bị loại trừ</string>
+    <string name="manage_excluded_folders">Quản lý các thư mục loại trừ</string>
+    <string name="exclude_folder_description">Điều này sẽ loại trừ lựa chọn cùng với các thư mục con của nó khỏi Simple Gallery. Bạn có thể quản lý các thư mục loại trừ trong Cài đặt.</string>
+    <string name="exclude_folder_parent">Loại trừ thư mục mẹ thay thế?</string>
+    <string name="excluded_activity_placeholder">Các thư mục loại trừ sẽ làm cho chúng cùng với các thư mục con của chúng bị ẩn chỉ trong Simple Gallery, chúng vẫn sẽ hiển thị trong các ứng dụng khác.\n\nNếu bạn cũng muốn ẩn chúng khỏi các ứng dụng khác, hãy sử dụng chức năng Ẩn.</string>
+    <string name="remove_all">Xóa tất cả</string>
+    <string name="remove_all_description">Xóa tất cả các thư mục khỏi danh sách loại trừ? Điều này sẽ không xóa các thư mục.</string>
+    <string name="hidden_folders">Các thư mục ẩn</string>
+    <string name="manage_hidden_folders">Quản lý thư mục ẩn</string>
+    <string name="hidden_folders_placeholder">Có vẻ như bạn không có bất kỳ thư mục nào bị ẩn với tệp \".nomedia\".</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Bao gồm các thư mục</string>
+    <string name="manage_included_folders">Quản lý các thư mục được bao gồm</string>
+    <string name="add_folder">Thêm thư mục</string>
+    <string name="included_activity_placeholder">Nếu bạn có một số thư mục chứa tập tin phương tiện, nhưng ứng dụng không nhận ra, bạn có thể thêm chúng theo cách thủ công tại đây. \n\nThêm một số mục ở đây sẽ không loại trừ bất kỳ thư mục nào khác.</string>
+    <string name="no_media_add_included">Không có tập tin phương tiện được tìm thấy. Bạn có thể thêm các thư mục chứa tệp phương tiện theo cách thủ công.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Thay đổi kích thước</string>
+    <string name="resize_and_save">Thay đổi kích thước mục đã chọn và lưu</string>
+    <string name="width">Chiều rộng</string>
+    <string name="height">Chiều cao</string>
+    <string name="keep_aspect_ratio">Giữ tỷ lệ khung hình</string>
+    <string name="invalid_values">Vui lòng nhập độ phân giải hợp lệ</string>
+
+    <!-- Editor -->
+    <string name="editor">Trình biên tập</string>
+    <string name="rotate">Xoay</string>
+    <string name="invalid_image_path">Đường dẫn hình ảnh không hợp lệ</string>
+    <string name="image_editing_failed">Thất bại</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">Tập tin được chỉnh sửa thành công</string>
+    <string name="edit_image_with">Chỉnh sửa hình ảnh với:</string>
+    <string name="no_editor_found">Không tìm thấy trình chỉnh sửa hình ảnh</string>
+    <string name="unknown_file_location">Vị trí tệp không xác định</string>
+    <string name="error_saving_file">Không thể ghi đè tệp nguồn</string>
+    <string name="rotate_left">Xoay trái</string>
+    <string name="rotate_right">Xoay phải</string>
+    <string name="rotate_one_eighty">Xoay 180 độ</string>
+    <string name="flip">Lật</string>
+    <string name="flip_horizontally">Lật theo chiều ngang</string>
+    <string name="flip_vertically">Lật theo chiều dọc</string>
+    <string name="free_aspect_ratio">Tự do</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Khác</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Hình nền</string>
+    <string name="set_as_wallpaper">Cài làm hình nền</string>
+    <string name="set_as_wallpaper_failed">Thất bại</string>
+    <string name="set_as_wallpaper_with">Đặt làm hình nền với:</string>
+    <string name="setting_wallpaper">Cài đặt hình nền&#8230;</string>
+    <string name="wallpaper_set_successfully">Đặt hình nền thành công</string>
+    <string name="portrait_aspect_ratio">Tỷ lệ khung hình dọc</string>
+    <string name="landscape_aspect_ratio">Tỷ lệ khung hình ngang</string>
+    <string name="home_screen">Màn hình chính</string>
+    <string name="lock_screen">Màn hình khóa</string>
+    <string name="home_and_lock_screen">Màn hình chính và khóa</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Trình chiếu</string>
+    <string name="interval">Khoảng thời gian (giây):</string>
+    <string name="include_photos">Bao gồm hình ảnh</string>
+    <string name="include_videos">Bao gồm video</string>
+    <string name="include_gifs">Bao gồm ảnh GIF</string>
+    <string name="random_order">Thứ tự ngẫu nhiên</string>
+    <string name="move_backwards">Lùi lại</string>
+    <string name="loop_slideshow">Trình chiếu theo vòng lặp</string>
+    <string name="animation">Hiệu ứng</string>
+    <string name="no_animation">Không</string>
+    <string name="fade">Phai màu</string>
+    <string name="slide">Trượt</string>
+    <string name="slideshow_ended">Trình chiếu kết thúc</string>
+    <string name="no_media_for_slideshow">Không có tập tin phương tiện cho trình chiếu được tìm thấy</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Thay đổi kiểu xem</string>
+    <string name="grid">Lưới</string>
+    <string name="list">Danh sách</string>
+    <string name="group_direct_subfolders">Nhóm thư mục con trực tiếp</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Nhóm theo</string>
+    <string name="do_not_group_files">Không nhóm các tệp</string>
+    <string name="by_folder">Thư mục</string>
+    <string name="by_last_modified">Sửa đổi lần cuối</string>
+    <string name="by_last_modified_daily">Sửa đổi lần cuối (hàng ngày)</string>
+    <string name="by_last_modified_monthly">Sửa đổi lần cuối (hàng tháng)</string>
+    <string name="by_date_taken">Ngày chụp</string>
+    <string name="by_date_taken_daily">Ngày chụp (hàng ngày)</string>
+    <string name="by_date_taken_monthly">Ngày chụp (hàng tháng)</string>
+    <string name="by_file_type">Loại tệp</string>
+    <string name="by_extension">Phần mở rộng</string>
+    <string name="grouping_and_sorting">Xin lưu ý rằng Nhóm và Sắp xếp là 2 trường độc lập</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Thư mục hiển thị trên widget:</string>
+    <string name="show_folder_name">Hiển thị tên thư mục</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Phát video tự động</string>
+    <string name="remember_last_video_position">Ghi nhớ vị trí phát video cuối cùng</string>
+    <string name="toggle_filename">Chuyển đổi khả năng hiển thị tên tệp</string>
+    <string name="loop_videos">Tự động phát video đầu khi hết video cuối</string>
+    <string name="animate_gifs">GIF động tại hình thu nhỏ</string>
+    <string name="max_brightness">Độ sáng tối đa khi xem tập tin phương tiện toàn màn hình</string>
+    <string name="crop_thumbnails">Cắt hình thu nhỏ thành hình vuông</string>
+    <string name="show_thumbnail_video_duration">Hiển thị thời lượng video</string>
+    <string name="screen_rotation_by">Xoay tập tin toàn màn hình theo</string>
+    <string name="screen_rotation_system_setting">Thiết lập hệ thống</string>
+    <string name="screen_rotation_device_rotation">Hướng xoay của thiết bị</string>
+    <string name="screen_rotation_aspect_ratio">Tỷ lệ khung hình</string>
+    <string name="black_background_at_fullscreen">Nền đen khi xem toàn màn hình</string>
+    <string name="scroll_thumbnails_horizontally">Cuộn hình thu nhỏ theo chiều ngang</string>
+    <string name="hide_system_ui_at_fullscreen">Tự động ẩn giao diện người dùng hệ thống khi xem toàn màn hình</string>
+    <string name="delete_empty_folders">Xóa các thư mục trống sau khi xóa nội dung của chúng</string>
+    <string name="allow_photo_gestures">Cho phép kiểm soát độ sáng của ảnh bằng cách vuốt dọc màn hình</string>
+    <string name="allow_video_gestures">Cho phép kiểm soát âm lượng và độ sáng của video bằng cách vuốt dọc màn hình</string>
+    <string name="show_media_count">Hiển thị số thư mục trên giao diện chính</string>
+    <string name="show_extended_details">Hiển thị chi tiết mở rộng khi xem toàn màn hình</string>
+    <string name="manage_extended_details">Quản lý chi tiết mở rộng</string>
+    <string name="one_finger_zoom">Cho phép thu phóng một ngón tay khi xem toàn màn hình</string>
+    <string name="allow_instant_change">Cho phép chuyển tiếp ngay lập tức bằng cách nhấp vào các cạnh màn hình</string>
+    <string name="allow_deep_zooming_images">Cho phép phóng to hình ảnh sâu</string>
+    <string name="hide_extended_details">Ẩn chi tiết mở rộng khi thanh trạng thái bị ẩn</string>
+    <string name="show_at_bottom">Hiển thị một số nút chức năng ở dưới cùng của màn hình</string>
+    <string name="show_recycle_bin">Hiển thị Thùng rác tại màn hình thư mục</string>
+    <string name="deep_zoomable_images">Hình ảnh có thể phóng to</string>
+    <string name="show_highest_quality">Hiển thị hình ảnh với chất lượng cao nhất có thể</string>
+    <string name="show_recycle_bin_last">Hiển thị Thùng rác là mục cuối cùng trên màn hình chính</string>
+    <string name="allow_down_gesture">Cho phép đóng chế độ xem toàn màn hình bằng cách vuốt xuống</string>
+    <string name="allow_one_to_one_zoom">Cho phép phóng to 1:1 với hai lần nháy đúp</string>
+    <string name="open_videos_on_separate_screen">Luôn mở video trên một màn hình riêng biệt bằng cử chỉ ngang mới</string>
+    <string name="show_notch">Hiển thị màn hình chữ V nếu có</string>
+    <string name="allow_rotating_gestures">Cho phép xoay hình ảnh bằng cử chỉ</string>
+    <string name="file_loading_priority">Ưu tiên tải tệp</string>
+    <string name="speed">Tốc độ</string>
+    <string name="compromise">Thỏa hiệp</string>
+    <string name="avoid_showing_invalid_files">Tránh hiển thị các tệp không hợp lệ</string>
+    <string name="show_image_file_types">Hiển thị các loại tệp hình ảnh</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Hình thu nhỏ</string>
+    <string name="fullscreen_media">Toàn màn hình</string>
+    <string name="extended_details">Chi tiết mở rộng</string>
+    <string name="bottom_actions">Hành động dưới cùng</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Quản lý các hành động dưới cùng có thể nhìn thấy</string>
+    <string name="toggle_favorite">Yêu thích</string>
+    <string name="toggle_file_visibility">Ẩn/bỏ ẩn</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Tùy chỉnh</string>
+    <string name="pesdk_transform_button_resetCrop">Cài lại</string>
+    <string name="pesdk_transform_button_squareCrop">Hình vuông</string>
+    <string name="pesdk_transform_title_name">Biến đổi</string>
+    <string name="pesdk_filter_title_name">Bộ lọc</string>
+    <string name="pesdk_filter_asset_none">Không</string>
+    <string name="pesdk_adjustments_title_name">Điều chỉnh</string>
+    <string name="pesdk_adjustments_button_shadowTool">Đổ bóng</string>
+    <string name="pesdk_adjustments_button_exposureTool">Phơi sáng</string>
+    <string name="pesdk_adjustments_button_highlightTool">Làm nổi bật</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Độ sáng</string>
+    <string name="pesdk_adjustments_button_contrastTool">Tương phản</string>
+    <string name="pesdk_adjustments_button_saturationTool">Độ bão hòa</string>
+    <string name="pesdk_adjustments_button_clarityTool">Sáng sủa</string>
+    <string name="pesdk_adjustments_button_gammaTool">Đồ thị gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Đen</string>
+    <string name="pesdk_adjustments_button_whitesTool">Trắng</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Nhiệt độ</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Độ sắc nét</string>
+    <string name="pesdk_adjustments_button_reset">Đặt lại</string>
+    <string name="pesdk_focus_title_name">Tiêu điểm</string>
+    <string name="pesdk_focus_title_disabled">Không</string>
+    <string name="pesdk_focus_button_radial">Xuyên tâm</string>
+    <string name="pesdk_focus_button_linear">Tuyến tính</string>
+    <string name="pesdk_focus_button_mirrored">Nhân đôi</string>
+    <string name="pesdk_focus_button_gaussian">Đường cong gauss</string>
+    <string name="pesdk_text_title_name">Văn bản</string>
+    <string name="pesdk_text_title_options">Tùy chọn văn bản</string>
+    <string name="pesdk_text_title_textColor">Màu văn bản</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Thêm</string>
+    <string name="pesdk_text_button_edit">Biên tập</string>
+    <string name="pesdk_text_button_straighten">Duỗi thẳng</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Màu sắc</string>
+    <string name="pesdk_text_button_backgroundColor">Màu BG</string>
+    <string name="pesdk_text_button_alignment">Căn chỉnh</string>
+    <string name="pesdk_text_button_bringToFront">Lên trước</string>
+    <string name="pesdk_text_button_delete">Xóa</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Văn bản của bạn</string>
+    <string name="pesdk_brush_title_name">Cọ vẽ</string>
+    <string name="pesdk_brush_button_color">Màu sắc</string>
+    <string name="pesdk_brush_button_size">Kích thước</string>
+    <string name="pesdk_brush_button_hardness">Độ đậm</string>
+    <string name="pesdk_brush_button_bringToFront">Lên trước</string>
+    <string name="pesdk_brush_button_delete">Xóa bỏ</string>
+    <string name="pesdk_brush_title_brushColor">Màu cọ</string>
+    <string name="pesdk_editor_title_name">Trình biên tập</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Đóng trình biên tập?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Bạn có thực sự muốn loại bỏ hình ảnh?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Có</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Không</string>
+    <string name="pesdk_editor_cancel">Hủy bỏ</string>
+    <string name="pesdk_editor_accept">Chấp nhận</string>
+    <string name="pesdk_editor_save">Lưu</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Xuất hình ảnh…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Xuất hình ảnh %s.</string>
+    <string name="pesdk_common_button_flipH">Lật H</string>
+    <string name="pesdk_common_button_flipV">Lật V</string>
+    <string name="pesdk_common_button_undo">Hoàn tác</string>
+    <string name="pesdk_common_button_redo">Lui lại</string>
+    <string name="pesdk_common_title_colorPicker">Bộ chọn màu</string>
+    <string name="pesdk_common_title_transparentColor">Trong suốt</string>
+    <string name="pesdk_common_title_whiteColor">Trắng</string>
+    <string name="pesdk_common_title_grayColor">Xám</string>
+    <string name="pesdk_common_title_blackColor">Đen</string>
+    <string name="pesdk_common_title_lightBlueColor">Màu xanh nhạt</string>
+    <string name="pesdk_common_title_blueColor">Màu xanh da trời</string>
+    <string name="pesdk_common_title_purpleColor">Màu tím</string>
+    <string name="pesdk_common_title_orchidColor">màu hoa lan</string>
+    <string name="pesdk_common_title_pinkColor">Hồng</string>
+    <string name="pesdk_common_title_redColor">Đỏ</string>
+    <string name="pesdk_common_title_orangeColor">Cam</string>
+    <string name="pesdk_common_title_goldColor">Vàng kim</string>
+    <string name="pesdk_common_title_yellowColor">Màu vàng</string>
+    <string name="pesdk_common_title_oliveColor">Xanh ô-liu</string>
+    <string name="pesdk_common_title_greenColor">Xanh lá</string>
+    <string name="pesdk_common_title_aquamarinColor">Xanh ngọc nước biển</string>
+    <string name="pesdk_common_title_pipettableColor">Màu sắc dễ thương</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Làm thế nào để đặt Simple Gallery thành thư viện mặc định?</string>
+    <string name="faq_1_text">Trước tiên, bạn phải tìm thư viện hiện tại mặc định trong phần Ứng dụng trong Cài đặt thiết bị của bạn, tìm nút có nội dung như \"Mở theo mặc định\", nhấp vào đó, sau đó chọn \"Xóa mặc định\".
+         Lần tới, bạn hãy thử mở một hình ảnh hoặc video, bạn sẽ thấy một bộ chọn ứng dụng, nơi bạn có thể chọn Simple Gallery và biến nó thành ứng dụng mặc định.</string>
+    <string name="faq_2_title">Tôi đã khóa ứng dụng bằng mật khẩu, nhưng tôi quên mất. Tôi có thể làm gì?</string>
+    <string name="faq_2_text">Bạn có thể giải quyết nó theo 2 cách. Bạn có thể cài đặt lại ứng dụng hoặc tìm ứng dụng trong cài đặt thiết bị của mình và chọn \"Xóa dữ liệu\". Nó sẽ thiết lập lại tất cả các cài đặt của bạn, nó sẽ không xóa bất kỳ tập tin phương tiện nào.</string>
+    <string name="faq_3_title">Làm thế nào tôi có thể làm cho một album luôn xuất hiện ở đầu?</string>
+    <string name="faq_3_text">Bạn có thể nhấn và giữ album mong muốn và chọn biểu tượng Ghim ở menu hành động, nó sẽ ghim nó lên trên cùng. Bạn cũng có thể ghim nhiều thư mục, các mục được ghim sẽ được sắp xếp theo phương pháp sắp xếp mặc định.</string>
+    <string name="faq_4_title">Làm cách nào tôi có tua video nhanh?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Sự khác biệt giữa ẩn và loại trừ một thư mục là gì?</string>
+    <string name="faq_5_text">Loại trừ ngăn chỉ hiển thị thư mục trong Thư viện đơn giản, trong khi Ẩn hoạt động theo hệ thống và nó cũng ẩn thư mục khỏi các phòng trưng bày khác. Nó hoạt động bằng cách tạo một tệp \".nomedia\" trong thư mục đã cho, sau đó bạn cũng có thể xóa bằng bất kỳ trình quản lý tệp nào. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Tại sao hiển thị các thư mục với ảnh bìa  hoặc nhãn dán?</string>
+    <string name="faq_6_text">Nó có thể xảy ra rằng bạn sẽ thấy một số album bất thường xuất hiện. Bạn có thể dễ dàng loại trừ chúng bằng cách nhấn  giữ và chọn Loại trừ. Trong hộp thoại tiếp theo bạn có thể chọn thư mục mẹ sau đó, rất có thể nó sẽ ngăn các album liên quan khác xuất hiện.</string>
+    <string name="faq_7_title">Một thư mục chứa hình ảnh không hiển thị hoặc không hiển thị tất cả các mục. Tôi có thể làm gì?</string>
+    <string name="faq_7_text">Điều đó có thể có nhiều lý do, nhưng giải quyết nó là dễ dàng. Chỉ cần vào Cài đặt -> Quản lý các thư mục được bao gồm, chọn Thêm và điều hướng đến thư mục cần thiết.</string>
+    <string name="faq_8_title">Nếu tôi chỉ muốn một vài thư mục cụ thể hiển thị thì sao?</string>
+    <string name="faq_8_text">Thêm thư mục tại Thư mục được bao gồm sẽ không tự động loại trừ bất cứ điều gì. Những gì bạn có thể làm là vào Cài đặt -> Quản lý các thư mục bị loại trừ, loại trừ thư mục gốc \"/\", sau đó thêm các thư mục mong muốn tại Cài đặt -> Quản lý các thư mục được bao gồm.
+         Điều đó sẽ chỉ hiển thị các thư mục đã chọn, vì cả loại trừ và bao gồm đều được đệ quy và nếu một thư mục được loại trừ và bao gồm, nó sẽ hiển thị.</string>
+    <string name="faq_10_title">Tôi có thể cắt hình ảnh với ứng dụng này không?</string>
+    <string name="faq_10_text">Có, bạn có thể cắt hình ảnh trong trình chỉnh sửa, bằng cách kéo các góc hình ảnh. Bạn có thể truy cập trình chỉnh sửa bằng cách nhấn và thu nhỏ hình ảnh và chọn Chỉnh sửa hoặc chọn Chỉnh sửa từ chế độ xem toàn màn hình.</string>
+    <string name="faq_11_title">Tôi có thể bằng cách nào đó nhóm hình thu nhỏ tập tin phương tiện không?</string>
+    <string name="faq_11_text">Được chứ, chỉ cần sử dụng mục menu \"Nhóm theo\" trong khi ở chế độ xem hình thu nhỏ. Bạn có thể nhóm các tệp theo nhiều tiêu chí, bao gồm cả Ngày chụp. Nếu bạn sử dụng chức năng \"Hiển thị tất cả các nội dung thư mục\", bạn cũng có thể nhóm chúng theo các thư mục.</string>
+    <string name="faq_12_title">Sắp xếp theo ngày chụp dường như không hoạt động đúng, làm thế nào tôi có thể sửa nó?</string>
+    <string name="faq_12_text">Rất có thể là do các tệp được sao chép từ đâu đó. Bạn có thể sửa nó bằng cách chọn hình thu nhỏ của tệp và chọn \"Sửa giá trị ngày chụp\".</string>
+    <string name="faq_13_title">Tôi thấy một số dải màu trên hình ảnh. Làm thế nào tôi có thể cải thiện chất lượng?</string>
+    <string name="faq_13_text">Giải pháp hiện tại để hiển thị hình ảnh hoạt động tốt trong phần lớn các trường hợp, nhưng nếu bạn muốn chất lượng hình ảnh tốt hơn nữa, bạn có thể bật \"Hiển thị hình ảnh ở chất lượng cao nhất có thể\" ở cài đặt ứng dụng, trong phần \"Hình ảnh có thể phóng to sâu\".</string>
+    <string name="faq_14_title">Tôi đã ẩn một tập tin/thư mục. Làm thế nào tôi có thể bỏ ẩn nó?</string>
+    <string name="faq_14_text">Bạn có thể nhấn mục menu \"Tạm thời hiển thị các mục bị ẩn\" ở màn hình chính hoặc chuyển đổi \"Hiển thị các mục bị ẩn\" trong Cài đặt ứng dụng để xem mục bị ẩn. Nếu bạn muốn bỏ ẩn nó, chỉ cần nhấn và giữ \"Bỏ ẩn\". Các thư mục được ẩn bằng cách thêm tệp ẩn \".nomedia\" vào chúng, bạn cũng có thể xóa tệp bằng bất kỳ trình quản lý tệp nào.</string>
+    <string name="faq_15_title">Tại sao ứng dụng chiếm quá nhiều dung lượng ?</string>
+    <string name="faq_15_text">Bộ nhớ cache ứng dụng có thể mất tới 250MB, nó đảm bảo tải hình ảnh nhanh hơn. Nếu ứng dụng chiếm nhiều dung lượng hơn, rất có thể là do bạn có nhiều mục trong Thùng rác. Những tập tin đó được tính vào kích thước ứng dụng. Bạn có thể xóa thùng rác bằng cách mở nó và xóa tất cả các tệp hoặc từ Cài đặt ứng dụng. Mọi tệp trong Thùng rác sẽ tự động bị xóa sau 30 ngày.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Trình quản lý ảnh &amp; biên tập</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_long_description">
+        Simple Gallery Pro là một bộ sưu tập ngoại tuyến có khả năng tùy biến cao. Tổ chức &amp; chỉnh sửa ảnh của bạn, khôi phục các tệp đã xóa bằng thùng rác, bảo vệ &amp; ẩn các tệp và xem được nhiều định dạng ảnh &amp; video bao gồm RAW, SVG và nhiều hơn nữa.    
+        Ứng dụng này không chứa quảng cáo và các quyền không cần thiết. Vì ứng dụng không có yêu cầu truy cập internet, quyền riêng tư của bạn sẽ được bảo vệ.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – TÍNH NĂNG</b>
+        -------------------------------------------------
+
+       • Thư viện ngoại tuyến không có quảng cáo hoặc popups  
+
+       • Trình chỉnh sửa ảnh thư viện đơn giản - cắt, xoay, thay đổi kích thước, vẽ, lọc &amp; hơn nữa
+
+       • Không cần truy cập internet, mang lại cho bạn sự riêng tư và bảo mật hơn
+
+       • Không cần quyền không cần thiết  
+
+       • Nhanh chóng tìm kiếm hình ảnh, video &amp; các tập tin
+       
+       • Mở &amp; xem nhiều loại ảnh và video khác nhau (RAW, SVG, toàn cảnh, v.v.)    
+
+       • Một loạt các cử chỉ trực quan để dễ dàng chỉnh sửa &amp; tổ chức tập tin
+
+       • Rất nhiều cách để lọc, nhóm &amp; sắp xếp tập tin
+
+       • Tùy chỉnh giao diện của Simple Gallery Pro   
+
+       • Có sẵn trong 32 ngôn ngữ   
+
+       • Đánh dấu các tập tin là mục yêu thích để truy cập nhanh
+
+       • Bảo vệ ảnh của bạn &amp; video có mẫu hình, pin hoặc dấu vân tay    
+
+       • Sử dụng pin, mẫu hình &amp; dấu vân tay để bảo vệ khởi chạy ứng dụng hoặc các chức năng cụ thể
+
+       • Khôi phục ảnh đã xóa &amp; video từ thùng rác    
+
+       • Chuyển đổi khả năng hiển thị của các tệp để ẩn ảnh &amp; video   
+
+       • Tạo một slideshow tùy biến các tập tin của bạn
+
+       • Xem thông tin chi tiết về các tập tin của bạn (độ phân giải, giá trị EXIF, v.v.)
+
+       • Simple Gallery Pro là mã nguồn mở
+
+         Nhiều và nhiều hơn nữa!
+
+        <b>TRÌNH BIÊN TẬP ẢNH</b>
+        Simple Gallery Pro giúp bạn dễ dàng chỉnh sửa ảnh của mình một cách nhanh chóng. Cắt, lật, xoay và thay đổi kích thước hình ảnh của bạn. Nếu bạn cảm thấy sáng tạo hơn một chút, bạn có thể thêm các bộ lọc và vẽ lên hình ảnh của mình!
+
+        <b>HỖ TRỢ NHIỀU ĐỊNH DẠNG FILE</b>
+        Không giống như một số Trình xem thư viện khác &amp; Trình tổ chức ảnh, Simple Gallery Pro hỗ trợ rất nhiều loại tệp khác nhau bao gồm JPEG, PNG, MP4, MKV, RAW, SVG, Ảnh toàn cảnh, Video toàn cảnh và nhiều loại khác.
+
+        <b>TRÌNH QUẢN LÝ THƯ VIỆN TÙY BIẾN CAO</b>
+        Từ giao diện người dùng đến các nút chức năng trên thanh công cụ dưới cùng, Simple Gallery Pro có khả năng tùy biến cao và hoạt động theo cách bạn muốn. Không có trình quản lý thư viện nào khác có sự linh hoạt này! Nhờ nguồn mở, chúng tôi cũng có sẵn trong 32 ngôn ngữ!
+
+        <b>PHỤC HỒI ẢNH  &amp; VIDEO ĐÃ BỊ XÓA</b>
+        Vô tình xóa một bức ảnh hoặc video quý giá? Hãy lo lắng! Simple Gallery Pro có thùng rác tiện dụng, nơi bạn có thể khôi phục ảnh &amp; video đã xóa dễ dàng.
+
+        <b>BẢO VỆ &amp; ẨN ẢNH ,VIDEO &amp; TỆP</b>
+        Sử dụng Mã pin, mẫu hình hoặc vân tay của bạn, bạn có thể bảo vệ và ẩn ảnh, video &amp; toàn bộ album. Bạn có thể tự bảo vệ ứng dụng hoặc đặt khóa trên các chức năng cụ thể của ứng dụng. Ví dụ, bạn không thể xóa một tập tin mà chưa quét dấu vân tay, giúp bảo vệ các tập tin của bạn khỏi bị xóa do vô tình.
+
+        <b>Kiểm tra bộ công cụ Simple đầy đủ tại đây:</b>
+        https://www.simplemobiletools.com
+
+        <b>Website của Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

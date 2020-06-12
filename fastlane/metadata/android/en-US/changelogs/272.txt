@@ -1,0 +1,6 @@
+ * Remember the last used pattern at batch renaming
+ * Allow adding an incrementing number at pattern batch renaming
+ * Fixed some USB file related issues
+ * Fixed some fullscreen glitches at using split screen
+ * Allow using videos as custom folder covers
+ * Some stability and translation improvements

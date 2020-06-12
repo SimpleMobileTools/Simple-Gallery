@@ -3,8 +3,13 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_delete"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_properties"
+        android:icon="@drawable/ic_info"
+        android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_pin"
@@ -17,13 +22,8 @@
         android:title="@string/unpin_folder"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/cab_properties"
-        android:icon="@drawable/ic_info"
-        android:title="@string/properties"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/cab_rename"
-        android:icon="@drawable/ic_rename"
+        android:icon="@drawable/ic_rename_new"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
@@ -33,13 +33,9 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
-        android:icon="@drawable/ic_unhide"
+        android:icon="@drawable/ic_unhide_vector"
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/cab_exclude"
-        android:title="@string/exclude"
-        app:showAsAction="never"/>
     <item
         android:id="@+id/cab_copy_to"
         android:title="@string/copy_to"
@@ -49,10 +45,29 @@
         android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/cab_select_all"
-        android:icon="@drawable/ic_select_all"
-        android:title="@string/select_all"
-        app:showAsAction="ifRoom"/>
+        android:id="@+id/cab_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_empty_recycle_bin"
+        android:title="@string/empty_recycle_bin"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_empty_disable_recycle_bin"
+        android:title="@string/empty_and_disable_recycle_bin"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_exclude"
+        android:title="@string/exclude"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_lock"
+        android:title="@string/lock_folder"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_unlock"
+        android:title="@string/unlock_folder"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/cab_change_cover_image"
         android:title="@string/change_cover_image"
@@ -66,4 +81,9 @@
                 android:title="@string/use_default"/>
         </menu>
     </item>
+    <item
+        android:id="@+id/cab_select_all"
+        android:icon="@drawable/ic_select_all_vector"
+        android:title="@string/select_all"
+        app:showAsAction="ifRoom"/>
 </menu>

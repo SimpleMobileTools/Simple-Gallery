@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galeri</string>
+    <string name="edit">Sunting</string>
+    <string name="open_camera">Buka kamera</string>
+    <string name="hidden">(tersembunyi)</string>
+    <string name="excluded">(dikecualikan)</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Lepas pin folder</string>
+    <string name="pin_to_the_top">Pin ke atas</string>
+    <string name="show_all">Tampilkan semua isi folder</string>
+    <string name="all_folders">Semua folder</string>
+    <string name="folder_view">Beralih ke tampilan folder</string>
+    <string name="other_folder">Folder lainnya</string>
+    <string name="show_on_map">Tampilkan di peta</string>
+    <string name="unknown_location">Lokasi tidak diketahui</string>
+    <string name="increase_column_count">Tambah jumlah kolom</string>
+    <string name="reduce_column_count">Kurangi jumlah kolom</string>
+    <string name="change_cover_image">Ubah gambar kover</string>
+    <string name="select_photo">Pilih foto</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Kecerahan</string>
+    <string name="lock_orientation">Kunci orientasi</string>
+    <string name="unlock_orientation">Buka kunci orientasi</string>
+    <string name="change_orientation">Ubah orientasi</string>
+    <string name="force_portrait">Paksa potret</string>
+    <string name="force_landscape">Paksa lanskap</string>
+    <string name="use_default_orientation">Gunakan orientasi default</string>
+    <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
+    <string name="fixing">Memperbaiki…</string>
+    <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
+    <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
+    <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Gambar</string>
+    <string name="videos">Video</string>
+    <string name="gifs">GIF</string>
+    <string name="raw_images">Gambar RAW</string>
+    <string name="svgs">SVG</string>
+    <string name="portraits">Potret</string>
+    <string name="no_media_with_filters">Tidak ditemukan berkas media yang sesuai dengan filter ini.</string>
+    <string name="change_filters_underlined"><u>Ubah filter</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Fungsi ini menyembunyikan folder dengan menambahkan berkas \'.nomedia\' ke dalamnya, juga akan menyembunyikan semua subfoldernya. Anda bisa melihatnya dengan mengaktifkan opsi \'Tampilkan berkas tersembunyi\' di Pengaturan. Lanjutkan?</string>
+    <string name="exclude">Kecualikan</string>
+    <string name="excluded_folders">Folder yang dikecualikan</string>
+    <string name="manage_excluded_folders">Kelola folder yang dikecualikan</string>
+    <string name="exclude_folder_description">Ini akan mengecualikan folder yang dipilih dan seluruh subfoldernya hanya di Simple Gallery. Anda bisa mengelola folder yang dikecualikan di Pengaturan.</string>
+    <string name="exclude_folder_parent">Kecualikan folder induk?</string>
+    <string name="excluded_activity_placeholder">Mengecualikan folder akan menyembunyikan folder tersebut dan seluruh subfoldernya hanya di Simple Gallery, namun masih bisa dilihat di aplikasi lain.\n\nJika anda ingin menyembunyikannya dari aplikasi lain juga, gunakan fitur Sembunyikan.</string>
+    <string name="remove_all">Buang semua</string>
+    <string name="remove_all_description">Buang semua folder dari daftar pengecualian? Ini tidak akan menghapus folder tersebut.</string>
+    <string name="hidden_folders">Folder tersembunyi</string>
+    <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
+    <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Folder yang disertakan</string>
+    <string name="manage_included_folders">Kelola folder yang disertakan</string>
+    <string name="add_folder">Tambah folder</string>
+    <string name="included_activity_placeholder">Jika ada folder yang berisi berkas media namun tidak dikenali oleh aplikasi ini, anda bisa menambahkannya secara manual.\n\nMenambahkan beberapa item di sini tidak akan mengecualikan folder yang lain.</string>
+    <string name="no_media_add_included">Tidak ada berkas media yang ditemukan. Anda bisa memperbaikinya dengan menambahkan folder yang berisi berkas media secara manual.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Ubah ukuran</string>
+    <string name="resize_and_save">Ubah ukuran dan simpan</string>
+    <string name="width">Lebar</string>
+    <string name="height">Tinggi</string>
+    <string name="keep_aspect_ratio">Jaga aspek rasio</string>
+    <string name="invalid_values">Silakan masukkan resolusi yang valid</string>
+
+    <!-- Editor -->
+    <string name="editor">Penyunting</string>
+    <string name="rotate">Rotasi</string>
+    <string name="invalid_image_path">Jalur gambar tidak valid</string>
+    <string name="image_editing_failed">Gagal menyunting gambar</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="edit_image_with">Sunting gambar dengan:</string>
+    <string name="no_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
+    <string name="unknown_file_location">Lokasi berkas tidak diketahui</string>
+    <string name="error_saving_file">Tidak bisa mengganti berkas sumber</string>
+    <string name="rotate_left">Putar ke kiri</string>
+    <string name="rotate_right">Putar ke kanan</string>
+    <string name="rotate_one_eighty">Putar 180º</string>
+    <string name="flip">Balik</string>
+    <string name="flip_horizontally">Balik horizontal</string>
+    <string name="flip_vertically">Balik vertikal</string>
+    <string name="free_aspect_ratio">Bebas</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Lainnya</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Setel sebagai Wallpaper</string>
+    <string name="set_as_wallpaper_failed">Gagal menyetel sebagai Wallpaper</string>
+    <string name="set_as_wallpaper_with">Setel sebagai Wallpaper dengan:</string>
+    <string name="setting_wallpaper">Menyetel wallpaper&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper berhasil disetel</string>
+    <string name="portrait_aspect_ratio">Aspek rasio potret</string>
+    <string name="landscape_aspect_ratio">Aspek rasio lanskap</string>
+    <string name="home_screen">Layar beranda</string>
+    <string name="lock_screen">Layar kunci</string>
+    <string name="home_and_lock_screen">Beranda dan layar kunci</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (detik):</string>
+    <string name="include_photos">Sertakan foto</string>
+    <string name="include_videos">Sertakan video</string>
+    <string name="include_gifs">Sertakan GIF</string>
+    <string name="random_order">Urutan acak</string>
+    <string name="move_backwards">Mundur</string>
+    <string name="loop_slideshow">Slideshow tanpa henti</string>
+    <string name="animation">Animasi</string>
+    <string name="no_animation">Tidak ada</string>
+    <string name="fade">Pudar</string>
+    <string name="slide">Slide</string>
+    <string name="slideshow_ended">Slideshow berakhir</string>
+    <string name="no_media_for_slideshow">Tidak ditemukan media untuk slideshow</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Ubah tampilan</string>
+    <string name="grid">Kotak</string>
+    <string name="list">Daftar</string>
+    <string name="group_direct_subfolders">Kelompokkan subfolder langsung</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Kelompokkan menurut</string>
+    <string name="do_not_group_files">Jangan kelompokkan berkas</string>
+    <string name="by_folder">Folder</string>
+    <string name="by_last_modified">Terakhir diubah</string>
+    <string name="by_last_modified_daily">Terakhir diubah (harian)</string>
+    <string name="by_last_modified_monthly">Terakhir diubah (bulanan)</string>
+    <string name="by_date_taken">Tanggal diambil</string>
+    <string name="by_date_taken_daily">Tanggal diambil (harian)</string>
+    <string name="by_date_taken_monthly">Tanggal diambil (bulanan)</string>
+    <string name="by_file_type">Tipe berkas</string>
+    <string name="by_extension">Ekstensi</string>
+    <string name="grouping_and_sorting">Harap dicatat bahwa mengelompokkan dan mengurutkan adalah 2 hal yang berbeda</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder yang ditampilkan pada widget:</string>
+    <string name="show_folder_name">Tampilkan nama folder</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Putar video secara otomatis</string>
+    <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>
+    <string name="toggle_filename">Ubah visibilitas nama berkas</string>
+    <string name="loop_videos">Video berulang</string>
+    <string name="animate_gifs">Animasi GIF di thumbnail</string>
+    <string name="max_brightness">Kecerahan maksimum saat melihat di layar penuh</string>
+    <string name="crop_thumbnails">Pangkas thumbnail menjadi persegi</string>
+    <string name="show_thumbnail_video_duration">Tampilkan durasi video</string>
+    <string name="screen_rotation_by">Rotasi layar penuh menurut</string>
+    <string name="screen_rotation_system_setting">Pengaturan sistem</string>
+    <string name="screen_rotation_device_rotation">Rotasi perangkat</string>
+    <string name="screen_rotation_aspect_ratio">Aspek rasio</string>
+    <string name="black_background_at_fullscreen">Latar belakang hitam saat layar penuh</string>
+    <string name="scroll_thumbnails_horizontally">Gulir thumbnail secara horizontal</string>
+    <string name="hide_system_ui_at_fullscreen">Otomatis sembunyikan UI sistem saat layar penuh</string>
+    <string name="delete_empty_folders">Hapus folder kosong setelah menghapus isinya</string>
+    <string name="allow_photo_gestures">Izinkan mangatur kecerahan foto dengan gestur vertikal</string>
+    <string name="allow_video_gestures">Izinkan mangatur kecerahan dan volume video dengan gestur vertikal</string>
+    <string name="show_media_count">Tampilkan jumlah media di tampilan utama</string>
+    <string name="show_extended_details">Tampilkan detail tambahan saat layar penuh</string>
+    <string name="manage_extended_details">Kelola detail tambahan</string>
+    <string name="one_finger_zoom">Izinkan zum dengan satu jari di layar penuh</string>
+    <string name="allow_instant_change">Izinkan mengganti media dengan mengklik sisi layar</string>
+    <string name="allow_deep_zooming_images">Izinkan zum gambar lebih dalam</string>
+    <string name="hide_extended_details">Sembunyikan detail tambahan ketika bilah status disembunyikan</string>
+    <string name="show_at_bottom">Tampilkan tombol tindakan di layar bagian bawah</string>
+    <string name="show_recycle_bin">Tampilkan Keranjang Sampah di layar folder</string>
+    <string name="deep_zoomable_images">Zum gambar mendalam</string>
+    <string name="show_highest_quality">Tampilkan gambar dalam kualitas tertinggi</string>
+    <string name="show_recycle_bin_last">Tampilkan Keranjang Sampah sebagai item terakhir di layar utama</string>
+    <string name="allow_down_gesture">Izinkan keluar dari layar penuh dengan menggeser ke bawah</string>
+    <string name="allow_one_to_one_zoom">Izinkan zum 1:1 dengan dua kali ketuk</string>
+    <string name="open_videos_on_separate_screen">Selalu buka video pada layar terpisah dengan gestur horizontal baru</string>
+    <string name="show_notch">Tampilkan notch jika tersedia</string>
+    <string name="allow_rotating_gestures">Izinkan memutar gambar dengan gestur</string>
+    <string name="file_loading_priority">Prioritas pemuatan berkas</string>
+    <string name="speed">Kecepatan</string>
+    <string name="compromise">Kompromi</string>
+    <string name="avoid_showing_invalid_files">Hindari menampilkan berkas yang tidak valid</string>
+    <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Thumbnail</string>
+    <string name="fullscreen_media">Media layar penuh</string>
+    <string name="extended_details">Detail tambahan</string>
+    <string name="bottom_actions">Tindakan bawah</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Kelola tombol tindakan bawah</string>
+    <string name="toggle_favorite">Favorit</string>
+    <string name="toggle_file_visibility">Ubah visibilitas berkas</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Bebas</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Persegi</string>
+    <string name="pesdk_transform_title_name">Ukuran</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">Tidak ada</string>
+    <string name="pesdk_adjustments_title_name">Sesuaikan</string>
+    <string name="pesdk_adjustments_button_shadowTool">Bayangan</string>
+    <string name="pesdk_adjustments_button_exposureTool">Eksposur</string>
+    <string name="pesdk_adjustments_button_highlightTool">Sorotan</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Kecerahan</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontras</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturasi</string>
+    <string name="pesdk_adjustments_button_clarityTool">Perjelas</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Hitam</string>
+    <string name="pesdk_adjustments_button_whitesTool">Putih</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Suhu</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Ketajaman</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Fokus</string>
+    <string name="pesdk_focus_title_disabled">Tidak ada</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Cermin</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Teks</string>
+    <string name="pesdk_text_title_options">Opsi Teks</string>
+    <string name="pesdk_text_title_textColor">Warna Teks</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Tambah</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Luruskan</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Warna</string>
+    <string name="pesdk_text_button_backgroundColor">Warna BG</string>
+    <string name="pesdk_text_button_alignment">Perataan</string>
+    <string name="pesdk_text_button_bringToFront">Ke Depan</string>
+    <string name="pesdk_text_button_delete">Hapus</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Ketik teks</string>
+    <string name="pesdk_brush_title_name">Kuas</string>
+    <string name="pesdk_brush_button_color">Warna</string>
+    <string name="pesdk_brush_button_size">Ukuran</string>
+    <string name="pesdk_brush_button_hardness">Kekerasan</string>
+    <string name="pesdk_brush_button_bringToFront">Ke Depan</string>
+    <string name="pesdk_brush_button_delete">hapus</string>
+    <string name="pesdk_brush_title_brushColor">Warna Kuas</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Tutup Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Buang perubahan pada gambar?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ya</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Tidak</string>
+    <string name="pesdk_editor_cancel">Batal</string>
+    <string name="pesdk_editor_accept">Terima</string>
+    <string name="pesdk_editor_save">Simpan</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Mengekspor gambar…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Mengekspor gambar %s.</string>
+    <string name="pesdk_common_button_flipH">Balik H</string>
+    <string name="pesdk_common_button_flipV">Balik V</string>
+    <string name="pesdk_common_button_undo">Urungkan</string>
+    <string name="pesdk_common_button_redo">Ulangi</string>
+    <string name="pesdk_common_title_colorPicker">Pemilih Warna</string>
+    <string name="pesdk_common_title_transparentColor">Transparan</string>
+    <string name="pesdk_common_title_whiteColor">Putih</string>
+    <string name="pesdk_common_title_grayColor">Abu-abu</string>
+    <string name="pesdk_common_title_blackColor">Hitam</string>
+    <string name="pesdk_common_title_lightBlueColor">Biru cerah</string>
+    <string name="pesdk_common_title_blueColor">Biru</string>
+    <string name="pesdk_common_title_purpleColor">Ungu</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Merah</string>
+    <string name="pesdk_common_title_orangeColor">Oranye</string>
+    <string name="pesdk_common_title_goldColor">Emas</string>
+    <string name="pesdk_common_title_yellowColor">Kuning</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Hijau</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Warna pipet</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Bagaimana cara menjadikan Simple Gallery sebagai aplikasi galeri default?</string>
+    <string name="faq_1_text">Pertama anda harus menemukan galeri default saat ini di bagian Aplikasi di Pengaturan perangkat, cari tombol dengan label seperti \"Buka secara default\", klik, lalu pilih \"Hapus default\".
+        Lain kali anda mencoba membuka gambar atau video, anda akan diminta memilih aplikasi, dan anda bisa memilih Simple Gallery dan menjadikannya default.</string>
+    <string name="faq_2_title">Saya mengunci aplikasi dengan sandi, tapi saya lupa. Apa yang harus dilakukan?</string>
+    <string name="faq_2_text">Anda bisa menyelesaikannya dengan 2 cara. Anda bisa pasang ulang aplikasi, atau cari aplikasi ini di Pengaturan perangkat dan pilih \"Hapus data\". Ini akan menyetel ulang semua pengaturan anda, dan tidak akan menghapus berkas media apapun.</string>
+    <string name="faq_3_title">Bagaimana agar album selalu muncul paling atas di dalam daftar?</string>
+    <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, hal tersebut akan membuat album tetap berada di bagian paling atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
+    <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
+    <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery saja, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder dari aplikasi galeri yang lain. Cara kerjanya dengan membuat berkas \".nomedia\" kosong pada folder yang diinginkan, yang bisa anda hapus juga dengan aplikasi pengelola berkas. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>
+    <string name="faq_6_text">Kadang anda melihat beberapa album yang tidak biasa muncul. Anda bisa dengan mudah menyembunyikannya dengan menekan lama dan pilih Kecualikan. Pada dialog berikutnya, anda lalu bisa memilih folder induk, yang akan mencegah album terkait muncul kembali.</string>
+    <string name="faq_7_title">Ada folder berisi gambar namun tidak muncul, apa yang harus dilakukan?</string>
+    <string name="faq_7_text">Itu bisa disebabkan berbagai alasan, namun solusinya mudah. Pergi ke Pengaturan -> Atur folder yang disertakan, pilih Tambah dan cari folder yang diinginkan.</string>
+    <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat?</string>
+    <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa anda lakukan adalah pergi ke Pengaturan -> Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Pengaturan -> Atur Folder yang Disertakan.
+        Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
+    <string name="faq_10_title">Bisakah saya memangkas gambar dengan aplikasi ini?</string>
+    <string name="faq_10_text">Ya, anda bisa melakukannya di Penyunting, dengan menyeret sudut gambar. Anda bisa masuk ke penyunting dengan menekan lama thumbnail gambar dan memilih Sunting, atau pilih Sunting dari tampilan layar penuh.</string>
+    <string name="faq_11_title">Bisakah saya mengelompokkan thumbnail berkas media?</string>
+    <string name="faq_11_text">Bisa, gunakan menu \"Kelompokkan menurut\" pada tampilan thumbnail. Anda bisa mengelompokkan berkas dengan berbagai kriteria, termasuk Tanggal Diambil. Jika anda menggunakan fungsi \"Tampilkan semua isi folder\", anda juga bisa mengelompokkan berdasarkan foldernya.</string>
+    <string name="faq_12_title">Tidak bisa mengurutkan berdasarkan Tanggal Diambil, bagaimana cara memperbaikinya?</string>
+    <string name="faq_12_text">Itu umumnya disebabkan karena berkas yang disalin dari tempat lain. Anda bisa memperbaikinya dengan memilih berkas thumbnail dan pilih \"Perbaiki Tanggal Diambil\".</string>
+    <string name="faq_13_title">Saya melihat beberapa pita warna pada gambar. Bagaimana saya meningkatkan kualitasnya?</string>
+    <string name="faq_13_text">Solusi saat ini untuk menampilkan gambar berfungsi dengan baik dalam sebagian besar kasus, namun jika anda ingin kualitas gambar yang lebih baik, anda bisa mengaktifkan \"Tampilkan gambar dalam kualitas tertinggi\" di pengaturan aplikasi, pada bagian \"Zum gambar mendalam\".</string>
+    <string name="faq_14_title">Saya punya berkas/folder tersembunyi. Bagaimana cara memunculkannya?</string>
+    <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas.</string>
+    <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong?</string>
+    <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Pengelola &amp; Penyunting Foto</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_long_description">
+        Simple Gallery Pro adalah aplikasi galeri luring yang sangat mudah diubahsuai. Mengelola &amp; menyunting foto anda, memulihkan berkas yang terhapus dari keranjang sampah, melindungi &amp; menyembunyikan berkas, dan menampilkan banyak format foto &amp; video, diantaranya RAW, SVG dan masih banyak lainnya.
+
+        Aplikasi sama sekali tidak berisi iklan dan tidak membutuhkan perizinan yang tidak perlu. Dan karena aplikasi juga tidak membutuhkan akses internet, privasi anda terlindungi.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FITUR</b>
+        -------------------------------------------------
+
+        • Galeri luring tanpa iklan dan popup
+        • Penyunting galeri foto sederhana – pangkas, putar, ubah ukuran, gambar, filter &amp; masih banyak lagi
+        • Tidak membutuhkan akses internet, memberi anda jaminan keamanan dan privasi
+        • Tidak membutuhkan izin yang tidak diperlukan
+        • Cepat mencari gambar, video &amp; berkas
+        • Buka &amp; lihat berbagai macam jenis foto dan video (RAW, SVG, panorama, dll)
+        • Gestur untuk mempermudah penyuntingan &amp; mengelola berkas
+        • Banyak cara untuk menambahkan filter, mengelompokkan &amp; mengurutkan berkas
+        • Sesuaikan tampilan Simple Gallery Pro
+        • Tersedia dalam 32 bahasa
+        • Tandai berkas sebagai favorit untuk akses cepat
+        • Lindungi foto &amp; video anda dengan pola, pin atau sidik jari
+        • Gunakan pin, pattern &amp; sidik jari untuk mencegah aplikasi dibuka
+        • Pulihkan foto &amp; video yang dihapus dari keranjang sampah
+        • Ubah visibilitas berkas untuk menyembunyikan foto &amp; video
+        • Buat slideshow khusus dari berkas anda
+        • Lihat informasi detail berkas (resolusi, EXIF, dll)
+        • Simple Gallery Pro bersumber terbuka
+        … dan masih banyak lagi!
+
+        <b>PENYUNTING GALERI FOTO</b>
+        Simple Gallery Pro mempermudah anda menyunting foto. Pangkas, balik, putar dan ubah ukuran gambar anda. Jika anda merasa kreatif anda bisa menambahkan filter dan menggambar pada foto anda!
+
+        <b>MENDUKUNG BANYAK TIPE BERKAS</b>
+        Tidak seperti penampil galeri &amp; pengelola foto lainnya, Simple Gallery Pro mendukung sangat banyak tipe berkas yang berbeda diantaranya JPEG, PNG, MP4, MKV, RAW, SVG, foto &amp; video Panorama, dan masih banyak lagi.
+
+        <b>PENGELOLA GALERI YANG MUDAH DISESUAIKAN</b>
+        Dari UI sampai tombol tindakan pada bilah perkakas bawah, Simple Gallery Pro sangat mudah disesuaikan dengan keinginan anda. Tidak ada galeri lainnya yang memiliki kemampuan seperti ini! Karena bersumber terbuka, tersedia juga dalam 32 bahasa!
+
+        <b>PULIHKAN FOTO &amp; VIDEO YANG TERHAPUS</b>
+        Secara tidak sengaja menghapus foto atau video? Jangan khawatir! Simple Gallery Pro juga menyertakan fitur Keranjang Sampah yang mempermudah anda memulihkan foto &amp; video yang terhapus.
+
+        <b>MELINDUNGI &amp; MENYEMBUNYIKAN FOTO, VIDEO &amp; BERKAS</b>
+        Menggunakan pin, pola atau pemindai sidik jari perangkat, anda bisa melindungi dan menyembunyikan foto, video &amp; seluruh album. Anda bisa melindungi aplikasinya atau mengunci fungsi-fungsi yang lebih spesifik di dalam aplikasi. Contohnya, anda tidak bisa menghapus berkas tanpa memindai sidik jari, membantu melindungi anda menghapus berkas secara tidak sengaja.
+
+        <b>Lihat semua aplikasi Simple Tools di sini:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

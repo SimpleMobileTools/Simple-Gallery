@@ -1,0 +1,51 @@
+Simple Gallery Pro to wysoce konfigurowalna galeria. Przeglądaj i edytuj swoje zdjęcia, dzięki funkcji kosza z łatwością odzyskuj przypadkowo (lub nie) ususnięte pliki, chroń je i ukrywaj dzięki różnym metodom zabezpieczeń. Nie martw się o obsługiwane formaty - wśród nich są m.in. RAW, SVG i wiele więcej.
+
+Aplikacja nie zawiera reklam ani zezwoleń ponad te, których naprawdę potrzebuje. Nie musisz się także martwić o kwestie prywatności, gdyż nie potrzebuje ona dostępu do internetu.
+
+-------------------------------------------------
+<b>SIMPLE GALLERY PRO – FUNKCJE</b>
+-------------------------------------------------
+
+• Brak reklam i denerwujących okienek
+• Edytor zdjęć, a w nim przycinanie, obracanie, zmienianie rozmiaru, rysowanie, filtry i wiele więcej
+• Nie wymaga dostępu do internetu, przez co Twoje pliki są bezpieczne i widoczne tylko dla Ciebie
+• Używane są tylko najpotrzebniejsze uprawnienia
+• Szybkie wyszukiwanie plików
+• Obsługa wielu formatów (RAW, SVG, panoramy, itd.)
+• Różnorodność gestów dla prostszego korzystania z aplikacji
+• Wiele sposobów na filtrowanie, grupowanie i sortowanie plików
+• Wiele opcji dostosowywania wyglądu aplikacji
+• Dostępna w 32 językach [ w tym po polsku :) ]
+• Oznaczanie plików jako ulubione dla łatwiejszego do nich dostępu
+• Ochrona wzorem, PINem, lub odciskiem palca dostępu do plików ...
+• ... a nawet do całej aplikacji i/lub konkretnych jej funkcji
+• Odzyskiwanie utraconych plików dzięki funkcji kosza
+• Ukrywanie plików w obrębie aplikacji i/lub globalnie
+• Tworzenie konfigurowalnych pokazów slajdów
+• Szczegółowe informacje o plikach (rozdzielczość, dane EXIF, itd.)
+• Aplikacja jest otwartoźródłowa
+… i wiele więcej!
+
+<b>EDYTOR ZDJĘĆ</b>
+Simple Gallery Pro ułatwi Ci szybką edycję zdjęć. Przycinaj je, przewracaj, obracaj, zmniejszaj i powiększaj. A w napływie kreatywności dodawaj filtry i narysuj coś na nich!
+
+<b>WSPARCIE DLA WIELU TYPÓW PLIKÓW</b>
+W przeciwieństwie do niektórych aplikacji galerii, Simple Gallery Pro wspiera dużo formatów plików, w tym JPEG, PNG, MP4, MKV, RAW, SVG, panoramiczne filmy i zdjęcia oraz wiele więcej.
+
+<b>WSZECHSTRONNOŚĆ</b>
+Od interfejsu do przycisków funkcyjnych na dolnym pasku, Simple Gallery Pro jest wysoce konfigurowalny, przez co działa i wygląda tak jak chcesz. Żadna inna aplikacja galerii nie jest pod tym względem tak wszechstronna. A dzięki naszej otwartości to wszystko dostępne jest w 32 językach (w tym po polsku :]).
+
+<b>ODZYSKIWANIE PLIKÓW</b>
+Coś Ci się niechcący usunęło? A może ktoś to zrobił po złości? Żaden problem! Dzięki funkcji kosza z łatwością to odzyskasz.
+
+<b>OCHRONA PLIKÓW</b>
+Poprzez PIN, wzór lub odcisk palca możesz chronić swoje pliki, ukrywając je i blokując do nich dostęp. Tak samo możesz zablokować dostęp do całej aplikacji lub jej poszczególnych funkcji. Możesz na przykład uniemożliwić usuwanie plików bez zeskanowania linii papilarnych, przez co tylko Ty będziesz mógł to zrobić.
+
+<b>Sprawdź cały zestaw naszych aplikacji:</b>
+https://www.simplemobiletools.com
+
+<b>Odwiedź nasz profil na Facebooku...</b>
+https://www.facebook.com/simplemobiletools
+
+<b>... i/lub naszego subreddita:</b>
+https://www.reddit.com/r/SimpleMobileTools

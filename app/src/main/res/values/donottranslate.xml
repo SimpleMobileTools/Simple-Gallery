@@ -1,103 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="gif">GIF</string>
+    <string name="raw">RAW</string>
+    <string name="svg">SVG</string>
+    <string name="package_name">com.simplemobiletools.gallery.pro</string>
 
     <!-- Release notes -->
-    <string name="release_178">Added sorting by Date Taken</string>
-    <string name="release_177">Allow customizing the app launcher icon color</string>
-    <string name="release_163">Added toggles for disabling Pull-to-refresh and permanent Delete dialog confirmation skipping</string>
-    <string name="release_159">
-        Added a toggle for replacing deep zoomable images with better quality ones\n
-        Added a toggle for hiding Extended details when the statusbar is hidden\n
-        Added a toggle for switching media files by clicking on screen sides
+    <string name="release_295">Allow fast forwarding videos by double clicking on screen sides</string>
+    <string name="release_277">Fully replaced the photo editor with a powerful third party library (for resizing images use Menu -> Resize from the fullscreen view, until it gets added in the editor)</string>
+    <string name="release_258">
+        Allow customizing the bottom navigation bar color\n
+        Share files in the order they were selected
     </string>
-    <string name="release_158">Added optional one-finger drag zoom, disabled by default</string>
-    <string name="release_143">
-        Added new options to use english language on non-english devices, to password protect whole app and to lock screen orientation at fullscreen view
+    <string name="release_225">
+        Implemented export/importing for app settings and other preferences, like sorting\n
+        Allow hiding Notch on fullscreen view on Android 9+\n
+        Autosave images zoomed at the fullscreen view
     </string>
-    <string name="release_138">Added an option to keep last-modified field at file copy/move/rename</string>
-    <string name="release_137">Added an option to hide folder media count on the main screen</string>
-    <string name="release_136">Added an option to show customizable extended details over fullscreen media</string>
-    <string name="release_133">
-         Added fingerprint to hidden item protection\n
-         Added a new List view type
+    <string name="release_221">
+        Allow drawing in the editor\n
+        Allow batch rotating images from the thumbnails view (proper thumbnail refreshing might need an app restart)\n
+        Allow sharing images directly from the editor\n
+        Allow zooming GIFs and videos
     </string>
-    <string name="release_127">
-         Added a switch for disabling video gestures\n
-         Added a switch for deleting empty folders after deleting content
+    <string name="release_220">Reverted to the old way of opening videos, opening on separate screen can be enabled in the app settings</string>
+    <string name="release_217">
+        Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping\n
+        Added optional 1:1 pixel ratio zooming with two double taps at fullscreen view\n
+        Allow adding Copy at the fullscreen bottom actions\n
+        Always include images at slideshows, never videos
     </string>
-    <string name="release_125">Moved media type filter from Settings to the Action menu</string>
-    <string name="release_123">Allow changing the screen brightness and volume at videos by vertically dragging the screen sides</string>
-    <string name="release_122">Added slideshow at the fullscreen view</string>
-    <string name="release_119">Added pattern/pin protection for showing hidden items</string>
-    <string name="release_118">Added a toggle for replacing Share with Rotate at fullscreen media</string>
-    <string name="release_115">
-        Added an indicator of folders located on SD cards\n
-        Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
+    <string name="release_213">
+        Added an initial widget implementation for creating homescreen folder shortcuts\n
+        Added optional grouping of direct subfolders, as a check at the \"Change view type\" dialog
     </string>
-    <string name="release_114">Added an option for automatically hiding the system UI at entering fullscreen mode</string>
-    <string name="release_112">Added an option for enabling horizontal scrolling</string>
-    <string name="release_108">Allow setting custom folder covers</string>
-    <string name="release_98">
-        Allow selecting multiple items by finger dragging\n
-        Added an option to always use black background at fullscreen media
-    </string>
-    <string name="release_97">Allow hiding individual files by prepending filenames with a dot</string>
-    <string name="release_94">Added horizontal and vertical image flipping in the image editor</string>
-    <string name="release_93">
-        Allow setting portrait wallpapers\n
-        Added more fields in photo Properties dialog
-    </string>
-    <string name="release_89">
-        Improved fullscreen image zooming\n
-        Added more settings related to screen autorotating\n
-        Split copy and move functions for ease of use
-    </string>
-    <string name="release_88">
-        Added an option to temporarily show hidden folders\n
-        Added a setting for preventing thumbnail croping to square\n
-        Added a setting for auto-rotating the screen depending on photo aspect ratio
-    </string>
-    <string name="release_84">
-        Added an option to use max brightness at viewing fullscreen media\n
-        Added an option to manually include folders which contain media, but were not recognized by the app
-    </string>
-    <string name="release_83">
-        Fixed some sharing and editor issues\n
-        Sorry for the frequent updates lately, they should be stopped now.
-    </string>
-    <string name="release_77">
-        Exclude the subfolders of excluded folders too\n
-        Added an easy way of excluding parent folders from the exclude confirmation dialog\n
-        Added draggable scrollbars\n
-        Allow setting a third party video player as the default
-    </string>
-    <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
-    <string name="release_74">Allow setting different sorting per folder</string>
-    <string name="release_72">
-        Implement proper folder hiding via .nomedia file\n
-        Allow managing excluded folders in Settings
-    </string>
-    <string name="release_70">Added menu items for easy image rotating in fullscreen view</string>
-    <string name="release_69">Added menu buttons for changing the column count</string>
-    <string name="release_66">Allow picking colors by hex codes</string>
-    <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
-    <string name="release_62">Show some additional Exif data at photo properties</string>
-    <string name="release_58">
-        Allow zooming pngs and gifs\n
-        Allow creating new folders at Copy/Move or Save as dialog destinations
-    </string>
-    <string name="release_54">Added an option to loop videos automatically</string>
-    <string name="release_52">
-        Added more color customization options\n
-        Your settings have been cleared, please reset them
-    </string>
-    <string name="release_51">Allow changing the column count with pinch gestures</string>
-    <string name="release_50">Added an option to display images or videos only</string>
-    <string name="release_49">Added a Select all button at selecting media and folders</string>
-    <string name="release_47">
-        Added an image resizer to the editor\n
-        Allow displaying images and videos from all folders together
-    </string>
-    <string name="release_46">Allow pinning folders at the top</string>
 
 </resources>

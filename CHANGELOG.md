@@ -1,6 +1,885 @@
 Changelog
 ==========
 
+Version 6.15.0 *(2020-06-07)*
+----------------------------
+
+ * Rescan the internal storage from time to time, look for new folders containing media
+ * Improve the Search user experience, do not reset it at opening an item
+ * Fixed some editor glitches
+ * Speed up fullscreen image loading
+
+Version 6.14.10 *(2020-05-29)*
+----------------------------
+
+ * Updated the image editor, fix a glitch with black preview
+ * Show Portrait images by default on Android 10
+ * Use a nicer icon on older devices
+ * Some translation and stability improvements
+
+Version 6.14.9 *(2020-05-18)*
+----------------------------
+
+ * Fixing some glitches with hidden folders not being shown when appropriate
+ * Added some stability and translation improvements
+
+Version 6.14.8 *(2020-05-05)*
+----------------------------
+
+ * Added some crashfixes
+
+Version 6.14.7 *(2020-05-04)*
+----------------------------
+
+ * Fixed a glitch with some favorite items disappearing
+ * Improve folder hiding, add the new .nomedia file into MediaStore
+ * Improve the performance of getting video file duration
+ * A few other improvements here and there
+
+Version 6.14.6 *(2020-04-26)*
+----------------------------
+
+ * Added a few more stability and performance improvements
+
+Version 6.14.5 *(2020-04-26)*
+----------------------------
+
+ * Disable Portrait photo showing by default, until it gets improved
+ * Added a couple other performance improvements here and there
+
+Version 6.14.4 *(2020-04-24)*
+----------------------------
+
+ * Improved the performance on multiple places
+ * Removed some unnecessary permissions added recently
+ * Fixed some photo editor glitches
+ * Show Portrait images by default only on Android 9+
+
+Version 6.14.3 *(2020-04-21)*
+----------------------------
+
+ * Use the selected date format grouped thumbnail section titles too
+ * Fixed a glitch related to locked folders asking authentication too often
+ * Refresh the UI here and there a bit
+
+Version 6.14.2 *(2020-04-18)*
+----------------------------
+
+ * Fixed some Photo Editor bugs
+ * Properly handle locked folders at opening from widgets and shortcuts
+ * Open the map at clicking the coordinates at the Properties window
+ * Properly sort items at the Other Folder dialog at copy/move
+ * Fixed some folder un/hiding related glitches
+ * A couple other translation and UX improvements
+
+Version 6.14.1 *(2020-04-14)*
+----------------------------
+
+ * Fixed some SD card file related glitches
+ * Improved some third party intent handling
+ * Added some translation and stability improvements
+
+Version 6.14.0 *(2020-03-19)*
+----------------------------
+
+ * Properly delete playing videos
+ * Removed the Manage Hidden Folders settings button on Android 10+, it no longer works
+ * Added many changes under the hood in preparation for handling Scoped Storage soon
+ * Do not require the Storage permission at some third party intents
+
+Version 6.13.4 *(2020-03-08)*
+----------------------------
+
+ * Fixed some hiding, excluding and including related glitches
+ * Flipped Pin and Properties icons at the top menu for better user experience
+ * Avoid showing Portrait image folders at the main folders screen
+
+Version 6.13.3 *(2020-03-01)*
+----------------------------
+
+ * Avoid showing the "No Date Takens found" error in some cases
+
+Version 6.13.2 *(2020-03-01)*
+----------------------------
+
+ * Properly handle videos at slideshows
+ * Fixed some gestures during video playback
+ * Fixed a glitch with videos randomly restarting in some cases
+
+Version 6.13.1 *(2020-02-28)*
+----------------------------
+
+ * Adding a quick crashfix
+
+Version 6.13.0 *(2020-02-28)*
+----------------------------
+
+ * Allow fast forwarding videos by double clicking on screen sides
+ * Fixed an issue with the  editor producing low quality outputs in some cases
+ * Improve some error messages, make them clearer
+ * Many translation and stability improvements
+
+Version 6.12.5 *(2020-02-12)*
+----------------------------
+
+ * Fixed some sorting related glitches
+ * Keep the old last modified value at file editing
+
+Version 6.12.4 *(2020-02-11)*
+----------------------------
+
+ * Fixed some folder sorting related glitches
+
+Version 6.12.3 *(2020-02-10)*
+----------------------------
+
+ * Fixed image disappearing at using the Editor
+ * Properly copy over EXIF values after editing an image
+
+Version 6.12.2 *(2020-02-10)*
+----------------------------
+
+ * Fixed some sorting and thumbnail related issues
+
+Version 6.12.1 *(2020-02-10)*
+----------------------------
+
+ * Improved the performance of the initial screen loading
+ * Fixed some editor related glitches
+
+Version 6.12.0 *(2020-01-28)*
+----------------------------
+
+ * Properly handle sorting by date taken after using "Fix Date Taken values" on the wrong files
+ * Fixed some issues at copying files, when the source was on an SD card
+ * Change the way Favorite items are stored, to avoid accidental removal
+ * Improved video looping (by ForgottenUmbrella)
+ * Recognize a new type of panoramic photos
+ * Properly remember last video playback position if the video is paused on exit
+ * Properly color the top status bar icons at using light primary colors
+ * Other UX and translation improvements
+
+Version 6.11.8 *(2020-01-19)*
+----------------------------
+
+ * Reverted Glide to fix some crashes
+
+Version 6.11.7 *(2020-01-16)*
+----------------------------
+
+ * Do not convert every edited file into a JPG, keep PNGs intact
+ * Fixed a glitch with empty portrait photos being shown as grey thumbnails
+ * Show a FAQ/settings prompt once at pressing Rate Us in the About section
+ * Added a 16:10 editor crop aspect ratio, used mostly on tablets
+ * Do some preparations for better handling Date Taken values and Favorites
+ * Other stability and translation improvements
+
+Version 6.11.6 *(2020-01-11)*
+----------------------------
+
+ * Improved the image loading performance
+ * Allow excluding the root "/" folder
+ * Properly handle editing files with spaces in path
+ * Couple other UX, UI, translation and stability improvements
+
+Version 6.11.5 *(2020-01-04)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements
+
+Version 6.11.4 *(2019-12-27)*
+----------------------------
+
+ * Fixed a few SD card related issues
+ * Moved Focus in the editor as the last tool, to prioritize more popular tools
+ * Added a new Crop aspect ratio 37:18 to be used instead of 18.5x9
+ * Some translation improvements
+ * Last app update for a while now, wishing you a Happy New Year!
+
+Version 6.11.3 *(2019-12-25)*
+----------------------------
+
+ * Fixed various editor related glitches
+ * Some translation and other UX improvements
+
+Version 6.11.2 *(2019-12-21)*
+----------------------------
+
+ * Added a few more aspect ratios in the editor
+ * Remember the last used editor brush settings
+ * Properly refresh the cache of edited images
+
+Version 6.11.1 *(2019-12-18)*
+----------------------------
+
+ * Removing Text Design from the editor, it takes up too much space
+
+Version 6.11.0 *(2019-12-17)*
+----------------------------
+
+ * Fully replaced the photo editor with a powerful third party library
+ * Added some crashfixes and stability improvements
+
+Version 6.10.8 *(2019-12-17)*
+----------------------------
+
+ * Added some crashfixes and stability improvements
+
+Version 6.10.7 *(2019-12-12)*
+----------------------------
+
+ * Refreshed the thumbnails list views by removing the dividers
+ * Reordered some top menu items for consistency
+ * Added a Resize button to resize images directly from the fullscreen view
+ * Migrate album covers at export/import settings too
+ * Remember the last used path and file name at exporting settings
+ * Fixed a glitch with empty screen at direct subfolder grouping
+ * Many other stability, ux and translation improvements
+
+Version 6.10.6 *(2019-11-28)*
+----------------------------
+
+ * Fixed some smaller glitches
+ * Added some stability and translation improvements
+
+Version 6.10.5 *(2019-11-10)*
+----------------------------
+
+ * Remember the last used pattern at batch renaming
+ * Allow adding an incrementing number at pattern batch renaming
+ * Fixed some USB file related issues
+ * Fixed some fullscreen glitches at using split screen
+ * Allow using videos as custom folder covers
+ * Some stability and translation improvements
+
+Version 6.10.4 *(2019-11-05)*
+----------------------------
+
+ * Improved USB device handling
+ * Some smaller stability and translation improvements
+
+Version 6.10.3 *(2019-10-27)*
+----------------------------
+
+ * Adding some smaller stability, translation improvements and bugfixes
+
+Version 6.10.2 *(2019-10-13)*
+----------------------------
+
+ * Fixed a glitch with small letters in some cases
+ * Properly display SVG images
+ * Show a "Pro" label at the About sections' app version
+
+Version 6.10.1 *(2019-10-06)*
+----------------------------
+
+ * Fixed some Portrait photo related crashes
+
+Version 6.10.0 *(2019-10-04)*
+----------------------------
+
+ * Added initial support for Portrait images
+ * Updated some helper libraries
+ * Some stability and translation improvements
+
+Version 6.9.6 *(2019-09-12)*
+----------------------------
+
+ * Improved the performance of loading fullscreen images in some cases
+ * Properly handle some specific SD cards
+ * Properly fetch Date Taken value on Android 10
+
+Version 6.9.5 *(2019-09-08)*
+----------------------------
+
+ * Added optional thumbnail icons for showing GIF/SVG/RAW file types
+ * Properly handle Date Taken value at copy/move/edit
+ * Fixed a glitch with white top actionmenu at selecting items
+ * Fixed fullscreen mode toggling on Chromebooks
+
+Version 6.9.4 *(2019-08-21)*
+----------------------------
+
+ * Let's load a higher resolution image at the fullscreen view
+
+Version 6.9.3 *(2019-08-19)*
+----------------------------
+
+ * Added some light theme related improvements
+ * Properly keep the last_modified field at copy/move in some new cases
+ * Changed the way fullscreen images are loaded to fix some rotation issues
+ * Fixed some video playback aspect ratio glitches
+ * Few other improvements here and there
+
+Version 6.9.2 *(2019-08-11)*
+----------------------------
+
+ * Added some performance improvements at fullscreen media on weaker devices
+ * Allow long pressing Properties fields to copy values to the clipboard
+ * Show the errors occuring at file fetching with a toast
+ * Fixed a glitch at batch renaming using a pattern
+ * Try fixing Date Taken values automatically after copy/move
+ * Changed most of the icons to vectors for better quality and lower size
+ * Properly color the top menu icons
+ * Some other UX, performance and stability improvements
+
+Version 6.9.1 *(2019-08-03)*
+----------------------------
+
+ * Fixing a video player related crash
+
+Version 6.9.0 *(2019-08-02)*
+----------------------------
+
+ * Show a message at copy/move if the destination doesn't have enough space
+ * Rewrote the video playback to fix some glitches
+ * Improve the performance at loading initial screen folders
+ * Allow toggling between the old renaming of appending/prepending or using a pattern
+ * Some improvements related to folder un/hiding
+
+Version 6.8.4 *(2019-07-29)*
+----------------------------
+
+ * Share files in the order they were selected
+ * Allow customizing the bottom navigation bar color
+ * Fixed some UI glitches related to fullscreen view bottom buttons
+ * Many other stability and UX improvements
+
+Version 6.8.3 *(2019-07-14)*
+----------------------------
+
+ * Added support for HEIC/HEIF files
+ * Reverted back to the previous way of searching folders, with a button for searching all files instead
+ * Added some dark theme improvements
+ * Show some location related values at the Properties window, or at the Extended details
+ * Misc other stability, performance and translation improvements
+
+Version 6.8.2 *(2019-07-02)*
+----------------------------
+
+ * Allow password protecting individual folders
+ * Let's try using dark theme menu
+ * Fixed the performance of scrolling GIF thumbnails
+ * Fixed some video stucking issues
+ * Some other stability and translation improvements
+
+Version 6.8.1 *(2019-06-27)*
+----------------------------
+
+ * Improved Search on the main screen, allow using it for searching all files, not folders
+ * Added Print functionality at fullscreen images
+ * Fixed a glitch at PNGs getting deleted after rotating
+ * Other stability, translation and performance improvements
+
+Version 6.8.0 *(2019-06-21)*
+----------------------------
+
+ * Allow grouping files by date_taken or last_modified either daily, or monthly
+ * Allow selecting fade animation or no animation at all at slideshow transitions
+ * Improved the performance at loading fullscreen videos
+ * Use last_modified value at batch file renaming, if date_taken isn't available
+ * Some other stability and translation improvements
+
+Version 6.7.9 *(2019-06-12)*
+----------------------------
+
+ * Fixed a crash at zooming
+
+Version 6.7.8 *(2019-06-11)*
+----------------------------
+
+ * Improved the UX at zooming and panning at the fullscreen view
+ * Fixed unchecking Favorite items in some cases
+ * Show the available aspect ratios at the editor by default
+ * Couple stability, performance and translation improvements
+
+Version 6.7.7 *(2019-05-28)*
+----------------------------
+
+ * Fixed some file deleting related glitches
+ * Improved batch renaming, use the old file extension in case a new one is missing
+
+Version 6.7.6 *(2019-05-26)*
+----------------------------
+
+ * Improved batch renaming, allow using date time patterns in it
+ * Fixed empty folder deleting after deleting its content
+ * Improved new file cache updating in the background
+ * Improved the placeholder text in case no files are found
+ * Keep last_modified field at deleting and restoring files from the bin
+ * Increase the max image duration at slideshows
+ * Highlight the warning at deleting a folder
+ * Other stability, translation and performance improvements
+
+Version 6.7.5 *(2019-05-15)*
+----------------------------
+
+ * Hotfixing a glitch with opening third party intents
+
+Version 6.7.4 *(2019-05-15)*
+----------------------------
+
+ * Speeded up video deleting from fullscreen view
+ * Hotfixed some crashes
+
+Version 6.7.3 *(2019-05-14)*
+----------------------------
+
+ * Fixed folder sorting if used together with subfolder grouping
+ * Fixed some copy/move related progressbar issues
+ * Added many performance and stability improvements
+
+Version 6.7.2 *(2019-05-09)*
+----------------------------
+
+ * Allow creating file or folder shortcuts only from Android 8+
+
+Version 6.7.1 *(2019-05-08)*
+----------------------------
+
+ * Allow creating file or folder shortcuts on home screen on Android 7+
+ * Allow creating new folders on the file thumbnails screen too
+ * Added a checkbox at sorting by name/path to sort numbers by their actual numeric value
+ * Improve grouping direct subfolders, do not ignore parent folders without media files
+ * Show the Open Camera button at the menu on the main screen, instead of the Sort by button
+ * Other translation and stability improvements
+
+Version 6.7.0 *(2019-05-02)*
+----------------------------
+
+ * Moved the video duration field at the top right corner of thumbnails, if enabled
+ * Fixed some fullscreen image related glitches
+ * Misc translation and stability improvements
+
+Version 6.6.4 *(2019-04-09)*
+----------------------------
+
+ * Reverting to the previous way of sorting items by name/path
+ * Some stability and translation improvements
+
+Version 6.6.3 *(2019-04-02)*
+----------------------------
+
+ * Fixed some OTG devices and SD card related glitches
+ * Drastically increased the sorting performance by file path and name by simplifying it
+ * Fixed some third party related issues at opening images/videos
+ * Allow zooming raw images
+ * Try making "Fix Date Taken values" more reliable in some cases
+ * Added an explanation dialog if someone upgrades to Pro app from the free one
+ * Remember all video positions if enabled, not just the last one (by centic9)
+ * Added a new FAQ item about the app size
+
+Version 6.6.1 *(2019-03-21)*
+----------------------------
+
+ * Fixed recognizing of some SD cards
+ * Added some stability and translation improvements
+
+Version 6.6.0 *(2019-03-10)*
+----------------------------
+
+ * Further improved new file discovery
+ * Exclude some folders by default, like fb stickers
+ * Added other stability and ux improvements
+
+Version 6.5.5 *(2019-03-05)*
+----------------------------
+
+ * Improve new file discovery
+ * Fixed some third party intent related glitches
+ * Fixed some issues related to grouping thumbnails
+ * Added a note at Sorting and Grouping dialog to avoid some confusion
+ * Avoid deleting filtered out file types at deleting folders
+
+Version 6.5.4 *(2019-02-28)*
+----------------------------
+
+ * Allow customizing file loading priority
+ * Fixed the handling of some image picker intents
+ * Speeded up renaming files on SD cards
+ * Added some file loading performance improvements
+ * Some stability improvements
+
+Version 6.5.3 *(2019-02-22)*
+----------------------------
+
+ * Added main screen menu buttons for fast Recycle Bin showing/hiding
+ * Added a new setting item for changing date and time format
+ * Do not shuffle images with Random sorting that often
+ * Fixed some glitches related to file rename, delete, move
+ * Added many smaller bugfixes and UX improvements
+
+Version 6.5.2 *(2019-02-16)*
+----------------------------
+
+ * Added an option to disable rotating fullscreen images with gestures
+ * Improved OTG usb device handling
+ * Fixed Grouping by date taken
+ * Improved the performance at deleting files from the fullscreen view
+ * Some stability improvements
+
+Version 6.5.1 *(2019-02-11)*
+----------------------------
+
+ * Fixed a glitch with image panning
+ * Added a couple stability improvements
+
+Version 6.5.0 *(2019-02-07)*
+----------------------------
+
+ * Allow rotating fullscreen images with gestures, if "Allow deep zooming images" option is enabled
+ * Zoom out videos and gifs after device rotation
+
+Version 6.4.1 *(2019-01-29)*
+----------------------------
+
+ * Fixed some crashes related to zoomable videos
+ * Disable the Close Down gesture at GIFs and videos, if they are zoomed in
+
+Version 6.4.0 *(2019-01-29)*
+----------------------------
+
+ * Implemented export/importing for app settings and other preferences, like sorting
+ * Allow hiding Notch on fullscreen view on Android 9+
+ * Some gif/video zoom related improvements
+ * Autosave images zoomed at the fullscreen view
+ * Many other UX and stability improvements
+
+Version 6.3.2 *(2019-01-23)*
+----------------------------
+
+ * Fixed some fullscreen image and gif issues related to zooming
+ * Show directly included folders even if they contain a .nomedia file
+
+Version 6.3.1 *(2019-01-22)*
+----------------------------
+
+ * Fixed fullscreen images crashing when the app was installed on an SD card
+ * A couple other fullscreen image viewer improvements
+ * Allow batch rotating only images, ignore other file types
+
+Version 6.3.0 *(2019-01-17)*
+----------------------------
+
+ * Allow zooming GIFs and videos
+ * Allow sharing images directly from the editor
+ * Allow drawing in the editor
+ * If a folder is directly excluded, make it a higher priority than some included parent folder
+ * Added batch rotating from the thumbnails view
+ * Many other smaller improvements
+
+Version 6.2.2 *(2019-01-10)*
+----------------------------
+
+ * Reverted to the old way of playing videos, opening them on a separate screen can be enabled in the app settings
+ * Added some memory related improvements at displaying fullscreen images
+ * Allow showing videos in slideshows
+
+Version 6.2.1 *(2019-01-08)*
+----------------------------
+
+ * Fixed some menu buttons at the video player activity
+ * Added buttons to the videoplayer for going to the previous/next item
+ * Allow pressing play/pause at the video player at fullscreen mode
+ * Properly retain exif values after editing a file, when overwriting the source file
+
+Version 6.2.0 *(2019-01-04)*
+----------------------------
+
+ * Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping
+ * Added optional 1:1 pixel ratio zooming with two double taps at fullscreen view
+ * Allow adding Copy at the fullscreen bottom actions
+ * Always include images at slideshows, never videos
+ * Fixed scanning of some predefined folders for images
+ * Some other stability/performance/translation improvements
+
+Version 6.1.3 *(2018-12-26)*
+----------------------------
+
+ * Fixed a glitch at zooming fullscreen images with double tap
+ * Hide favorite items from hidden folders, if showing hidden items is disabled
+
+Version 6.1.2 *(2018-12-24)*
+----------------------------
+
+ * Done a few performance improvements here and there
+ * Allow changing view type individually per folder
+ * Merry Christmas!
+
+Version 6.1.1 *(2018-12-18)*
+----------------------------
+
+ * Fixing some crashes
+
+Version 6.1.0 *(2018-12-17)*
+----------------------------
+
+ * Added an initial widget implementation for creating homescreen folder shortcuts
+ * Added optional grouping of direct subfolders, as a check at the "Change view type" dialog
+ * Added an option to set custom crop aspect ratio at the editor
+ * Save exif data at edited files on Android 7+
+ * Handle only Mass Storage USB devices, ignore the rest
+ * Many other smaller UX/stability/performance improvements
+
+Version 6.0.4 *(2018-12-04)*
+----------------------------
+
+ * Limit automatic spam folder exclusion to the "/Android/data" folder
+
+Version 6.0.3 *(2018-12-02)*
+----------------------------
+
+ * Added multiple predefined aspect ratios at the Editor + remember the last used ratio
+ * Fix some issue with deleted items not appearing in the Recycle Bin, causing the app to take up too much space
+ * At delete/copy/move operations on folders apply them only on the visible files, take filters/hiding into account
+ * Do not exclude whole Data folder by default, be smarter about filtering out spam folders
+ * Added support for Sony RAW ".arw" files
+ * Optimize video duration fetching at thumbnails
+
+Version 6.0.2 *(2018-11-19)*
+----------------------------
+
+ * Adding a crashfix related to showing video duration
+
+Version 6.0.1 *(2018-11-19)*
+----------------------------
+
+ * Added optional displaying video duration on thumbnails
+ * Fixed keeping last_modified value at copy/move in some cases
+ * Exclude the Data folder by default
+ * Many translation, UX and stability improvements
+
+Version 6.0.0 *(2018-11-04)*
+----------------------------
+
+ * Initial Pro version
+
+Version 5.1.4 *(2018-11-28)*
+----------------------------
+
+ * Make sure the "Upgrade to Pro" popup isn't shown at first launch
+ * This version of the app is no longer maintained, please upgrade to the Pro version. You can find the Upgrade button at the top of the app Settings.
+
+Version 5.1.3 *(2018-11-04)*
+----------------------------
+
+ * Adding an option to store last video playback position (by mathevs)
+ * Adding a "Keep both" conflict resolution at copy/move (by Doubl3MM)
+ * Improved panoramic video detection
+ * Remove some glitches related to third party file opening
+ * Do not exclude the Data folder by default
+ * Removed the "Avoid showing Whats New at app startup" option
+
+Version 5.1.2 *(2018-10-30)*
+----------------------------
+
+ * Added a new option for password protecting file deletion/move
+ * Improved panorama video detection
+ * Improved the opening of media files without file extension
+ * Disabled move operation on Recycle bin items, use Restore
+ * Fixed handling of some third party image picker intents
+ * Fixed slideshow looping and a couple other UX glitches
+ * Improved the stability of retrieving cached files
+ * Hi
+
+Version 5.1.1 *(2018-10-23)*
+----------------------------
+
+ * Fixing the inability to delete SD card files
+
+Version 5.1.0 *(2018-10-23)*
+----------------------------
+
+ * Added support for panorama videos
+ * Added an extra check to avoid trying deleting files without write permission
+ * Added an initial implementation of renaming multiple items at once
+ * Added some performance improvements at item de/selection
+ * Allow enabling hidden item visibility at the copy/move destination picker
+ * Allow closing fullscreen view with swipe down gestures (can be disabled in settings)
+ * Fixed a glitch with Favorite items getting unselected every day
+ * Fixed exposure time displayed at long exposure photos
+ * Fixed fullscreen images being sometimes totally zoomed in after device rotation
+ * Fixed slideshow direction
+ * Made loading initial fullscreen view quicker and fullscreen toggling more reliable
+ * Not sure what else, nobody reads this anyway
+
+Version 5.0.1 *(2018-10-17)*
+----------------------------
+
+ * Adding some crashfixes
+
+Version 5.0.0 *(2018-10-17)*
+----------------------------
+
+ * Increased the minimal required Android OS version to 5 (Lollipop)
+ * Rewrote file selection for more robustness
+ * Added a new option for showing the Recycle Bin as the last folder
+ * Added Search for searching folders by names
+ * Replaced the G+ button with Reddit
+ * Couple smaller glitch fixes and improvements
+
+Version 4.6.5 *(2018-10-02)*
+----------------------------
+
+ * Added notch support for Android 9
+ * Allow faster video seeking by dragging a finger at the bottom seekbar
+ * Use a different way of displaying fullscreen GIFs
+ * Added a new toggle for trying to show the best possible image quality
+ * Keep Favorite items marked after moving
+ * Fixed some glitches related to toggling fullscreen mode
+ * Many other smaller improvements
+
+Version 4.6.4 *(2018-09-22)*
+----------------------------
+
+ * Fixed lag at zooming fullscreen images on some devices
+
+Version 4.6.3 *(2018-09-21)*
+----------------------------
+
+ * Improved zooming performance at fullscreen view
+ * Fixed showing conflict resolution dialog at Move
+ * Fixed selection check icons at horizontal scrolling
+ * Fixed displaying some fullscreen images, where file path contained percentage sign or hashtag
+ * Optimized many database operations
+ * Fixed many other smaller issues
+
+Version 4.6.2 *(2018-09-05)*
+----------------------------
+
+ * Fixed opening some email client attachments and MMS images
+ * Attempt to fix lagging at zooming in on some devices
+ * Couple other smaller bugfixes and improvements
+
+Version 4.6.1 *(2018-08-21)*
+----------------------------
+
+ * Added a crashfix at loading fullscreen images
+
+Version 4.6.0 *(2018-08-20)*
+----------------------------
+
+ * Added support for SVGs
+ * Improved fullscreen image quality and performance
+ * Properly show files with hastags and percentage signs in their paths
+ * Many other smaller UX improvements
+
+Version 4.5.2 *(2018-08-08)*
+----------------------------
+
+ * Adding a toggle for disabling deep zoomable images
+ * Fix displaying third party images
+ * Couple smaller UX fixes
+
+Version 4.5.1 *(2018-08-07)*
+----------------------------
+
+ * Adding a crashfix
+
+Version 4.5.0 *(2018-08-07)*
+----------------------------
+
+ * Use real Move instead of the old copy/delete if both source and destination are on the internal storage
+ * Remake the fullscreen view, always use deep zoomable images with good quality
+ * Couple stability improvements
+
+Version 4.4.4 *(2018-08-02)*
+----------------------------
+
+ * Adding a crashfix
+
+Version 4.4.3 *(2018-08-01)*
+----------------------------
+
+ * Removed the More Donating Options from the Purchase Thank You dialog
+
+Version 4.4.2 *(2018-08-01)*
+----------------------------
+
+ * Removed the homepage from About section
+
+Version 4.4.1 *(2018-07-30)*
+----------------------------
+
+ * Hide both Play and Pause video buttons after 2 secs
+ * Improved Immersive mode fullscreen behaviour
+ * Some other stability improvements
+
+Version 4.4.0 *(2018-07-26)*
+----------------------------
+
+ * Reworked the editor, added some filters
+ * Allow hiding the Recycle Bin from the main screen folders
+ * Added a menu item for fixing file Date Taken
+ * Fixed some glitches around recycle bin item restoring
+ * Fixed some issues with video playback on resume
+ * Many other UX and stability improvements
+
+Version 4.3.5 *(2018-07-17)*
+----------------------------
+
+ * Fixed some Recycle bin related issues
+ * A few more UX and stability improvements
+
+Version 4.3.4 *(2018-07-15)*
+----------------------------
+
+ * Fixed disappearing launcher icon after changing its color on some devices
+ * Fixed some video related errors
+ * Added "Set as" as an available action at the fullscreen bottom actions
+ * Do the appropriate actions at trying to delete the Recycle Bin or Favorites folders
+ * Fixed a glitch with some panorama images not recognized properly
+ * Avoid blank screen at toggling "Temporarily show hidden"
+
+Version 4.3.3 *(2018-07-06)*
+----------------------------
+
+ * Couple stability improvements and glitch fixes
+
+Version 4.3.2 *(2018-07-04)*
+----------------------------
+
+ * Added Panorama photo support
+ * Allow customizing visible fullscreen bottom actions
+ * Allow forcing portrait/landscape modes at fullscreen view
+ * Use Exoplayer for playing videos
+ * Many smaller UX and stability improvements
+
+Version 4.3.1 *(2018-06-28)*
+----------------------------
+
+ * Adding some crashfixes
+
+Version 4.3.0 *(2018-06-28)*
+----------------------------
+
+ * Added a Recycle Bin
+ * Allow grouping media thumbnails by different criteria
+ * Fixed some calculation glitches around fastscroller
+ * Change the fullscreen Edit icon to a pencil
+ * Allow sorting "Show All" separately
+ * Many smaller stability and UX improvements
+
+Version 4.2.1 *(2018-06-20)*
+----------------------------
+
+ * Allow selecting Favorite items for easy access
+ * Fix sorting by Date Taken after files have been copied
+ * Couple other stability and UX improvements
+
+Version 4.2.0 *(2018-06-18)*
+----------------------------
+
+ * Move some actions at the fullscreen view to the bottom of the screen
+ * Allow filtering out RAW images separately
+ * Add a warning if the user tries deleting a folder
+ * Properly reset the temporary Skip Delete Confirmation dialog
+ * Show a Pause button over video if not in fullscreen mode
+ * Fix some glitches around inserting pin/pattern/fingerprint
+ * Many other stability and ux improvements
+
 Version 4.1.1 *(2018-05-26)*
 ----------------------------
 

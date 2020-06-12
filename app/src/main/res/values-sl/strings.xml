@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galerija</string>
+    <string name="edit">Uredi</string>
+    <string name="open_camera">Zaženi fotoaparat</string>
+    <string name="hidden">(skrito)</string>
+    <string name="excluded">(izključeno)</string>
+    <string name="pin_folder">Pripni mapo</string>
+    <string name="unpin_folder">Odpni mapo</string>
+    <string name="pin_to_the_top">Pripni na vrh</string>
+    <string name="show_all">Prikaži vso vsebino mape</string>
+    <string name="all_folders">Vse mape</string>
+    <string name="folder_view">Preklopi na pogled map</string>
+    <string name="other_folder">Druga mapa</string>
+    <string name="show_on_map">Prikaži na zemljevidu</string>
+    <string name="unknown_location">Neznana lokacija</string>
+    <string name="increase_column_count">Povečaj število stolpcev</string>
+    <string name="reduce_column_count">Zmanjšaj število stolpcev</string>
+    <string name="change_cover_image">Spremeni naslovno fotografijo</string>
+    <string name="select_photo">Izberi fotografijo</string>
+    <string name="volume">Glasnost</string>
+    <string name="brightness">Svetlost</string>
+    <string name="lock_orientation">Zakleni usmerjenost</string>
+    <string name="unlock_orientation">Odkleni usmerjenost</string>
+    <string name="change_orientation">Spremeni usmerjenost</string>
+    <string name="force_portrait">Vsili pokončen format</string>
+    <string name="force_landscape">Vsili ležeč format</string>
+    <string name="use_default_orientation">Uporabi privzeto usmerjenost</string>
+    <string name="fix_date_taken">Popravi datum posnetka</string>
+    <string name="fixing">Popravljam…</string>
+    <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
+    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="share_resized">Deli spremenjeno verzijo</string>
+    <string name="upgraded_from_free">Živjo,\n\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.\n\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.\n\nHvala!</string>
+    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtriranje datotek</string>
+    <string name="images">Slike</string>
+    <string name="videos">Videoposnetki</string>
+    <string name="gifs">GIFi</string>
+    <string name="raw_images">RAW slike</string>
+    <string name="svgs">SVGji</string>
+    <string name="portraits">Portraits</string>
+    <string name="no_media_with_filters">Na podlagi izbranih filtrov ne najdem nobenih medijskih datotek.</string>
+    <string name="change_filters_underlined"><u>Spremeni filtre</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Ta funkcija skrije mapo tako, da vanjo doda \'.nomedia\' datoteko, kar skrije tudi vse podmape. Ponovno jih lahko prikažete z uporabo možnosti \'Prikaži skrite elemente\' v Nastavitvah. Nadaljujem?</string>
+    <string name="exclude">Izključi</string>
+    <string name="excluded_folders">Izključene mape</string>
+    <string name="manage_excluded_folders">Urejaj izključene mape</string>
+    <string name="exclude_folder_description">Izbira bo skupaj s podmapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
+    <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo?</string>
+    <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.\n\nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
+    <string name="remove_all">Odstrani vse</string>
+    <string name="remove_all_description">Odstranim vse mape iz seznama izključenih? Mape ne bodo izbrisane.</string>
+    <string name="hidden_folders">Skrite mape</string>
+    <string name="manage_hidden_folders">Urejaj skrite mape</string>
+    <string name="hidden_folders_placeholder">Kot kaže skrite mape z \".nomedia\" datoteko ne obstajajo.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Vključene mape</string>
+    <string name="manage_included_folders">Urejaj vključene mape</string>
+    <string name="add_folder">Dodaj mapo</string>
+    <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.\n\nDodajanje novih elementov ne bo izključilo drugih.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Spremeni velikost</string>
+    <string name="resize_and_save">Spremeni velikost izbora in shrani</string>
+    <string name="width">Širina</string>
+    <string name="height">Višina</string>
+    <string name="keep_aspect_ratio">Obdrži razmerje stranic</string>
+    <string name="invalid_values">Vnesite veljavno ločljivost</string>
+
+    <!-- Editor -->
+    <string name="editor">Urejevalnik</string>
+    <string name="rotate">Zavrti</string>
+    <string name="invalid_image_path">Napačna pot</string>
+    <string name="image_editing_failed">Urejanje slike ni uspelo</string>
+    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="file_edited_successfully">File edited successfully</string>
+    <string name="edit_image_with">Uredi sliko z:</string>
+    <string name="no_editor_found">Ne najdem urejevalnika slik</string>
+    <string name="unknown_file_location">Neznana lokacija datoteke</string>
+    <string name="error_saving_file">Ne morem prepisati izvorne datoteke</string>
+    <string name="rotate_left">Zavrti levo</string>
+    <string name="rotate_right">Zavrti desno</string>
+    <string name="rotate_one_eighty">Zavrti za 180º</string>
+    <string name="flip">Zrcaljenje</string>
+    <string name="flip_horizontally">Zrcali horizontalno</string>
+    <string name="flip_vertically">Zrcali vertikalno</string>
+    <string name="free_aspect_ratio">Prosto</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Drugo</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple ozadje</string>
+    <string name="set_as_wallpaper">Nastavi kot ozadje</string>
+    <string name="set_as_wallpaper_failed">Nastavljanje ozadja ni uspelo</string>
+    <string name="set_as_wallpaper_with">Nastavi kot ozadje z:</string>
+    <string name="setting_wallpaper">Nastavljam ozadje&#8230;</string>
+    <string name="wallpaper_set_successfully">Ozadje uspešno nastavljeno</string>
+    <string name="portrait_aspect_ratio">Pokončno razmerje stranic</string>
+    <string name="landscape_aspect_ratio">Ležeče razmerje stranic</string>
+    <string name="home_screen">Domači zaslon</string>
+    <string name="lock_screen">Zaklenjeni zaslon</string>
+    <string name="home_and_lock_screen">Domači in zaklenjeni zaslon</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diaprojekcija</string>
+    <string name="interval">Interval (sekund):</string>
+    <string name="include_photos">Vključi fotografije</string>
+    <string name="include_videos">Vključi videoposnetke</string>
+    <string name="include_gifs">Vključi GIFe</string>
+    <string name="random_order">Naključni vrstni red</string>
+    <string name="move_backwards">Premik nazaj</string>
+    <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
+    <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
+    <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Spremeni tip pogleda</string>
+    <string name="grid">Mreža</string>
+    <string name="list">Seznam</string>
+    <string name="group_direct_subfolders">Združi neposredne podmape</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Združi po</string>
+    <string name="do_not_group_files">Ne združuj datotek</string>
+    <string name="by_folder">Mapa</string>
+    <string name="by_last_modified">Zadnjič spremenjeno</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_date_taken">Posneto</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_file_type">Tip datoteke</string>
+    <string name="by_extension">Končnica</string>
+    <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji.</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
+    <string name="show_folder_name">Prikaži ime mape</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
+    <string name="remember_last_video_position">Zapomni si zadnji položaj predvajanja</string>
+    <string name="toggle_filename">Preklopi vidljivost imen datotek</string>
+    <string name="loop_videos">Ponavljaj videoposnetke</string>
+    <string name="animate_gifs">Animiraj GIFe v predogledu</string>
+    <string name="max_brightness">Najvišja svetlost pri celozaslonskem predvajanju</string>
+    <string name="crop_thumbnails">Obreži predoglede slik v kvadrate</string>
+    <string name="show_thumbnail_video_duration">Prikaži trajanje posnetkov</string>
+    <string name="screen_rotation_by">Zavrti celozaslonski medij za</string>
+    <string name="screen_rotation_system_setting">Sistemska nastavitev</string>
+    <string name="screen_rotation_device_rotation">Obračanje naprave</string>
+    <string name="screen_rotation_aspect_ratio">Razmerje stranic</string>
+    <string name="black_background_at_fullscreen">Črno ozadje in statusna vrstica pri celozaslonskem mediju</string>
+    <string name="scroll_thumbnails_horizontally">Horizontalno pomikanje sličic</string>
+    <string name="hide_system_ui_at_fullscreen">Avtomatično skrij sistemski UI v celozaslonskem načinu</string>
+    <string name="delete_empty_folders">Izbriši prazne mape po brisanju njihove vsebine</string>
+    <string name="allow_photo_gestures">Dovoli nadzor svetlosti fotografije z vertikalnimi gestami</string>
+    <string name="allow_video_gestures">Dovoli nadzor glasnosti in svetlosti videoposnetka z vertikalnimi gestami</string>
+    <string name="show_media_count">Pokaži število elementov v glavnem pogledu</string>
+    <string name="show_extended_details">Prikaži razširjene podrobnosti nad celozaslonskim prikazom</string>
+    <string name="manage_extended_details">Urejaj razširjene podrobnosti</string>
+    <string name="one_finger_zoom">Dovoli enoprstno povečavo v celozaslonskem načinu</string>
+    <string name="allow_instant_change">Dovoli takojšnje spremembe medija s klikanjem na robove zaslona</string>
+    <string name="allow_deep_zooming_images">Dovoli globoko povečavo slik</string>
+    <string name="hide_extended_details">Skrij razširjene podrobnosti, ko je statusna vrstica skrita</string>
+    <string name="show_at_bottom">Prikaži določene akcijske gumbe na dnu zaslona</string>
+    <string name="show_recycle_bin">Prikaži Koš na zaslonih map</string>
+    <string name="deep_zoomable_images">Globoko povečljive slike</string>
+    <string name="show_highest_quality">Prikaži slike v največji možni kvaliteti</string>
+    <string name="show_recycle_bin_last">Prikaži Koš kot zadnji element na glavnem zaslonu</string>
+    <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
+    <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
+    <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
+    <string name="show_notch">Prikaži notch, če je na voljo</string>
+    <string name="allow_rotating_gestures">Dovoli obračanje slik z gestami</string>
+    <string name="file_loading_priority">Prioriteta pri nalaganju datotek</string>
+    <string name="speed">Hitrost</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Izogni se prikazovanju napačnih datotek</string>
+    <string name="show_image_file_types">Show image file types</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Sličice</string>
+    <string name="fullscreen_media">Celozaslonski prikaz</string>
+    <string name="extended_details">Razširjene podrobnosti</string>
+    <string name="bottom_actions">Akcije na dnu</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Urejaj vidne akcije na dnu</string>
+    <string name="toggle_favorite">Preklopi priljubljene</string>
+    <string name="toggle_file_visibility">Preklopi vidljivost datotek</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">Square</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">Font</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">Cancel</string>
+    <string name="pesdk_editor_accept">Accept</string>
+    <string name="pesdk_editor_save">Save</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">Color Picker</string>
+    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_grayColor">Gray</string>
+    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
+    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_purpleColor">Purple</string>
+    <string name="pesdk_common_title_orchidColor">Orchid</string>
+    <string name="pesdk_common_title_pinkColor">Pink</string>
+    <string name="pesdk_common_title_redColor">Red</string>
+    <string name="pesdk_common_title_orangeColor">Orange</string>
+    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_yellowColor">Yellow</string>
+    <string name="pesdk_common_title_oliveColor">Olive</string>
+    <string name="pesdk_common_title_greenColor">Green</string>
+    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Kako naredim Simple galerijo za privzeto aplikacijo na napravi?</string>
+    <string name="faq_1_text">Najprej morate najti trenutno privzeto aplikacijo za prikaz slik med aplikacijami v nastavitvah naprave, kjer poiščete gumb v smislu \"Odpri kot privzeto\", kliknite nanj in izberite \"Izbriši privzeto\".
+        Ko boste naslednjič želeli odpreti fotografijo ali videoposnetek, bi se moral pokazati izbirnik, v katerem lahko izberete Simple galerijo in jo določite kot privzeto aplikacijo.</string>
+    <string name="faq_2_title">Aplikacijo sem zaklenil z geslom, ki se ga ne spomnim več. Kaj lahko naredimo?</string>
+    <string name="faq_2_text">To lahko rešite na 2 načina. Lahko ali ponovno namestite aplikacijo ali pa jo poiščete v nastavitvah in kliknete \"Počisti podatke\". To bo ponastavilo vaše nastavitve, ne bo pa izbrisalo nobenih datotek.</string>
+    <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
+    <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
+    <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
+    <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
+    <string name="faq_6_text">Lahko se zgodi, da se vam prikažejo nepoznani albumi, ki vsebujejo tovrstne datoteke. Lahko jih preprosto skrijete tako, da z dolgim pritiskom na album prikličete meni in tam izberete Izključi. V naslednjem oknu lahko izberete tudi nadrejeno mapo, obstaja pa verjetnost, da bo to preprečilo tudi prikazovanje ostalih povezanih albumov.</string>
+    <string name="faq_7_title">Mapa s slikami se ne prikaže. Kaj naj naredim?</string>
+    <string name="faq_7_text">Razlogi so lahko različni, rešitev je vseeno preprosta. Pojdite v Nastavitve in izberite Urejaj vključene mape, izberite plus in poiščite željeno mapo.</string>
+    <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map?</string>
+    <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -> Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -> Urejaj vključene mape.
+        To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
+    <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo?</string>
+    <string name="faq_10_text">Da, slike lahko obrezujete z vlečenjem kotov slike. Do urejevalnika lahko pridete z dolgim pritiskom na sličico fotografije in izborom opcije Uredi ali izborom funkcije Uredi iz celozaslonskega načina prikaza.</string>
+    <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek?</string>
+    <string name="faq_11_text">Seveda, uporabite \"Združi po\" opcijo v meniju, ki je na voljo v pregledu sličic. Datoteke lahko združujete po različnih kriterijih, vključujoč po datumu posnetka. Če uporabite funkcijo \"Prikaži vso vsebino map\" jih lahko združujete tudi po mapah.</string>
+    <string name="faq_12_title">Kot kaže razvrščanje po datumu posnetka ne deluje pravilno. Kako lahko to popravim?</string>
+    <string name="faq_12_text">To se najverjetneje zgodi po kopiranju datotek iz nekje drugje. To lahko popravite tako, da izberete sličice in uporabite funkcijo \"Popravi datum posnetka\".</string>
+    <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto?</string>
+    <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
+    <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
+    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+    <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora?</string>
+    <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se vštevajo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Pregledovalnik fotografij</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_long_description">
+        Simple Gallery Pro je visoko prilagodljiva lokalna galerija. Organizirajte &amp; urejajte vaše fotografije, vrnite izbrisane datoteke iz koša, zaščitite &amp; skrijte datoteke in pregledujte ogromno različnih vrst foto &amp; video formatov, vključujoč RAW, SVG in mnoge druge.
+
+        Aplikacije ne vsebuje reklam in nepotrebnih dovoljenj. Prav tako aplikacija ne potrebuje internetnega dostopa, zato je vaša zasebnost zagotovljena.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
+
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
+
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

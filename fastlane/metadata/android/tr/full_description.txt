@@ -1,0 +1,51 @@
+Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
+
+Uygulama hiçbir reklam ve gereksiz izinler içermez. Uygulama internet erişimi gerektirmediğinden gizliliğiniz de korunur.
+
+-------------------------------------------------
+<b>BASİT GALERİ PRO – ÖZELLİKLER</b>
+-------------------------------------------------
+
+• Reklamsız veya açılır penceresiz, çevrimdışı galeri
+• Basit galeri fotoğraf editörü - kırpma, döndürme, yeniden boyutlandırma, çizim, filtreler ve daha fazlası
+• İnternet erişimi gerekmez, size daha fazla gizlilik ve güvenlik sunar
+• Gereksiz izinler gerekmez
+• Resimleri, videoları ve dosyaları hızlıca arama
+• Birçok farklı fotoğraf ve video türünü (RAW, SVG, panoramik vb.) açma ve görüntüleme
+• Dosyaları kolayca düzenlemek ve organize etmek için çeşitli sezgisel hareketler
+• Dosyaları filtrelemenin, gruplandırmanın ve sıralamanın birçok yolu
+• Basit Galeri Pro'nun görünümünü özelleştirme
+• 32 dilde mevcut
+• Hızlı erişim için dosyaları sık kullanılan olarak işaretleme
+• Fotoğraflarınızı ve videolarınızı desen, pin veya parmak izi ile koruma
+• Uygulama başlatılmasını veya belirli işlevleri de korumak için pin, desen ve parmak izi kullanma
+• Silinen fotoğrafları ve videoları geri dönüşüm kutusundan kurtarma
+• Fotoğrafları ve videoları gizlemek için dosyaların görünürlüğünü değiştirme
+• Dosyalarınızın özelleştirilebilir bir slayt gösterisini oluşturma
+• Dosyalarınızın ayrıntılı bilgilerini (çözünürlük, EXIF değerleri vb.) görüntüleme
+• Basit Galeri Pro açık kaynak kodludur
+… ve çok daha fazlası!
+
+<b>FOTOĞRAF GALERİSİ EDİTÖRÜ</b>
+Basit Galeri Pro, fotoğraflarınızı anında düzenlemenizi kolaylaştırır. Resimlerinizi kırpın, çevirin, döndürün ve yeniden boyutlandırın. Kendinizi biraz daha yaratıcı hissediyorsanız, filtre ekleyebilir ve resimlerinizi çizebilirsiniz!
+
+<b>BİRÇOK DOSYA TÜRÜ İÇİN DESTEK</b>
+Diğer galeri görüntüleyicilerinden ve fotoğraf düzenleyicilerinden farklı olarak, Basit Galeri Pro, JPEG, PNG, MP4, MKV, RAW, SVG, Panoramik fotoğraflar, Panoramik videolar ve daha pek çok farklı dosya türünü destekler.
+
+<b>SON DERECE ÖZELLEŞTİRİLEBİLİR GALERİ YÖNETİCİSİ</b>
+Kullanıcı arayüzünden alt araç çubuğundaki işlev düğmelerine kadar, Basit Galeri Pro oldukça özelleştirilebilirdir ve istediğiniz şekilde çalışır. Başka hiçbir galeri yöneticisi bu tür bir esnekliğe sahip değildir! Açık kaynak olması sayesinde 32 dilde de kullanıma hazırız!
+
+<b>SİLİNEN FOTOĞRAFLARI VE VİDEOLARI KURTARIN</b>
+Yanlışlıkla önemli bir fotoğrafı veya videoyu mu sildiniz? Endişelenmeyin! Basit Galeri Pro, silinmiş fotoğrafları ve videoları kolayca kurtarabileceğiniz kullanışlı bir geri dönüşüm kutusuna sahiptir.
+
+<b>FOTOĞRAFLARI, VİDEOLARI VE DOSYALARI KORUYUN VE GİZLEYİN</b>
+Pin, desen veya cihazınızın parmak izi tarayıcısını kullanarak fotoğrafları, videoları ve albümün tamamını koruyabilir ve gizleyebilirsiniz. Uygulamanın kendisini koruyabilir veya uygulamanın belirli işlevlerine kilitler yerleştirebilirsiniz. Örneğin, parmak izi taraması olmadan bir dosyayı silemez ve dosyalarınızı yanlışlıkla silmeye karşı korumaya yardımcı olabilirsiniz.
+
+<b>Tüm Basit Araçlar paketini buradan inceleyin:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

@@ -1,0 +1,4 @@
+ * Improved the performance on multiple places
+ * Removed some unnecessary permissions added recently
+ * Fixed some photo editor glitches
+ * Show Portrait images by default only on Android 9+
