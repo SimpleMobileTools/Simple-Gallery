@@ -218,12 +218,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
         val sorting = config.getFolderSorting(SHOW_ALL)
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid) {
                 media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         } else {
-            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }

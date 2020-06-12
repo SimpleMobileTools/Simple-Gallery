@@ -134,12 +134,10 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             directories_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
 
             if (scrollHorizontally) {
-                directories_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_horizontal_fastscroller.setViews(directories_grid) {
                     directories_horizontal_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }
             } else {
-                directories_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_vertical_fastscroller.setViews(directories_grid) {
                     directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }

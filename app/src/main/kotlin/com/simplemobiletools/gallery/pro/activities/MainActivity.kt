@@ -84,7 +84,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowMediaCount = true
-    private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
@@ -204,8 +203,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         directories_horizontal_fastscroller.updateBubbleColors()
         directories_vertical_fastscroller.updateBubbleColors()
-        directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
-        directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
 
         directories_empty_placeholder.setTextColor(config.textColor)
@@ -343,7 +340,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowMediaCount = showMediaCount
-            mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
         }
@@ -1177,12 +1173,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
         if (allowHorizontalScroll) {
-            directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
                 directories_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         } else {
-            directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
                 directories_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }

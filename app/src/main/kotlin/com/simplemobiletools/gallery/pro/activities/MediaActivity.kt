@@ -76,7 +76,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
-    private var mStoredShowInfoBubble = true
     private var mStoredShowFileTypes = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
@@ -159,8 +158,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
-        media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
-        media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
@@ -294,7 +291,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredShowInfoBubble = showInfoBubble
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
@@ -426,12 +422,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         val sorting = config.getFolderSorting(if (mShowAll) SHOW_ALL else mPath)
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         } else {
-            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }

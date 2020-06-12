@@ -33,12 +33,12 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
 
         dialog = AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
-                .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
-                .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.select_photo)
-                }
+            .setPositiveButton(R.string.ok, null)
+            .setNegativeButton(R.string.cancel, null)
+            .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
+            .create().apply {
+                activity.setupDialogStuff(view, this, R.string.select_photo)
+            }
 
         activity.getCachedMedia(path) {
             val media = it.filter { it is Medium } as ArrayList
@@ -87,13 +87,11 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             media_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
 
             if (scrollHorizontally) {
-                media_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_horizontal_fastscroller.setViews(media_grid) {
                     val medium = (media[it] as? Medium)
                     media_horizontal_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
                 }
             } else {
-                media_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_vertical_fastscroller.setViews(media_grid) {
                     val medium = (media[it] as? Medium)
                     media_vertical_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
