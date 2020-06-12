@@ -43,7 +43,9 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.adapters.PortraitPhotosAdapter
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.saveRotatedImageToFile
+import com.simplemobiletools.gallery.pro.extensions.sendFakeClick
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
@@ -66,8 +68,8 @@ class PhotoFragment : ViewPagerFragment() {
 
     // devices with good displays, but the rest of the hardware not good enough for them
     private val WEIRD_DEVICES = arrayListOf(
-            "motorola xt1685",
-            "google nexus 5x"
+        "motorola xt1685",
+        "google nexus 5x"
     )
 
     var mCurrentRotationDegrees = 0
@@ -379,20 +381,20 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadSVG() {
         Glide.with(context!!)
-                .`as`(PictureDrawable::class.java)
-                .listener(SvgSoftwareLayerSetter())
-                .load(mMedium.path)
-                .into(mView.gestures_view)
+            .`as`(PictureDrawable::class.java)
+            .listener(SvgSoftwareLayerSetter())
+            .load(mMedium.path)
+            .into(mView.gestures_view)
     }
 
     private fun loadBitmap(addZoomableView: Boolean = true) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
-                .signature(getFilePathToShow().getFileSignature())
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .priority(priority)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .fitCenter()
+            .signature(getFilePathToShow().getFileSignature())
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .priority(priority)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .fitCenter()
 
         if (mCurrentRotationDegrees != 0) {
             options.transform(Rotate(mCurrentRotationDegrees))
@@ -404,24 +406,24 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         Glide.with(context!!)
-                .load(getFilePathToShow())
-                .apply(options)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        if (activity != null && !activity!!.isDestroyed && !activity!!.isFinishing) {
-                            tryLoadingWithPicasso(addZoomableView)
-                        }
-                        return false
+            .load(getFilePathToShow())
+            .apply(options)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                    if (activity != null && !activity!!.isDestroyed && !activity!!.isFinishing) {
+                        tryLoadingWithPicasso(addZoomableView)
                     }
+                    return false
+                }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
-                        if (mIsFragmentVisible && addZoomableView) {
-                            scheduleZoomableView()
-                        }
-                        return false
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                    mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
+                    if (mIsFragmentVisible && addZoomableView) {
+                        scheduleZoomableView()
                     }
-                }).into(mView.gestures_view)
+                    return false
+                }
+            }).into(mView.gestures_view)
     }
 
     private fun tryLoadingWithPicasso(addZoomableView: Boolean) {
@@ -430,10 +432,10 @@ class PhotoFragment : ViewPagerFragment() {
 
         try {
             val picasso = Picasso.get()
-                    .load(pathToLoad)
-                    .centerInside()
-                    .stableKey(mMedium.path.getFileKey())
-                    .resize(mScreenWidth, mScreenHeight)
+                .load(pathToLoad)
+                .centerInside()
+                .stableKey(mMedium.path.getFileKey())
+                .resize(mScreenWidth, mScreenHeight)
 
             if (mCurrentRotationDegrees != 0) {
                 picasso.rotate(mCurrentRotationDegrees.toFloat())
