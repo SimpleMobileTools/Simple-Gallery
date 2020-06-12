@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 312
-        versionName "6.15.0"
+        versionCode 313
+        versionName "6.15.1"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
