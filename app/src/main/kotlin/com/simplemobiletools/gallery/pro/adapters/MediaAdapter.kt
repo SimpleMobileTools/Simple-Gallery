@@ -229,7 +229,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 }
             }
         } else {
-            RenameDialog(activity, getSelectedPaths()) {
+            RenameDialog(true, activity, getSelectedPaths()) {
                 enableInstantLoad()
                 listener?.refreshItems()
                 finishActMode()
