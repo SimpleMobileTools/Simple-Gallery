@@ -88,5 +88,5 @@ data class Medium(
         return calendar.timeInMillis.toString()
     }
 
-    fun getSignature() = ObjectKey("$path-$modified")
+    fun getSignature() = ObjectKey("$path-$modified-$size")
 }
