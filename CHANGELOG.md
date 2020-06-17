@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.15.2 *(2020-06-17)*
+----------------------------
+
+ * Fixed a glitch at caching fullscreen images
+ * Properly recognize a new type of panoramic images
+
 Version 6.15.1 *(2020-06-12)*
 ----------------------------
 
