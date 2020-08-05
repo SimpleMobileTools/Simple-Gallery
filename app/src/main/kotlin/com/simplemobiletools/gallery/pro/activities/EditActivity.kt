@@ -39,6 +39,7 @@ import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.copyNonDimensionAttributesTo
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.openEditor
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -869,7 +870,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             if (isNougatPlus()) {
                 val newExif = ExifInterface(file.absolutePath)
-                oldExif?.copyTo(newExif, false)
+                oldExif?.copyNonDimensionAttributesTo(newExif)
             }
         } catch (e: Exception) {
         }
