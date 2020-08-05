@@ -304,16 +304,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun saveImage() {
-        var inputStream: InputStream? = null
-        try {
-            if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(uri!!)
-                oldExif = ExifInterface(inputStream!!)
-            }
-        } catch (e: Exception) {
-        } finally {
-            inputStream?.close()
-        }
+        setOldExif()
 
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
@@ -351,6 +342,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
                 }
             }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun setOldExif() {
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(uri!!)
+                oldExif = ExifInterface(inputStream!!)
+            }
+        } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
         }
     }
 
@@ -742,6 +747,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
+            setOldExif()
+
             val bitmap = result.bitmap
             if (isSharingBitmap) {
                 isSharingBitmap = false
