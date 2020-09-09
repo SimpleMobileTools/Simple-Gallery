@@ -61,12 +61,7 @@ class MediaFetcher(val context: Context) {
             val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
             folders.addAll(parseCursor(cursor!!))
-
-            val config = context.config
-            val shouldShowHidden = config.shouldShowHidden
-            val excludedPaths = config.excludedFolders
-            val includedPaths = config.includedFolders
-            folders.filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, context) }.toMutableList() as ArrayList<String>
+            folders.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
             ArrayList()
         }
@@ -192,6 +187,7 @@ class MediaFetcher(val context: Context) {
 
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
+
         return foldersToScan.distinctBy { it.getDistinctPath() }
             .filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden, context) }.toMutableSet() as LinkedHashSet<String>
     }
