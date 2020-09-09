@@ -516,7 +516,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
-        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, this) } as ArrayList<Directory>
+        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
         val filterMedia = config.filterMedia
 
         filteredDirectories = (when {

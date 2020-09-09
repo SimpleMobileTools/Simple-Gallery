@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.extensions
 
-import android.content.Context
 import android.os.Environment
 import com.simplemobiletools.commons.extensions.containsNoMedia
 import com.simplemobiletools.commons.extensions.doesParentHaveNoMedia
@@ -11,7 +10,7 @@ fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedP
 
 fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
 
-fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean, context: Context): Boolean {
+fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
     if (isEmpty()) {
         return false
     }
