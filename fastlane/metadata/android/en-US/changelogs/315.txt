@@ -1,0 +1,2 @@
+ * Improved file loading performance in some cases
+ * Some UX, translation and stability improvements

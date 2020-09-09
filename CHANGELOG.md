@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.15.2 *(2020-09-09)*
+----------------------------
+
+ * Improved file loading performance in some cases
+ * Some UX, translation and stability improvements
+
 Version 6.15.2 *(2020-06-17)*
 ----------------------------
 
