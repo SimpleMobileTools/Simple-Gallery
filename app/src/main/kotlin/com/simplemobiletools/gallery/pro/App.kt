@@ -1,10 +1,10 @@
 package com.simplemobiletools.gallery.pro
 
-import androidx.multidex.MultiDexApplication
+import android.app.Application
 import com.github.ajalt.reprint.core.Reprint
 import com.simplemobiletools.commons.extensions.checkUseEnglish
 
-class App : MultiDexApplication() {
+class App : Application() {
     override fun onCreate() {
         super.onCreate()
         checkUseEnglish()
