@@ -1,16 +1,14 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
-import android.graphics.drawable.Icon
 import android.os.Handler
 import android.os.Looper
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.graphics.drawable.IconCompat
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -352,10 +350,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
-    @SuppressLint("NewApi")
     private fun createShortcut() {
-        val manager = activity.getSystemService(ShortcutManager::class.java)
-        if (manager.isRequestPinShortcutSupported) {
+        if (activity.isRequestPinShortcutSupported) {
             val path = getSelectedPaths().first()
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
             activity.getShortcutImage(path, drawable) {
@@ -368,13 +364,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
 
-                val shortcut = ShortcutInfo.Builder(activity, path)
+                val shortcut = ShortcutInfoCompat.Builder(activity, path)
                         .setShortLabel(path.getFilenameFromPath())
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                        .setIcon(IconCompat.createWithBitmap(drawable.convertToBitmap()))
                         .setIntent(intent)
                         .build()
 
-                manager.requestPinShortcut(shortcut, null)
+                activity.requestPinShortcut(shortcut)
             }
         }
     }

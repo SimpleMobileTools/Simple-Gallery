@@ -4,11 +4,14 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.IntentSender
 import android.database.Cursor
 import android.graphics.drawable.PictureDrawable
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.widget.ImageView
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.content.pm.ShortcutManagerCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
@@ -904,3 +907,12 @@ fun Context.getFileDateTaken(path: String): Long {
 
     return 0L
 }
+
+inline val Context.isRequestPinShortcutSupported
+    get() = ShortcutManagerCompat.isRequestPinShortcutSupported(this)
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun Context.requestPinShortcut(
+        shortcutInfo: ShortcutInfoCompat,
+        intentSender: IntentSender? = null
+) = ShortcutManagerCompat.requestPinShortcut(this, shortcutInfo, intentSender)

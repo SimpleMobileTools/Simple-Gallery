@@ -1,14 +1,12 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.graphics.drawable.IconCompat
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -463,10 +461,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
-    @SuppressLint("NewApi")
     private fun createShortcut() {
-        val manager = activity.getSystemService(ShortcutManager::class.java)
-        if (manager.isRequestPinShortcutSupported) {
+        if (activity.isRequestPinShortcutSupported) {
             val dir = getFirstSelectedItem() ?: return
             val path = dir.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
@@ -477,13 +473,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra(DIRECTORY, path)
 
-                val shortcut = ShortcutInfo.Builder(activity, path)
+                val shortcut = ShortcutInfoCompat.Builder(activity, path)
                         .setShortLabel(dir.name)
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                        .setIcon(IconCompat.createWithBitmap(drawable.convertToBitmap()))
                         .setIntent(intent)
                         .build()
 
-                manager.requestPinShortcut(shortcut, null)
+                activity.requestPinShortcut(shortcut)
             }
         }
     }
