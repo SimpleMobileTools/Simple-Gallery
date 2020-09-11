@@ -18,6 +18,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.getSystemService
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -346,7 +347,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchManager = getSystemService<SearchManager>()!!
         mSearchMenuItem = menu.findItem(R.id.search)
         (mSearchMenuItem?.actionView as? SearchView)?.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))

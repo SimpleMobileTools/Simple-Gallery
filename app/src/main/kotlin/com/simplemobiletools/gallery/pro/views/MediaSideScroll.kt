@@ -11,9 +11,9 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.getSystemService
 import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.audioManager
 import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
 
 // allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
@@ -134,7 +134,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         return true
     }
 
-    private fun getCurrentVolume() = activity?.audioManager?.getStreamVolume(AudioManager.STREAM_MUSIC) ?: 0
+    private fun getCurrentVolume() = activity?.getSystemService<AudioManager>()?.getStreamVolume(AudioManager.STREAM_MUSIC) ?: 0
 
     private fun getCurrentBrightness(): Int {
         return try {
@@ -154,11 +154,11 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
-        val maxVolume = activity!!.audioManager.getStreamMaxVolume(stream)
+        val maxVolume = activity!!.getSystemService<AudioManager>()!!.getStreamMaxVolume(stream)
         val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownValue + addPoints))
-        activity!!.audioManager.setStreamVolume(stream, newVolume, 0)
+        activity!!.getSystemService<AudioManager>()!!.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
         showValue(absolutePercent)

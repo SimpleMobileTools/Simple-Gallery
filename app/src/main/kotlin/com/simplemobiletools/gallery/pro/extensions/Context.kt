@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.drawable.PictureDrawable
-import android.media.AudioManager
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.widget.ImageView
@@ -36,8 +35,6 @@ import java.util.HashSet
 import java.util.LinkedHashSet
 import kotlin.Comparator
 import kotlin.collections.ArrayList
-
-val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
