@@ -21,13 +21,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.core.text.parseAsHtml
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -132,7 +132,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
-        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>$filename</font>")
+        supportActionBar?.title = "<font color=#FFFFFF'>$filename</font>".parseAsHtml()
         window.statusBarColor = Color.TRANSPARENT
     }
 
