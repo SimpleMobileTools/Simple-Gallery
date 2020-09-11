@@ -70,6 +70,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 
     packagingOptions {
         exclude 'META-INF/library_release.kotlin_module'
@@ -92,6 +95,9 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:512f929d82'
     implementation 'com.github.tibbi:subsampling-scale-image-view:81c021514c'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // KTX
+    implementation 'androidx.core:core-ktx:1.3.1'
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
