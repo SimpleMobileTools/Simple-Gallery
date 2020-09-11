@@ -16,6 +16,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RelativeLayout
+import androidx.core.graphics.scale
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -854,7 +855,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         if (resizeWidth > 0 && resizeHeight > 0) {
-            val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
+            val resized = bitmap.scale(resizeWidth, resizeHeight, false)
             resized.compress(file.absolutePath.getCompressionFormat(), 90, out)
         } else {
             bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
