@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.adapters
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -23,16 +24,13 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
 
     override fun getItem(position: Int): Fragment {
         val medium = media[position]
-        val bundle = Bundle()
-        bundle.putSerializable(MEDIUM, medium)
-        bundle.putBoolean(SHOULD_INIT_FRAGMENT, shouldInitFragment)
         val fragment = if (medium.isVideo()) {
             VideoFragment()
         } else {
             PhotoFragment()
         }
 
-        fragment.arguments = bundle
+        fragment.arguments = bundleOf(MEDIUM to medium, SHOULD_INIT_FRAGMENT to shouldInitFragment)
         fragment.listener = activity
         return fragment
     }

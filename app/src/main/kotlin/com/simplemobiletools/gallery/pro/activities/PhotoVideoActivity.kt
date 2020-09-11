@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.os.bundleOf
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
@@ -136,7 +137,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         checkNotchSupport()
         showSystemUI(true)
-        val bundle = Bundle()
         val file = File(mUri.toString())
         val intentType = intent.type ?: ""
         val type = when {
@@ -151,12 +151,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         mIsVideo = type == TYPE_VIDEOS
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L)
         supportActionBar?.title = mMedium!!.name
-        bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()
             mFragment!!.listener = this
-            mFragment!!.arguments = bundle
+            mFragment!!.arguments = bundleOf(MEDIUM to mMedium)
             supportFragmentManager.beginTransaction().replace(R.id.fragment_placeholder, mFragment!!).commit()
         }
 
