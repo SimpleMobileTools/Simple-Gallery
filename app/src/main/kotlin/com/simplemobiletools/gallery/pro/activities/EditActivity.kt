@@ -16,6 +16,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RelativeLayout
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -151,12 +152,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             uri = when {
                 isPathOnOTG(realPath!!) -> uri
-                realPath.startsWith("file:/") -> Uri.parse(realPath)
-                else -> Uri.fromFile(File(realPath))
+                realPath.startsWith("file:/") -> realPath.toUri()
+                else -> File(realPath).toUri()
             }
         } else {
             (getRealPathFromURI(uri!!))?.apply {
-                uri = Uri.fromFile(File(this))
+                uri = File(this).toUri()
             }
         }
 

@@ -3,10 +3,8 @@ package com.simplemobiletools.gallery.pro.activities
 import android.app.Activity
 import android.app.SearchManager
 import android.app.WallpaperManager
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
@@ -16,6 +14,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.getSystemService
+import androidx.core.net.toUri
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -816,7 +815,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 })
         } else if (mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent) {
             Intent().apply {
-                data = Uri.parse(path)
+                data = path.toUri()
                 setResult(Activity.RESULT_OK, this)
             }
             finish()

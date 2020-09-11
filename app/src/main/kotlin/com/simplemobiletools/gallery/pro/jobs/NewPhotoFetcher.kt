@@ -9,12 +9,12 @@ import android.app.job.JobService
 import android.content.ComponentName
 import android.content.Context
 import android.database.Cursor
-import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.provider.MediaStore.Video
+import androidx.core.net.toUri
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -26,7 +26,7 @@ import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 class NewPhotoFetcher : JobService() {
     companion object {
         const val PHOTO_VIDEO_CONTENT_JOB = 1
-        private val MEDIA_URI = Uri.parse("content://${MediaStore.AUTHORITY}/")
+        private val MEDIA_URI = "content://${MediaStore.AUTHORITY}/".toUri()
         private val PHOTO_PATH_SEGMENTS = Images.Media.EXTERNAL_CONTENT_URI.pathSegments
         private val VIDEO_PATH_SEGMENTS = Video.Media.EXTERNAL_CONTENT_URI.pathSegments
     }

@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.helpers
 import android.content.Context
 import android.graphics.*
 import android.net.Uri
+import androidx.core.net.toUri
 import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 
 class PicassoRegionDecoder(val showHighestQuality: Boolean, val screenWidth: Int, val screenHeight: Int, val minTileDpi: Int) : ImageRegionDecoder {
@@ -10,7 +11,7 @@ class PicassoRegionDecoder(val showHighestQuality: Boolean, val screenWidth: Int
     private val decoderLock = Any()
 
     override fun init(context: Context, uri: Uri): Point {
-        val newUri = Uri.parse(uri.toString().replace("%", "%25").replace("#", "%23"))
+        val newUri = uri.toString().replace("%", "%25").replace("#", "%23").toUri()
         val inputStream = context.contentResolver.openInputStream(newUri)
         decoder = BitmapRegionDecoder.newInstance(inputStream, false)
         return Point(decoder!!.width, decoder!!.height)

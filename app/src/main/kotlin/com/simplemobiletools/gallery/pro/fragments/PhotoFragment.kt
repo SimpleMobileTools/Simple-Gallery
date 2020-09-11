@@ -20,6 +20,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.core.net.toUri
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -162,23 +163,23 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
-            mMedium.path = context!!.getRealPathFromURI(Uri.parse(mOriginalPath)) ?: mMedium.path
+            mMedium.path = context!!.getRealPathFromURI(mOriginalPath.toUri()) ?: mMedium.path
 
             if (mMedium.path.isEmpty()) {
                 var out: FileOutputStream? = null
                 try {
-                    var inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
+                    var inputStream = context!!.contentResolver.openInputStream(mOriginalPath.toUri())
                     val exif = ExifInterface()
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-                    inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
+                    inputStream = context!!.contentResolver.openInputStream(mOriginalPath.toUri())
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
                     exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
                     exif.removeCompressedThumbnail()
 
-                    val file = File(context!!.externalCacheDir, Uri.parse(mOriginalPath).lastPathSegment)
+                    val file = File(context!!.externalCacheDir, mOriginalPath.toUri().lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
                     mMedium.path = file.absolutePath
@@ -362,7 +363,7 @@ class PhotoFragment : ViewPagerFragment() {
         try {
             val pathToLoad = getPathToLoad(mMedium)
             val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
-                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
+                InputSource.UriSource(context!!.contentResolver, pathToLoad.toUri())
             } else {
                 InputSource.FileSource(pathToLoad)
             }
@@ -693,7 +694,7 @@ class PhotoFragment : ViewPagerFragment() {
         try {
             val path = getFilePathToShow()
             orient = if (path.startsWith("content:/")) {
-                val inputStream = context!!.contentResolver.openInputStream(Uri.parse(path))
+                val inputStream = context!!.contentResolver.openInputStream(path.toUri())
                 val exif = ExifInterface()
                 exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                 val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
@@ -704,7 +705,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             if (orient == defaultOrientation || context!!.isPathOnOTG(getFilePathToShow())) {
-                val uri = if (path.startsWith("content:/")) Uri.parse(path) else Uri.fromFile(File(path))
+                val uri = if (path.startsWith("content:/")) path.toUri() else File(path).toUri()
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()
                 exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)

@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.core.net.toUri
 import androidx.core.util.Pair
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.extensions.*
@@ -88,12 +89,12 @@ class NewEditActivity : SimpleActivity() {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             uri = when {
                 isPathOnOTG(realPath!!) -> uri
-                realPath.startsWith("file:/") -> Uri.parse(realPath)
-                else -> Uri.fromFile(File(realPath))
+                realPath.startsWith("file:/") -> realPath.toUri()
+                else -> File(realPath).toUri()
             }
         } else {
             (getRealPathFromURI(uri))?.apply {
-                uri = Uri.fromFile(File(this))
+                uri = File(this).toUri()
             }
         }
 
@@ -171,7 +172,7 @@ class NewEditActivity : SimpleActivity() {
         var inputStream: InputStream? = null
         try {
             if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(Uri.fromFile(File(sourcePath)))
+                inputStream = contentResolver.openInputStream(File(sourcePath).toUri())
                 oldExif = ExifInterface(inputStream!!)
             }
         } catch (ignored: Exception) {

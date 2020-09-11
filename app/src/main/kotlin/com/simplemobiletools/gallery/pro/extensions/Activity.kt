@@ -10,13 +10,13 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.media.ExifInterface
-import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -643,7 +643,7 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
 fun Activity.showFileOnMap(path: String) {
     val exif = try {
         if (path.startsWith("content://") && isNougatPlus()) {
-            ExifInterface(contentResolver.openInputStream(Uri.parse(path))!!)
+            ExifInterface(contentResolver.openInputStream(path.toUri())!!)
         } else {
             ExifInterface(path)
         }

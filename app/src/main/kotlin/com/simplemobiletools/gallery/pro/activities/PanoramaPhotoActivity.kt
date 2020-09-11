@@ -4,17 +4,19 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.RelativeLayout
+import androidx.core.net.toUri
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.hideSystemUI
+import com.simplemobiletools.gallery.pro.extensions.showSystemUI
 import com.simplemobiletools.gallery.pro.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama_photo.*
 
@@ -135,7 +137,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         for (i in 0..10) {
             try {
                 bitmap = if (path.startsWith("content://")) {
-                    val inputStream = contentResolver.openInputStream(Uri.parse(path))
+                    val inputStream = contentResolver.openInputStream(path.toUri())
                     BitmapFactory.decodeStream(inputStream)
                 } else {
                     BitmapFactory.decodeFile(path, options)

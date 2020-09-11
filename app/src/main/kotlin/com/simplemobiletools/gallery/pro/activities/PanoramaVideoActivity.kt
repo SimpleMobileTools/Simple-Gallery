@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.content.res.Configuration
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -10,11 +9,15 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.RelativeLayout
 import android.widget.SeekBar
+import androidx.core.net.toUri
 import com.google.vr.sdk.widgets.video.VrVideoEventListener
 import com.google.vr.sdk.widgets.video.VrVideoView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.hasNavBar
+import com.simplemobiletools.gallery.pro.extensions.hideSystemUI
+import com.simplemobiletools.gallery.pro.extensions.showSystemUI
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
 import com.simplemobiletools.gallery.pro.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama_video.*
@@ -92,9 +95,9 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             val options = VrVideoView.Options()
             options.inputType = VrVideoView.Options.TYPE_MONO
             val uri = if (path.startsWith("content://")) {
-                Uri.parse(path)
+                path.toUri()
             } else {
-                Uri.fromFile(File(path))
+                File(path).toUri()
             }
 
             vr_video_view.apply {
