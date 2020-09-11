@@ -5,6 +5,8 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.createBitmap
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.models.PaintOptions
@@ -128,11 +130,10 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
     }
 
     fun getBitmap(): Bitmap {
-        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        canvas.drawColor(Color.WHITE)
-        draw(canvas)
-        return bitmap
+        return createBitmap(width, height).applyCanvas {
+            drawColor(Color.WHITE)
+            draw(this)
+        }
     }
 
     fun undo() {
