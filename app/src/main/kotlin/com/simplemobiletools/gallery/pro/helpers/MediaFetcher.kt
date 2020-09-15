@@ -467,7 +467,7 @@ class MediaFetcher(val context: Context) {
                 if (cursor.moveToFirst()) {
                     do {
                         try {
-                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED)
+                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
                             if (lastModified != 0L) {
                                 val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
                                 lastModifieds["$folder/$name"] = lastModified
