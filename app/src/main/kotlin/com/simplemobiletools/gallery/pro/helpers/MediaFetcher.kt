@@ -220,6 +220,7 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
+        val lastModifieds = if (getProperLastModified && !isRecycleBin) getFolderLastModifieds(folder) else HashMap()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
@@ -290,7 +291,19 @@ class MediaFetcher(val context: Context) {
                     media.add(this)
                 }
             } else {
-                val lastModified = if (getProperLastModified) file.lastModified() else 0L
+                var lastModified = 0L
+                if (getProperLastModified) {
+                    var newLastModified = lastModifieds.remove(path)
+                    if (newLastModified == null) {
+                        newLastModified = if (getProperLastModified) {
+                            lastModified
+                        } else {
+                            file.lastModified()
+                        }
+                    }
+                    lastModified = newLastModified
+                }
+
                 var dateTaken = lastModified
                 val videoDuration = if (getVideoDurations && isVideo) context.getDuration(path) ?: 0 else 0
 
@@ -430,6 +443,48 @@ class MediaFetcher(val context: Context) {
         }
 
         return dateTakens
+    }
+
+    private fun getFolderLastModifieds(folder: String): HashMap<String, Long> {
+        val lastModifieds = HashMap<String, Long>()
+        if (folder != FAVORITES) {
+            val projection = arrayOf(
+                Images.Media.DISPLAY_NAME,
+                Images.Media.DATE_MODIFIED
+            )
+
+            val uri = Files.getContentUri("external")
+            val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
+            val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
+
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            cursor?.use {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED)
+                            if (lastModified != 0L) {
+                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                                lastModifieds["$folder/$name"] = lastModified
+                            }
+                        } catch (e: Exception) {
+                        }
+                    } while (cursor.moveToNext())
+                }
+            }
+        }
+
+        val lastModifiedValues = if (folder == FAVORITES) {
+            context.dateTakensDB.getAllDateTakens()
+        } else {
+            context.dateTakensDB.getDateTakensFromPath(folder)
+        }
+
+        lastModifiedValues.forEach {
+            lastModifieds[it.fullPath] = it.taken
+        }
+
+        return lastModifieds
     }
 
     fun sortMedia(media: ArrayList<Medium>, sorting: Int) {
