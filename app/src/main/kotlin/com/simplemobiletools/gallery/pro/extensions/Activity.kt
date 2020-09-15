@@ -450,7 +450,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 mediaDB.updateFavoriteDateTaken(path, timestamp)
                 didUpdateFile = true
 
-                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt())
+                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt(), File(path).lastModified())
                 dateTakens.add(dateTaken)
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)
