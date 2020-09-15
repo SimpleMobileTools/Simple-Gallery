@@ -221,6 +221,7 @@ class MediaFetcher(val context: Context) {
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
         val lastModifieds = if (getProperLastModified && !isRecycleBin) getFolderLastModifieds(folder) else HashMap()
+        val fileSizes = if (checkProperFileSize || checkFileExistence) getFolderSizes(folder) else HashMap()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toMutableList() as ArrayList<File>
@@ -277,7 +278,15 @@ class MediaFetcher(val context: Context) {
             if (!showHidden && filename.startsWith('.'))
                 continue
 
-            val size = if (checkProperFileSize || checkFileExistence) file.length() else 1L
+            var size = 0L
+            if (checkProperFileSize || checkFileExistence) {
+                var newSize = fileSizes.remove(path)
+                if (newSize == null) {
+                    newSize = file.length()
+                }
+                size = newSize
+            }
+
             if ((checkProperFileSize || checkFileExistence) && size <= 0L) {
                 continue
             }
@@ -295,11 +304,7 @@ class MediaFetcher(val context: Context) {
                 if (getProperLastModified) {
                     var newLastModified = lastModifieds.remove(path)
                     if (newLastModified == null) {
-                        newLastModified = if (getProperLastModified) {
-                            lastModified
-                        } else {
-                            file.lastModified()
-                        }
+                        newLastModified = file.lastModified()
                     }
                     lastModified = newLastModified
                 }
@@ -485,6 +490,38 @@ class MediaFetcher(val context: Context) {
         }
 
         return lastModifieds
+    }
+
+    private fun getFolderSizes(folder: String): HashMap<String, Long> {
+        val sizes = HashMap<String, Long>()
+        if (folder != FAVORITES) {
+            val projection = arrayOf(
+                Images.Media.DISPLAY_NAME,
+                Images.Media.SIZE
+            )
+
+            val uri = Files.getContentUri("external")
+            val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
+            val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
+
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            cursor?.use {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            val size = cursor.getLongValue(Images.Media.SIZE)
+                            if (size != 0L) {
+                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                                sizes["$folder/$name"] = size
+                            }
+                        } catch (e: Exception) {
+                        }
+                    } while (cursor.moveToNext())
+                }
+            }
+        }
+
+        return sizes
     }
 
     fun sortMedia(media: ArrayList<Medium>, sorting: Int) {
