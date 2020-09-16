@@ -486,7 +486,9 @@ class MediaFetcher(val context: Context) {
         }
 
         lastModifiedValues.forEach {
-            lastModifieds[it.fullPath] = it.taken
+            if (!lastModifieds.containsKey(it.fullPath)) {
+                lastModifieds[it.fullPath] = it.lastModified
+            }
         }
 
         return lastModifieds
