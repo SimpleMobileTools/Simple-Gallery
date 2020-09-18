@@ -20,7 +20,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SettingsActivity
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.*
@@ -28,6 +27,7 @@ import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -342,25 +342,20 @@ fun Context.rescanFolderMedia(path: String) {
 fun Context.rescanFolderMediaSync(path: String) {
     getCachedMedia(path) {
         val cached = it
-        GetMediaAsynctask(applicationContext, path, false, false, false) {
-            ensureBackgroundThread {
-                val newMedia = it
-                val media = newMedia.filter { it is Medium } as ArrayList<Medium>
-                try {
-                    mediaDB.insertAll(media)
+        runBlocking {
+            val newMedia = applicationContext.getMedia(path, showAll = false)
+            val media = newMedia.filterIsInstance<Medium>() as ArrayList<Medium>
+            mediaDB.insertAll(media)
 
-                    cached.forEach {
-                        if (!newMedia.contains(it)) {
-                            val mediumPath = (it as? Medium)?.path
-                            if (mediumPath != null) {
-                                deleteDBPath(mediumPath)
-                            }
-                        }
+            cached.forEach { item ->
+                if (item !in newMedia) {
+                    val mediumPath = (item as? Medium)?.path
+                    if (mediumPath != null) {
+                        deleteDBPath(mediumPath)
                     }
-                } catch (ignored: Exception) {
                 }
             }
-        }.execute()
+        }
     }
 }
 
@@ -905,4 +900,43 @@ fun Context.getFileDateTaken(path: String): Long {
     }
 
     return 0L
+}
+
+suspend fun Context.getMedia(
+        mPath: String,
+        isPickImage: Boolean = false,
+        isPickVideo: Boolean = false,
+        showAll: Boolean
+): ArrayList<ThumbnailItem> {
+    val mediaFetcher = MediaFetcher(this)
+    return withContext(Dispatchers.Default) {
+        val pathToUse = if (showAll) SHOW_ALL else mPath
+        val folderGrouping = config.getFolderGrouping(pathToUse)
+        val fileSorting = config.getFolderSorting(pathToUse)
+        val getProperDateTaken = fileSorting and SORT_BY_DATE_TAKEN != 0 ||
+                folderGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                folderGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+        val getProperLastModified = fileSorting and SORT_BY_DATE_MODIFIED != 0 ||
+                folderGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                folderGrouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+        val getProperFileSize = fileSorting and SORT_BY_SIZE != 0
+        val favoritePaths = getFavoritePaths()
+        val getVideoDurations = config.showThumbnailVideoDuration
+        val media = if (showAll) {
+            val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES && !config.isFolderProtected(it) }
+            val media = ArrayList<Medium>()
+            foldersToScan.forEach {
+                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)
+                media.addAll(newMedia)
+            }
+
+            mediaFetcher.sortMedia(media, config.getFolderSorting(SHOW_ALL))
+            media
+        } else {
+            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)
+        }
+        return@withContext mediaFetcher.groupMedia(media, pathToUse)
+    }
 }
