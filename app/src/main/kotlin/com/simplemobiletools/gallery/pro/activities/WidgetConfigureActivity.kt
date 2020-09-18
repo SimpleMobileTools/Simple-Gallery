@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.RemoteViews
+import androidx.lifecycle.lifecycleScope
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -18,6 +19,7 @@ import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Widget
 import kotlinx.android.synthetic.main.activity_widget_config.*
+import kotlinx.coroutines.launch
 
 class WidgetConfigureActivity : SimpleActivity() {
     private var mBgAlpha = 0f
@@ -56,11 +58,13 @@ class WidgetConfigureActivity : SimpleActivity() {
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)
 
-        getCachedDirectories(false, false) {
-            mDirectories = it
-            val path = it.firstOrNull()?.path
-            if (path != null) {
-                updateFolderImage(path)
+        lifecycleScope.launch {
+            getCachedDirectories {
+                mDirectories = it
+                val path = it.firstOrNull()?.path
+                if (path != null) {
+                    updateFolderImage(path)
+                }
             }
         }
     }
@@ -162,7 +166,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             config_folder_name.text = getFolderNameFromPath(folderPath)
         }
 
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             val path = directoryDao.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {

@@ -6,6 +6,7 @@ import android.net.Uri
 import android.provider.MediaStore.Images
 import android.provider.MediaStore.Video
 import android.view.WindowManager
+import androidx.lifecycle.lifecycleScope
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.getParentPath
@@ -17,6 +18,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
+import kotlinx.coroutines.launch
 
 open class SimpleActivity : BaseSimpleActivity() {
     val observer = object : ContentObserver(null) {
@@ -24,7 +26,9 @@ open class SimpleActivity : BaseSimpleActivity() {
             super.onChange(selfChange, uri)
             val path = getRealPathFromURI(uri)
             if (path != null) {
-                updateDirectoryPath(path.getParentPath())
+                lifecycleScope.launch {
+                    updateDirectoryPath(path.getParentPath())
+                }
                 addPathToDB(path)
             }
         }

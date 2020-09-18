@@ -9,6 +9,7 @@ import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -39,6 +40,7 @@ import kotlinx.android.synthetic.main.directory_item_grid.view.dir_pin
 import kotlinx.android.synthetic.main.directory_item_grid.view.dir_thumbnail
 import kotlinx.android.synthetic.main.directory_item_grid.view.photo_cnt
 import kotlinx.android.synthetic.main.directory_item_list.view.*
+import kotlinx.coroutines.launch
 import java.io.File
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -196,7 +198,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                                 tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                             }
                             updateDirs(dirs)
-                            ensureBackgroundThread {
+                            activity.lifecycleScope.launch {
                                 try {
                                     activity.directoryDao.updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
                                     listener?.refreshItems()

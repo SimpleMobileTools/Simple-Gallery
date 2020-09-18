@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -46,6 +47,7 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_media.*
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 import java.util.*
@@ -500,7 +502,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun restoreAllFiles() {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
         restoreRecycleBinPaths(paths) {
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 directoryDao.deleteDirPath(RECYCLE_BIN)
             }
             finish()
@@ -593,7 +595,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
 
             if (mPath == FAVORITES) {
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     directoryDao.deleteDirPath(FAVORITES)
                 }
             }
@@ -606,11 +608,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun deleteDBDirectory() {
-        ensureBackgroundThread {
-            try {
-                directoryDao.deleteDirPath(mPath)
-            } catch (ignored: Exception) {
-            }
+        lifecycleScope.launch {
+            directoryDao.deleteDirPath(mPath)
         }
     }
 

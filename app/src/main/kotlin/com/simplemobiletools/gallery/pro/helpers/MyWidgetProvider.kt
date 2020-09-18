@@ -22,8 +22,11 @@ import com.simplemobiletools.gallery.pro.extensions.directoryDao
 import com.simplemobiletools.gallery.pro.extensions.getFolderNameFromPath
 import com.simplemobiletools.gallery.pro.extensions.widgetsDB
 import com.simplemobiletools.gallery.pro.models.Widget
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class MyWidgetProvider : AppWidgetProvider() {
+class MyWidgetProvider : AppWidgetProvider(), CoroutineScope by CoroutineScope(Dispatchers.Main) {
     private fun setupAppOpenIntent(context: Context, views: RemoteViews, id: Int, widget: Widget) {
         val intent = Intent(context, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, widget.folderPath)
@@ -35,7 +38,7 @@ class MyWidgetProvider : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
-        ensureBackgroundThread {
+        launch {
             val config = context.config
             context.widgetsDB.getWidgets().filter { appWidgetIds.contains(it.widgetId) }.forEach {
                 val views = RemoteViews(context.packageName, R.layout.widget).apply {

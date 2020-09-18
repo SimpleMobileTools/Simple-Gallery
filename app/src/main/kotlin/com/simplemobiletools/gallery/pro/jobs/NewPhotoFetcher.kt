@@ -17,13 +17,15 @@ import android.provider.MediaStore.Images
 import android.provider.MediaStore.Video
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
 import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // based on https://developer.android.com/reference/android/app/job/JobInfo.Builder.html#addTriggerContentUri(android.app.job.JobInfo.TriggerContentUri)
 @TargetApi(Build.VERSION_CODES.N)
-class NewPhotoFetcher : JobService() {
+class NewPhotoFetcher : JobService(), CoroutineScope by CoroutineScope(Dispatchers.Main) {
     companion object {
         const val PHOTO_VIDEO_CONTENT_JOB = 1
         private val MEDIA_URI = Uri.parse("content://${MediaStore.AUTHORITY}/")
@@ -63,7 +65,7 @@ class NewPhotoFetcher : JobService() {
 
     override fun onStartJob(params: JobParameters): Boolean {
         mRunningParams = params
-        ensureBackgroundThread {
+        launch {
             val affectedFolderPaths = HashSet<String>()
             if (params.triggeredContentAuthorities != null && params.triggeredContentUris != null) {
                 val ids = arrayListOf<String>()

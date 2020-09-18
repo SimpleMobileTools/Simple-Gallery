@@ -19,6 +19,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
@@ -44,6 +45,7 @@ import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.launch
 import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -465,8 +467,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
-        getCachedDirectories(getVideosOnly, getImagesOnly) {
-            gotDirectories(addTempFolderIfNeeded(it))
+        lifecycleScope.launch {
+            getCachedDirectories(getVideosOnly, getImagesOnly) {
+                gotDirectories(addTempFolderIfNeeded(it))
+            }
         }
     }
 
@@ -482,7 +486,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.directorySorting and SORT_BY_DATE_TAKEN != 0) {
                 getDirectories()
             } else {
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     gotDirectories(getCurrentlyDisplayedDirs())
                 }
             }
@@ -595,14 +599,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 refreshItems()
             }
 
-            ensureBackgroundThread {
+            lifecycleScope.launch {
+                val context = this@MainActivity
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
                     directoryDao.deleteDirPath(it.absolutePath)
                 }
 
                 if (config.deleteEmptyFolders) {
-                    folders.filter { !it.absolutePath.isDownloadsFolder() && it.isDirectory && it.toFileDirItem(this).getProperFileCount(this, true) == 0 }.forEach {
-                        tryDeleteFileDirItem(it.toFileDirItem(this), true, true)
+                    folders.filter { !it.absolutePath.isDownloadsFolder() && it.isDirectory && it.toFileDirItem(context).getProperFileCount(context, true) == 0 }.forEach {
+                        tryDeleteFileDirItem(it.toFileDirItem(context), true, true)
                     }
                 }
             }
@@ -702,7 +707,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun toggleRecycleBin(show: Boolean) {
         config.showRecycleBinAtFolders = show
         invalidateOptionsMenu()
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             var dirs = getCurrentlyDisplayedDirs()
             if (!show) {
                 dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
@@ -715,7 +720,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
                 }
             }
@@ -868,7 +873,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun gotDirectories(newDirs: ArrayList<Directory>) {
+    private suspend fun gotDirectories(newDirs: ArrayList<Directory>) {
         mIsGettingDirs = false
         mShouldStopFetching = false
 
@@ -1037,16 +1042,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.add(newDir)
             setupAdapter(dirs)
 
-            // make sure to create a new thread for these operations, dont just use the common bg thread
-            Thread {
-                try {
-                    directoryDao.insert(newDir)
-                    if (folder != RECYCLE_BIN) {
-                        mediaDB.insertAll(newMedia)
-                    }
-                } catch (ignored: Exception) {
+            lifecycleScope.launch {
+                directoryDao.insert(newDir)
+                if (folder != RECYCLE_BIN) {
+                    mediaDB.insertAll(newMedia)
                 }
-            }.start()
+            }
         }
 
         mLoadedInitialPhotos = true
@@ -1183,7 +1184,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
+    private suspend fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
         val invalidDirs = ArrayList<Directory>()
         val OTGPath = config.OTGPath
         dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
@@ -1222,10 +1223,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
-                try {
-                    directoryDao.deleteDirPath(it.path)
-                } catch (ignored: Exception) {
-                }
+                directoryDao.deleteDirPath(it.path)
             }
         }
     }
@@ -1352,13 +1350,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun recheckPinnedFolders() {
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
         }
     }
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             storeDirectoryItems(directories)
             removeInvalidDBDirectories()
         }

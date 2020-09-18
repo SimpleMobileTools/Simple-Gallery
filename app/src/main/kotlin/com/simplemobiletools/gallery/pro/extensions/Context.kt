@@ -27,6 +27,8 @@ import com.simplemobiletools.gallery.pro.interfaces.*
 import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileInputStream
@@ -362,10 +364,8 @@ fun Context.rescanFolderMediaSync(path: String) {
     }
 }
 
-fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
-    ensureBackgroundThread {
-        directoryDao.insertAll(items)
-    }
+suspend fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
+    directoryDao.insertAll(items)
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
@@ -501,12 +501,17 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
         .into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
-    ensureBackgroundThread {
+suspend fun Context.getCachedDirectories(
+        getVideosOnly: Boolean = false,
+        getImagesOnly: Boolean = false,
+        forceShowHidden: Boolean = false,
+        callback: suspend (ArrayList<Directory>) -> Unit
+) {
+    withContext(Dispatchers.IO) {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
-            ArrayList<Directory>()
+            ArrayList()
         }
 
         if (!config.showRecycleBinAtFolders) {
@@ -629,14 +634,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
     }
 }
 
-fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null) {
+suspend fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
     val OTGPath = config.OTGPath
     dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path, OTGPath) && it.path != config.tempFolderPath }.forEach {
-        try {
-            directoryDao.deleteDirPath(it.path)
-        } catch (ignored: Exception) {
-        }
+        directoryDao.deleteDirPath(it.path)
     }
 }
 
@@ -650,11 +652,8 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     }
 }
 
-fun Context.updateDBDirectory(directory: Directory) {
-    try {
-        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types, directory.sortValue)
-    } catch (ignored: Exception) {
-    }
+suspend fun Context.updateDBDirectory(directory: Directory) {
+    directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types, directory.sortValue)
 }
 
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
@@ -859,7 +858,7 @@ fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, nam
     return result.toString()
 }
 
-fun Context.updateDirectoryPath(path: String) {
+suspend fun Context.updateDirectoryPath(path: String) {
     val mediaFetcher = MediaFetcher(applicationContext)
     val getImagesOnly = false
     val getVideosOnly = false
