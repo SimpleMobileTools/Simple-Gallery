@@ -7,14 +7,11 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
 import android.content.res.Configuration
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Icon
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -28,6 +25,8 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.graphics.drawable.IconCompat
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -700,10 +699,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    @SuppressLint("NewApi")
     private fun createShortcut() {
-        val manager = getSystemService(ShortcutManager::class.java)
-        if (manager.isRequestPinShortcutSupported) {
+        if (isRequestPinShortcutSupported) {
             val medium = getCurrentMedium() ?: return
             val path = medium.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
@@ -717,13 +714,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
 
-                val shortcut = ShortcutInfo.Builder(this, path)
+                val shortcut = ShortcutInfoCompat.Builder(this, path)
                     .setShortLabel(medium.name)
-                    .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                    .setIcon(IconCompat.createWithBitmap(drawable.convertToBitmap()))
                     .setIntent(intent)
                     .build()
 
-                manager.requestPinShortcut(shortcut, null)
+                requestPinShortcut(shortcut)
             }
         }
     }
