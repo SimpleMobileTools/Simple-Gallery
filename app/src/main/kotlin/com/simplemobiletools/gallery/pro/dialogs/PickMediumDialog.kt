@@ -42,16 +42,15 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
                 activity.setupDialogStuff(view, this, R.string.select_photo)
             }
 
-        activity.getCachedMedia(path) {
-            val media = it.filter { it is Medium } as ArrayList
-            if (media.isNotEmpty()) {
-                activity.runOnUiThread {
-                    gotMedia(media)
+        activity.lifecycleScope.launch {
+            activity.getCachedMedia(path) {
+                val media = it.filter { it is Medium } as ArrayList
+                if (media.isNotEmpty()) {
+                    activity.runOnUiThread {
+                        gotMedia(media)
+                    }
                 }
             }
-        }
-
-        activity.lifecycleScope.launch {
             gotMedia(activity.getMedia(path, showAll = false))
         }
     }

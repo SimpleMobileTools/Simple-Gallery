@@ -35,7 +35,9 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -132,7 +134,7 @@ fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
             View.SYSTEM_UI_FLAG_IMMERSIVE
 }
 
-fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
+suspend fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
     if (getDoesFilePathExist(file.absolutePath)) {
         callback()
@@ -158,7 +160,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
         }
     } else {
         try {
-            if (file.createNewFile()) {
+            if (withContext(Dispatchers.IO) { file.createNewFile() }) {
                 rescanFolderMedia(file.absolutePath)
             } else {
                 toast(R.string.unknown_error_occurred)
@@ -180,7 +182,9 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
     tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
         deleteFromMediaStore(file.absolutePath)
-        rescanFolderMedia(path)
+        lifecycleScope.launch {
+            rescanFolderMedia(path)
+        }
     }
 }
 
@@ -407,7 +411,7 @@ fun Activity.hasNavBar(): Boolean {
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }
 
-fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
+fun AppCompatActivity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
     val BATCH_SIZE = 50
     if (showToasts) {
         toast(R.string.fixing)
@@ -418,7 +422,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
 
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             val dateTakens = ArrayList<DateTaken>()
 
             for (path in paths) {
@@ -465,7 +469,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 runOnUiThread {
                     callback?.invoke()
                 }
-                return@ensureBackgroundThread
+                return@launch
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size

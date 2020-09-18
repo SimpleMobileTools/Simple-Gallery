@@ -27,6 +27,8 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -280,20 +282,22 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun getAllMedia() {
-        getCachedMedia("") {
-            if (it.isNotEmpty()) {
-                mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+        lifecycleScope.launch {
+            getCachedMedia("") {
+                if (it.isNotEmpty()) {
+                    mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+                }
+                runOnUiThread {
+                    setupAdapter()
+                }
+                startCoroutine(false)
             }
-            runOnUiThread {
-                setupAdapter()
-            }
-            startAsyncTask(false)
         }
     }
 
-    private fun startAsyncTask(updateItems: Boolean) {
-        lifecycleScope.launch { mJob?.cancel() }
-        mJob = lifecycleScope.launch {
+    private suspend fun startCoroutine(updateItems: Boolean) = coroutineScope {
+        mJob?.cancelAndJoin()
+        mJob = launch {
             mAllMedia = applicationContext.getMedia("", showAll = true).clone() as ArrayList<ThumbnailItem>
             if (updateItems) {
                 textChanged(mLastSearchedText)
@@ -302,7 +306,9 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun refreshItems() {
-        startAsyncTask(true)
+        lifecycleScope.launch {
+            startCoroutine(true)
+        }
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {

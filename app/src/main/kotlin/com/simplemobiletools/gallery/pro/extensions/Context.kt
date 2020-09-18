@@ -27,7 +27,8 @@ import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -333,26 +334,24 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     }
 }
 
-fun Context.rescanFolderMedia(path: String) {
-    ensureBackgroundThread {
+suspend fun Context.rescanFolderMedia(path: String) = coroutineScope {
+    launch {
         rescanFolderMediaSync(path)
     }
 }
 
-fun Context.rescanFolderMediaSync(path: String) {
+suspend fun Context.rescanFolderMediaSync(path: String) {
     getCachedMedia(path) {
         val cached = it
-        runBlocking {
-            val newMedia = applicationContext.getMedia(path, showAll = false)
-            val media = newMedia.filterIsInstance<Medium>() as ArrayList<Medium>
-            mediaDB.insertAll(media)
+        val newMedia = applicationContext.getMedia(path, showAll = false)
+        val media = newMedia.filterIsInstance<Medium>() as ArrayList<Medium>
+        mediaDB.insertAll(media)
 
-            cached.forEach { item ->
-                if (item !in newMedia) {
-                    val mediumPath = (item as? Medium)?.path
-                    if (mediumPath != null) {
-                        deleteDBPath(mediumPath)
-                    }
+        cached.forEach { item ->
+            if (item !in newMedia) {
+                val mediumPath = (item as? Medium)?.path
+                if (mediumPath != null) {
+                    deleteDBPath(mediumPath)
                 }
             }
         }
@@ -547,84 +546,84 @@ suspend fun Context.getCachedDirectories(
     }
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<ThumbnailItem>) -> Unit) {
-    ensureBackgroundThread {
-        val mediaFetcher = MediaFetcher(this)
-        val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
-        var media = ArrayList<Medium>()
-        if (path == FAVORITES) {
-            media.addAll(mediaDB.getFavorites())
-        }
+suspend fun Context.getCachedMedia(
+        path: String,
+        getVideosOnly: Boolean = false,
+        getImagesOnly: Boolean = false,
+        callback: suspend (ArrayList<ThumbnailItem>) -> Unit
+) {
+    val mediaFetcher = MediaFetcher(this)
+    val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
+    var media = ArrayList<Medium>()
+    if (path == FAVORITES) {
+        media.addAll(mediaDB.getFavorites())
+    }
 
-        if (path == RECYCLE_BIN) {
-            media.addAll(getUpdatedDeletedMedia())
-        }
+    if (path == RECYCLE_BIN) {
+        media.addAll(getUpdatedDeletedMedia())
+    }
 
-        if (config.filterMedia and TYPE_PORTRAITS != 0) {
-            val foldersToAdd = ArrayList<String>()
-            for (folder in foldersToScan) {
-                val allFiles = File(folder).listFiles() ?: continue
-                allFiles.filter { it.name.startsWith("img_", true) && it.isDirectory }.forEach {
-                    foldersToAdd.add(it.absolutePath)
-                }
-            }
-            foldersToScan.addAll(foldersToAdd)
-        }
-
-        val shouldShowHidden = config.shouldShowHidden
-        foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
-            try {
-                val currMedia = mediaDB.getMediaFromPath(it)
-                media.addAll(currMedia)
-            } catch (ignored: Exception) {
+    if (config.filterMedia and TYPE_PORTRAITS != 0) {
+        val foldersToAdd = ArrayList<String>()
+        for (folder in foldersToScan) {
+            val allFiles = File(folder).listFiles() ?: continue
+            allFiles.filter { it.name.startsWith("img_", true) && it.isDirectory }.forEach {
+                foldersToAdd.add(it.absolutePath)
             }
         }
+        foldersToScan.addAll(foldersToAdd)
+    }
 
-        if (!shouldShowHidden) {
-            media = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
-        }
-
-        val filterMedia = config.filterMedia
-        media = (when {
-            getVideosOnly -> media.filter { it.type == TYPE_VIDEOS }
-            getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
-            else -> media.filter {
-                (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
-            }
-        }) as ArrayList<Medium>
-
-        val pathToUse = if (path.isEmpty()) SHOW_ALL else path
-        mediaFetcher.sortMedia(media, config.getFolderSorting(pathToUse))
-        val grouped = mediaFetcher.groupMedia(media, pathToUse)
-        callback(grouped.clone() as ArrayList<ThumbnailItem>)
-        val OTGPath = config.OTGPath
-
+    val shouldShowHidden = config.shouldShowHidden
+    foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
         try {
-            val mediaToDelete = ArrayList<Medium>()
-            // creating a new thread intentionally, do not reuse the common background thread
-            Thread {
-                media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
-                    if (it.path.startsWith(recycleBinPath)) {
-                        deleteDBPath(it.path)
-                    } else {
-                        mediaToDelete.add(it)
-                    }
-                }
-
-                if (mediaToDelete.isNotEmpty()) {
-                    mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
-
-                    mediaToDelete.filter { it.isFavorite }.forEach {
-                        favoritesDB.deleteFavoritePath(it.path)
-                    }
-                }
-            }.start()
+            val currMedia = mediaDB.getMediaFromPath(it)
+            media.addAll(currMedia)
         } catch (ignored: Exception) {
+        }
+    }
+
+    if (!shouldShowHidden) {
+        media = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
+    }
+
+    val filterMedia = config.filterMedia
+    media = (when {
+        getVideosOnly -> media.filter { it.type == TYPE_VIDEOS }
+        getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
+        else -> media.filter {
+            (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
+                    (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
+        }
+    }) as ArrayList<Medium>
+
+    val pathToUse = if (path.isEmpty()) SHOW_ALL else path
+    mediaFetcher.sortMedia(media, config.getFolderSorting(pathToUse))
+    val grouped = mediaFetcher.groupMedia(media, pathToUse)
+    callback(grouped.clone() as ArrayList<ThumbnailItem>)
+    val OTGPath = config.OTGPath
+
+    val mediaToDelete = ArrayList<Medium>()
+    // creating a new coroutine intentionally, do not reuse the same coroutine
+    coroutineScope {
+        media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
+            if (it.path.startsWith(recycleBinPath)) {
+                deleteDBPath(it.path)
+            } else {
+                mediaToDelete.add(it)
+            }
+        }
+
+        if (mediaToDelete.isNotEmpty()) {
+            mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
+
+            mediaToDelete.filter { it.isFavorite }.forEach {
+                favoritesDB.deleteFavoritePath(it.path)
+            }
         }
     }
 }

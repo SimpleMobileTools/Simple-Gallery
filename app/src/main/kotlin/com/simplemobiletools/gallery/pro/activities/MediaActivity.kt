@@ -47,6 +47,8 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_media.*
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
@@ -550,28 +552,29 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         mIsGettingMedia = true
-        if (mLoadedInitialPhotos) {
-            startAsyncTask()
-        } else {
-            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
-                if (it.isEmpty()) {
-                    runOnUiThread {
-                        media_refresh_layout.isRefreshing = true
+        lifecycleScope.launch {
+            if (mLoadedInitialPhotos) {
+                startCoroutine()
+            } else {
+                getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
+                    if (it.isEmpty()) {
+                        runOnUiThread {
+                            media_refresh_layout.isRefreshing = true
+                        }
+                    } else {
+                        gotMedia(it, true)
                     }
-                } else {
-                    gotMedia(it, true)
+                    startCoroutine()
                 }
-                startAsyncTask()
             }
         }
 
         mLoadedInitialPhotos = true
     }
 
-    private fun startAsyncTask() {
-        lifecycleScope.launch { mJob?.cancel() }
-
-        mJob = lifecycleScope.launch {
+    private suspend fun startCoroutine() = coroutineScope {
+        mJob?.cancelAndJoin()
+        mJob = launch {
             val media = applicationContext.getMedia(mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll)
             val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
             gotMedia(media, false)

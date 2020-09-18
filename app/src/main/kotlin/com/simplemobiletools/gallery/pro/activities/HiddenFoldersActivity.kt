@@ -3,9 +3,9 @@ package com.simplemobiletools.gallery.pro.activities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.lifecycleScope
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageHiddenFoldersAdapter
@@ -13,6 +13,7 @@ import com.simplemobiletools.gallery.pro.extensions.addNoMedia
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getNoMediaFolders
 import kotlinx.android.synthetic.main.activity_manage_folders.*
+import kotlinx.coroutines.launch
 
 class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun addFolder() {
         FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
             config.lastFilepickerPath = it
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 addNoMedia(it) {
                     updateFolders()
                 }

@@ -315,30 +315,32 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun hideFolder(path: String) {
-        activity.addNoMedia(path) {
-            if (activity.config.shouldShowHidden) {
-                updateFolderNames()
-            } else {
-                val affectedPositions = ArrayList<Int>()
-                val includedFolders = activity.config.includedFolders
-                val newDirs = dirs.filterIndexed { index, directory ->
-                    val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
-                    if (removeDir) {
-                        affectedPositions.add(index)
+        activity.lifecycleScope.launch {
+            activity.addNoMedia(path) {
+                if (activity.config.shouldShowHidden) {
+                    updateFolderNames()
+                } else {
+                    val affectedPositions = ArrayList<Int>()
+                    val includedFolders = activity.config.includedFolders
+                    val newDirs = dirs.filterIndexed { index, directory ->
+                        val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
+                        if (removeDir) {
+                            affectedPositions.add(index)
+                        }
+                        !removeDir
+                    } as ArrayList<Directory>
+
+                    activity.runOnUiThread {
+                        affectedPositions.sortedDescending().forEach {
+                            notifyItemRemoved(it)
+                        }
+
+                        currentDirectoriesHash = newDirs.hashCode()
+                        dirs = newDirs
+
+                        finishActMode()
+                        listener?.updateDirectories(newDirs)
                     }
-                    !removeDir
-                } as ArrayList<Directory>
-
-                activity.runOnUiThread {
-                    affectedPositions.sortedDescending().forEach {
-                        notifyItemRemoved(it)
-                    }
-
-                    currentDirectoriesHash = newDirs.hashCode()
-                    dirs = newDirs
-
-                    finishActMode()
-                    listener?.updateDirectories(newDirs)
                 }
             }
         }

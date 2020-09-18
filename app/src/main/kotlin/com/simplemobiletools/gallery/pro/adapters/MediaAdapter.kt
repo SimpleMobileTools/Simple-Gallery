@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -34,6 +35,7 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
+import kotlinx.coroutines.launch
 import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -338,8 +340,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             val destinationPath = it
             config.tempFolderPath = ""
-            activity.applicationContext.rescanFolderMedia(destinationPath)
-            activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
+
+            activity.lifecycleScope.launch {
+                activity.applicationContext.rescanFolderMedia(destinationPath)
+                activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
+            }
 
             val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as ArrayList<String>
             activity.rescanPaths(newPaths) {
