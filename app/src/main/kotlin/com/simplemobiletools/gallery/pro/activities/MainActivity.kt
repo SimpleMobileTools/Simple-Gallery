@@ -45,6 +45,8 @@ import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.*
 import java.util.*
@@ -873,7 +875,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private suspend fun gotDirectories(newDirs: ArrayList<Directory>) {
+    private suspend fun gotDirectories(newDirs: ArrayList<Directory>) = coroutineScope {
         mIsGettingDirs = false
         mShouldStopFetching = false
 
@@ -917,7 +919,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         try {
             for (directory in dirs) {
                 if (mShouldStopFetching || isDestroyed || isFinishing) {
-                    return
+                    return@coroutineScope
                 }
 
                 val sorting = config.getFolderSorting(directory.path)
@@ -963,12 +965,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 // update directories and media files in the local db, delete invalid items. Intentionally creating a new thread
                 updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
-                    Thread {
-                        try {
-                            mediaDB.insertAll(curMedia)
-                        } catch (ignored: Exception) {
-                        }
-                    }.start()
+                    launch {
+                        mediaDB.insertAll(curMedia)
+                    }
                 }
 
                 getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
@@ -1009,7 +1008,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         // check the remaining folders which were not cached at all yet
         for (folder in foldersToScan) {
             if (mShouldStopFetching || isDestroyed || isFinishing) {
-                return
+                return@coroutineScope
             }
 
             val sorting = config.getFolderSorting(folder)
@@ -1210,12 +1209,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         if (config.useRecycleBin) {
-            try {
-                val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-                if (binFolder != null && mediaDB.getDeletedMedia().isEmpty()) {
-                    invalidDirs.add(binFolder)
-                }
-            } catch (ignored: Exception) {
+            val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
+            if (binFolder != null && mediaDB.getDeletedMedia().isEmpty()) {
+                invalidDirs.add(binFolder)
             }
         }
 
@@ -1268,14 +1264,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkRecycleBinItems() {
         if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
             config.lastBinCheck = System.currentTimeMillis()
-            Handler().postDelayed({
-                ensureBackgroundThread {
-                    try {
-                        mediaDB.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
-                    } catch (e: Exception) {
-                    }
-                }
-            }, 3000L)
+            lifecycleScope.launch {
+                delay(3000L)
+                mediaDB.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+            }
         }
     }
 

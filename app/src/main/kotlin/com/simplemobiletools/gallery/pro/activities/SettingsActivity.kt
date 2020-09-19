@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
+import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.*
@@ -14,10 +15,14 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
+import com.simplemobiletools.gallery.pro.extensions.mediaDB
+import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.InputStream
 import java.util.*
@@ -591,11 +596,8 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupEmptyRecycleBin() {
-        ensureBackgroundThread {
-            try {
-                mRecycleBinContentSize = mediaDB.getDeletedMedia().sumByLong { it.size }
-            } catch (ignored: Exception) {
-            }
+        lifecycleScope.launch {
+            mRecycleBinContentSize = mediaDB.getDeletedMedia().sumByLong { it.size }
             runOnUiThread {
                 settings_empty_recycle_bin_size.text = mRecycleBinContentSize.formatSize()
             }

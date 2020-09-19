@@ -236,7 +236,9 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     deleteFile(fileDirItem, allowDeleteFolder) {
         if (deleteFromDatabase) {
             ensureBackgroundThread {
-                deleteDBPath(fileDirItem.path)
+                runBlocking {
+                    deleteDBPath(fileDirItem.path)
+                }
                 runOnUiThread {
                     callback?.invoke(it)
                 }
@@ -248,41 +250,40 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
 }
 
 fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
-    ensureBackgroundThread {
+    lifecycleScope.launch {
         var pathsCnt = paths.size
         val OTGPath = config.OTGPath
 
         for (source in paths) {
             if (OTGPath.isNotEmpty() && source.startsWith(OTGPath)) {
-                var inputStream: InputStream? = null
-                var out: OutputStream? = null
-                try {
+                withContext(Dispatchers.IO) {
                     val destination = "$recycleBinPath/$source"
                     val fileDocument = getSomeDocumentFile(source)
-                    inputStream = applicationContext.contentResolver.openInputStream(fileDocument?.uri!!)
-                    out = getFileOutputStreamSync(destination, source.getMimeType())
 
-                    var copiedSize = 0L
-                    val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-                    var bytes = inputStream!!.read(buffer)
-                    while (bytes >= 0) {
-                        out!!.write(buffer, 0, bytes)
-                        copiedSize += bytes
-                        bytes = inputStream.read(buffer)
+                    applicationContext.contentResolver.openInputStream(fileDocument?.uri!!).use { inputStream ->
+                        getFileOutputStreamSync(destination, source.getMimeType()).use { out ->
+                            try {
+                                var copiedSize = 0L
+                                val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                                var bytes = inputStream!!.read(buffer)
+                                while (bytes >= 0) {
+                                    out!!.write(buffer, 0, bytes)
+                                    copiedSize += bytes
+                                    bytes = inputStream.read(buffer)
+                                }
+
+                                out?.flush()
+
+                                if (fileDocument.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
+                                    mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
+                                    pathsCnt--
+                                }
+                            } catch (e: Exception) {
+                                showErrorToast(e)
+                                return@withContext
+                            }
+                        }
                     }
-
-                    out?.flush()
-
-                    if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
-                        mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
-                        pathsCnt--
-                    }
-                } catch (e: Exception) {
-                    showErrorToast(e)
-                    return@ensureBackgroundThread
-                } finally {
-                    inputStream?.close()
-                    out?.close()
                 }
             } else {
                 val file = File(source)
@@ -299,7 +300,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
                     }
                 } catch (e: Exception) {
                     showErrorToast(e)
-                    return@ensureBackgroundThread
+                    return@launch
                 }
             }
         }
@@ -312,7 +313,7 @@ fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit)
 }
 
 fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
-    ensureBackgroundThread {
+    lifecycleScope.launch {
         val newPaths = ArrayList<String>()
         for (source in paths) {
             val destination = source.removePrefix(recycleBinPath)
@@ -320,39 +321,37 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
 
             val isShowingSAF = handleSAFDialog(destination) {}
             if (isShowingSAF) {
-                return@ensureBackgroundThread
+                return@launch
             }
 
-            var inputStream: InputStream? = null
-            var out: OutputStream? = null
-            try {
-                out = getFileOutputStreamSync(destination, source.getMimeType())
-                inputStream = getFileInputStreamSync(source)
+            withContext(Dispatchers.IO) {
+                getFileOutputStreamSync(destination, source.getMimeType()).use { out ->
+                    getFileInputStreamSync(source).use { inputStream ->
+                        try {
+                            var copiedSize = 0L
+                            val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+                            var bytes = inputStream!!.read(buffer)
+                            while (bytes >= 0) {
+                                out!!.write(buffer, 0, bytes)
+                                copiedSize += bytes
+                                bytes = inputStream.read(buffer)
+                            }
 
-                var copiedSize = 0L
-                val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
-                var bytes = inputStream!!.read(buffer)
-                while (bytes >= 0) {
-                    out!!.write(buffer, 0, bytes)
-                    copiedSize += bytes
-                    bytes = inputStream.read(buffer)
+                            out?.flush()
+
+                            if (File(source).length() == copiedSize) {
+                                mediaDB.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
+                            }
+                            newPaths.add(destination)
+
+                            if (config.keepLastModified) {
+                                File(destination).setLastModified(lastModified)
+                            }
+                        } catch (e: Exception) {
+                            showErrorToast(e)
+                        }
+                    }
                 }
-
-                out?.flush()
-
-                if (File(source).length() == copiedSize) {
-                    mediaDB.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
-                }
-                newPaths.add(destination)
-
-                if (config.keepLastModified) {
-                    File(destination).setLastModified(lastModified)
-                }
-            } catch (e: Exception) {
-                showErrorToast(e)
-            } finally {
-                inputStream?.close()
-                out?.close()
             }
         }
 

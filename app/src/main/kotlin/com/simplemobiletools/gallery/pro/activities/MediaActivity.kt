@@ -864,12 +864,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLatestMediaDateId = getLatestMediaByDateId()
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
-            Thread {
-                try {
-                    mediaDB.insertAll(mediaToInsert)
-                } catch (e: Exception) {
-                }
-            }.start()
+            lifecycleScope.launch {
+                mediaDB.insertAll(mediaToInsert)
+            }
         }
     }
 
@@ -908,7 +905,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             mMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
 
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {

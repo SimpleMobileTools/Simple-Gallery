@@ -576,11 +576,8 @@ suspend fun Context.getCachedMedia(
 
     val shouldShowHidden = config.shouldShowHidden
     foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
-        try {
-            val currMedia = mediaDB.getMediaFromPath(it)
-            media.addAll(currMedia)
-        } catch (ignored: Exception) {
-        }
+        val currMedia = mediaDB.getMediaFromPath(it)
+        media.addAll(currMedia)
     }
 
     if (!shouldShowHidden) {
@@ -670,11 +667,11 @@ suspend fun Context.updateFavorite(path: String, isFavorite: Boolean) {
 }
 
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
-fun Context.getUpdatedDeletedMedia(): ArrayList<Medium> {
+suspend fun Context.getUpdatedDeletedMedia(): ArrayList<Medium> {
     val media = try {
         mediaDB.getDeletedMedia() as ArrayList<Medium>
     } catch (ignored: Exception) {
-        ArrayList<Medium>()
+        ArrayList()
     }
 
     media.forEach {
@@ -683,15 +680,12 @@ fun Context.getUpdatedDeletedMedia(): ArrayList<Medium> {
     return media
 }
 
-fun Context.deleteDBPath(path: String) {
+suspend fun Context.deleteDBPath(path: String) {
     deleteMediumWithPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
 }
 
-fun Context.deleteMediumWithPath(path: String) {
-    try {
-        mediaDB.deleteMediumPath(path)
-    } catch (ignored: Exception) {
-    }
+suspend fun Context.deleteMediumWithPath(path: String) {
+    mediaDB.deleteMediumPath(path)
 }
 
 fun Context.updateWidgets() {

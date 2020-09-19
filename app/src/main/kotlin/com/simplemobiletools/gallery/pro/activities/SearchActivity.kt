@@ -344,7 +344,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
             mAllMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
 
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
