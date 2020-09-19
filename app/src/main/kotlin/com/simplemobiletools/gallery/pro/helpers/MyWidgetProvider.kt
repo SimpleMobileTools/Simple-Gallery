@@ -14,7 +14,6 @@ import com.simplemobiletools.commons.extensions.getFileSignature
 import com.simplemobiletools.commons.extensions.setBackgroundColor
 import com.simplemobiletools.commons.extensions.setText
 import com.simplemobiletools.commons.extensions.setVisibleIf
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -93,7 +92,7 @@ class MyWidgetProvider : AppWidgetProvider(), CoroutineScope by CoroutineScope(D
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         super.onDeleted(context, appWidgetIds)
-        ensureBackgroundThread {
+        launch {
             appWidgetIds.forEach {
                 context.widgetsDB.deleteWidgetId(it)
             }
