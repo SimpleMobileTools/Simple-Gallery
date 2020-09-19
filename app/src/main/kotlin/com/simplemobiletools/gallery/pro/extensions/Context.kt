@@ -551,8 +551,8 @@ suspend fun Context.getCachedMedia(
         getVideosOnly: Boolean = false,
         getImagesOnly: Boolean = false,
         callback: suspend (ArrayList<ThumbnailItem>) -> Unit
-) {
-    val mediaFetcher = MediaFetcher(this)
+) = coroutineScope {
+    val mediaFetcher = MediaFetcher(this@getCachedMedia)
     val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
     var media = ArrayList<Medium>()
     if (path == FAVORITES) {
@@ -609,7 +609,7 @@ suspend fun Context.getCachedMedia(
 
     val mediaToDelete = ArrayList<Medium>()
     // creating a new coroutine intentionally, do not reuse the same coroutine
-    coroutineScope {
+    launch {
         media.filter { !getDoesFilePathExist(it.path, OTGPath) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 deleteDBPath(it.path)
@@ -636,14 +636,11 @@ suspend fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = nul
     }
 }
 
-fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
+suspend fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
-    try {
-        mediaDB.updateMedium(newFilename, newPath, newParentPath, oldPath)
-        favoritesDB.updateFavorite(newFilename, newPath, newParentPath, oldPath)
-    } catch (ignored: Exception) {
-    }
+    mediaDB.updateMedium(newFilename, newPath, newParentPath, oldPath)
+    favoritesDB.updateFavorite(newFilename, newPath, newParentPath, oldPath)
 }
 
 suspend fun Context.updateDBDirectory(directory: Directory) {
@@ -654,7 +651,7 @@ fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFile
 
 fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
 
-fun Context.getFavoritePaths(): ArrayList<String> {
+suspend fun Context.getFavoritePaths(): ArrayList<String> {
     return try {
         favoritesDB.getValidFavoritePaths() as ArrayList<String>
     } catch (e: Exception) {
@@ -664,7 +661,7 @@ fun Context.getFavoritePaths(): ArrayList<String> {
 
 fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
 
-fun Context.updateFavorite(path: String, isFavorite: Boolean) {
+suspend fun Context.updateFavorite(path: String, isFavorite: Boolean) {
     if (isFavorite) {
         favoritesDB.insert(getFavoriteFromPath(path))
     } else {
@@ -765,31 +762,26 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
     }
 }
 
-fun Context.addPathToDB(path: String) {
-    ensureBackgroundThread {
-        if (!getDoesFilePathExist(path)) {
-            return@ensureBackgroundThread
-        }
-
-        val type = when {
-            path.isVideoFast() -> TYPE_VIDEOS
-            path.isGif() -> TYPE_GIFS
-            path.isRawFast() -> TYPE_RAWS
-            path.isSvg() -> TYPE_SVGS
-            path.isPortrait() -> TYPE_PORTRAITS
-            else -> TYPE_IMAGES
-        }
-
-        try {
-            val isFavorite = favoritesDB.isFavorite(path)
-            val videoDuration = if (type == TYPE_VIDEOS) getDuration(path) ?: 0 else 0
-            val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                File(path).length(), type, videoDuration, isFavorite, 0L)
-
-            mediaDB.insert(medium)
-        } catch (ignored: Exception) {
-        }
+suspend fun Context.addPathToDB(path: String) {
+    if (!getDoesFilePathExist(path)) {
+        return
     }
+
+    val type = when {
+        path.isVideoFast() -> TYPE_VIDEOS
+        path.isGif() -> TYPE_GIFS
+        path.isRawFast() -> TYPE_RAWS
+        path.isSvg() -> TYPE_SVGS
+        path.isPortrait() -> TYPE_PORTRAITS
+        else -> TYPE_IMAGES
+    }
+
+    val isFavorite = favoritesDB.isFavorite(path) ?: false
+    val videoDuration = if (type == TYPE_VIDEOS) getDuration(path) ?: 0 else 0
+    val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
+            File(path).length(), type, videoDuration, isFavorite, 0L)
+
+    mediaDB.insert(medium)
 }
 
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,

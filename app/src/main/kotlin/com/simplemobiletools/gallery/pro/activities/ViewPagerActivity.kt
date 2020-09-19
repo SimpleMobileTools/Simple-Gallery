@@ -378,7 +378,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (intent.action == "com.android.camera.action.REVIEW") {
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 if (mediaDB.getMediaFromPath(mPath).isEmpty()) {
                     val type = when {
                         mPath.isVideoFast() -> TYPE_VIDEOS
@@ -389,7 +389,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         else -> TYPE_IMAGES
                     }
 
-                    val isFavorite = favoritesDB.isFavorite(mPath)
+                    val isFavorite = favoritesDB.isFavorite(mPath) ?: false
                     val duration = if (type == TYPE_VIDEOS) getDuration(mPath) ?: 0 else 0
                     val ts = System.currentTimeMillis()
                     val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)
@@ -405,7 +405,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initFavorites() {
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             mFavoritePaths = getFavoritePaths()
         }
     }
@@ -877,7 +877,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun toggleFavorite() {
         val medium = getCurrentMedium() ?: return
         medium.isFavorite = !medium.isFavorite
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             updateFavorite(medium.path, medium.isFavorite)
             if (medium.isFavorite) {
                 mFavoritePaths.add(medium.path)
@@ -1097,7 +1097,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 name = it.getFilenameFromPath()
             }
 
-            ensureBackgroundThread {
+            lifecycleScope.launch {
                 updateDBMediaPath(oldPath, it)
             }
             updateActionbarTitle()

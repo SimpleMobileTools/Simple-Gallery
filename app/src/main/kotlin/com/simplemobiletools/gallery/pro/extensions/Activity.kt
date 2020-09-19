@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
@@ -206,7 +207,9 @@ fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, call
     renameFile(oldPath, newPath) {
         callback?.invoke(newPath)
         ensureBackgroundThread {
-            updateDBMediaPath(oldPath, newPath)
+            runBlocking {
+                updateDBMediaPath(oldPath, newPath)
+            }
         }
     }
 }
@@ -391,7 +394,7 @@ fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
 }
 
 fun BaseSimpleActivity.updateFavoritePaths(fileDirItems: ArrayList<FileDirItem>, destination: String) {
-    ensureBackgroundThread {
+    lifecycleScope.launch {
         fileDirItems.forEach {
             val newPath = "$destination/${it.name}"
             updateDBMediaPath(it.path, newPath)

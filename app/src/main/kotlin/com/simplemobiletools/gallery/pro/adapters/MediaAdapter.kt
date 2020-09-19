@@ -220,7 +220,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         if (selectedKeys.size == 1) {
             val oldPath = getFirstSelectedItemPath() ?: return
             RenameItemDialog(activity, oldPath) {
-                ensureBackgroundThread {
+                activity.lifecycleScope.launch {
                     activity.updateDBMediaPath(oldPath, it)
 
                     activity.runOnUiThread {
@@ -267,7 +267,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun toggleFavorites(add: Boolean) {
-        ensureBackgroundThread {
+        activity.lifecycleScope.launch {
             getSelectedItems().forEach {
                 it.isFavorite = add
                 activity.updateFavorite(it.path, add)

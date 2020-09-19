@@ -1,13 +1,14 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.content.Intent
+import androidx.lifecycle.lifecycleScope
 import com.simplemobiletools.commons.activities.BaseSplashActivity
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.favoritesDB
 import com.simplemobiletools.gallery.pro.extensions.getFavoriteFromPath
 import com.simplemobiletools.gallery.pro.extensions.mediaDB
 import com.simplemobiletools.gallery.pro.models.Favorite
+import kotlinx.coroutines.launch
 
 class SplashActivity : BaseSplashActivity() {
     override fun initActivity() {
@@ -21,7 +22,7 @@ class SplashActivity : BaseSplashActivity() {
                 launchActivity()
             } else {
                 config.wereFavoritesMigrated = true
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     val favorites = ArrayList<Favorite>()
                     val favoritePaths = mediaDB.getFavorites().map { it.path }.toMutableList() as ArrayList<String>
                     favoritePaths.forEach {

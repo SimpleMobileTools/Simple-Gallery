@@ -17,7 +17,6 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
@@ -551,7 +550,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     if (it.isRecycleBin()) {
                         tryEmptyRecycleBin(false)
                     } else {
-                        ensureBackgroundThread {
+                        activity.lifecycleScope.launch {
                             activity.mediaDB.clearFavorites()
                             activity.favoritesDB.clearFavorites()
                             listener?.refreshItems()

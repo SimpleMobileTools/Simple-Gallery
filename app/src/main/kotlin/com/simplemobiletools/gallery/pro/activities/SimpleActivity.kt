@@ -28,8 +28,8 @@ open class SimpleActivity : BaseSimpleActivity() {
             if (path != null) {
                 lifecycleScope.launch {
                     updateDirectoryPath(path.getParentPath())
+                    addPathToDB(path)
                 }
-                addPathToDB(path)
             }
         }
     }
