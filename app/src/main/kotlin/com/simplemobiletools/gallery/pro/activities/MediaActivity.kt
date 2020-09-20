@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -33,7 +34,6 @@ import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
@@ -46,6 +46,10 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_media.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 import java.util.*
@@ -69,7 +73,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mCurrentJob: Job? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
 
@@ -188,8 +192,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         storeStateVariables()
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
-        if (!mMedia.isEmpty()) {
-            mCurrAsyncTask?.stopFetching()
+        if (mMedia.isNotEmpty()) {
+            mCurrentJob?.cancel()
         }
     }
 
@@ -548,41 +552,39 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         mIsGettingMedia = true
-        if (mLoadedInitialPhotos) {
-            startAsyncTask()
-        } else {
-            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
-                if (it.isEmpty()) {
-                    runOnUiThread {
-                        media_refresh_layout.isRefreshing = true
+        lifecycleScope.launch {
+            if (mLoadedInitialPhotos) {
+                startCoroutine()
+            } else {
+                getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
+                    if (it.isEmpty()) {
+                        runOnUiThread {
+                            media_refresh_layout.isRefreshing = true
+                        }
+                    } else {
+                        gotMedia(it, true)
                     }
-                } else {
-                    gotMedia(it, true)
+                    startCoroutine()
                 }
-                startAsyncTask()
             }
         }
 
         mLoadedInitialPhotos = true
     }
 
-    private fun startAsyncTask() {
-        mCurrAsyncTask?.stopFetching()
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
-            ensureBackgroundThread {
-                val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
-                val newMedia = it
-                try {
-                    gotMedia(newMedia, false)
-                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !getDoesFilePathExist(it.path) }.forEach {
-                        mediaDB.deleteMediumPath(it.path)
-                    }
-                } catch (e: Exception) {
+    private suspend fun startCoroutine() = coroutineScope {
+        mCurrentJob?.cancelAndJoin()
+        mCurrentJob = launch {
+            val newMedia = applicationContext.getMedia(mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll)
+            val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
+            try {
+                gotMedia(newMedia, false)
+                oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !getDoesFilePathExist(it.path) }.forEach {
+                    mediaDB.deleteMediumPath(it.path)
                 }
+            } catch (e: Exception) {
             }
         }
-
-        mCurrAsyncTask!!.execute()
     }
 
     private fun isDirEmpty(): Boolean {

@@ -28,6 +28,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -45,7 +46,6 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
@@ -59,6 +59,7 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.OutputStream
 import java.util.*
@@ -1110,9 +1111,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun refreshViewPager() {
         if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
-            GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-                gotMedia(it)
-            }.execute()
+            lifecycleScope.launch {
+                gotMedia(applicationContext.getMedia(mDirectory, showAll = mShowAll))
+            }
         }
     }
 
