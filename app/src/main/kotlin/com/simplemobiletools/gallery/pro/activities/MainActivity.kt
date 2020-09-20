@@ -19,6 +19,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
@@ -44,6 +45,7 @@ import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.launch
 import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -966,12 +968,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }.start()
                 }
 
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                    it.forEach {
-                        if (!curMedia.contains(it)) {
-                            val path = (it as? Medium)?.path
-                            if (path != null) {
-                                deleteDBPath(path)
+                lifecycleScope.launch {
+                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                        it.forEach {
+                            if (!curMedia.contains(it)) {
+                                val path = (it as? Medium)?.path
+                                if (path != null) {
+                                    deleteDBPath(path)
+                                }
                             }
                         }
                     }

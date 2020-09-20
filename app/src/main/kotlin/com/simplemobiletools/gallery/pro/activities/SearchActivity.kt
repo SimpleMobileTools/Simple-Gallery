@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.*
@@ -18,7 +19,6 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
@@ -26,6 +26,10 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
@@ -35,7 +39,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mTimeFormat = ""
 
     private var mSearchMenuItem: MenuItem? = null
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mCurrentJob: Job? = null
     private var mAllMedia = ArrayList<ThumbnailItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +53,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mCurrAsyncTask?.stopFetching()
+        mCurrentJob?.cancel()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -283,31 +287,31 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun getAllMedia() {
-        getCachedMedia("") {
-            if (it.isNotEmpty()) {
-                mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+        lifecycleScope.launch {
+            getCachedMedia("") {
+                if (it.isNotEmpty()) {
+                    mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+                }
+                runOnUiThread {
+                    setupAdapter()
+                }
+                startCoroutine(false)
             }
-            runOnUiThread {
-                setupAdapter()
-            }
-            startAsyncTask(false)
         }
     }
 
-    private fun startAsyncTask(updateItems: Boolean) {
-        mCurrAsyncTask?.stopFetching()
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, "", showAll = true) {
-            mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+    private suspend fun startCoroutine(updateItems: Boolean) = coroutineScope {
+        mCurrentJob?.cancelAndJoin()
+        mCurrentJob = launch {
+            mAllMedia = applicationContext.getMedia("", showAll = true).clone() as ArrayList<ThumbnailItem>
             if (updateItems) {
                 textChanged(mLastSearchedText)
             }
         }
-
-        mCurrAsyncTask!!.execute()
     }
 
     override fun refreshItems() {
-        startAsyncTask(true)
+        lifecycleScope.launch { startCoroutine(true) }
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {

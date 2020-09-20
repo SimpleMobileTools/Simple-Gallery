@@ -17,6 +17,7 @@ import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -34,6 +35,7 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -157,7 +159,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     } else {
         try {
             if (file.createNewFile()) {
-                rescanFolderMedia(file.absolutePath)
+                lifecycleScope.launch { rescanFolderMedia(file.absolutePath) }
             } else {
                 toast(R.string.unknown_error_occurred)
             }
@@ -178,7 +180,7 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
     tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
         deleteFromMediaStore(file.absolutePath)
-        rescanFolderMedia(path)
+        lifecycleScope.launch { rescanFolderMedia(path) }
     }
 }
 
