@@ -39,6 +39,7 @@ import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.copyNonDimensionAttributesTo
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.openEditor
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -304,16 +305,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun saveImage() {
-        var inputStream: InputStream? = null
-        try {
-            if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(uri!!)
-                oldExif = ExifInterface(inputStream!!)
-            }
-        } catch (e: Exception) {
-        } finally {
-            inputStream?.close()
-        }
+        setOldExif()
 
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
@@ -351,6 +343,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
                 }
             }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun setOldExif() {
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(uri!!)
+                oldExif = ExifInterface(inputStream!!)
+            }
+        } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
         }
     }
 
@@ -742,6 +748,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
+            setOldExif()
+
             val bitmap = result.bitmap
             if (isSharingBitmap) {
                 isSharingBitmap = false
@@ -862,7 +870,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             if (isNougatPlus()) {
                 val newExif = ExifInterface(file.absolutePath)
-                oldExif?.copyTo(newExif, false)
+                oldExif?.copyNonDimensionAttributesTo(newExif)
             }
         } catch (e: Exception) {
         }
