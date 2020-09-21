@@ -45,6 +45,7 @@ import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.*
 import java.util.*
@@ -467,8 +468,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
-        getCachedDirectories(getVideosOnly, getImagesOnly) {
-            gotDirectories(addTempFolderIfNeeded(it))
+        // Using the I/O dispatcher avoids causing lag in the UI
+        lifecycleScope.launch(Dispatchers.IO) {
+            getCachedDirectories(getVideosOnly, getImagesOnly) {
+                gotDirectories(addTempFolderIfNeeded(it))
+            }
         }
     }
 
@@ -484,7 +488,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (config.directorySorting and SORT_BY_DATE_MODIFIED != 0 || config.directorySorting and SORT_BY_DATE_TAKEN != 0) {
                 getDirectories()
             } else {
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     gotDirectories(getCurrentlyDisplayedDirs())
                 }
             }
@@ -704,7 +708,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun toggleRecycleBin(show: Boolean) {
         config.showRecycleBinAtFolders = show
         invalidateOptionsMenu()
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             var dirs = getCurrentlyDisplayedDirs()
             if (!show) {
                 dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
@@ -717,7 +721,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                ensureBackgroundThread {
+                lifecycleScope.launch {
                     gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
                 }
             }
@@ -870,7 +874,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun gotDirectories(newDirs: ArrayList<Directory>) {
+    private suspend fun gotDirectories(newDirs: ArrayList<Directory>) {
         mIsGettingDirs = false
         mShouldStopFetching = false
 
@@ -968,14 +972,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }.start()
                 }
 
-                lifecycleScope.launch {
-                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                        it.forEach {
-                            if (!curMedia.contains(it)) {
-                                val path = (it as? Medium)?.path
-                                if (path != null) {
-                                    deleteDBPath(path)
-                                }
+                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                    it.forEach {
+                        if (!curMedia.contains(it)) {
+                            val path = (it as? Medium)?.path
+                            if (path != null) {
+                                deleteDBPath(path)
                             }
                         }
                     }
@@ -1356,7 +1358,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun recheckPinnedFolders() {
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
         }
     }

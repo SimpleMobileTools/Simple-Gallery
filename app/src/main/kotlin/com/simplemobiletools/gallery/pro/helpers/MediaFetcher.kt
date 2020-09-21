@@ -21,8 +21,16 @@ import java.util.*
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperLastModified: Boolean,
-                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
+    suspend fun getFilesFrom(
+            curPath: String,
+            isPickImage: Boolean,
+            isPickVideo: Boolean,
+            getProperDateTaken: Boolean,
+            getProperLastModified: Boolean,
+            getProperFileSize: Boolean,
+            favoritePaths: ArrayList<String>,
+            getVideoDurations: Boolean
+    ): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -204,8 +212,17 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
-                                 getProperLastModified: Boolean, getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
+    private suspend fun getMediaInFolder(
+            folder: String,
+            isPickImage: Boolean,
+            isPickVideo: Boolean,
+            filterMedia: Int,
+            getProperDateTaken: Boolean,
+            getProperLastModified: Boolean,
+            getProperFileSize: Boolean,
+            favoritePaths: ArrayList<String>,
+            getVideoDurations: Boolean
+    ): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
@@ -408,7 +425,7 @@ class MediaFetcher(val context: Context) {
         return media
     }
 
-    private fun getFolderDateTakens(folder: String): HashMap<String, Long> {
+    private suspend fun getFolderDateTakens(folder: String): HashMap<String, Long> {
         val dateTakens = HashMap<String, Long>()
         if (folder != FAVORITES) {
             val projection = arrayOf(
@@ -450,7 +467,7 @@ class MediaFetcher(val context: Context) {
         return dateTakens
     }
 
-    private fun getFolderLastModifieds(folder: String): HashMap<String, Long> {
+    private suspend fun getFolderLastModifieds(folder: String): HashMap<String, Long> {
         val lastModifieds = HashMap<String, Long>()
         if (folder != FAVORITES) {
             val projection = arrayOf(

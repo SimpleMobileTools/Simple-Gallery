@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.dialogs
 
 import android.view.KeyEvent
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
@@ -13,6 +14,7 @@ import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
+import kotlinx.coroutines.launch
 
 class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
                           val callback: (path: String) -> Unit) {
@@ -62,14 +64,16 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     }
 
     private fun fetchDirectories(forceShowHidden: Boolean) {
-        activity.getCachedDirectories(forceShowHidden = forceShowHidden) {
-            if (it.isNotEmpty()) {
-                it.forEach {
-                    it.subfoldersMediaCount = it.mediaCnt
-                }
+        activity.lifecycleScope.launch {
+            activity.getCachedDirectories(forceShowHidden = forceShowHidden) {
+                if (it.isNotEmpty()) {
+                    it.forEach {
+                        it.subfoldersMediaCount = it.mediaCnt
+                    }
 
-                activity.runOnUiThread {
-                    gotDirectories(activity.addTempFolderIfNeeded(it))
+                    activity.runOnUiThread {
+                        gotDirectories(activity.addTempFolderIfNeeded(it))
+                    }
                 }
             }
         }

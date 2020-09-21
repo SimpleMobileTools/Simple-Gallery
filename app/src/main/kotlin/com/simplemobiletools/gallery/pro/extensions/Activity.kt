@@ -35,7 +35,9 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -409,7 +411,12 @@ fun Activity.hasNavBar(): Boolean {
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }
 
-fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
+fun AppCompatActivity.fixDateTaken(
+        paths: ArrayList<String>,
+        showToasts: Boolean,
+        hasRescanned: Boolean = false,
+        callback: (() -> Unit)? = null
+) {
     val BATCH_SIZE = 50
     if (showToasts) {
         toast(R.string.fixing)
@@ -420,12 +427,14 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
 
-        ensureBackgroundThread {
+        lifecycleScope.launch {
             val dateTakens = ArrayList<DateTaken>()
 
             for (path in paths) {
-                val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
-                    ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+                val dateTime = withContext(Dispatchers.IO) {
+                    return@withContext ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                            ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME)
+                } ?: continue
 
                 // some formats contain a "T" in the middle, some don't
                 // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
@@ -467,7 +476,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 runOnUiThread {
                     callback?.invoke()
                 }
-                return@ensureBackgroundThread
+                return@launch
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size

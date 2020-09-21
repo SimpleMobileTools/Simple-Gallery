@@ -494,50 +494,53 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
         .into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
-    ensureBackgroundThread {
-        val directories = try {
-            directoryDao.getAll() as ArrayList<Directory>
-        } catch (e: Exception) {
-            ArrayList<Directory>()
-        }
-
-        if (!config.showRecycleBinAtFolders) {
-            directories.removeAll { it.isRecycleBin() }
-        }
-
-        val shouldShowHidden = config.shouldShowHidden || forceShowHidden
-        val excludedPaths = config.excludedFolders
-        val includedPaths = config.includedFolders
-        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
-        val filterMedia = config.filterMedia
-
-        filteredDirectories = (when {
-            getVideosOnly -> filteredDirectories.filter { it.types and TYPE_VIDEOS != 0 }
-            getImagesOnly -> filteredDirectories.filter { it.types and TYPE_IMAGES != 0 }
-            else -> filteredDirectories.filter {
-                (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
-            }
-        }) as ArrayList<Directory>
-
-        val hiddenString = resources.getString(R.string.hidden)
-        filteredDirectories.forEach {
-            it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
-                "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
-            } else {
-                it.name.removeSuffix(hiddenString).trim()
-            }
-        }
-
-        val clone = filteredDirectories.clone() as ArrayList<Directory>
-        callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
-        removeInvalidDBDirectories(filteredDirectories)
+suspend fun Context.getCachedDirectories(
+        getVideosOnly: Boolean = false,
+        getImagesOnly: Boolean = false,
+        forceShowHidden: Boolean = false,
+        callback: suspend (ArrayList<Directory>) -> Unit
+) {
+    val directories = try {
+        directoryDao.getAll() as ArrayList<Directory>
+    } catch (e: Exception) {
+        ArrayList()
     }
+
+    if (!config.showRecycleBinAtFolders) {
+        directories.removeAll { it.isRecycleBin() }
+    }
+
+    val shouldShowHidden = config.shouldShowHidden || forceShowHidden
+    val excludedPaths = config.excludedFolders
+    val includedPaths = config.includedFolders
+    var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+    val filterMedia = config.filterMedia
+
+    filteredDirectories = (when {
+        getVideosOnly -> filteredDirectories.filter { it.types and TYPE_VIDEOS != 0 }
+        getImagesOnly -> filteredDirectories.filter { it.types and TYPE_IMAGES != 0 }
+        else -> filteredDirectories.filter {
+            (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
+                    (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
+        }
+    }) as ArrayList<Directory>
+
+    val hiddenString = resources.getString(R.string.hidden)
+    filteredDirectories.forEach {
+        it.name = if (it.path.doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
+            "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
+        } else {
+            it.name.removeSuffix(hiddenString).trim()
+        }
+    }
+
+    val clone = filteredDirectories.clone() as ArrayList<Directory>
+    callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
+    removeInvalidDBDirectories(filteredDirectories)
 }
 
 suspend fun Context.getCachedMedia(
@@ -855,7 +858,7 @@ fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, nam
     return result.toString()
 }
 
-fun Context.updateDirectoryPath(path: String) {
+suspend fun Context.updateDirectoryPath(path: String) {
     val mediaFetcher = MediaFetcher(applicationContext)
     val getImagesOnly = false
     val getVideosOnly = false
