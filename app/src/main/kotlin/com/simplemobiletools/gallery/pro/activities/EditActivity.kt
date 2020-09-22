@@ -39,6 +39,7 @@ import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.copyNonDimensionAttributesTo
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.openEditor
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -196,47 +197,47 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         editor_draw_canvas.beGone()
 
         val options = RequestOptions()
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
 
         Glide.with(this)
-                .asBitmap()
-                .load(uri)
-                .apply(options)
-                .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                        if (uri != originalUri) {
-                            uri = originalUri
-                            Handler().post {
-                                loadDefaultImageView()
-                            }
+            .asBitmap()
+            .load(uri)
+            .apply(options)
+            .listener(object : RequestListener<Bitmap> {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                    if (uri != originalUri) {
+                        uri = originalUri
+                        Handler().post {
+                            loadDefaultImageView()
                         }
-                        return false
+                    }
+                    return false
+                }
+
+                override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                    val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+                    if (filterInitialBitmap == null) {
+                        loadCropImageView()
+                        bottomCropRotateClicked()
                     }
 
-                    override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        val currentFilter = getFiltersAdapter()?.getCurrentFilter()
-                        if (filterInitialBitmap == null) {
-                            loadCropImageView()
-                            bottomCropRotateClicked()
+                    if (filterInitialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
+                        default_image_view.onGlobalLayout {
+                            applyFilter(currentFilter)
                         }
-
-                        if (filterInitialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
-                            default_image_view.onGlobalLayout {
-                                applyFilter(currentFilter)
-                            }
-                        } else {
-                            filterInitialBitmap = bitmap
-                        }
-
-                        if (isCropIntent) {
-                            bottom_primary_filter.beGone()
-                            bottom_primary_draw.beGone()
-                        }
-
-                        return false
+                    } else {
+                        filterInitialBitmap = bitmap
                     }
-                }).into(default_image_view)
+
+                    if (isCropIntent) {
+                        bottom_primary_filter.beGone()
+                        bottom_primary_draw.beGone()
+                    }
+
+                    return false
+                }
+            }).into(default_image_view)
     }
 
     private fun loadCropImageView() {
@@ -275,17 +276,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         val size = Point()
         windowManager.defaultDisplay.getSize(size)
         val options = RequestOptions()
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .fitCenter()
+            .format(DecodeFormat.PREFER_ARGB_8888)
+            .skipMemoryCache(true)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .fitCenter()
 
         try {
             val builder = Glide.with(applicationContext)
-                    .asBitmap()
-                    .load(uri)
-                    .apply(options)
-                    .into(editor_draw_canvas.width, editor_draw_canvas.height)
+                .asBitmap()
+                .load(uri)
+                .apply(options)
+                .into(editor_draw_canvas.width, editor_draw_canvas.height)
 
             val bitmap = builder.get()
             runOnUiThread {
@@ -304,16 +305,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun saveImage() {
-        var inputStream: InputStream? = null
-        try {
-            if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(uri!!)
-                oldExif = ExifInterface(inputStream!!)
-            }
-        } catch (e: Exception) {
-        } finally {
-            inputStream?.close()
-        }
+        setOldExif()
 
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
@@ -351,6 +343,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
                 }
             }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun setOldExif() {
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(uri!!)
+                oldExif = ExifInterface(inputStream!!)
+            }
+        } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
         }
     }
 
@@ -591,17 +597,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                 val bitmap = try {
                     Glide.with(this)
-                            .asBitmap()
-                            .load(uri).listener(object : RequestListener<Bitmap> {
-                                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                                    showErrorToast(e.toString())
-                                    return false
-                                }
+                        .asBitmap()
+                        .load(uri).listener(object : RequestListener<Bitmap> {
+                            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                                showErrorToast(e.toString())
+                                return false
+                            }
 
-                                override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
-                            })
-                            .submit(thumbnailSize, thumbnailSize)
-                            .get()
+                            override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
+                        })
+                        .submit(thumbnailSize, thumbnailSize)
+                        .get()
                 } catch (e: GlideException) {
                     showErrorToast(e)
                     finish()
@@ -742,6 +748,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
+            setOldExif()
+
             val bitmap = result.bitmap
             if (isSharingBitmap) {
                 isSharingBitmap = false
@@ -862,7 +870,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             if (isNougatPlus()) {
                 val newExif = ExifInterface(file.absolutePath)
-                oldExif?.copyTo(newExif, false)
+                oldExif?.copyNonDimensionAttributesTo(newExif)
             }
         } catch (e: Exception) {
         }
