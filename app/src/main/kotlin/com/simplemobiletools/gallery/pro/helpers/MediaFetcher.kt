@@ -220,7 +220,7 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
-        val lastModifieds = if (getProperLastModified && !isRecycleBin) getFolderLastModifieds(folder) else HashMap()
+        val lastModifieds = if (getProperLastModified && !isRecycleBin && isRPlus()) getFolderLastModifieds(folder) else HashMap()
         val fileSizes = if (checkProperFileSize || checkFileExistence) getFolderSizes(folder) else HashMap()
 
         val files = when (folder) {
@@ -302,11 +302,15 @@ class MediaFetcher(val context: Context) {
             } else {
                 var lastModified = 0L
                 if (getProperLastModified) {
-                    var newLastModified = lastModifieds.remove(path)
-                    if (newLastModified == null) {
-                        newLastModified = file.lastModified()
+                    if (isRPlus()) {
+                        var newLastModified = lastModifieds.remove(path)
+                        if (newLastModified == null) {
+                            newLastModified = file.lastModified()
+                        }
+                        lastModified = newLastModified
+                    } else {
+                        lastModified = file.lastModified()
                     }
-                    lastModified = newLastModified
                 }
 
                 var dateTaken = lastModified
