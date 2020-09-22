@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.15.6 *(2020-09-22)*
+----------------------------
+
+ * Fixed the file loading performance in some cases
+ * Fixed some photo editor related glitches
+ * Fixed the Use English language settings toggle
+
 Version 6.15.5 *(2020-09-16)*
 ----------------------------
 

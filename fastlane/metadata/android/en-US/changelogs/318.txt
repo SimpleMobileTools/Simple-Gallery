@@ -1,0 +1,3 @@
+ * Fixed the file loading performance in some cases
+ * Fixed some photo editor related glitches
+ * Fixed the Use English language settings toggle
