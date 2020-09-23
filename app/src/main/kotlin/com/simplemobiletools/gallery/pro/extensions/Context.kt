@@ -36,6 +36,8 @@ import java.util.HashSet
 import java.util.LinkedHashSet
 import kotlin.Comparator
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.set
 
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -516,7 +518,13 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
-        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+
+        val folderNomediaStatuses = HashMap<String, Boolean>()
+        var filteredDirectories = directories.filter {
+            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses) { path, hasNoMedia ->
+                folderNomediaStatuses[path] = hasNoMedia
+            }
+        } as ArrayList<Directory>
         val filterMedia = config.filterMedia
 
         filteredDirectories = (when {

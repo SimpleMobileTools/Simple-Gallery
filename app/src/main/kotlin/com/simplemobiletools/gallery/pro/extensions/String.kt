@@ -2,7 +2,7 @@ package com.simplemobiletools.gallery.pro.extensions
 
 import android.os.Environment
 import com.simplemobiletools.commons.extensions.containsNoMedia
-import com.simplemobiletools.commons.extensions.doesParentHaveNoMedia
+import com.simplemobiletools.commons.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
 
@@ -10,7 +10,9 @@ fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedP
 
 fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
 
-fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
+// cache which folders contain .nomedia files to avoid checking them over and over again
+fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean,
+                                 folderNomediaStatuses: HashMap<String, Boolean>, callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
     if (isEmpty()) {
         return false
     }
@@ -48,7 +50,24 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
         var containsNoMediaOrDot = containsNoMedia || contains("/.")
         if (!containsNoMediaOrDot) {
-            containsNoMediaOrDot = file.doesParentHaveNoMedia()
+            var curPath = this
+            for (i in 0 until count { it == '/' } - 1) {
+                curPath = curPath.substringBeforeLast('/')
+                val pathToCheck = "$curPath/${NOMEDIA}"
+                if (folderNomediaStatuses.contains(pathToCheck)) {
+                    if (folderNomediaStatuses[pathToCheck] == true) {
+                        containsNoMediaOrDot = true
+                        break
+                    }
+                } else {
+                    val noMediaExists = File(pathToCheck).exists()
+                    callback(pathToCheck, noMediaExists)
+                    if (noMediaExists) {
+                        containsNoMediaOrDot = true
+                        break
+                    }
+                }
+            }
         }
         !containsNoMediaOrDot
     } else {

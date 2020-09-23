@@ -66,8 +66,13 @@ class MediaFetcher(val context: Context) {
             val shouldShowHidden = config.shouldShowHidden
             val excludedPaths = config.excludedFolders
             val includedPaths = config.includedFolders
-            folders.distinctBy { it.getDistinctPath() }
-                .filter { it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) }.toMutableList() as ArrayList<String>
+
+            val folderNomediaStatuses = HashMap<String, Boolean>()
+            folders.distinctBy { it.getDistinctPath() }.filter {
+                it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses) { path, hasNoMedia ->
+                    folderNomediaStatuses[path] = hasNoMedia
+                }
+            }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
             ArrayList()
         }
