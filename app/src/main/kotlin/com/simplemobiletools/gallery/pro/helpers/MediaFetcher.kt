@@ -68,7 +68,20 @@ class MediaFetcher(val context: Context) {
             val includedPaths = config.includedFolders
 
             val folderNomediaStatuses = HashMap<String, Boolean>()
-            folders.distinctBy { it.getDistinctPath() }.filter {
+            val distinctPathsMap = HashMap<String, String>()
+            val distinctPaths = folders.distinctBy {
+                when {
+                    distinctPathsMap.containsKey(it) -> distinctPathsMap[it]
+                    distinctPathsMap.contains(it.getParentPath()) -> distinctPathsMap[it.getParentPath()]
+                    else -> {
+                        val distinct = it.getDistinctPath()
+                        distinctPathsMap[it.getParentPath()] = distinct.getParentPath()
+                        distinct
+                    }
+                }
+            }
+
+            distinctPaths.filter {
                 it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses) { path, hasNoMedia ->
                     folderNomediaStatuses[path] = hasNoMedia
                 }

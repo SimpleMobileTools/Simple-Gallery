@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.os.Environment
-import com.simplemobiletools.commons.extensions.containsNoMedia
 import com.simplemobiletools.commons.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
@@ -18,7 +17,8 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     }
 
     val file = File(this)
-    if (file.name.startsWith("img_", true)) {
+    val filename = file.name
+    if (filename.startsWith("img_", true) && file.isDirectory) {
         val files = file.list()
         if (files != null) {
             if (files.any { it.contains("burst", true) }) {
@@ -27,7 +27,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
         }
     }
 
-    if (!showHidden && file.isHidden) {
+    if (!showHidden && filename.startsWith('.')) {
         return false
     } else if (includedPaths.contains(this)) {
         return true
@@ -36,7 +36,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        file.containsNoMedia()
+        File(this, NOMEDIA).exists()
     }
 
     return if (!showHidden && containsNoMedia) {
@@ -47,7 +47,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
         true
     } else if (isThisOrParentExcluded(excludedPaths)) {
         false
-    } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
+    } else if (!showHidden) {
         var containsNoMediaOrDot = containsNoMedia || contains("/.")
         if (!containsNoMediaOrDot) {
             var curPath = this
