@@ -970,14 +970,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }.start()
                 }
 
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                    it.forEach {
-                        if (!curMedia.contains(it)) {
-                            val path = (it as? Medium)?.path
-                            if (path != null) {
-                                deleteDBPath(path)
+                if (!directory.isRecycleBin()) {
+                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                        val mediaToDelete = ArrayList<Medium>()
+                        it.forEach {
+                            if (!curMedia.contains(it)) {
+                                val medium = it as? Medium
+                                val path = medium?.path
+                                if (path != null) {
+                                    mediaToDelete.add(medium)
+                                }
                             }
                         }
+                        mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
                     }
                 }
             }
