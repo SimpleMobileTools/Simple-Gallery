@@ -22,7 +22,8 @@ class MediaFetcher(val context: Context) {
     var shouldStop = false
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperLastModified: Boolean,
-                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
+                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean,
+                     lastModifieds: HashMap<String, Long> = HashMap<String, Long>()): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -35,7 +36,8 @@ class MediaFetcher(val context: Context) {
                 curMedia.addAll(newMedia)
             }
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize,
+                favoritePaths, getVideoDurations, lastModifieds)
             curMedia.addAll(newMedia)
         }
 
@@ -223,7 +225,8 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
-                                 getProperLastModified: Boolean, getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
+                                 getProperLastModified: Boolean, getProperFileSize: Boolean, favoritePaths: ArrayList<String>,
+                                 getVideoDurations: Boolean, lastModifieds: HashMap<String, Long>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
@@ -238,7 +241,6 @@ class MediaFetcher(val context: Context) {
         val showHidden = config.shouldShowHidden
         val showPortraits = filterMedia and TYPE_PORTRAITS != 0
         val dateTakens = if (getProperDateTaken && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
-        val lastModifieds = if (getProperLastModified && !isRecycleBin && isRPlus()) getFolderLastModifieds(folder) else HashMap()
         val fileSizes = if (checkProperFileSize || checkFileExistence) getFolderSizes(folder) else HashMap()
 
         val files = when (folder) {
@@ -472,7 +474,7 @@ class MediaFetcher(val context: Context) {
         return dateTakens
     }
 
-    private fun getFolderLastModifieds(folder: String): HashMap<String, Long> {
+    fun getFolderLastModifieds(folder: String): HashMap<String, Long> {
         val lastModifieds = HashMap<String, Long>()
         if (folder != FAVORITES) {
             val projection = arrayOf(
@@ -501,15 +503,31 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        val lastModifiedValues = if (folder == FAVORITES) {
-            context.dateTakensDB.getAllDateTakens()
-        } else {
-            context.dateTakensDB.getDateTakensFromPath(folder)
-        }
+        return lastModifieds
+    }
 
-        lastModifiedValues.forEach {
-            if (!lastModifieds.containsKey(it.fullPath)) {
-                lastModifieds[it.fullPath] = it.lastModified
+    fun getLastModifieds(): HashMap<String, Long> {
+        val lastModifieds = HashMap<String, Long>()
+        val projection = arrayOf(
+            Images.Media.DATA,
+            Images.Media.DATE_MODIFIED
+        )
+
+        val uri = Files.getContentUri("external")
+
+        val cursor = context.contentResolver.query(uri, projection, null, null, null)
+        cursor?.use {
+            if (cursor.moveToFirst()) {
+                do {
+                    try {
+                        val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                        if (lastModified != 0L) {
+                            val path = cursor.getStringValue(Images.Media.DATA)
+                            lastModifieds[path] = lastModified
+                        }
+                    } catch (e: Exception) {
+                    }
+                } while (cursor.moveToNext())
             }
         }
 

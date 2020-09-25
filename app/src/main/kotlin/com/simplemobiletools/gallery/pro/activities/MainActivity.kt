@@ -909,6 +909,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
 
+        val lastModifieds = if (isRPlus()) mLastMediaFetcher!!.getLastModifieds() else HashMap<String, Long>()
+
         try {
             for (directory in dirs) {
                 if (mShouldStopFetching || isDestroyed || isFinishing) {
@@ -927,7 +929,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                         grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
                         grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
-                val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
+                val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
+                    getProperFileSize, favoritePaths, false, lastModifieds)
+
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
                         dirPathsToRemove.add(directory.path)
@@ -1019,7 +1023,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
                     grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
-            val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, false)
+            val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
+                getProperFileSize, favoritePaths, false, lastModifieds)
+
             if (newMedia.isEmpty()) {
                 continue
             }

@@ -5,6 +5,7 @@ import android.os.AsyncTask
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getFavoritePaths
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -32,19 +33,23 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val getProperFileSize = fileSorting and SORT_BY_SIZE != 0
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration
+        val lastModifieds = if (isRPlus()) mediaFetcher.getLastModifieds() else HashMap<String, Long>()
         val media = if (showAll) {
             val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES && !context.config.isFolderProtected(it) }
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
-                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)
+                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize,
+                    favoritePaths, getVideoDurations, lastModifieds)
                 media.addAll(newMedia)
             }
 
             mediaFetcher.sortMedia(media, context.config.getFolderSorting(SHOW_ALL))
             media
         } else {
-            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths, getVideoDurations)
+            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths,
+                getVideoDurations, lastModifieds)
         }
+
         return mediaFetcher.groupMedia(media, pathToUse)
     }
 
