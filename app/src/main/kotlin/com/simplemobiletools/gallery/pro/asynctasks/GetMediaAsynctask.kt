@@ -33,7 +33,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val getProperFileSize = fileSorting and SORT_BY_SIZE != 0
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration
-        val lastModifieds = if (isRPlus()) mediaFetcher.getLastModifieds() else HashMap<String, Long>()
+        val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getLastModifieds() else HashMap()
         val media = if (showAll) {
             val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES && !context.config.isFolderProtected(it) }
             val media = ArrayList<Medium>()
