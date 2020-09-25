@@ -9,6 +9,7 @@ import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.extensions.getFilenameExtension
+import com.simplemobiletools.commons.extensions.isWebP
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
@@ -34,6 +35,8 @@ data class Medium(
     companion object {
         private const val serialVersionUID = -6553149366975655L
     }
+
+    fun isWebP() = name.isWebP()
 
     fun isGIF() = type == TYPE_GIFS
 
