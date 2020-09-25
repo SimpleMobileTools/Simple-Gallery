@@ -869,7 +869,6 @@ fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, nam
 
 fun Context.updateDirectoryPath(path: String) {
     val mediaFetcher = MediaFetcher(applicationContext)
-    val lastModifieds = mediaFetcher.getFolderLastModifieds(path)
     val getImagesOnly = false
     val getVideosOnly = false
     val hiddenString = getString(R.string.hidden)
@@ -889,9 +888,12 @@ fun Context.updateDirectoryPath(path: String) {
             grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
+
+    val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
+    val dateTakens = mediaFetcher.getFolderDateTakens(path)
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,
-        favoritePaths, false, lastModifieds)
+        favoritePaths, false, lastModifieds, dateTakens)
     val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize)
     updateDBDirectory(directory)
 }

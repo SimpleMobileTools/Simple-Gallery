@@ -34,12 +34,14 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration
         val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getLastModifieds() else HashMap()
+        val dateTakens = if (getProperLastModified) mediaFetcher.getDateTakens() else HashMap()
+
         val media = if (showAll) {
             val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES && !context.config.isFolderProtected(it) }
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
                 val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize,
-                    favoritePaths, getVideoDurations, lastModifieds)
+                    favoritePaths, getVideoDurations, lastModifieds, dateTakens)
                 media.addAll(newMedia)
             }
 
@@ -47,7 +49,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             media
         } else {
             mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths,
-                getVideoDurations, lastModifieds)
+                getVideoDurations, lastModifieds, dateTakens)
         }
 
         return mediaFetcher.groupMedia(media, pathToUse)
