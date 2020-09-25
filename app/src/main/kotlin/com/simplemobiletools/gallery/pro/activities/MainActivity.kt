@@ -436,22 +436,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun tryLoadGallery() {
-        if (hasPermission(PERMISSION_WRITE_STORAGE)) {
-            if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
-                ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
-                config.wasUpgradedFromFreeShown = true
-            }
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+                    ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
+                    config.wasUpgradedFromFreeShown = true
+                }
 
-            checkOTGPath()
-            checkDefaultSpamFolders()
+                checkOTGPath()
+                checkDefaultSpamFolders()
 
-            if (config.showAll) {
-                showAllMedia()
+                if (config.showAll) {
+                    showAllMedia()
+                } else {
+                    getDirectories()
+                }
+
+                setupLayoutManager()
             } else {
-                getDirectories()
+                toast(R.string.no_storage_permissions)
+                finish()
             }
-
-            setupLayoutManager()
         }
     }
 
