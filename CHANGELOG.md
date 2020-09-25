@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.16.0 *(2020-09-25)*
+----------------------------
+
+ * Adding support for animated WebP files
+ * Fixed a permissions glitch after upgrading to Android 11
+ * Added many performance related improvements
+
 Version 6.15.6 *(2020-09-22)*
 ----------------------------
 
