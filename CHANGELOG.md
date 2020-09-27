@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.16.1 *(2020-09-27)*
+----------------------------
+
+ * Fixed a bug with some folders not being recognized
+ * Improved thumbnail loading performance in some cases
+
 Version 6.16.0 *(2020-09-25)*
 ----------------------------
 
