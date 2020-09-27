@@ -4,11 +4,7 @@ import android.content.Context
 import androidx.room.*
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_NAME
-import com.simplemobiletools.commons.helpers.SORT_BY_PATH
-import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.gallery.pro.helpers.FAVORITES
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 
 @Entity(tableName = "directories", indices = [Index(value = ["path"], unique = true)])

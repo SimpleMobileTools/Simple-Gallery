@@ -2,10 +2,7 @@ package com.simplemobiletools.gallery.pro.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
-import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.commons.helpers.isRPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getFavoritePaths
 import com.simplemobiletools.gallery.pro.helpers.*
