@@ -74,7 +74,6 @@ class MediaFetcher(val context: Context) {
             val distinctPaths = folders.distinctBy {
                 when {
                     distinctPathsMap.containsKey(it) -> distinctPathsMap[it]
-                    distinctPathsMap.contains(it.getParentPath()) -> distinctPathsMap[it.getParentPath()]
                     else -> {
                         val distinct = it.getDistinctPath()
                         distinctPathsMap[it.getParentPath()] = distinct.getParentPath()
