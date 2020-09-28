@@ -14,9 +14,10 @@ import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.gallery.pro.extensions.toLocalDate
 import com.simplemobiletools.gallery.pro.helpers.*
 import java.io.Serializable
-import java.util.*
+import java.time.ZoneId
 
 @Entity(tableName = "media", indices = [(Index(value = ["full_path"], unique = true))])
 data class Medium(
@@ -76,19 +77,12 @@ data class Medium(
     fun getIsInRecycleBin() = deletedTS != 0L
 
     private fun getDayStartTS(ts: Long, resetDays: Boolean): String {
-        val calendar = Calendar.getInstance(Locale.ENGLISH).apply {
-            timeInMillis = ts
-            set(Calendar.HOUR_OF_DAY, 0)
-            set(Calendar.MINUTE, 0)
-            set(Calendar.SECOND, 0)
-            set(Calendar.MILLISECOND, 0)
-
-            if (resetDays) {
-                set(Calendar.DAY_OF_MONTH, 1)
-            }
-        }
-
-        return calendar.timeInMillis.toString()
+        val zonedDateTime = ts.toLocalDate().atStartOfDay(ZoneId.systemDefault())
+        return if (resetDays) {
+            zonedDateTime.withDayOfMonth(1)
+        } else {
+            zonedDateTime
+        }.toInstant().toEpochMilli().toString()
     }
 
     fun getSignature() = ObjectKey("$path-$modified-$size")

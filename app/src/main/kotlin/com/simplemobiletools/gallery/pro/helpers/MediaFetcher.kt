@@ -7,7 +7,6 @@ import android.os.Environment
 import android.provider.BaseColumns
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
-import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
@@ -16,6 +15,8 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import java.io.File
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class MediaFetcher(val context: Context) {
@@ -673,8 +674,9 @@ class MediaFetcher(val context: Context) {
             mediumGroups[key] = value
         }
 
-        val today = formatDate(System.currentTimeMillis().toString(), true)
-        val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString(), true)
+        val now = LocalDate.now()
+        val today = formatDate(now, true)
+        val yesterday = formatDate(now.minusDays(1), true)
         for ((key, value) in mediumGroups) {
             val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
             thumbnailItems.add(ThumbnailSection(sectionKey))
@@ -709,12 +711,14 @@ class MediaFetcher(val context: Context) {
         }
     }
 
+    private fun formatDate(localDate: LocalDate, showDay: Boolean): String {
+        val format = if (showDay) context.config.dateFormat else "MMMM yyyy"
+        return DateTimeFormatter.ofPattern(format).format(localDate)
+    }
+
     private fun formatDate(timestamp: String, showDay: Boolean): String {
         return if (timestamp.areDigitsOnly()) {
-            val cal = Calendar.getInstance(Locale.ENGLISH)
-            cal.timeInMillis = timestamp.toLong()
-            val format = if (showDay) context.config.dateFormat else "MMMM yyyy"
-            DateFormat.format(format, cal).toString()
+            formatDate(timestamp.toLong().toLocalDate(), showDay)
         } else {
             ""
         }
