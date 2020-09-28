@@ -3,13 +3,15 @@ package com.simplemobiletools.gallery.pro.receivers
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 import com.simplemobiletools.gallery.pro.helpers.MediaFetcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class BootCompletedReceiver : BroadcastReceiver() {
+class BootCompletedReceiver : BroadcastReceiver(), CoroutineScope by CoroutineScope(Dispatchers.IO) {
     override fun onReceive(context: Context, intent: Intent) {
-        ensureBackgroundThread {
+        launch {
             MediaFetcher(context).getFoldersToScan().forEach {
                 context.updateDirectoryPath(it)
             }
