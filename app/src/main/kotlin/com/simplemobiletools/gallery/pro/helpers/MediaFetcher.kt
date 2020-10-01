@@ -442,19 +442,14 @@ class MediaFetcher(val context: Context) {
             val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
             val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
 
-            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            cursor?.use {
-                if (cursor.moveToFirst()) {
-                    do {
-                        try {
-                            val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
-                            if (dateTaken != 0L) {
-                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
-                                dateTakens["$folder/$name"] = dateTaken
-                            }
-                        } catch (e: Exception) {
-                        }
-                    } while (cursor.moveToNext())
+            context.queryCursor(uri, projection, selection, selectionArgs) { cursor ->
+                try {
+                    val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+                    if (dateTaken != 0L) {
+                        val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                        dateTakens["$folder/$name"] = dateTaken
+                    }
+                } catch (e: Exception) {
                 }
             }
         }
@@ -482,19 +477,14 @@ class MediaFetcher(val context: Context) {
         val uri = Files.getContentUri("external")
 
         try {
-            val cursor = context.contentResolver.query(uri, projection, null, null, null)
-            cursor?.use {
-                if (cursor.moveToFirst()) {
-                    do {
-                        try {
-                            val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
-                            if (dateTaken != 0L) {
-                                val path = cursor.getStringValue(Images.Media.DATA)
-                                dateTakens[path] = dateTaken
-                            }
-                        } catch (e: Exception) {
-                        }
-                    } while (cursor.moveToNext())
+            context.queryCursor(uri, projection) { cursor ->
+                try {
+                    val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+                    if (dateTaken != 0L) {
+                        val path = cursor.getStringValue(Images.Media.DATA)
+                        dateTakens[path] = dateTaken
+                    }
+                } catch (e: Exception) {
                 }
             }
         } catch (e: Exception) {
@@ -521,19 +511,14 @@ class MediaFetcher(val context: Context) {
             val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
             val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
 
-            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            cursor?.use {
-                if (cursor.moveToFirst()) {
-                    do {
-                        try {
-                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
-                            if (lastModified != 0L) {
-                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
-                                lastModifieds["$folder/$name"] = lastModified
-                            }
-                        } catch (e: Exception) {
-                        }
-                    } while (cursor.moveToNext())
+            context.queryCursor(uri, projection, selection, selectionArgs) { cursor ->
+                try {
+                    val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                    if (lastModified != 0L) {
+                        val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                        lastModifieds["$folder/$name"] = lastModified
+                    }
+                } catch (e: Exception) {
                 }
             }
         }
@@ -551,19 +536,14 @@ class MediaFetcher(val context: Context) {
         val uri = Files.getContentUri("external")
 
         try {
-            val cursor = context.contentResolver.query(uri, projection, null, null, null)
-            cursor?.use {
-                if (cursor.moveToFirst()) {
-                    do {
-                        try {
-                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
-                            if (lastModified != 0L) {
-                                val path = cursor.getStringValue(Images.Media.DATA)
-                                lastModifieds[path] = lastModified
-                            }
-                        } catch (e: Exception) {
-                        }
-                    } while (cursor.moveToNext())
+            context.queryCursor(uri, projection) { cursor ->
+                try {
+                    val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                    if (lastModified != 0L) {
+                        val path = cursor.getStringValue(Images.Media.DATA)
+                        lastModifieds[path] = lastModified
+                    }
+                } catch (e: Exception) {
                 }
             }
         } catch (e: Exception) {
@@ -584,19 +564,14 @@ class MediaFetcher(val context: Context) {
             val selection = "${Images.Media.DATA} LIKE ? AND ${Images.Media.DATA} NOT LIKE ?"
             val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
 
-            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            cursor?.use {
-                if (cursor.moveToFirst()) {
-                    do {
-                        try {
-                            val size = cursor.getLongValue(Images.Media.SIZE)
-                            if (size != 0L) {
-                                val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
-                                sizes["$folder/$name"] = size
-                            }
-                        } catch (e: Exception) {
-                        }
-                    } while (cursor.moveToNext())
+            context.queryCursor(uri, projection, selection, selectionArgs) { cursor ->
+                try {
+                    val size = cursor.getLongValue(Images.Media.SIZE)
+                    if (size != 0L) {
+                        val name = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                        sizes["$folder/$name"] = size
+                    }
+                } catch (e: Exception) {
                 }
             }
         }
