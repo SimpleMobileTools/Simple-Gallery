@@ -481,20 +481,23 @@ class MediaFetcher(val context: Context) {
 
         val uri = Files.getContentUri("external")
 
-        val cursor = context.contentResolver.query(uri, projection, null, null, null)
-        cursor?.use {
-            if (cursor.moveToFirst()) {
-                do {
-                    try {
-                        val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
-                        if (dateTaken != 0L) {
-                            val path = cursor.getStringValue(Images.Media.DATA)
-                            dateTakens[path] = dateTaken
+        try {
+            val cursor = context.contentResolver.query(uri, projection, null, null, null)
+            cursor?.use {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+                            if (dateTaken != 0L) {
+                                val path = cursor.getStringValue(Images.Media.DATA)
+                                dateTakens[path] = dateTaken
+                            }
+                        } catch (e: Exception) {
                         }
-                    } catch (e: Exception) {
-                    }
-                } while (cursor.moveToNext())
+                    } while (cursor.moveToNext())
+                }
             }
+        } catch (e: Exception) {
         }
 
         val dateTakenValues = context.dateTakensDB.getAllDateTakens()
@@ -547,20 +550,23 @@ class MediaFetcher(val context: Context) {
 
         val uri = Files.getContentUri("external")
 
-        val cursor = context.contentResolver.query(uri, projection, null, null, null)
-        cursor?.use {
-            if (cursor.moveToFirst()) {
-                do {
-                    try {
-                        val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
-                        if (lastModified != 0L) {
-                            val path = cursor.getStringValue(Images.Media.DATA)
-                            lastModifieds[path] = lastModified
+        try {
+            val cursor = context.contentResolver.query(uri, projection, null, null, null)
+            cursor?.use {
+                if (cursor.moveToFirst()) {
+                    do {
+                        try {
+                            val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                            if (lastModified != 0L) {
+                                val path = cursor.getStringValue(Images.Media.DATA)
+                                lastModifieds[path] = lastModified
+                            }
+                        } catch (e: Exception) {
                         }
-                    } catch (e: Exception) {
-                    }
-                } while (cursor.moveToNext())
+                    } while (cursor.moveToNext())
+                }
             }
+        } catch (e: Exception) {
         }
 
         return lastModifieds
