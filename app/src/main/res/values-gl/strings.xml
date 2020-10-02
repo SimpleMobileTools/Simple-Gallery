@@ -9,8 +9,8 @@
     <string name="pin_folder">Fixar cartafol</string>
     <string name="unpin_folder">Soltar cartafol</string>
     <string name="pin_to_the_top">Fixar arriba</string>
-    <string name="show_all">Mostrar o contido de tódolos cartafoles</string>
-    <string name="all_folders">Tódolos cartafoles</string>
+    <string name="show_all">Mostrar o contido de todos os cartafoles</string>
+    <string name="all_folders">Todos os cartafoles</string>
     <string name="folder_view">Mudar á vista por cartafol</string>
     <string name="other_folder">Outro cartafol</string>
     <string name="show_on_map">Mostrar no mapa</string>
@@ -22,7 +22,7 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brillo</string>
     <string name="lock_orientation">Fixar orientación</string>
-    <string name="unlock_orientation">Desafixar orientación</string>
+    <string name="unlock_orientation"> Non fixar orientación</string>
     <string name="change_orientation">Cambiar orientación</string>
     <string name="force_portrait">Forzar retrato</string>
     <string name="force_landscape">Forzar paisaxe</string>
@@ -32,8 +32,8 @@
     <string name="dates_fixed_successfully">Datas arranxadas con éxito</string>
     <string name="no_date_takens_found">Non se atoparon valores de Datas de Captura</string>
     <string name="share_resized">Comparte unha versión reducida</string>
-    <string name="upgraded_from_free">Ola,\n\nsemella que actualizaches desde a vella aplicación gratuita. Podes desinstalar a versión vella, que ten un botón \'Mellorar a Pro\' enriba da pantalla de configuración.\n\nSo terás os elementos borrados da Papeleira de reciclaxe, os elementos favoritos sen marcar e tamén terás que reiniciar os Axustes.\n\nGrazas!</string>
-    <string name="switch_to_file_search">Cambiar á procura de ficheiros en todolos cartafoles visibles.</string>
+    <string name="upgraded_from_free">Ola,\n\nsemella que actualizaches desde o vello aplicativo gratuito. Podes desinstalar a versión vella, que ten un botón \'Mellorar a Pro\' enriba da pantalla de configuración.\n\nSo terás os elementos borrados da Papeleira de reciclaxe, os elementos favoritos sen marcar e tamén terás que reiniciar os Axustes.\n\nGrazas!</string>
+    <string name="switch_to_file_search">Cambiar á procura de ficheiros en todos os cartafoles visibles.</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar medios</string>
@@ -47,24 +47,24 @@
     <string name="change_filters_underlined"><u>Cambiar filtro</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta función oculta o cartafol engadindolle ficheiro \'.nomedia\', tamén ocultará os subcartafoles. Podes velos pulsando a opción \'Mostrar elementos ocultos\' nos Axustes. ¿Continuar?</string>
+    <string name="hide_folder_description">Esta función oculta o cartafol engadíndolle ficheiro \'.nomedia\', tamén ocultará os subcartafoles. Podes velos pulsando a opción \'Mostrar elementos ocultos\' nos Axustes. Continuar?</string>
     <string name="exclude">Excluír</string>
     <string name="excluded_folders">Cartafoles excluídos</string>
     <string name="manage_excluded_folders">Xestionar cartafoles excluídos</string>
-    <string name="exclude_folder_description">Esto ocultará a selección xunto cos seus subcartafoles só en Simple Gallery. Podes xestionar os cartafoles ocultos en Axustes.</string>
-    <string name="exclude_folder_parent">¿Excluír o cartafol pai no seu lugar?</string>
-    <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicacións.\n\nSe tamén queres excluílos noutras aplicacións, utiliza a opción Agochar.</string>
+    <string name="exclude_folder_description">Isto ocultará a selección xunto cos seus subcartafoles só en Simple Gallery. Podes xestionar os cartafoles ocultos en Axustes.</string>
+    <string name="exclude_folder_parent">Excluír o cartafol pai no seu lugar?</string>
+    <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles noutros aplicativos.\n\nSe tamén queres excluílos noutros aplicativos, utiliza a opción Agochar.</string>
     <string name="remove_all">Eliminar todos</string>
-    <string name="remove_all_description">¿Eliminar tódolos cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
+    <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Isto non borrará os cartafoles.</string>
     <string name="hidden_folders">Cartafoles ocultos</string>
     <string name="manage_hidden_folders">Xestionar cartafoles ocultos</string>
-    <string name="hidden_folders_placeholder">Semella que non tes ningún cartafol oculto con un ficheiro \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Semella que non tes ningún cartafol oculto cun ficheiro \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
     <string name="manage_included_folders">Xestionar cartafoles incluídos</string>
     <string name="add_folder">Engadir cartafol</string>
-    <string name="included_activity_placeholder">Se tes algún cartafol con medios, mais non foi recoñecido pola aplicación, pódelo engadir manualmente.\n\nEngadindo aquí elementos non eliminarás outros.</string>
+    <string name="included_activity_placeholder">Se tes algún cartafol con medios, mais non foi recoñecido polo aplicativo, pódelo engadir manualmente.\n\nEngadindo aquí elementos non eliminarás outros.</string>
     <string name="no_media_add_included">Non se atopou ningún ficheiro multimedia. Podes solucionalo engadindo manualmente algúns cartafoles con eses ficheiros.</string>
 
     <!-- Resizing -->
@@ -152,7 +152,7 @@
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="remember_last_video_position">Lembrar a posición do vídeo na última vez</string>
     <string name="toggle_filename">Mudar a visibilidade do ficheiro</string>
-    <string name="loop_videos">videos en bucle</string>
+    <string name="loop_videos">Víeos en bucle</string>
     <string name="animate_gifs">Animar os GIFs na icona</string>
     <string name="max_brightness">Brillo ao máximo cando mire medios</string>
     <string name="crop_thumbnails">Recortar iconas a cadrados</string>
@@ -164,14 +164,14 @@
     <string name="black_background_at_fullscreen">Fondo negro e barra de estado en reprodución a pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desprazar iconas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Agochar controis do sistema cando visualice a pantalla completa</string>
-    <string name="delete_empty_folders">Borrar cartafoles baleiros cando elmine o seu contido</string>
+    <string name="delete_empty_folders">Borrar cartafoles baleiros cando elmine oseu contido</string>
     <string name="allow_photo_gestures">Permitir controlar o brillo da foto con xestos verticais</string>
-    <string name="allow_video_gestures">Permitir controlar o volume do vídeo e o brillo con xestos verticáis</string>
+    <string name="allow_video_gestures">Permitir controlar o volume do vídeo e o brillo con xestos verticais</string>
     <string name="show_media_count">Mostrar a conta de medios do cartafol na vista principal</string>
     <string name="show_extended_details">Mostrar información pormenorizada sobre medios a pantalla completa</string>
     <string name="manage_extended_details">Xestionar información polo miúdo</string>
-    <string name="one_finger_zoom">Permitir zoom con un dedo a pantalla completa</string>
-    <string name="allow_instant_change">Permitir o cambio instantáneo de medios pulsando nos lados da pantalla</string>
+    <string name="one_finger_zoom">Permitir zoom cun dedo a pantalla completa</string>
+    <string name="allow_instant_change">Permitir o cambio instantáneo de medios premendo os lados da pantalla</string>
     <string name="allow_deep_zooming_images">Permitir ampliar moito as imaxes</string>
     <string name="hide_extended_details">Agochar detalles extendidos cando a barra de estado está oculta</string>
     <string name="show_at_bottom">Mostrar botóns para accións na parte baixa da pantalla</string>
@@ -182,14 +182,14 @@
     <string name="allow_down_gesture">Permitir pechar a visualización en pantalla completa deslizando cara abaixo</string>
     <string name="allow_one_to_one_zoom">Permitir ampliar a 1:1 con dous toques</string>
     <string name="open_videos_on_separate_screen">Abrir sempre os vídeos nunha pantalla diferente con novos xestos horizontais</string>
-    <string name="show_notch">Mostrar unha marca se a houbera</string>
+    <string name="show_notch">Mostrar unha marca se a houbese</strings>
     <string name="allow_rotating_gestures">Permitir rotar unha imaxe con xestos</string>
     <string name="file_loading_priority">Prioridade de carga de ficheiro</string>
     <string name="speed">Velocidade</string>
     <string name="compromise">Compromiso</string>
     <string name="avoid_showing_invalid_files">Non mostrar ficheiros non válidos</string>
     <string name="show_image_file_types">Mostrar tipos de ficheiros de imaxe</string>
-    <string name="allow_zooming_videos">Permitir zoom nos vídeos co duplo-toque sobre eles</string>
+    <string name="allow_zooming_videos">Permitir zoom nos vídeos co dobre-toque sobre eles</strings>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>
@@ -238,8 +238,8 @@
     <string name="pesdk_text_button_straighten">Endereitar</string>
     <string name="pesdk_text_button_font">Fonte</string>
     <string name="pesdk_text_button_color">Cor</string>
-    <string name="pesdk_text_button_backgroundColor">Color Fondo</string>
-    <string name="pesdk_text_button_alignment">Aliñamento</string>
+    <string name="pesdk_text_button_backgroundColor">Cor Fondo</string>
+    <string name="pesdk_text_button_alignment">Alineamento</strings>
     <string name="pesdk_text_button_bringToFront">Á Fronte</string>
     <string name="pesdk_text_button_delete">Borrar</string>
     <string name="pesdk_text_text_editTextPlaceholder">O teu texto</string>
@@ -251,8 +251,8 @@
     <string name="pesdk_brush_button_delete">Borrar</string>
     <string name="pesdk_brush_title_brushColor">Cor do Pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">¿Pechar o Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">¿Tes a certeza de desbotar a imaxe?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Pechar o Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Tes a certeza de desbotar a imaxe?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -284,37 +284,36 @@
     <string name="pesdk_common_title_pipettableColor">Escoller coa pipeta</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Cómo podo facer que Simple Gallery sexa a galería por omisión no dispositivo?</string>
+    <string name="faq_1_title">Como podo facer que Simple Gallery sexa a galería por defecto no meu dispositivo?</strings>
     <string name="faq_1_text">Primeiro debes atopar a galería por omisión actual na sección de App nos axustes do dispositivo, buscar un botón que diga algo como \"Abrir por omisión\", pulsalo e despois seleccionar \"Limpar por omisión\".
-        A próxima vez que intentes abrir unha imaxe ou vídeo aparecerá un selector de aplicacións onde podes escoller Simple Gallery e facela a aplicación por omisión.</string>
-    <string name="faq_2_title">Asegurei a aplicación con un contrasinal, pero esquecino. Qué podo facer?</string>
-    <string name="faq_2_text">Pode solucionado de dous xeitos. Ou ben reinstalar a aplicación ou buscar a aplicación nos axustes do dispositivo e escoller \"Limpar datos\". Restablecerá todos os seus axustes, mais non eliminará ficheiros de medios.</string>
-    <string name="faq_3_title">Cómo podo facer que un álbume apareza sempre arriba de todo?</string>
-    <string name="faq_3_text">Pode manter premido o álbume e escoller a icona de Fixar no menú de accións, esto fixarao arriba. Pode fixar varios cartafoles tambén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
-    <string name="faq_4_title">Cómo podo aumentar a velocidade de reprodución de vídeo?</string>
+        A próxima vez que intentes abrir unha imaxe ou vídeo aparecerá un selector de aplicativos onde podes escoller Simple Gallery e facela a aplicativo por defecto/n.</nstrings>
+    <string name="faq_2_title">Asegurei o aplicativo cun contrasinal, pero esquecino. Que podo facer?</string>
+    <string name="faq_2_text">Pode solucionado de dous xeitos. Ou ben reinstalar o aplicativo ou buscar o aplicativo os axustes do dispositivo e escoller \"Limpar datos\". Restablecerá todos os seus axustes, mais non eliminará ficheiros de medios.</string>
+    <string name="faq_3_title">Como podo facer que un álbum apareza sempre arriba de todo?</string>
+    <string name="faq_3_text">Pode manter premido o álbum e escoller a icona de Fixar no menú de accións, isto fixarao arriba. Pode fixar varios cartafoles tamén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
+    <string name="faq_4_title">Como podo aumentar a velocidade de reprodución do vídeo?</strings>
     <string name="faq_4_text">Pode facelo tocando dúas veces o lateral da pantalla, ou tocando os textos de duración máxima ou actual preto da barra de avance. Se activa abrir os vídeos nunha pantalla separada, tamén pode usar xestos horizontais.</string>
     <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
-    <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Por qué aparecen cartafoles de música con portadas ou pegatinas?</string>
+    <string name="faq_5_text">A exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquera xestor de ficheiros.Teña en conta que algúns dispositivos non permiten cartafoles agochados como Cámara, Capturas de pantalla e Descargas.</strings>
+    <string name="faq_6_title">Por que aparecen cartafoles de música con portadas ou pegatinas?</string>
     <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
-    <string name="faq_7_title">Un cartafol con imaxes non aparece, qué podo facer? </string>
-    <string name="faq_7_text">Esto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -> xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
-    <string name="faq_8_title">E qué pasa si só quero que sexan visibles certos cartafoles</string>
-    <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -> Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despóis engadir os cartafoles desexados con Axustes -> Xestionar Cartafoles Incluídos.
-        Esto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
-    <string name="faq_10_title">Podo recortar imaxes con esta aplicación?</string>
+    <string name="faq_7_title">Un cartafol con imaxes non aparece, que podo facer? </string>
+    <string name="faq_7_text">Isto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -> xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
+    <string name="faq_8_title">E que pasa se só quero que sexan visibles certos cartafoles</string>
+    <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -> Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despois engadir os cartafoles desexados con Axustes -> Xestionar Cartafoles Incluídos.
+        Isto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
+    <string name="faq_10_title">Podo recortar imaxes con este aplciativo?</string>
     <string name="faq_10_text">Si, pode recortar imaxes no editor, arrastrando as esquinas das imaxes. Pode chegar ao editor tanto presionando na imaxe durante un anaco e seleccionando Editar, ou seleccionando Editar dende a vista de pantalla completa.</string>
-    <string name="faq_11_title">Podo agrupar as iconas de algún xeito?</string>
+    <string name="faq_11_title">Podo agrupar as iconas dalgún xeito?</string>
     <string name="faq_11_text">Claro, use no menu \"Agrupar por\" na vista de iconas. Pode facelo por múltiples criterios, incluindo a data de captura. Se usa a función \"Mostrar o contido dos cartafoles\", tamén pode agruparlos por cartafoles.</string>
     <string name="faq_12_title">Semella que Ordenar por Data non está a funcionar, como o amaño?</string>
-    <string name="faq_12_text">Seguramente foi causa de copiar os ficheiros de algures. Pode amañalo seleccionando as iconas e \"Arranxar o valor da Data de Captura\".</string>
+    <string name="faq_12_text">Seguramente foi causa de copiar os ficheiros de algures. Podes amañalo seleccionando as iconas e \"Arranxar o valor da Data de Captura\".</string>
     <string name="faq_13_title">Vexo bandas de cor nas imaxes. Como podo mellorar a súa calidade?</string>
     <string name="faq_13_text">A solución actual de mostra das imaxes funciona ben na maioría dos casos, pero se desexa unha calidade maior, active \"Mostrar imaxes na máxima calidade posible\" na configuración, na sección \"Imaxes con moita ampliación\".</string>
-    <string name="faq_14_title">Teño un ficheiro ou cartafol oculto.  Como o amoso?</string>
+    <string name="faq_14_title">Teño un ficheiro ou cartafol oculto. Como o amoso?</string>
     <string name="faq_14_text">Pode ou ben activar \"Mostrar temporalmente ficheiros agochados\" no menu principal, ou activar \"Amosar obxectos ocultos\" na configuración. Se quere amosalo sempre, pode presionar uns intres e seleccionar \"Amosar\". Os cartafoles agóchanse engadindo un ficheiro oculto \".nomedia\" no seu interior; tamén pode borrar ese ficheiro con calquera xestor de ficheiros.</string>
-    <string name="faq_15_title">Por que consume tanto espacio esta aplicación?</string>
-    <string name="faq_15_text">Os ficheiros temporais poden chegar aos 250MB e server para cargar máis rápido. Se a aplicación está a consumir máis espazo, o máis probable é que teña ficheiros nam Papeleira de Reciclaxe. Estes ficheiros contan no tamaño da aplicación.  Pode baleirala abríndoa e borrando os ficheiros, ou dende a configuración.  Cada ficheiro da Papeleira bórrase automáticamente tras 30 días.</string>
-
+    <string name="faq_15_title">Por que consume tanto espacio este aplicativo?</string>
+    <string name="faq_15_text">Os ficheiros temporais poden chegar aos 250MB e server para cargar máis rápido. Se o aplicativo está a a consumir máis espazo, o máis probable é que teña ficheiros na Papeleira de Reciclaxe.Estes ficheiros contan no tamaño da aplicación.Podes baleirala abríndoa e borrando os ficheiros, ou desde a configuración.Cada ficheiro da Papeleira bórrase automáticamente tras 30 días.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Xestor e Editor de fotos</string>
@@ -323,7 +322,7 @@
     <string name="app_long_description">
         Simple Gallery Pro unha galería altamente personalizable. Organiza &amp; edita as túas fotos, recupera ficheiros borrados desde a papeleira, protexe &amp; oculta ficheiros e visualiza gran número de formatos de fotos &amp; vídeo incluíndo RAW, SVG e moitos máis.
 
-        A app non ten publicidade nin permisos innesarios. Como tampouco require acceso a internet, a túa privacidade está protexida.
+        O app non ten publicidade nin permisos innesarios. Como tampouco require acceso a internet, a túa privacidade está protexida.
 
         -------------------------------------------------
         <b>SIMPLE GALLERY PRO – Características</b>
@@ -341,7 +340,7 @@
         • Dispoñible en 32 idiomas
         • Marca ficheiros como favoritos para acceso rápido
         • Protexe fotos e vídeos cun patrón, PIN ou impresión dixital
-        • Usa PIN, patrón e impresión dixital para protexer a apertura da app ou indicar funcións específicas
+        • Usa PIN, patrón e impresión dixital para protexer a apertura do app ou indicar funcións específicas
         • Recupera fotos e vídeos borrados desde a papeleira
         • Cambia a visibilidade dos ficheiros para ocultar fotos e vídeos
         • Crea presentacións personalizadas cos teus ficheiros
@@ -356,13 +355,13 @@
         Simple Gallery Pro soporta gran variedade de formatos como JPEG, PNG, MP4, MKV, RAW, SVG, Panoramicas, Vídeos panorámicos e moito máis. Non como outros.
 
         <b>XESTOR DE FOTOS MOI PERSONALIZABLE</b>
-        Desde a interface ata a función dos botóns da barra de ferraentas, Simply Gallery Pro é moi personalizable e funciona do xeito que ti queres. Ningún outro xestor de galerías ten esta flexibilidade! Ao ser código aberto, está dipoñible en 32 idiomas!
+        Desde a interface ata a función dos botóns da barra de ferramentas, Simply Gallery Pro é moi personalizable e funciona do xeito que ti queres. Ningún outro xestor de galerías ten esta flexibilidade! Ao ser código aberto, está dipoñible en 32 idiomas!
 
         <b>RECUPERA FOTOS &amp; VIDEOS ELIMINADOS</b>
-        ¿Borraches sen querer unha foto ou vídeo? Non te apenes! Simple Gallery Pro ten unha función para recuperar facilmente vídeos e fotos borrados.
+        Borraches sen querer unha foto ou vídeo? Non te apenes! Simple Gallery Pro ten unha función para recuperar facilmente vídeos e fotos borrados.
 
         <b>PROTEXE &amp; OCULTA FOTOS, VIDEOS &amp; FICHEIROS</b>
-        Usando un prendedor, patrón ou a impresión dixital no escáner do dispositivo podes protexer e agochar fotos, vídeos e álbumes enteiros. Podes protexer a app ou establecer funcións específicas na app. Por exemplo, que non poidas eliminar un ficheiro sen o escáner da impresión dixital, axudandoche a protexer o borrado accidental.
+        Usando un prendedor, patrón ou a impresión dixital no escáner do dispositivo podes protexer e agochar fotos, vídeos e álbumes enteiros. Podes protexer a app ou establecer funcións específicas no app. Por exemplo, que non poidas eliminar un ficheiro sen o escáner da impresión dixital, axudándoche a protexer o borrado accidental.
 
         <b>Aquí tes todas as Simple Tools:</b>
         https://www.simplemobiletools.com
