@@ -389,6 +389,25 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(addZoomableView: Boolean = true) {
+        if (context == null) {
+            return
+        }
+
+        val path = getFilePathToShow()
+        if (path.isWebP()) {
+            val drawable = WebPDrawable.fromFile(path)
+            if (drawable.intrinsicWidth == 0) {
+                loadWithGlide(path, addZoomableView)
+            } else {
+                drawable.setLoopLimit(0)
+                mView.gestures_view.setImageDrawable(drawable)
+            }
+        } else {
+            loadWithGlide(path, addZoomableView)
+        }
+    }
+
+    private fun loadWithGlide(path: String, addZoomableView: Boolean) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
             .signature(getFilePathToShow().getFileSignature())
@@ -402,36 +421,25 @@ class PhotoFragment : ViewPagerFragment() {
             options.diskCacheStrategy(DiskCacheStrategy.NONE)
         }
 
-        if (context == null) {
-            return
-        }
-
-        val path = getFilePathToShow()
-        if (path.isWebP()) {
-            val drawable = WebPDrawable.fromFile(path)
-            drawable.setLoopLimit(0)
-            mView.gestures_view.setImageDrawable(drawable)
-        } else {
-            Glide.with(context!!)
-                .load(path)
-                .apply(options)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        if (activity != null && !activity!!.isDestroyed && !activity!!.isFinishing) {
-                            tryLoadingWithPicasso(addZoomableView)
-                        }
-                        return false
+        Glide.with(context!!)
+            .load(path)
+            .apply(options)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                    if (activity != null && !activity!!.isDestroyed && !activity!!.isFinishing) {
+                        tryLoadingWithPicasso(addZoomableView)
                     }
+                    return false
+                }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
-                        if (mIsFragmentVisible && addZoomableView) {
-                            scheduleZoomableView()
-                        }
-                        return false
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                    mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
+                    if (mIsFragmentVisible && addZoomableView) {
+                        scheduleZoomableView()
                     }
-                }).into(mView.gestures_view)
-        }
+                    return false
+                }
+            }).into(mView.gestures_view)
     }
 
     private fun tryLoadingWithPicasso(addZoomableView: Boolean) {
