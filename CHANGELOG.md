@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.16.2 *(2020-10-10)*
+----------------------------
+
+ * Fix sorting by Date Taken
+ * Properly display some wrongly named WebP files
+
 Version 6.16.1 *(2020-09-27)*
 ----------------------------
 
