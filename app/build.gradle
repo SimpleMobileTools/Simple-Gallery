@@ -92,7 +92,7 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:512f929d82'
     implementation 'com.github.tibbi:subsampling-scale-image-view:81c021514c'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.4.2'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.5.1'
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
