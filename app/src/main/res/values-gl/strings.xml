@@ -182,14 +182,14 @@
     <string name="allow_down_gesture">Permitir pechar a visualización en pantalla completa deslizando cara abaixo</string>
     <string name="allow_one_to_one_zoom">Permitir ampliar a 1:1 con dous toques</string>
     <string name="open_videos_on_separate_screen">Abrir sempre os vídeos nunha pantalla diferente con novos xestos horizontais</string>
-    <string name="show_notch">Mostrar unha marca se a houbese</strings>
+    <string name="show_notch">Mostrar unha marca se a houbese</string>
     <string name="allow_rotating_gestures">Permitir rotar unha imaxe con xestos</string>
     <string name="file_loading_priority">Prioridade de carga de ficheiro</string>
     <string name="speed">Velocidade</string>
     <string name="compromise">Compromiso</string>
     <string name="avoid_showing_invalid_files">Non mostrar ficheiros non válidos</string>
     <string name="show_image_file_types">Mostrar tipos de ficheiros de imaxe</string>
-    <string name="allow_zooming_videos">Permitir zoom nos vídeos co dobre-toque sobre eles</strings>
+    <string name="allow_zooming_videos">Permitir zoom nos vídeos co dobre-toque sobre eles</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>
@@ -239,7 +239,7 @@
     <string name="pesdk_text_button_font">Fonte</string>
     <string name="pesdk_text_button_color">Cor</string>
     <string name="pesdk_text_button_backgroundColor">Cor Fondo</string>
-    <string name="pesdk_text_button_alignment">Alineamento</strings>
+    <string name="pesdk_text_button_alignment">Alineamento</string>
     <string name="pesdk_text_button_bringToFront">Á Fronte</string>
     <string name="pesdk_text_button_delete">Borrar</string>
     <string name="pesdk_text_text_editTextPlaceholder">O teu texto</string>
@@ -284,17 +284,17 @@
     <string name="pesdk_common_title_pipettableColor">Escoller coa pipeta</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Como podo facer que Simple Gallery sexa a galería por defecto no meu dispositivo?</strings>
+    <string name="faq_1_title">Como podo facer que Simple Gallery sexa a galería por defecto no meu dispositivo?</string>
     <string name="faq_1_text">Primeiro debes atopar a galería por omisión actual na sección de App nos axustes do dispositivo, buscar un botón que diga algo como \"Abrir por omisión\", pulsalo e despois seleccionar \"Limpar por omisión\".
-        A próxima vez que intentes abrir unha imaxe ou vídeo aparecerá un selector de aplicativos onde podes escoller Simple Gallery e facela a aplicativo por defecto/n.</nstrings>
+        A próxima vez que intentes abrir unha imaxe ou vídeo aparecerá un selector de aplicativos onde podes escoller Simple Gallery e facela a aplicativo por defecto/n.</string>
     <string name="faq_2_title">Asegurei o aplicativo cun contrasinal, pero esquecino. Que podo facer?</string>
     <string name="faq_2_text">Pode solucionado de dous xeitos. Ou ben reinstalar o aplicativo ou buscar o aplicativo os axustes do dispositivo e escoller \"Limpar datos\". Restablecerá todos os seus axustes, mais non eliminará ficheiros de medios.</string>
     <string name="faq_3_title">Como podo facer que un álbum apareza sempre arriba de todo?</string>
     <string name="faq_3_text">Pode manter premido o álbum e escoller a icona de Fixar no menú de accións, isto fixarao arriba. Pode fixar varios cartafoles tamén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
-    <string name="faq_4_title">Como podo aumentar a velocidade de reprodución do vídeo?</strings>
+    <string name="faq_4_title">Como podo aumentar a velocidade de reprodución do vídeo?</string>
     <string name="faq_4_text">Pode facelo tocando dúas veces o lateral da pantalla, ou tocando os textos de duración máxima ou actual preto da barra de avance. Se activa abrir os vídeos nunha pantalla separada, tamén pode usar xestos horizontais.</string>
     <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
-    <string name="faq_5_text">A exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquera xestor de ficheiros.Teña en conta que algúns dispositivos non permiten cartafoles agochados como Cámara, Capturas de pantalla e Descargas.</strings>
+    <string name="faq_5_text">A exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquera xestor de ficheiros.Teña en conta que algúns dispositivos non permiten cartafoles agochados como Cámara, Capturas de pantalla e Descargas.</string>
     <string name="faq_6_title">Por que aparecen cartafoles de música con portadas ou pegatinas?</string>
     <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
     <string name="faq_7_title">Un cartafol con imaxes non aparece, que podo facer? </string>
