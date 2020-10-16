@@ -5,7 +5,12 @@
     package="com.simplemobiletools.gallery.pro"
     android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- override the android:maxSdkVersion="28" from PhotoEditorSDK with some higher number -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="40"
+        tools:replace="android:maxSdkVersion" />
+
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission

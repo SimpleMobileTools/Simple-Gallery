@@ -8,15 +8,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.core.util.Pair
-import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.CONFLICT_OVERWRITE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
-import com.simplemobiletools.commons.interfaces.CopyMoveListener
-import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -25,10 +21,11 @@ import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
 import ly.img.android.pesdk.backend.model.config.CropAspectAsset
+import ly.img.android.pesdk.backend.model.constant.ImageExportFormat
+import ly.img.android.pesdk.backend.model.constant.OutputMode
 import ly.img.android.pesdk.backend.model.state.BrushSettings
 import ly.img.android.pesdk.backend.model.state.LoadSettings
 import ly.img.android.pesdk.backend.model.state.PhotoEditorSaveSettings
-import ly.img.android.pesdk.backend.model.state.SaveSettings
 import ly.img.android.pesdk.backend.model.state.manager.SettingsList
 import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
 import ly.img.android.pesdk.ui.model.state.*
@@ -37,16 +34,14 @@ import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
 import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
 import java.io.InputStream
-import kotlin.collections.set
+import java.io.OutputStream
 
 class NewEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
     private val SETTINGS_LIST = "SETTINGS_LIST"
-    private val RESULT_IMAGE_PATH = "RESULT_IMAGE_PATH"
+    private val SOURCE_URI = "SOURCE_URI"
+    private val RESULT_URI = "RESULT_URI"
     private var sourceFileLastModified = 0L
-    private var destinationFilePath = ""
-    private var cacheImagePathFromEditor = ""    // delete the file stored at the internal app cache storage (the editor saves it there) in case moving to the selected location fails
-    private var sourceImageUri: Uri? = null
     private var oldExif: ExifInterface? = null
 
     private lateinit var uri: Uri
@@ -108,8 +103,8 @@ class NewEditActivity : SimpleActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == PESDK_EDIT_IMAGE) {
             val extras = resultData?.extras
-            cacheImagePathFromEditor = extras?.getString(RESULT_IMAGE_PATH, "") ?: ""
-
+            val resultPath = extras?.get(RESULT_URI)?.toString() ?: ""
+            val sourcePath = extras?.get(SOURCE_URI)?.toString() ?: ""
             val settings = extras?.getParcelable<SettingsList>(SETTINGS_LIST)
             if (settings != null) {
                 val brush = settings.getSettingsModel(BrushSettings::class.java)
@@ -118,45 +113,67 @@ class NewEditActivity : SimpleActivity() {
                 config.editorBrushSize = brush.brushSize
             }
 
-            if (resultCode != Activity.RESULT_OK || sourceImageUri == null || sourceImageUri.toString().isEmpty() || cacheImagePathFromEditor.isEmpty() || sourceImageUri.toString() == cacheImagePathFromEditor) {
+            if (resultCode != Activity.RESULT_OK || resultPath.isEmpty()) {
                 toast(R.string.image_editing_cancelled)
                 finish()
             } else {
-                // the image is stored at the internal app storage first, for example /data/user/0/com.simplemobiletools.gallery.pro/cache/editor/IMG_20191207_183023.jpg
-                // first we rename it to the desired name, then move
-                val sourceString = Uri.decode(sourceImageUri.toString())?.toString() ?: ""
-                val source = if (sourceString.isEmpty() || sourceString.startsWith("content")) {
+                val source = if (sourcePath.isEmpty() || sourcePath.startsWith("content")) {
                     internalStoragePath
                 } else {
-                    sourceString.substringAfter("file://")
-                }
-
-                if (source == cacheImagePathFromEditor) {
-                    finish()
-                    return
+                    sourcePath.substringAfter("file://")
                 }
 
                 SaveAsDialog(this, source, true, cancelCallback = {
                     toast(R.string.image_editing_failed)
                     finish()
                 }, callback = {
-                    destinationFilePath = it
+                    val destinationFilePath = it
                     handleSAFDialog(destinationFilePath) {
                         if (it) {
-                            storeOldExif(source)
-                            sourceFileLastModified = File(source).lastModified()
-                            val newFile = File("${cacheImagePathFromEditor.getParentPath()}/${destinationFilePath.getFilenameFromPath()}")
-                            File(cacheImagePathFromEditor).renameTo(newFile)
-                            val sourceFile = FileDirItem(newFile.absolutePath, newFile.name)
+                            ensureBackgroundThread {
+                                storeOldExif(source)
+                                sourceFileLastModified = File(source).lastModified()
 
-                            val conflictResolutions = LinkedHashMap<String, Int>()
-                            conflictResolutions[destinationFilePath] = CONFLICT_OVERWRITE
+                                var inputStream: InputStream? = null
+                                var outputStream: OutputStream? = null
+                                try {
+                                    inputStream = contentResolver.openInputStream(Uri.parse(resultPath))
+                                    outputStream = getFileOutputStreamSync(destinationFilePath, destinationFilePath.getMimeType())
+                                    inputStream!!.copyTo(outputStream!!)
+                                    outputStream.flush()
+                                    inputStream.close()
+                                    outputStream.close()
 
-                            val pair = Pair(arrayListOf(sourceFile), destinationFilePath.getParentPath())
-                            CopyMoveTask(this, false, true, conflictResolutions, editCopyMoveListener, true).execute(pair)
+                                    try {
+                                        if (isNougatPlus()) {
+                                            val newExif = ExifInterface(destinationFilePath)
+                                            oldExif?.copyTo(newExif, false)
+                                        }
+                                    } catch (ignored: Exception) {
+                                    }
+
+                                    if (config.keepLastModified) {
+                                        // add 1 s to the last modified time to properly update the thumbnail
+                                        updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
+                                    }
+
+                                    val paths = arrayListOf(destinationFilePath)
+                                    rescanPaths(arrayListOf(destinationFilePath)) {
+                                        fixDateTaken(paths, false)
+                                    }
+
+                                    setResult(Activity.RESULT_OK, intent)
+                                    toast(R.string.file_edited_successfully)
+                                    finish()
+                                } catch (e: Exception) {
+                                    showErrorToast(e)
+                                } finally {
+                                    inputStream?.close()
+                                    outputStream?.close()
+                                }
+                            }
                         } else {
                             toast(R.string.image_editing_failed)
-                            File(cacheImagePathFromEditor).delete()
                             finish()
                         }
                     }
@@ -180,43 +197,8 @@ class NewEditActivity : SimpleActivity() {
         }
     }
 
-    private val editCopyMoveListener = object : CopyMoveListener {
-        override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean, destinationPath: String) {
-            try {
-                if (isNougatPlus()) {
-                    val newExif = ExifInterface(destinationFilePath)
-                    oldExif?.copyTo(newExif, false)
-                }
-            } catch (ignored: Exception) {
-            }
-
-            if (config.keepLastModified) {
-                // add 1 s to the last modified time to properly update the thumbnail
-                updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
-            }
-
-            val paths = arrayListOf(destinationFilePath)
-            rescanPaths(paths) {
-                fixDateTaken(paths, false)
-            }
-
-            setResult(Activity.RESULT_OK, intent)
-            toast(R.string.file_edited_successfully)
-            finish()
-        }
-
-        override fun copyFailed() {
-            toast(R.string.unknown_error_occurred)
-            File(cacheImagePathFromEditor).delete()
-            finish()
-        }
-    }
-
     private fun openEditor(inputImage: Uri) {
-        sourceImageUri = inputImage
-        val filename = inputImage.toString().getFilenameFromPath()
-
-        val settingsList = createPesdkSettingsList(filename)
+        val settingsList = createPesdkSettingsList()
 
         settingsList.configure<LoadSettings> {
             it.source = inputImage
@@ -225,11 +207,11 @@ class NewEditActivity : SimpleActivity() {
         settingsList[LoadSettings::class].source = inputImage
 
         PhotoEditorBuilder(this)
-                .setSettingsList(settingsList)
-                .startActivityForResult(this, PESDK_EDIT_IMAGE)
+            .setSettingsList(settingsList)
+            .startActivityForResult(this, PESDK_EDIT_IMAGE)
     }
 
-    private fun createPesdkSettingsList(filename: String): PhotoEditorSettingsList {
+    private fun createPesdkSettingsList(): PhotoEditorSettingsList {
         val settingsList = PhotoEditorSettingsList().apply {
             configure<UiConfigFilter> {
                 it.setFilterList(FilterPackBasic.getFilterPack())
@@ -285,9 +267,9 @@ class NewEditActivity : SimpleActivity() {
             getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
             configure<PhotoEditorSaveSettings> {
-                it.exportFormat = SaveSettings.FORMAT.AUTO
-                it.setOutputFilePath("$cacheDir/editor/$filename")
-                it.savePolicy = SaveSettings.SavePolicy.RETURN_SOURCE_OR_CREATE_OUTPUT_IF_NECESSARY
+                it.setExportFormat(ImageExportFormat.AUTO)
+                it.setOutputToTemp()
+                it.outputMode = OutputMode.EXPORT_IF_NECESSARY
             }
         }
 
