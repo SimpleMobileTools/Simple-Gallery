@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.16.3 *(2020-10-16)*
+----------------------------
+
+ * Updated the photo editor to fix some issues, mostly related to Android 11
+ * Make sure file moving doesn't block the UI in any case
+
 Version 6.16.2 *(2020-10-10)*
 ----------------------------
 
