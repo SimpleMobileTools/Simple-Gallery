@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources>
+<?xml version="1.0" encoding="UTF-8"?><resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galéria</string>
     <string name="edit">Szerkesztés</string>
@@ -30,7 +29,7 @@
     <string name="fix_date_taken">Dátum javítása</string>
     <string name="fixing">Javítás...</string>
     <string name="dates_fixed_successfully">Sikeres dátum javítás</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Nem találhatók Dátum értékek</string>
     <string name="share_resized">Átméretezett verzió megosztása</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
@@ -42,7 +41,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW kép</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Portrék</string>
     <string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
     <string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
 
@@ -92,8 +91,8 @@
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
-    <string name="free_aspect_ratio">Szabad</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Egyéb</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Szabad</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -189,7 +188,7 @@
     <string name="compromise">Kiegyensúlyozott</string>
     <string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
     <string name="show_image_file_types">Mutassa a kép fájl típusokat</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">A videók nagyításának engedélyezése dupla koppintással</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
@@ -206,27 +205,27 @@
     <string name="pesdk_transform_button_freeCrop">Egyéni</string>
     <string name="pesdk_transform_button_resetCrop">Alaphelyzetbe</string>
     <string name="pesdk_transform_button_squareCrop">Négyzet</string>
-    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_transform_title_name">Átalakítás</string>
     <string name="pesdk_filter_title_name">Szűrő</string>
     <string name="pesdk_filter_asset_none">Nincs</string>
     <string name="pesdk_adjustments_title_name">Beállít</string>
     <string name="pesdk_adjustments_button_shadowTool">Árnyékok</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_exposureTool">Kitettség</string>
+    <string name="pesdk_adjustments_button_highlightTool">Kiemelések</string>
     <string name="pesdk_adjustments_button_brightnessTool">Fényerő</string>
     <string name="pesdk_adjustments_button_contrastTool">Kontraszt</string>
     <string name="pesdk_adjustments_button_saturationTool">Színtelítettség</string>
     <string name="pesdk_adjustments_button_clarityTool">Világosság</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_blacksTool">Feketék</string>
+    <string name="pesdk_adjustments_button_whitesTool">Fehérek</string>
     <string name="pesdk_adjustments_button_temperatureTool">Színhőmérséklet</string>
     <string name="pesdk_adjustments_button_sharpnessTool">Élesség</string>
     <string name="pesdk_adjustments_button_reset">Alaphelyzetbe</string>
     <string name="pesdk_focus_title_name">Fókusz</string>
     <string name="pesdk_focus_title_disabled">Nincs</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_radial">Sugárirányú</string>
+    <string name="pesdk_focus_button_linear">Lineáris</string>
     <string name="pesdk_focus_button_mirrored">Tükrözött</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_text_title_name">Szöveg</string>
@@ -235,7 +234,7 @@
     <string name="pesdk_text_title_font">Betűtípus</string>
     <string name="pesdk_text_button_add">Hozzáadás</string>
     <string name="pesdk_text_button_edit">Szerkesztés</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_straighten">Egyenesített</string>
     <string name="pesdk_text_button_font">Betűtípus</string>
     <string name="pesdk_text_button_color">Szín</string>
     <string name="pesdk_text_button_backgroundColor">Háttérszín</string>
@@ -294,7 +293,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
-    <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
     <string name="faq_6_text">Lehet, hogy látni fog néhány szokatlan album megjelenést. Könnyen kizárhatja a hosszú megnyomással és a Kizárás kiválasztásával. A következő párbeszédablakban kiválaszthatja a szülő mappát, és valószínűleg megakadályozza, hogy a többi kapcsolódó album is megjelenjen.</string>
     <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek?</string>
@@ -319,7 +318,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">A premium app for managing and editing your photos, videos, GIFs without ads</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
