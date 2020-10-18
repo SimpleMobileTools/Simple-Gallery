@@ -15,6 +15,8 @@ import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import java.util.*
 
@@ -456,10 +458,12 @@ class MediaFetcher(val context: Context) {
         }
 
         val dateTakenValues = try {
-            if (folder == FAVORITES) {
-                context.dateTakensDB.getAllDateTakens()
-            } else {
-                context.dateTakensDB.getDateTakensFromPath(folder)
+            runBlocking {
+                if (folder == FAVORITES) {
+                    context.dateTakensDB.getAllDateTakens()
+                } else {
+                    context.dateTakensDB.getDateTakensFromPath(folder)
+                }
             }
         } catch (e: Exception) {
             return dateTakens
@@ -493,7 +497,7 @@ class MediaFetcher(val context: Context) {
                 }
             }
 
-            val dateTakenValues = context.dateTakensDB.getAllDateTakens()
+            val dateTakenValues = runBlocking(Dispatchers.IO) { context.dateTakensDB.getAllDateTakens() }
 
             dateTakenValues.forEach {
                 dateTakens[it.fullPath] = it.taken
