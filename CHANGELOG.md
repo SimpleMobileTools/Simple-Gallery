@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.16.4 *(2020-10-24)*
+----------------------------
+
+ * Fixed an editor glitch occurring if the file path contained spaces
+ * Added some stability improvements
+
 Version 6.16.3 *(2020-10-16)*
 ----------------------------
 
