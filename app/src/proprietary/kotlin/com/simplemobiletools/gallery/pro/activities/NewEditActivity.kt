@@ -104,7 +104,7 @@ class NewEditActivity : SimpleActivity() {
         if (requestCode == PESDK_EDIT_IMAGE) {
             val extras = resultData?.extras
             val resultPath = extras?.get(RESULT_URI)?.toString() ?: ""
-            val sourcePath = extras?.get(SOURCE_URI)?.toString() ?: ""
+            val sourcePath = Uri.decode(extras?.get(SOURCE_URI)?.toString() ?: "")
             val settings = extras?.getParcelable<SettingsList>(SETTINGS_LIST)
             if (settings != null) {
                 val brush = settings.getSettingsModel(BrushSettings::class.java)
