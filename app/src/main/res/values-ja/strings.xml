@@ -376,6 +376,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="set_as_default_folder">デフォルトフォルダとして設定</string>
+    <string name="unset_as_default_folder">デフォルトフォルダとして設定解除</string>
 
     <!--
         Haven't found some strings? There's more at

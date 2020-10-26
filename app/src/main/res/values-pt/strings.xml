@@ -376,6 +376,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="set_as_default_folder">Definir como pasta padrão</string>
+    <string name="unset_as_default_folder">Desativar como pasta padrão</string>
 
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:

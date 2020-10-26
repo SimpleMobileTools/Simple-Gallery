@@ -17,6 +17,7 @@
     <string name="unknown_location">Ubicació desconeguda</string>
     <string name="increase_column_count">Augmentar el número de columnes</string>
     <string name="reduce_column_count">Reduir el número de columnes</string>
+    <string name="set_as_default_folder">Estableix com a carpeta predeterminada</string>
     <string name="change_cover_image">Canviar imatge de portada</string>
     <string name="select_photo">Sel·leccionar imatge</string>
     <string name="volume">Volum</string>
@@ -376,6 +377,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="unset_as_default_folder">Desactiva com a carpeta predeterminada</string>
 
     <!--
         Haven't found some strings? There's more at

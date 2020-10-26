@@ -376,6 +376,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="set_as_default_folder">Ange som standardmapp</string>
+    <string name="unset_as_default_folder">Avmarkerad som standardmapp</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -374,6 +374,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="set_as_default_folder">設置為默認文件夾</string>
+    <string name="unset_as_default_folder">取消設為默認文件夾</string>
 
     <!--
         Haven't found some strings? There's more at

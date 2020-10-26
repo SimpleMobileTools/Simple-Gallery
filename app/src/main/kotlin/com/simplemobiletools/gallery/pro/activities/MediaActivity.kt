@@ -219,6 +219,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
+        val isDefaultFolder = config.defaultFolder != null && File(config.defaultFolder!!).compareTo(File(mPath)) == 0
+
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
@@ -233,6 +235,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+
+            findItem(R.id.set_as_default_folder).isVisible = !isDefaultFolder
+            findItem(R.id.unset_as_default_folder).isVisible = isDefaultFolder
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
             findItem(R.id.increase_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
@@ -262,6 +267,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
+            R.id.set_as_default_folder -> setAsDefaultFolder()
+            R.id.unset_as_default_folder -> unsetAsDefaultFolder()
             R.id.slideshow -> startSlideshow()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
@@ -936,5 +943,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setResult(Activity.RESULT_OK, this)
         }
         finish()
+    }
+
+    private fun setAsDefaultFolder() {
+        config.defaultFolder = mPath
+        invalidateOptionsMenu()
+    }
+
+    private fun unsetAsDefaultFolder() {
+        config.defaultFolder = null
+        invalidateOptionsMenu()
     }
 }

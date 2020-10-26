@@ -17,6 +17,7 @@
     <string name="unknown_location">Άγνωστη τοποθεσία</string>
     <string name="increase_column_count">Αύξηση αριθμού στηλών</string>
     <string name="reduce_column_count">Μείωση αριθμού στηλών</string>
+    <string name="set_as_default_folder">Set as default folder</string>
     <string name="change_cover_image">Αλλαγή εξώφυλλου φακέλου</string>
     <string name="select_photo">Επιλογή φωτογραφίας</string>
     <string name="volume">Ένταση</string>
@@ -377,6 +378,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="unset_as_default_folder">Unset default folder</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -376,6 +376,8 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset default folder</string>
 
     <!--
         Haven't found some strings? There's more at

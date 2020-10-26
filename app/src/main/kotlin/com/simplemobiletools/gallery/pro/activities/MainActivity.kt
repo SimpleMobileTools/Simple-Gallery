@@ -93,6 +93,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         appLaunched(BuildConfig.APPLICATION_ID)
 
         if (savedInstanceState == null) {
+            openDefaultFolder()
+
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
@@ -290,6 +292,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
+                findItem(R.id.set_as_default_folder).isVisible = config.defaultFolder != null
                 setupSearch(this)
             }
         }
@@ -315,6 +318,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
+            R.id.set_as_default_folder -> setAsDefaultFolder()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
@@ -1391,6 +1395,29 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
+        }
+    }
+
+    private fun setAsDefaultFolder() {
+        config.defaultFolder = null
+        invalidateOptionsMenu()
+    }
+
+    private fun openDefaultFolder() {
+        if (config.defaultFolder == null) {
+            return;
+        }
+
+        val defaultDir = File(config.defaultFolder!!)
+
+        if (!defaultDir.exists() || !defaultDir.isDirectory) {
+            config.defaultFolder = null
+            return;
+        }
+
+        Intent(this, MediaActivity::class.java).apply {
+            putExtra(DIRECTORY, defaultDir.path)
+            handleMediaIntent(this)
         }
     }
 }

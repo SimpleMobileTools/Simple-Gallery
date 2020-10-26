@@ -198,6 +198,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
         set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
 
+    var defaultFolder: String?
+        get() = prefs.getString(DEFAULT_FOLDER, null)
+        set(defaultFolder) = prefs.edit().putString(DEFAULT_FOLDER, defaultFolder).apply()
+
     var allowInstantChange: Boolean
         get() = prefs.getBoolean(ALLOW_INSTANT_CHANGE, false)
         set(allowInstantChange) = prefs.edit().putBoolean(ALLOW_INSTANT_CHANGE, allowInstantChange).apply()
