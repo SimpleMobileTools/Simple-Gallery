@@ -154,12 +154,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 finish()
             }
         }
-
-        // notify some users about the Dialer, SMS Messenger and Voice Recorder apps
-        if (!config.wasMessengerRecorderShown && config.appRunCount > 35) {
-            NewAppsIconsDialog(this)
-            config.wasMessengerRecorderShown = true
-        }
     }
 
     override fun onStart() {
