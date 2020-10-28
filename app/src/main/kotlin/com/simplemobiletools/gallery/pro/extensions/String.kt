@@ -11,7 +11,8 @@ fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedP
 
 // cache which folders contain .nomedia files to avoid checking them over and over again
 fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean,
-                                 folderNomediaStatuses: HashMap<String, Boolean>, callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
+                                 folderNomediaStatuses: HashMap<String, Boolean>, noMediaFolders: ArrayList<String> = ArrayList(),
+                                 callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
     if (isEmpty()) {
         return false
     }
@@ -36,7 +37,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        File(this, NOMEDIA).exists()
+        noMediaFolders.contains(this) || File(this, NOMEDIA).exists()
     }
 
     return if (!showHidden && containsNoMedia) {
@@ -60,7 +61,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
                         break
                     }
                 } else {
-                    val noMediaExists = File(pathToCheck).exists()
+                    val noMediaExists = noMediaFolders.contains(pathToCheck) || File(pathToCheck).exists()
                     callback(pathToCheck, noMediaExists)
                     if (noMediaExists) {
                         containsNoMediaOrDot = true

@@ -304,33 +304,37 @@ fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: Ar
 
 fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     ensureBackgroundThread {
-        val folders = ArrayList<String>()
-
-        val uri = Files.getContentUri("external")
-        val projection = arrayOf(Files.FileColumns.DATA)
-        val selection = "${Files.FileColumns.MEDIA_TYPE} = ? AND ${Files.FileColumns.TITLE} LIKE ?"
-        val selectionArgs = arrayOf(Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
-        val sortOrder = "${Files.FileColumns.DATE_MODIFIED} DESC"
-        val OTGPath = config.OTGPath
-
-        var cursor: Cursor? = null
-        try {
-            cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
-            if (cursor?.moveToFirst() == true) {
-                do {
-                    val path = cursor.getStringValue(Files.FileColumns.DATA) ?: continue
-                    val noMediaFile = File(path)
-                    if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
-                        folders.add("${noMediaFile.parent}/")
-                    }
-                } while (cursor.moveToNext())
-            }
-        } finally {
-            cursor?.close()
-        }
-
-        callback(folders)
+        callback(getNoMediaFoldersSync())
     }
+}
+
+fun Context.getNoMediaFoldersSync(): ArrayList<String> {
+    val folders = ArrayList<String>()
+
+    val uri = Files.getContentUri("external")
+    val projection = arrayOf(Files.FileColumns.DATA)
+    val selection = "${Files.FileColumns.MEDIA_TYPE} = ? AND ${Files.FileColumns.TITLE} LIKE ?"
+    val selectionArgs = arrayOf(Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
+    val sortOrder = "${Files.FileColumns.DATE_MODIFIED} DESC"
+    val OTGPath = config.OTGPath
+
+    var cursor: Cursor? = null
+    try {
+        cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
+        if (cursor?.moveToFirst() == true) {
+            do {
+                val path = cursor.getStringValue(Files.FileColumns.DATA) ?: continue
+                val noMediaFile = File(path)
+                if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
+                    folders.add("${noMediaFile.parent}")
+                }
+            } while (cursor.moveToNext())
+        }
+    } finally {
+        cursor?.close()
+    }
+
+    return folders
 }
 
 fun Context.rescanFolderMedia(path: String) {
@@ -519,9 +523,10 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
 
+        val noMediaFolders = getNoMediaFoldersSync()
         val folderNomediaStatuses = HashMap<String, Boolean>()
         var filteredDirectories = directories.filter {
-            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses) { path, hasNoMedia ->
+            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses, noMediaFolders) { path, hasNoMedia ->
                 folderNomediaStatuses[path] = hasNoMedia
             }
         } as ArrayList<Directory>
