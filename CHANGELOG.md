@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.16.5 *(2020-10-28)*
+----------------------------
+
+ * Added some hidden folder handling related improvements
+ * Fixed saving files on the SD card after editing
+ * Couple other UX, translation and performance improvements
+
 Version 6.16.4 *(2020-10-24)*
 ----------------------------
 
