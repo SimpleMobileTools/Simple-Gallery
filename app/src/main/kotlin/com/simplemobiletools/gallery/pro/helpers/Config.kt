@@ -405,8 +405,10 @@ class Config(context: Context) : BaseConfig(context) {
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
         "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots",
-        "internalStoragePath/WhatsApp/Media/WhatsApp Images",
-        "internalStoragePath/WhatsApp/Media/WhatsApp Video"
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Images",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Images/Sent",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Video",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Video/Sent",
     )
 
     var showRecycleBinAtFolders: Boolean
