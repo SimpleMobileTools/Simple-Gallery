@@ -305,7 +305,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val includedFolders = activity.config.includedFolders
         val hidden = activity.getString(R.string.hidden)
         dirs.forEach {
-            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
+            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders, ArrayList())
         }
         listener?.updateDirectories(dirs.toMutableList() as ArrayList)
         activity.runOnUiThread {
@@ -479,10 +479,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 intent.putExtra(DIRECTORY, path)
 
                 val shortcut = ShortcutInfo.Builder(activity, path)
-                        .setShortLabel(dir.name)
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
-                        .setIntent(intent)
-                        .build()
+                    .setShortLabel(dir.name)
+                    .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                    .setIntent(intent)
+                    .build()
 
                 manager.requestPinShortcut(shortcut, null)
             }
