@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">슬라이드 쇼를 표시할 사진이 없습니다.</string>
 
     <!-- View types -->
-    <string name="change_view_type">보기 방식 변경</string>
-    <string name="grid">타일</string>
-    <string name="list">목록</string>
     <string name="group_direct_subfolders">상위 폴더 표시</string>
 
     <!-- Grouping at media thumbnails -->

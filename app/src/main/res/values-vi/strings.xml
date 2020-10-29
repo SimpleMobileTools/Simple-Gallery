@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Không có tập tin phương tiện cho trình chiếu được tìm thấy</string>
 
     <!-- View types -->
-    <string name="change_view_type">Thay đổi kiểu xem</string>
-    <string name="grid">Lưới</string>
-    <string name="list">Danh sách</string>
     <string name="group_direct_subfolders">Nhóm thư mục con trực tiếp</string>
 
     <!-- Grouping at media thumbnails -->

@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
 
     <!-- View types -->
-    <string name="change_view_type">Promijeni vrstu prikaza</string>
-    <string name="grid">Mreža</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

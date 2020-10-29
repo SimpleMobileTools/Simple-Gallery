@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
 
     <!-- View types -->
-    <string name="change_view_type">Görünüm türünü değiştir</string>
-    <string name="grid">Izgara</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Doğrudan alt klasörleri gruplandır</string>
 
     <!-- Grouping at media thumbnails -->

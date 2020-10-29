@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- View types -->
-    <string name="change_view_type">भ्यू प्रकार परिवर्तन गर्नुहोस</string>
-    <string name="grid">कोठे</string>
-    <string name="list">सुची</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

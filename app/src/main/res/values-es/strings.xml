@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambiar tipo de vista</string>
-    <string name="grid">Cuadrícula</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Agrupar subcarpetas directas</string>
 
     <!-- Grouping at media thumbnails -->

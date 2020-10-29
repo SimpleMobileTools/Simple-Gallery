@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
 
     <!-- View types -->
-    <string name="change_view_type">Darstellung ändern</string>
-    <string name="grid">Gitternetz</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->

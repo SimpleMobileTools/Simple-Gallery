@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Tidak ditemukan media untuk slideshow</string>
 
     <!-- View types -->
-    <string name="change_view_type">Ubah tampilan</string>
-    <string name="grid">Kotak</string>
-    <string name="list">Daftar</string>
     <string name="group_direct_subfolders">Kelompokkan subfolder langsung</string>
 
     <!-- Grouping at media thumbnails -->

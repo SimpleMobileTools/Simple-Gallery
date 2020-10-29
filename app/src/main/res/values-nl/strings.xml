@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
 
     <!-- View types -->
-    <string name="change_view_type">Weergave</string>
-    <string name="grid">Raster</string>
-    <string name="list">Lijst</string>
     <string name="group_direct_subfolders">Directe submappen groeperen</string>
 
     <!-- Grouping at media thumbnails -->

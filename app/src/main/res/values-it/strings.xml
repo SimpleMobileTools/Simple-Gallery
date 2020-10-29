@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambia modalità visualizzazione</string>
-    <string name="grid">Griglia</string>
-    <string name="list">Elenco</string>
     <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
 
     <!-- Grouping at media thumbnails -->

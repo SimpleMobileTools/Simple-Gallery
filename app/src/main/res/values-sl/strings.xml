@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
 
     <!-- View types -->
-    <string name="change_view_type">Spremeni tip pogleda</string>
-    <string name="grid">Mreža</string>
-    <string name="list">Seznam</string>
     <string name="group_direct_subfolders">Združi neposredne podmape</string>
 
     <!-- Grouping at media thumbnails -->

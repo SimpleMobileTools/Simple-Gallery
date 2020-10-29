@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
 
     <!-- View types -->
-    <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
-    <string name="grid">Πλέγμα</string>
-    <string name="list">Λίστα</string>
     <string name="group_direct_subfolders">Ομαδοποίηση υποφακέλων</string>
 
     <!-- Grouping at media thumbnails -->

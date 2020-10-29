@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Ändra vy</string>
-    <string name="grid">Rutnät</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Gruppera direkta undermappar</string>
 
     <!-- Grouping at media thumbnails -->

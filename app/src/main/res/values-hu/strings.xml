@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
 
     <!-- View types -->
-    <string name="change_view_type">Nézet típus változtatása</string>
-    <string name="grid">Rács</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Közvetlen almappa csoport</string>
 
     <!-- Grouping at media thumbnails -->

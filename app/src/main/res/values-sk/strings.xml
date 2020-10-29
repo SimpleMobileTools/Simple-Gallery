@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
     <!-- View types -->
-    <string name="change_view_type">Zmeniť typ zobrazenia</string>
-    <string name="grid">Mriežka</string>
-    <string name="list">Zoznam</string>
     <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
 
     <!-- Grouping at media thumbnails -->

@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
 
     <!-- View types -->
-    <string name="change_view_type">Змінити тип перегляду</string>
-    <string name="grid">Сітка</string>
-    <string name="list">Список</string>
     <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
 
     <!-- Grouping at media thumbnails -->

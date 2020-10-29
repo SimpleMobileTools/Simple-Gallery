@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
 
     <!-- View types -->
-    <string name="change_view_type">Canviar el tipus de vista</string>
-    <string name="grid">Reixeta</string>
-    <string name="list">Llista</string>
     <string name="group_direct_subfolders">Agrupar carpetes directes</string>
 
     <!-- Grouping at media thumbnails -->

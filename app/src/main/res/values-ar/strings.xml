@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">لم يتم العثور علي أي وسائط لعرض الشرائح</string>
 
     <!-- View types -->
-    <string name="change_view_type">تغيير نوع العرض</string>
-    <string name="grid">الشبكة</string>
-    <string name="list">القائمة</string>
     <string name="group_direct_subfolders">تجميع المجلدات الفرعية مباشرة</string>
 
     <!-- Grouping at media thumbnails -->

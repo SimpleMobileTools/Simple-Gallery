@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Skift visning</string>
-    <string name="grid">Gitter</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Gruppér direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->

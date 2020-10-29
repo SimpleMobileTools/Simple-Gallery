@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

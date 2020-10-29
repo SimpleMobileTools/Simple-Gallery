@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
 
     <!-- View types -->
-    <string name="change_view_type">改變瀏覽類型</string>
-    <string name="grid">格狀</string>
-    <string name="list">列表</string>
     <string name="group_direct_subfolders">歸類子資料夾</string>
 
     <!-- Grouping at media thumbnails -->

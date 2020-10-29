@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
 
     <!-- View types -->
-    <string name="change_view_type">表示形式の変更</string>
-    <string name="grid">グリッド</string>
-    <string name="list">リスト</string>
     <string name="group_direct_subfolders">サブフォルダでグループ化</string>
 
     <!-- Grouping at media thumbnails -->

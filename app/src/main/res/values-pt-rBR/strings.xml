@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Nenhuma mídia encontrada para a apresentação</string>
 
     <!-- View types -->
-    <string name="change_view_type">Alterar modo de visualização</string>
-    <string name="grid">Grade</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Agrupar subpastas diretas</string>
 
     <!-- Grouping at media thumbnails -->

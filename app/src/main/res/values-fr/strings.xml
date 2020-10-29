@@ -125,9 +125,6 @@
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
     <!-- View types -->
-    <string name="change_view_type">Changer de mode d\'affichage</string>
-    <string name="grid">Grille</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Mode sous-dossiers</string>
 
     <!-- Grouping at media thumbnails -->
