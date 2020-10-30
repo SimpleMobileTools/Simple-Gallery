@@ -15,10 +15,6 @@
     <string name="other_folder">Outra pasta</string>
     <string name="show_on_map">Exibir no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
-    <string name="increase_column_count">Aumentar número de colunas</string>
-    <string name="reduce_column_count">Reduzir número de colunas</string>
-    <string name="change_cover_image">Trocar imagem de capa</string>
-    <string name="select_photo">Selecionar foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Travar orientação</string>

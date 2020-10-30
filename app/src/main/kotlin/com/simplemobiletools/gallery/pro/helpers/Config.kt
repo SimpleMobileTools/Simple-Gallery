@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import java.util.*

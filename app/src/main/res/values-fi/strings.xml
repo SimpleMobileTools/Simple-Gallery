@@ -15,10 +15,6 @@
     <string name="other_folder">Muu kansio</string>
     <string name="show_on_map">Näytä kartalla</string>
     <string name="unknown_location">Tuntematon sijainti</string>
-    <string name="increase_column_count">Lisää sarakkeita</string>
-    <string name="reduce_column_count">Vähennä sarakkeita</string>
-    <string name="change_cover_image">Vaihda kansikuva</string>
-    <string name="select_photo">Valitse kuva</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
     <string name="lock_orientation">Lukitse näytönkierto</string>

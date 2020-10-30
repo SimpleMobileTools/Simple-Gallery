@@ -15,10 +15,6 @@
     <string name="other_folder">Iný priečinok</string>
     <string name="show_on_map">Zobraziť na mape</string>
     <string name="unknown_location">Neznáma poloha</string>
-    <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
-    <string name="reduce_column_count">Znížiť počet stĺpcov</string>
-    <string name="change_cover_image">Zmeniť obal albumu</string>
-    <string name="select_photo">Zvoliť foto</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>

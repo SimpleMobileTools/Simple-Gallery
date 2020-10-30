@@ -15,10 +15,6 @@
     <string name="other_folder">Ostale mape</string>
     <string name="show_on_map">Prikaži na karti</string>
     <string name="unknown_location">Nepoznata lokacija</string>
-    <string name="increase_column_count">Povećaj broj stupaca</string>
-    <string name="reduce_column_count">Smanji broj stupaca</string>
-    <string name="change_cover_image">Promjeni naslovnu sliku</string>
-    <string name="select_photo">Odaberi sliku</string>
     <string name="volume">Glasnoća</string>
     <string name="brightness">Svjetlina</string>
     <string name="lock_orientation">Zaključaj orijentaciju slike</string>

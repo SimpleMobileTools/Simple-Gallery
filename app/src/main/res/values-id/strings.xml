@@ -15,10 +15,6 @@
     <string name="other_folder">Folder lainnya</string>
     <string name="show_on_map">Tampilkan di peta</string>
     <string name="unknown_location">Lokasi tidak diketahui</string>
-    <string name="increase_column_count">Tambah jumlah kolom</string>
-    <string name="reduce_column_count">Kurangi jumlah kolom</string>
-    <string name="change_cover_image">Ubah gambar kover</string>
-    <string name="select_photo">Pilih foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Kecerahan</string>
     <string name="lock_orientation">Kunci orientasi</string>

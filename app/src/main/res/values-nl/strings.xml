@@ -15,10 +15,6 @@
     <string name="other_folder">Andere map</string>
     <string name="show_on_map">Op kaart tonen</string>
     <string name="unknown_location">Locatie onbekend</string>
-    <string name="increase_column_count">Meer kolommen</string>
-    <string name="reduce_column_count">Minder kolommen</string>
-    <string name="change_cover_image">Afbeelding omslag wijzigen</string>
-    <string name="select_photo">Foto selecteren</string>
     <string name="volume">Volume</string>
     <string name="brightness">Helderheid</string>
     <string name="lock_orientation">Schermoriëntatie vergrendelen</string>

@@ -15,10 +15,6 @@
     <string name="other_folder">Інша тека</string>
     <string name="show_on_map">Показати на мапі</string>
     <string name="unknown_location">Невідоме розташування</string>
-    <string name="increase_column_count">Збільшити кількість колонок</string>
-    <string name="reduce_column_count">Зменшити кількість колонок</string>
-    <string name="change_cover_image">Змінити обкладинку</string>
-    <string name="select_photo">Вибрати фото</string>
     <string name="volume">Об\'єм</string>
     <string name="brightness">Яскравість</string>
     <string name="lock_orientation">Закріпити орієнтацію</string>

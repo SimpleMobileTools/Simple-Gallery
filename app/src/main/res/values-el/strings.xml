@@ -15,10 +15,6 @@
     <string name="other_folder">Άλλος φάκελος</string>
     <string name="show_on_map">Εμφάνιση στο χάρτη</string>
     <string name="unknown_location">Άγνωστη τοποθεσία</string>
-    <string name="increase_column_count">Αύξηση αριθμού στηλών</string>
-    <string name="reduce_column_count">Μείωση αριθμού στηλών</string>
-    <string name="change_cover_image">Αλλαγή εξώφυλλου φακέλου</string>
-    <string name="select_photo">Επιλογή φωτογραφίας</string>
     <string name="volume">Ένταση</string>
     <string name="brightness">Φωτεινότητα</string>
     <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>

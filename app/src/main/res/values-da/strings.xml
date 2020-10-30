@@ -15,10 +15,6 @@
     <string name="other_folder">Anden mappe</string>
     <string name="show_on_map">Vis på kort</string>
     <string name="unknown_location">Ukendt placering</string>
-    <string name="increase_column_count">Flere kolonner</string>
-    <string name="reduce_column_count">Færre kolonner</string>
-    <string name="change_cover_image">Skift cover-billede</string>
-    <string name="select_photo">Vælg billede</string>
     <string name="volume">Lydstyrke</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås orientering</string>

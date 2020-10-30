@@ -15,10 +15,6 @@
     <string name="other_folder">Outro cartafol</string>
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localización descoñecida</string>
-    <string name="increase_column_count">Aumenta o número de columnas</string>
-    <string name="reduce_column_count">Reduce o número de columnas</string>
-    <string name="change_cover_image">Cambiar a imaxe de portada</string>
-    <string name="select_photo">Escolle foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brillo</string>
     <string name="lock_orientation">Fixar orientación</string>

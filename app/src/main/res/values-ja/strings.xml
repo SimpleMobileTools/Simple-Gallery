@@ -15,10 +15,6 @@
     <string name="other_folder">その他のフォルダ</string>
     <string name="show_on_map">地図上で表示</string>
     <string name="unknown_location">位置情報がありません</string>
-    <string name="increase_column_count">列数を増やす</string>
-    <string name="reduce_column_count">列数を減らす</string>
-    <string name="change_cover_image">カバー画像を変更</string>
-    <string name="select_photo">写真を選択</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
     <string name="lock_orientation">画面の向きを固定する</string>

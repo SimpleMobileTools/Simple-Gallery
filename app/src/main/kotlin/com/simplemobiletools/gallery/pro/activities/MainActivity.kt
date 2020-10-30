@@ -633,6 +633,21 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         layoutManager.spanCount = config.dirColumnCnt
     }
 
+    private fun setupListLayoutManager() {
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        layoutManager.spanCount = 1
+        layoutManager.orientation = RecyclerView.VERTICAL
+        directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
+        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = smallMargin
+            bottomMargin = smallMargin
+        }
+
+        mZoomListener = null
+    }
+
     private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
         directories_grid.onGlobalLayout {
             if (config.scrollHorizontally) {
@@ -680,21 +695,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             mZoomListener = null
         }
-    }
-
-    private fun setupListLayoutManager() {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        layoutManager.spanCount = 1
-        layoutManager.orientation = RecyclerView.VERTICAL
-        directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
-        mZoomListener = null
     }
 
     private fun toggleRecycleBin(show: Boolean) {

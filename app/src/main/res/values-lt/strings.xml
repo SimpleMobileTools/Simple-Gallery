@@ -15,10 +15,6 @@
     <string name="other_folder">Kitas aplankas</string>
     <string name="show_on_map">Rodyti žemėlapyje</string>
     <string name="unknown_location">Nežinoma vieta</string>
-    <string name="increase_column_count">Padidinti stulpelių skaičių</string>
-    <string name="reduce_column_count">Sumažinti stulpelių skaičių</string>
-    <string name="change_cover_image">Pakeisti viršelio atvaizdą</string>
-    <string name="select_photo">Pasirinkti nuotrauką</string>
     <string name="volume">Garsas</string>
     <string name="brightness">Ryškumas</string>
     <string name="lock_orientation">Užrakinti orientaciją</string>

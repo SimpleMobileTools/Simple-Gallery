@@ -15,10 +15,6 @@
     <string name="other_folder">Ordner wählen</string>
     <string name="show_on_map">Auf Karte zeigen</string>
     <string name="unknown_location">Unbekannter Pfad</string>
-    <string name="increase_column_count">Kacheln verkleinern</string>
-    <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Coverbild ändern</string>
-    <string name="select_photo">Auswählen</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
     <string name="lock_orientation">Bildausrichtung sperren</string>
