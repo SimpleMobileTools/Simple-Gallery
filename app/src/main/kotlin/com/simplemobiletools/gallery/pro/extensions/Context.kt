@@ -326,10 +326,11 @@ fun Context.getNoMediaFoldersSync(): ArrayList<String> {
                 val path = cursor.getStringValue(Files.FileColumns.DATA) ?: continue
                 val noMediaFile = File(path)
                 if (getDoesFilePathExist(noMediaFile.absolutePath, OTGPath) && noMediaFile.name == NOMEDIA) {
-                    folders.add("${noMediaFile.parent}")
+                    folders.add(noMediaFile.parent)
                 }
             } while (cursor.moveToNext())
         }
+    } catch (ignored: Exception) {
     } finally {
         cursor?.close()
     }
