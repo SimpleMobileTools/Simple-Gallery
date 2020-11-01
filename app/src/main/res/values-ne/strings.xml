@@ -15,10 +15,6 @@
     <string name="other_folder">अन्य फोल्डर</string>
     <string name="show_on_map">नक्सामा देखाउनुहोस</string>
     <string name="unknown_location">थाहानभएको ठाउ</string>
-    <string name="increase_column_count">कोलम सङ्खा बढाउनुहोस</string>
-    <string name="reduce_column_count">कोलम सङ्खा घटाउनुहोस</string>
-    <string name="change_cover_image">कभर तस्बिर परिवर्तन गर्नुहोस</string>
-    <string name="select_photo">फोटो चयन गर्नुहोस</string>
     <string name="volume">भोलुम</string>
     <string name="brightness">उज्यालोपन</string>
     <string name="lock_orientation">Lock orientation</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- View types -->
-    <string name="change_view_type">भ्यू प्रकार परिवर्तन गर्नुहोस</string>
-    <string name="grid">कोठे</string>
-    <string name="list">सुची</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

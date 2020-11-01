@@ -15,11 +15,6 @@
     <string name="other_folder">Jiná složka</string>
     <string name="show_on_map">Zobrazit na mapě</string>
     <string name="unknown_location">Neznámá poloha</string>
-    <string name="increase_column_count">Zvýšit počet sloupců</string>
-    <string name="reduce_column_count">Snížit počet sloupců</string>
-    <string name="set_as_default_folder">Nastavit jako výchozí složku</string>
-    <string name="change_cover_image">Změnit obal alba</string>
-    <string name="select_photo">Vybrat fotografii</string>
     <string name="volume">Hlasitost</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknout orientaci</string>
@@ -126,9 +121,6 @@
     <string name="no_media_for_slideshow">Nebyla nalezena žádná média pro prezentaci</string>
 
     <!-- View types -->
-    <string name="change_view_type">Změnit typ zobrazení</string>
-    <string name="grid">Mřížka</string>
-    <string name="list">Seznam</string>
     <string name="group_direct_subfolders">Sloučit přímé podsložky</string>
 
     <!-- Grouping at media thumbnails -->

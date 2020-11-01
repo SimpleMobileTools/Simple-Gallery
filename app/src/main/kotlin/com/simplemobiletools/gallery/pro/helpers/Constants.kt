@@ -145,10 +145,6 @@ const val PRIORITY_SPEED = 0
 const val PRIORITY_COMPROMISE = 1
 const val PRIORITY_VALIDITY = 2
 
-// view types
-const val VIEW_TYPE_GRID = 1
-const val VIEW_TYPE_LIST = 2
-
 // extended details values
 const val EXT_NAME = 1
 const val EXT_PATH = 2

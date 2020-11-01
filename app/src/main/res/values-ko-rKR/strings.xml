@@ -15,10 +15,6 @@
     <string name="other_folder">다른 폴더</string>
     <string name="show_on_map">지도에서 보기</string>
     <string name="unknown_location">위치정보 없음</string>
-    <string name="increase_column_count">섬네일크기 축소</string>
-    <string name="reduce_column_count">섬네일크기 확대</string>
-    <string name="change_cover_image">커버 사진 변경</string>
-    <string name="select_photo">사진 선택</string>
     <string name="volume">볼륨</string>
     <string name="brightness">밝기</string>
     <string name="lock_orientation">화면 회전 잠금</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">슬라이드 쇼를 표시할 사진이 없습니다.</string>
 
     <!-- View types -->
-    <string name="change_view_type">보기 방식 변경</string>
-    <string name="grid">타일</string>
-    <string name="list">목록</string>
     <string name="group_direct_subfolders">상위 폴더 표시</string>
 
     <!-- Grouping at media thumbnails -->

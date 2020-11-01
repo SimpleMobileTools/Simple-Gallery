@@ -15,10 +15,6 @@
     <string name="other_folder">其他文件夹</string>
     <string name="show_on_map">在地图上显示</string>
     <string name="unknown_location">未知位置</string>
-    <string name="increase_column_count">显示更多项目</string>
-    <string name="reduce_column_count">显示更少项目</string>
-    <string name="change_cover_image">更换封面图片</string>
-    <string name="select_photo">选择图片</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定屏幕方向</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">没有找到可播放幻灯片媒体文件</string>
 
     <!-- View types -->
-    <string name="change_view_type">更改视图类型</string>
-    <string name="grid">网格</string>
-    <string name="list">列表</string>
     <string name="group_direct_subfolders">直接分组文件夹</string>
 
     <!-- Grouping at media thumbnails -->
