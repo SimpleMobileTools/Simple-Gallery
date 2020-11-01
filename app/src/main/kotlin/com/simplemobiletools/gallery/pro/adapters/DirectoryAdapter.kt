@@ -9,6 +9,7 @@ import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -672,6 +673,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_check?.beVisibleIf(isSelected)
             if (isSelected) {
                 dir_check.background?.applyColorFilter(primaryColor)
+            }
+
+            if (scrollHorizontally) {
+                (dir_name.layoutParams as RelativeLayout.LayoutParams).removeRule(RelativeLayout.BELOW)
+                (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
             }
 
             if (lockedFolderPaths.contains(directory.path)) {

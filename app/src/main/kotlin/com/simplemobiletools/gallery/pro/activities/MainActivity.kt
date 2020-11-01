@@ -660,15 +660,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun calculateContentWidth(directories: ArrayList<Directory>) {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val fullWidth = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        val thumbnailWidth = (layoutManager.getChildAt(0)?.width ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
+        val columnCount = (directories.size - 1) / layoutManager.spanCount + 1
+        val fullWidth = columnCount * thumbnailWidth
         directories_horizontal_fastscroller.setContentWidth(fullWidth)
         directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())
     }
 
     private fun calculateContentHeight(directories: ArrayList<Directory>) {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        val thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0) + (resources.getDimension(R.dimen.medium_margin).toInt() * 2)
+        val thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
         val rowCount = (directories.size - 1) / layoutManager.spanCount + 1
         val fullHeight = rowCount * thumbnailHeight
         directories_vertical_fastscroller.setContentHeight(fullHeight)
