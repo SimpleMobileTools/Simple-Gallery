@@ -61,9 +61,9 @@
         android:layout_below="@+id/dir_thumbnail"
         android:layout_alignStart="@+id/dir_thumbnail"
         android:layout_toStartOf="@+id/dir_location"
-        android:ellipsize="end"
-        android:maxLines="2"
+        android:ellipsize="middle"
         android:paddingTop="@dimen/medium_margin"
+        android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="@dimen/normal_text_size" />
 
