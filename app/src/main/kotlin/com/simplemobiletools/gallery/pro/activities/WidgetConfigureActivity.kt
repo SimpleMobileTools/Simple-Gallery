@@ -166,7 +166,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             val path = directoryDao.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
-                    loadJpg(path, config_image, config.cropThumbnails)
+                    loadJpg(path, config_image, config.cropThumbnails, true)
                 }
             }
         }

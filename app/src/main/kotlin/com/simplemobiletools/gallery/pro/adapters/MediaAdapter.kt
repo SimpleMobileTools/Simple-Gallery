@@ -371,10 +371,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 }
 
                 val shortcut = ShortcutInfo.Builder(activity, path)
-                        .setShortLabel(path.getFilenameFromPath())
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
-                        .setIntent(intent)
-                        .build()
+                    .setShortLabel(path.getFilenameFromPath())
+                    .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                    .setIntent(intent)
+                    .build()
 
                 manager.requestPinShortcut(shortcut, null)
             }
@@ -543,14 +543,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
 
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
+                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, false, rotatedImagePaths)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
+                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, false, rotatedImagePaths)
                     }
                 }, IMAGE_LOAD_DELAY)
             }

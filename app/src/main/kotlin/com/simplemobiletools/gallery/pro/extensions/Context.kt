@@ -14,6 +14,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.extensions.*
@@ -396,17 +398,17 @@ fun Context.getFolderNameFromPath(path: String): String {
 }
 
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
-                      skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+                      roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     target.isHorizontalScrolling = horizontalScroll
     if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
         if (type == TYPE_IMAGES && path.isPng()) {
-            loadPng(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadPng(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
         } else {
-            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadJpg(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_GIFS) {
         if (!animateGifs) {
-            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
             return
         }
 
@@ -417,12 +419,12 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
 
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
-            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
         } catch (e: OutOfMemoryError) {
-            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_SVGS) {
-        loadSVG(path, target, cropThumbnails)
+        loadSVG(path, target, cropThumbnails, roundCorners)
     }
 }
 
@@ -447,7 +449,7 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -455,57 +457,79 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
         .priority(Priority.LOW)
         .format(DecodeFormat.PREFER_ARGB_8888)
 
-    val builder = Glide.with(applicationContext)
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    var builder = Glide.with(applicationContext)
         .asBitmap()
         .load(path)
+        .apply(options)
 
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).into(target)
+    if (roundCorners) {
+        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+    }
+
+    builder.into(target)
 }
 
-fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
         .priority(Priority.LOW)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
-    val builder = Glide.with(applicationContext)
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    var builder = Glide.with(applicationContext)
         .load(path)
-
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options)
+        .apply(options)
         .transition(DrawableTransitionOptions.withCrossFade())
-        .into(target)
+
+    if (roundCorners) {
+        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+    }
+
+    builder.into(target)
 }
 
-fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
         .priority(Priority.LOW)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
-    val builder = Glide.with(applicationContext)
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    var builder = Glide.with(applicationContext)
         .asBitmap() // make sure the GIF wont animate
         .load(path)
+        .apply(options)
 
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options)
-        .into(target)
+    if (roundCorners) {
+        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+    }
+
+    builder.into(target)
 }
 
-fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean) {
     target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
 
     val options = RequestOptions().signature(path.getFileSignature())
-    Glide.with(applicationContext)
+    var builder = Glide.with(applicationContext)
         .`as`(PictureDrawable::class.java)
         .listener(SvgSoftwareLayerSetter())
         .load(path)
         .apply(options)
         .transition(DrawableTransitionOptions.withCrossFade())
-        .into(target)
+
+    if (roundCorners) {
+        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+    }
+
+    builder.into(target)
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
