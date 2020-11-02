@@ -22,7 +22,7 @@
     <dimen name="default_status_action_height">86dp</dimen>
     <dimen name="widget_initial_size">110dp</dimen>
     <dimen name="full_brush_size">40dp</dimen>
-    <dimen name="lock_padding">40dp</dimen>
+    <dimen name="lock_padding">30dp</dimen>
     <dimen name="rounded_corner_radius_small">4dp</dimen>
     <dimen name="rounded_corner_radius_big">10dp</dimen>
 </resources>
