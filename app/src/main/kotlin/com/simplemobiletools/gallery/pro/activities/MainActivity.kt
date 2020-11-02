@@ -669,7 +669,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun calculateContentHeight(directories: ArrayList<Directory>) {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        val thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
+        var thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0)
+        if (config.viewTypeFolders == VIEW_TYPE_GRID) {
+            thumbnailHeight += resources.getDimension(R.dimen.medium_margin).toInt() * 2
+        }
+
         val rowCount = (directories.size - 1) / layoutManager.spanCount + 1
         val fullHeight = rowCount * thumbnailHeight
         directories_vertical_fastscroller.setContentHeight(fullHeight)
