@@ -697,7 +697,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             dir_name.setTextColor(textColor)
             if (isListViewType) {
-                dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} [${directory.subfoldersCount}]" else directory.name
                 dir_path.text = "${directory.path.substringBeforeLast("/")}/"
                 photo_cnt.setTextColor(textColor)
                 photo_cnt.text = directory.subfoldersMediaCount.toString()
@@ -705,8 +704,19 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_path.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
                 dir_location.applyColorFilter(textColor)
+                dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) {
+                    "${directory.name} [${directory.subfoldersCount}]"
+                } else {
+                    directory.name
+                }
             } else {
-                dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} [${directory.subfoldersCount}]" else "${directory.name} (${directory.subfoldersMediaCount})"
+                dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) {
+                    "${directory.name} [${directory.subfoldersCount}]"
+                } else if (showMediaCount) {
+                    "${directory.name} (${directory.subfoldersMediaCount})"
+                } else {
+                    directory.name
+                }
             }
         }
     }
