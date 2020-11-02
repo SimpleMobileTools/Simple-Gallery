@@ -398,7 +398,7 @@ fun Context.getFolderNameFromPath(path: String): String {
 }
 
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
-                      roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+                      roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     target.isHorizontalScrolling = horizontalScroll
     if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
         if (type == TYPE_IMAGES && path.isPng()) {
@@ -449,7 +449,7 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -463,15 +463,16 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
         .load(path)
         .apply(options)
 
-    if (roundCorners) {
-        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+    if (roundCorners != ROUNDED_CORNERS_NONE) {
+        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
 
     builder.into(target)
 }
 
-fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -484,15 +485,16 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
         .apply(options)
         .transition(DrawableTransitionOptions.withCrossFade())
 
-    if (roundCorners) {
-        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+    if (roundCorners != ROUNDED_CORNERS_NONE) {
+        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
 
     builder.into(target)
 }
 
-fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(path.getFileSignature())
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -505,15 +507,16 @@ fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnail
         .load(path)
         .apply(options)
 
-    if (roundCorners) {
-        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+    if (roundCorners != ROUNDED_CORNERS_NONE) {
+        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
 
     builder.into(target)
 }
 
-fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Boolean) {
+fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int) {
     target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
 
     val options = RequestOptions().signature(path.getFileSignature())
@@ -524,8 +527,9 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
         .apply(options)
         .transition(DrawableTransitionOptions.withCrossFade())
 
-    if (roundCorners) {
-        val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius).toInt()
+    if (roundCorners != ROUNDED_CORNERS_NONE) {
+        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
 

@@ -686,7 +686,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
             } else {
                 dir_lock.beGone()
-                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, true)
+                val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_BIG
+                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners)
             }
 
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
