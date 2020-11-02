@@ -20,7 +20,7 @@ class MyGlideImageDecoder(val degrees: Int, val signature: ObjectKey) : ImageDec
 
         val builder = Glide.with(context)
             .asBitmap()
-            .load(uri)
+            .load(uri.toString().substringAfter("file://"))
             .apply(options)
             .transform(RotateTransformation(-degrees))
             .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
