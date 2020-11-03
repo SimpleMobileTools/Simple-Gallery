@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.17.1 *(2020-11-03)*
+----------------------------
+
+ * Reverting to the previous UI of the main screen, but keep rounded corners at list view
+ * Some UI and stability improvements
+
 Version 6.17.0 *(2020-11-02)*
 ----------------------------
 
