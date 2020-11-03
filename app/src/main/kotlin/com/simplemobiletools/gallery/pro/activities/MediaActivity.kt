@@ -219,7 +219,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isDefaultFolder = config.defaultFolder != null && File(config.defaultFolder!!).compareTo(File(mPath)) == 0
+        val isDefaultFolder = !config.defaultFolder.isEmpty() && File(config.defaultFolder).compareTo(File(mPath)) == 0
 
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
@@ -951,7 +951,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun unsetAsDefaultFolder() {
-        config.defaultFolder = null
+        config.defaultFolder = ""
         invalidateOptionsMenu()
     }
 }

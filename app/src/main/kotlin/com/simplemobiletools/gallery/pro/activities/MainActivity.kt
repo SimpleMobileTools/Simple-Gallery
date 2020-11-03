@@ -292,7 +292,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
-                findItem(R.id.set_as_default_folder).isVisible = config.defaultFolder != null
+                findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
                 setupSearch(this)
             }
         }
@@ -1399,19 +1399,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setAsDefaultFolder() {
-        config.defaultFolder = null
+        config.defaultFolder = ""
         invalidateOptionsMenu()
     }
 
     private fun openDefaultFolder() {
-        if (config.defaultFolder == null) {
+        if (config.defaultFolder.isEmpty()) {
             return;
         }
 
         val defaultDir = File(config.defaultFolder!!)
 
         if (!defaultDir.exists() || !defaultDir.isDirectory) {
-            config.defaultFolder = null
+            config.defaultFolder = ""
             return;
         }
 
