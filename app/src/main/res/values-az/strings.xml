@@ -17,7 +17,7 @@
     <string name="unknown_location">Unknown location</string>
     <string name="increase_column_count">Increase column count</string>
     <string name="reduce_column_count">Reduce column count</string>
-    <string name="set_as_default_folder">Varsayılan qovluq olaraq təyin edin</string>
+    <string name="set_as_default_folder">Set as default folder</string>
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="volume">Volume</string>
@@ -377,7 +377,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Varsayılan qovluq kimi silin</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

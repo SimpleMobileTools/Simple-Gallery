@@ -17,7 +17,7 @@
     <string name="unknown_location">Ukendt placering</string>
     <string name="increase_column_count">Flere kolonner</string>
     <string name="reduce_column_count">Færre kolonner</string>
-    <string name="set_as_default_folder">Indstil som standardmappe</string>
+    <string name="set_as_default_folder">Set as default folder</string>
     <string name="change_cover_image">Skift cover-billede</string>
     <string name="select_photo">Vælg billede</string>
     <string name="volume">Lydstyrke</string>
@@ -377,7 +377,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Frakoblet som standardmappe</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

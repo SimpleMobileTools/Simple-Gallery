@@ -17,7 +17,7 @@
     <string name="unknown_location">Unbekannter Pfad</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="set_as_default_folder">Als Standardordner festlegen</string>
+    <string name="set_as_default_folder">Set as default folder</string>
     <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="volume">Lautstärke</string>
@@ -376,7 +376,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Als Standardordner deaktivieren</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

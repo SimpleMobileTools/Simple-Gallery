@@ -393,8 +393,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="set_as_default_folder">Đặt làm thư mục mặc định</string>
-    <string name="unset_as_default_folder">Bỏ đặt làm thư mục mặc định</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

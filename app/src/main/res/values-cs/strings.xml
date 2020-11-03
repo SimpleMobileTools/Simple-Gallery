@@ -17,7 +17,7 @@
     <string name="unknown_location">Neznámá poloha</string>
     <string name="increase_column_count">Zvýšit počet sloupců</string>
     <string name="reduce_column_count">Snížit počet sloupců</string>
-    <string name="set_as_default_folder">Nastavit jako výchozí složku</string>
+    <string name="set_as_default_folder">Set as default folder</string>
     <string name="change_cover_image">Změnit obal alba</string>
     <string name="select_photo">Vybrat fotografii</string>
     <string name="volume">Hlasitost</string>
@@ -377,7 +377,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Zrušit nastavení jako výchozí složku</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at
