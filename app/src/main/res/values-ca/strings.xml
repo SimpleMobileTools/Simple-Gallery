@@ -15,11 +15,6 @@
     <string name="other_folder">Un altre carpeta</string>
     <string name="show_on_map">Mostrar al mapa</string>
     <string name="unknown_location">Ubicació desconeguda</string>
-    <string name="increase_column_count">Augmentar el número de columnes</string>
-    <string name="reduce_column_count">Reduir el número de columnes</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="change_cover_image">Canviar imatge de portada</string>
-    <string name="select_photo">Sel·leccionar imatge</string>
     <string name="volume">Volum</string>
     <string name="brightness">Brillantor</string>
     <string name="lock_orientation">Bloquejar orientació</string>
@@ -126,9 +121,6 @@
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
 
     <!-- View types -->
-    <string name="change_view_type">Canviar el tipus de vista</string>
-    <string name="grid">Reixeta</string>
-    <string name="list">Llista</string>
     <string name="group_direct_subfolders">Agrupar carpetes directes</string>
 
     <!-- Grouping at media thumbnails -->

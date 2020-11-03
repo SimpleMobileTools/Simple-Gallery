@@ -1,6 +1,26 @@
 Changelog
 ==========
 
+Version 6.17.1 *(2020-11-03)*
+----------------------------
+
+ * Reverting to the previous UI of the main screen, but keep rounded corners at list view
+ * Some UI and stability improvements
+
+Version 6.17.0 *(2020-11-02)*
+----------------------------
+
+ * Redesigning the main folders screen, try making it moderner (!)
+ * Fix some glitches with deep zoomable fullscreen images not loading in well
+ * Couple other UX, stability and translation improvements
+
+Version 6.16.5 *(2020-10-28)*
+----------------------------
+
+ * Added some hidden folder handling related improvements
+ * Fixed saving files on the SD card after editing
+ * Couple other UX, translation and performance improvements
+
 Version 6.16.4 *(2020-10-24)*
 ----------------------------
 

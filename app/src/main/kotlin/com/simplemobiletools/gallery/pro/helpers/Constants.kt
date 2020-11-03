@@ -145,10 +145,6 @@ const val PRIORITY_SPEED = 0
 const val PRIORITY_COMPROMISE = 1
 const val PRIORITY_VALIDITY = 2
 
-// view types
-const val VIEW_TYPE_GRID = 1
-const val VIEW_TYPE_LIST = 2
-
 // extended details values
 const val EXT_NAME = 1
 const val EXT_PATH = 2
@@ -225,3 +221,7 @@ const val LOW_TILE_DPI = 160
 const val NORMAL_TILE_DPI = 220
 const val WEIRD_TILE_DPI = 240
 const val HIGH_TILE_DPI = 280
+
+const val ROUNDED_CORNERS_NONE = 1
+const val ROUNDED_CORNERS_SMALL = 2
+const val ROUNDED_CORNERS_BIG = 3

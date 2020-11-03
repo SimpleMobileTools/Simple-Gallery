@@ -1,0 +1,3 @@
+ * Redesigning the main folders screen, try making it moderner (!)
+ * Fix some glitches with deep zoomable fullscreen images not loading in well
+ * Couple other UX, stability and translation improvements

@@ -15,10 +15,6 @@
     <string name="other_folder">Annen mappe</string>
     <string name="show_on_map">Vis på kart</string>
     <string name="unknown_location">Ukjent plassering</string>
-    <string name="increase_column_count">Øk antall kolonner</string>
-    <string name="reduce_column_count">Reduser antall kolonner</string>
-    <string name="change_cover_image">Endre omslagsbilde</string>
-    <string name="select_photo">Velg foto</string>
     <string name="volume">Volum</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås skjermorientering</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Endre visningstype</string>
-    <string name="grid">Rutenett</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Grupper direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->

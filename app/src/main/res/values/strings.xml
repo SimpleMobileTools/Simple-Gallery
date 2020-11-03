@@ -15,12 +15,6 @@
     <string name="other_folder">Other folder</string>
     <string name="show_on_map">Show on map</string>
     <string name="unknown_location">Unknown location</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
     <string name="lock_orientation">Lock orientation</string>
@@ -127,9 +121,6 @@
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

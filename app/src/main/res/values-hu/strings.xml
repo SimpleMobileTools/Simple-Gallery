@@ -15,10 +15,6 @@
     <string name="other_folder">Egyéb mappa</string>
     <string name="show_on_map">Mutassa a térképen</string>
     <string name="unknown_location">Ismeretlen helyszín</string>
-    <string name="increase_column_count">Növelje az oszlopok számát</string>
-    <string name="reduce_column_count">Csökkentse az oszlopok számát</string>
-    <string name="change_cover_image">Borítókép változtatása</string>
-    <string name="select_photo">Válasszon fotót</string>
     <string name="volume">Hangerő</string>
     <string name="brightness">Fényesség</string>
     <string name="lock_orientation">Tájolás zárolása</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
 
     <!-- View types -->
-    <string name="change_view_type">Nézet típus változtatása</string>
-    <string name="grid">Rács</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Közvetlen almappa csoport</string>
 
     <!-- Grouping at media thumbnails -->

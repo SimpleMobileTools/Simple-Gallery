@@ -15,11 +15,6 @@
     <string name="other_folder">Otra carpeta</string>
     <string name="show_on_map">Mostrar en el mapa</string>
     <string name="unknown_location">Ubicación desconocida</string>
-    <string name="increase_column_count">Aumentar el número de columnas</string>
-    <string name="reduce_column_count">Reducir el número de columnas</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="change_cover_image">Cambiar imagen de portada</string>
-    <string name="select_photo">Seleccionar imagen</string>
     <string name="volume">Volumen</string>
     <string name="brightness">Brillo</string>
     <string name="lock_orientation">Bloquear orientación</string>
@@ -126,9 +121,6 @@
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambiar tipo de vista</string>
-    <string name="grid">Cuadrícula</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Agrupar subcarpetas directas</string>
 
     <!-- Grouping at media thumbnails -->

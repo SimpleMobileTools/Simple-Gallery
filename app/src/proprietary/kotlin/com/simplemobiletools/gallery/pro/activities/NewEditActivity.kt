@@ -13,10 +13,12 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
+import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
@@ -134,42 +136,44 @@ class NewEditActivity : SimpleActivity() {
                                 storeOldExif(source)
                                 sourceFileLastModified = File(source).lastModified()
 
-                                var inputStream: InputStream? = null
-                                var outputStream: OutputStream? = null
-                                try {
-                                    inputStream = contentResolver.openInputStream(Uri.parse(resultPath))
-                                    outputStream = getFileOutputStreamSync(destinationFilePath, destinationFilePath.getMimeType())
-                                    inputStream!!.copyTo(outputStream!!)
-                                    outputStream.flush()
-                                    inputStream.close()
-                                    outputStream.close()
-
+                                handleFileOverwriting(destinationFilePath) {
+                                    var inputStream: InputStream? = null
+                                    var outputStream: OutputStream? = null
                                     try {
-                                        if (isNougatPlus()) {
-                                            val newExif = ExifInterface(destinationFilePath)
-                                            oldExif?.copyTo(newExif, false)
+                                        inputStream = contentResolver.openInputStream(Uri.parse(resultPath))
+                                        outputStream = getFileOutputStreamSync(destinationFilePath, destinationFilePath.getMimeType())
+                                        inputStream!!.copyTo(outputStream!!)
+                                        outputStream.flush()
+                                        inputStream.close()
+                                        outputStream.close()
+
+                                        try {
+                                            if (isNougatPlus()) {
+                                                val newExif = ExifInterface(destinationFilePath)
+                                                oldExif?.copyTo(newExif, false)
+                                            }
+                                        } catch (ignored: Exception) {
                                         }
-                                    } catch (ignored: Exception) {
-                                    }
 
-                                    if (config.keepLastModified) {
-                                        // add 1 s to the last modified time to properly update the thumbnail
-                                        updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
-                                    }
+                                        if (config.keepLastModified) {
+                                            // add 1 s to the last modified time to properly update the thumbnail
+                                            updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
+                                        }
 
-                                    val paths = arrayListOf(destinationFilePath)
-                                    rescanPaths(arrayListOf(destinationFilePath)) {
-                                        fixDateTaken(paths, false)
-                                    }
+                                        val paths = arrayListOf(destinationFilePath)
+                                        rescanPaths(arrayListOf(destinationFilePath)) {
+                                            fixDateTaken(paths, false)
+                                        }
 
-                                    setResult(Activity.RESULT_OK, intent)
-                                    toast(R.string.file_edited_successfully)
-                                    finish()
-                                } catch (e: Exception) {
-                                    showErrorToast(e)
-                                } finally {
-                                    inputStream?.close()
-                                    outputStream?.close()
+                                        setResult(Activity.RESULT_OK, intent)
+                                        toast(R.string.file_edited_successfully)
+                                        finish()
+                                    } catch (e: Exception) {
+                                        showErrorToast(e)
+                                    } finally {
+                                        inputStream?.close()
+                                        outputStream?.close()
+                                    }
                                 }
                             }
                         } else {
@@ -194,6 +198,23 @@ class NewEditActivity : SimpleActivity() {
         } catch (ignored: Exception) {
         } finally {
             inputStream?.close()
+        }
+    }
+
+    // in case the user wants to overwrite the original file and it is on an SD card, delete it manually. Else the system just appends (1)
+    private fun handleFileOverwriting(path: String, callback: () -> Unit) {
+        if (getDoesFilePathExist(path) && isPathOnSD(path)) {
+            val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+            tryDeleteFileDirItem(fileDirItem, false, true) { success ->
+                if (success) {
+                    callback()
+                } else {
+                    toast(R.string.unknown_error_occurred)
+                    finish()
+                }
+            }
+        } else {
+            callback()
         }
     }
 

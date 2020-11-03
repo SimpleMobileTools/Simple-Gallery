@@ -1,0 +1,3 @@
+ * Added some hidden folder handling related improvements
+ * Fixed saving files on the SD card after editing
+ * Couple other UX, translation and performance improvements

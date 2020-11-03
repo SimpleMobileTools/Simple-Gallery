@@ -15,10 +15,6 @@
     <string name="other_folder">Altra cartella</string>
     <string name="show_on_map">Mostra sulla mappa</string>
     <string name="unknown_location">Posizione sconosciuta</string>
-    <string name="increase_column_count">Aumenta numero colonne</string>
-    <string name="reduce_column_count">Riduci numero colonne</string>
-    <string name="change_cover_image">Cambia immagine copertina</string>
-    <string name="select_photo">Seleziona foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
     <string name="lock_orientation">Blocca orientamento</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambia modalità visualizzazione</string>
-    <string name="grid">Griglia</string>
-    <string name="list">Elenco</string>
     <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
 
     <!-- Grouping at media thumbnails -->

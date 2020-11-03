@@ -15,10 +15,6 @@
     <string name="other_folder">Annan mapp</string>
     <string name="show_on_map">Visa på karta</string>
     <string name="unknown_location">Okänd plats</string>
-    <string name="increase_column_count">Öka antalet kolumner</string>
-    <string name="reduce_column_count">Minska antalet kolumner</string>
-    <string name="change_cover_image">Byt omslagsbild</string>
-    <string name="select_photo">Välj foto</string>
     <string name="volume">Volym</string>
     <string name="brightness">Ljusstyrka</string>
     <string name="lock_orientation">Aktivera rotationslås</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Ändra vy</string>
-    <string name="grid">Rutnät</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Gruppera direkta undermappar</string>
 
     <!-- Grouping at media thumbnails -->

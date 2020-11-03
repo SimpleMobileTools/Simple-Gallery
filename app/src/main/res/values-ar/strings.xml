@@ -15,11 +15,6 @@
     <string name="other_folder">مجلد آخر</string>
     <string name="show_on_map">عرض علي الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
-    <string name="increase_column_count">زيادة عدد الأعمدة</string>
-    <string name="reduce_column_count">تقليل عدد الأعمدة</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="change_cover_image">تغيير صورة الغلاف</string>
-    <string name="select_photo">تحديد صورة</string>
     <string name="volume">الصوت</string>
     <string name="brightness">السطوع</string>
     <string name="lock_orientation">قفل الاتجاه</string>
@@ -126,9 +121,6 @@
     <string name="no_media_for_slideshow">لم يتم العثور علي أي وسائط لعرض الشرائح</string>
 
     <!-- View types -->
-    <string name="change_view_type">تغيير نوع العرض</string>
-    <string name="grid">الشبكة</string>
-    <string name="list">القائمة</string>
     <string name="group_direct_subfolders">تجميع المجلدات الفرعية مباشرة</string>
 
     <!-- Grouping at media thumbnails -->

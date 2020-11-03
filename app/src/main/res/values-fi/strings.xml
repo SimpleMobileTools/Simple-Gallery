@@ -15,11 +15,6 @@
     <string name="other_folder">Muu kansio</string>
     <string name="show_on_map">Näytä kartalla</string>
     <string name="unknown_location">Tuntematon sijainti</string>
-    <string name="increase_column_count">Lisää sarakkeita</string>
-    <string name="reduce_column_count">Vähennä sarakkeita</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="change_cover_image">Vaihda kansikuva</string>
-    <string name="select_photo">Valitse kuva</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
     <string name="lock_orientation">Lukitse näytönkierto</string>
@@ -126,9 +121,6 @@
     <string name="no_media_for_slideshow">Mediaa diaesitykseen ei löytynyt</string>
 
     <!-- View types -->
-    <string name="change_view_type">Vaihda näkymää</string>
-    <string name="grid">Ruudukko</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->

@@ -15,10 +15,6 @@
     <string name="other_folder">Друга фасцикла</string>
     <string name="show_on_map">Прикажи на мапи</string>
     <string name="unknown_location">Непозната локација</string>
-    <string name="increase_column_count">Повећај број колона</string>
-    <string name="reduce_column_count">Смањи број колона</string>
-    <string name="change_cover_image">Промени насловну слику</string>
-    <string name="select_photo">Изабери фотографију</string>
     <string name="volume">Јачина звука</string>
     <string name="brightness">Осветљење</string>
     <string name="lock_orientation">Закључај оријентацију</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
 
     <!-- View types -->
-    <string name="change_view_type">Промени тип прегледа</string>
-    <string name="grid">Мрежа</string>
-    <string name="list">Листа</string>
     <string name="group_direct_subfolders">Групирај директне подфасцикле</string>
 
     <!-- Grouping at media thumbnails -->
