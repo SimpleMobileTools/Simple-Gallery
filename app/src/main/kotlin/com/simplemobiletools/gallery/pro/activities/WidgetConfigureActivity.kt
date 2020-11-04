@@ -15,6 +15,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
+import com.simplemobiletools.gallery.pro.helpers.ROUNDED_CORNERS_NONE
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Widget
 import kotlinx.android.synthetic.main.activity_widget_config.*
@@ -166,7 +167,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             val path = directoryDao.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
-                    loadJpg(path, config_image, config.cropThumbnails)
+                    loadJpg(path, config_image, config.cropThumbnails, ROUNDED_CORNERS_NONE)
                 }
             }
         }

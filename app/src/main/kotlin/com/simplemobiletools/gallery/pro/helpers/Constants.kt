@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.pro.helpers
 
 import com.simplemobiletools.commons.helpers.MONTH_SECONDS
-import com.simplemobiletools.commons.helpers.isPiePlus
+import com.simplemobiletools.commons.helpers.isQPlus
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -102,7 +102,6 @@ const val SLIDESHOW_ANIMATION_NONE = 0
 const val SLIDESHOW_ANIMATION_SLIDE = 1
 const val SLIDESHOW_ANIMATION_FADE = 2
 
-const val FAVORITES = "favorites"
 const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
 const val SHOW_RECYCLE_BIN = "show_recycle_bin"
@@ -144,10 +143,6 @@ const val ROTATE_BY_ASPECT_RATIO = 2
 const val PRIORITY_SPEED = 0
 const val PRIORITY_COMPROMISE = 1
 const val PRIORITY_VALIDITY = 2
-
-// view types
-const val VIEW_TYPE_GRID = 1
-const val VIEW_TYPE_LIST = 2
 
 // extended details values
 const val EXT_NAME = 1
@@ -225,3 +220,7 @@ const val LOW_TILE_DPI = 160
 const val NORMAL_TILE_DPI = 220
 const val WEIRD_TILE_DPI = 240
 const val HIGH_TILE_DPI = 280
+
+const val ROUNDED_CORNERS_NONE = 1
+const val ROUNDED_CORNERS_SMALL = 2
+const val ROUNDED_CORNERS_BIG = 3

@@ -15,10 +15,6 @@
     <string name="other_folder">Outra pasta</string>
     <string name="show_on_map">Exibir no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
-    <string name="increase_column_count">Aumentar número de colunas</string>
-    <string name="reduce_column_count">Reduzir número de colunas</string>
-    <string name="change_cover_image">Trocar imagem de capa</string>
-    <string name="select_photo">Selecionar foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Travar orientação</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Nenhuma mídia encontrada para a apresentação</string>
 
     <!-- View types -->
-    <string name="change_view_type">Alterar modo de visualização</string>
-    <string name="grid">Grade</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Agrupar subpastas diretas</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Meio termo</string>
     <string name="avoid_showing_invalid_files">Evitar a exibição de arquivos inválidos</string>
     <string name="show_image_file_types">Exibir tipos de arquivo de imagem</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Permitir zoom de vídeos com um toque duplo neles</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

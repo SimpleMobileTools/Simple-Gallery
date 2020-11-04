@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">简约图库</string>
+    <string name="app_name">简易图库</string>
     <string name="app_launcher_name">图库</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
@@ -15,10 +15,6 @@
     <string name="other_folder">其他文件夹</string>
     <string name="show_on_map">在地图上显示</string>
     <string name="unknown_location">未知位置</string>
-    <string name="increase_column_count">显示更多项目</string>
-    <string name="reduce_column_count">显示更少项目</string>
-    <string name="change_cover_image">更换封面图片</string>
-    <string name="select_photo">选择图片</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定屏幕方向</string>
@@ -32,7 +28,7 @@
     <string name="dates_fixed_successfully">日期修复成功</string>
     <string name="no_date_takens_found">没有找到拍摄日期</string>
     <string name="share_resized">调整尺寸并分享</string>
-    <string name="upgraded_from_free">嘿，\n\n你似乎已经从旧的免费版应用升级。你现在可以卸载旧版本，在该版本的应用设置顶部有一个“升级到专业版”按钮。\n\n此操作会删除回收站项目，取消标记收藏项目，并重置应用设置。\n\n谢谢！</string>
+    <string name="upgraded_from_free">嘿，\n\n您似乎已经从旧的免费版应用升级。您现在可以卸载旧版本，在该版本的应用设置顶部有一个“升级到专业版”按钮。\n\n此操作会删除回收站项目，取消标记收藏项目，并重置应用设置。\n\n谢谢！</string>
     <string name="switch_to_file_search">切换文件搜索范围为所有可见的文件夹</string>
 
     <!-- Filter -->
@@ -51,14 +47,14 @@
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除的文件夹</string>
     <string name="manage_excluded_folders">管理排除的文件夹</string>
-    <string name="exclude_folder_description">该操作仅会在“简约图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
+    <string name="exclude_folder_description">该操作仅会在“简易图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
     <string name="exclude_folder_parent">是否排除父文件夹？</string>
-    <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在“简约图库”中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
+    <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在“简易图库”中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">全部移除</string>
     <string name="remove_all_description">是否移除排除列表中的所有项目？此操作不会删除文件夹本身。</string>
     <string name="hidden_folders">隐藏的文件夹</string>
     <string name="manage_hidden_folders">管理隐藏的文件夹</string>
-    <string name="hidden_folders_placeholder">看起来你没有任何使用“.nomedia”文件隐藏的目录。</string>
+    <string name="hidden_folders_placeholder">看起来您没有任何使用“.nomedia”文件隐藏的目录。</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含的文件夹</string>
@@ -96,7 +92,7 @@
     <string name="other_aspect_ratio">其他</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">简约壁纸</string>
+    <string name="simple_wallpaper">简易壁纸</string>
     <string name="set_as_wallpaper">设置为壁纸</string>
     <string name="set_as_wallpaper_failed">设置壁纸失败</string>
     <string name="set_as_wallpaper_with">设置壁纸方式：</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">没有找到可播放幻灯片媒体文件</string>
 
     <!-- View types -->
-    <string name="change_view_type">更改视图类型</string>
-    <string name="grid">网格</string>
-    <string name="list">列表</string>
     <string name="group_direct_subfolders">直接分组文件夹</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">折中</string>
     <string name="avoid_showing_invalid_files">避免显示无效的文件</string>
     <string name="show_image_file_types">显示图片文件类型</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">允许双击来放大视频</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
@@ -242,7 +242,7 @@
     <string name="pesdk_text_button_alignment">对齐</string>
     <string name="pesdk_text_button_bringToFront">移到最上层</string>
     <string name="pesdk_text_button_delete">删除</string>
-    <string name="pesdk_text_text_editTextPlaceholder">你的文字</string>
+    <string name="pesdk_text_text_editTextPlaceholder">您的文字</string>
     <string name="pesdk_brush_title_name">笔刷</string>
     <string name="pesdk_brush_button_color">颜色</string>
     <string name="pesdk_brush_button_size">尺寸</string>
@@ -284,24 +284,24 @@
     <string name="pesdk_common_title_pipettableColor">取色器</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
-    <string name="faq_1_text">首先，你需要在设备设置的“应用”菜单中找到你当前的默认图库，找到并点击“默认打开”按钮，然后点击“清除默认值”。下次当你再次打开图片或视频时，你应该会看到一个应用程序选择器，请在这里选择“简约图库”并将其设为默认应用程序。</string>
+    <string name="faq_1_title">如何把简易图库设置为设备的默认图库？</string>
+    <string name="faq_1_text">首先，您需要在设备设置的“应用”菜单中找到您当前的默认图库，找到并点击“默认打开”按钮，然后点击“清除默认值”。下次当您再次打开图片或视频时，您应该会看到一个应用程序选择器，请在这里选择“简易图库”并将其设为默认应用程序。</string>
     <string name="faq_2_title">我用密码锁定了本应用，但我忘记了密码。该怎么办？</string>
-    <string name="faq_2_text">有两种方法。你可以重新安装本应用，也可以在设置中清除此应用的数据，这将会会重置你的所有设置，但不会删除任何媒体文件。</string>
+    <string name="faq_2_text">有两种方法。您可以重新安装本应用，也可以在设置中清除此应用的数据，这将会会重置您的所有设置，但不会删除任何媒体文件。</string>
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
-    <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
+    <string name="faq_3_text">您可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。您也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
     <string name="faq_4_text">您可以双击屏幕边缘或点击搜索栏附近的当前或总时长的文字。 如果您在应用设置中启用了在独立页面播放视频，则也可以使用水平手势。</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
-    <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
+    <string name="faq_5_text">排除功能只是防止其在简易图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，您可以使用任何文件管理器删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
-    <string name="faq_6_text">你可能会看到一些不寻常的相册出现。你可以通过长按它们并选择“排除”来排除它们。在之后的对话框中，你可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>
+    <string name="faq_6_text">您可能会看到一些不寻常的相册出现。您可以通过长按它们并选择“排除”来排除它们。在之后的对话框中，您可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>
     <string name="faq_7_title">有的图片文件夹没有显示，怎么回事？</string>
     <string name="faq_7_text">原因可能有很多，但解决方法很简单。只需进入设置 -> 管理包含目录，点击+号并选择到所需的文件夹。</string>
     <string name="faq_8_title">如果我只想显示几个特定的文件夹，该如何操作？</string>
-    <string name="faq_8_text">在包含目录中添加文件夹不会自动排除其他的内容。你可以做的：进入设置 -> 管理排除目录，排除根目录\"/\"，然后在设置 -> 管理包含目录中添加所需的文件夹。这样就只显示选定的文件夹了，由于排除和包含都是递归的，所以排除并包含的文件夹是会显示的。</string>
+    <string name="faq_8_text">在包含目录中添加文件夹不会自动排除其他的内容。您可以做的：进入设置 -> 管理排除目录，排除根目录\"/\"，然后在设置 -> 管理包含目录中添加所需的文件夹。这样就只显示选定的文件夹了，由于排除和包含都是递归的，所以排除并包含的文件夹是会显示的。</string>
     <string name="faq_10_title">可以裁剪图片吗？</string>
-    <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
+    <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。您可以通过拖动图片边角来剪裁图像。</string>
     <string name="faq_11_title">我能将媒体文件缩略图分组吗？</string>
     <string name="faq_11_text">当然，只需在缩略图视图中使用\"分组依据\"菜单项即可。您可以依据多个条件对文件进行分组，包括拍摄日期。如果您使用了\"显示所有文件夹内容\"功能，则可以按文件夹对它们进行分组。</string>
     <string name="faq_12_title">按拍摄日期排序似乎有异常，我该如何解决？</string>
@@ -309,26 +309,26 @@
     <string name="faq_13_title">我看到图像上有一些色带。如何提高提高质量？</string>
     <string name="faq_13_text">目前显示图像的方案在绝大多数情况下都能正常工作，如果您想要更好的图像质量，您可以在设置中启用\"以最高质量显示图像\"。</string>
     <string name="faq_14_title">我隐藏了某个文件/文件夹。如何取消隐藏？</string>
-    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果你想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。</string>
+    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果您想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。</string>
     <string name="faq_15_title">为什么应用占用了这么多的空间？</string>
     <string name="faq_15_text">应用缓存最多可达250MB，这样可以使图像加载更快。如果应用占用了更多空间，则很可能是因为回收站中有项目。这些文件被计入应用程序大小。您可以打开回收站并删除所有文件，或从应用设置中清除回收站。回收站中的内容会在30天后自动删除。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">简约图库 Pro - 图片管理 &amp; 编辑</string>
+    <string name="app_title">简易图库 Pro - 图片管理 &amp; 编辑</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">使用此照片和视频库来毫无阻碍地浏览您的回忆</string>
     <string name="app_long_description">
-        简约图库 Pro 是一个高度可定制的图库。管理并编辑你的照片，从回收站中恢复已删除的照片，保护并隐藏文件，查看RAW，SVG等等多种照片和视频格式。
+        简易图库 Pro 是一个高度可定制的图库。管理并编辑您的照片，从回收站中恢复已删除的照片，保护并隐藏文件，查看RAW，SVG等等多种照片和视频格式。
 
         该应用不包含广告和不必要的权限。我们保护您的隐私，因为该应用不需要联网权限。
 
         -------------------------------------------------
-                  <b>简约图库 Pro – 特性</b>
+                  <b>简易图库 Pro – 特性</b>
         -------------------------------------------------
 
         • 完全离线，没有广告或弹出窗口
-        • 简约图库图片编辑器 – 裁剪，旋转，调整大小，绘制，滤镜等等
+        • 简易图库图片编辑器 – 裁剪，旋转，调整大小，绘制，滤镜等等
         • 无需联网权限，为您提供更多的隐私和安全
         • 没有不必要的权限
         • 快速搜索图像，视频和文件
@@ -343,29 +343,29 @@
         • 从回收站中恢复已删除的照片和视频
         • 支持隐藏照片和视频
         • 为您的文件创建一个可自定义的幻灯片
-        • 查看文件的详细信息（分辨率，EXIF值等等）
+        • 查看文件的详细信息（分辨率，EXIF 值等等）
         • 该应用是开源的
         … 还有很多很多！
 
         <b>图库照片编辑</b>
-        简约图库 Pro 可以轻松地动态编辑图片。支持裁剪、翻转、旋转、或是调整图片大小。如果您希望更有创意的话，可以添加滤镜，或是直接在图片上绘制！
+        简易图库 Pro 可以轻松地动态编辑图片。支持裁剪、翻转、旋转、或是调整图片大小。如果您希望更有创意的话，可以添加滤镜，或是直接在图片上绘制！
 
         <b>支持多种文件类型</b>
-        与其他一些图库应用不同，简约图库 Pro 支持多种文件类型，包括JPEG，PNG，MP4，MKV，RAW，SVG，全景照片，全景视频等等。
+        与其他一些图库应用不同，简易图库 Pro 支持多种文件类型，包括JPEG，PNG，MP4，MKV，RAW，SVG，全景照片，全景视频等等。
 
         <b>高度可定制的图库</b>
-        从UI到底部工具栏上的功能按钮，简约图库 Pro 可高度自定义并按您的要求工作。其他图库应用可没有这种灵活性！由于该应用是开源的，所以我们还提供 32 种语言！
+        从UI到底部工具栏上的功能按钮，简易图库 Pro 可高度自定义并按您的要求工作。其他图库应用可没有这种灵活性！由于该应用是开源的，所以我们还提供 32 种语言！
 
         <b>恢复已删除的照片和视频</b>
-        意外删除了珍贵的照片或视频？别担心！简约图库 Pro 具有方便的回收站，您可以方便地恢复已删除的照片和视频。
+        意外删除了珍贵的照片或视频？别担心！简易图库 Pro 具有方便的回收站，您可以方便地恢复已删除的照片和视频。
 
         <b>保护并隐藏照片、视频和文件</b>
         使用密码、图案或指纹保护和隐藏照片、视频、或是整个相册。您也可以保护应用自身或禁用一些特定功能。 例如，只有指纹验证通过才可以删除文件，从而有效地防止您的文件被意外删除。
 
-        <b>查看简约系列的所有应用:</b>
+        <b>于此查看简易工具系列全套:</b>
         https://www.simplemobiletools.com
 
-        <b>简约图库 Pro 的独立网站：</b>
+        <b>简易图库 Pro 的独立网站：</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>

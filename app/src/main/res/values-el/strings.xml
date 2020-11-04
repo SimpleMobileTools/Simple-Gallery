@@ -15,10 +15,6 @@
     <string name="other_folder">Άλλος φάκελος</string>
     <string name="show_on_map">Εμφάνιση στο χάρτη</string>
     <string name="unknown_location">Άγνωστη τοποθεσία</string>
-    <string name="increase_column_count">Αύξηση αριθμού στηλών</string>
-    <string name="reduce_column_count">Μείωση αριθμού στηλών</string>
-    <string name="change_cover_image">Αλλαγή εξώφυλλου φακέλου</string>
-    <string name="select_photo">Επιλογή φωτογραφίας</string>
     <string name="volume">Ένταση</string>
     <string name="brightness">Φωτεινότητα</string>
     <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
 
     <!-- View types -->
-    <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
-    <string name="grid">Πλέγμα</string>
-    <string name="list">Λίστα</string>
     <string name="group_direct_subfolders">Ομαδοποίηση υποφακέλων</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Συμβιβασμός</string>
     <string name="avoid_showing_invalid_files">Αποφυγή εμφάνισης μη έγκυρων αρχείων</string>
     <string name="show_image_file_types">Εμφάνιση τύπου αρχείου εικόνας</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Επιτρέπει την μεγέθυνση βίντεο με διπλό πάτημα</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
@@ -318,9 +318,9 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">ΑΠΛΗ ΣΥΛΛΟΓΗ Pro - Διαχείριση &amp; Επεξεργασία</string>
+    <string name="app_title">Απλή Συλλογή Pro - Διαχείριση &amp; Επεξεργασία</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Περιηγηθείτε στις αναμνήσεις σας χωρίς διακοπές με αυτήν τη συλλογή φωτό &amp; βίντεο</string>
+    <string name="app_short_description">Μια premium εφαρμογή διαχείρισης/επεξεργασίας φωτο βίντεο GIF χωρίς διαφημήσεις</string>
     <string name="app_long_description">
         Η Απλή Συλλογή Pro είναι χωρίς σύνδεση και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
 
@@ -356,7 +356,7 @@
         <b>ΥΠΟΣΤΗΡΙΞΗ ΠΟΛΛΩΝ ΤΥΠΩΝ ΑΡΧΕΙΩΝ</b>
         Σε αντίθεση με κάποιες άλλες εφαρμογές η Απλή Συλλογή Pro υποστηρίζει ένα τεράστιο φάσμα διαφορετικών τύπων αρχείων, όπως JPEG, PNG, MP4, MKV, RAW, SVG, Πανοραμικές φωτογραφίες, βίντεο πανοραμικών και πολλά άλλα.
 
-        <b>ΠΟΛΥ ΠΡΟΣΑΡΜΟΣΙΜΟΣ ΔΙΑΧΕΙΡΙΣΤΗΣ ΣΥΛΛΟΓΗΣ</b>
+        <b>ΠΟΛΥ ΠΡΟΣΑΡΜΟΣΙΜΟΣ ΔΙΑΧΕΙΡΙΣΤΗΣ</b>
         Από το UI στα κουμπιά λειτουργιών στην κάτω γραμμή εργαλείων, η Απλή Συλλογή Pro είναι ιδιαίτερα προσαρμόσιμη και λειτουργεί όπως εσείς θέλετε. Καμιά άλλη εφαρμογή δεν έχει τέτοια ευελιξία! Χάρη στον ανοιχτό κώδικα, είναι επίσης διαθέσιμη σε 32 γλώσσες!
 
         <b>ΕΠΑΝΑΦΟΡΑ ΔΙΑΓΡΑΜΜΕΝΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>

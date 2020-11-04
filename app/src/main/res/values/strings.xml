@@ -15,10 +15,6 @@
     <string name="other_folder">Other folder</string>
     <string name="show_on_map">Show on map</string>
     <string name="unknown_location">Unknown location</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
     <string name="lock_orientation">Lock orientation</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">A premium app for managing and editing your photos, videos, GIFs without ads</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 

@@ -9,9 +9,10 @@ import androidx.room.PrimaryKey
 // It is used at sorting files by date taken, checking EXIF file by file would be way too slow
 @Entity(tableName = "date_takens", indices = [Index(value = ["full_path"], unique = true)])
 data class DateTaken(
-        @PrimaryKey(autoGenerate = true) var id: Int?,
-        @ColumnInfo(name = "full_path") var fullPath: String,
-        @ColumnInfo(name = "filename") var filename: String,
-        @ColumnInfo(name = "parent_path") var parentPath: String,
-        @ColumnInfo(name = "date_taken") var taken: Long,
-        @ColumnInfo(name = "last_fixed") var lastFixed: Int)
+    @PrimaryKey(autoGenerate = true) var id: Int?,
+    @ColumnInfo(name = "full_path") var fullPath: String,
+    @ColumnInfo(name = "filename") var filename: String,
+    @ColumnInfo(name = "parent_path") var parentPath: String,
+    @ColumnInfo(name = "date_taken") var taken: Long,
+    @ColumnInfo(name = "last_fixed") var lastFixed: Int,
+    @ColumnInfo(name = "last_modified") var lastModified: Long)

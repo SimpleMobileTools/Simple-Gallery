@@ -1,6 +1,114 @@
 Changelog
 ==========
 
+Version 6.17.1 *(2020-11-03)*
+----------------------------
+
+ * Reverting to the previous UI of the main screen, but keep rounded corners at list view
+ * Some UI and stability improvements
+
+Version 6.17.0 *(2020-11-02)*
+----------------------------
+
+ * Redesigning the main folders screen, try making it moderner (!)
+ * Fix some glitches with deep zoomable fullscreen images not loading in well
+ * Couple other UX, stability and translation improvements
+
+Version 6.16.5 *(2020-10-28)*
+----------------------------
+
+ * Added some hidden folder handling related improvements
+ * Fixed saving files on the SD card after editing
+ * Couple other UX, translation and performance improvements
+
+Version 6.16.4 *(2020-10-24)*
+----------------------------
+
+ * Fixed an editor glitch occurring if the file path contained spaces
+ * Added some stability improvements
+
+Version 6.16.3 *(2020-10-16)*
+----------------------------
+
+ * Updated the photo editor to fix some issues, mostly related to Android 11
+ * Make sure file moving doesn't block the UI in any case
+
+Version 6.16.2 *(2020-10-10)*
+----------------------------
+
+ * Fix sorting by Date Taken
+ * Properly display some wrongly named WebP files
+
+Version 6.16.1 *(2020-09-27)*
+----------------------------
+
+ * Fixed a bug with some folders not being recognized
+ * Improved thumbnail loading performance in some cases
+
+Version 6.16.0 *(2020-09-25)*
+----------------------------
+
+ * Adding support for animated WebP files
+ * Fixed a permissions glitch after upgrading to Android 11
+ * Added many performance related improvements
+
+Version 6.15.6 *(2020-09-22)*
+----------------------------
+
+ * Fixed the file loading performance in some cases
+ * Fixed some photo editor related glitches
+ * Fixed the Use English language settings toggle
+
+Version 6.15.5 *(2020-09-16)*
+----------------------------
+
+ * Properly fetch the latest available Last Modified of files
+
+Version 6.15.4 *(2020-09-16)*
+----------------------------
+
+ * Improved file loading performance
+
+Version 6.15.3 *(2020-09-09)*
+----------------------------
+
+ * Improved file loading performance in some cases
+ * Some UX, translation and stability improvements
+
+Version 6.15.2 *(2020-06-17)*
+----------------------------
+
+ * Fixed a glitch at caching fullscreen images
+ * Properly recognize a new type of panoramic images
+
+Version 6.15.1 *(2020-06-12)*
+----------------------------
+
+ * Fixed a glitch at caching fullscreen images
+ * Improved batch renaming with patterns
+
+Version 6.15.0 *(2020-06-07)*
+----------------------------
+
+ * Rescan the internal storage from time to time, look for new folders containing media
+ * Improve the Search user experience, do not reset it at opening an item
+ * Fixed some editor glitches
+ * Speed up fullscreen image loading
+
+Version 6.14.10 *(2020-05-29)*
+----------------------------
+
+ * Updated the image editor, fix a glitch with black preview
+ * Show Portrait images by default on Android 10
+ * Use a nicer icon on older devices
+ * Some translation and stability improvements
+
+Version 6.14.9 *(2020-05-18)*
+----------------------------
+
+ * Fixing some glitches with hidden folders not being shown when appropriate
+ * Added some stability and translation improvements
+
 Version 6.14.8 *(2020-05-05)*
 ----------------------------
 

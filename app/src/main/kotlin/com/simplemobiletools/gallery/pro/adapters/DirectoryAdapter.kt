@@ -15,9 +15,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -37,7 +35,6 @@ import kotlinx.android.synthetic.main.directory_item_grid.view.dir_lock
 import kotlinx.android.synthetic.main.directory_item_grid.view.dir_name
 import kotlinx.android.synthetic.main.directory_item_grid.view.dir_pin
 import kotlinx.android.synthetic.main.directory_item_grid.view.dir_thumbnail
-import kotlinx.android.synthetic.main.directory_item_grid.view.photo_cnt
 import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 
@@ -304,7 +301,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val includedFolders = activity.config.includedFolders
         val hidden = activity.getString(R.string.hidden)
         dirs.forEach {
-            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
+            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders, ArrayList())
         }
         listener?.updateDirectories(dirs.toMutableList() as ArrayList)
         activity.runOnUiThread {
@@ -478,10 +475,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 intent.putExtra(DIRECTORY, path)
 
                 val shortcut = ShortcutInfo.Builder(activity, path)
-                        .setShortLabel(dir.name)
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
-                        .setIntent(intent)
-                        .build()
+                    .setShortLabel(dir.name)
+                    .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                    .setIntent(intent)
+                    .build()
 
                 manager.requestPinShortcut(shortcut, null)
             }
@@ -686,7 +683,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
             } else {
                 dir_lock.beGone()
-                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners)
             }
 
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))

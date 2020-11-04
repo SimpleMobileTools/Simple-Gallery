@@ -1,0 +1,2 @@
+ * Fixed a glitch at caching fullscreen images
+ * Improved batch renaming with patterns

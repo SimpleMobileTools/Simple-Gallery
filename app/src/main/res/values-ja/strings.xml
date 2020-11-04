@@ -15,10 +15,6 @@
     <string name="other_folder">その他のフォルダ</string>
     <string name="show_on_map">地図上で表示</string>
     <string name="unknown_location">位置情報がありません</string>
-    <string name="increase_column_count">列数を増やす</string>
-    <string name="reduce_column_count">列数を減らす</string>
-    <string name="change_cover_image">カバー画像を変更</string>
-    <string name="select_photo">写真を選択</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
     <string name="lock_orientation">画面の向きを固定する</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
 
     <!-- View types -->
-    <string name="change_view_type">表示形式の変更</string>
-    <string name="grid">グリッド</string>
-    <string name="list">リスト</string>
     <string name="group_direct_subfolders">サブフォルダでグループ化</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>

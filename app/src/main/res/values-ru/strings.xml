@@ -15,10 +15,6 @@
     <string name="other_folder">Выбор папки</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
-    <string name="increase_column_count">Добавить столбец</string>
-    <string name="reduce_column_count">Убрать столбец</string>
-    <string name="change_cover_image">Изменить обложку</string>
-    <string name="select_photo">Выбрать изображение</string>
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
     <string name="lock_orientation">Заблокировать ориентацию</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Не найдено медиафайлов для слайдшоу</string>
 
     <!-- View types -->
-    <string name="change_view_type">Вид</string>
-    <string name="grid">Сетка</string>
-    <string name="list">Список</string>
     <string name="group_direct_subfolders">Объединять вложенные папки</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Пропускать файлы с ошибками</string>
     <string name="show_image_file_types">Показывать типы файлов изображений</string>
     <string name="allow_zooming_videos">Масштабировать видео двойным нажатием по нему</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

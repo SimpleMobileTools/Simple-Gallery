@@ -15,10 +15,6 @@
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
-    <string name="increase_column_count">Ajouter une colonne</string>
-    <string name="reduce_column_count">Supprimer une colonne</string>
-    <string name="change_cover_image">Changer l\'image du dossier</string>
-    <string name="select_photo">Choisir une image</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
     <string name="lock_orientation">Verrouiller la rotation</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
     <!-- View types -->
-    <string name="change_view_type">Changer de mode d\'affichage</string>
-    <string name="grid">Grille</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Mode sous-dossiers</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Compromis</string>
     <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

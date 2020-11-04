@@ -15,10 +15,6 @@
     <string name="other_folder">Anden mappe</string>
     <string name="show_on_map">Vis på kort</string>
     <string name="unknown_location">Ukendt placering</string>
-    <string name="increase_column_count">Flere kolonner</string>
-    <string name="reduce_column_count">Færre kolonner</string>
-    <string name="change_cover_image">Skift cover-billede</string>
-    <string name="select_photo">Vælg billede</string>
     <string name="volume">Lydstyrke</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås orientering</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Skift visning</string>
-    <string name="grid">Gitter</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Gruppér direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Undgå at vise ugyldige filer</string>
     <string name="show_image_file_types">Vis billeders filtyper</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>

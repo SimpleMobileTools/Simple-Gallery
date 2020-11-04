@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.extensions
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.ContentProviderOperation
+import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -13,6 +14,7 @@ import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
+import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
 import android.view.View
@@ -81,7 +83,8 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or
-            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS
+            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS or
+            LICENSE_APNG
 
     val faqItems = arrayListOf(
         FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
@@ -101,7 +104,8 @@ fun SimpleActivity.launchAbout() {
         FAQItem(R.string.faq_15_title, R.string.faq_15_text),
         FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
         FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons),
-        FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons))
+        FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons),
+        FAQItem(R.string.faq_9_title_commons, R.string.faq_9_text_commons))
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
@@ -146,9 +150,8 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
-                applicationContext.scanPathRecursively(file.absolutePath) {
-                    callback()
-                }
+                addNoMediaIntoMediaStore(file.absolutePath)
+                callback()
             } else {
                 toast(R.string.unknown_error_occurred)
                 callback()
@@ -157,7 +160,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     } else {
         try {
             if (file.createNewFile()) {
-                rescanFolderMedia(file.absolutePath)
+                addNoMediaIntoMediaStore(file.absolutePath)
             } else {
                 toast(R.string.unknown_error_occurred)
             }
@@ -165,6 +168,19 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             showErrorToast(e)
         }
         callback()
+    }
+}
+
+fun BaseSimpleActivity.addNoMediaIntoMediaStore(path: String) {
+    try {
+        val content = ContentValues().apply {
+            put(Files.FileColumns.TITLE, NOMEDIA)
+            put(Files.FileColumns.DATA, path)
+            put(Files.FileColumns.MEDIA_TYPE, Files.FileColumns.MEDIA_TYPE_NONE)
+        }
+        contentResolver.insert(Files.getContentUri("external"), content)
+    } catch (e: Exception) {
+        showErrorToast(e)
     }
 }
 
@@ -450,7 +466,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                 mediaDB.updateFavoriteDateTaken(path, timestamp)
                 didUpdateFile = true
 
-                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt())
+                val dateTaken = DateTaken(null, path, path.getFilenameFromPath(), path.getParentPath(), timestamp, (System.currentTimeMillis() / 1000).toInt(), File(path).lastModified())
                 dateTakens.add(dateTaken)
                 if (!hasRescanned && getFileDateTaken(path) == 0L) {
                     pathsToRescan.add(path)

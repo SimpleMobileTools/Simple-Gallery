@@ -13,6 +13,7 @@ import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -218,12 +219,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
         val sorting = config.getFolderSorting(SHOW_ALL)
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid) {
                 media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         } else {
-            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }

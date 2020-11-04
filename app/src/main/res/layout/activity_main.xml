@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/directories_refresh_layout"
     android:layout_width="match_parent"
@@ -19,22 +18,22 @@
             android:gravity="center"
             android:padding="@dimen/activity_margin"
             android:text="@string/switch_to_file_search"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/directories_empty_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/directories_switch_searching"
-            android:gravity="center_horizontal"
             android:alpha="0.8"
-            android:textStyle="italic"
+            android:gravity="center_horizontal"
             android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingEnd="@dimen/activity_margin"
             android:text="@string/no_media_with_filters"
             android:textSize="@dimen/bigger_text_size"
-            android:visibility="gone"/>
+            android:textStyle="italic"
+            android:visibility="gone" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/directories_empty_placeholder_2"
@@ -46,7 +45,7 @@
             android:padding="@dimen/activity_margin"
             android:text="@string/change_filters_underlined"
             android:textSize="@dimen/bigger_text_size"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <com.simplemobiletools.commons.views.MyRecyclerView
             android:id="@+id/directories_grid"
@@ -55,7 +54,7 @@
             android:layout_below="@+id/directories_switch_searching"
             android:scrollbars="none"
             app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
-            app:spanCount="@integer/directory_columns_vertical_scroll"/>
+            app:spanCount="@integer/directory_columns_vertical_scroll" />
 
         <com.simplemobiletools.commons.views.FastScroller
             android:id="@+id/directories_vertical_fastscroller"
@@ -66,7 +65,7 @@
             android:paddingStart="@dimen/normal_margin"
             android:visibility="gone">
 
-            <include layout="@layout/fastscroller_handle_vertical"/>
+            <include layout="@layout/fastscroller_handle_vertical" />
 
         </com.simplemobiletools.commons.views.FastScroller>
 
@@ -79,7 +78,7 @@
             android:paddingTop="@dimen/normal_margin"
             android:visibility="gone">
 
-            <include layout="@layout/fastscroller_handle_horizontal"/>
+            <include layout="@layout/fastscroller_handle_horizontal" />
 
         </com.simplemobiletools.commons.views.FastScroller>
     </RelativeLayout>

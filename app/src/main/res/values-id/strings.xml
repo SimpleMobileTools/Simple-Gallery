@@ -15,10 +15,6 @@
     <string name="other_folder">Folder lainnya</string>
     <string name="show_on_map">Tampilkan di peta</string>
     <string name="unknown_location">Lokasi tidak diketahui</string>
-    <string name="increase_column_count">Tambah jumlah kolom</string>
-    <string name="reduce_column_count">Kurangi jumlah kolom</string>
-    <string name="change_cover_image">Ubah gambar kover</string>
-    <string name="select_photo">Pilih foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Kecerahan</string>
     <string name="lock_orientation">Kunci orientasi</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Tidak ditemukan media untuk slideshow</string>
 
     <!-- View types -->
-    <string name="change_view_type">Ubah tampilan</string>
-    <string name="grid">Kotak</string>
-    <string name="list">Daftar</string>
     <string name="group_direct_subfolders">Kelompokkan subfolder langsung</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Hindari menampilkan berkas yang tidak valid</string>
     <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>

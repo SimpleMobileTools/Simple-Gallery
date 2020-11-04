@@ -15,10 +15,6 @@
     <string name="other_folder">Thư mục khác</string>
     <string name="show_on_map">Hiển thị trên bản đồ</string>
     <string name="unknown_location">Vị trí không xác định</string>
-    <string name="increase_column_count">Tăng số lượng cột</string>
-    <string name="reduce_column_count">Giảm số lượng cột</string>
-    <string name="change_cover_image">Thay đổi ảnh bìa</string>
-    <string name="select_photo">Chọn ảnh</string>
     <string name="volume">Âm lượng</string>
     <string name="brightness">Độ sáng</string>
     <string name="lock_orientation">Khóa xoay màn hình</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Không có tập tin phương tiện cho trình chiếu được tìm thấy</string>
 
     <!-- View types -->
-    <string name="change_view_type">Thay đổi kiểu xem</string>
-    <string name="grid">Lưới</string>
-    <string name="list">Danh sách</string>
     <string name="group_direct_subfolders">Nhóm thư mục con trực tiếp</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Tránh hiển thị các tệp không hợp lệ</string>
     <string name="show_image_file_types">Hiển thị các loại tệp hình ảnh</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Hình thu nhỏ</string>

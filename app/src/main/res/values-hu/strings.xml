@@ -15,10 +15,6 @@
     <string name="other_folder">Egyéb mappa</string>
     <string name="show_on_map">Mutassa a térképen</string>
     <string name="unknown_location">Ismeretlen helyszín</string>
-    <string name="increase_column_count">Növelje az oszlopok számát</string>
-    <string name="reduce_column_count">Csökkentse az oszlopok számát</string>
-    <string name="change_cover_image">Borítókép változtatása</string>
-    <string name="select_photo">Válasszon fotót</string>
     <string name="volume">Hangerő</string>
     <string name="brightness">Fényesség</string>
     <string name="lock_orientation">Tájolás zárolása</string>
@@ -30,7 +26,7 @@
     <string name="fix_date_taken">Dátum javítása</string>
     <string name="fixing">Javítás...</string>
     <string name="dates_fixed_successfully">Sikeres dátum javítás</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Nem találhatók Dátum értékek</string>
     <string name="share_resized">Átméretezett verzió megosztása</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
@@ -42,7 +38,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW kép</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Portrék</string>
     <string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
     <string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
 
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
 
     <!-- View types -->
-    <string name="change_view_type">Nézet típus változtatása</string>
-    <string name="grid">Rács</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Közvetlen almappa csoport</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Kiegyensúlyozott</string>
     <string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
     <string name="show_image_file_types">Mutassa a kép fájl típusokat</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">A videók nagyításának engedélyezése dupla koppintással</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
@@ -206,27 +206,27 @@
     <string name="pesdk_transform_button_freeCrop">Egyéni</string>
     <string name="pesdk_transform_button_resetCrop">Alaphelyzetbe</string>
     <string name="pesdk_transform_button_squareCrop">Négyzet</string>
-    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_transform_title_name">Átalakítás</string>
     <string name="pesdk_filter_title_name">Szűrő</string>
     <string name="pesdk_filter_asset_none">Nincs</string>
     <string name="pesdk_adjustments_title_name">Beállít</string>
     <string name="pesdk_adjustments_button_shadowTool">Árnyékok</string>
-    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
-    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_exposureTool">Kitettség</string>
+    <string name="pesdk_adjustments_button_highlightTool">Kiemelések</string>
     <string name="pesdk_adjustments_button_brightnessTool">Fényerő</string>
     <string name="pesdk_adjustments_button_contrastTool">Kontraszt</string>
     <string name="pesdk_adjustments_button_saturationTool">Színtelítettség</string>
     <string name="pesdk_adjustments_button_clarityTool">Világosság</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
-    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_blacksTool">Feketék</string>
+    <string name="pesdk_adjustments_button_whitesTool">Fehérek</string>
     <string name="pesdk_adjustments_button_temperatureTool">Színhőmérséklet</string>
     <string name="pesdk_adjustments_button_sharpnessTool">Élesség</string>
     <string name="pesdk_adjustments_button_reset">Alaphelyzetbe</string>
     <string name="pesdk_focus_title_name">Fókusz</string>
     <string name="pesdk_focus_title_disabled">Nincs</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_radial">Sugárirányú</string>
+    <string name="pesdk_focus_button_linear">Lineáris</string>
     <string name="pesdk_focus_button_mirrored">Tükrözött</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_text_title_name">Szöveg</string>
@@ -235,7 +235,7 @@
     <string name="pesdk_text_title_font">Betűtípus</string>
     <string name="pesdk_text_button_add">Hozzáadás</string>
     <string name="pesdk_text_button_edit">Szerkesztés</string>
-    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_straighten">Egyenesített</string>
     <string name="pesdk_text_button_font">Betűtípus</string>
     <string name="pesdk_text_button_color">Szín</string>
     <string name="pesdk_text_button_backgroundColor">Háttérszín</string>

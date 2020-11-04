@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
@@ -134,12 +134,10 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             directories_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
 
             if (scrollHorizontally) {
-                directories_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_horizontal_fastscroller.setViews(directories_grid) {
                     directories_horizontal_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }
             } else {
-                directories_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 directories_vertical_fastscroller.setViews(directories_grid) {
                     directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
                 }

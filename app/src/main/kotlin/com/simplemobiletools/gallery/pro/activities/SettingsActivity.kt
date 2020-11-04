@@ -70,7 +70,6 @@ class SettingsActivity : SimpleActivity() {
         setupThumbnailFileTypes()
         setupShowMediaCount()
         setupKeepLastModified()
-        setupShowInfoBubble()
         setupEnablePullToRefresh()
         setupAllowZoomingImages()
         setupShowHighestQuality()
@@ -428,14 +427,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowInfoBubble() {
-        settings_show_info_bubble.isChecked = config.showInfoBubble
-        settings_show_info_bubble_holder.setOnClickListener {
-            settings_show_info_bubble.toggle()
-            config.showInfoBubble = settings_show_info_bubble.isChecked
-        }
-    }
-
     private fun setupEnablePullToRefresh() {
         settings_enable_pull_to_refresh.isChecked = config.enablePullToRefresh
         settings_enable_pull_to_refresh_holder.setOnClickListener {
@@ -650,7 +641,6 @@ class SettingsActivity : SimpleActivity() {
                 put(CROP_THUMBNAILS, config.cropThumbnails)
                 put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
                 put(SHOW_MEDIA_COUNT, config.showMediaCount)
-                put(SHOW_INFO_BUBBLE, config.showInfoBubble)
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
@@ -786,7 +776,6 @@ class SettingsActivity : SimpleActivity() {
                 CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
                 SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
                 SHOW_MEDIA_COUNT -> config.showMediaCount = value.toBoolean()
-                SHOW_INFO_BUBBLE -> config.showInfoBubble = value.toBoolean()
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()

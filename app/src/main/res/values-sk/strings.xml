@@ -15,10 +15,6 @@
     <string name="other_folder">Iný priečinok</string>
     <string name="show_on_map">Zobraziť na mape</string>
     <string name="unknown_location">Neznáma poloha</string>
-    <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
-    <string name="reduce_column_count">Znížiť počet stĺpcov</string>
-    <string name="change_cover_image">Zmeniť obal albumu</string>
-    <string name="select_photo">Zvoliť foto</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
     <!-- View types -->
-    <string name="change_view_type">Zmeniť typ zobrazenia</string>
-    <string name="grid">Mriežka</string>
-    <string name="list">Zoznam</string>
     <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Nezobrazovať neplatné súbory</string>
     <string name="show_image_file_types">Zobraziť typ obrázkových súborov</string>
     <string name="allow_zooming_videos">Povoliť približovanie videí dvojitým ťuknutím</string>
+    <string name="folder_thumbnail_style">Štýl miniatúr priečinkov</string>
+    <string name="show_file_count_line">Zobraziť počet súborov na samostatnom riadku</string>
+    <string name="show_file_count_brackets">Zobraziť počet súborov v zátvorkách</string>
+    <string name="show_file_count_none">Nezobrazovať počet súborov</string>
+    <string name="limit_folder_title">Obmedziť názov priečinka na 1 riadok</string>
+    <string name="square">Štvorec</string>
+    <string name="rounded_corners">Zaoblené rohy</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

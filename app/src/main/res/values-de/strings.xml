@@ -15,10 +15,6 @@
     <string name="other_folder">Ordner wählen</string>
     <string name="show_on_map">Auf Karte zeigen</string>
     <string name="unknown_location">Unbekannter Pfad</string>
-    <string name="increase_column_count">Kacheln verkleinern</string>
-    <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Coverbild ändern</string>
-    <string name="select_photo">Auswählen</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
     <string name="lock_orientation">Bildausrichtung sperren</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
 
     <!-- View types -->
-    <string name="change_view_type">Darstellung ändern</string>
-    <string name="grid">Gitternetz</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
     <string name="show_image_file_types">Bilddateitypen anzeigen</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
@@ -318,7 +318,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Schlichte Galerie Pro - Foto Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Bewahre deine Andenken ohne Unterbrechungen mit dieser Foto- und Videogalerie</string>
+    <string name="app_short_description">Einfache und übersichtliche Galerie zur Verwaltung von Alben, Fotos, Videos</string>
     <string name="app_long_description">
         Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne &amp; bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze &amp; verstecke Dateien und zeige eine Vielzahl von Bilder- &amp; Videoformaten an, unter anderem RAW, SVG und viele mehr.
 

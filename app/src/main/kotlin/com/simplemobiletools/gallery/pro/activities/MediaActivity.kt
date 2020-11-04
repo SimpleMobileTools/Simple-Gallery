@@ -24,10 +24,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.commons.helpers.SORT_BY_RANDOM
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -76,7 +73,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
-    private var mStoredShowInfoBubble = true
     private var mStoredShowFileTypes = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
@@ -159,12 +155,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
-        media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
-        media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
-        invalidateOptionsMenu()
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
+
+        if (!mIsSearchOpen) {
+            invalidateOptionsMenu()
+        }
 
         if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
             if (shouldSkipAuthentication()) {
@@ -195,7 +192,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
@@ -292,7 +288,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredShowInfoBubble = showInfoBubble
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
@@ -393,7 +388,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                    mAllowPickingMultiple, mPath, media_grid, fastscroller) {
+                mAllowPickingMultiple, mPath, media_grid, fastscroller) {
                 if (it is Medium && !isFinishing) {
                     itemClicked(it.path)
                 }
@@ -424,12 +419,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         val sorting = config.getFolderSorting(if (mShowAll) SHOW_ALL else mPath)
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         } else {
-            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
@@ -799,24 +792,24 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             val ratio = wantedWidth.toFloat() / wantedHeight
 
             val options = RequestOptions()
-                    .override((wantedWidth * ratio).toInt(), wantedHeight)
-                    .fitCenter()
+                .override((wantedWidth * ratio).toInt(), wantedHeight)
+                .fitCenter()
 
             Glide.with(this)
-                    .asBitmap()
-                    .load(File(path))
-                    .apply(options)
-                    .into(object : SimpleTarget<Bitmap>() {
-                        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                            try {
-                                WallpaperManager.getInstance(applicationContext).setBitmap(resource)
-                                setResult(Activity.RESULT_OK)
-                            } catch (ignored: IOException) {
-                            }
-
-                            finish()
+                .asBitmap()
+                .load(File(path))
+                .apply(options)
+                .into(object : SimpleTarget<Bitmap>() {
+                    override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                        try {
+                            WallpaperManager.getInstance(applicationContext).setBitmap(resource)
+                            setResult(Activity.RESULT_OK)
+                        } catch (ignored: IOException) {
                         }
-                    })
+
+                        finish()
+                    }
+                })
         } else if (mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent) {
             Intent().apply {
                 data = Uri.parse(path)
@@ -872,12 +865,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLatestMediaDateId = getLatestMediaByDateId()
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
-            try {
-                Thread {
+            Thread {
+                try {
                     mediaDB.insertAll(mediaToInsert)
-                }.start()
-            } catch (e: Exception) {
-            }
+                } catch (e: Exception) {
+                }
+            }.start()
         }
     }
 

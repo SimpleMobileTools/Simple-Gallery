@@ -15,10 +15,6 @@
     <string name="other_folder">Otra carpeta</string>
     <string name="show_on_map">Mostrar en el mapa</string>
     <string name="unknown_location">Ubicación desconocida</string>
-    <string name="increase_column_count">Aumentar el número de columnas</string>
-    <string name="reduce_column_count">Reducir el número de columnas</string>
-    <string name="change_cover_image">Cambiar imagen de portada</string>
-    <string name="select_photo">Seleccionar imagen</string>
     <string name="volume">Volumen</string>
     <string name="brightness">Brillo</string>
     <string name="lock_orientation">Bloquear orientación</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambiar tipo de vista</string>
-    <string name="grid">Cuadrícula</string>
-    <string name="list">Lista</string>
     <string name="group_direct_subfolders">Agrupar subcarpetas directas</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Compromiso</string>
     <string name="avoid_showing_invalid_files">Evita mostrar archivos inválidos</string>
     <string name="show_image_file_types">Mostrar tipos de archivo de imagen</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Permitir hacer zoom en videos con doble toque</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -319,7 +319,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Gestor y editor de fotos</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Explore sus recuerdos sin interrupciones con esta galeria de foto y vídeo</string>
+    <string name="app_short_description">Galería rápida y segura para gestión profesional de fotos, vídeos y los GIFs</string>
     <string name="app_long_description">
         Simple Gallery Pro es una galería altamente personalizable disponible sin conexión. Organiza y edita tus fotos, recupera archivos eliminados con la papelera de reciclaje, protege y oculta archivos y mira una gran variedad de diferentes formatos de fotos y videos incluyendo RAW, SVG y muchos más.
 

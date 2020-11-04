@@ -1,0 +1,2 @@
+ * Fixed a glitch at caching fullscreen images
+ * Properly recognize a new type of panoramic images

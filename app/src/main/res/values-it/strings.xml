@@ -15,10 +15,6 @@
     <string name="other_folder">Altra cartella</string>
     <string name="show_on_map">Mostra sulla mappa</string>
     <string name="unknown_location">Posizione sconosciuta</string>
-    <string name="increase_column_count">Aumenta numero colonne</string>
-    <string name="reduce_column_count">Riduci numero colonne</string>
-    <string name="change_cover_image">Cambia immagine copertina</string>
-    <string name="select_photo">Seleziona foto</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
     <string name="lock_orientation">Blocca orientamento</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
 
     <!-- View types -->
-    <string name="change_view_type">Cambia modalità visualizzazione</string>
-    <string name="grid">Griglia</string>
-    <string name="list">Elenco</string>
     <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Compromesso</string>
     <string name="avoid_showing_invalid_files">Evita di mostrare file non validi</string>
     <string name="show_image_file_types">Mostra i tipi di file immagine</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Permetti l\'ingrandimento dei video con un doppio tocco</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>

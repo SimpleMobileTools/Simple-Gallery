@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import java.util.*
@@ -405,8 +406,10 @@ class Config(context: Context) : BaseConfig(context) {
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
         "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots",
-        "internalStoragePath/WhatsApp/Media/WhatsApp Images",
-        "internalStoragePath/WhatsApp/Media/WhatsApp Video"
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Images",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Images/Sent",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Video",
+        "$internalStoragePath/WhatsApp/Media/WhatsApp Video/Sent",
     )
 
     var showRecycleBinAtFolders: Boolean

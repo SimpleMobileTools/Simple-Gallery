@@ -15,10 +15,6 @@
     <string name="other_folder">Diğer klasör</string>
     <string name="show_on_map">Haritada göster</string>
     <string name="unknown_location">Bilinmeyen konum</string>
-    <string name="increase_column_count">Sütun sayısını artır</string>
-    <string name="reduce_column_count">Sütun sayısını azalt</string>
-    <string name="change_cover_image">Kapak resmini değiştir</string>
-    <string name="select_photo">Fotoğraf seç</string>
     <string name="volume">Ses</string>
     <string name="brightness">Parlaklık</string>
     <string name="lock_orientation">Yönü kilitle</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
 
     <!-- View types -->
-    <string name="change_view_type">Görünüm türünü değiştir</string>
-    <string name="grid">Izgara</string>
-    <string name="list">Liste</string>
     <string name="group_direct_subfolders">Doğrudan alt klasörleri gruplandır</string>
 
     <!-- Grouping at media thumbnails -->
@@ -189,7 +182,14 @@
     <string name="compromise">Ödünsüz</string>
     <string name="avoid_showing_invalid_files">Geçersiz dosyaları göstermekten kaçın</string>
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>

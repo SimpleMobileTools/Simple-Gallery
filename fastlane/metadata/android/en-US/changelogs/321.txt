@@ -1,0 +1,2 @@
+ * Fix sorting by Date Taken
+ * Properly display some wrongly named WebP files

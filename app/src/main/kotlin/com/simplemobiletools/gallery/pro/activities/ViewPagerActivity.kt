@@ -187,11 +187,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_change_orientation).isVisible = rotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
             findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
-                    if (rotationDegrees != 0) {
-                        MenuItem.SHOW_AS_ACTION_ALWAYS
-                    } else {
-                        MenuItem.SHOW_AS_ACTION_IF_ROOM
-                    })
+                if (rotationDegrees != 0) {
+                    MenuItem.SHOW_AS_ACTION_ALWAYS
+                } else {
+                    MenuItem.SHOW_AS_ACTION_IF_ROOM
+                })
         }
 
         if (visibleBottomActions != 0) {
@@ -718,10 +718,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 val shortcut = ShortcutInfo.Builder(this, path)
-                        .setShortLabel(medium.name)
-                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
-                        .setIntent(intent)
-                        .build()
+                    .setShortLabel(medium.name)
+                    .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                    .setIntent(intent)
+                    .build()
 
                 manager.requestPinShortcut(shortcut, null)
             }
@@ -915,27 +915,27 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
 
             val options = RequestOptions()
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
 
             Glide.with(this)
-                    .asBitmap()
-                    .load(path)
-                    .apply(options)
-                    .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                            showErrorToast(e?.localizedMessage ?: "")
-                            return false
+                .asBitmap()
+                .load(path)
+                .apply(options)
+                .listener(object : RequestListener<Bitmap> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                        showErrorToast(e?.localizedMessage ?: "")
+                        return false
+                    }
+
+                    override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        if (bitmap != null) {
+                            printHelper.printBitmap(path.getFilenameFromPath(), bitmap)
                         }
 
-                        override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                            if (bitmap != null) {
-                                printHelper.printBitmap(path.getFilenameFromPath(), bitmap)
-                            }
-
-                            return false
-                        }
-                    }).submit(requestedWidth, requestedHeight)
+                        return false
+                    }
+                }).submit(requestedWidth, requestedHeight)
         } catch (e: Exception) {
         }
     }
@@ -986,7 +986,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
             if (isNougatPlus()) {
                 val newExif = ExifInterface(file.absolutePath)
-                oldExif?.copyTo(newExif, false)
+                oldExif?.copyNonDimensionAttributesTo(newExif)
             }
         } catch (e: Exception) {
         }
@@ -1261,8 +1261,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (bottom_actions.isVisible()) {
                 bottom_actions.animate().alpha(newAlpha).start()
                 arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
-                        bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
-                        bottom_resize).forEach {
+                    bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
+                    bottom_resize).forEach {
                     it.isClickable = !mIsFullScreen
                 }
             }

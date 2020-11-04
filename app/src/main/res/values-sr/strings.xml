@@ -15,10 +15,6 @@
     <string name="other_folder">Друга фасцикла</string>
     <string name="show_on_map">Прикажи на мапи</string>
     <string name="unknown_location">Непозната локација</string>
-    <string name="increase_column_count">Повећај број колона</string>
-    <string name="reduce_column_count">Смањи број колона</string>
-    <string name="change_cover_image">Промени насловну слику</string>
-    <string name="select_photo">Изабери фотографију</string>
     <string name="volume">Јачина звука</string>
     <string name="brightness">Осветљење</string>
     <string name="lock_orientation">Закључај оријентацију</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
 
     <!-- View types -->
-    <string name="change_view_type">Промени тип прегледа</string>
-    <string name="grid">Мрежа</string>
-    <string name="list">Листа</string>
     <string name="group_direct_subfolders">Групирај директне подфасцикле</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Не приказуј оштећене датотеке</string>
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Сличице</string>

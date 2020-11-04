@@ -15,10 +15,6 @@
     <string name="other_folder">Інша тека</string>
     <string name="show_on_map">Показати на мапі</string>
     <string name="unknown_location">Невідоме розташування</string>
-    <string name="increase_column_count">Збільшити кількість колонок</string>
-    <string name="reduce_column_count">Зменшити кількість колонок</string>
-    <string name="change_cover_image">Змінити обкладинку</string>
-    <string name="select_photo">Вибрати фото</string>
     <string name="volume">Об\'єм</string>
     <string name="brightness">Яскравість</string>
     <string name="lock_orientation">Закріпити орієнтацію</string>
@@ -125,9 +121,6 @@
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
 
     <!-- View types -->
-    <string name="change_view_type">Змінити тип перегляду</string>
-    <string name="grid">Сітка</string>
-    <string name="list">Список</string>
     <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
 
     <!-- Grouping at media thumbnails -->
@@ -190,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Запобігати показу пошкоджених файлів</string>
     <string name="show_image_file_types">Показувати типи файлів зображень</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="square">Square</string>
+    <string name="rounded_corners">Rounded corners</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>

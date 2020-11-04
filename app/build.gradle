@@ -17,9 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 309
-        versionName "6.14.8"
-        multiDexEnabled true
+        versionCode 326
+        versionName "6.17.1"
         setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
     }
@@ -78,12 +77,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.28.4'
+    implementation 'com.simplemobiletools:commons:5.31.19'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
@@ -92,7 +90,9 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
     implementation 'com.github.tibbi:gestureviews:512f929d82'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:381878c078'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:81c021514c'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.5.1'
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
