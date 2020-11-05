@@ -10,7 +10,7 @@ Version 6.17.1 *(2020-11-03)*
 Version 6.17.0 *(2020-11-02)*
 ----------------------------
 
- * Redesigning the main folders screen, try making it moderner (!)
+ * Redesigning the main folders screen, trying to make it more modern (!)
  * Fix some glitches with deep zoomable fullscreen images not loading in well
  * Couple other UX, stability and translation improvements
 
