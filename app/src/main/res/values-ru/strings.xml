@@ -146,7 +146,7 @@
     <string name="remember_last_video_position">Запоминать позицию воспроизведения последнего видео</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Повтор видео</string>
-    <string name="animate_gifs">Анимировать эскизы GIF</string>
+    <string name="animate_gifs">Анимировать миниатюры GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры на квадраты</string>
     <string name="show_thumbnail_video_duration">Показывать длительность видео</string>
@@ -155,7 +155,7 @@
     <string name="screen_rotation_device_rotation">При повороте устройства</string>
     <string name="screen_rotation_aspect_ratio">По размеру изображения</string>
     <string name="black_background_at_fullscreen">Чёрные фон и строка состояния при просмотре изображения</string>
-    <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
+    <string name="scroll_thumbnails_horizontally">Прокрутка миниатюр по горизонтали</string>
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс при просмотре изображения</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
     <string name="allow_photo_gestures">Управление яркостью при просмотре изображения вертикальными жестами</string>
@@ -183,6 +183,13 @@
     <string name="avoid_showing_invalid_files">Пропускать файлы с ошибками</string>
     <string name="show_image_file_types">Показывать типы файлов изображений</string>
     <string name="allow_zooming_videos">Масштабировать видео двойным нажатием по нему</string>
+    <string name="folder_thumbnail_style">Вид миниатюр папок</string>
+    <string name="show_file_count_line">Показывать количество файлов отдельной строкой</string>
+    <string name="show_file_count_brackets">Показывать количество файлов в скобках</string>
+    <string name="show_file_count_none">Не показывать количество файлов</string>
+    <string name="limit_folder_title">Заголовок папки одной строкой</string>
+    <string name="square">Квадраты</string>
+    <string name="rounded_corners">Закруглённые углы</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
@@ -306,7 +313,7 @@
     <string name="faq_14_title">Я скрыл файл/папку. Как я могу его увидеть его снова?</string>
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером.</string>
     <string name="faq_15_title">Почему приложение занимает так много места?</string>
-    <string name="faq_15_text">Кеш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые объекты. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
+    <string name="faq_15_text">Кеш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые элементы. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
