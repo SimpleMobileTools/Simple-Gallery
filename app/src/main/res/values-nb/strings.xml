@@ -183,13 +183,13 @@
     <string name="avoid_showing_invalid_files">Unngå visning av ugyldige filer</string>
     <string name="show_image_file_types">Vis bildefiltyper</string>
     <string name="allow_zooming_videos">Tillat zooming av videoer ved å dobbelttrykke dem</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Minibildestil for mapper</string>
+    <string name="show_file_count_line">Vis antall filer på en separat linje</string>
+    <string name="show_file_count_brackets">Vis antall filer i parentes</string>
+    <string name="show_file_count_none">Ikke vis antall filer</string>
+    <string name="limit_folder_title">Begrens mappetittel til 1 linje</string>
+    <string name="square">Firkantet</string>
+    <string name="rounded_corners">Avrundede hjørner</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
