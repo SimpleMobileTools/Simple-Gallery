@@ -679,8 +679,21 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
 
             if (scrollHorizontally && !isListViewType && config.folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
-                (dir_name.layoutParams as RelativeLayout.LayoutParams).removeRule(RelativeLayout.BELOW)
                 (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
+
+                val photoCntParams = (photo_cnt.layoutParams as RelativeLayout.LayoutParams)
+                val nameParams = (dir_name.layoutParams as RelativeLayout.LayoutParams)
+                nameParams.removeRule(RelativeLayout.BELOW)
+
+                if (config.showFolderMediaCount == FOLDER_MEDIA_CNT_LINE) {
+                    nameParams.addRule(RelativeLayout.ABOVE, photo_cnt.id)
+                    nameParams.removeRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+
+                    photoCntParams.removeRule(RelativeLayout.BELOW)
+                    photoCntParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                } else {
+                    nameParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                }
             }
 
             if (lockedFolderPaths.contains(directory.path)) {
