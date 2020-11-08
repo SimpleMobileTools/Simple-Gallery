@@ -495,4 +495,16 @@ class Config(context: Context) : BaseConfig(context) {
     var wereFavoritesMigrated: Boolean
         get() = prefs.getBoolean(WERE_FAVORITES_MIGRATED, false)
         set(wereFavoritesMigrated) = prefs.edit().putBoolean(WERE_FAVORITES_MIGRATED, wereFavoritesMigrated).apply()
+
+    var showFolderMediaCount: Int
+        get() = prefs.getInt(FOLDER_MEDIA_COUNT, FOLDER_MEDIA_CNT_LINE)
+        set(showFolderMediaCount) = prefs.edit().putInt(FOLDER_MEDIA_COUNT, showFolderMediaCount).apply()
+
+    var folderStyle: Int
+        get() = prefs.getInt(FOLDER_THUMBNAIL_STYLE, FOLDER_STYLE_SQUARE)
+        set(folderStyle) = prefs.edit().putInt(FOLDER_THUMBNAIL_STYLE, folderStyle).apply()
+
+    var limitFolderTitle: Boolean
+        get() = prefs.getBoolean(LIMIT_FOLDER_TITLE, false)
+        set(limitFolderTitle) = prefs.edit().putBoolean(LIMIT_FOLDER_TITLE, limitFolderTitle).apply()
 }

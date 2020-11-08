@@ -14,7 +14,10 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
+import com.simplemobiletools.gallery.pro.extensions.mediaDB
+import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -68,7 +71,7 @@ class SettingsActivity : SimpleActivity() {
         setupBottomActions()
         setupThumbnailVideoDuration()
         setupThumbnailFileTypes()
-        setupShowMediaCount()
+        setupFolderThumbnailStyle()
         setupKeepLastModified()
         setupEnablePullToRefresh()
         setupAllowZoomingImages()
@@ -107,8 +110,8 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
-                migrating_label).forEach {
+            file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
+            migrating_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -139,9 +142,9 @@ class SettingsActivity : SimpleActivity() {
         settings_file_loading_priority.text = getFileLoadingPriorityText()
         settings_file_loading_priority_holder.setOnClickListener {
             val items = arrayListOf(
-                    RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
-                    RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
-                    RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
+                RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
+                RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
+                RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.fileLoadingPriority) {
                 config.fileLoadingPriority = it as Int
@@ -411,13 +414,17 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowMediaCount() {
-        settings_show_media_count.isChecked = config.showMediaCount
-        settings_show_media_count_holder.setOnClickListener {
-            settings_show_media_count.toggle()
-            config.showMediaCount = settings_show_media_count.isChecked
+    private fun setupFolderThumbnailStyle() {
+        settings_folder_thumbnail_style.text = getFolderStyleText()
+        settings_folder_thumbnail_style_holder.setOnClickListener {
+
         }
     }
+
+    private fun getFolderStyleText() = getString(when (config.folderStyle) {
+        FOLDER_STYLE_SQUARE -> R.string.square
+        else -> R.string.rounded_corners
+    })
 
     private fun setupKeepLastModified() {
         settings_keep_last_modified.isChecked = config.keepLastModified
@@ -517,9 +524,9 @@ class SettingsActivity : SimpleActivity() {
         settings_screen_rotation.text = getScreenRotationText()
         settings_screen_rotation_holder.setOnClickListener {
             val items = arrayListOf(
-                    RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
-                    RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
-                    RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
+                RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
+                RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
+                RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
                 config.screenRotation = it as Int

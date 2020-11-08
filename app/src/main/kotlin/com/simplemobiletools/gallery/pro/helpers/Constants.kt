@@ -83,6 +83,9 @@ const val EDITOR_BRUSH_COLOR = "editor_brush_color"
 const val EDITOR_BRUSH_HARDNESS = "editor_brush_hardness"
 const val EDITOR_BRUSH_SIZE = "editor_brush_size"
 const val WERE_FAVORITES_MIGRATED = "were_favorites_migrated"
+const val FOLDER_THUMBNAIL_STYLE = "folder_thumbnail_style"
+const val FOLDER_MEDIA_COUNT = "folder_media_count"
+const val LIMIT_FOLDER_TITLE = "folder_limit_title"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -224,3 +227,10 @@ const val HIGH_TILE_DPI = 280
 const val ROUNDED_CORNERS_NONE = 1
 const val ROUNDED_CORNERS_SMALL = 2
 const val ROUNDED_CORNERS_BIG = 3
+
+const val FOLDER_MEDIA_CNT_LINE = 1
+const val FOLDER_MEDIA_CNT_BRACKETS = 2
+const val FOLDER_MEDIA_CNT_NONE = 3
+
+const val FOLDER_STYLE_SQUARE = 1
+const val FOLDER_STYLE_ROUNDED_CORNERS = 2
