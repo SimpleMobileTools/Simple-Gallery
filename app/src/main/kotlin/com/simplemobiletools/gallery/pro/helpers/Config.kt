@@ -272,10 +272,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
 
-    var showMediaCount: Boolean
-        get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)
-        set(showMediaCount) = prefs.edit().putBoolean(SHOW_MEDIA_COUNT, showMediaCount).apply()
-
     var slideshowInterval: Int
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()

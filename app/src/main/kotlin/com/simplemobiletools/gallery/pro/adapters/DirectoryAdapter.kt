@@ -46,7 +46,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
     private var pinnedFolders = config.pinnedFolders
     private var scrollHorizontally = config.scrollHorizontally
-    private var showMediaCount = config.showMediaCount
+    private var showMediaCount = config.showFolderMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var groupDirectSubfolders = config.groupDirectSubfolders
@@ -653,11 +653,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyDataSetChanged()
     }
 
-    fun updateShowMediaCount(showMediaCount: Boolean) {
-        this.showMediaCount = showMediaCount
-        notifyDataSetChanged()
-    }
-
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
@@ -693,7 +688,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
             }
 
-            photo_cnt.beVisibleIf(showMediaCount)
+            photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
 
             if (isListViewType) {
                 dir_name.setTextColor(textColor)

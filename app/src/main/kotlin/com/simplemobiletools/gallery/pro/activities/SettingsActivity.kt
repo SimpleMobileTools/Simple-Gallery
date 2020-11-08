@@ -650,7 +650,6 @@ class SettingsActivity : SimpleActivity() {
                 put(ANIMATE_GIFS, config.animateGifs)
                 put(CROP_THUMBNAILS, config.cropThumbnails)
                 put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
-                put(SHOW_MEDIA_COUNT, config.showMediaCount)
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
@@ -704,6 +703,9 @@ class SettingsActivity : SimpleActivity() {
                 put(EDITOR_BRUSH_HARDNESS, config.editorBrushHardness)
                 put(EDITOR_BRUSH_SIZE, config.editorBrushSize)
                 put(ALBUM_COVERS, config.albumCovers)
+                put(FOLDER_THUMBNAIL_STYLE, config.folderStyle)
+                put(FOLDER_MEDIA_COUNT, config.showFolderMediaCount)
+                put(LIMIT_FOLDER_TITLE, config.limitFolderTitle)
             }
 
             exportSettings(configItems)
@@ -785,7 +787,6 @@ class SettingsActivity : SimpleActivity() {
                 ANIMATE_GIFS -> config.animateGifs = value.toBoolean()
                 CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
                 SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
-                SHOW_MEDIA_COUNT -> config.showMediaCount = value.toBoolean()
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
@@ -838,6 +839,9 @@ class SettingsActivity : SimpleActivity() {
                 EDITOR_BRUSH_COLOR -> config.editorBrushColor = value.toInt()
                 EDITOR_BRUSH_HARDNESS -> config.editorBrushHardness = value.toString().toFloat()
                 EDITOR_BRUSH_SIZE -> config.editorBrushSize = value.toString().toFloat()
+                FOLDER_THUMBNAIL_STYLE -> config.folderStyle = value.toInt()
+                FOLDER_MEDIA_COUNT -> config.showFolderMediaCount = value.toInt()
+                LIMIT_FOLDER_TITLE -> config.limitFolderTitle = value.toBoolean()
                 ALBUM_COVERS -> {
                     val existingCovers = config.parseAlbumCovers()
                     val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>

@@ -82,7 +82,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
-    private var mStoredShowMediaCount = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
@@ -172,10 +171,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
             getRecyclerAdapter()?.updateCropThumbnails(config.cropThumbnails)
-        }
-
-        if (mStoredShowMediaCount != config.showMediaCount) {
-            getRecyclerAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
@@ -332,7 +327,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredShowMediaCount = showMediaCount
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
         }
