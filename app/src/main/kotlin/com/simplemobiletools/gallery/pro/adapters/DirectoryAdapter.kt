@@ -6,6 +6,7 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
+import android.text.TextUtils
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -719,6 +720,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             photo_cnt.text = directory.subfoldersMediaCount.toString()
             photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
+
+            if (config.limitFolderTitle) {
+                dir_name.setSingleLine()
+                dir_name.ellipsize = TextUtils.TruncateAt.MIDDLE
+            }
 
             var nameCount = directory.name
             if (showMediaCount == FOLDER_MEDIA_CNT_BRACKETS) {

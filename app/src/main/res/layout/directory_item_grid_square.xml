@@ -83,8 +83,6 @@
             android:id="@+id/dir_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
             android:paddingBottom="@dimen/small_margin"
             android:shadowColor="@color/default_background_color"
             android:shadowRadius="4"
