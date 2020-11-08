@@ -29,12 +29,12 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_check
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_location
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_lock
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_name
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_pin
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_thumbnail
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_check
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_location
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_lock
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_name
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_pin
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_thumbnail
 import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 

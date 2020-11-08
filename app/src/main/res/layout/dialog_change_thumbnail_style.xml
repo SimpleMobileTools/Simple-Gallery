@@ -16,21 +16,13 @@
         <RelativeLayout
             android:id="@+id/dialog_sample_holder"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <include
-                layout="@layout/directory_item_grid_square"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true" />
-
-        </RelativeLayout>
+            android:layout_height="wrap_content" />
 
         <RadioGroup
             android:id="@+id/dialog_radio_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
