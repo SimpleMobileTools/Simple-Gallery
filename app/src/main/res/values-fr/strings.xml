@@ -30,6 +30,8 @@
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -374,8 +376,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
       </string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

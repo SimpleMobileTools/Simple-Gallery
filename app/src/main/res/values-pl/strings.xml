@@ -30,6 +30,8 @@
     <string name="share_resized">Udostępnij zmienioną wersję</string>
     <string name="upgraded_from_free">Hej,\n\nwygląda na to że zaktualizowałeś ze starszej, darmowej wersji aplikacji. Możesz ją teraz odinstalować przyciskiej \'Upgrade to Pro\' w ustawieniach.\n\nZostaną jedynie usunięte elementy z Kosza, odznaczone Ulubione i konieczne będzie zresetowanie ustawień aplikacji.\n\nDziękujemy!</string>
     <string name="switch_to_file_search">Przełącz na przeszukiwanie plików we wszystkich widocznych folderach</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
@@ -374,8 +376,6 @@
         <b>... i/lub naszego subreddita:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

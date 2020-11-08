@@ -30,6 +30,8 @@
     <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
     <string name="upgraded_from_free">Γειά σας,\n\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, απο το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.\n\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.\n\nΣας ευχαριστώ!</string>
     <string name="switch_to_file_search">Εναλλαγή αναζήτησης αρχείων σε όλους τους ορατούς φακέλους</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
@@ -377,8 +379,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="set_as_default_folder">Set as default folder</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -30,6 +30,8 @@
     <string name="share_resized">Teile eine verkleinerte Version</string>
     <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -375,8 +377,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="set_as_default_folder">Set as default folder</string>
 
     <!--
         Haven't found some strings? There's more at
