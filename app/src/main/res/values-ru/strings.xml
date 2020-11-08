@@ -187,7 +187,7 @@
     <string name="show_file_count_line">Показывать количество файлов отдельной строкой</string>
     <string name="show_file_count_brackets">Показывать количество файлов в скобках</string>
     <string name="show_file_count_none">Не показывать количество файлов</string>
-    <string name="limit_folder_title">Заголовок папки одной строкой</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
 

@@ -187,7 +187,7 @@
     <string name="show_file_count_line">Zobraziť počet súborov na samostatnom riadku</string>
     <string name="show_file_count_brackets">Zobraziť počet súborov v zátvorkách</string>
     <string name="show_file_count_none">Nezobrazovať počet súborov</string>
-    <string name="limit_folder_title">Obmedziť názov priečinka na 1 riadok</string>
+    <string name="limit_folder_title">Obmedziť názvy dlhých priečinkov na 1 riadok</string>
     <string name="square">Štvorec</string>
     <string name="rounded_corners">Zaoblené rohy</string>
 
