@@ -73,7 +73,7 @@ class ChangeThumbnailStyleDialog(val activity: BaseSimpleActivity, val callback:
                 }
                 R.id.dialog_radio_count_brackets -> {
                     photo_cnt.beGone()
-                    dir_name.text = "${dir_name.text} ($photoCount)"
+                    dir_name.text = "$folderName ($photoCount)"
                 }
                 else -> {
                     dir_name.text = folderName
