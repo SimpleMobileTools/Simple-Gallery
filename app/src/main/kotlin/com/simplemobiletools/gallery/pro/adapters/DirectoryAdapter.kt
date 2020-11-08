@@ -9,6 +9,7 @@ import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -61,7 +62,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid_square
+        val layoutType = if (isListViewType) {
+            R.layout.directory_item_list
+        } else if (config.folderStyle == FOLDER_STYLE_SQUARE) {
+            R.layout.directory_item_grid_square
+        } else {
+            R.layout.directory_item_grid_rounded_corners
+        }
+
         return createViewHolder(layoutType, parent)
     }
 
@@ -670,13 +678,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_check.background?.applyColorFilter(primaryColor)
             }
 
+            if (scrollHorizontally && !isListViewType && config.folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
+                (dir_name.layoutParams as RelativeLayout.LayoutParams).removeRule(RelativeLayout.BELOW)
+                (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
+            }
+
             if (lockedFolderPaths.contains(directory.path)) {
                 dir_lock.beVisible()
                 dir_lock.background = ColorDrawable(config.backgroundColor)
                 dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
             } else {
                 dir_lock.beGone()
-                val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+                val roundedCorners = when {
+                    isListViewType -> ROUNDED_CORNERS_SMALL
+                    config.folderStyle == FOLDER_STYLE_SQUARE -> ROUNDED_CORNERS_NONE
+                    else -> ROUNDED_CORNERS_BIG
+                }
+
                 activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners)
             }
 
