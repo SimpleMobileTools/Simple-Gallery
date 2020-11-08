@@ -418,7 +418,9 @@ class SettingsActivity : SimpleActivity() {
     private fun setupFolderThumbnailStyle() {
         settings_folder_thumbnail_style.text = getFolderStyleText()
         settings_folder_thumbnail_style_holder.setOnClickListener {
-            ChangeThumbnailStyleDialog(this)
+            ChangeThumbnailStyleDialog(this) {
+                settings_folder_thumbnail_style.text = getFolderStyleText()
+            }
         }
     }
 
