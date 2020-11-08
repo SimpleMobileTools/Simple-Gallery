@@ -99,6 +99,10 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.5'
     implementation 'androidx.room:room-runtime:2.2.5'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
+
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
 }
 
 // Apply the PESDKPlugin
