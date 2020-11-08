@@ -61,6 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/dir_thumbnail"
         android:layout_alignStart="@+id/dir_thumbnail"
+        android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/dir_location"
         android:ellipsize="middle"
         android:paddingTop="@dimen/medium_margin"
