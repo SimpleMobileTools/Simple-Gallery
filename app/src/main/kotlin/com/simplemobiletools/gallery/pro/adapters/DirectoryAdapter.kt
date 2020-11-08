@@ -656,9 +656,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
-            dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} (${directory.subfoldersCount})" else directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
-            photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS
@@ -688,7 +686,21 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
             }
 
+            photo_cnt.text = directory.subfoldersMediaCount.toString()
             photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
+
+            var nameCount = directory.name
+            if (showMediaCount == FOLDER_MEDIA_CNT_BRACKETS) {
+                nameCount += " (${directory.subfoldersMediaCount})"
+            }
+
+            if (groupDirectSubfolders) {
+                if (directory.subfoldersCount > 1) {
+                    nameCount += " [${directory.subfoldersCount}]"
+                }
+            }
+
+            dir_name.text = nameCount
 
             if (isListViewType) {
                 dir_name.setTextColor(textColor)
