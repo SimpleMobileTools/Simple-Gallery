@@ -61,7 +61,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
+        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid_square
         return createViewHolder(layoutType, parent)
     }
 

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <include
-                layout="@layout/directory_item_grid"
+                layout="@layout/directory_item_grid_square"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true" />
