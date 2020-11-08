@@ -178,7 +178,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
         } else {
             PropertiesDialog(activity, getSelectedPaths().filter {
-                it != FAVORITES && it != RECYCLE_BIN && !activity.config.isFolderProtected(it)
+                it != FAVORITES && it != RECYCLE_BIN && !config.isFolderProtected(it)
             }.toMutableList(), config.shouldShowHidden)
         }
     }
@@ -216,7 +216,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
         } else {
-            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) && !activity.config.isFolderProtected(it) } as ArrayList<String>
+            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) && !config.isFolderProtected(it) } as ArrayList<String>
             RenameItemsDialog(activity, paths) {
                 listener?.refreshItems()
             }
@@ -243,13 +243,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
         } else {
-            selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
+            selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !config.isFolderProtected(it)) }.forEach {
                 val path = it
                 activity.handleLockedFolderOpening(path) { success ->
                     if (success) {
                         if (path.containsNoMedia()) {
                             activity.removeNoMedia(path) {
-                                if (activity.config.shouldShowHidden) {
+                                if (config.shouldShowHidden) {
                                     updateFolderNames()
                                 } else {
                                     activity.runOnUiThread {
@@ -308,7 +308,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun updateFolderNames() {
-        val includedFolders = activity.config.includedFolders
+        val includedFolders = config.includedFolders
         val hidden = activity.getString(R.string.hidden)
         dirs.forEach {
             it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders, ArrayList())
@@ -321,11 +321,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
-            if (activity.config.shouldShowHidden) {
+            if (config.shouldShowHidden) {
                 updateFolderNames()
             } else {
                 val affectedPositions = ArrayList<Int>()
-                val includedFolders = activity.config.includedFolders
+                val includedFolders = config.includedFolders
                 val newDirs = dirs.filterIndexed { index, directory ->
                     val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
                     if (removeDir) {
@@ -366,7 +366,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 finishActMode()
             }
         } else if (paths.size > 1) {
-            activity.config.addExcludedFolders(paths)
+            config.addExcludedFolders(paths)
             listener?.refreshItems()
             finishActMode()
         }
@@ -434,7 +434,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
-        val showHidden = activity.config.shouldShowHidden
+        val showHidden = config.shouldShowHidden
         getSelectedPaths().forEach {
             val filter = config.filterMedia
             File(it).listFiles()?.filter {
@@ -576,7 +576,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     }
                 }
             } else {
-                foldersToDelete = foldersToDelete.filter { !activity.config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
+                foldersToDelete = foldersToDelete.filter { !config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
                 listener?.deleteFolders(foldersToDelete)
             }
         }
@@ -620,7 +620,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun getAlbumCoversWithout(path: String) = config.parseAlbumCovers().filterNot { it.path == path } as ArrayList
 
     private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
-        activity.config.albumCovers = Gson().toJson(albumCovers)
+        config.albumCovers = Gson().toJson(albumCovers)
         finishActMode()
         listener?.refreshItems()
     }
