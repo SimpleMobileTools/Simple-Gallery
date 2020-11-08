@@ -84,6 +84,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredScrollHorizontally = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
+    private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -187,6 +188,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
             directories_vertical_fastscroller.updatePrimaryColor()
             directories_horizontal_fastscroller.updatePrimaryColor()
+        }
+
+        val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
+        if (mStoredStyleString != styleString) {
+            setupAdapter(mDirs, forceRecreate = true)
         }
 
         directories_horizontal_fastscroller.updateBubbleColors()
@@ -329,6 +335,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredScrollHorizontally = scrollHorizontally
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
+            mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
     }
 
@@ -1141,13 +1148,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_grid.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
-    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
+    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "", forceRecreate: Boolean = false) {
         val currAdapter = directories_grid.adapter
         val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
         val sortedDirs = getSortedDirectories(distinctDirs)
         var dirsToShow = getDirsToShow(sortedDirs, mDirs, mCurrentPathPrefix).clone() as ArrayList<Directory>
 
-        if (currAdapter == null) {
+        if (currAdapter == null || forceRecreate) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {

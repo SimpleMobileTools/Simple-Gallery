@@ -48,12 +48,15 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
     private var pinnedFolders = config.pinnedFolders
     private var scrollHorizontally = config.scrollHorizontally
-    private var showMediaCount = config.showFolderMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
+
+    private var showMediaCount = config.showFolderMediaCount
+    private var folderStyle = config.folderStyle
+    private var limitFolderTitle = config.limitFolderTitle
 
     init {
         setupDragListener(true)
@@ -63,12 +66,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (isListViewType) {
-            R.layout.directory_item_list
-        } else if (config.folderStyle == FOLDER_STYLE_SQUARE) {
-            R.layout.directory_item_grid_square
-        } else {
-            R.layout.directory_item_grid_rounded_corners
+        val layoutType = when {
+            isListViewType -> R.layout.directory_item_list
+            folderStyle == FOLDER_STYLE_SQUARE -> R.layout.directory_item_grid_square
+            else -> R.layout.directory_item_grid_rounded_corners
         }
 
         return createViewHolder(layoutType, parent)
@@ -679,7 +680,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_check.background?.applyColorFilter(primaryColor)
             }
 
-            if (scrollHorizontally && !isListViewType && config.folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
+            if (scrollHorizontally && !isListViewType && folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
                 (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
 
                 val photoCntParams = (photo_cnt.layoutParams as RelativeLayout.LayoutParams)
@@ -705,7 +706,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_lock.beGone()
                 val roundedCorners = when {
                     isListViewType -> ROUNDED_CORNERS_SMALL
-                    config.folderStyle == FOLDER_STYLE_SQUARE -> ROUNDED_CORNERS_NONE
+                    folderStyle == FOLDER_STYLE_SQUARE -> ROUNDED_CORNERS_NONE
                     else -> ROUNDED_CORNERS_BIG
                 }
 
@@ -721,7 +722,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             photo_cnt.text = directory.subfoldersMediaCount.toString()
             photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
 
-            if (config.limitFolderTitle) {
+            if (limitFolderTitle) {
                 dir_name.setSingleLine()
                 dir_name.ellipsize = TextUtils.TruncateAt.MIDDLE
             }
