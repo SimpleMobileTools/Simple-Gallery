@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dir_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -88,14 +89,16 @@
             android:shadowColor="@color/default_background_color"
             android:shadowRadius="4"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/normal_text_size" />
+            android:textSize="@dimen/normal_text_size"
+            tools:src="Camera" />
 
         <TextView
             android:id="@+id/photo_cnt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/normal_text_size" />
+            android:textSize="@dimen/normal_text_size"
+            tools:text="36" />
 
     </LinearLayout>
 
