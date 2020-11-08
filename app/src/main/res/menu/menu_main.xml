@@ -59,6 +59,10 @@
         android:title="@string/reduce_column_count"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/set_as_default_folder"
+        android:title="@string/set_as_default_folder"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/settings"
         android:title="@string/settings"
         app:showAsAction="never"/>

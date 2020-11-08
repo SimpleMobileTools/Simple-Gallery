@@ -72,6 +72,14 @@
         android:title="@string/reduce_column_count"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/set_as_default_folder"
+        android:title="@string/set_as_default_folder"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/unset_as_default_folder"
+        android:title="@string/unset_as_default_folder"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/slideshow"
         android:title="@string/slideshow"
         app:showAsAction="never"/>
