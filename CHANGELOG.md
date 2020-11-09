@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.17.2 *(2020-11-09)*
+----------------------------
+
+ * Adding some folder thumbnail customization at the app settings
+ * Allow setting a default folder to be opened at app launch (by roland-kister)
+ * Updated the photo editor to fix some glitches
+
 Version 6.17.1 *(2020-11-03)*
 ----------------------------
 
