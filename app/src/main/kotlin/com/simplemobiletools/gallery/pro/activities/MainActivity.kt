@@ -1420,18 +1420,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun openDefaultFolder() {
         if (config.defaultFolder.isEmpty()) {
-            return;
+            return
         }
 
-        val defaultDir = File(config.defaultFolder!!)
+        val defaultDir = File(config.defaultFolder)
 
-        if (!defaultDir.exists() || !defaultDir.isDirectory) {
+        if ((!defaultDir.exists() || !defaultDir.isDirectory) && (config.defaultFolder != RECYCLE_BIN && config.defaultFolder != FAVORITES)) {
             config.defaultFolder = ""
-            return;
+            return
         }
 
         Intent(this, MediaActivity::class.java).apply {
-            putExtra(DIRECTORY, defaultDir.path)
+            putExtra(DIRECTORY, config.defaultFolder)
             handleMediaIntent(this)
         }
     }
