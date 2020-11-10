@@ -30,8 +30,8 @@
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Définir comme dossier par défaut</string>
+    <string name="unset_as_default_folder">Ne plus définir comme dossier par défaut</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -185,13 +185,13 @@
     <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
     <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Style des miniatures</string>
+    <string name="show_file_count_line">Afficher le nombre de fichiers sur une autre ligne</string>
+    <string name="show_file_count_brackets">Afficher le nombre de fichiers entre parenthèses</string>
+    <string name="show_file_count_none">Ne pas afficher le nombre de fichiers</string>
+    <string name="limit_folder_title">Limiter à une ligne les noms de fichiers</string>
+    <string name="square">Carré</string>
+    <string name="rounded_corners">Arrondi</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
