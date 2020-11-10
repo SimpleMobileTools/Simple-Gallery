@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.17.3 *(2020-11-10)*
+----------------------------
+
+ * Properly update the folder thumbnail text colors
+
 Version 6.17.2 *(2020-11-09)*
 ----------------------------
 
