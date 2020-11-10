@@ -106,6 +106,8 @@ class ChangeThumbnailStyleDialog(val activity: BaseSimpleActivity, val callback:
             if (useRoundedCornersLayout) {
                 val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius_big).toInt()
                 builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+                dir_name.setTextColor(activity.config.textColor)
+                photo_cnt.setTextColor(activity.config.textColor)
             }
 
             builder.into(dir_thumbnail)

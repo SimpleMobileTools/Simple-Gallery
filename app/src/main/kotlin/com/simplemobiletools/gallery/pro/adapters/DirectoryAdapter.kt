@@ -740,10 +740,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             dir_name.text = nameCount
 
-            if (isListViewType) {
-                dir_name.setTextColor(textColor)
-                dir_path.setTextColor(textColor)
+            if (isListViewType || folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
                 photo_cnt.setTextColor(textColor)
+                dir_name.setTextColor(textColor)
+                dir_location.applyColorFilter(textColor)
+            }
+
+            if (isListViewType) {
+                dir_path.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
                 dir_location.applyColorFilter(textColor)
             }
