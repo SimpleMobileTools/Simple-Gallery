@@ -30,8 +30,8 @@
     <string name="share_resized">Поделиться изменённой версией</string>
     <string name="upgraded_from_free">Привет,\n\nпохоже, что вы обновились со старого бесплатного приложения. Теперь вы можете удалить старую версию, которая содержит кнопку \"Обновить до Pro\" в верхней части настроек приложения.\n\nБудет очищена корзина, сняты отметки избранного, а также вам придётся сбросить настройки приложения.\n\nСпасибо!</string>
     <string name="switch_to_file_search">Переключиться на поиск файлов по всем видимым папкам</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Установить как папку по умолчанию</string>
+    <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -189,7 +189,7 @@
     <string name="show_file_count_line">Показывать количество файлов отдельной строкой</string>
     <string name="show_file_count_brackets">Показывать количество файлов в скобках</string>
     <string name="show_file_count_none">Не показывать количество файлов</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
+    <string name="limit_folder_title">Длинное название папки одной строкой</string>
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
 
