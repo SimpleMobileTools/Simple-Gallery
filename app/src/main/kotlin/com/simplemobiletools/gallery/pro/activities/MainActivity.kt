@@ -82,9 +82,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
-    private var mStoredShowMediaCount = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
+    private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +92,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         appLaunched(BuildConfig.APPLICATION_ID)
 
         if (savedInstanceState == null) {
+            openDefaultFolder()
+
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
@@ -174,10 +176,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getRecyclerAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
-        if (mStoredShowMediaCount != config.showMediaCount) {
-            getRecyclerAdapter()?.updateShowMediaCount(config.showMediaCount)
-        }
-
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             mLoadedInitialPhotos = false
             directories_grid.adapter = null
@@ -192,6 +190,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
             directories_vertical_fastscroller.updatePrimaryColor()
             directories_horizontal_fastscroller.updatePrimaryColor()
+        }
+
+        val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
+        if (mStoredStyleString != styleString) {
+            setupAdapter(mDirs, forceRecreate = true)
         }
 
         directories_horizontal_fastscroller.updateBubbleColors()
@@ -283,6 +286,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
+                findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
                 setupSearch(this)
             }
         }
@@ -308,6 +312,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
+            R.id.set_as_default_folder -> setAsDefaultFolder()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
@@ -332,9 +337,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredShowMediaCount = showMediaCount
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
+            mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
     }
 
@@ -660,16 +665,36 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun calculateContentWidth(directories: ArrayList<Directory>) {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val fullWidth = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+
+        val fullWidth = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
+            val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
+            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        } else {
+            val thumbnailWidth = (layoutManager.getChildAt(0)?.width ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
+            val columnCount = (directories.size - 1) / layoutManager.spanCount + 1
+            columnCount * thumbnailWidth
+        }
+
         directories_horizontal_fastscroller.setContentWidth(fullWidth)
         directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())
     }
 
     private fun calculateContentHeight(directories: ArrayList<Directory>) {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
-        val fullHeight = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+
+        val fullHeight = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
+            val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
+            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+        } else {
+            var thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0)
+            if (config.viewTypeFolders == VIEW_TYPE_GRID) {
+                thumbnailHeight += resources.getDimension(R.dimen.medium_margin).toInt() * 2
+            }
+
+            val rowCount = (directories.size - 1) / layoutManager.spanCount + 1
+            rowCount * thumbnailHeight
+        }
+
         directories_vertical_fastscroller.setContentHeight(fullHeight)
         directories_vertical_fastscroller.setScrollToY(directories_grid.computeVerticalScrollOffset())
     }
@@ -1098,6 +1123,29 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mDirs = dirs.clone() as ArrayList<Directory>
     }
 
+    private fun setAsDefaultFolder() {
+        config.defaultFolder = ""
+        invalidateOptionsMenu()
+    }
+
+    private fun openDefaultFolder() {
+        if (config.defaultFolder.isEmpty()) {
+            return
+        }
+
+        val defaultDir = File(config.defaultFolder)
+
+        if ((!defaultDir.exists() || !defaultDir.isDirectory) && (config.defaultFolder != RECYCLE_BIN && config.defaultFolder != FAVORITES)) {
+            config.defaultFolder = ""
+            return
+        }
+
+        Intent(this, MediaActivity::class.java).apply {
+            putExtra(DIRECTORY, config.defaultFolder)
+            handleMediaIntent(this)
+        }
+    }
+
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
         directories_empty_placeholder.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_placeholder_2.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
@@ -1127,13 +1175,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_grid.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
-    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
+    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "", forceRecreate: Boolean = false) {
         val currAdapter = directories_grid.adapter
         val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
         val sortedDirs = getSortedDirectories(distinctDirs)
         var dirsToShow = getDirsToShow(sortedDirs, mDirs, mCurrentPathPrefix).clone() as ArrayList<Directory>
 
-        if (currAdapter == null) {
+        if (currAdapter == null || forceRecreate) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
@@ -1384,6 +1432,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(258, R.string.release_258))
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
+            add(Release(327, R.string.release_327))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

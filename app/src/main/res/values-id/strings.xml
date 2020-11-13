@@ -30,6 +30,8 @@
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
     <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
     <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 

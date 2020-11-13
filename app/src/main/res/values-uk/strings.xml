@@ -30,6 +30,8 @@
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
     <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
     <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 

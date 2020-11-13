@@ -30,6 +30,8 @@
     <string name="share_resized">分享調整大小的版本</string>
     <string name="upgraded_from_free">嘿\n\n你似乎從舊版免費應用程式升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。\n\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。\n\n感謝!</string>
     <string name="switch_to_file_search">檔案搜尋目標切換成全部的可見資料夾</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 

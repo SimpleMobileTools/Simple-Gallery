@@ -6,9 +6,11 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
+import android.text.TextUtils
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -29,12 +31,12 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_check
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_location
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_lock
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_name
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_pin
-import kotlinx.android.synthetic.main.directory_item_grid.view.dir_thumbnail
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_check
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_location
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_lock
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_name
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_pin
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_thumbnail
 import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 
@@ -46,12 +48,15 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
     private var pinnedFolders = config.pinnedFolders
     private var scrollHorizontally = config.scrollHorizontally
-    private var showMediaCount = config.showMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
+
+    private var showMediaCount = config.showFolderMediaCount
+    private var folderStyle = config.folderStyle
+    private var limitFolderTitle = config.limitFolderTitle
 
     init {
         setupDragListener(true)
@@ -61,7 +66,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
+        val layoutType = when {
+            isListViewType -> R.layout.directory_item_list
+            folderStyle == FOLDER_STYLE_SQUARE -> R.layout.directory_item_grid_square
+            else -> R.layout.directory_item_grid_rounded_corners
+        }
+
         return createViewHolder(layoutType, parent)
     }
 
@@ -168,7 +178,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
         } else {
             PropertiesDialog(activity, getSelectedPaths().filter {
-                it != FAVORITES && it != RECYCLE_BIN && !activity.config.isFolderProtected(it)
+                it != FAVORITES && it != RECYCLE_BIN && !config.isFolderProtected(it)
             }.toMutableList(), config.shouldShowHidden)
         }
     }
@@ -206,7 +216,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
         } else {
-            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) && !activity.config.isFolderProtected(it) } as ArrayList<String>
+            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) && !config.isFolderProtected(it) } as ArrayList<String>
             RenameItemsDialog(activity, paths) {
                 listener?.refreshItems()
             }
@@ -233,13 +243,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
         } else {
-            selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
+            selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !config.isFolderProtected(it)) }.forEach {
                 val path = it
                 activity.handleLockedFolderOpening(path) { success ->
                     if (success) {
                         if (path.containsNoMedia()) {
                             activity.removeNoMedia(path) {
-                                if (activity.config.shouldShowHidden) {
+                                if (config.shouldShowHidden) {
                                     updateFolderNames()
                                 } else {
                                     activity.runOnUiThread {
@@ -298,7 +308,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun updateFolderNames() {
-        val includedFolders = activity.config.includedFolders
+        val includedFolders = config.includedFolders
         val hidden = activity.getString(R.string.hidden)
         dirs.forEach {
             it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders, ArrayList())
@@ -311,11 +321,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
-            if (activity.config.shouldShowHidden) {
+            if (config.shouldShowHidden) {
                 updateFolderNames()
             } else {
                 val affectedPositions = ArrayList<Int>()
-                val includedFolders = activity.config.includedFolders
+                val includedFolders = config.includedFolders
                 val newDirs = dirs.filterIndexed { index, directory ->
                     val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
                     if (removeDir) {
@@ -356,7 +366,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 finishActMode()
             }
         } else if (paths.size > 1) {
-            activity.config.addExcludedFolders(paths)
+            config.addExcludedFolders(paths)
             listener?.refreshItems()
             finishActMode()
         }
@@ -424,7 +434,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
-        val showHidden = activity.config.shouldShowHidden
+        val showHidden = config.shouldShowHidden
         getSelectedPaths().forEach {
             val filter = config.filterMedia
             File(it).listFiles()?.filter {
@@ -566,7 +576,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     }
                 }
             } else {
-                foldersToDelete = foldersToDelete.filter { !activity.config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
+                foldersToDelete = foldersToDelete.filter { !config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
                 listener?.deleteFolders(foldersToDelete)
             }
         }
@@ -610,7 +620,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun getAlbumCoversWithout(path: String) = config.parseAlbumCovers().filterNot { it.path == path } as ArrayList
 
     private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
-        activity.config.albumCovers = Gson().toJson(albumCovers)
+        config.albumCovers = Gson().toJson(albumCovers)
         finishActMode()
         listener?.refreshItems()
     }
@@ -653,17 +663,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyDataSetChanged()
     }
 
-    fun updateShowMediaCount(showMediaCount: Boolean) {
-        this.showMediaCount = showMediaCount
-        notifyDataSetChanged()
-    }
-
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
-            dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} (${directory.subfoldersCount})" else directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
-            photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS
@@ -677,13 +680,36 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_check.background?.applyColorFilter(primaryColor)
             }
 
+            if (scrollHorizontally && !isListViewType && folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
+                (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
+
+                val photoCntParams = (photo_cnt.layoutParams as RelativeLayout.LayoutParams)
+                val nameParams = (dir_name.layoutParams as RelativeLayout.LayoutParams)
+                nameParams.removeRule(RelativeLayout.BELOW)
+
+                if (config.showFolderMediaCount == FOLDER_MEDIA_CNT_LINE) {
+                    nameParams.addRule(RelativeLayout.ABOVE, photo_cnt.id)
+                    nameParams.removeRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+
+                    photoCntParams.removeRule(RelativeLayout.BELOW)
+                    photoCntParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                } else {
+                    nameParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                }
+            }
+
             if (lockedFolderPaths.contains(directory.path)) {
                 dir_lock.beVisible()
                 dir_lock.background = ColorDrawable(config.backgroundColor)
                 dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
             } else {
                 dir_lock.beGone()
-                val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+                val roundedCorners = when {
+                    isListViewType -> ROUNDED_CORNERS_SMALL
+                    folderStyle == FOLDER_STYLE_SQUARE -> ROUNDED_CORNERS_NONE
+                    else -> ROUNDED_CORNERS_BIG
+                }
+
                 activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners)
             }
 
@@ -693,12 +719,35 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
             }
 
-            photo_cnt.beVisibleIf(showMediaCount)
+            photo_cnt.text = directory.subfoldersMediaCount.toString()
+            photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
+
+            if (limitFolderTitle) {
+                dir_name.setSingleLine()
+                dir_name.ellipsize = TextUtils.TruncateAt.MIDDLE
+            }
+
+            var nameCount = directory.name
+            if (showMediaCount == FOLDER_MEDIA_CNT_BRACKETS) {
+                nameCount += " (${directory.subfoldersMediaCount})"
+            }
+
+            if (groupDirectSubfolders) {
+                if (directory.subfoldersCount > 1) {
+                    nameCount += " [${directory.subfoldersCount}]"
+                }
+            }
+
+            dir_name.text = nameCount
+
+            if (isListViewType || folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
+                photo_cnt.setTextColor(textColor)
+                dir_name.setTextColor(textColor)
+                dir_location.applyColorFilter(textColor)
+            }
 
             if (isListViewType) {
-                dir_name.setTextColor(textColor)
                 dir_path.setTextColor(textColor)
-                photo_cnt.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
                 dir_location.applyColorFilter(textColor)
             }

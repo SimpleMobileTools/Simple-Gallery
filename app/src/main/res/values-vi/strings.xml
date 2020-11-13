@@ -30,6 +30,8 @@
     <string name="share_resized">Chia sẻ phiên bản đã thay đổi kích thước</string>
     <string name="upgraded_from_free">Xin chào, có vẻ như bạn đã nâng cấp từ ứng dụng miễn phí cũ. Giờ đây, bạn có thể gỡ cài đặt phiên bản cũ có nút \'Nâng cấp lên Pro\' ở đầu Cài đặt ứng dụng. \n\nBạn sẽ chỉ xóa các mục Thùng rác, các mục yêu thích không được đánh dấu và bạn cũng sẽ phải đặt lại cài đặt ứng dụng của bạn.\n\nCảm ơn!</string>
     <string name="switch_to_file_search">Chuyển sang tìm kiếm tệp trên tất cả các thư mục hiển thị</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Lọc</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 

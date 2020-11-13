@@ -23,6 +23,7 @@ const val DISPLAY_FILE_NAMES = "display_file_names"
 const val BLACK_BACKGROUND = "dark_background"
 const val PINNED_FOLDERS = "pinned_folders"
 const val FILTER_MEDIA = "filter_media"
+const val DEFAULT_FOLDER = "default_folder"
 const val DIR_COLUMN_CNT = "dir_column_cnt"
 const val DIR_LANDSCAPE_COLUMN_CNT = "dir_landscape_column_cnt"
 const val DIR_HORIZONTAL_COLUMN_CNT = "dir_horizontal_column_cnt"
@@ -40,7 +41,6 @@ const val HIDE_SYSTEM_UI = "hide_system_ui"
 const val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
 const val ALLOW_PHOTO_GESTURES = "allow_photo_gestures"
 const val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
-const val SHOW_MEDIA_COUNT = "show_media_count"
 const val TEMP_FOLDER_PATH = "temp_folder_path"
 const val VIEW_TYPE_FOLDERS = "view_type_folders"
 const val VIEW_TYPE_FILES = "view_type_files"
@@ -83,6 +83,9 @@ const val EDITOR_BRUSH_COLOR = "editor_brush_color"
 const val EDITOR_BRUSH_HARDNESS = "editor_brush_hardness"
 const val EDITOR_BRUSH_SIZE = "editor_brush_size"
 const val WERE_FAVORITES_MIGRATED = "were_favorites_migrated"
+const val FOLDER_THUMBNAIL_STYLE = "folder_thumbnail_style"
+const val FOLDER_MEDIA_COUNT = "folder_media_count"
+const val LIMIT_FOLDER_TITLE = "folder_limit_title"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -224,3 +227,10 @@ const val HIGH_TILE_DPI = 280
 const val ROUNDED_CORNERS_NONE = 1
 const val ROUNDED_CORNERS_SMALL = 2
 const val ROUNDED_CORNERS_BIG = 3
+
+const val FOLDER_MEDIA_CNT_LINE = 1
+const val FOLDER_MEDIA_CNT_BRACKETS = 2
+const val FOLDER_MEDIA_CNT_NONE = 3
+
+const val FOLDER_STYLE_SQUARE = 1
+const val FOLDER_STYLE_ROUNDED_CORNERS = 2

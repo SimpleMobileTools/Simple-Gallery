@@ -26,10 +26,12 @@
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
     <string name="fixing">Korrigiere…</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
     <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
+    <string name="set_as_default_folder">Als Standardordner festlegen</string>
+    <string name="unset_as_default_folder">Nicht mehr als Standardordner festlegen</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -76,7 +78,7 @@
     <string name="rotate">Drehen</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="image_editing_cancelled">Bildbearbeitung abgebrochen</string>
     <string name="file_edited_successfully">Datei erfolgreich bearbeitet</string>
     <string name="edit_image_with">Bild bearbeiten mit:</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
@@ -182,17 +184,17 @@
     <string name="compromise">Kompromiss</string>
     <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
     <string name="show_image_file_types">Bilddateitypen anzeigen</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="allow_zooming_videos">Erlaube Zoomen in Videos mit doppeltem Antippen</string>
+    <string name="folder_thumbnail_style">Ordner-Miniaturbildstil</string>
+    <string name="show_file_count_line">Zeige Anzahl der Dateien in einer seperaten Zeile an</string>
+    <string name="show_file_count_brackets">Anzahl der Dateien in Klammern anzeigen</string>
+    <string name="show_file_count_none">Anzahl der Dateien nicht anzeigen</string>
+    <string name="limit_folder_title">Begrenze lange Ordnertitel auf 1 Zeile</string>
+    <string name="square">Quadrat</string>
+    <string name="rounded_corners">Abgerundete Ecken</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
+    <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
     <string name="extended_details">Erweiterte Details</string>
     <string name="bottom_actions">Funktionen am unteren Bildschirmrand</string>

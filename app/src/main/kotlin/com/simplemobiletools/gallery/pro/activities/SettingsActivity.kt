@@ -12,9 +12,13 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.dialogs.ChangeThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
+import com.simplemobiletools.gallery.pro.extensions.mediaDB
+import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -68,7 +72,7 @@ class SettingsActivity : SimpleActivity() {
         setupBottomActions()
         setupThumbnailVideoDuration()
         setupThumbnailFileTypes()
-        setupShowMediaCount()
+        setupFolderThumbnailStyle()
         setupKeepLastModified()
         setupEnablePullToRefresh()
         setupAllowZoomingImages()
@@ -107,8 +111,8 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
-                migrating_label).forEach {
+            file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
+            migrating_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -139,9 +143,9 @@ class SettingsActivity : SimpleActivity() {
         settings_file_loading_priority.text = getFileLoadingPriorityText()
         settings_file_loading_priority_holder.setOnClickListener {
             val items = arrayListOf(
-                    RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
-                    RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
-                    RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
+                RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
+                RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
+                RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.fileLoadingPriority) {
                 config.fileLoadingPriority = it as Int
@@ -411,13 +415,19 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowMediaCount() {
-        settings_show_media_count.isChecked = config.showMediaCount
-        settings_show_media_count_holder.setOnClickListener {
-            settings_show_media_count.toggle()
-            config.showMediaCount = settings_show_media_count.isChecked
+    private fun setupFolderThumbnailStyle() {
+        settings_folder_thumbnail_style.text = getFolderStyleText()
+        settings_folder_thumbnail_style_holder.setOnClickListener {
+            ChangeThumbnailStyleDialog(this) {
+                settings_folder_thumbnail_style.text = getFolderStyleText()
+            }
         }
     }
+
+    private fun getFolderStyleText() = getString(when (config.folderStyle) {
+        FOLDER_STYLE_SQUARE -> R.string.square
+        else -> R.string.rounded_corners
+    })
 
     private fun setupKeepLastModified() {
         settings_keep_last_modified.isChecked = config.keepLastModified
@@ -517,9 +527,9 @@ class SettingsActivity : SimpleActivity() {
         settings_screen_rotation.text = getScreenRotationText()
         settings_screen_rotation_holder.setOnClickListener {
             val items = arrayListOf(
-                    RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
-                    RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
-                    RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
+                RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
+                RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
+                RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
                 config.screenRotation = it as Int
@@ -640,7 +650,6 @@ class SettingsActivity : SimpleActivity() {
                 put(ANIMATE_GIFS, config.animateGifs)
                 put(CROP_THUMBNAILS, config.cropThumbnails)
                 put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
-                put(SHOW_MEDIA_COUNT, config.showMediaCount)
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
@@ -694,6 +703,9 @@ class SettingsActivity : SimpleActivity() {
                 put(EDITOR_BRUSH_HARDNESS, config.editorBrushHardness)
                 put(EDITOR_BRUSH_SIZE, config.editorBrushSize)
                 put(ALBUM_COVERS, config.albumCovers)
+                put(FOLDER_THUMBNAIL_STYLE, config.folderStyle)
+                put(FOLDER_MEDIA_COUNT, config.showFolderMediaCount)
+                put(LIMIT_FOLDER_TITLE, config.limitFolderTitle)
             }
 
             exportSettings(configItems)
@@ -775,7 +787,6 @@ class SettingsActivity : SimpleActivity() {
                 ANIMATE_GIFS -> config.animateGifs = value.toBoolean()
                 CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
                 SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
-                SHOW_MEDIA_COUNT -> config.showMediaCount = value.toBoolean()
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
@@ -828,6 +839,9 @@ class SettingsActivity : SimpleActivity() {
                 EDITOR_BRUSH_COLOR -> config.editorBrushColor = value.toInt()
                 EDITOR_BRUSH_HARDNESS -> config.editorBrushHardness = value.toString().toFloat()
                 EDITOR_BRUSH_SIZE -> config.editorBrushSize = value.toString().toFloat()
+                FOLDER_THUMBNAIL_STYLE -> config.folderStyle = value.toInt()
+                FOLDER_MEDIA_COUNT -> config.showFolderMediaCount = value.toInt()
+                LIMIT_FOLDER_TITLE -> config.limitFolderTitle = value.toBoolean()
                 ALBUM_COVERS -> {
                     val existingCovers = config.parseAlbumCovers()
                     val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>

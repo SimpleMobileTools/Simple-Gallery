@@ -30,6 +30,8 @@
     <string name="share_resized">Condividi una versione ridimensionata</string>
     <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
@@ -173,7 +175,7 @@
     <string name="show_highest_quality">Mostra le immagini alla massima qualità possibile</string>
     <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
-    <string name="allow_one_to_one_zoom">Permetti l\'ingrandimento 1:1 con un doppio tasto</string>
+    <string name="allow_one_to_one_zoom">Consenti l\'ingrandimento 1:1 con due doppi tocchi</string>
     <string name="open_videos_on_separate_screen">Apri sempre i video su uno schermo separato con i nuovi movimenti orizzontali</string>
     <string name="show_notch">Mostra un notch se disponibile</string>
     <string name="allow_rotating_gestures">Permetti la rotazione delle immagini con i gesti</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 
@@ -376,6 +378,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

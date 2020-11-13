@@ -30,6 +30,8 @@
     <string name="share_resized">مشاركة الصورة الذي تم تغيير حجمها</string>
     <string name="upgraded_from_free">مرحباً,\n\nيبدو أنك قمت بترقية التطبيق المجاني القديم. يمكنك الآن إلغاء تثبيت الإصدار القديم، الذي يحتوي على زر \'الترقية إلى Pro\' في أعلي إعدادات التطبيق.\n\nسيتم حذف عناصر سلة المحذوفات فقط، كما سيتم حذف العناصر المفضلة، كما سيتعين عليك إعادة ضبط إعدادات التطبيق .\n\nشكراً!</string>
     <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
+    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>
@@ -187,7 +189,7 @@
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit folder title to 1 line</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
 
