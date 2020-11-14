@@ -30,8 +30,8 @@
     <string name="share_resized">Del versjon med endret størrelse</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Skift til filsøk i alle synlige mapper</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Sett som standardmappe</string>
+    <string name="unset_as_default_folder">Ikke lenger sett som standardmappe</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
@@ -189,7 +189,7 @@
     <string name="show_file_count_line">Vis antall filer på en separat linje</string>
     <string name="show_file_count_brackets">Vis antall filer i parentes</string>
     <string name="show_file_count_none">Ikke vis antall filer</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
+    <string name="limit_folder_title">Begrens lange mappetitler til 1 linje</string>
     <string name="square">Firkantet</string>
     <string name="rounded_corners">Avrundede hjørner</string>
 
