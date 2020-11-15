@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
@@ -454,8 +455,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun getItemWithKey(key: Int): Medium? = media.firstOrNull { (it as? Medium)?.path?.hashCode() == key } as? Medium
 
-    fun updateMedia(newMedia: ArrayList<ThumbnailItem>) {
-        val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
+    fun updateMedia(newMedia: List<ThumbnailItem>) {
+        val thumbnailItems = ArrayList(newMedia)
         if (thumbnailItems.hashCode() != currentMediaHash) {
             currentMediaHash = thumbnailItems.hashCode()
             Handler().postDelayed({

@@ -19,13 +19,18 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.GROUP_BY_NONE
+import com.simplemobiletools.gallery.pro.helpers.MediaFetcher
+import com.simplemobiletools.gallery.pro.helpers.PATH
+import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_search.*
 import java.io.File
 
@@ -36,7 +41,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mTimeFormat = ""
 
     private var mSearchMenuItem: MenuItem? = null
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mCurrentDisposable: Disposable? = null
     private var mAllMedia = ArrayList<ThumbnailItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +55,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mCurrAsyncTask?.stopFetching()
+        mCurrentDisposable?.dispose()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -108,9 +113,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun textChanged(text: String) {
         ensureBackgroundThread {
             try {
-                val filtered = mAllMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
-                filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
-                val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, "")
+                val filtered = mAllMedia.filterIsInstance<Medium>()
+                        .filter { it.name.contains(text, true) }
+                        .sortedBy { !it.name.startsWith(text, true) }
+                val grouped = MediaFetcher(applicationContext).groupMedia(filtered, "")
                 runOnUiThread {
                     if (grouped.isEmpty()) {
                         media_empty_text_placeholder.text = getString(R.string.no_items_found)
@@ -238,7 +244,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
     }
 
-    private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
+    private fun measureRecyclerViewContent(media: List<ThumbnailItem>) {
         media_grid.onGlobalLayout {
             if (config.scrollHorizontally) {
                 calculateContentWidth(media)
@@ -248,7 +254,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
+    private fun calculateContentWidth(media: List<ThumbnailItem>) {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
         val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
@@ -256,7 +262,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
     }
 
-    private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
+    private fun calculateContentHeight(media: List<ThumbnailItem>) {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         val pathToCheck = SHOW_ALL
         val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
@@ -296,15 +302,15 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun startAsyncTask(updateItems: Boolean) {
-        mCurrAsyncTask?.stopFetching()
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, "", showAll = true) {
-            mAllMedia = it.clone() as ArrayList<ThumbnailItem>
-            if (updateItems) {
-                textChanged(mLastSearchedText)
-            }
-        }
-
-        mCurrAsyncTask!!.execute()
+        mCurrentDisposable?.dispose()
+        mCurrentDisposable = applicationContext.getMediaAsync("", showAll = true)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy {
+                    mAllMedia = ArrayList(it)
+                    if (updateItems) {
+                        textChanged(mLastSearchedText)
+                    }
+                }
     }
 
     override fun refreshItems() {

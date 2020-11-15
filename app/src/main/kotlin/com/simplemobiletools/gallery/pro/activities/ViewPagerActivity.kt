@@ -45,7 +45,6 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
@@ -57,14 +56,19 @@ import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
-import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private val REQUEST_VIEW_VIDEO = 1
+
+    private val compositeDisposable = CompositeDisposable()
 
     private var mPath = ""
     private var mDirectory = ""
@@ -144,6 +148,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onDestroy() {
+        compositeDisposable.dispose()
         super.onDestroy()
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             config.temporarilyShowHidden = false
@@ -346,7 +351,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         view_pager.onGlobalLayout {
             if (!isDestroyed) {
                 if (mMediaFiles.isNotEmpty()) {
-                    gotMedia(mMediaFiles as ArrayList<ThumbnailItem>)
+                    gotMedia(mMediaFiles)
                     checkSlideshowOnEnter()
                 }
             }
@@ -1069,7 +1074,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun handleDeletion(fileDirItem: FileDirItem) {
         mIgnoredPaths.add(fileDirItem.path)
-        val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
+        val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) }
         runOnUiThread {
             gotMedia(media, true)
         }
@@ -1080,7 +1085,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun isDirEmpty(media: ArrayList<Medium>): Boolean {
+    private fun isDirEmpty(media: List<Medium>): Boolean {
         return if (media.isEmpty()) {
             deleteDirectoryIfEmpty()
             finish()
@@ -1112,14 +1117,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun refreshViewPager() {
         if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
-            GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-                gotMedia(it)
-            }.execute()
+            compositeDisposable += applicationContext.getMediaAsync(mDirectory, isPickImage = false,
+                    isPickVideo = false, showAll = mShowAll)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy { gotMedia(it) }
         }
     }
 
-    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>, ignorePlayingVideos: Boolean = false) {
-        val media = thumbnailItems.asSequence().filter { it is Medium && !mIgnoredPaths.contains(it.path) }.map { it as Medium }.toMutableList() as ArrayList<Medium>
+    private fun gotMedia(thumbnailItems: List<ThumbnailItem>, ignorePlayingVideos: Boolean = false) {
+        val media = thumbnailItems.asSequence().filterIsInstance<Medium>().filter { !mIgnoredPaths.contains(it.path) }.toMutableList()
         if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }
@@ -1129,11 +1135,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         mPrevHashcode = media.hashCode()
-        mMediaFiles = media
+        mMediaFiles = ArrayList(media)
         mPos = if (mPos == -1) {
             getPositionInList(media)
         } else {
-            Math.min(mPos, mMediaFiles.size - 1)
+            mPos.coerceAtMost(mMediaFiles.size - 1)
         }
 
         updateActionbarTitle()

@@ -11,12 +11,14 @@ import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
-import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getCachedMedia
+import com.simplemobiletools.gallery.pro.extensions.getMediaAsync
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import kotlinx.android.synthetic.main.dialog_medium_picker.view.*
 
 class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val callback: (path: String) -> Unit) {
@@ -49,9 +51,9 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             }
         }
 
-        GetMediaAsynctask(activity, path, false, false, false) {
-            gotMedia(it)
-        }.execute()
+        activity.getMediaAsync(path, isPickImage = false, isPickVideo = false, showAll = false)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy { gotMedia(it) }
     }
 
     private fun showOtherFolder() {
@@ -61,11 +63,11 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
     }
 
-    private fun gotMedia(media: ArrayList<ThumbnailItem>) {
+    private fun gotMedia(media: List<ThumbnailItem>) {
         if (media.hashCode() == shownMedia.hashCode())
             return
 
-        shownMedia = media
+        shownMedia = ArrayList(media)
         val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid, null) {
             if (it is Medium) {
                 callback(it.path)
