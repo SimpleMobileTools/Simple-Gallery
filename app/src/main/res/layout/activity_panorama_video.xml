@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <include layout="@layout/bottom_video_time_holder"/>
+    <include
+        android:id="@+id/bottom_video_time_holder"
+        layout="@layout/bottom_video_time_holder" />
 
     <ImageView
         android:id="@+id/explore"
