@@ -16,18 +16,21 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.BottomActionsBinding
+import com.simplemobiletools.gallery.pro.databinding.FragmentHolderBinding
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
 import com.simplemobiletools.gallery.pro.fragments.VideoFragment
 import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
-import kotlinx.android.synthetic.main.bottom_actions.*
-import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
 import java.io.FileInputStream
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
+    private lateinit var fragmentHolderBinding: FragmentHolderBinding
+    private lateinit var bottomActionsBinding: BottomActionsBinding
+
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
     private var mIsFromGallery = false
@@ -38,7 +41,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_holder)
+
+        fragmentHolderBinding = FragmentHolderBinding.inflate(layoutInflater)
+        bottomActionsBinding = fragmentHolderBinding.bottomActions
+        setContentView(fragmentHolderBinding.root)
 
         if (checkAppSideloading()) {
             return
@@ -102,7 +108,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             if (realPath != null && getDoesFilePathExist(realPath)) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     if (isFileTypeVisible(realPath)) {
-                        bottom_actions.beGone()
+                        bottomActionsBinding.root.beGone()
                         sendViewPagerIntent(realPath)
                         finish()
                         return
@@ -115,7 +121,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
-                bottom_actions.beGone()
+                bottomActionsBinding.root.beGone()
                 rescanPaths(arrayListOf(mUri!!.path!!))
                 sendViewPagerIntent(mUri!!.path!!)
                 finish()
@@ -125,7 +131,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
                 if (isFileTypeVisible(path)) {
-                    bottom_actions.beGone()
+                    bottomActionsBinding.root.beGone()
                     rescanPaths(arrayListOf(mUri!!.path!!))
                     sendViewPagerIntent(path)
                     finish()
@@ -161,7 +167,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         if (config.blackBackground) {
-            fragment_holder.background = ColorDrawable(Color.BLACK)
+            fragmentHolderBinding.root.background = ColorDrawable(Color.BLACK)
         }
 
         if (config.maxBrightness) {
@@ -287,42 +293,46 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActionsLayout() {
-        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        bottomActionsBinding.root.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
         if (config.bottomActions) {
-            bottom_actions.beVisible()
+            bottomActionsBinding.root.beVisible()
         } else {
-            bottom_actions.beGone()
+            bottomActionsBinding.root.beGone()
         }
     }
 
     private fun initBottomActionButtons() {
-        arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map,
-                bottom_toggle_file_visibility, bottom_rename, bottom_copy, bottom_move, bottom_resize).forEach {
+        arrayListOf(bottomActionsBinding.bottomFavorite, bottomActionsBinding.bottomDelete,
+                bottomActionsBinding.bottomRotate, bottomActionsBinding.bottomProperties,
+                bottomActionsBinding.bottomChangeOrientation, bottomActionsBinding.bottomSlideshow,
+                bottomActionsBinding.bottomShowOnMap, bottomActionsBinding.bottomToggleFileVisibility,
+                bottomActionsBinding.bottomRename, bottomActionsBinding.bottomCopy,
+                bottomActionsBinding.bottomMove, bottomActionsBinding.bottomResize).forEach {
             it.beGone()
         }
 
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
-        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && mMedium?.isImage() == true)
-        bottom_edit.setOnClickListener {
-            if (mUri != null && bottom_actions.alpha == 1f) {
+        bottomActionsBinding.bottomEdit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && mMedium?.isImage() == true)
+        bottomActionsBinding.bottomEdit.setOnClickListener {
+            if (mUri != null && bottomActionsBinding.root.alpha == 1f) {
                 openEditor(mUri!!.toString())
             }
         }
 
-        bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
-        bottom_share.setOnClickListener {
-            if (mUri != null && bottom_actions.alpha == 1f) {
+        bottomActionsBinding.bottomShare.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
+        bottomActionsBinding.bottomShare.setOnClickListener {
+            if (mUri != null && bottomActionsBinding.root.alpha == 1f) {
                 sharePath(mUri!!.toString())
             }
         }
 
-        bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0 && mMedium?.isImage() == true)
-        bottom_set_as.setOnClickListener {
+        bottomActionsBinding.bottomSetAs.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0 && mMedium?.isImage() == true)
+        bottomActionsBinding.bottomSetAs.setOnClickListener {
             setAs(mUri!!.toString())
         }
 
-        bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
-        bottom_show_on_map.setOnClickListener {
+        bottomActionsBinding.bottomShowOnMap.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
+        bottomActionsBinding.bottomShowOnMap.setOnClickListener {
             showFileOnMap(mUri!!.toString())
         }
     }
@@ -336,9 +346,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         val newAlpha = if (mIsFullScreen) 0f else 1f
-        top_shadow.animate().alpha(newAlpha).start()
-        if (!bottom_actions.isGone()) {
-            bottom_actions.animate().alpha(newAlpha).start()
+        fragmentHolderBinding.topShadow.animate().alpha(newAlpha).start()
+        if (!bottomActionsBinding.root.isGone()) {
+            bottomActionsBinding.root.animate().alpha(newAlpha).start()
         }
     }
 
