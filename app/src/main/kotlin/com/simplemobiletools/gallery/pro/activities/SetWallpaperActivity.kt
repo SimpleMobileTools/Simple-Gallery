@@ -16,11 +16,14 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.ActivitySetWallpaperBinding
+import com.simplemobiletools.gallery.pro.databinding.BottomSetWallpaperActionsBinding
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_set_wallpaper.*
-import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
+    private lateinit var setWallpaperBinding: ActivitySetWallpaperBinding
+    private lateinit var setWallpaperActionsBinding: BottomSetWallpaperActionsBinding
+
     private val PICK_IMAGE = 1
     private var isLandscapeRatio = true
     private var wallpaperFlag = -1
@@ -30,7 +33,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_set_wallpaper)
+
+        setWallpaperBinding = ActivitySetWallpaperBinding.inflate(layoutInflater)
+        setWallpaperActionsBinding = setWallpaperBinding.bottomSetWallpaperActions
+        setContentView(setWallpaperBinding.root)
 
         if (checkAppSideloading()) {
             return
@@ -71,7 +77,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
 
         wallpaperManager = WallpaperManager.getInstance(applicationContext)
-        crop_image_view.apply {
+        setWallpaperBinding.cropImageView.apply {
             setOnCropImageCompleteListener(this@SetWallpaperActivity)
             setImageUriAsync(uri)
         }
@@ -80,19 +86,20 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     private fun setupBottomActions() {
-        bottom_set_wallpaper_aspect_ratio.setOnClickListener {
+        setWallpaperActionsBinding.bottomSetWallpaperAspectRatio.setOnClickListener {
             changeAspectRatio(!isLandscapeRatio)
         }
 
-        bottom_set_wallpaper_rotate.setOnClickListener {
-            crop_image_view.rotateImage(90)
+        setWallpaperActionsBinding.bottomSetWallpaperRotate.setOnClickListener {
+            setWallpaperBinding.cropImageView.rotateImage(90)
         }
     }
 
     private fun setupAspectRatio() {
         val wallpaperWidth = if (isLandscapeRatio) wallpaperManager.desiredMinimumWidth else wallpaperManager.desiredMinimumWidth / 2
-        crop_image_view.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
-        bottom_set_wallpaper_aspect_ratio.setImageResource(if (isLandscapeRatio) R.drawable.ic_minimize else R.drawable.ic_maximize)
+        setWallpaperBinding.cropImageView.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
+        setWallpaperActionsBinding.bottomSetWallpaperAspectRatio.setImageResource(if (isLandscapeRatio) R.drawable.ic_minimize
+        else R.drawable.ic_maximize)
     }
 
     private fun changeAspectRatio(isLandscape: Boolean) {
@@ -110,10 +117,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
             RadioGroupDialog(this, items) {
                 wallpaperFlag = it as Int
-                crop_image_view.getCroppedImageAsync()
+                setWallpaperBinding.cropImageView.getCroppedImageAsync()
             }
         } else {
-            crop_image_view.getCroppedImageAsync()
+            setWallpaperBinding.cropImageView.getCroppedImageAsync()
         }
     }
 
