@@ -21,7 +21,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -46,6 +45,8 @@ import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.pro.databinding.ActivityMediumBinding
+import com.simplemobiletools.gallery.pro.databinding.BottomActionsBinding
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
@@ -57,14 +58,15 @@ import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
-import kotlinx.android.synthetic.main.activity_medium.*
-import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private val REQUEST_VIEW_VIDEO = 1
+
+    private lateinit var activityMediumBinding: ActivityMediumBinding
+    private lateinit var bottomActionsBinding: BottomActionsBinding
 
     private var mPath = ""
     private var mDirectory = ""
@@ -89,10 +91,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_medium)
+
+        activityMediumBinding = ActivityMediumBinding.inflate(layoutInflater)
+        bottomActionsBinding = activityMediumBinding.bottomActions
+        setContentView(activityMediumBinding.root)
 
         window.decorView.setBackgroundColor(config.backgroundColor)
-        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        activityMediumBinding.topShadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
 
@@ -343,7 +348,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
         supportActionBar?.title = mPath.getFilenameFromPath()
 
-        view_pager.onGlobalLayout {
+        activityMediumBinding.viewPager.onGlobalLayout {
             if (!isDestroyed) {
                 if (mMediaFiles.isNotEmpty()) {
                     gotMedia(mMediaFiles as ArrayList<ThumbnailItem>)
@@ -353,14 +358,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         refreshViewPager()
-        view_pager.offscreenPageLimit = 2
+        activityMediumBinding.viewPager.offscreenPageLimit = 2
 
         if (config.blackBackground) {
-            view_pager.background = ColorDrawable(Color.BLACK)
+            activityMediumBinding.viewPager.background = ColorDrawable(Color.BLACK)
         }
 
         if (config.hideSystemUI) {
-            view_pager.onGlobalLayout {
+            activityMediumBinding.viewPager.onGlobalLayout {
                 Handler().postDelayed({
                     fragmentClicked()
                 }, HIDE_SYSTEM_UI_DELAY)
@@ -425,7 +430,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
         if (!isDestroyed) {
             pagerAdapter.shouldInitFragment = mPos < 5
-            view_pager.apply {
+            activityMediumBinding.viewPager.apply {
                 adapter = pagerAdapter
                 pagerAdapter.shouldInitFragment = true
                 currentItem = mPos
@@ -449,10 +454,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
-            view_pager.onGlobalLayout {
+            activityMediumBinding.viewPager.onGlobalLayout {
                 if (!isDestroyed) {
                     if (config.slideshowAnimation == SLIDESHOW_ANIMATION_FADE) {
-                        view_pager.setPageTransformer(false, FadePageTransformer())
+                        activityMediumBinding.viewPager.setPageTransformer(false, FadePageTransformer())
                     }
 
                     hideSystemUI(true)
@@ -467,38 +472,38 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun goToNextMedium(forward: Boolean) {
-        val oldPosition = view_pager.currentItem
+        val oldPosition = activityMediumBinding.viewPager.currentItem
         val newPosition = if (forward) oldPosition + 1 else oldPosition - 1
-        if (newPosition == -1 || newPosition > view_pager.adapter!!.count - 1) {
+        if (newPosition == -1 || newPosition > activityMediumBinding.viewPager.adapter!!.count - 1) {
             slideshowEnded(forward)
         } else {
-            view_pager.setCurrentItem(newPosition, false)
+            activityMediumBinding.viewPager.setCurrentItem(newPosition, false)
         }
     }
 
     private fun animatePagerTransition(forward: Boolean) {
-        val oldPosition = view_pager.currentItem
-        val animator = ValueAnimator.ofInt(0, view_pager.width)
+        val oldPosition = activityMediumBinding.viewPager.currentItem
+        val animator = ValueAnimator.ofInt(0, activityMediumBinding.viewPager.width)
         animator.addListener(object : Animator.AnimatorListener {
             override fun onAnimationRepeat(animation: Animator?) {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                if (view_pager.isFakeDragging) {
+                if (activityMediumBinding.viewPager.isFakeDragging) {
                     try {
-                        view_pager.endFakeDrag()
+                        activityMediumBinding.viewPager.endFakeDrag()
                     } catch (ignored: Exception) {
                         stopSlideshow()
                     }
 
-                    if (view_pager.currentItem == oldPosition) {
+                    if (activityMediumBinding.viewPager.currentItem == oldPosition) {
                         slideshowEnded(forward)
                     }
                 }
             }
 
             override fun onAnimationCancel(animation: Animator?) {
-                view_pager.endFakeDrag()
+                activityMediumBinding.viewPager.endFakeDrag()
             }
 
             override fun onAnimationStart(animation: Animator?) {
@@ -515,12 +520,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
             var oldDragPosition = 0
             override fun onAnimationUpdate(animation: ValueAnimator) {
-                if (view_pager?.isFakeDragging == true) {
+                if (activityMediumBinding.viewPager.isFakeDragging) {
                     val dragPosition = animation.animatedValue as Int
                     val dragOffset = dragPosition - oldDragPosition
                     oldDragPosition = dragPosition
                     try {
-                        view_pager.fakeDragBy(dragOffset * (if (forward) -1f else 1f))
+                        activityMediumBinding.viewPager.fakeDragBy(dragOffset * (if (forward) -1f else 1f))
                     } catch (e: Exception) {
                         stopSlideshow()
                     }
@@ -528,16 +533,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
 
-        view_pager.beginFakeDrag()
+        activityMediumBinding.viewPager.beginFakeDrag()
         animator.start()
     }
 
     private fun slideshowEnded(forward: Boolean) {
         if (config.loopSlideshow) {
             if (forward) {
-                view_pager.setCurrentItem(0, false)
+                activityMediumBinding.viewPager.setCurrentItem(0, false)
             } else {
-                view_pager.setCurrentItem(view_pager.adapter!!.count - 1, false)
+                activityMediumBinding.viewPager.setCurrentItem(activityMediumBinding.viewPager.adapter!!.count - 1, false)
             }
         } else {
             stopSlideshow()
@@ -547,7 +552,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
-            view_pager.setPageTransformer(false, DefaultPageTransformer())
+            activityMediumBinding.viewPager.setPageTransformer(false, DefaultPageTransformer())
             mIsSlideshowActive = false
             showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
@@ -755,7 +760,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return false
     }
 
-    private fun getCurrentFragment() = (view_pager.adapter as? MyPagerAdapter)?.getCurrentFragment(view_pager.currentItem)
+    private fun getCurrentFragment() = (activityMediumBinding.viewPager.adapter as? MyPagerAdapter)?.getCurrentFragment(activityMediumBinding.viewPager.currentItem)
 
     private fun showProperties() {
         if (getCurrentMedium() != null) {
@@ -764,48 +769,50 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActionsLayout() {
-        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        bottomActionsBinding.root.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
         if (config.bottomActions) {
-            bottom_actions.beVisible()
+            bottomActionsBinding.root.beVisible()
         } else {
-            bottom_actions.beGone()
+            bottomActionsBinding.root.beGone()
         }
     }
 
     private fun initBottomActionButtons() {
         val currentMedium = getCurrentMedium()
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
-        bottom_favorite.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE != 0 && currentMedium?.getIsInRecycleBin() == false)
-        bottom_favorite.setOnClickListener {
+        bottomActionsBinding.bottomFavorite.beVisibleIf(visibleBottomActions
+                and BOTTOM_ACTION_TOGGLE_FAVORITE != 0 && currentMedium?.getIsInRecycleBin() == false)
+        bottomActionsBinding.bottomFavorite.setOnClickListener {
             toggleFavorite()
         }
 
-        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && currentMedium?.isSVG() == false)
-        bottom_edit.setOnClickListener {
+        bottomActionsBinding.bottomEdit.beVisibleIf(visibleBottomActions
+                and BOTTOM_ACTION_EDIT != 0 && currentMedium?.isSVG() == false)
+        bottomActionsBinding.bottomEdit.setOnClickListener {
             openEditor(getCurrentPath())
         }
 
-        bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
-        bottom_share.setOnClickListener {
+        bottomActionsBinding.bottomShare.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
+        bottomActionsBinding.bottomShare.setOnClickListener {
             shareMediumPath(getCurrentPath())
         }
 
-        bottom_delete.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_DELETE != 0)
-        bottom_delete.setOnClickListener {
+        bottomActionsBinding.bottomDelete.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_DELETE != 0)
+        bottomActionsBinding.bottomDelete.setOnClickListener {
             checkDeleteConfirmation()
         }
 
-        bottom_rotate.setOnClickListener {
+        bottomActionsBinding.bottomRotate.setOnClickListener {
             rotateImage(90)
         }
 
-        bottom_properties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
-        bottom_properties.setOnClickListener {
+        bottomActionsBinding.bottomProperties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
+        bottomActionsBinding.bottomProperties.setOnClickListener {
             showProperties()
         }
 
-        bottom_change_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
-        bottom_change_orientation.setOnClickListener {
+        bottomActionsBinding.bottomChangeOrientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
+        bottomActionsBinding.bottomChangeOrientation.setOnClickListener {
             requestedOrientation = when (requestedOrientation) {
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
@@ -815,18 +822,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updateBottomActionIcons(currentMedium)
         }
 
-        bottom_slideshow.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SLIDESHOW != 0)
-        bottom_slideshow.setOnClickListener {
+        bottomActionsBinding.bottomSlideshow.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SLIDESHOW != 0)
+        bottomActionsBinding.bottomSlideshow.setOnClickListener {
             initSlideshow()
         }
 
-        bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
-        bottom_show_on_map.setOnClickListener {
+        bottomActionsBinding.bottomShowOnMap.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
+        bottomActionsBinding.bottomShowOnMap.setOnClickListener {
             showFileOnMap(getCurrentPath())
         }
 
-        bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
-        bottom_toggle_file_visibility.setOnClickListener {
+        bottomActionsBinding.bottomToggleFileVisibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
+        bottomActionsBinding.bottomToggleFileVisibility.setOnClickListener {
             currentMedium?.apply {
                 toggleFileVisibility(!isHidden()) {
                     updateBottomActionIcons(currentMedium)
@@ -834,28 +841,28 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && currentMedium?.getIsInRecycleBin() == false)
-        bottom_rename.setOnClickListener {
+        bottomActionsBinding.bottomRename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && currentMedium?.getIsInRecycleBin() == false)
+        bottomActionsBinding.bottomRename.setOnClickListener {
             renameFile()
         }
 
-        bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
-        bottom_set_as.setOnClickListener {
+        bottomActionsBinding.bottomSetAs.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
+        bottomActionsBinding.bottomSetAs.setOnClickListener {
             setAs(getCurrentPath())
         }
 
-        bottom_copy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
-        bottom_copy.setOnClickListener {
+        bottomActionsBinding.bottomCopy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
+        bottomActionsBinding.bottomCopy.setOnClickListener {
             copyMoveTo(true)
         }
 
-        bottom_move.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
-        bottom_move.setOnClickListener {
+        bottomActionsBinding.bottomMove.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
+        bottomActionsBinding.bottomMove.setOnClickListener {
             moveFileTo()
         }
 
-        bottom_resize.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RESIZE != 0 && currentMedium?.isImage() == true)
-        bottom_resize.setOnClickListener {
+        bottomActionsBinding.bottomResize.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RESIZE != 0 && currentMedium?.isImage() == true)
+        bottomActionsBinding.bottomResize.setOnClickListener {
             resizeImage()
         }
     }
@@ -866,13 +873,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on_vector else R.drawable.ic_star_off_vector
-        bottom_favorite.setImageResource(favoriteIcon)
+        bottomActionsBinding.bottomFavorite.setImageResource(favoriteIcon)
 
         val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide
-        bottom_toggle_file_visibility.setImageResource(hideIcon)
+        bottomActionsBinding.bottomToggleFileVisibility.setImageResource(hideIcon)
 
-        bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
-        bottom_change_orientation.setImageResource(getChangeOrientationIcon())
+        bottomActionsBinding.bottomRotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
+        bottomActionsBinding.bottomChangeOrientation.setImageResource(getChangeOrientationIcon())
     }
 
     private fun toggleFavorite() {
@@ -1209,12 +1216,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun isSlideShowActive() = mIsSlideshowActive
 
     override fun goToPrevItem() {
-        view_pager.setCurrentItem(view_pager.currentItem - 1, false)
+        activityMediumBinding.viewPager.setCurrentItem(activityMediumBinding.viewPager.currentItem - 1, false)
         checkOrientation()
     }
 
     override fun goToNextItem() {
-        view_pager.setCurrentItem(view_pager.currentItem + 1, false)
+        activityMediumBinding.viewPager.setCurrentItem(activityMediumBinding.viewPager.currentItem + 1, false)
         checkOrientation()
     }
 
@@ -1228,8 +1235,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 putExtra(IS_FROM_GALLERY, true)
                 putExtra(REAL_FILE_PATH, path)
-                putExtra(SHOW_PREV_ITEM, view_pager.currentItem != 0)
-                putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.size - 1)
+                putExtra(SHOW_PREV_ITEM, activityMediumBinding.viewPager.currentItem != 0)
+                putExtra(SHOW_NEXT_ITEM, activityMediumBinding.viewPager.currentItem != mMediaFiles.size - 1)
 
                 if (resolveActivity(packageManager) != null) {
                     try {
@@ -1256,15 +1263,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun fullscreenToggled() {
-        view_pager.adapter?.let {
+        activityMediumBinding.viewPager.adapter?.let {
             (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
             val newAlpha = if (mIsFullScreen) 0f else 1f
-            top_shadow.animate().alpha(newAlpha).start()
-            if (bottom_actions.isVisible()) {
-                bottom_actions.animate().alpha(newAlpha).start()
-                arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
-                    bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
-                    bottom_resize).forEach {
+            activityMediumBinding.topShadow.animate().alpha(newAlpha).start()
+            if (bottomActionsBinding.root.isVisible()) {
+                bottomActionsBinding.root.animate().alpha(newAlpha).start()
+                arrayOf(bottomActionsBinding.bottomFavorite, bottomActionsBinding.bottomEdit,
+                        bottomActionsBinding.bottomShare, bottomActionsBinding.bottomDelete,
+                        bottomActionsBinding.bottomRotate, bottomActionsBinding.bottomProperties,
+                        bottomActionsBinding.bottomChangeOrientation, bottomActionsBinding.bottomSlideshow,
+                        bottomActionsBinding.bottomShowOnMap, bottomActionsBinding.bottomToggleFileVisibility,
+                        bottomActionsBinding.bottomRename, bottomActionsBinding.bottomSetAs,
+                        bottomActionsBinding.bottomCopy, bottomActionsBinding.bottomMove,
+                        bottomActionsBinding.bottomResize).forEach {
                     it.isClickable = !mIsFullScreen
                 }
             }
