@@ -35,6 +35,7 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.FiltersAdapter
+import com.simplemobiletools.gallery.pro.databinding.*
 import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
@@ -47,12 +48,6 @@ import com.simplemobiletools.gallery.pro.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zomato.photofilters.FilterPack
 import com.zomato.photofilters.imageprocessors.Filter
-import kotlinx.android.synthetic.main.activity_edit.*
-import kotlinx.android.synthetic.main.bottom_actions_aspect_ratio.*
-import kotlinx.android.synthetic.main.bottom_editor_actions_filter.*
-import kotlinx.android.synthetic.main.bottom_editor_crop_rotate_actions.*
-import kotlinx.android.synthetic.main.bottom_editor_draw_actions.*
-import kotlinx.android.synthetic.main.bottom_editor_primary_actions.*
 import java.io.*
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
@@ -61,6 +56,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             System.loadLibrary("NativeImageProcessor")
         }
     }
+
+    private lateinit var activityEditBinding: ActivityEditBinding
+    private lateinit var drawActionsBinding: BottomEditorDrawActionsBinding
+    private lateinit var primaryActionsBinding: BottomEditorPrimaryActionsBinding
+    private lateinit var aspectRatiosBinding: BottomActionsAspectRatioBinding
+    private lateinit var rotateActionsBinding: BottomEditorCropRotateActionsBinding
+    private lateinit var filterActionsBinding: BottomEditorActionsFilterBinding
 
     private val TEMP_FOLDER_NAME = "images"
     private val ASPECT_X = "aspectX"
@@ -95,7 +97,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit)
+
+        activityEditBinding = ActivityEditBinding.inflate(layoutInflater)
+        drawActionsBinding = activityEditBinding.bottomEditorDrawActions
+        primaryActionsBinding = activityEditBinding.bottomEditorPrimaryActions
+        aspectRatiosBinding = activityEditBinding.bottomAspectRatios
+        rotateActionsBinding = activityEditBinding.bottomEditorCropRotateActions
+        filterActionsBinding = activityEditBinding.bottomEditorFilterActions
+        setContentView(activityEditBinding.root)
 
         if (checkAppSideloading()) {
             return
@@ -107,7 +116,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onResume() {
         super.onResume()
         isEditingWithThirdParty = false
-        bottom_draw_width.setColors(config.textColor, getAdjustedPrimaryColor(), config.backgroundColor)
+        drawActionsBinding.bottomDrawWidth.setColors(config.textColor, getAdjustedPrimaryColor(), config.backgroundColor)
     }
 
     override fun onStop() {
@@ -168,8 +177,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         isCropIntent = intent.extras?.get(CROP) == "true"
         if (isCropIntent) {
-            bottom_editor_primary_actions.beGone()
-            (bottom_editor_crop_rotate_actions.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1)
+            primaryActionsBinding.root.beGone()
+            (rotateActionsBinding.root.layoutParams as RelativeLayout.LayoutParams)
+                    .addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1)
         }
 
         loadDefaultImageView()
@@ -187,14 +197,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
         updateAspectRatio(config.lastEditorCropAspectRatio)
-        crop_image_view.guidelines = CropImageView.Guidelines.ON
-        bottom_aspect_ratios.beVisible()
+        activityEditBinding.cropImageView.guidelines = CropImageView.Guidelines.ON
+        aspectRatiosBinding.root.beVisible()
     }
 
     private fun loadDefaultImageView() {
-        default_image_view.beVisible()
-        crop_image_view.beGone()
-        editor_draw_canvas.beGone()
+        activityEditBinding.defaultImageView.beVisible()
+        activityEditBinding.cropImageView.beGone()
+        activityEditBinding.editorDrawCanvas.beGone()
 
         val options = RequestOptions()
             .skipMemoryCache(true)
@@ -223,7 +233,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
 
                     if (filterInitialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
-                        default_image_view.onGlobalLayout {
+                        activityEditBinding.defaultImageView.onGlobalLayout {
                             applyFilter(currentFilter)
                         }
                     } else {
@@ -231,19 +241,19 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
 
                     if (isCropIntent) {
-                        bottom_primary_filter.beGone()
-                        bottom_primary_draw.beGone()
+                        primaryActionsBinding.bottomPrimaryFilter.beGone()
+                        primaryActionsBinding.bottomPrimaryDraw.beGone()
                     }
 
                     return false
                 }
-            }).into(default_image_view)
+            }).into(activityEditBinding.defaultImageView)
     }
 
     private fun loadCropImageView() {
-        default_image_view.beGone()
-        editor_draw_canvas.beGone()
-        crop_image_view.apply {
+        activityEditBinding.defaultImageView.beGone()
+        activityEditBinding.editorDrawCanvas.beGone()
+        activityEditBinding.cropImageView.apply {
             beVisible()
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(uri)
@@ -252,19 +262,19 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             if (isCropIntent && shouldCropSquare()) {
                 currAspectRatio = ASPECT_RATIO_ONE_ONE
                 setFixedAspectRatio(true)
-                bottom_aspect_ratio.beGone()
+                aspectRatiosBinding.root.beGone()
             }
         }
     }
 
     private fun loadDrawCanvas() {
-        default_image_view.beGone()
-        crop_image_view.beGone()
-        editor_draw_canvas.beVisible()
+        activityEditBinding.defaultImageView.beGone()
+        activityEditBinding.cropImageView.beGone()
+        activityEditBinding.editorDrawCanvas.beVisible()
 
         if (!wasDrawCanvasPositioned) {
             wasDrawCanvasPositioned = true
-            editor_draw_canvas.onGlobalLayout {
+            activityEditBinding.editorDrawCanvas.onGlobalLayout {
                 ensureBackgroundThread {
                     fillCanvasBackground()
                 }
@@ -286,11 +296,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 .asBitmap()
                 .load(uri)
                 .apply(options)
-                .into(editor_draw_canvas.width, editor_draw_canvas.height)
+                .into(activityEditBinding.editorDrawCanvas.width, activityEditBinding.editorDrawCanvas.height)
 
             val bitmap = builder.get()
             runOnUiThread {
-                editor_draw_canvas.apply {
+                activityEditBinding.editorDrawCanvas.apply {
                     updateBackgroundBitmap(bitmap)
                     layoutParams.width = bitmap.width
                     layoutParams.height = bitmap.height
@@ -307,10 +317,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun saveImage() {
         setOldExif()
 
-        if (crop_image_view.isVisible()) {
-            crop_image_view.getCroppedImageAsync()
-        } else if (editor_draw_canvas.isVisible()) {
-            val bitmap = editor_draw_canvas.getBitmap()
+        if (activityEditBinding.cropImageView.isVisible()) {
+            activityEditBinding.cropImageView.getCroppedImageAsync()
+        } else if (activityEditBinding.editorDrawCanvas.isVisible()) {
+            val bitmap = activityEditBinding.editorDrawCanvas.getBitmap()
             if (saveUri.scheme == "file") {
                 SaveAsDialog(this, saveUri.path!!, true) {
                     saveBitmapToFile(bitmap, it, true)
@@ -328,10 +338,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 toast(R.string.saving)
 
                 // clean up everything to free as much memory as possible
-                default_image_view.setImageResource(0)
-                crop_image_view.setImageBitmap(null)
-                bottom_actions_filter_list.adapter = null
-                bottom_actions_filter_list.beGone()
+                activityEditBinding.defaultImageView.setImageResource(0)
+                activityEditBinding.cropImageView.setImageBitmap(null)
+                filterActionsBinding.bottomActionsFilterList.adapter = null
+                filterActionsBinding.bottomActionsFilterList.beGone()
 
                 ensureBackgroundThread {
                     try {
@@ -363,7 +373,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun shareImage() {
         ensureBackgroundThread {
             when {
-                default_image_view.isVisible() -> {
+                activityEditBinding.defaultImageView.isVisible() -> {
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (currentFilter == null) {
                         toast(R.string.unknown_error_occurred)
@@ -374,13 +384,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     currentFilter.filter.processFilter(originalBitmap)
                     shareBitmap(originalBitmap)
                 }
-                crop_image_view.isVisible() -> {
+                activityEditBinding.cropImageView.isVisible() -> {
                     isSharingBitmap = true
                     runOnUiThread {
-                        crop_image_view.getCroppedImageAsync()
+                        activityEditBinding.cropImageView.getCroppedImageAsync()
                     }
                 }
-                editor_draw_canvas.isVisible() -> shareBitmap(editor_draw_canvas.getBitmap())
+                activityEditBinding.editorDrawCanvas.isVisible() -> shareBitmap(activityEditBinding.editorDrawCanvas.getBitmap())
             }
         }
     }
@@ -425,7 +435,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun getFiltersAdapter() = bottom_actions_filter_list.adapter as? FiltersAdapter
+    private fun getFiltersAdapter() = filterActionsBinding.bottomActionsFilterList.adapter as? FiltersAdapter
 
     private fun setupBottomActions() {
         setupPrimaryActionButtons()
@@ -435,15 +445,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun setupPrimaryActionButtons() {
-        bottom_primary_filter.setOnClickListener {
+        primaryActionsBinding.bottomPrimaryFilter.setOnClickListener {
             bottomFilterClicked()
         }
 
-        bottom_primary_crop_rotate.setOnClickListener {
+        primaryActionsBinding.bottomPrimaryCropRotate.setOnClickListener {
             bottomCropRotateClicked()
         }
 
-        bottom_primary_draw.setOnClickListener {
+        primaryActionsBinding.bottomPrimaryDraw.setOnClickListener {
             bottomDrawClicked()
         }
     }
@@ -476,31 +486,31 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun setupCropRotateActionButtons() {
-        bottom_rotate.setOnClickListener {
-            crop_image_view.rotateImage(90)
+        rotateActionsBinding.bottomRotate.setOnClickListener {
+            activityEditBinding.cropImageView.rotateImage(90)
         }
 
-        bottom_resize.beGoneIf(isCropIntent)
-        bottom_resize.setOnClickListener {
+        rotateActionsBinding.bottomResize.beGoneIf(isCropIntent)
+        rotateActionsBinding.bottomResize.setOnClickListener {
             resizeImage()
         }
 
-        bottom_flip_horizontally.setOnClickListener {
-            crop_image_view.flipImageHorizontally()
+        rotateActionsBinding.bottomFlipHorizontally.setOnClickListener {
+            activityEditBinding.cropImageView.flipImageHorizontally()
         }
 
-        bottom_flip_vertically.setOnClickListener {
-            crop_image_view.flipImageVertically()
+        rotateActionsBinding.bottomFlipVertically.setOnClickListener {
+            activityEditBinding.cropImageView.flipImageVertically()
         }
 
-        bottom_aspect_ratio.setOnClickListener {
+        rotateActionsBinding.bottomAspectRatio.setOnClickListener {
             currCropRotateAction = if (currCropRotateAction == CROP_ROTATE_ASPECT_RATIO) {
-                crop_image_view.guidelines = CropImageView.Guidelines.OFF
-                bottom_aspect_ratios.beGone()
+                activityEditBinding.cropImageView.guidelines = CropImageView.Guidelines.OFF
+                aspectRatiosBinding.root.beGone()
                 CROP_ROTATE_NONE
             } else {
-                crop_image_view.guidelines = CropImageView.Guidelines.ON
-                bottom_aspect_ratios.beVisible()
+                activityEditBinding.cropImageView.guidelines = CropImageView.Guidelines.ON
+                aspectRatiosBinding.root.beVisible()
                 CROP_ROTATE_ASPECT_RATIO
             }
             updateCropRotateActionButtons()
@@ -508,23 +518,23 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun setupAspectRatioButtons() {
-        bottom_aspect_ratio_free.setOnClickListener {
+        aspectRatiosBinding.bottomAspectRatioFree.setOnClickListener {
             updateAspectRatio(ASPECT_RATIO_FREE)
         }
 
-        bottom_aspect_ratio_one_one.setOnClickListener {
+        aspectRatiosBinding.bottomAspectRatioOneOne.setOnClickListener {
             updateAspectRatio(ASPECT_RATIO_ONE_ONE)
         }
 
-        bottom_aspect_ratio_four_three.setOnClickListener {
+        aspectRatiosBinding.bottomAspectRatioFourThree.setOnClickListener {
             updateAspectRatio(ASPECT_RATIO_FOUR_THREE)
         }
 
-        bottom_aspect_ratio_sixteen_nine.setOnClickListener {
+        aspectRatiosBinding.bottomAspectRatioSixteenNine.setOnClickListener {
             updateAspectRatio(ASPECT_RATIO_SIXTEEN_NINE)
         }
 
-        bottom_aspect_ratio_other.setOnClickListener {
+        aspectRatiosBinding.bottomAspectRatioOther.setOnClickListener {
             OtherAspectRatioDialog(this, lastOtherAspectRatio) {
                 lastOtherAspectRatio = it
                 config.lastEditorCropOtherAspectRatioX = it.first
@@ -538,10 +548,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun setupDrawButtons() {
         updateDrawColor(config.lastEditorDrawColor)
-        bottom_draw_width.progress = config.lastEditorBrushSize
+        drawActionsBinding.bottomDrawWidth.progress = config.lastEditorBrushSize
         updateBrushSize(config.lastEditorBrushSize)
 
-        bottom_draw_color_clickable.setOnClickListener {
+        drawActionsBinding.bottomDrawColorClickable.setOnClickListener {
             ColorPickerDialog(this, drawColor) { wasPositivePressed, color ->
                 if (wasPositivePressed) {
                     updateDrawColor(color)
@@ -549,49 +559,50 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
         }
 
-        bottom_draw_width.onSeekBarChangeListener {
+        drawActionsBinding.bottomDrawWidth.onSeekBarChangeListener {
             config.lastEditorBrushSize = it
             updateBrushSize(it)
         }
 
-        bottom_draw_undo.setOnClickListener {
-            editor_draw_canvas.undo()
+        drawActionsBinding.bottomDrawUndo.setOnClickListener {
+            activityEditBinding.editorDrawCanvas.undo()
         }
     }
 
     private fun updateBrushSize(percent: Int) {
-        editor_draw_canvas.updateBrushSize(percent)
-        val scale = Math.max(0.03f, percent / 100f)
-        bottom_draw_color.scaleX = scale
-        bottom_draw_color.scaleY = scale
+        activityEditBinding.editorDrawCanvas.updateBrushSize(percent)
+        val scale = 0.03f.coerceAtLeast(percent / 100f)
+        drawActionsBinding.bottomDrawColor.scaleX = scale
+        drawActionsBinding.bottomDrawColor.scaleY = scale
     }
 
     private fun updatePrimaryActionButtons() {
-        if (crop_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
+        if (activityEditBinding.cropImageView.isGone() && currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
             loadCropImageView()
-        } else if (default_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_FILTER) {
+        } else if (activityEditBinding.defaultImageView.isGone() && currPrimaryAction == PRIMARY_ACTION_FILTER) {
             loadDefaultImageView()
-        } else if (editor_draw_canvas.isGone() && currPrimaryAction == PRIMARY_ACTION_DRAW) {
+        } else if (activityEditBinding.editorDrawCanvas.isGone() && currPrimaryAction == PRIMARY_ACTION_DRAW) {
             loadDrawCanvas()
         }
 
-        arrayOf(bottom_primary_filter, bottom_primary_crop_rotate, bottom_primary_draw).forEach {
+        arrayOf(primaryActionsBinding.bottomPrimaryFilter, primaryActionsBinding.bottomPrimaryCropRotate,
+                primaryActionsBinding.bottomPrimaryDraw).forEach {
             it.applyColorFilter(Color.WHITE)
         }
 
         val currentPrimaryActionButton = when (currPrimaryAction) {
-            PRIMARY_ACTION_FILTER -> bottom_primary_filter
-            PRIMARY_ACTION_CROP_ROTATE -> bottom_primary_crop_rotate
-            PRIMARY_ACTION_DRAW -> bottom_primary_draw
+            PRIMARY_ACTION_FILTER -> primaryActionsBinding.bottomPrimaryFilter
+            PRIMARY_ACTION_CROP_ROTATE -> primaryActionsBinding.bottomPrimaryCropRotate
+            PRIMARY_ACTION_DRAW -> primaryActionsBinding.bottomPrimaryDraw
             else -> null
         }
 
         currentPrimaryActionButton?.applyColorFilter(getAdjustedPrimaryColor())
-        bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
-        bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
-        bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
+        filterActionsBinding.root.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
+        rotateActionsBinding.root.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
+        drawActionsBinding.root.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
 
-        if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
+        if (currPrimaryAction == PRIMARY_ACTION_FILTER && filterActionsBinding.bottomActionsFilterList.adapter == null) {
             ensureBackgroundThread {
                 val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
 
@@ -628,24 +639,24 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(applicationContext, filterItems) {
-                        val layoutManager = bottom_actions_filter_list.layoutManager as LinearLayoutManager
+                        val layoutManager = filterActionsBinding.bottomActionsFilterList.layoutManager as LinearLayoutManager
                         applyFilter(filterItems[it])
 
                         if (it == layoutManager.findLastCompletelyVisibleItemPosition() || it == layoutManager.findLastVisibleItemPosition()) {
-                            bottom_actions_filter_list.smoothScrollBy(thumbnailSize, 0)
+                            filterActionsBinding.bottomActionsFilterList.smoothScrollBy(thumbnailSize, 0)
                         } else if (it == layoutManager.findFirstCompletelyVisibleItemPosition() || it == layoutManager.findFirstVisibleItemPosition()) {
-                            bottom_actions_filter_list.smoothScrollBy(-thumbnailSize, 0)
+                            filterActionsBinding.bottomActionsFilterList.smoothScrollBy(-thumbnailSize, 0)
                         }
                     }
 
-                    bottom_actions_filter_list.adapter = adapter
+                    filterActionsBinding.bottomActionsFilterList.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }
             }
         }
 
         if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
-            bottom_aspect_ratios.beGone()
+            aspectRatiosBinding.root.beGone()
             currCropRotateAction = CROP_ROTATE_NONE
         }
         updateCropRotateActionButtons()
@@ -653,7 +664,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun applyFilter(filterItem: FilterItem) {
         val newBitmap = Bitmap.createBitmap(filterInitialBitmap!!)
-        default_image_view.setImageBitmap(filterItem.filter.processFilter(newBitmap))
+        activityEditBinding.defaultImageView.setImageBitmap(filterItem.filter.processFilter(newBitmap))
     }
 
     private fun updateAspectRatio(aspectRatio: Int) {
@@ -661,7 +672,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         config.lastEditorCropAspectRatio = aspectRatio
         updateAspectRatioButtons()
 
-        crop_image_view.apply {
+        activityEditBinding.cropImageView.apply {
             if (aspectRatio == ASPECT_RATIO_FREE) {
                 setFixedAspectRatio(false)
             } else {
@@ -678,28 +689,30 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun updateAspectRatioButtons() {
-        arrayOf(bottom_aspect_ratio_free, bottom_aspect_ratio_one_one, bottom_aspect_ratio_four_three, bottom_aspect_ratio_sixteen_nine, bottom_aspect_ratio_other).forEach {
+        arrayOf(aspectRatiosBinding.bottomAspectRatioFree, aspectRatiosBinding.bottomAspectRatioOneOne,
+                aspectRatiosBinding.bottomAspectRatioFourThree, aspectRatiosBinding.bottomAspectRatioSixteenNine,
+                aspectRatiosBinding.bottomAspectRatioOther).forEach {
             it.setTextColor(Color.WHITE)
         }
 
         val currentAspectRatioButton = when (currAspectRatio) {
-            ASPECT_RATIO_FREE -> bottom_aspect_ratio_free
-            ASPECT_RATIO_ONE_ONE -> bottom_aspect_ratio_one_one
-            ASPECT_RATIO_FOUR_THREE -> bottom_aspect_ratio_four_three
-            ASPECT_RATIO_SIXTEEN_NINE -> bottom_aspect_ratio_sixteen_nine
-            else -> bottom_aspect_ratio_other
+            ASPECT_RATIO_FREE -> aspectRatiosBinding.bottomAspectRatioFree
+            ASPECT_RATIO_ONE_ONE -> aspectRatiosBinding.bottomAspectRatioOneOne
+            ASPECT_RATIO_FOUR_THREE -> aspectRatiosBinding.bottomAspectRatioFourThree
+            ASPECT_RATIO_SIXTEEN_NINE -> aspectRatiosBinding.bottomAspectRatioSixteenNine
+            else -> aspectRatiosBinding.bottomAspectRatioOther
         }
 
         currentAspectRatioButton.setTextColor(getAdjustedPrimaryColor())
     }
 
     private fun updateCropRotateActionButtons() {
-        arrayOf(bottom_aspect_ratio).forEach {
+        arrayOf(rotateActionsBinding.bottomAspectRatio).forEach {
             it.applyColorFilter(Color.WHITE)
         }
 
         val primaryActionView = when (currCropRotateAction) {
-            CROP_ROTATE_ASPECT_RATIO -> bottom_aspect_ratio
+            CROP_ROTATE_ASPECT_RATIO -> rotateActionsBinding.bottomAspectRatio
             else -> null
         }
 
@@ -708,9 +721,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun updateDrawColor(color: Int) {
         drawColor = color
-        bottom_draw_color.applyColorFilter(color)
+        drawActionsBinding.bottomDrawColor.applyColorFilter(color)
         config.lastEditorDrawColor = color
-        editor_draw_canvas.updateColor(color)
+        activityEditBinding.editorDrawCanvas.updateColor(color)
     }
 
     private fun resizeImage() {
@@ -723,7 +736,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         ResizeDialog(this, point) {
             resizeWidth = it.x
             resizeHeight = it.y
-            crop_image_view.getCroppedImageAsync()
+            activityEditBinding.cropImageView.getCroppedImageAsync()
         }
     }
 
@@ -737,8 +750,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun getAreaSize(): Point? {
-        val rect = crop_image_view.cropRect ?: return null
-        val rotation = crop_image_view.rotatedDegrees
+        val rect = activityEditBinding.cropImageView.cropRect ?: return null
+        val rotation = activityEditBinding.cropImageView.rotatedDegrees
         return if (rotation == 0 || rotation == 180) {
             Point(rect.width(), rect.height())
         } else {
