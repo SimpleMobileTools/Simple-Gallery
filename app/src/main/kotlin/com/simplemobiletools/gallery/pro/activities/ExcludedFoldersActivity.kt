@@ -8,27 +8,31 @@ import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageFoldersAdapter
+import com.simplemobiletools.gallery.pro.databinding.ActivityManageFoldersBinding
 import com.simplemobiletools.gallery.pro.extensions.config
-import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
+    private lateinit var binding: ActivityManageFoldersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_folders)
+        binding = ActivityManageFoldersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         updateFolders()
     }
 
     private fun updateFolders() {
         val folders = ArrayList<String>()
         config.excludedFolders.mapTo(folders) { it }
-        manage_folders_placeholder.apply {
+        binding.manageFoldersPlaceholder.apply {
             text = getString(R.string.excluded_activity_placeholder)
             beVisibleIf(folders.isEmpty())
             setTextColor(config.textColor)
         }
 
-        val adapter = ManageFoldersAdapter(this, folders, true, this, manage_folders_list) {}
-        manage_folders_list.adapter = adapter
+        val adapter = ManageFoldersAdapter(this, folders, true,
+                this, binding.manageFoldersList) {}
+        binding.manageFoldersList.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -9,29 +9,32 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageHiddenFoldersAdapter
+import com.simplemobiletools.gallery.pro.databinding.ActivityManageFoldersBinding
 import com.simplemobiletools.gallery.pro.extensions.addNoMedia
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getNoMediaFolders
-import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
+    private lateinit var binding: ActivityManageFoldersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_folders)
+        binding = ActivityManageFoldersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         updateFolders()
     }
 
     private fun updateFolders() {
         getNoMediaFolders {
             runOnUiThread {
-                manage_folders_placeholder.apply {
+                binding.manageFoldersPlaceholder.apply {
                     text = getString(R.string.hidden_folders_placeholder)
                     beVisibleIf(it.isEmpty())
                     setTextColor(config.textColor)
                 }
 
-                val adapter = ManageHiddenFoldersAdapter(this, it, this, manage_folders_list) {}
-                manage_folders_list.adapter = adapter
+                val adapter = ManageHiddenFoldersAdapter(this, it, this, binding.manageFoldersList) {}
+                binding.manageFoldersList.adapter = adapter
             }
         }
     }
