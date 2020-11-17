@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.EditorFilterItemBinding
 import com.simplemobiletools.gallery.pro.models.FilterItem
-import kotlinx.android.synthetic.main.editor_filter_item.view.*
 import java.util.*
 
-class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem>, val itemClick: (Int) -> Unit) : RecyclerView.Adapter<FiltersAdapter.ViewHolder>() {
-
+class FiltersAdapter(
+    val context: Context,
+    private val filterItems: ArrayList<FilterItem>,
+    private val itemClick: (Int) -> Unit
+) : RecyclerView.Adapter<FiltersAdapter.ViewHolder>() {
     private var currentSelection = filterItems.first()
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
 
@@ -20,8 +23,7 @@ class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.editor_filter_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(EditorFilterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun getItemCount() = filterItems.size
@@ -37,22 +39,14 @@ class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem
         }
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(filterItem: FilterItem): View {
-            itemView.apply {
-                editor_filter_item_label.text = filterItem.filter.name
-                editor_filter_item_thumbnail.setImageBitmap(filterItem.bitmap)
-                editor_filter_item_thumbnail.background = if (getCurrentFilter() == filterItem) {
-                    strokeBackground
-                } else {
-                    null
-                }
-
-                setOnClickListener {
-                    setCurrentFilter(adapterPosition)
-                }
+    inner class ViewHolder(private val binding: EditorFilterItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bindView(filterItem: FilterItem) {
+            binding.editorFilterItemLabel.text = filterItem.filter.name
+            binding.editorFilterItemThumbnail.setImageBitmap(filterItem.bitmap)
+            binding.editorFilterItemThumbnail.background = if (getCurrentFilter() == filterItem) strokeBackground else null
+            binding.root.setOnClickListener {
+                setCurrentFilter(adapterPosition)
             }
-            return itemView
         }
     }
 }
