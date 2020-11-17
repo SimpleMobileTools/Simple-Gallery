@@ -12,12 +12,15 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.getFileKey
 import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.portrait_photo_item.view.*
+import com.simplemobiletools.gallery.pro.databinding.PortraitPhotoItemBinding
 import java.util.*
 
-class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int, Int) -> Unit) :
-        RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
-
+class PortraitPhotosAdapter(
+    val context: Context,
+    val photos: ArrayList<String>,
+    val sideElementWidth: Int,
+    val itemClick: (Int, Int) -> Unit
+) : RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
     var currentSelectionIndex = -1
     var views = HashMap<Int, View>()
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)
@@ -28,8 +31,7 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.portrait_photo_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(PortraitPhotoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun getItemCount() = photos.size
@@ -45,44 +47,39 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
         views[position]?.performClick()
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(photo: String, position: Int): View {
-            itemView.apply {
-                portrait_photo_item_thumbnail.layoutParams.width = if (position == 0 || position == photos.size - 1) {
-                    sideElementWidth
-                } else {
-                    itemWidth
-                }
-
-                portrait_photo_item_thumbnail.background = if (photo.isEmpty() || position != currentSelectionIndex) {
-                    null
-                } else {
-                    strokeBackground
-                }
-
-                val options = RequestOptions()
-                        .signature(ObjectKey(photo.getFileKey()))
-                        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                        .centerCrop()
-
-                Glide.with(context)
-                        .load(photo)
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .apply(options)
-                        .into(portrait_photo_item_thumbnail)
-
-                if (photo.isNotEmpty()) {
-                    isClickable = true
-                    views[position] = this
-                    setOnClickListener {
-                        itemClick(position, x.toInt())
-                        setCurrentPhoto(position)
-                    }
-                } else {
-                    isClickable = false
-                }
+    inner class ViewHolder(private val binding: PortraitPhotoItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bindView(photo: String, position: Int) {
+            binding.portraitPhotoItemThumbnail.layoutParams.width = if (position == 0 || position == photos.size - 1) {
+                sideElementWidth
+            } else {
+                itemWidth
             }
-            return itemView
+            binding.portraitPhotoItemThumbnail.background = if (photo.isEmpty() || position != currentSelectionIndex) {
+                null
+            } else {
+                strokeBackground
+            }
+
+            val options = RequestOptions()
+                    .signature(ObjectKey(photo.getFileKey()))
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .centerCrop()
+            Glide.with(context)
+                    .load(photo)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(options)
+                    .into(binding.portraitPhotoItemThumbnail)
+
+            if (photo.isNotEmpty()) {
+                binding.root.isClickable = true
+                views[position] = binding.root
+                binding.root.setOnClickListener {
+                    itemClick(position, binding.root.x.toInt())
+                    setCurrentPhoto(position)
+                }
+            } else {
+                binding.root.isClickable = false
+            }
         }
     }
 }
