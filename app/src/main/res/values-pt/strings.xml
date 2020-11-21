@@ -30,8 +30,8 @@
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você utilizou a opção de atualização existente na versão antiga. Agora já pode desinstalar essa versão antiga.\n\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados mas também terá que repor as predefinições da aplicação.\n\nObrigado!</string>
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Utilizar como pasta padrão</string>
+    <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -185,13 +185,13 @@
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
     <string name="show_image_file_types">Mostrar o tipo de imagem</string>
     <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estilo de miniatura das pastas</string>
+    <string name="show_file_count_line">Mostrar número de ficherios em linha distinta</string>
+    <string name="show_file_count_brackets">Mostrar número de ficheiros em chavetas</string>
+    <string name="show_file_count_none">não mostrar número de ficheiros</string>
+    <string name="limit_folder_title">Restringir título das pastas a 1 linha</string>
+    <string name="square">Quadrado</string>
+    <string name="rounded_corners">Cantos arredondados</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
