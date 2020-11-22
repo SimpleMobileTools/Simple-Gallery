@@ -30,8 +30,8 @@
     <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
     <string name="upgraded_from_free">Γειά σας,\n\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, απο το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.\n\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.\n\nΣας ευχαριστώ!</string>
     <string name="switch_to_file_search">Εναλλαγή αναζήτησης αρχείων σε όλους τους ορατούς φακέλους</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Ορισμός ως προεπιλεγμένου φακέλου</string>
+    <string name="unset_as_default_folder">Κατάργηση ως προεπιλεγμένου φακέλου</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
@@ -185,13 +185,13 @@
     <string name="avoid_showing_invalid_files">Αποφυγή εμφάνισης μη έγκυρων αρχείων</string>
     <string name="show_image_file_types">Εμφάνιση τύπου αρχείου εικόνας</string>
     <string name="allow_zooming_videos">Επιτρέπει την μεγέθυνση βίντεο με διπλό πάτημα</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Στυλ μικρογραφίας φακέλου</string>
+    <string name="show_file_count_line">Εμφάνιση πλήθους αρχείων σε ξεχωριστή γραμμή</string>
+    <string name="show_file_count_brackets">Εμφάνιση πλήθους αρχείων σε αγκύλες</string>
+    <string name="show_file_count_none">Χωρίς εμφάνιση μέτρησης αρχείων</string>
+    <string name="limit_folder_title">Περιορισμό μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
+    <string name="square">Τετράγωνο</string>
+    <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
