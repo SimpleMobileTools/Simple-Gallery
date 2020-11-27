@@ -76,12 +76,19 @@
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Otočiť</string>
-    <string name="invalid_image_path">Neplatná cesta</string>
-    <string name="image_editing_failed">Úprava súboru zlyhala</string>
-    <string name="image_editing_cancelled">Úprava súboru bola zrušená</string>
+    <string name="invalid_image_path">Neplatná cesta obrázka</string>
+    <string name="invalid_video_path">Neplatná cesta videa</string>
+    <string name="image_editing_failed">Úprava obrázka zlyhala</string>
+    <string name="video_editing_failed">Úprava videa zlyhala</string>
+    <string name="image_editing_cancelled">Úprava obrázka bola zrušená</string>
+    <string name="video_editing_cancelled">Úprava videa bola zrušená</string>
     <string name="file_edited_successfully">Súbor bol úspešne upravený</string>
-    <string name="edit_image_with">Upraviť súbor s:</string>
-    <string name="no_editor_found">Nebol nájdený žiadny editor</string>
+    <string name="image_edited_successfully">Obrázok bol úspešne upravený</string>
+    <string name="video_edited_successfully">Video bolo úspešne upravené</string>
+    <string name="edit_image_with">Upraviť obrázok s:</string>
+    <string name="edit_video_with">Upraviť video s:</string>
+    <string name="no_image_editor_found">Nebol nájdený žiadny editor obrázkov</string>
+    <string name="no_video_editor_found">Nebol nájdený žiadny editor videí</string>
     <string name="unknown_file_location">Neznáme umiestnenie súboru</string>
     <string name="error_saving_file">Nepodarilo sa prepísať zdrojový súbor</string>
     <string name="rotate_left">Otočiť vľavo</string>
