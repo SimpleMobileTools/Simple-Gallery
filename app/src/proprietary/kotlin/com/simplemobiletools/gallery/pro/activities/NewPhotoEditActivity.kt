@@ -38,7 +38,7 @@ import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
 
-class NewEditActivity : SimpleActivity() {
+class NewPhotoEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
     private val SETTINGS_LIST = "SETTINGS_LIST"
     private val SOURCE_URI = "SOURCE_URI"

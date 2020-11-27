@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".activities.NewEditActivity"
+            android:name=".activities.NewPhotoEditActivity"
             android:label="@string/editor">
 
             <intent-filter>
