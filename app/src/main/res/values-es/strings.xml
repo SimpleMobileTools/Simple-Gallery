@@ -76,19 +76,19 @@
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotar</string>
-    <string name="invalid_image_path">Ruta de imagen no válida</string>
-    <string name="invalid_video_path">Invalid video path</string>
-    <string name="image_editing_failed">Falló la edición de imagen</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="invalid_image_path">Ruta de imagen inválida</string>
+    <string name="invalid_video_path">Ruta de video inválida</string>
+    <string name="image_editing_failed">Edición de imagen fallida</string>
+    <string name="video_editing_failed">Edición de video fallida</string>
     <string name="image_editing_cancelled">Edición de imagen cancelada</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
-    <string name="file_edited_successfully">Fichero editado satisfactoriamente</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
-    <string name="edit_image_with">Editar imagen usando:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="video_editing_cancelled">Edición de video cancelada</string>
+    <string name="file_edited_successfully">Archivo editado con éxito</string>
+    <string name="image_edited_successfully">Imagen editada con éxito</string>
+    <string name="video_edited_successfully">Video editado con éxito</string>
+    <string name="edit_image_with">Editar imagen con:</string>
+    <string name="edit_video_with">Editar video con:</string>
     <string name="no_image_editor_found">No se encontró editor de imágenes</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">No se encontró editor de video</string>
     <string name="unknown_file_location">Ubicación del archivo desconocida</string>
     <string name="error_saving_file">No se ha podido sobrescribir el archivo de origen</string>
     <string name="rotate_left">Rotar a la izquierda</string>
@@ -98,7 +98,7 @@
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
     <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Otros</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Otro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondos de pantalla Simple Gallery</string>
