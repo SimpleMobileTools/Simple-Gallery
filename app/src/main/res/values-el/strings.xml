@@ -76,19 +76,19 @@
     <!-- Editor -->
     <string name="editor">Επεξεργαστής</string>
     <string name="rotate">Περιστροφή</string>
-    <string name="invalid_image_path">Μη έγκυρη διαδρομή εικόνας</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_image_path">Άκυρη διαδρομή εικόνας</string>
+    <string name="invalid_video_path">Άκυρη διαδρομή βίντεο</string>
     <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="video_editing_failed">Η επεξεργασία βίντεο απέτυχε</string>
     <string name="image_editing_cancelled">Η επεξεργασία εικόνας ακυρώθηκε</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">Η επεξεργασία βίντεο ακυρώθηκε</string>
     <string name="file_edited_successfully">Επιτυχής επεξεργασία αρχείου</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Επιτυχής επεξεργασία εικόνας</string>
+    <string name="video_edited_successfully">Επιτυχής επεξεργασία βίντεο</string>
     <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Επεξεργασία βίντεο με:</string>
     <string name="no_image_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Δεν βρέθηκε επεργαστής βίντεο</string>
     <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
     <string name="error_saving_file">Δεν ήταν δυνατή η αντικατάσταση του αρχείου πηγής</string>
     <string name="rotate_left">Περιστροφή αριστερά</string>
@@ -97,7 +97,7 @@
     <string name="flip">Περιστροφή</string>
     <string name="flip_horizontally">Οριζόντια περιστροφή</string>
     <string name="flip_vertically">Κατακόρυφη περιστροφή</string>
-    <string name="free_aspect_ratio">Ελεύθερο</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Προσαρμογή</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
