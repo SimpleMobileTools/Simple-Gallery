@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Couleur du pinceau</string>
     <string name="pesdk_editor_title_name">Éditeur</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fermer l\'éditeur ?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Voulez-vous vraiment annuler l\'édition ?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Oui</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
     <string name="pesdk_editor_cancel">Annuler</string>
     <string name="pesdk_editor_accept">Accepter</string>
     <string name="pesdk_editor_save">Enregistrer</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportation de l\'image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation de l\'image %s</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportation…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation %s</string>
     <string name="pesdk_common_button_flipH">Symétrie H</string>
     <string name="pesdk_common_button_flipV">Symétrie V</string>
     <string name="pesdk_common_button_undo">Annuler</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Vert</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>

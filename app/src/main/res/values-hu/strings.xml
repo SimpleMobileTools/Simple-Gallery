@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Ecset színe</string>
     <string name="pesdk_editor_title_name">Szerkesztő</string>
     <string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a képet?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a változtatásokat?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Igen</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nem</string>
     <string name="pesdk_editor_cancel">Mégsem</string>
     <string name="pesdk_editor_accept">Elfogad</string>
     <string name="pesdk_editor_save">Mentés</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Kép exportálása...</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">%s kép exportálása</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportálás…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s exportálása.</string>
     <string name="pesdk_common_button_flipH">Tükrözés vízszintesen</string>
     <string name="pesdk_common_button_flipV">Tükrözés függőlegesen</string>
     <string name="pesdk_common_button_undo">Visszavonás</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Zöld</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetta szín</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának?</string>

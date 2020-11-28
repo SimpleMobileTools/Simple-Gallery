@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">لون الفرشاة</string>
     <string name="pesdk_editor_title_name">المحرر</string>
     <string name="pesdk_editor_title_closeEditorAlert">هل تريد إغلاق المحرر؟</string>
-    <string name="pesdk_editor_text_closeEditorAlert">هل تريد فعلاً تجاهل الصورة؟</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">نعم</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">لا</string>
     <string name="pesdk_editor_cancel">إلغاء</string>
     <string name="pesdk_editor_accept">موافق</string>
     <string name="pesdk_editor_save">حفظ</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">جارٍ تصدير الصورة…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">جارٍ تصدير الصورة %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">أنعكاس أفقي</string>
     <string name="pesdk_common_button_flipV">أنعكاس رأسي</string>
     <string name="pesdk_common_button_undo">تراجع</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">أخضر</string>
     <string name="pesdk_common_title_aquamarinColor">زبرجد</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable لون</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">كيف يمكنني جعل تطبيق الاستديو معرض الجهاز الإفتراضي ؟</string>

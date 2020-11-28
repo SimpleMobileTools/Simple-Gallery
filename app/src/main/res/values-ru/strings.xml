@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Цвет кисти</string>
     <string name="pesdk_editor_title_name">Редактор</string>
     <string name="pesdk_editor_title_closeEditorAlert">Закрыть редактор?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Вы действительно хотите отказаться от сделанных изменений изображения?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Да</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Нет</string>
     <string name="pesdk_editor_cancel">Отмена</string>
     <string name="pesdk_editor_accept">Принять</string>
     <string name="pesdk_editor_save">Сохранить</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Сохранение…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Сохранение изображения %s</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">Г-поворот</string>
     <string name="pesdk_common_button_flipV">В-поворот</string>
     <string name="pesdk_common_button_undo">Отмена</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Зелёный</string>
     <string name="pesdk_common_title_aquamarinColor">Аквамарин</string>
     <string name="pesdk_common_title_pipettableColor">Цвет заливки</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Как сделать Simple Gallery галереей по умолчанию?</string>

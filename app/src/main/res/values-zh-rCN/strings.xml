@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">笔刷颜色</string>
     <string name="pesdk_editor_title_name">编辑器</string>
     <string name="pesdk_editor_title_closeEditorAlert">关闭编辑器?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">您确定要放弃编辑吗?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">是</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">否</string>
     <string name="pesdk_editor_cancel">取消</string>
     <string name="pesdk_editor_accept">接受</string>
     <string name="pesdk_editor_save">保存</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">图片导出中…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">图片%s导出中。</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">水平翻转</string>
     <string name="pesdk_common_button_flipV">垂直翻转</string>
     <string name="pesdk_common_button_undo">复原</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">绿色</string>
     <string name="pesdk_common_title_aquamarinColor">碧绿</string>
     <string name="pesdk_common_title_pipettableColor">取色器</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简易图库设置为设备的默认图库？</string>

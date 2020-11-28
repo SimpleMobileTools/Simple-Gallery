@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Barva štětce</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Zavřít editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Opravdu chcete zahodit úpravy obrázku?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Opravdu chcete zahodit úpravy?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ano</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Ne</string>
     <string name="pesdk_editor_cancel">Zrušit</string>
     <string name="pesdk_editor_accept">Potvrdit</string>
     <string name="pesdk_editor_save">Uložit</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje se obrázek…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Export obrázku %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje se…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Export %s.</string>
     <string name="pesdk_common_button_flipH">Překlopit H</string>
     <string name="pesdk_common_button_flipV">Překlopit V</string>
     <string name="pesdk_common_button_undo">Vrátit</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Zelená</string>
     <string name="pesdk_common_title_aquamarinColor">Akvamarín</string>
     <string name="pesdk_common_title_pipettableColor">Pipetovatelná barva</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Jak nastavím Jednoduchou galerii jako výchozí galerii?</string>

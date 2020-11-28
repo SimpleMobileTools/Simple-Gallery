@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor"> de pinzellColor</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Tancar Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Vols realment descartar la imatge?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel·lar</string>
     <string name="pesdk_editor_accept">Acceptar</string>
     <string name="pesdk_editor_save">Desar</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportar imatge…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportant imatge %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportar…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportant %s.</string>
     <string name="pesdk_common_button_flipH">Voltejar H</string>
     <string name="pesdk_common_button_flipV">Voltejar V</string>
     <string name="pesdk_common_button_undo">Desfer</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Verd</string>
     <string name="pesdk_common_title_aquamarinColor">Aiguamarina</string>
     <string name="pesdk_common_title_pipettableColor">Pipetejat de color</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>

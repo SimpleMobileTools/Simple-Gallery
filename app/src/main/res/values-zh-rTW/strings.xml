@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">筆刷顏色</string>
     <string name="pesdk_editor_title_name">編輯器</string>
     <string name="pesdk_editor_title_closeEditorAlert">關閉編輯器?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">你確定要捨棄圖片嗎?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">是</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">否</string>
     <string name="pesdk_editor_cancel">取消</string>
     <string name="pesdk_editor_accept">接受</string>
     <string name="pesdk_editor_save">儲存</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">圖片匯出中…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">圖片%s匯出中。</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">水平翻轉</string>
     <string name="pesdk_common_button_flipV">垂直翻轉</string>
     <string name="pesdk_common_button_undo">復原</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">綠色</string>
     <string name="pesdk_common_title_aquamarinColor">藍綠</string>
     <string name="pesdk_common_title_pipettableColor">顏色吸取器</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>

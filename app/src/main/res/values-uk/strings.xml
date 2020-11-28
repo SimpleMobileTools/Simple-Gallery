@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the image?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
     <string name="pesdk_editor_accept">Accept</string>
     <string name="pesdk_editor_save">Save</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exporting image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting image %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">Flip H</string>
     <string name="pesdk_common_button_flipV">Flip V</string>
     <string name="pesdk_common_button_undo">Undo</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Green</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Як зробити Simple Gallery галереєю за-замовчуванням?</string>

@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Χρώμα Βούρτσας</string>
     <string name="pesdk_editor_title_name">Επεξεργαστής</string>
     <string name="pesdk_editor_title_closeEditorAlert">Κλείσιμο Επεξεργαστή?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Θέλετε να απορρίψετε την εικόνα;</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ναί</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Όχι</string>
     <string name="pesdk_editor_cancel">Ακύρωση</string>
     <string name="pesdk_editor_accept">Αποδοχή</string>
     <string name="pesdk_editor_save">Αποθήκευση</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Εξαγωγή εικόνας…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Εξαγωγή εικόνας %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">Αναστροφή Ο</string>
     <string name="pesdk_common_button_flipV">Αναστροφή Κ</string>
     <string name="pesdk_common_button_undo">Αναίρεση</string>
@@ -291,7 +291,7 @@
     <string name="pesdk_common_title_greenColor">Πράσινο</string>
     <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
     <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
-
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>

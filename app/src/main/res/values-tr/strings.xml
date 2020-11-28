@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Fırça Rengi</string>
     <string name="pesdk_editor_title_name">Editör</string>
     <string name="pesdk_editor_title_closeEditorAlert">Editör kapatılsın mı?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikler kaydedilmeden çıkılsın mı?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Evet</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Hayır</string>
     <string name="pesdk_editor_cancel">İptal</string>
     <string name="pesdk_editor_accept">Kabul Et</string>
     <string name="pesdk_editor_save">Kaydet</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Resim dışa aktarılıyor…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Resim dışa aktarılıyor %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_common_button_flipH">Yatay Çevir</string>
     <string name="pesdk_common_button_flipV">Dikey Çevir</string>
     <string name="pesdk_common_button_undo">Geri Al</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Yeşil</string>
     <string name="pesdk_common_title_aquamarinColor">Akuamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetlenebilir renk</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Basit Galeri\'yi nasıl varsayılan cihaz galerisi yapabilirim?</string>

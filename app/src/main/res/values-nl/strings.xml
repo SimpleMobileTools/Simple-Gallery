@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Penseelkleur</string>
     <string name="pesdk_editor_title_name">Bewerken</string>
     <string name="pesdk_editor_title_closeEditorAlert">Afsluiten</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Sluiten zonder de wijzigingen op te slaan?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nee</string>
     <string name="pesdk_editor_cancel">Annuleren</string>
     <string name="pesdk_editor_accept">Accepteren</string>
     <string name="pesdk_editor_save">Opslaan</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Afbeelding exporteren…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Afbeelding %s exporteren.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporteren…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s exporteren.</string>
     <string name="pesdk_common_button_flipH">Spiegelen H</string>
     <string name="pesdk_common_button_flipV">Spiegelen V</string>
     <string name="pesdk_common_button_undo">Ongedaan maken</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Groen</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarijn</string>
     <string name="pesdk_common_title_pipettableColor">Met pipet kiezen</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>

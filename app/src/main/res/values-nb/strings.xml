@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Penselfarge</string>
     <string name="pesdk_editor_title_name">Redigering</string>
     <string name="pesdk_editor_title_closeEditorAlert">Lukke Redigering?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Vil du forkaste bildet?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nei</string>
     <string name="pesdk_editor_cancel">Avbryt</string>
     <string name="pesdk_editor_accept">Aksepter</string>
     <string name="pesdk_editor_save">Lagre</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Eksporterer bilde…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Eksporterer bilde %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Eksporterer…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Eksporterer %s.</string>
     <string name="pesdk_common_button_flipH">Speilvend H</string>
     <string name="pesdk_common_button_flipV">Speilvend V</string>
     <string name="pesdk_common_button_undo">Angre</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Grønn</string>
     <string name="pesdk_common_title_aquamarinColor">Akvamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettefarge</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>

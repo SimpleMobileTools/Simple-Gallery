@@ -261,14 +261,14 @@
     <string name="pesdk_brush_title_brushColor">Colore pennello</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Chiudere l\'editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Vuoi veramente scartare l\'immagine?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sì</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Annulla</string>
     <string name="pesdk_editor_accept">Accetta</string>
     <string name="pesdk_editor_save">Salva</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Esportazione immagine…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Esportazione immagine %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Esportazione…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Esportazione %s.</string>
     <string name="pesdk_common_button_flipH">Capovolgi O</string>
     <string name="pesdk_common_button_flipV">Capovolgi V</string>
     <string name="pesdk_common_button_undo">Annulla</string>
@@ -291,6 +291,7 @@
     <string name="pesdk_common_title_greenColor">Verde</string>
     <string name="pesdk_common_title_aquamarinColor">Acquamarina</string>
     <string name="pesdk_common_title_pipettableColor">Colore pipettabile</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Come posso impostare Semplice Galleria come la galleria predefinita del dispositivo?</string>
