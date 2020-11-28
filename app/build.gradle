@@ -106,12 +106,18 @@ if (is_proprietary) {
     apply plugin: 'ly.img.android.sdk'
 
     imglyConfig {
+        vesdk {
+            enabled true
+            licencePath 'vesdk_license'
+        }
+
         pesdk {
             enabled true
             licencePath 'pesdk_license'
         }
 
         modules {
+            include 'ui:video-trim'
             include 'ui:core'
             include 'ui:text'
             include 'ui:focus'
