@@ -270,12 +270,19 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exportuje sa…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportovanie %s.</string>
     <string name="pesdk_sticker_title_name">Nálepky</string>
+    <string name="pesdk_sticker_title_color">Farba nálepky</string>
     <string name="pesdk_sticker_title_options">Možnosti nálepiek</string>
     <string name="pesdk_sticker_button_add">Pridať</string>
+    <string name="pesdk_sticker_button_color">Farba</string>
     <string name="pesdk_sticker_button_delete">Odstrániť</string>
     <string name="pesdk_sticker_button_bringToFront">Presunúť do popredia</string>
+    <string name="pesdk_sticker_button_straighten">Vyrovnať</string>
     <string name="pesdk_sticker_button_replace">Nahradiť</string>
     <string name="pesdk_sticker_button_opacity">Nepriehľadnosť</string>
+    <string name="pesdk_sticker_button_contrast">Kontrast</string>
+    <string name="pesdk_sticker_button_saturation">Sýtosť</string>
+    <string name="pesdk_sticker_button_brightness">Jas</string>
+    <string name="pesdk_sticker_category_name_custom">Nahrávky</string>
     <string name="pesdk_overlay_title_name">Prekrytie</string>
     <string name="pesdk_overlay_button_blendModeNormal">Žiadne</string>
     <string name="pesdk_overlay_button_blendModeDarken">Stmavenie</string>

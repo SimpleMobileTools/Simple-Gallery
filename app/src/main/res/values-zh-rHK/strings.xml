@@ -277,12 +277,19 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
     <string name="pesdk_sticker_title_options">Sticker Options</string>
     <string name="pesdk_sticker_button_add">Add</string>
+    <string name="pesdk_sticker_button_color">Color</string>
     <string name="pesdk_sticker_button_delete">Delete</string>
     <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
     <string name="pesdk_sticker_button_replace">Replace</string>
     <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
     <string name="pesdk_overlay_title_name">Overlay</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
     <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
