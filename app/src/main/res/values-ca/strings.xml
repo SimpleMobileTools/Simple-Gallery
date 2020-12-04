@@ -270,7 +270,7 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exportar…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportant %s.</string>
     <string name="pesdk_sticker_title_name">Adhesiu</string>
-    <string name="pesdk_sticker_title_color">Color d'adhesiu</string>
+    <string name="pesdk_sticker_title_color">Color d\'adhesiu</string>
     <string name="pesdk_sticker_title_options">Opcions d’adhesius</string>
     <string name="pesdk_sticker_button_add">Afegeix</string>
     <string name="pesdk_sticker_button_color">Color</string>
