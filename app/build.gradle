@@ -123,13 +123,21 @@ if (is_proprietary) {
             include 'ui:focus'
             include 'ui:brush'
             include 'ui:filter'
+            include 'ui:sticker'
+            include 'ui:overlay'
             include 'ui:transform'
             include 'ui:adjustment'
 
             include 'backend:serializer'
+            include 'backend:sticker-smart'
+            include 'backend:sticker-animated'
 
             include 'assets:font-basic'
             include 'assets:filter-basic'
+            include 'assets:overlay-basic'
+            include 'assets:sticker-shapes'
+            include 'assets:sticker-emoticons'
+            include 'assets:sticker-animated'
         }
     }
 }

@@ -22,6 +22,10 @@ import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
+import ly.img.android.pesdk.assets.overlay.basic.OverlayPackBasic
+import ly.img.android.pesdk.assets.sticker.animated.StickerPackAnimated
+import ly.img.android.pesdk.assets.sticker.emoticons.StickerPackEmoticons
+import ly.img.android.pesdk.assets.sticker.shapes.StickerPackShapes
 import ly.img.android.pesdk.backend.model.config.CropAspectAsset
 import ly.img.android.pesdk.backend.model.constant.ImageExportFormat
 import ly.img.android.pesdk.backend.model.constant.OutputMode
@@ -32,8 +36,8 @@ import ly.img.android.pesdk.backend.model.state.manager.SettingsList
 import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
 import ly.img.android.pesdk.ui.model.state.*
 import ly.img.android.pesdk.ui.panels.item.CropAspectItem
+import ly.img.android.pesdk.ui.panels.item.PersonalStickerAddItem
 import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
-import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
@@ -269,21 +273,18 @@ class NewPhotoEditActivity : SimpleActivity() {
                 brushSize = applicationContext.config.editorBrushSize
             }
 
-            // do not use Text Design, it takes up too much space
-            val tools = getSettingsModel(UiConfigMainMenu::class.java).toolList
-            val newTools = tools.filterNot {
-                it.name!!.isEmpty()
-            }.toMutableList() as ArrayList<ToolItem>
-
-            // move Focus at the end, as it is the least used
-            // on some devices it is not obvious that the toolbar can be scrolled horizontally, so move the best ones at the beginning to make them visible
-            val focus = newTools.firstOrNull { it.name == getString(R.string.pesdk_focus_title_name) }
-            if (focus != null) {
-                newTools.remove(focus)
-                newTools.add(focus)
+            configure<UiConfigOverlay> {
+                it.setOverlayList(OverlayPackBasic.getOverlayPack())
             }
 
-            getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
+            configure<UiConfigSticker> {
+                it.setStickerLists(
+                    PersonalStickerAddItem(),
+                    StickerPackEmoticons.getStickerCategory(),
+                    StickerPackShapes.getStickerCategory(),
+                    StickerPackAnimated.getStickerCategory()
+                )
+            }
 
             getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
