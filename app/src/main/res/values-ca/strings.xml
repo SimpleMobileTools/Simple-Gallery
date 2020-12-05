@@ -288,6 +288,7 @@
     <string name="pesdk_overlay_button_blendModeDarken">Enfosquir</string>
     <string name="pesdk_overlay_button_blendModeScreen">Pantalla</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Superposició</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Multiplicar</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Color cremat</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">Llum suau</string>
