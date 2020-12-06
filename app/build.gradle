@@ -77,7 +77,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.31.29'
+    implementation 'com.simplemobiletools:commons:5.32.4'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
@@ -106,24 +106,38 @@ if (is_proprietary) {
     apply plugin: 'ly.img.android.sdk'
 
     imglyConfig {
+        vesdk {
+            enabled true
+            licencePath 'vesdk_license'
+        }
+
         pesdk {
             enabled true
             licencePath 'pesdk_license'
         }
 
         modules {
+            include 'ui:video-trim'
             include 'ui:core'
             include 'ui:text'
             include 'ui:focus'
             include 'ui:brush'
             include 'ui:filter'
+            include 'ui:sticker'
+            include 'ui:overlay'
             include 'ui:transform'
             include 'ui:adjustment'
 
             include 'backend:serializer'
+            include 'backend:sticker-smart'
+            include 'backend:sticker-animated'
 
             include 'assets:font-basic'
             include 'assets:filter-basic'
+            include 'assets:overlay-basic'
+            include 'assets:sticker-shapes'
+            include 'assets:sticker-emoticons'
+            include 'assets:sticker-animated'
         }
     }
 }

@@ -30,8 +30,8 @@
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
-    <string name="set_as_default_folder">Définir comme dossier par défaut</string>
-    <string name="unset_as_default_folder">Ne plus définir comme dossier par défaut</string>
+    <string name="set_as_default_folder">Définir comme défaut</string>
+    <string name="unset_as_default_folder">Oublier le dossier</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -76,12 +76,19 @@
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="rotate">Pivoter</string>
-    <string name="invalid_image_path">Emplacement invalide</string>
+    <string name="invalid_image_path">Emplacement d\'image invalide</string>
+    <string name="invalid_video_path">Emplacement de vidéo invalide</string>
     <string name="image_editing_failed">L\'édition de l\'image a échoué</string>
+    <string name="video_editing_failed">L\'édition de la vidéo a échoué</string>
     <string name="image_editing_cancelled">L\'édition de l\'image a été annulée</string>
-    <string name="file_edited_successfully">L\'image a été éditée avec succès</string>
+    <string name="video_editing_cancelled">L\'édition de la vidéo a été annulée</string>
+    <string name="file_edited_successfully">Le fichier a été éditée avec succès</string>
+    <string name="image_edited_successfully">L\'image a été éditée avec succès</string>
+    <string name="video_edited_successfully">La vidéo a été éditée avec succès</string>
     <string name="edit_image_with">Modifier l\'image avec :</string>
-    <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
+    <string name="edit_video_with">Modifier la vidéo avec :</string>
+    <string name="no_image_editor_found">Aucun éditeur d\'image trouvé</string>
+    <string name="no_video_editor_found">Aucun éditeur de vidéo trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu</string>
     <string name="error_saving_file">Impossible de remplacer le fichier source</string>
     <string name="rotate_left">Pivoter à gauche</string>
@@ -140,7 +147,7 @@
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Dossier affiché sur le widget :</string>
+    <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
 
     <!-- Settings -->
@@ -254,14 +261,45 @@
     <string name="pesdk_brush_title_brushColor">Couleur du pinceau</string>
     <string name="pesdk_editor_title_name">Éditeur</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fermer l\'éditeur ?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Voulez-vous vraiment annuler l\'édition ?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Voulez-vous vraiment abandonner les modifications ?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Oui</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
     <string name="pesdk_editor_cancel">Annuler</string>
     <string name="pesdk_editor_accept">Accepter</string>
     <string name="pesdk_editor_save">Enregistrer</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportation de l\'image…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation de l\'image %s</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportation…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation %s</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Couleur de Sticker</string>
+    <string name="pesdk_sticker_title_options">Options de Sticker</string>
+    <string name="pesdk_sticker_button_add">Ajouter</string>
+    <string name="pesdk_sticker_button_color">Couleur</string>
+    <string name="pesdk_sticker_button_delete">Supprimer</string>
+    <string name="pesdk_sticker_button_bringToFront">Devant</string>
+    <string name="pesdk_sticker_button_straighten">Redresser</string>
+    <string name="pesdk_sticker_button_replace">Remplacer</string>
+    <string name="pesdk_sticker_button_opacity">Transparence</string>
+    <string name="pesdk_sticker_button_contrast">Contraste</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Luminosité</string>
+    <string name="pesdk_sticker_category_name_custom">Téléchargements</string>
+    <string name="pesdk_overlay_title_name">Superposition</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Assombrir</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Écran</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Recouvrir</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Alléger</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Dupliquer</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Brûlure de couleur</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Lumière douce</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Lumière forte</string>
+    <string name="pesdk_overlay_asset_none">Aucune</string>
+    <string name="pesdk_overlay_asset_golden">Doré</string>
+    <string name="pesdk_overlay_asset_lightleak1">Fuite légère 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaïque</string>
+    <string name="pesdk_overlay_asset_paper">Papier</string>
+    <string name="pesdk_overlay_asset_rain">Pluie</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Symétrie H</string>
     <string name="pesdk_common_button_flipV">Symétrie V</string>
     <string name="pesdk_common_button_undo">Annuler</string>
@@ -284,6 +322,7 @@
     <string name="pesdk_common_title_greenColor">Vert</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
@@ -317,7 +356,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editeur</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">

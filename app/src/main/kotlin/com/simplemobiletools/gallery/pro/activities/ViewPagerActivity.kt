@@ -87,9 +87,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIgnoredPaths = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        useDynamicTheme = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
+        window.decorView.setBackgroundColor(config.backgroundColor)
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
@@ -132,7 +134,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
-        supportActionBar?.title = Html.fromHtml("<font color=#FFFFFF'>$filename</font>")
+        supportActionBar?.title = filename
         window.statusBarColor = Color.TRANSPARENT
     }
 

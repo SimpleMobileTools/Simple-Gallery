@@ -26,12 +26,12 @@
     <string name="fix_date_taken">撮影日の値を修正</string>
     <string name="fixing">修正中…</string>
     <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">撮影日が見つかりません</string>
     <string name="share_resized">リサイズした画像を共有</string>
-    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Upgrade to Pro\"というボタンが設定の上部にある無料版はアンインストールすることができます。\n\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。\n\nありがとう!</string>
+    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Pro版にアップグレード\"というボタンが設定の上部にある無料版はアンインストールすることができます。\n\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。\n\nありがとう!</string>
     <string name="switch_to_file_search">表示されているすべてのフォルダで検索 に切り替え</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
+    <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
@@ -63,7 +63,7 @@
     <string name="manage_included_folders">追加フォルダの管理</string>
     <string name="add_folder">フォルダを追加</string>
     <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">メディアファイルが見つかりません。メディアファイルを手動で追加することにより解決できます。</string>
 
     <!-- Resizing -->
     <string name="resize">リサイズ</string>
@@ -77,11 +77,18 @@
     <string name="editor">画像編集</string>
     <string name="rotate">回転</string>
     <string name="invalid_image_path">無効な画像パス</string>
+    <string name="invalid_video_path">無効な動画パス</string>
     <string name="image_editing_failed">画像の編集に失敗しました</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
+    <string name="video_editing_failed">動画の編集に失敗しました</string>
+    <string name="image_editing_cancelled">画像の編集がキャンセルされました</string>
+    <string name="video_editing_cancelled">動画の編集がキャンセルされました</string>
     <string name="file_edited_successfully">ファイルの編集に成功しました</string>
+    <string name="image_edited_successfully">画像の編集に成功しました</string>
+    <string name="video_edited_successfully">動画の編集に成功しました</string>
     <string name="edit_image_with">画像を編集:</string>
-    <string name="no_editor_found">画像エディターが見つかりません</string>
+    <string name="edit_video_with">動画を編集:</string>
+    <string name="no_image_editor_found">画像エディターが見つかりません</string>
+    <string name="no_video_editor_found">動画エディターが見つかりません</string>
     <string name="unknown_file_location">ファイルの場所が不明です</string>
     <string name="error_saving_file">元のファイルを上書きできません</string>
     <string name="rotate_left">左に回転</string>
@@ -137,7 +144,7 @@
     <string name="by_date_taken_monthly">撮影日時 (毎月)</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">グループ化とソートはそれぞれ違ったフィールドであることに注意してください</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">ウィジェットに表示するフォルダ:</string>
@@ -176,22 +183,22 @@
     <string name="show_recycle_bin_last">ごみ箱をメイン画面の最後に表示</string>
     <string name="allow_down_gesture">フルスクリーン表示を下にスワイプするジェスチャーで閉じる</string>
     <string name="allow_one_to_one_zoom">ダブルタップして 1:1 ズームする</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="open_videos_on_separate_screen">常に新しい左右のジェスチャーで動画を開く</string>
+    <string name="show_notch">利用可能なノッチを表示</string>
     <string name="allow_rotating_gestures">ジェスチャーで画像を回転する</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
-    <string name="show_image_file_types">Show image file types</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="file_loading_priority">ファイルの優先ローディング</string>
+    <string name="speed">スピード</string>
+    <string name="compromise">コンプロマイズ</string>
+    <string name="avoid_showing_invalid_files">無効なファイルを非表示</string>
+    <string name="show_image_file_types">画像ファイルの種類を表示</string>
+    <string name="allow_zooming_videos">ダブルタップで動画ズームを設定</string>
+    <string name="folder_thumbnail_style">フォルダサムネイルのスタイル</string>
+    <string name="show_file_count_line">ファイル数を別の行に表示</string>
+    <string name="show_file_count_brackets">ファイル数を括弧内に表示</string>
+    <string name="show_file_count_none">ファイル数を非表示</string>
+    <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
+    <string name="square">四角</string>
+    <string name="rounded_corners">丸コーナー</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
@@ -254,129 +261,173 @@
     <string name="pesdk_brush_title_brushColor">ブラシの色</string>
     <string name="pesdk_editor_title_name">エディター</string>
     <string name="pesdk_editor_title_closeEditorAlert">エディターを閉じますか?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">画像を破棄して閉じますか?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">本当に変更を破棄しますか？</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">はい</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">いいえ</string>
     <string name="pesdk_editor_cancel">キャンセル</string>
     <string name="pesdk_editor_accept">了解</string>
     <string name="pesdk_editor_save">保存</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">画像を保存中……</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">画像を保存中 %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">エクスポート中…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">エクスポート%s</string>
+    <string name="pesdk_sticker_title_name">ステッカー</string>
+    <string name="pesdk_sticker_title_color">ステッカーの色</string>
+    <string name="pesdk_sticker_title_options">ステッカーオプション</string>
+    <string name="pesdk_sticker_button_add">追加</string>
+    <string name="pesdk_sticker_button_color">色</string>
+    <string name="pesdk_sticker_button_delete">削除</string>
+    <string name="pesdk_sticker_button_bringToFront">前面へ</string>
+    <string name="pesdk_sticker_button_straighten">まっすぐにする</string>
+    <string name="pesdk_sticker_button_replace">置き換え</string>
+    <string name="pesdk_sticker_button_opacity">不透明度</string>
+    <string name="pesdk_sticker_button_contrast">コントラスト</string>
+    <string name="pesdk_sticker_button_saturation">彩度</string>
+    <string name="pesdk_sticker_button_brightness">明るさ</string>
+    <string name="pesdk_sticker_category_name_custom">アップロード済</string>
+    <string name="pesdk_overlay_title_name">オーバーレイ</string>
+    <string name="pesdk_overlay_button_blendModeNormal">ノーマル</string>
+    <string name="pesdk_overlay_button_blendModeDarken">暗め</string>
+    <string name="pesdk_overlay_button_blendModeScreen">画面</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">オーバーレイ</string>
+    <string name="pesdk_overlay_button_blendModeLighten">明るめ</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">複写</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">焼き込みカラー</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">ソフトライト</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">ハードライト</string>
+    <string name="pesdk_overlay_asset_none">なし</string>
+    <string name="pesdk_overlay_asset_golden">ゴールデン</string>
+    <string name="pesdk_overlay_asset_lightleak1">光漏れ 1</string>
+    <string name="pesdk_overlay_asset_mosaic">モザイク</string>
+    <string name="pesdk_overlay_asset_paper">ペーパー</string>
+    <string name="pesdk_overlay_asset_rain">雨</string>
+    <string name="pesdk_overlay_asset_vintage">ビンテージ</string>
     <string name="pesdk_common_button_flipH">水平方向に反転</string>
     <string name="pesdk_common_button_flipV">垂直方向に反転</string>
     <string name="pesdk_common_button_undo">元に戻す</string>
     <string name="pesdk_common_button_redo">やり直し</string>
     <string name="pesdk_common_title_colorPicker">カラーピッカー</string>
     <string name="pesdk_common_title_transparentColor">透明</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
-    <string name="pesdk_common_title_grayColor">Gray</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
-    <string name="pesdk_common_title_lightBlueColor">Light blue</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
-    <string name="pesdk_common_title_purpleColor">Purple</string>
-    <string name="pesdk_common_title_orchidColor">Orchid</string>
-    <string name="pesdk_common_title_pinkColor">Pink</string>
-    <string name="pesdk_common_title_redColor">Red</string>
-    <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Yellow</string>
-    <string name="pesdk_common_title_oliveColor">Olive</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
+    <string name="pesdk_common_title_whiteColor">ホワイト</string>
+    <string name="pesdk_common_title_grayColor">グレー</string>
+    <string name="pesdk_common_title_blackColor">ブラック</string>
+    <string name="pesdk_common_title_lightBlueColor">ライトブルー</string>
+    <string name="pesdk_common_title_blueColor">ブルー</string>
+    <string name="pesdk_common_title_purpleColor">パープル</string>
+    <string name="pesdk_common_title_orchidColor">オーキッド</string>
+    <string name="pesdk_common_title_pinkColor">ピンク</string>
+    <string name="pesdk_common_title_redColor">レッド</string>
+    <string name="pesdk_common_title_orangeColor">オレンジ</string>
+    <string name="pesdk_common_title_goldColor">ゴールド</string>
+    <string name="pesdk_common_title_yellowColor">イエロー</string>
+    <string name="pesdk_common_title_oliveColor">オリーブ</string>
+    <string name="pesdk_common_title_greenColor">グリーン</string>
+    <string name="pesdk_common_title_aquamarinColor">アクアマリン</string>
+    <string name="pesdk_common_title_pipettableColor">ピペッティング可能な色</string>
+    <string name="vesdk_video_trim_title_name">トリム</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_1_title">どうすればSimpleギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
+    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。
+        次に画像や動画を開こうとした時に、アプリ選択が表示されるのでSimpleギャラリーを通常のアプリとして選択します。</string>
+    <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
+    <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて\"データを消去\"を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
+    <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
+    <string name="faq_3_text">アルバムを長押しで選択し、アクションメニューからピンアイコンを選択すれば一番上に固定されます。複数のフォルダをピン留めできます。ピン留めされた項目は、デフォルトのソート方法でソートされます。</string>
     <string name="faq_4_title">動画を早送りするにはどうすればよいですか？</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_4_text">画面の横をダブルタップするか、検索バーの近くにある現在もしくは最大数のテキストをタップすれば可能です。別画面動画を開くことをアプリ設定で有効にしている場合、左右ジェスチャーも使用できます。</string>
+    <string name="faq_5_title">フォルダの非表示と除外の違いは何ですか？</string>
+    <string name="faq_5_text">除外はSimpleギャラリーでのみフォルダを非表示にし、非表示はシステム上で動作するので他のギャラリーからもフォルダを非表示にします。指定されたフォルダに空の\".nomedia\"ファイルを作成することにより動作し、任意のファイルマネージャーで削除することも出来ます。一部のデバイスでは、カメラ、スクリーンショット、ダウンロードのようなフォルダを非表示に出来ないことはご留意ください。</string>
+    <string name="faq_6_title">音楽のカバーアートやステッカーのフォルダが表示されるのはなぜですか？</string>
+    <string name="faq_6_text">通常ではないアルバムが表示されることがあります。長押しして除外を選択することで簡単に除くことができます。次のダイアログで親フォルダを選択すると、他の関連アルバムも表示されなくなります。</string>
+    <string name="faq_7_title">画像フォルダが表示されなかったり、全てのアイテムが表示されなかったりします。どうしたらいいですか？</string>
+    <string name="faq_7_text">理由はいくつかありますが、解決は簡単です。設定→含まれているフォルダの管理に移動し、Plusを選択し、必要なフォルダに移動します。</string>
+    <string name="faq_8_title">特定のフォルダのみ表示にしたい場合はどうすればいいですか？</string>
+    <string name="faq_8_text">含まれているフォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外されたフォルダの管理に移動し、ルートフォルダを除外し、設定→含まれているフォルダの管理で目的のフォルダを追加すれば可能です。
+        除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるのです。</string>
+    <string name="faq_10_title">このアプリで画像のトリミングは出来ますか？</string>
+    <string name="faq_10_text">はい、編集で画像をトリミング出来ます。画像の隅をドラッグしてください。画像のサムネイルを長押しし編集を選択するか、フルスクリーンで編集を選択することにより編集できます。</string>
+    <string name="faq_11_title">どうすればメディアファイルのサムネイルをグループ化できますか？</string>
+    <string name="faq_11_text">サムネイル表示中に\"グループ分け\"メニューを使用してください。撮影日を含めた、複数の条件でグループ化することが出来ます。\"すべてを表示\"機能を使えば、フォルダごとにグループ化することも出来ます。 </string>
+    <string name="faq_12_title">撮影日でソートがうまく機能しないようです。どうすれば直せますか？</string>
+    <string name="faq_12_text">おそらく、ファイルがコピーされたものであることが原因でしょう。ファイルサムネイルを選択し、\"撮影日の値を修正\"を選択することにより直せます。</string>
+    <string name="faq_13_title">画像にバンディングが見られます。どうすれば質を変えられますか？</string>
+    <string name="faq_13_text">現在の表示方法は大抵の場合問題は見られませんが、より高画質で表示したい場合はアプリ設定の\"画像のズームを深くする\"セクションで\"可能な限り高品質で画像を表示\"を有効にすると良いでしょう。 </string>
+    <string name="faq_14_title">非表示にしているファイルやフォルダがあります。もう一度表示するにはどうすればいいですか？</string>
+    <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。</string>
+    <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
+    <string name="faq_15_text">アプリのキャッシュがは画像の素早いローディングのため最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ゴミ箱内のアイテムが原因となっているはずです。ゴミ箱内のファイルもアプリ容量として加算されます。ゴミ箱を開くか、アプリの設定から全てのファイルを削除できます。ゴミ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">シンプルギャラリープロ-写真とビデオの管理と編集</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">お気に入りのフォトアルバム。スマートギャラリーで写真の切り取りや編集。</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
-
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        シンプルギャラリーは、高度にカスタマイズ可能なオフラインのphoto vaultおよびファイル整理アプリです。ユーザー体験で世界中で何百万人もの人々に愛されています。 フォトギャラリーを使用して、写真の編集、削除した写真の復元、写真の保護と非表示、秘密のフォトアルバムの作成、写真のトリミングを簡単に行います。またRAW、SVG、GIF、パノラマなど、さまざまな写真やビデオ形式を表示することができます。 今すぐフォトギャラリーをダウンロードして、アルバムを好きなように管理してください！
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>シンプルギャラリー-写真および動画の管理と編集</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        削除されたビデオを復元し、広告なしで写真をトリミングするオプションを備えた美しいモダンなフォトアルバム
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        高度な写真編集–写真のトリミング、写真の編集、画像の検索。 削除されたビデオを復元できる快適で使いやすいphoto vault
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        インターネットにアクセスする必要がないため、プライバシー、セキュリティ、安定性が向上-オフラインの秘密の写真アルバム
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        画像をすばやく検索、写真の非表示、編集、削除された写真・ビデオ・GIF・その他のファイルを復元
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        さまざまな種類の写真やビデオ（RAW、SVG、パノラマ、GIFなど）を開いて表示
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        写真管理で写真を簡単に編集・整理するための使いやすいジェスチャーが多数
 
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-        
-        <b>Standalone website of Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
+        ファイルをフィルタリング、グループ化、およびソートする多くの機能
 
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
+        パターンロック、PIN、指紋を使用して写真とビデオを保護・編集
 
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
+        PIN、パターンロック、指紋を使用して、アプリの起動や特定の機能も保護
+
+        ゴミ箱からビデオを復元
+
+        photo vaultを使用してファイルの表示の切り替え、写真とビデオの非表示、写真のトリミングが可能
+
+        フォトギャラリー内の多数のオプションを使用して、ファイルのカスタマイズショーを作成
+
+        •画像検索、写真編集、高品質は写真・ビデオ・GIFを指を使って簡単にズーム
+
+        ビデオを見やすくするために、水平・垂直方向を簡単に変更
+
+        ファイル整理-シンプルなモバイルフォトギャラリーでは、画像・ビデオ・GIFの名前変更、コピー/移動、表示/非表示、削除が可能
+
+        手間をかけずに画像を壁紙に設定
+
+        <b>高度な写真編集</b>
+         シンプルなギャラリーファイルの整理とフォトアルバムにより、簡単すぐに写真を編集することができます。 画像の切り抜き、反転、回転、サイズ変更、または必要なフィルターの適用などがお使いいただけます。
+
+        <b>様々なファイルタイプをサポート</b>
+         シンプルギャラリーは、JPEG、PNG、MP4、MKV、RAW、SVG、GIF、パノラマ写真、ビデオなど、さまざまな種類のファイルをサポートしています。
+
+        <b>カスタマイズ可能なファイル管理</b>
+        シンプルギャラリーはUIから下部のツールバーの機能ボタンまで、高度にカスタマイズ可能なファイル整理機能を備えています。
+
+        <b>削除された写真と動画の復元</b>
+        大切な写真やビデオをフォトアルバムから誤って削除したことはありませんか？シンプルなモバイルフォトギャラリーには、photo vaultアプリのおかげで削除された写真をすべて復元できる便利なオプションがあります。
+
+        <b>写真、動画、ファイルを保護して非表示に</b>
+         PIN、パターンロック、またはデバイスの指紋認証を使用して、写真の保護と編集、削除されたビデオの復元、写真の切り抜き、画像の検索を行うことができます。 ファイルオーガナイザー自体を保護したり、アプリの特定の機能をロックしたりすることができます。 たとえば、指紋認証をしないとファイルの削除ができません。
+
+        広告や不要な権限はありません。 完全にオープンソースで、カラーもカスタマイズ可能。
+
+        <b>シンプルツールの完全なリストはこちらからご確認ください：</b>
+         https://www.simplemobiletools.com
+
+        <b>シンプルギャラリープロのwebサイト：</b>
+         https://www.simplemobiletools.com/gallery
+
+        <b> Facebook：</b>
+         https://www.facebook.com/simplemobiletools
+
+        <b> Reddit：</b>
+         https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

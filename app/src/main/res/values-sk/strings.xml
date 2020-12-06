@@ -76,12 +76,19 @@
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Otočiť</string>
-    <string name="invalid_image_path">Neplatná cesta</string>
-    <string name="image_editing_failed">Úprava súboru zlyhala</string>
-    <string name="image_editing_cancelled">Úprava súboru bola zrušená</string>
+    <string name="invalid_image_path">Neplatná cesta obrázka</string>
+    <string name="invalid_video_path">Neplatná cesta videa</string>
+    <string name="image_editing_failed">Úprava obrázka zlyhala</string>
+    <string name="video_editing_failed">Úprava videa zlyhala</string>
+    <string name="image_editing_cancelled">Úprava obrázka bola zrušená</string>
+    <string name="video_editing_cancelled">Úprava videa bola zrušená</string>
     <string name="file_edited_successfully">Súbor bol úspešne upravený</string>
-    <string name="edit_image_with">Upraviť súbor s:</string>
-    <string name="no_editor_found">Nebol nájdený žiadny editor</string>
+    <string name="image_edited_successfully">Obrázok bol úspešne upravený</string>
+    <string name="video_edited_successfully">Video bolo úspešne upravené</string>
+    <string name="edit_image_with">Upraviť obrázok s:</string>
+    <string name="edit_video_with">Upraviť video s:</string>
+    <string name="no_image_editor_found">Nebol nájdený žiadny editor obrázkov</string>
+    <string name="no_video_editor_found">Nebol nájdený žiadny editor videí</string>
     <string name="unknown_file_location">Neznáme umiestnenie súboru</string>
     <string name="error_saving_file">Nepodarilo sa prepísať zdrojový súbor</string>
     <string name="rotate_left">Otočiť vľavo</string>
@@ -254,14 +261,45 @@
     <string name="pesdk_brush_title_brushColor">Farba štetca</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Zavrieť editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Ozaj chcete zahodiť úpravy obrázka?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Ozaj chcete zahodiť úpravy?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Áno</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nie</string>
     <string name="pesdk_editor_cancel">Zrušiť</string>
     <string name="pesdk_editor_accept">Prijať</string>
     <string name="pesdk_editor_save">Uložiť</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje sa obrázok…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportovanie obrázka %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportuje sa…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportovanie %s.</string>
+    <string name="pesdk_sticker_title_name">Nálepky</string>
+    <string name="pesdk_sticker_title_color">Farba nálepky</string>
+    <string name="pesdk_sticker_title_options">Možnosti nálepiek</string>
+    <string name="pesdk_sticker_button_add">Pridať</string>
+    <string name="pesdk_sticker_button_color">Farba</string>
+    <string name="pesdk_sticker_button_delete">Odstrániť</string>
+    <string name="pesdk_sticker_button_bringToFront">Presunúť do popredia</string>
+    <string name="pesdk_sticker_button_straighten">Vyrovnať</string>
+    <string name="pesdk_sticker_button_replace">Nahradiť</string>
+    <string name="pesdk_sticker_button_opacity">Nepriehľadnosť</string>
+    <string name="pesdk_sticker_button_contrast">Kontrast</string>
+    <string name="pesdk_sticker_button_saturation">Sýtosť</string>
+    <string name="pesdk_sticker_button_brightness">Jas</string>
+    <string name="pesdk_sticker_category_name_custom">Nahrávky</string>
+    <string name="pesdk_overlay_title_name">Prekrytie</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Žiadne</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Stmavenie</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Prekrytie</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Osvetlenie</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Znásobenie</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Vypálenie farby</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Jemné svetlo</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Tvrdé svetlo</string>
+    <string name="pesdk_overlay_asset_none">Žiadne</string>
+    <string name="pesdk_overlay_asset_golden">Zlaté</string>
+    <string name="pesdk_overlay_asset_lightleak1">Únik svetla</string>
+    <string name="pesdk_overlay_asset_mosaic">Mozaika</string>
+    <string name="pesdk_overlay_asset_paper">Papier</string>
+    <string name="pesdk_overlay_asset_rain">Dážď</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Preklopiť H</string>
     <string name="pesdk_common_button_flipV">Preklopiť V</string>
     <string name="pesdk_common_button_undo">Späť</string>
@@ -284,6 +322,7 @@
     <string name="pesdk_common_title_greenColor">Zelená</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetovateľná farba</string>
+    <string name="vesdk_video_trim_title_name">Obrezať</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>

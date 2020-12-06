@@ -77,11 +77,18 @@
     <string name="editor">Editor</string>
     <string name="rotate">Drehen</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
+    <string name="invalid_video_path">Invalid video path</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
+    <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">Bildbearbeitung abgebrochen</string>
+    <string name="video_editing_cancelled">Video editing cancelled</string>
     <string name="file_edited_successfully">Datei erfolgreich bearbeitet</string>
+    <string name="image_edited_successfully">Image edited successfully</string>
+    <string name="video_edited_successfully">Video edited successfully</string>
     <string name="edit_image_with">Bild bearbeiten mit:</string>
-    <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
+    <string name="edit_video_with">Edit video with:</string>
+    <string name="no_image_editor_found">Keine Bildeditor-App gefunden</string>
+    <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Unbekannter Dateipfad</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
     <string name="rotate_left">Nach links drehen</string>
@@ -254,14 +261,45 @@
     <string name="pesdk_brush_title_brushColor">Pinselfarbe</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Editor schließen?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Möchtest du das Bild wirklich verwerfen?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nein</string>
     <string name="pesdk_editor_cancel">Abbrechen</string>
     <string name="pesdk_editor_accept">Akzeptieren</string>
     <string name="pesdk_editor_save">Speichern</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Bild wird exportiert…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Bild %s wird exportiert.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">Add</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Delete</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Replace</string>
+    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">H spiegeln</string>
     <string name="pesdk_common_button_flipV">V spiegeln</string>
     <string name="pesdk_common_button_undo">Rückgängig</string>
@@ -284,6 +322,7 @@
     <string name="pesdk_common_title_greenColor">Grün</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettierbare Farbe</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>

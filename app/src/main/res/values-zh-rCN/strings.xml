@@ -30,8 +30,8 @@
     <string name="share_resized">调整尺寸并分享</string>
     <string name="upgraded_from_free">嘿，\n\n您似乎已经从旧的免费版应用升级。您现在可以卸载旧版本，在该版本的应用设置顶部有一个“升级到专业版”按钮。\n\n此操作会删除回收站项目，取消标记收藏项目，并重置应用设置。\n\n谢谢！</string>
     <string name="switch_to_file_search">切换文件搜索范围为所有可见的文件夹</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">设置为默认文件夹</string>
+    <string name="unset_as_default_folder">取消设置为默认文件夹</string>
 
     <!-- Filter -->
     <string name="filter_media">筛选媒体文件</string>
@@ -77,11 +77,18 @@
     <string name="editor">编辑器</string>
     <string name="rotate">旋转</string>
     <string name="invalid_image_path">无效的图片路径</string>
+    <string name="invalid_video_path">无效的视频路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
+    <string name="video_editing_failed">视频编辑失败</string>
     <string name="image_editing_cancelled">取消图片编辑</string>
+    <string name="video_editing_cancelled">取消视频编辑</string>
     <string name="file_edited_successfully">文件编辑成功</string>
+    <string name="image_edited_successfully">图片编辑成功</string>
+    <string name="video_edited_successfully">视频编辑成功</string>
     <string name="edit_image_with">编辑方式：</string>
-    <string name="no_editor_found">没有找到图片编辑器</string>
+    <string name="edit_video_with">编辑方式:</string>
+    <string name="no_image_editor_found">没有找到任何图片编辑器</string>
+    <string name="no_video_editor_found">没有找到任何视频编辑器</string>
     <string name="unknown_file_location">未知文件位置</string>
     <string name="error_saving_file">无法覆盖源文件</string>
     <string name="rotate_left">向左旋转</string>
@@ -185,13 +192,13 @@
     <string name="avoid_showing_invalid_files">避免显示无效的文件</string>
     <string name="show_image_file_types">显示图片文件类型</string>
     <string name="allow_zooming_videos">允许双击来放大视频</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">文件夹缩略图样式</string>
+    <string name="show_file_count_line">在单独一行中显示计数</string>
+    <string name="show_file_count_brackets">在括号中显示计数</string>
+    <string name="show_file_count_none">不显示计数</string>
+    <string name="limit_folder_title">将较长的文件夹标题字符限制为1行</string>
+    <string name="square">方形</string>
+    <string name="rounded_corners">圆角</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
@@ -254,14 +261,45 @@
     <string name="pesdk_brush_title_brushColor">笔刷颜色</string>
     <string name="pesdk_editor_title_name">编辑器</string>
     <string name="pesdk_editor_title_closeEditorAlert">关闭编辑器?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">您确定要放弃编辑吗?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">你确定要放弃更改吗?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">是</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">否</string>
     <string name="pesdk_editor_cancel">取消</string>
     <string name="pesdk_editor_accept">接受</string>
     <string name="pesdk_editor_save">保存</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">图片导出中…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">图片%s导出中。</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">正在导出…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">正在导出 %s.</string>
+    <string name="pesdk_sticker_title_name">贴纸</string>
+    <string name="pesdk_sticker_title_color">贴纸颜色</string>
+    <string name="pesdk_sticker_title_options">贴纸选项</string>
+    <string name="pesdk_sticker_button_add">添加</string>
+    <string name="pesdk_sticker_button_color">颜色</string>
+    <string name="pesdk_sticker_button_delete">删除</string>
+    <string name="pesdk_sticker_button_bringToFront">置顶</string>
+    <string name="pesdk_sticker_button_straighten">拉伸</string>
+    <string name="pesdk_sticker_button_replace">替换</string>
+    <string name="pesdk_sticker_button_opacity">不透明度</string>
+    <string name="pesdk_sticker_button_contrast">对比度</string>
+    <string name="pesdk_sticker_button_saturation">饱和度</string>
+    <string name="pesdk_sticker_button_brightness">亮度</string>
+    <string name="pesdk_sticker_category_name_custom">上传</string>
+    <string name="pesdk_overlay_title_name">叠加层</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">水平翻转</string>
     <string name="pesdk_common_button_flipV">垂直翻转</string>
     <string name="pesdk_common_button_undo">复原</string>
@@ -284,6 +322,7 @@
     <string name="pesdk_common_title_greenColor">绿色</string>
     <string name="pesdk_common_title_aquamarinColor">碧绿</string>
     <string name="pesdk_common_title_pipettableColor">取色器</string>
+    <string name="vesdk_video_trim_title_name">剪辑</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简易图库设置为设备的默认图库？</string>

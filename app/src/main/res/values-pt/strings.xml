@@ -30,8 +30,8 @@
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,\n\nparece que você utilizou a opção de atualização existente na versão antiga. Agora já pode desinstalar essa versão antiga.\n\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados mas também terá que repor as predefinições da aplicação.\n\nObrigado!</string>
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Utilizar como pasta padrão</string>
+    <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -77,11 +77,18 @@
     <string name="editor">Editor</string>
     <string name="rotate">Rodar</string>
     <string name="invalid_image_path">Caminho inválido</string>
+    <string name="invalid_video_path">Invalid video path</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
+    <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">Edição de imagem cancelada</string>
+    <string name="video_editing_cancelled">Video editing cancelled</string>
     <string name="file_edited_successfully">Imagem editada com sucesso</string>
+    <string name="image_edited_successfully">Image edited successfully</string>
+    <string name="video_edited_successfully">Video edited successfully</string>
     <string name="edit_image_with">Editar imagem com:</string>
-    <string name="no_editor_found">Editor não encontrado</string>
+    <string name="edit_video_with">Edit video with:</string>
+    <string name="no_image_editor_found">Editor não encontrado</string>
+    <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Localização desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o ficheiro original</string>
     <string name="rotate_left">Rodar à esquerda</string>
@@ -185,13 +192,13 @@
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
     <string name="show_image_file_types">Mostrar o tipo de imagem</string>
     <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estilo de miniatura das pastas</string>
+    <string name="show_file_count_line">Mostrar número de ficherios em linha distinta</string>
+    <string name="show_file_count_brackets">Mostrar número de ficheiros em chavetas</string>
+    <string name="show_file_count_none">não mostrar número de ficheiros</string>
+    <string name="limit_folder_title">Restringir título das pastas a 1 linha</string>
+    <string name="square">Quadrado</string>
+    <string name="rounded_corners">Cantos arredondados</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -254,14 +261,45 @@
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fechar editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Tem a certeza de que deseja descartar as alterações?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
     <string name="pesdk_editor_accept">Aceitar</string>
     <string name="pesdk_editor_save">Guardar</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">A exportar imagem…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar imagem %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">A exportar…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar %s.</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">Add</string>
+    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_delete">Delete</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Replace</string>
+    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
+    <string name="pesdk_overlay_asset_paper">Paper</string>
+    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Inversão horizontal</string>
     <string name="pesdk_common_button_flipV">Inversão vertical</string>
     <string name="pesdk_common_button_undo">Desfazer</string>
@@ -284,6 +322,7 @@
     <string name="pesdk_common_title_greenColor">Verde</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarino</string>
     <string name="pesdk_common_title_pipettableColor">Pipeta de cores</string>
+    <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>

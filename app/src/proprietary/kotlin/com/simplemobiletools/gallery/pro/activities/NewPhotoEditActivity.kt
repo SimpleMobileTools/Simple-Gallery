@@ -22,6 +22,10 @@ import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
+import ly.img.android.pesdk.assets.overlay.basic.OverlayPackBasic
+import ly.img.android.pesdk.assets.sticker.animated.StickerPackAnimated
+import ly.img.android.pesdk.assets.sticker.emoticons.StickerPackEmoticons
+import ly.img.android.pesdk.assets.sticker.shapes.StickerPackShapes
 import ly.img.android.pesdk.backend.model.config.CropAspectAsset
 import ly.img.android.pesdk.backend.model.constant.ImageExportFormat
 import ly.img.android.pesdk.backend.model.constant.OutputMode
@@ -32,13 +36,13 @@ import ly.img.android.pesdk.backend.model.state.manager.SettingsList
 import ly.img.android.pesdk.ui.activity.PhotoEditorBuilder
 import ly.img.android.pesdk.ui.model.state.*
 import ly.img.android.pesdk.ui.panels.item.CropAspectItem
+import ly.img.android.pesdk.ui.panels.item.PersonalStickerAddItem
 import ly.img.android.pesdk.ui.panels.item.ToggleAspectItem
-import ly.img.android.pesdk.ui.panels.item.ToolItem
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
 
-class NewEditActivity : SimpleActivity() {
+class NewPhotoEditActivity : SimpleActivity() {
     private val PESDK_EDIT_IMAGE = 1
     private val SETTINGS_LIST = "SETTINGS_LIST"
     private val SOURCE_URI = "SOURCE_URI"
@@ -51,7 +55,7 @@ class NewEditActivity : SimpleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_edit)
+        setContentView(R.layout.activity_new_photo_edit)
 
         if (checkAppSideloading()) {
             return
@@ -201,7 +205,7 @@ class NewEditActivity : SimpleActivity() {
         }
     }
 
-    // in case the user wants to overwrite the original file and it is on an SD card, delete it manually. Else the system just appends (1)
+    // In case the user wants to overwrite the original file and it is on an SD card, delete it manually first. Else the system just appends (1)
     private fun handleFileOverwriting(path: String, callback: () -> Unit) {
         if (getDoesFilePathExist(path) && isPathOnSD(path)) {
             val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
@@ -269,21 +273,18 @@ class NewEditActivity : SimpleActivity() {
                 brushSize = applicationContext.config.editorBrushSize
             }
 
-            // do not use Text Design, it takes up too much space
-            val tools = getSettingsModel(UiConfigMainMenu::class.java).toolList
-            val newTools = tools.filterNot {
-                it.name!!.isEmpty()
-            }.toMutableList() as ArrayList<ToolItem>
-
-            // move Focus at the end, as it is the least used
-            // on some devices it is not obvious that the toolbar can be scrolled horizontally, so move the best ones at the beginning to make them visible
-            val focus = newTools.firstOrNull { it.name == getString(R.string.pesdk_focus_title_name) }
-            if (focus != null) {
-                newTools.remove(focus)
-                newTools.add(focus)
+            configure<UiConfigOverlay> {
+                it.setOverlayList(OverlayPackBasic.getOverlayPack())
             }
 
-            getSettingsModel(UiConfigMainMenu::class.java).setToolList(newTools)
+            configure<UiConfigSticker> {
+                it.setStickerLists(
+                    PersonalStickerAddItem(),
+                    StickerPackEmoticons.getStickerCategory(),
+                    StickerPackShapes.getStickerCategory(),
+                    StickerPackAnimated.getStickerCategory()
+                )
+            }
 
             getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 

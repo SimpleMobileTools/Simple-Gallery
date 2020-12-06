@@ -6,7 +6,8 @@
     android:installLocation="auto">
 
     <application
-        android:name=".App">
+        android:name=".App"
+        android:theme="@style/AppTheme">
 
         <activity
             android:name=".activities.EditActivity">
@@ -24,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".activities.NewEditActivity"
+            android:name=".activities.NewPhotoEditActivity"
             android:label="@string/editor">
 
             <intent-filter>
@@ -33,6 +34,19 @@
                 <category android:name="android.intent.category.DEFAULT"/>
 
                 <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.NewVideoEditActivity"
+            android:label="@string/editor">
+
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="video/*"/>
             </intent-filter>
         </activity>
     </application>

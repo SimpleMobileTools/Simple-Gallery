@@ -455,10 +455,14 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        val dateTakenValues = if (folder == FAVORITES) {
-            context.dateTakensDB.getAllDateTakens()
-        } else {
-            context.dateTakensDB.getDateTakensFromPath(folder)
+        val dateTakenValues = try {
+            if (folder == FAVORITES) {
+                context.dateTakensDB.getAllDateTakens()
+            } else {
+                context.dateTakensDB.getDateTakensFromPath(folder)
+            }
+        } catch (e: Exception) {
+            return dateTakens
         }
 
         dateTakenValues.forEach {
