@@ -6,7 +6,8 @@
     android:installLocation="auto">
 
     <application
-        android:name=".App">
+        android:name=".App"
+        android:theme="@style/AppTheme">
 
         <activity
             android:name=".activities.EditActivity">
