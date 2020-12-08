@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.18.0 *(2020-12-08)*
+----------------------------
+
+ * Added a Video Editor
+ * Added Stickers and Overlays to the Photo Editor
+ * Some translation, stability and UI improvements
+
 Version 6.17.3 *(2020-11-10)*
 ----------------------------
 
