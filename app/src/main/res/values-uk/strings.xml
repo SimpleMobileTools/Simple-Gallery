@@ -30,7 +30,7 @@
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
     <string name="upgraded_from_free">Агов,\n\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.\n\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.\n\nДякую!</string>
     <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
-    <string name="set_as_default_folder">Set as default folder</string>
+    <string name="set_as_default_folder">Встановити теку за замовчуванням</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
 
     <!-- Filter -->
@@ -77,11 +77,11 @@
     <string name="editor">Редактор</string>
     <string name="rotate">Обернути</string>
     <string name="invalid_image_path">Неприпустимий шлях до зображення</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Неприпустимий шлях до відео</string>
     <string name="image_editing_failed">Не вдалося редагувати зображення</string>
-    <string name="video_editing_failed">Video editing failed</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_failed">Не вдалося редагувати відео</string>
+    <string name="image_editing_cancelled">Редагування зображення скасовано</string>
+    <string name="video_editing_cancelled">Редагування відео скасовано</string>
     <string name="file_edited_successfully">Файл вдало відредагован</string>
     <string name="image_edited_successfully">Зображення вдало відредаговано</string>
     <string name="video_edited_successfully">Відео вдало відредаговано</string>
@@ -191,14 +191,14 @@
     <string name="compromise">Компроміс</string>
     <string name="avoid_showing_invalid_files">Запобігати показу пошкоджених файлів</string>
     <string name="show_image_file_types">Показувати типи файлів зображень</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="allow_zooming_videos">Масштабувати відео подвійним натисканням по ньому</string>
+    <string name="folder_thumbnail_style">Вид мініатюр тек</string>
+    <string name="show_file_count_line">Показувати кількість файлів в окремому рядку</string>
+    <string name="show_file_count_brackets">Показувати кількість файлів у дужках</string>
+    <string name="show_file_count_none">Не показувати кількість файлів</string>
+    <string name="limit_folder_title">Обмежити довгі назви тек одним рядком</string>
+    <string name="square">Квадрат</string>
+    <string name="rounded_corners">Закруглені кути</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>
@@ -248,11 +248,11 @@
     <string name="pesdk_text_button_font">Шрифт</string>
     <string name="pesdk_text_button_color">Колір</string>
     <string name="pesdk_text_button_backgroundColor">BG Color</string>
-    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_alignment">Вирівнювання</string>
     <string name="pesdk_text_button_bringToFront">To Front</string>
     <string name="pesdk_text_button_delete">Видалити</string>
     <string name="pesdk_text_text_editTextPlaceholder">Ваш текст</string>
-    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_title_name">Пензель</string>
     <string name="pesdk_brush_button_color">Колір</string>
     <string name="pesdk_brush_button_size">Розмір</string>
     <string name="pesdk_brush_button_hardness">Hardness</string>
@@ -300,10 +300,10 @@
     <string name="pesdk_overlay_asset_paper">Paper</string>
     <string name="pesdk_overlay_asset_rain">Rain</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
-    <string name="pesdk_common_button_flipH">Flip H</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="pesdk_common_button_undo">Undo</string>
-    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_button_flipH">Горизонтальний переворот</string>
+    <string name="pesdk_common_button_flipV">Вертикальний переворот</string>
+    <string name="pesdk_common_button_undo">Скасувати</string>
+    <string name="pesdk_common_button_redo">Повторити</string>
     <string name="pesdk_common_title_colorPicker">Вибрати колір</string>
     <string name="pesdk_common_title_transparentColor">Прозорий</string>
     <string name="pesdk_common_title_whiteColor">Білий</string>
