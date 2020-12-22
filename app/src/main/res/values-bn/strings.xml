@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">সিম্পল গ্যালারি</string>
+    <string name="app_launcher_name">গ্যালারি</string>
+    <string name="edit">সম্পাদনা</string>
+    <string name="open_camera">ক্যামেরা খুলুন</string>
+    <string name="hidden">(লুকানো)</string>
+    <string name="excluded">(বাদ)</string>
+    <string name="pin_folder">ফোল্ডার পিন করুন</string>
+    <string name="unpin_folder">ফোল্ডার আনপিন করুন</string>
+    <string name="pin_to_the_top">একদম উপরে পিন করুন</string>
+    <string name="show_all">সব ফোল্ডারের ভেতরে কি আছে দেখান</string>
+    <string name="all_folders">সব ফোল্ডার</string>
+    <string name="folder_view">ফোল্ডার ভিউতে সুইচ করুন</string>
+    <string name="other_folder">অন্যান্য ফোল্ডার</string>
+    <string name="show_on_map">মানচিত্রে দেখান</string>
+    <string name="unknown_location">অজানা স্থান</string>
+    <string name="volume">শব্দ</string>
+    <string name="brightness">উজ্জ্বলতা</string>
+    <string name="lock_orientation">ওরিয়েন্টেশন বন্ধ </string>
+    <string name="unlock_orientation">ওরিয়েন্টেশন খুলুন</string>
+    <string name="change_orientation">ওরিয়েন্টেশন পরিবর্তন</string>
+    <string name="force_portrait">পোট্রেট ওরিয়েন্টেশন</string>
+    <string name="force_landscape">অবতল ওরিয়েন্টেশন</string>
+    <string name="use_default_orientation">ডিফল্ট ওরিয়েন্টেশন</string>
+    <string name="fix_date_taken">তারিখ ঠিক করুন</string>
+    <string name="fixing">ঠিক করা হচ্ছে…</string>
+    <string name="dates_fixed_successfully">তারিখ সফলভাবে ঠিক করা হয়েছে</string>
+    <string name="no_date_takens_found"> তোলার তারিখ নেই</string>
+    <string name="share_resized">পরিবর্তিত একা সংস্করণ নিন</string>
+    <string name="upgraded_from_free">অই,\n\n মনে হচ্ছে আপনি অ্যাপটি পুরোনো মুক্ত সংস্করণ থেকে হালনাগাদ করেছেন, যেটার সেটিংসে \'প্রোতে হালনাগাদ করুন\' বাটন রয়েছে। \n\nধন্যবাদ!</string>
+    <string name="switch_to_file_search">সব দেখা যাওয়া ফোল্ডারে ফাইল সার্চে চলে যান</string>
+    <string name="set_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে সেট করুন</string>
+    <string name="unset_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে আর রাখবেন না</string>
+
+    <!-- Filter -->
+    <string name="filter_media">মিডিয়া ফিল্টার করুন</string>
+    <string name="images">ছবিসমূহ</string>
+    <string name="videos">ভিডিওসমূহ</string>
+    <string name="gifs">গিফসমূহ</string>
+    <string name="raw_images">র ছবিসমূহ</string>
+    <string name="svgs">এসভিজি সমূহ</string>
+    <string name="portraits">পোট্রেইট</string>
+    <string name="no_media_with_filters"> এ নির্দিষ্ট ফিল্টারে কোন মিডিয়া ফাইল পাওয়া যায়নি।</string>
+    <string name="change_filters_underlined"><u>ফিল্টার পরিবর্তন করুন</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
+    <string name="exclude">বাদ দিন</string>
+    <string name="excluded_folders">বাদ দেওয়া ফোল্ডারসমূহ</string>
+    <string name="manage_excluded_folders">বাদ দেওয়া ফোল্ডারগুলোর ব্যবস্থাপনা</string>
+    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
+    <string name="exclude_folder_parent">Exclude a parent instead?</string>
+    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="remove_all">সবগুলো সরান</string>
+    <string name="remove_all_description">বাদ দেওয়া তালিকা থেকে সমস্ত ফোল্ডার সরাবেন? এটি ফোল্ডারগুলি মুছবে না।</string>
+    <string name="hidden_folders">লুকানো ফোল্ডারগুলো</string>
+    <string name="manage_hidden_folders">লুকানো ফোল্ডারগুলি পরিচালনা করুন</string>
+    <string name="hidden_folders_placeholder">দেখে মনে হচ্ছে আপনার সাথে কোনও ফোল্ডার লুকানো নেই \".nomedia\" ফাইল।</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">অন্তর্ভুক্ত ফোল্ডার</string>
+    <string name="manage_included_folders">অন্তর্ভুক্ত ফোল্ডার ব্যবস্থাপনা করুন</string>
+    <string name="add_folder">ফোল্ডার যোগ করুন</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+
+    <!-- Resizing -->
+    <string name="resize">আকার পরিবর্তন</string>
+    <string name="resize_and_save">নির্বাচিতগুলোর আকার পরিবর্তন ও সংরক্ষণ করুন।</string>
+    <string name="width">প্রস্থ</string>
+    <string name="height">দৈর্ঘ্য</string>
+    <string name="keep_aspect_ratio">অনুপাত রাখুন</string>
+    <string name="invalid_values">দয়া করে একটি বৈধ রেজোলিউশন দিন।</string>
+
+    <!-- Editor -->
+    <string name="editor">সম্পাদক</string>
+    <string name="rotate">ঘোরান</string>
+    <string name="invalid_image_path">ভুল ছবির পথ</string>
+    <string name="invalid_video_path">ভুল ভিডিওর পথ</string>
+    <string name="image_editing_failed">ছবি সম্পাদনা ব্যর্থ</string>
+    <string name="video_editing_failed">ভিডিও সম্পাদনা ব্যর্থ</string>
+    <string name="image_editing_cancelled">ছবি সম্পাদনা বাতিল</string>
+    <string name="video_editing_cancelled">ভিডিও সম্পাদনা বাতিল</string>
+    <string name="file_edited_successfully">ফাইল সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="image_edited_successfully">ছবি সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="video_edited_successfully">ভিডিও সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="edit_image_with">ছবি সম্পাদনা করুন:</string>
+    <string name="edit_video_with">ভিডিও সম্পাদনা করুন:</string>
+    <string name="no_image_editor_found">কোন ছবি সম্পাদক পাওয়া যায়নি</string>
+    <string name="no_video_editor_found">কোন ভিডিও সম্পাদক পাওয়া যায়নি</string>
+    <string name="unknown_file_location">অজানা অবস্থান ফাইল</string>
+    <string name="error_saving_file">উৎস ফাইল প্রতিস্থাপন করা যায়নি</string>
+    <string name="rotate_left">বামে ঘোরান</string>
+    <string name="rotate_right">ডানে ঘোরান</string>
+    <string name="rotate_one_eighty">১৮০º ঘোরান</string>
+    <string name="flip">ঘোরান</string>
+    <string name="flip_horizontally">অবতলভাবে ঘোরান</string>
+    <string name="flip_vertically">খাড়াখাড়িভাবে ঘোরান</string>
+    <string name="free_aspect_ratio">মুক্ত</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">অন্যান্য</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">সিম্পল ওয়ালপেপার</string>
+    <string name="set_as_wallpaper">ওয়ালপেপার হিশেবে সেট করুন</string>
+    <string name="set_as_wallpaper_failed">ওয়ালপেপার সেট করা ব্যর্থ হয়েছে</string>
+    <string name="set_as_wallpaper_with">ওয়ালপেপার সেট করুন:</string>
+    <string name="setting_wallpaper">ওয়ালপেপার সেট করা হচ্ছে&#8230;</string>
+    <string name="wallpaper_set_successfully">সফলভাবে ওয়ালপেপার সেট হয়েছে</string>
+    <string name="portrait_aspect_ratio">খাড়াখারি আকৃতিগত অনুপাত</string>
+    <string name="landscape_aspect_ratio">অবতল আকৃতিগত অনুপাত</string>
+    <string name="home_screen">হোম স্ক্রিন</string>
+    <string name="lock_screen">লক স্ক্রিন</string>
+    <string name="home_and_lock_screen">হোম ও লক স্ক্রিন</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">স্লাইডশো</string>
+    <string name="interval">বিরতি (সেকেন্ডে):</string>
+    <string name="include_photos">ছবিগুলো যোগ করুন</string>
+    <string name="include_videos">ভিডিওগুলো যোগ করুন</string>
+    <string name="include_gifs">গিফগুলো যোগ করুন</string>
+    <string name="random_order">বিক্ষিপ্তভাবে</string>
+    <string name="move_backwards">পেছনে নিয়ে যান</string>
+    <string name="loop_slideshow">স্লাইডশো লুপ করুন</string>
+    <string name="animation">অ্যানিমেশন</string>
+    <string name="no_animation">কিছু না</string>
+    <string name="fade">বিবর্ণ</string>
+    <string name="slide">স্লাইড</string>
+    <string name="slideshow_ended">স্লাইডশো শেষ হয়েছে</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
+    <!-- View types -->
+    <string name="group_direct_subfolders">Group direct subfolders</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">একত্রিত করুন</string>
+    <string name="do_not_group_files">Do not group files</string>
+    <string name="by_folder">ফোল্ডার</string>
+    <string name="by_last_modified">শেষ পরিবর্তন করা হয়েছে</string>
+    <string name="by_last_modified_daily">শেষ পরিবর্তন (দৈনিক)</string>
+    <string name="by_last_modified_monthly">শেষ পরিবর্তন (মাসিক)</string>
+    <string name="by_date_taken">তোলার তারিখ</string>
+    <string name="by_date_taken_daily">তোলার তারিখ (দৈনিক)</string>
+    <string name="by_date_taken_monthly">তোলার তারিখ (মাসিক)</string>
+    <string name="by_file_type">ফাইল টাইপ</string>
+    <string name="by_extension">এক্সটেনশন</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">উইজেটে দেখানো ফোল্ডার:</string>
+    <string name="show_folder_name">ফোল্ডারের নাম দেখান</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">স্বয়ংক্রিয়ভাবে ভিডিও চালান</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="loop_videos">Loop videos</string>
+    <string name="animate_gifs">Animate GIFs at thumbnails</string>
+    <string name="max_brightness">Max brightness when viewing fullscreen media</string>
+    <string name="crop_thumbnails">Crop thumbnails into squares</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="screen_rotation_by">Rotate fullscreen media by</string>
+    <string name="screen_rotation_system_setting">System setting</string>
+    <string name="screen_rotation_device_rotation">Device rotation</string>
+    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="black_background_at_fullscreen">Black background at fullscreen media</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="show_notch">Show a notch if available</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_image_file_types">Show image file types</string>
+    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
+    <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="show_file_count_brackets">Show file count in brackets</string>
+    <string name="show_file_count_none">Do not show file count</string>
+    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
+    <string name="square">বর্গ</string>
+    <string name="rounded_corners">Rounded corners</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">থাম্বনেল</string>
+    <string name="fullscreen_media">পুরো স্ক্রিনের মিডিয়া</string>
+    <string name="extended_details">বর্ধিত বিশদ</string>
+    <string name="bottom_actions">নিচের অংশের ক্রিয়াগুলো</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_file_visibility">Toggle file visibility</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">কাস্টম</string>
+    <string name="pesdk_transform_button_resetCrop">Reset</string>
+    <string name="pesdk_transform_button_squareCrop">বর্গ</string>
+    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_filter_title_name">Filter</string>
+    <string name="pesdk_filter_asset_none">কিছু না</string>
+    <string name="pesdk_adjustments_title_name">Adjust</string>
+    <string name="pesdk_adjustments_button_shadowTool">ছায়া</string>
+    <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
+    <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturation</string>
+    <string name="pesdk_adjustments_button_clarityTool">Clarity</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Blacks</string>
+    <string name="pesdk_adjustments_button_whitesTool">Whites</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Temperature</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Sharpness</string>
+    <string name="pesdk_adjustments_button_reset">Reset</string>
+    <string name="pesdk_focus_title_name">Focus</string>
+    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_mirrored">Mirrored</string>
+    <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_options">Text Options</string>
+    <string name="pesdk_text_title_textColor">Text Color</string>
+    <string name="pesdk_text_title_font">ফন্ট</string>
+    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_button_edit">Edit</string>
+    <string name="pesdk_text_button_straighten">Straighten</string>
+    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">Alignment</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
+    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
+    <string name="pesdk_brush_title_name">Brush</string>
+    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_size">Size</string>
+    <string name="pesdk_brush_button_hardness">Hardness</string>
+    <string name="pesdk_brush_button_bringToFront">To Front</string>
+    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_title_brushColor">Brush Color</string>
+    <string name="pesdk_editor_title_name">Editor</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_cancel">বাতিল</string>
+    <string name="pesdk_editor_accept">গ্রহণ</string>
+    <string name="pesdk_editor_save">সংরক্ষণ</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
+    <string name="pesdk_sticker_title_name">স্টিকার</string>
+    <string name="pesdk_sticker_title_color">স্টিকারের রঙ</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">যোগ</string>
+    <string name="pesdk_sticker_button_color">রঙ</string>
+    <string name="pesdk_sticker_button_delete">মুছে ফেলা</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
+    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_replace">Replace</string>
+    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_button_contrast">Contrast</string>
+    <string name="pesdk_sticker_button_saturation">Saturation</string>
+    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_asset_none">কিছু না</string>
+    <string name="pesdk_overlay_asset_golden">সোনালী</string>
+    <string name="pesdk_overlay_asset_lightleak1">লাইটলিক ১</string>
+    <string name="pesdk_overlay_asset_mosaic">মোজাইক</string>
+    <string name="pesdk_overlay_asset_paper">কাগন</string>
+    <string name="pesdk_overlay_asset_rain">বৃষ্টি</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
+    <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
+    <string name="pesdk_common_button_undo">Undo</string>
+    <string name="pesdk_common_button_redo">Redo</string>
+    <string name="pesdk_common_title_colorPicker">রঙ নির্বাচক</string>
+    <string name="pesdk_common_title_transparentColor">স্বচ্ছ</string>
+    <string name="pesdk_common_title_whiteColor">শাদা</string>
+    <string name="pesdk_common_title_grayColor">ধুসর</string>
+    <string name="pesdk_common_title_blackColor">কালো</string>
+    <string name="pesdk_common_title_lightBlueColor">হালকা নীল</string>
+    <string name="pesdk_common_title_blueColor">নীল</string>
+    <string name="pesdk_common_title_purpleColor">বেগুনী</string>
+    <string name="pesdk_common_title_orchidColor">অর্কিড</string>
+    <string name="pesdk_common_title_pinkColor">গোলাপী</string>
+    <string name="pesdk_common_title_redColor">লাল</string>
+    <string name="pesdk_common_title_orangeColor">কমলা</string>
+    <string name="pesdk_common_title_goldColor">সোনালী</string>
+    <string name="pesdk_common_title_yellowColor">হলুদ</string>
+    <string name="pesdk_common_title_oliveColor">জলপাই রঙ</string>
+    <string name="pesdk_common_title_greenColor">নীল</string>
+    <string name="pesdk_common_title_aquamarinColor">সামুদ্রিক নীল</string>
+    <string name="pesdk_common_title_pipettableColor">পাইপেটেবল রঙ</string>
+    <string name="vesdk_video_trim_title_name">কাটুন</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
+        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_4_title">How can I fast forward videos?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items.  What can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">সিম্পল গ্যালারি প্রো - ছবি ম্যানেজার ও সম্পাদক</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">কোন বিজ্ঞাপন ছাড়া ছবি, ভিডিও ও গিফ সম্পাদনা, ব্যবস্থাপনার একটি প্রিমিয়াম অ্যাপ</string>
+    <string name="app_long_description">
+        সিম্পল গ্যালারি প্রো একটি অত্যন্ত সম্পাদনাযোগ্য অফলাইন গ্যালারি।
+
+        অ্যাপটিতে কোনও বিজ্ঞাপন এবং অপ্রয়োজনীয় অনুমতি নেই। অ্যাপ্লিকেশনটিকে যেহেতু ইন্টারনেট সংযোগের প্রয়োজন নেই, তাই আপনার গোপনীয়তা সুরক্ষিত।
+
+        -------------------------------------------------
+        <b>সহজ গ্যালারি প্রো - বৈশিষ্ট্যসমূহ</b>
+        -------------------------------------------------
+
+        • কোন বিজ্ঞাপন বা পপআপ ছাড়া অফলাইন গ্যালারী
+        • সাধারণ গ্যলারি ফটো সম্পাদক - ক্রপ করুন, ঘোরান, পুনরায় আকার দিন, অঙ্কন করুন, ফিল্টার প্রয়োগ করুন এবং আরও অনেক কিছু।
+        • কোন ইন্টারনেট সংযোগ প্রয়োজন নেই
+        • কোন অপ্রয়োজনীয় অনুমতি চায় না
+        • ছবি, ভিডিও ও অন্যান্য ফাইলসমূহ দ্রুত অনুসন্ধান করুন
+        • সিম্পল গ্যালারি প্রো এর ধরন পরিবর্তন করুন
+        • ৩২টি ভাষায় রয়েছে
+        • সিম্পল গ্যালারি প্রো উন্মুক্ত উৎসের
+        … এবং আরও অনেক অনেক বেশী!
+
+        <b>ছবি গ্যালারি সম্পাদক</b>
+        সিম্পল গ্যালারি প্রো আপনার ছবি যেকোন সময় সম্পাদনা সহজ করে দেয়। আপনার ছবি কাটুন, ফ্লিপ করুন বা আকার পরিবর্তন করুন। আপনি আরেকটু সৃজনশীল হলে, নতুন ফিল্টার যুক্ত করতে পারবেন এবং আপনার ছবির উপর আঁকতেও পারবেন।
+
+        <b>অনেকধরণের ফাইল ঘরানার জন্য সমর্থন রয়েছে</b>
+        জেপিইজি, পিএনজি, এমপি৪, এমকেভি, আরএডাব্লু, এসভিজি, প্যানোরামিক ফটো, প্যানোরামিক ভিডিও এবং আরও অনেক ফাইল টাইপ সিম্পল গ্যালারি প্রো সমর্থন করে।
+
+        <b>মুছে ফেলা ছবি ও ভিডিও পুনরুদ্ধার করুন</b>
+        ভুল করে গুরুত্বপূর্ণ ছবি বা ভিডিও মুছে ফেললেন? চিন্তার কারণ নেই। সিম্পল গ্যালারি প্রোর নিজস্ব রিসাইকেল বিন আপনাকে এ বিপদ থেকে বাঁচাবে।
+
+        <b>ছবি, ভিডিও এবং ফাইল লুকান ও নিরাপদ রাখুন:</b>
+        পিন, প্যাটার্ন, অথবা ফিঙ্গারপ্রিন্ট ব্যবহার করে আপনি আপনার ছবি, ভিডিও এবং পুরো অ্যালবামই নিরাপদে রাখতে পারবেন। আপনি পুরো অ্যাপটাই নিরাপদে রাখতে পারবে, অথবা নির্দিষ্ট কিছু ফাংশনে লক দিতে পারবেন। যেমন ধরুন, ফিঙ্গারপ্রিন্ট ছাড়া কোন ফাইল মুছতে না পারাটা ভুল করে ফাইল হারানো থেকে আপনাকে বাঁচাবে।
+
+        <b>সিম্পল টুলসমূহের পরিপূর্ণ স্যুট:</b>
+        https://www.simplemobiletools.com
+
+        <b>সিম্পল গ্যালারি প্রোর আলাদা ওয়েবসাইট</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>ফেসবুক:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>রেডিট:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
