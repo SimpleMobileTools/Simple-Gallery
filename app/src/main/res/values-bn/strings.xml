@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">সিম্পল গ্যালারি</string>
+    <string name="app_launcher_name">গ্যালারি</string>
+    <string name="edit">সম্পাদনা</string>
+    <string name="open_camera">ক্যামেরা খুলুন</string>
+    <string name="hidden">(লুকানো)</string>
+    <string name="excluded">(বাদ)</string>
+    <string name="pin_folder">ফোল্ডার পিন করুন</string>
+    <string name="unpin_folder">ফোল্ডার আনপিন করুন</string>
+    <string name="pin_to_the_top">একদম উপরে পিন করুন</string>
+    <string name="show_all">সব ফোল্ডারের ভেতরে কি আছে দেখান</string>
+    <string name="all_folders">সব ফোল্ডার</string>
+    <string name="folder_view">ফোল্ডার ভিউতে সুইচ করুন</string>
+    <string name="other_folder">অন্যান্য ফোল্ডার</string>
+    <string name="show_on_map">মানচিত্রে দেখান</string>
+    <string name="unknown_location">অজানা স্থান</string>
+    <string name="volume">শব্দ</string>
+    <string name="brightness">উজ্জ্বলতা</string>
+    <string name="lock_orientation">ওরিয়েন্টেশন বন্ধ </string>
+    <string name="unlock_orientation">ওরিয়েন্টেশন খুলুন</string>
+    <string name="change_orientation">ওরিয়েন্টেশন পরিবর্তন</string>
+    <string name="force_portrait">পোট্রেট ওরিয়েন্টেশন</string>
+    <string name="force_landscape">অবতল ওরিয়েন্টেশন</string>
+    <string name="use_default_orientation">ডিফল্ট ওরিয়েন্টেশন</string>
+    <string name="fix_date_taken">তারিখ ঠিক করুন</string>
+    <string name="fixing">ঠিক করা হচ্ছে…</string>
+    <string name="dates_fixed_successfully">তারিখ সফলভাবে ঠিক করা হয়েছে</string>
+    <string name="no_date_takens_found"> তোলার তারিখ নেই</string>
+    <string name="share_resized">পরিবর্তিত একা সংস্করণ নিন</string>
+    <string name="upgraded_from_free">অই,\n\n মনে হচ্ছে আপনি অ্যাপটি পুরোনো মুক্ত সংস্করণ থেকে হালনাগাদ করেছেন, যেটার সেটিংসে \'প্রোতে হালনাগাদ করুন\' বাটন রয়েছে। \n\nধন্যবাদ!</string>
+    <string name="switch_to_file_search">সব দেখা যাওয়া ফোল্ডারে ফাইল সার্চে চলে যান</string>
+    <string name="set_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে সেট করুন</string>
+    <string name="unset_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে আর রাখবেন না</string>
+
+    <!-- Filter -->
+    <string name="filter_media">মিডিয়া ফিল্টার করুন</string>
+    <string name="images">ছবিসমূহ</string>
+    <string name="videos">ভিডিওসমূহ</string>
+    <string name="gifs">গিফসমূহ</string>
+    <string name="raw_images">র ছবিসমূহ</string>
+    <string name="svgs">এসভিজি সমূহ</string>
+    <string name="portraits">পোট্রেইট</string>
+    <string name="no_media_with_filters"> এ নির্দিষ্ট ফিল্টারে কোন মিডিয়া ফাইল পাওয়া যায়নি।</string>
+    <string name="change_filters_underlined"><u>ফিল্টার পরিবর্তন করুন</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="exclude">বাদ দিন</string>
+    <string name="excluded_folders">বাদ দেওয়া ফোল্ডারসমূহ</string>
+    <string name="manage_excluded_folders">বাদ দেওয়া ফোল্ডারগুলোর ব্যবস্থাপনা</string>
+    <string name="remove_all">সবগুলো সরান</string>
+    <string name="remove_all_description">বাদ দেওয়া তালিকা থেকে সমস্ত ফোল্ডার সরাবেন? এটি ফোল্ডারগুলি মুছবে না।</string>
+    <string name="hidden_folders">লুকানো ফোল্ডারগুলো</string>
+    <string name="manage_hidden_folders">লুকানো ফোল্ডারগুলি পরিচালনা করুন</string>
+    <string name="hidden_folders_placeholder">দেখে মনে হচ্ছে আপনার সাথে কোনও ফোল্ডার লুকানো নেই \".nomedia\" ফাইল।</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">অন্তর্ভুক্ত ফোল্ডার</string>
+    <string name="manage_included_folders">অন্তর্ভুক্ত ফোল্ডার ব্যবস্থাপনা করুন</string>
+    <string name="add_folder">ফোল্ডার যোগ করুন</string>
+
+    <!-- Resizing -->
+    <string name="resize">আকার পরিবর্তন</string>
+    <string name="resize_and_save">নির্বাচিতগুলোর আকার পরিবর্তন ও সংরক্ষণ করুন।</string>
+    <string name="width">প্রস্থ</string>
+    <string name="height">দৈর্ঘ্য</string>
+    <string name="keep_aspect_ratio">অনুপাত রাখুন</string>
+    <string name="invalid_values">দয়া করে একটি বৈধ রেজোলিউশন দিন।</string>
+
+    <!-- Editor -->
+    <string name="editor">সম্পাদক</string>
+    <string name="rotate">ঘোরান</string>
+    <string name="invalid_image_path">ভুল ছবির পথ</string>
+    <string name="invalid_video_path">ভুল ভিডিওর পথ</string>
+    <string name="image_editing_failed">ছবি সম্পাদনা ব্যর্থ</string>
+    <string name="video_editing_failed">ভিডিও সম্পাদনা ব্যর্থ</string>
+    <string name="image_editing_cancelled">ছবি সম্পাদনা বাতিল</string>
+    <string name="video_editing_cancelled">ভিডিও সম্পাদনা বাতিল</string>
+    <string name="file_edited_successfully">ফাইল সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="image_edited_successfully">ছবি সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="video_edited_successfully">ভিডিও সফলভাবি সম্পাদিত হয়েছে</string>
+    <string name="edit_image_with">ছবি সম্পাদনা করুন:</string>
+    <string name="edit_video_with">ভিডিও সম্পাদনা করুন:</string>
+    <string name="no_image_editor_found">কোন ছবি সম্পাদক পাওয়া যায়নি</string>
+    <string name="no_video_editor_found">কোন ভিডিও সম্পাদক পাওয়া যায়নি</string>
+    <string name="unknown_file_location">অজানা অবস্থান ফাইল</string>
+    <string name="error_saving_file">উৎস ফাইল প্রতিস্থাপন করা যায়নি</string>
+    <string name="rotate_left">বামে ঘোরান</string>
+    <string name="rotate_right">ডানে ঘোরান</string>
+    <string name="rotate_one_eighty">১৮০º ঘোরান</string>
+    <string name="flip">ঘোরান</string>
+    <string name="flip_horizontally">অবতলভাবে ঘোরান</string>
+    <string name="flip_vertically">খাড়াখাড়িভাবে ঘোরান</string>
+    <string name="free_aspect_ratio">মুক্ত</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">অন্যান্য</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">সিম্পল ওয়ালপেপার</string>
+    <string name="set_as_wallpaper">ওয়ালপেপার হিশেবে সেট করুন</string>
+    <string name="set_as_wallpaper_failed">ওয়ালপেপার সেট করা ব্যর্থ হয়েছে</string>
+    <string name="set_as_wallpaper_with">ওয়ালপেপার সেট করুন:</string>
+    <string name="setting_wallpaper">ওয়ালপেপার সেট করা হচ্ছে&#8230;</string>
+    <string name="wallpaper_set_successfully">সফলভাবে ওয়ালপেপার সেট হয়েছে</string>
+    <string name="portrait_aspect_ratio">খাড়াখারি আকৃতিগত অনুপাত</string>
+    <string name="landscape_aspect_ratio">অবতল আকৃতিগত অনুপাত</string>
+    <string name="home_screen">হোম স্ক্রিন</string>
+    <string name="lock_screen">লক স্ক্রিন</string>
+    <string name="home_and_lock_screen">হোম ও লক স্ক্রিন</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">স্লাইডশো</string>
+    <string name="interval">বিরতি (সেকেন্ডে):</string>
+    <string name="include_photos">ছবিগুলো যোগ করুন</string>
+    <string name="include_videos">ভিডিওগুলো যোগ করুন</string>
+    <string name="include_gifs">গিফগুলো যোগ করুন</string>
+    <string name="random_order">বিক্ষিপ্তভাবে</string>
+    <string name="move_backwards">পেছনে নিয়ে যান</string>
+    <string name="loop_slideshow">স্লাইডশো লুপ করুন</string>
+    <string name="animation">অ্যানিমেশন</string>
+    <string name="no_animation">কিছু না</string>
+    <string name="fade">বিবর্ণ</string>
+    <string name="slide">স্লাইড</string>
+    <string name="slideshow_ended">স্লাইডশো শেষ হয়েছে</string>
+    <string name="no_media_for_slideshow">স্লাইডশোর জন্য কোন মিডিয়া পাওয়া যায়নি</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">একত্রিত করুন</string>
+    <string name="by_folder">ফোল্ডার</string>
+    <string name="by_last_modified">শেষ পরিবর্তন করা হয়েছে</string>
+    <string name="by_last_modified_daily">শেষ পরিবর্তন (দৈনিক)</string>
+    <string name="by_last_modified_monthly">শেষ পরিবর্তন (মাসিক)</string>
+    <string name="by_date_taken">তোলার তারিখ</string>
+    <string name="by_date_taken_daily">তোলার তারিখ (দৈনিক)</string>
+    <string name="by_date_taken_monthly">তোলার তারিখ (মাসিক)</string>
+    <string name="by_file_type">ফাইল টাইপ</string>
+    <string name="by_extension">এক্সটেনশন</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">উইজেটে দেখানো ফোল্ডার:</string>
+    <string name="show_folder_name">ফোল্ডারের নাম দেখান</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">স্বয়ংক্রিয়ভাবে ভিডিও চালান</string>
+    <string name="screen_rotation_system_setting">সিস্টেম সেটিংস</string>
+    <string name="screen_rotation_device_rotation">Device rotation</string>
+    <string name="screen_rotation_aspect_ratio">অ্যাস্পেক্ট রেশিও</string>
+    <string name="speed">গতি</string>
+    <string name="compromise">সমঝোতা</string>
+    <string name="square">বর্গ</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">থাম্বনেল</string>
+    <string name="fullscreen_media">পুরো স্ক্রিনের মিডিয়া</string>
+    <string name="extended_details">বর্ধিত বিশদ</string>
+    <string name="bottom_actions">নিচের অংশের ক্রিয়াগুলো</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_file_visibility">Toggle file visibility</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">কাস্টম</string>
+    <string name="pesdk_transform_button_resetCrop">রিসেট</string>
+    <string name="pesdk_transform_button_squareCrop">বর্গ</string>
+    <string name="pesdk_transform_title_name">রূপান্তর</string>
+    <string name="pesdk_filter_title_name">ফিল্টার</string>
+    <string name="pesdk_filter_asset_none">কিছু না</string>
+    <string name="pesdk_adjustments_title_name">সামঞ্জস্য করুন</string>
+    <string name="pesdk_adjustments_button_shadowTool">ছায়া</string>
+    <string name="pesdk_adjustments_button_exposureTool">অনাবৃত করুন</string>
+    <string name="pesdk_adjustments_button_highlightTool">হাইলাইটসমূহ</string>
+    <string name="pesdk_adjustments_button_brightnessTool">উজ্জ্বলতা</string>
+    <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
+    <string name="pesdk_adjustments_button_saturationTool">স্যাচুরেশন</string>
+    <string name="pesdk_adjustments_button_clarityTool">নির্মলতা</string>
+    <string name="pesdk_adjustments_button_gammaTool">গামা</string>
+    <string name="pesdk_adjustments_button_blacksTool">কালো</string>
+    <string name="pesdk_adjustments_button_whitesTool">শাদা</string>
+    <string name="pesdk_adjustments_button_temperatureTool">উষ্ণতা</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">তীক্ষ্ণতা</string>
+    <string name="pesdk_adjustments_button_reset">রিসেট</string>
+    <string name="pesdk_focus_title_name">ফোকাস</string>
+    <string name="pesdk_focus_title_disabled">কিছু না</string>
+    <string name="pesdk_focus_button_radial">রশ্মীবৎ</string>
+    <string name="pesdk_focus_button_linear">লিনিয়ার</string>
+    <string name="pesdk_focus_button_mirrored">আয়না</string>
+    <string name="pesdk_focus_button_gaussian">গাউসিয়ান</string>
+    <string name="pesdk_text_title_name">লেখা</string>
+    <string name="pesdk_text_title_options">লেখার অপশন</string>
+    <string name="pesdk_text_title_textColor">লেখার রঙ</string>
+    <string name="pesdk_text_title_font">ফন্ট</string>
+    <string name="pesdk_text_button_add">যোগ করুন</string>
+    <string name="pesdk_text_button_edit">সম্পাদনা করুন</string>
+    <string name="pesdk_text_button_straighten">সোজা করা</string>
+    <string name="pesdk_text_button_font">ফন্ট</string>
+    <string name="pesdk_text_button_color">রঙ</string>
+    <string name="pesdk_text_button_backgroundColor">পেছনের রঙ</string>
+    <string name="pesdk_text_button_alignment">প্রান্তিককরণ</string>
+    <string name="pesdk_text_button_bringToFront">সামনে আনুন</string>
+    <string name="pesdk_text_button_delete">মুছে ফেলুন</string>
+    <string name="pesdk_text_text_editTextPlaceholder">আপনার লেখা</string>
+    <string name="pesdk_brush_title_name">ব্রাশ</string>
+    <string name="pesdk_brush_button_color">রঙ</string>
+    <string name="pesdk_brush_button_size">আয়তন</string>
+    <string name="pesdk_brush_button_hardness">কঠোরতা</string>
+    <string name="pesdk_brush_button_bringToFront">সামনে আনুন</string>
+    <string name="pesdk_brush_button_delete">মুছে ফেলুন</string>
+    <string name="pesdk_brush_title_brushColor">ব্রাশের রঙ</string>
+    <string name="pesdk_editor_title_name">সম্পাদক</string>
+    <string name="pesdk_editor_title_closeEditorAlert">সম্পাদক বন্ধ করুন?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">আপনি কি সত্যিই পরিবর্তনগুলো বাদ দিতে চান?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">হ্যাঁ</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">না</string>
+    <string name="pesdk_editor_cancel">বাতিল</string>
+    <string name="pesdk_editor_accept">গ্রহণ</string>
+    <string name="pesdk_editor_save">সংরক্ষণ</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">এক্সপোর্ট হচ্ছে…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">এক্সপোর্ট হচ্ছে %s.</string>
+    <string name="pesdk_sticker_title_name">স্টিকার</string>
+    <string name="pesdk_sticker_title_color">স্টিকারের রঙ</string>
+    <string name="pesdk_sticker_title_options">Sticker Options</string>
+    <string name="pesdk_sticker_button_add">যোগ</string>
+    <string name="pesdk_sticker_button_color">রঙ</string>
+    <string name="pesdk_sticker_button_delete">মুছে ফেলা</string>
+    <string name="pesdk_sticker_button_bringToFront">সামনে</string>
+    <string name="pesdk_sticker_button_straighten">সোজা করুন</string>
+    <string name="pesdk_sticker_button_replace">প্রতিস্থাপন</string>
+    <string name="pesdk_sticker_button_opacity">অস্বচ্ছতা</string>
+    <string name="pesdk_sticker_button_contrast">বৈপরীত্য</string>
+    <string name="pesdk_sticker_button_saturation">সম্পৃক্তি</string>
+    <string name="pesdk_sticker_button_brightness">উজ্জ্বলতা</string>
+    <string name="pesdk_sticker_category_name_custom">আপলোডসমূহ</string>
+    <string name="pesdk_overlay_title_name">ওভারলে</string>
+    <string name="pesdk_overlay_button_blendModeNormal">সাধারণ</string>
+    <string name="pesdk_overlay_button_blendModeDarken">অন্ধকারাচ্ছন্ন করা</string>
+    <string name="pesdk_overlay_button_blendModeScreen">স্ক্রিন</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">ওভারলে</string>
+    <string name="pesdk_overlay_button_blendModeLighten">হালকা করা</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">গুণ</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">পোড়া রঙ</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">নরম আলো</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">কড়া আলো</string>
+    <string name="pesdk_overlay_asset_none">কিছু না</string>
+    <string name="pesdk_overlay_asset_golden">সোনালী</string>
+    <string name="pesdk_overlay_asset_lightleak1">লাইটলিক ১</string>
+    <string name="pesdk_overlay_asset_mosaic">মোজাইক</string>
+    <string name="pesdk_overlay_asset_paper">কাগন</string>
+    <string name="pesdk_overlay_asset_rain">বৃষ্টি</string>
+    <string name="pesdk_overlay_asset_vintage">ভিন্টেজ</string>
+    <string name="pesdk_common_button_flipH">পাশাপাশি ঘুরান</string>
+    <string name="pesdk_common_button_flipV">খাড়াখাড়ি ঘুরান</string>
+    <string name="pesdk_common_button_undo">পূর্বাবস্থায় ফেরত যান</string>
+    <string name="pesdk_common_button_redo">পুনরায় আনুন</string>
+    <string name="pesdk_common_title_colorPicker">রঙ নির্বাচক</string>
+    <string name="pesdk_common_title_transparentColor">স্বচ্ছ</string>
+    <string name="pesdk_common_title_whiteColor">শাদা</string>
+    <string name="pesdk_common_title_grayColor">ধুসর</string>
+    <string name="pesdk_common_title_blackColor">কালো</string>
+    <string name="pesdk_common_title_lightBlueColor">হালকা নীল</string>
+    <string name="pesdk_common_title_blueColor">নীল</string>
+    <string name="pesdk_common_title_purpleColor">বেগুনী</string>
+    <string name="pesdk_common_title_orchidColor">অর্কিড</string>
+    <string name="pesdk_common_title_pinkColor">গোলাপী</string>
+    <string name="pesdk_common_title_redColor">লাল</string>
+    <string name="pesdk_common_title_orangeColor">কমলা</string>
+    <string name="pesdk_common_title_goldColor">সোনালী</string>
+    <string name="pesdk_common_title_yellowColor">হলুদ</string>
+    <string name="pesdk_common_title_oliveColor">জলপাই রঙ</string>
+    <string name="pesdk_common_title_greenColor">নীল</string>
+    <string name="pesdk_common_title_aquamarinColor">সামুদ্রিক নীল</string>
+    <string name="pesdk_common_title_pipettableColor">পাইপেটেবল রঙ</string>
+    <string name="vesdk_video_trim_title_name">কাটুন</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">সিম্পল গ্যালারি প্রো - ছবি ম্যানেজার ও সম্পাদক</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">কোন বিজ্ঞাপন ছাড়া ছবি, ভিডিও ও গিফ সম্পাদনা, ব্যবস্থাপনার একটি প্রিমিয়াম অ্যাপ</string>
+    <string name="app_long_description">
+        সিম্পল গ্যালারি প্রো একটি অত্যন্ত সম্পাদনাযোগ্য অফলাইন গ্যালারি।
+
+        অ্যাপটিতে কোনও বিজ্ঞাপন এবং অপ্রয়োজনীয় অনুমতি নেই। অ্যাপ্লিকেশনটিকে যেহেতু ইন্টারনেট সংযোগের প্রয়োজন নেই, তাই আপনার গোপনীয়তা সুরক্ষিত।
+
+        -------------------------------------------------
+        <b>সহজ গ্যালারি প্রো - বৈশিষ্ট্যসমূহ</b>
+        -------------------------------------------------
+
+        • কোন বিজ্ঞাপন বা পপআপ ছাড়া অফলাইন গ্যালারী
+        • সাধারণ গ্যলারি ফটো সম্পাদক - ক্রপ করুন, ঘোরান, পুনরায় আকার দিন, অঙ্কন করুন, ফিল্টার প্রয়োগ করুন এবং আরও অনেক কিছু।
+        • কোন ইন্টারনেট সংযোগ প্রয়োজন নেই
+        • কোন অপ্রয়োজনীয় অনুমতি চায় না
+        • ছবি, ভিডিও ও অন্যান্য ফাইলসমূহ দ্রুত অনুসন্ধান করুন
+        • সিম্পল গ্যালারি প্রো এর ধরন পরিবর্তন করুন
+        • ৩২টি ভাষায় রয়েছে
+        • সিম্পল গ্যালারি প্রো উন্মুক্ত উৎসের
+        … এবং আরও অনেক অনেক বেশী!
+
+        <b>ছবি গ্যালারি সম্পাদক</b>
+        সিম্পল গ্যালারি প্রো আপনার ছবি যেকোন সময় সম্পাদনা সহজ করে দেয়। আপনার ছবি কাটুন, ফ্লিপ করুন বা আকার পরিবর্তন করুন। আপনি আরেকটু সৃজনশীল হলে, নতুন ফিল্টার যুক্ত করতে পারবেন এবং আপনার ছবির উপর আঁকতেও পারবেন।
+
+        <b>অনেকধরণের ফাইল ঘরানার জন্য সমর্থন রয়েছে</b>
+        জেপিইজি, পিএনজি, এমপি৪, এমকেভি, আরএডাব্লু, এসভিজি, প্যানোরামিক ফটো, প্যানোরামিক ভিডিও এবং আরও অনেক ফাইল টাইপ সিম্পল গ্যালারি প্রো সমর্থন করে।
+
+        <b>মুছে ফেলা ছবি ও ভিডিও পুনরুদ্ধার করুন</b>
+        ভুল করে গুরুত্বপূর্ণ ছবি বা ভিডিও মুছে ফেললেন? চিন্তার কারণ নেই। সিম্পল গ্যালারি প্রোর নিজস্ব রিসাইকেল বিন আপনাকে এ বিপদ থেকে বাঁচাবে।
+
+        <b>ছবি, ভিডিও এবং ফাইল লুকান ও নিরাপদ রাখুন:</b>
+        পিন, প্যাটার্ন, অথবা ফিঙ্গারপ্রিন্ট ব্যবহার করে আপনি আপনার ছবি, ভিডিও এবং পুরো অ্যালবামই নিরাপদে রাখতে পারবেন। আপনি পুরো অ্যাপটাই নিরাপদে রাখতে পারবে, অথবা নির্দিষ্ট কিছু ফাংশনে লক দিতে পারবেন। যেমন ধরুন, ফিঙ্গারপ্রিন্ট ছাড়া কোন ফাইল মুছতে না পারাটা ভুল করে ফাইল হারানো থেকে আপনাকে বাঁচাবে।
+
+        <b>সিম্পল টুলসমূহের পরিপূর্ণ স্যুট:</b>
+        https://www.simplemobiletools.com
+
+        <b>সিম্পল গ্যালারি প্রোর আলাদা ওয়েবসাইট</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>ফেসবুক:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>রেডিট:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
