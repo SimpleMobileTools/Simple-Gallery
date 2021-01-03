@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.18.1 *(2021-01-03)*
+----------------------------
+
+ * Updated the photo and video editor to fix some glitches
+ * Added some translation and stability improvements
+
 Version 6.18.0 *(2020-12-08)*
 ----------------------------
 
