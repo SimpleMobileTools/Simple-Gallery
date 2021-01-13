@@ -281,7 +281,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
 
                     out?.flush()
 
-                    if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
+                    if (fileDocument.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
                         mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
                     }
