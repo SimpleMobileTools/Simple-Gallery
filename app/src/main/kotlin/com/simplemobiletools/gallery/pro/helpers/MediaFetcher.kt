@@ -319,14 +319,16 @@ class MediaFetcher(val context: Context) {
                     media.add(this)
                 }
             } else {
-                var lastModified = 0L
-                if (getProperLastModified) {
-                    var newLastModified = lastModifieds.remove(path)
-                    if (newLastModified == null) {
-                        newLastModified = file.lastModified()
+                var lastModified: Long
+                var newLastModified = lastModifieds.remove(path)
+                if (newLastModified == null) {
+                    newLastModified = if (getProperLastModified) {
+                        file.lastModified()
+                    } else {
+                        0L
                     }
-                    lastModified = newLastModified
                 }
+                lastModified = newLastModified
 
                 var dateTaken = lastModified
                 val videoDuration = if (getVideoDurations && isVideo) context.getDuration(path) ?: 0 else 0
