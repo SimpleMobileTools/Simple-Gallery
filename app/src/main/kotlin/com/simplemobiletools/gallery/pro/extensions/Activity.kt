@@ -598,7 +598,7 @@ fun Activity.fileRotatedSuccessfully(path: String, lastModified: Long) {
         updateLastModified(path, lastModified)
     }
 
-    Picasso.get().invalidate(path.getFileKey())
+    Picasso.get().invalidate(path.getFileKey(lastModified))
     // we cannot refresh a specific image in Glide Cache, so just clear it all
     val glide = Glide.get(applicationContext)
     glide.clearDiskCache()

@@ -410,7 +410,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadWithGlide(path: String, addZoomableView: Boolean) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
-            .signature(getFilePathToShow().getFileSignature())
+            .signature(getFilePathToShow().getFileSignature(mMedium.modified))
             .format(DecodeFormat.PREFER_ARGB_8888)
             .priority(priority)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -450,7 +450,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                 .load(pathToLoad)
                 .centerInside()
-                .stableKey(mMedium.path.getFileKey())
+                .stableKey(mMedium.path.getFileKey(mMedium.modified))
                 .resize(mScreenWidth, mScreenHeight)
 
             if (mCurrentRotationDegrees != 0) {
