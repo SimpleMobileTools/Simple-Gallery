@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.pro.helpers.*
+import java.io.File
 import java.io.Serializable
 import java.util.*
 
@@ -91,5 +92,15 @@ data class Medium(
         return calendar.timeInMillis.toString()
     }
 
-    fun getSignature() = ObjectKey("$path-$modified-$size")
+    fun getSignature(): String {
+        val lastModified = if (modified > 1) {
+            modified
+        } else {
+            File(path).lastModified()
+        }
+
+        return "$path-$lastModified-$size"
+    }
+
+    fun getKey() = ObjectKey(getSignature())
 }

@@ -410,7 +410,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadWithGlide(path: String, addZoomableView: Boolean) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
-            .signature(getFilePathToShow().getFileSignature(mMedium.modified))
+            .signature(mMedium.getKey())
             .format(DecodeFormat.PREFER_ARGB_8888)
             .priority(priority)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -450,7 +450,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                 .load(pathToLoad)
                 .centerInside()
-                .stableKey(mMedium.path.getFileKey(mMedium.modified))
+                .stableKey(mMedium.getSignature())
                 .resize(mScreenWidth, mScreenHeight)
 
             if (mCurrentRotationDegrees != 0) {
@@ -617,7 +617,7 @@ class PhotoFragment : ViewPagerFragment() {
         val minTileDpi = if (showHighestQuality) -1 else getMinTileDpi()
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
-            override fun make() = MyGlideImageDecoder(rotation, mMedium.getSignature())
+            override fun make() = MyGlideImageDecoder(rotation, mMedium.getKey())
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {

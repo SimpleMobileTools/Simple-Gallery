@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.models
 
 import android.content.Context
 import androidx.room.*
+import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.*
@@ -39,4 +40,6 @@ data class Directory(
     fun areFavorites() = path == FAVORITES
 
     fun isRecycleBin() = path == RECYCLE_BIN
+
+    fun getKey() = ObjectKey("$path-$modified")
 }
