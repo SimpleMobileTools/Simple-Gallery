@@ -931,7 +931,7 @@ fun Context.updateDirectoryPath(path: String) {
 
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
 
-    val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
+    val lastModifieds = if (getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
     val dateTakens = mediaFetcher.getFolderDateTakens(path)
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,

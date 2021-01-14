@@ -321,15 +321,11 @@ class MediaFetcher(val context: Context) {
             } else {
                 var lastModified = 0L
                 if (getProperLastModified) {
-                    if (isRPlus()) {
-                        var newLastModified = lastModifieds.remove(path)
-                        if (newLastModified == null) {
-                            newLastModified = file.lastModified()
-                        }
-                        lastModified = newLastModified
-                    } else {
-                        lastModified = file.lastModified()
+                    var newLastModified = lastModifieds.remove(path)
+                    if (newLastModified == null) {
+                        newLastModified = file.lastModified()
                     }
+                    lastModified = newLastModified
                 }
 
                 var dateTaken = lastModified
@@ -590,7 +586,7 @@ class MediaFetcher(val context: Context) {
             return
         }
 
-        media.sortWith(Comparator { o1, o2 ->
+        media.sortWith { o1, o2 ->
             o1 as Medium
             o2 as Medium
             var result = when {
@@ -617,7 +613,7 @@ class MediaFetcher(val context: Context) {
                 result *= -1
             }
             result
-        })
+        }
     }
 
     fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {

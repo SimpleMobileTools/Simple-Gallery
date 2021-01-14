@@ -936,7 +936,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
-        val lastModifieds = if (isRPlus()) mLastMediaFetcher!!.getLastModifieds() else HashMap()
+        val lastModifieds = mLastMediaFetcher!!.getLastModifieds()
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
 
         try {
