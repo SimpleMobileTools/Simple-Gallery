@@ -761,9 +761,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun columnCountChanged() {
         invalidateOptionsMenu()
-        directories_grid.adapter?.notifyDataSetChanged()
-        getRecyclerAdapter()?.dirs?.apply {
-            measureRecyclerViewContent(this)
+        getRecyclerAdapter()?.apply {
+            notifyItemRangeChanged(0, dirs.size)
+            measureRecyclerViewContent(dirs)
         }
     }
 

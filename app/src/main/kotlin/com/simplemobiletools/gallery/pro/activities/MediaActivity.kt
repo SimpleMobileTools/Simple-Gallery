@@ -774,8 +774,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun columnCountChanged() {
         invalidateOptionsMenu()
-        media_grid.adapter?.notifyDataSetChanged()
-        measureRecyclerViewContent(mMedia)
+        getMediaAdapter()?.apply {
+            notifyItemRangeChanged(0, media.size)
+            measureRecyclerViewContent(media)
+        }
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
