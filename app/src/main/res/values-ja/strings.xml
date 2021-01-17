@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">ダブルタップで動画ズームを設定</string>
     <string name="folder_thumbnail_style">フォルダサムネイルのスタイル</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="increased_spacing">Increased spacing</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">ファイル数を別の行に表示</string>
     <string name="show_file_count_brackets">ファイル数を括弧内に表示</string>
     <string name="show_file_count_none">ファイル数を非表示</string>

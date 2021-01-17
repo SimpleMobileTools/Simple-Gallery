@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">Erlaube Zoomen in Videos mit doppeltem Antippen</string>
     <string name="folder_thumbnail_style">Ordner-Miniaturbildstil</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="increased_spacing">Increased spacing</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Zeige Anzahl der Dateien in einer seperaten Zeile an</string>
     <string name="show_file_count_brackets">Anzahl der Dateien in Klammern anzeigen</string>
     <string name="show_file_count_none">Anzahl der Dateien nicht anzeigen</string>

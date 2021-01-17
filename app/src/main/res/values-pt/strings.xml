@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
     <string name="folder_thumbnail_style">Estilo de miniatura das pastas</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="increased_spacing">Increased spacing</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Mostrar número de ficherios em linha distinta</string>
     <string name="show_file_count_brackets">Mostrar número de ficheiros em chavetas</string>
     <string name="show_file_count_none">Não mostrar número de ficheiros</string>
