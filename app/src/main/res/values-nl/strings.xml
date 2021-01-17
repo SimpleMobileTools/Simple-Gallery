@@ -192,9 +192,9 @@
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
     <string name="allow_zooming_videos">Bij video\'s inzoomen met dubbelklikken</string>
-    <string name="folder_thumbnail_style">Stijl voor mapthumbnails</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="increased_spacing">Increased spacing</string>
+    <string name="folder_thumbnail_style">Stijl voor thumbnails mappen</string>
+    <string name="file_thumbnail_style">Stijl voor thumbnails bestanden</string>
+    <string name="increased_spacing">Afstand vergroten</string>
     <string name="show_file_count_line">Aantal bestanden op aparte regel tonen</string>
     <string name="show_file_count_brackets">Aantal bestanden tussen rechte haken tonen</string>
     <string name="show_file_count_none">Aantal bestanden niet tonen</string>
