@@ -9,7 +9,6 @@ import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
-import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,6 +19,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.exifinterface.media.ExifInterface.*
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -715,7 +715,7 @@ class PhotoFragment : ViewPagerFragment() {
                 val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                 tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             } else {
-                val exif = android.media.ExifInterface(path)
+                val exif = androidx.exifinterface.media.ExifInterface(path)
                 exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
             }
 
