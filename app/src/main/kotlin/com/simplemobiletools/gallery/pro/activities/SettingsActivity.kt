@@ -12,7 +12,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.dialogs.ChangeThumbnailStyleDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -70,6 +70,7 @@ class SettingsActivity : SimpleActivity() {
         setupBottomActions()
         setupThumbnailVideoDuration()
         setupThumbnailFileTypes()
+        setupFileThumbnailStyle()
         setupFolderThumbnailStyle()
         setupKeepLastModified()
         setupEnablePullToRefresh()
@@ -398,10 +399,16 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupFileThumbnailStyle() {
+        settings_file_thumbnail_style_holder.setOnClickListener {
+
+        }
+    }
+
     private fun setupFolderThumbnailStyle() {
         settings_folder_thumbnail_style.text = getFolderStyleText()
         settings_folder_thumbnail_style_holder.setOnClickListener {
-            ChangeThumbnailStyleDialog(this) {
+            ChangeFolderThumbnailStyleDialog(this) {
                 settings_folder_thumbnail_style.text = getFolderStyleText()
             }
         }
