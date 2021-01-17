@@ -64,8 +64,6 @@ class SettingsActivity : SimpleActivity() {
         setupAppPasswordProtection()
         setupFileDeletionPasswordProtection()
         setupDeleteEmptyFolders()
-        setupAllowPhotoGestures()
-        setupAllowVideoGestures()
         setupAllowDownGesture()
         setupAllowRotatingWithGestures()
         setupShowNotch()
@@ -372,22 +370,6 @@ class SettingsActivity : SimpleActivity() {
         settings_delete_empty_folders_holder.setOnClickListener {
             settings_delete_empty_folders.toggle()
             config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
-        }
-    }
-
-    private fun setupAllowPhotoGestures() {
-        settings_allow_photo_gestures.isChecked = config.allowPhotoGestures
-        settings_allow_photo_gestures_holder.setOnClickListener {
-            settings_allow_photo_gestures.toggle()
-            config.allowPhotoGestures = settings_allow_photo_gestures.isChecked
-        }
-    }
-
-    private fun setupAllowVideoGestures() {
-        settings_allow_video_gestures.isChecked = config.allowVideoGestures
-        settings_allow_video_gestures_holder.setOnClickListener {
-            settings_allow_video_gestures.toggle()
-            config.allowVideoGestures = settings_allow_video_gestures.isChecked
         }
     }
 
