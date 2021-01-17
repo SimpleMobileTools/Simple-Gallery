@@ -86,6 +86,7 @@ const val WERE_FAVORITES_MIGRATED = "were_favorites_migrated"
 const val FOLDER_THUMBNAIL_STYLE = "folder_thumbnail_style"
 const val FOLDER_MEDIA_COUNT = "folder_media_count"
 const val LIMIT_FOLDER_TITLE = "folder_limit_title"
+const val THUMBNAIL_SPACING = "thumbnail_spacing"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

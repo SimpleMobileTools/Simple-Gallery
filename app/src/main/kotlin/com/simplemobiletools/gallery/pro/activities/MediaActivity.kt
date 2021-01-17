@@ -732,7 +732,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
         if (viewType == VIEW_TYPE_GRID) {
             val spanCount = config.mediaColumnCnt
-            val spacing = 2
+            val spacing = config.thumbnailSpacing
             media_grid.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally))
         }
     }
