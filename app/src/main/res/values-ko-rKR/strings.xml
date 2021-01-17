@@ -193,6 +193,7 @@
     <string name="show_image_file_types">사진 파일 종류 표시</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>

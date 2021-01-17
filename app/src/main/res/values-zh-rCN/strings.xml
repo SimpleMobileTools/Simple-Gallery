@@ -193,6 +193,7 @@
     <string name="show_image_file_types">显示图片文件类型</string>
     <string name="allow_zooming_videos">允许双击来放大视频</string>
     <string name="folder_thumbnail_style">文件夹缩略图样式</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
     <string name="show_file_count_line">在单独一行中显示计数</string>
     <string name="show_file_count_brackets">在括号中显示计数</string>
     <string name="show_file_count_none">不显示计数</string>

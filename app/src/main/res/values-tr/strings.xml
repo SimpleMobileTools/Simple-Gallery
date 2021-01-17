@@ -193,6 +193,7 @@
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
     <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
     <string name="folder_thumbnail_style">Klasör küçük resim stili</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
     <string name="show_file_count_line">Dosya sayısını ayrı bir satırda göster</string>
     <string name="show_file_count_brackets">Dosya sayısını parantez içinde göster</string>
     <string name="show_file_count_none">Dosya sayısını gösterme</string>

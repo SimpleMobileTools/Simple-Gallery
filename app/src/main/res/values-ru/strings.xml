@@ -193,6 +193,7 @@
     <string name="show_image_file_types">Показывать типы файлов изображений</string>
     <string name="allow_zooming_videos">Масштабировать видео двойным нажатием по нему</string>
     <string name="folder_thumbnail_style">Вид миниатюр папок</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
     <string name="show_file_count_line">Показывать количество файлов отдельной строкой</string>
     <string name="show_file_count_brackets">Показывать количество файлов в скобках</string>
     <string name="show_file_count_none">Не показывать количество файлов</string>
