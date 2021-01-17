@@ -405,6 +405,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
             setupLayoutManager()
             measureRecyclerViewContent(mMedia)
+            handleGridSpacing()
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
             measureRecyclerViewContent(mMedia)
@@ -723,6 +724,19 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
     }
 
+    private fun handleGridSpacing() {
+        if (media_grid.itemDecorationCount > 0) {
+            media_grid.removeItemDecorationAt(0)
+        }
+
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
+            val spanCount = config.mediaColumnCnt
+            val spacing = 2
+            media_grid.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally))
+        }
+    }
+
     private fun initZoomListener() {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
         if (viewType == VIEW_TYPE_GRID) {
@@ -773,6 +787,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun columnCountChanged() {
+        handleGridSpacing()
         invalidateOptionsMenu()
         getMediaAdapter()?.apply {
             notifyItemRangeChanged(0, media.size)
