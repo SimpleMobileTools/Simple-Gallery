@@ -192,8 +192,8 @@
     <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
     <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
-    <string name="folder_thumbnail_style">Style des miniatures</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="folder_thumbnail_style">Style des miniatures des dossiers</string>
+    <string name="file_thumbnail_style">Style des miniatures des fichiers</string>
     <string name="show_file_count_line">Afficher le nombre de fichiers sur une autre ligne</string>
     <string name="show_file_count_brackets">Afficher le nombre de fichiers entre parenthèses</string>
     <string name="show_file_count_none">Ne pas afficher le nombre de fichiers</string>
