@@ -76,6 +76,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredShowFileTypes = true
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
+    private var mStoredThumbnailSpacing = 0
 
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
@@ -151,6 +152,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
             media_horizontal_fastscroller.updatePrimaryColor()
             media_vertical_fastscroller.updatePrimaryColor()
+        }
+
+        if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
+            handleGridSpacing()
         }
 
         media_horizontal_fastscroller.updateBubbleColors()
@@ -298,6 +303,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
+            mStoredThumbnailSpacing = thumbnailSpacing
             mShowAll = showAll
         }
     }
