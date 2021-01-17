@@ -12,6 +12,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.dialogs.ChangeFileThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
@@ -53,7 +54,6 @@ class SettingsActivity : SimpleActivity() {
         setupRememberLastVideo()
         setupLoopVideos()
         setupOpenVideosOnSeparateScreen()
-        setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
         setupDarkBackground()
@@ -68,8 +68,6 @@ class SettingsActivity : SimpleActivity() {
         setupAllowRotatingWithGestures()
         setupShowNotch()
         setupBottomActions()
-        setupThumbnailVideoDuration()
-        setupThumbnailFileTypes()
         setupFileThumbnailStyle()
         setupFolderThumbnailStyle()
         setupKeepLastModified()
@@ -231,14 +229,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupAnimateGifs() {
-        settings_animate_gifs.isChecked = config.animateGifs
-        settings_animate_gifs_holder.setOnClickListener {
-            settings_animate_gifs.toggle()
-            config.animateGifs = settings_animate_gifs.isChecked
-        }
-    }
-
     private fun setupMaxBrightness() {
         settings_max_brightness.isChecked = config.maxBrightness
         settings_max_brightness_holder.setOnClickListener {
@@ -252,22 +242,6 @@ class SettingsActivity : SimpleActivity() {
         settings_crop_thumbnails_holder.setOnClickListener {
             settings_crop_thumbnails.toggle()
             config.cropThumbnails = settings_crop_thumbnails.isChecked
-        }
-    }
-
-    private fun setupThumbnailVideoDuration() {
-        settings_show_thumbnail_video_duration.isChecked = config.showThumbnailVideoDuration
-        settings_show_thumbnail_video_duration_holder.setOnClickListener {
-            settings_show_thumbnail_video_duration.toggle()
-            config.showThumbnailVideoDuration = settings_show_thumbnail_video_duration.isChecked
-        }
-    }
-
-    private fun setupThumbnailFileTypes() {
-        settings_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
-        settings_show_thumbnail_file_types_holder.setOnClickListener {
-            settings_show_thumbnail_file_types.toggle()
-            config.showThumbnailFileTypes = settings_show_thumbnail_file_types.isChecked
         }
     }
 
@@ -401,7 +375,7 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupFileThumbnailStyle() {
         settings_file_thumbnail_style_holder.setOnClickListener {
-
+            ChangeFileThumbnailStyleDialog(this)
         }
     }
 
