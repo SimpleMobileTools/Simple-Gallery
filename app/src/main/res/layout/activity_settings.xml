@@ -413,6 +413,28 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_file_thumbnail_style_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="@dimen/normal_margin"
+            android:paddingTop="@dimen/bigger_margin"
+            android:paddingEnd="@dimen/normal_margin"
+            android:paddingBottom="@dimen/bigger_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/settings_file_thumbnail_style_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingEnd="@dimen/medium_margin"
+                android:text="@string/file_thumbnail_style" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_folder_thumbnail_style_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
