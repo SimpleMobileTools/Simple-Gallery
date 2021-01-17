@@ -90,6 +90,7 @@ class SettingsActivity : SimpleActivity() {
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
+        setupClearCache()
         setupExportSettings()
         setupImportSettings()
         invalidateOptionsMenu()
@@ -619,6 +620,23 @@ class SettingsActivity : SimpleActivity() {
                     emptyTheRecycleBin()
                     mRecycleBinContentSize = 0L
                     settings_empty_recycle_bin_size.text = 0L.formatSize()
+                }
+            }
+        }
+    }
+
+    private fun setupClearCache() {
+        ensureBackgroundThread {
+            runOnUiThread {
+                settings_clear_cache_size.text = cacheDir.getProperSize(true).formatSize()
+            }
+        }
+
+        settings_clear_cache_holder.setOnClickListener {
+            ensureBackgroundThread {
+                cacheDir.deleteRecursively()
+                runOnUiThread {
+                    settings_clear_cache_size.text = cacheDir.getProperSize(true).formatSize()
                 }
             }
         }
