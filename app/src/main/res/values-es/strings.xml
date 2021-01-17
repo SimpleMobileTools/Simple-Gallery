@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Permitir hacer zoom en videos con doble toque</string>
     <string name="folder_thumbnail_style">Estilo de las miniaturas de las carpetas</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="increased_spacing">Increased spacing</string>
     <string name="show_file_count_line">Mostrar el recuento de archivos en una línea separada</string>
     <string name="show_file_count_brackets">Mostrar el recuento de archivos entre paréntesis</string>
     <string name="show_file_count_none">No mostrar el recuento de archivos</string>
