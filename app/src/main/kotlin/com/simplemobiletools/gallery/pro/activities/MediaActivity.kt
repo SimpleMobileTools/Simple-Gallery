@@ -747,7 +747,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (viewType == VIEW_TYPE_GRID) {
             val spanCount = config.mediaColumnCnt
             val spacing = config.thumbnailSpacing
-            media_grid.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners))
+            val useGridPosition = mMedia.firstOrNull() is ThumbnailSection
+            val decoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, mMedia, useGridPosition)
+            media_grid.addItemDecoration(decoration)
         }
     }
 

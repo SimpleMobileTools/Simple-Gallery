@@ -635,12 +635,15 @@ class MediaFetcher(val context: Context) {
             return thumbnailItems
         }
 
+        var currentGridPosition = 0
         val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
         media.forEach {
             val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
                 mediumGroups[key] = ArrayList()
+                currentGridPosition = 0
             }
+            it.gridPosition = currentGridPosition++
             mediumGroups[key]!!.add(it)
         }
 

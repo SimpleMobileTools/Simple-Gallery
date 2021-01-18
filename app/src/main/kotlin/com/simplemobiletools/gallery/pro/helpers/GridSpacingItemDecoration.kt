@@ -3,12 +3,17 @@ package com.simplemobiletools.gallery.pro.helpers
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.simplemobiletools.gallery.pro.models.Medium
+import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 
-class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScrollingHorizontally: Boolean, val addSideSpacing: Boolean) : RecyclerView.ItemDecoration() {
+class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScrollingHorizontally: Boolean, val addSideSpacing: Boolean,
+                                val items: ArrayList<ThumbnailItem>, val useGridPosition: Boolean) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view)
-        val column = position % spanCount
+        val medium = items[position] as? Medium ?: return
+        val gridPositionToUse = if (useGridPosition) medium.gridPosition else position
+        val column = gridPositionToUse % spanCount
 
         if (isScrollingHorizontally) {
             if (addSideSpacing) {
@@ -32,13 +37,14 @@ class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScro
                 outRect.right = (column + 1) * spacing / spanCount
                 outRect.bottom = spacing
 
-                if (position < spanCount) {
+                if (position < spanCount && !useGridPosition) {
                     outRect.top = spacing
                 }
             } else {
                 outRect.left = column * spacing / spanCount
                 outRect.right = spacing - (column + 1) * spacing / spanCount
-                if (position >= spanCount) {
+
+                if (gridPositionToUse >= spanCount) {
                     outRect.top = spacing
                 }
             }
