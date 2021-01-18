@@ -575,19 +575,21 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             }
         }) as ArrayList<Directory>
 
-        val hiddenString = resources.getString(R.string.hidden)
-        filteredDirectories.forEach {
-            val noMediaPath = "${it.path}/.nomedia"
-            val hasNoMedia = if (folderNoMediaStatuses.keys.contains(noMediaPath)) {
-                folderNoMediaStatuses[noMediaPath]!!
-            } else {
-                it.path.doesThisOrParentHaveNoMedia(noMediaFolders)
-            }
+        if (shouldShowHidden) {
+            val hiddenString = resources.getString(R.string.hidden)
+            filteredDirectories.forEach {
+                val noMediaPath = "${it.path}/.nomedia"
+                val hasNoMedia = if (folderNoMediaStatuses.keys.contains(noMediaPath)) {
+                    folderNoMediaStatuses[noMediaPath]!!
+                } else {
+                    it.path.doesThisOrParentHaveNoMedia(noMediaFolders)
+                }
 
-            it.name = if (hasNoMedia && !it.path.isThisOrParentIncluded(includedPaths)) {
-                "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
-            } else {
-                it.name.removeSuffix(hiddenString).trim()
+                it.name = if (hasNoMedia && !it.path.isThisOrParentIncluded(includedPaths)) {
+                    "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
+                } else {
+                    it.name.removeSuffix(hiddenString).trim()
+                }
             }
         }
 
