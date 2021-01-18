@@ -192,15 +192,15 @@
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
     <string name="show_image_file_types">Mostra els tipus de fitxers d\’imatges</string>
     <string name="allow_zooming_videos">Permet fer zoom als vídeos amb dos cops</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estil de miniatura de carpeta</string>
+    <string name="file_thumbnail_style">Estil de miniatura del fitxer</string>
+    <string name="thumbnail_spacing">Espai entre miniatures</string>
+    <string name="show_file_count_line">Mostra el recompte de fitxers en una línia diferent</string>
+    <string name="show_file_count_brackets">Mostra el recompte de fitxers entre claudàtors</string>
+    <string name="show_file_count_none">No mostreu el recompte de fitxers</string>
+    <string name="limit_folder_title">Limiteu els títols de carpeta llarga a 1 línia</string>
+    <string name="square">Quadrat</string>
+    <string name="rounded_corners">Cantonades arrodonides</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
