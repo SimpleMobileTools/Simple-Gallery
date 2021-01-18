@@ -553,8 +553,12 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
 
-        val noMediaFolders = getNoMediaFoldersSync()
         val folderNoMediaStatuses = HashMap<String, Boolean>()
+        val noMediaFolders = getNoMediaFoldersSync()
+        noMediaFolders.forEach { folder ->
+            folderNoMediaStatuses[folder] = true
+        }
+
         var filteredDirectories = directories.filter {
             it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses, noMediaFolders) { path, hasNoMedia ->
                 folderNoMediaStatuses[path] = hasNoMedia
