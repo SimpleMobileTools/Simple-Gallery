@@ -380,7 +380,12 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>, noMediaFolders: ArrayList<String>): String {
     val dirName = getFolderNameFromPath(path)
-    return if (path.doesThisOrParentHaveNoMedia(noMediaFolders) && !path.isThisOrParentIncluded(includedFolders)) {
+    val folderNoMediaStatuses = java.util.HashMap<String, Boolean>()
+    noMediaFolders.forEach { folder ->
+        folderNoMediaStatuses["$folder/$NOMEDIA"] = true
+    }
+
+    return if (path.doesThisOrParentHaveNoMedia(folderNoMediaStatuses, null) && !path.isThisOrParentIncluded(includedFolders)) {
         "$dirName $hidden"
     } else {
         dirName
@@ -556,11 +561,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val folderNoMediaStatuses = HashMap<String, Boolean>()
         val noMediaFolders = getNoMediaFoldersSync()
         noMediaFolders.forEach { folder ->
-            folderNoMediaStatuses["$folder/.nomedia"] = true
+            folderNoMediaStatuses["$folder/$NOMEDIA"] = true
         }
 
         var filteredDirectories = directories.filter {
-            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses, noMediaFolders) { path, hasNoMedia ->
+            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses) { path, hasNoMedia ->
                 folderNoMediaStatuses[path] = hasNoMedia
             }
         } as ArrayList<Directory>
@@ -582,11 +587,14 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         if (shouldShowHidden) {
             val hiddenString = resources.getString(R.string.hidden)
             filteredDirectories.forEach {
-                val noMediaPath = "${it.path}/.nomedia"
+                val noMediaPath = "${it.path}/$NOMEDIA"
                 val hasNoMedia = if (folderNoMediaStatuses.keys.contains(noMediaPath)) {
                     folderNoMediaStatuses[noMediaPath]!!
                 } else {
-                    it.path.doesThisOrParentHaveNoMedia(noMediaFolders)
+                    it.path.doesThisOrParentHaveNoMedia(folderNoMediaStatuses) { path, hasNoMedia ->
+                        val newPath = "$path/$NOMEDIA"
+                        folderNoMediaStatuses[newPath] = hasNoMedia
+                    }
                 }
 
                 it.name = if (hasNoMedia && !it.path.isThisOrParentIncluded(includedPaths)) {

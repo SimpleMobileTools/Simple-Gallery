@@ -69,7 +69,7 @@ class MediaFetcher(val context: Context) {
             val excludedPaths = config.excludedFolders
             val includedPaths = config.includedFolders
 
-            val folderNomediaStatuses = HashMap<String, Boolean>()
+            val folderNoMediaStatuses = HashMap<String, Boolean>()
             val distinctPathsMap = HashMap<String, String>()
             val distinctPaths = folders.distinctBy {
                 when {
@@ -83,9 +83,13 @@ class MediaFetcher(val context: Context) {
             }
 
             val noMediaFolders = context.getNoMediaFoldersSync()
+            noMediaFolders.forEach { folder ->
+                folderNoMediaStatuses["$folder/$NOMEDIA"] = true
+            }
+
             distinctPaths.filter {
-                it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses, noMediaFolders) { path, hasNoMedia ->
-                    folderNomediaStatuses[path] = hasNoMedia
+                it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses) { path, hasNoMedia ->
+                    folderNoMediaStatuses[path] = hasNoMedia
                 }
             }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
