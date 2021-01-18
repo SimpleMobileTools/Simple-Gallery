@@ -11,7 +11,7 @@ class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScro
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view)
-        val medium = items[position] as? Medium ?: return
+        val medium = items.getOrNull(position) as? Medium ?: return
         val gridPositionToUse = if (useGridPosition) medium.gridPosition else position
         val column = gridPositionToUse % spanCount
 
