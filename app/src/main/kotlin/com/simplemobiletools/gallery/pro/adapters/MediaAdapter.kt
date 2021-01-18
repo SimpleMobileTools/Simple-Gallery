@@ -534,6 +534,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
                 medium_check?.background?.applyColorFilter(primaryColor)
             }
 
+            if (isListViewType) {
+                media_item_holder.isSelected = isSelected
+            }
+
             var path = medium.path
             if (hasOTGConnected && context.isPathOnOTG(path)) {
                 path = path.getOTGPublicPath(context)

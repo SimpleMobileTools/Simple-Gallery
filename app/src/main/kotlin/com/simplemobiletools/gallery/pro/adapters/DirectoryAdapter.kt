@@ -680,6 +680,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_check.background?.applyColorFilter(primaryColor)
             }
 
+            if (isListViewType) {
+                dir_holder.isSelected = isSelected
+            }
+
             if (scrollHorizontally && !isListViewType && folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
                 (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
 
