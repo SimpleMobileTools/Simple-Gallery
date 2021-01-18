@@ -524,7 +524,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             invalidateOptionsMenu()
             setupLayoutManager()
             directories_grid.adapter = null
-            setupAdapter(mDirs)
+            setupAdapter(getRecyclerAdapter()?.dirs ?: mDirs)
         }
     }
 
