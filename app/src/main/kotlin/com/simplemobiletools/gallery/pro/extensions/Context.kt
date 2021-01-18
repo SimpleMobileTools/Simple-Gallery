@@ -556,7 +556,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val folderNoMediaStatuses = HashMap<String, Boolean>()
         val noMediaFolders = getNoMediaFoldersSync()
         noMediaFolders.forEach { folder ->
-            folderNoMediaStatuses[folder] = true
+            folderNoMediaStatuses["$folder/.nomedia"] = true
         }
 
         var filteredDirectories = directories.filter {
