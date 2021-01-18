@@ -74,6 +74,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowFileTypes = true
+    private var mStoredRoundedCorners = false
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
     private var mStoredThumbnailSpacing = 0
@@ -156,6 +157,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
             handleGridSpacing()
+        }
+
+        if (mStoredRoundedCorners != config.fileRoundedCorners) {
+            handleGridSpacing()
+            media_grid.adapter = null
+            getMedia()
         }
 
         media_horizontal_fastscroller.updateBubbleColors()
@@ -304,6 +311,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
             mStoredThumbnailSpacing = thumbnailSpacing
+            mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
     }
