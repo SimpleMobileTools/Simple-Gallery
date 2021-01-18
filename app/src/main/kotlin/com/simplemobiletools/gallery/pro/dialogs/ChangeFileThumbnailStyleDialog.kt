@@ -19,10 +19,12 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
 
     init {
         view = activity.layoutInflater.inflate(R.layout.dialog_change_file_thumbnail_style, null).apply {
+            dialog_file_style_rounded_corners.isChecked = config.fileRoundedCorners
             dialog_file_style_animate_gifs.isChecked = config.animateGifs
             dialog_file_style_show_thumbnail_video_duration.isChecked = config.showThumbnailVideoDuration
             dialog_file_style_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
 
+            dialog_file_style_rounded_corners_holder.setOnClickListener { dialog_file_style_rounded_corners.toggle() }
             dialog_file_style_animate_gifs_holder.setOnClickListener { dialog_file_style_animate_gifs.toggle() }
             dialog_file_style_show_thumbnail_video_duration_holder.setOnClickListener { dialog_file_style_show_thumbnail_video_duration.toggle() }
             dialog_file_style_show_thumbnail_file_types_holder.setOnClickListener { dialog_file_style_show_thumbnail_file_types.toggle() }
@@ -35,7 +37,8 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
                     RadioItem(4, "2x"),
                     RadioItem(8, "4x"),
                     RadioItem(16, "8x"),
-                    RadioItem(32, "16x"))
+                    RadioItem(32, "16x"),
+                    RadioItem(64, "32x"))
 
                 RadioGroupDialog(activity, items, thumbnailSpacing) {
                     thumbnailSpacing = it as Int
@@ -43,6 +46,7 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
                 }
             }
         }
+
         updateThumbnailSpacingText()
 
         AlertDialog.Builder(activity)
@@ -54,6 +58,7 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
+        config.fileRoundedCorners = view.dialog_file_style_rounded_corners.isChecked
         config.animateGifs = view.dialog_file_style_animate_gifs.isChecked
         config.showThumbnailVideoDuration = view.dialog_file_style_show_thumbnail_video_duration.isChecked
         config.showThumbnailFileTypes = view.dialog_file_style_show_thumbnail_file_types.isChecked

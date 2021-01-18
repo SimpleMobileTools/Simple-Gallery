@@ -47,6 +47,26 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/dialog_file_style_rounded_corners_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/normal_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/dialog_file_style_rounded_corners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/rounded_corners"
+                app:switchPadding="@dimen/medium_margin" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/dialog_file_style_animate_gifs_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

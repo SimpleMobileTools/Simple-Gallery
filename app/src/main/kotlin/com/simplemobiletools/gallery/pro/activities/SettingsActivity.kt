@@ -631,6 +631,7 @@ class SettingsActivity : SimpleActivity() {
                 put(ANIMATE_GIFS, config.animateGifs)
                 put(CROP_THUMBNAILS, config.cropThumbnails)
                 put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
+                put(SHOW_THUMBNAIL_FILE_TYPES, config.showThumbnailFileTypes)
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
@@ -687,6 +688,8 @@ class SettingsActivity : SimpleActivity() {
                 put(FOLDER_THUMBNAIL_STYLE, config.folderStyle)
                 put(FOLDER_MEDIA_COUNT, config.showFolderMediaCount)
                 put(LIMIT_FOLDER_TITLE, config.limitFolderTitle)
+                put(THUMBNAIL_SPACING, config.thumbnailSpacing)
+                put(FILE_ROUNDED_CORNERS, config.fileRoundedCorners)
             }
 
             exportSettings(configItems)
@@ -768,6 +771,7 @@ class SettingsActivity : SimpleActivity() {
                 ANIMATE_GIFS -> config.animateGifs = value.toBoolean()
                 CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
                 SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
+                SHOW_THUMBNAIL_FILE_TYPES -> config.showThumbnailFileTypes = value.toBoolean()
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
@@ -823,6 +827,8 @@ class SettingsActivity : SimpleActivity() {
                 FOLDER_THUMBNAIL_STYLE -> config.folderStyle = value.toInt()
                 FOLDER_MEDIA_COUNT -> config.showFolderMediaCount = value.toInt()
                 LIMIT_FOLDER_TITLE -> config.limitFolderTitle = value.toBoolean()
+                THUMBNAIL_SPACING -> config.thumbnailSpacing = value.toInt()
+                FILE_ROUNDED_CORNERS -> config.fileRoundedCorners = value.toBoolean()
                 ALBUM_COVERS -> {
                     val existingCovers = config.parseAlbumCovers()
                     val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>

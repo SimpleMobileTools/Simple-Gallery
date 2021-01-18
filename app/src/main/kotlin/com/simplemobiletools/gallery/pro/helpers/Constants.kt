@@ -87,6 +87,7 @@ const val FOLDER_THUMBNAIL_STYLE = "folder_thumbnail_style"
 const val FOLDER_MEDIA_COUNT = "folder_media_count"
 const val LIMIT_FOLDER_TITLE = "folder_limit_title"
 const val THUMBNAIL_SPACING = "thumbnail_spacing"
+const val FILE_ROUNDED_CORNERS = "file_rounded_corners"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

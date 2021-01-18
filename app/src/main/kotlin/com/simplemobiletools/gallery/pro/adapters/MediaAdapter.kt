@@ -539,7 +539,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
                 path = path.getOTGPublicPath(context)
             }
 
-            val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+            val roundedCorners = when {
+                isListViewType -> ROUNDED_CORNERS_SMALL
+                config.fileRoundedCorners -> ROUNDED_CORNERS_BIG
+                else -> ROUNDED_CORNERS_NONE
+            }
 
             if (loadImageInstantly) {
                 activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(),

@@ -511,4 +511,8 @@ class Config(context: Context) : BaseConfig(context) {
     var thumbnailSpacing: Int
         get() = prefs.getInt(THUMBNAIL_SPACING, 2)
         set(thumbnailSpacing) = prefs.edit().putInt(THUMBNAIL_SPACING, thumbnailSpacing).apply()
+
+    var fileRoundedCorners: Boolean
+        get() = prefs.getBoolean(FILE_ROUNDED_CORNERS, false)
+        set(fileRoundedCorners) = prefs.edit().putBoolean(FILE_ROUNDED_CORNERS, fileRoundedCorners).apply()
 }
