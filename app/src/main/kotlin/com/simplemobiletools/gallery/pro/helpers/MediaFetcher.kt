@@ -635,15 +635,12 @@ class MediaFetcher(val context: Context) {
             return thumbnailItems
         }
 
-        var currentGridPosition = 0
         val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
         media.forEach {
             val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
                 mediumGroups[key] = ArrayList()
-                currentGridPosition = 0
             }
-            it.gridPosition = currentGridPosition++
             mediumGroups[key]!!.add(it)
         }
 
@@ -667,8 +664,14 @@ class MediaFetcher(val context: Context) {
         val today = formatDate(System.currentTimeMillis().toString(), true)
         val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString(), true)
         for ((key, value) in mediumGroups) {
+            var currentGridPosition = 0
             val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
             thumbnailItems.add(ThumbnailSection(sectionKey))
+
+            value.forEach {
+                it.gridPosition = currentGridPosition++
+            }
+
             thumbnailItems.addAll(value)
         }
 

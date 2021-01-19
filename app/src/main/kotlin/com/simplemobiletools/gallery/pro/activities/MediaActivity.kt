@@ -418,10 +418,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 media_grid.adapter = this
             }
             setupLayoutManager()
-            measureRecyclerViewContent(mMedia)
             handleGridSpacing()
+            measureRecyclerViewContent(mMedia)
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
+            handleGridSpacing()
             measureRecyclerViewContent(mMedia)
         } else {
             searchQueryChanged(mLastSearchedText)
