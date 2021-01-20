@@ -707,7 +707,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        val spacing = config.thumbnailSpacing
+        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * (thumbnailWidth + spacing) - spacing
         media_horizontal_fastscroller.setContentWidth(fullWidth)
         media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
     }
@@ -734,7 +735,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
         }
 
-        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+        val spacing = config.thumbnailSpacing
+        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * (thumbnailHeight + spacing) - spacing
         media_vertical_fastscroller.setContentHeight(fullHeight)
         media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
     }
