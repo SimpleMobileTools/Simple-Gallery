@@ -193,8 +193,8 @@
     <string name="show_image_file_types">Εμφάνιση τύπου αρχείου εικόνας</string>
     <string name="allow_zooming_videos">Επιτρέπει την μεγέθυνση βίντεο με διπλό πάτημα</string>
     <string name="folder_thumbnail_style">Στυλ μικρογραφίας φακέλου</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
+    <string name="file_thumbnail_style">Στυλ μικρογραφίας αρχείου</string>
+    <string name="thumbnail_spacing">Απόσταση μικρογραφιών</string>
     <string name="show_file_count_line">Εμφάνιση πλήθους αρχείων σε ξεχωριστή γραμμή</string>
     <string name="show_file_count_brackets">Εμφάνιση πλήθους αρχείων σε αγκύλες</string>
     <string name="show_file_count_none">Χωρίς εμφάνιση μέτρησης αρχείων</string>
