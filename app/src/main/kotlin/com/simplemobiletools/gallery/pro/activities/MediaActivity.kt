@@ -742,17 +742,25 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun handleGridSpacing() {
-        if (media_grid.itemDecorationCount > 0) {
-            media_grid.removeItemDecorationAt(0)
-        }
-
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
         if (viewType == VIEW_TYPE_GRID) {
             val spanCount = config.mediaColumnCnt
             val spacing = config.thumbnailSpacing
             val useGridPosition = mMedia.firstOrNull() is ThumbnailSection
-            val decoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, mMedia, useGridPosition)
-            media_grid.addItemDecoration(decoration)
+
+            var currentGridDecoration: GridSpacingItemDecoration? = null
+            if (media_grid.itemDecorationCount > 0) {
+                currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+                currentGridDecoration.items = mMedia
+            }
+
+            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, mMedia, useGridPosition)
+            if (currentGridDecoration.toString() != newGridDecoration.toString()) {
+                if (currentGridDecoration != null) {
+                    media_grid.removeItemDecoration(currentGridDecoration)
+                }
+                media_grid.addItemDecoration(newGridDecoration)
+            }
         }
     }
 
