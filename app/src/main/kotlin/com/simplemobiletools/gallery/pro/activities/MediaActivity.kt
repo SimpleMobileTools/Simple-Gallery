@@ -46,6 +46,7 @@ import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -987,6 +988,22 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setResult(Activity.RESULT_OK, this)
         }
         finish()
+    }
+
+    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {
+        var currentGridPosition = 0
+        media.forEach {
+            if (it is Medium) {
+                it.gridPosition = currentGridPosition++
+            } else if (it is ThumbnailSection) {
+                currentGridPosition = 0
+            }
+        }
+
+        if (media_grid.itemDecorationCount > 0) {
+            val currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+            currentGridDecoration.items = media
+        }
     }
 
     private fun setAsDefaultFolder() {

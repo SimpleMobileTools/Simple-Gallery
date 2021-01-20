@@ -379,4 +379,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun selectedPaths(paths: ArrayList<String>) {
     }
+
+    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {
+    }
 }

@@ -439,6 +439,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
+            listener?.updateMediaGridDecoration(media)
             removeSelectedItems(positions)
             currentMediaHash = media.hashCode()
         }
