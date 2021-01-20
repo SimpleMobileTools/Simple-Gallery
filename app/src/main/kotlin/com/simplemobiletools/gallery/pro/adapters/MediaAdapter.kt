@@ -457,12 +457,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
         val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
         if (thumbnailItems.hashCode() != currentMediaHash) {
             currentMediaHash = thumbnailItems.hashCode()
-            Handler().postDelayed({
-                media = thumbnailItems
-                enableInstantLoad()
-                notifyDataSetChanged()
-                finishActMode()
-            }, 100L)
+            media = thumbnailItems
+            enableInstantLoad()
+            notifyDataSetChanged()
+            finishActMode()
         }
     }
 

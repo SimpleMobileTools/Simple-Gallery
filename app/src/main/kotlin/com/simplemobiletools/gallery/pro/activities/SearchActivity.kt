@@ -124,8 +124,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                         media_empty_text_placeholder.beGone()
                     }
 
-                    getMediaAdapter()?.updateMedia(grouped)
                     handleGridSpacing(grouped)
+                    getMediaAdapter()?.updateMedia(grouped)
                     measureRecyclerViewContent(grouped)
                 }
             } catch (ignored: Exception) {
@@ -159,12 +159,12 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun handleGridSpacing(media: ArrayList<ThumbnailItem>) {
-        if (media_grid.itemDecorationCount > 0) {
-            media_grid.removeItemDecorationAt(0)
-        }
-
         val viewType = config.getFolderViewType(SHOW_ALL)
         if (viewType == VIEW_TYPE_GRID) {
+            if (media_grid.itemDecorationCount > 0) {
+                media_grid.removeItemDecorationAt(0)
+            }
+
             val spanCount = config.mediaColumnCnt
             val spacing = config.thumbnailSpacing
             val decoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, true)

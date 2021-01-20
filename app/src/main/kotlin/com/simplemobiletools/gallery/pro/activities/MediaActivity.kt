@@ -371,6 +371,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                         media_empty_text_placeholder.beGone()
                     }
 
+                    handleGridSpacing(grouped)
                     getMediaAdapter()?.updateMedia(grouped)
                     measureRecyclerViewContent(grouped)
                 }
@@ -742,20 +743,20 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
     }
 
-    private fun handleGridSpacing() {
+    private fun handleGridSpacing(media: ArrayList<ThumbnailItem> = mMedia) {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
         if (viewType == VIEW_TYPE_GRID) {
             val spanCount = config.mediaColumnCnt
             val spacing = config.thumbnailSpacing
-            val useGridPosition = mMedia.firstOrNull() is ThumbnailSection
+            val useGridPosition = media.firstOrNull() is ThumbnailSection
 
             var currentGridDecoration: GridSpacingItemDecoration? = null
             if (media_grid.itemDecorationCount > 0) {
                 currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
-                currentGridDecoration.items = mMedia
+                currentGridDecoration.items = media
             }
 
-            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, mMedia, useGridPosition)
+            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, useGridPosition)
             if (currentGridDecoration.toString() != newGridDecoration.toString()) {
                 if (currentGridDecoration != null) {
                     media_grid.removeItemDecoration(currentGridDecoration)
