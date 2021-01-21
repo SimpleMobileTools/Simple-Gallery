@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.19.0 *(2021-01-21)*
+----------------------------
+
+ * Allow easily clearing the app cache from the app settings
+ * Allow customizing the spacing between file thumbnails, or using rounded corners
+ * Many other performance, UI, UX, translation and stability improvements
+
 Version 6.18.3 *(2021-01-14)*
 ----------------------------
 
