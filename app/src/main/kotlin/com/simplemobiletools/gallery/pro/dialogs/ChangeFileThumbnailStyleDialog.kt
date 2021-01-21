@@ -10,7 +10,6 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import kotlinx.android.synthetic.main.dialog_change_file_thumbnail_style.view.*
-import java.text.DecimalFormat
 
 class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogInterface.OnClickListener {
     private var config = activity.config
@@ -32,13 +31,13 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
             dialog_file_style_spacing_holder.setOnClickListener {
                 val items = arrayListOf(
                     RadioItem(0, "0x"),
-                    RadioItem(1, "0.5x"),
-                    RadioItem(2, "1x"),
-                    RadioItem(4, "2x"),
-                    RadioItem(8, "4x"),
-                    RadioItem(16, "8x"),
-                    RadioItem(32, "16x"),
-                    RadioItem(64, "32x"))
+                    RadioItem(1, "1x"),
+                    RadioItem(2, "2x"),
+                    RadioItem(4, "4x"),
+                    RadioItem(8, "8x"),
+                    RadioItem(16, "16x"),
+                    RadioItem(32, "32x"),
+                    RadioItem(64, "64x"))
 
                 RadioGroupDialog(activity, items, thumbnailSpacing) {
                     thumbnailSpacing = it as Int
@@ -66,8 +65,6 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
     }
 
     private fun updateThumbnailSpacingText() {
-        val number = thumbnailSpacing * 0.5
-        val format = DecimalFormat("0.#")
-        view.dialog_file_style_spacing.text = "${format.format(number)}x"
+        view.dialog_file_style_spacing.text = "${thumbnailSpacing}x"
     }
 }

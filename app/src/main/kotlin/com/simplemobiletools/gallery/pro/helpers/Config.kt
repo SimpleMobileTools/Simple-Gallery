@@ -509,7 +509,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(limitFolderTitle) = prefs.edit().putBoolean(LIMIT_FOLDER_TITLE, limitFolderTitle).apply()
 
     var thumbnailSpacing: Int
-        get() = prefs.getInt(THUMBNAIL_SPACING, 2)
+        get() = prefs.getInt(THUMBNAIL_SPACING, 1)
         set(thumbnailSpacing) = prefs.edit().putInt(THUMBNAIL_SPACING, thumbnailSpacing).apply()
 
     var fileRoundedCorners: Boolean
