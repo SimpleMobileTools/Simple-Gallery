@@ -157,13 +157,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
-            handleGridSpacing()
+            media_grid.adapter = null
+            setupAdapter()
         }
 
         if (mStoredRoundedCorners != config.fileRoundedCorners) {
-            handleGridSpacing()
             media_grid.adapter = null
-            getMedia()
+            setupAdapter()
         }
 
         media_horizontal_fastscroller.updateBubbleColors()

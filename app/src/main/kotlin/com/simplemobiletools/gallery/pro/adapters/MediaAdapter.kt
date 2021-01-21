@@ -499,6 +499,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
+            val padding = if (config.thumbnailSpacing <= 1) {
+                config.thumbnailSpacing
+            } else {
+                0
+            }
+
+            media_item_holder.setPadding(padding, padding, padding, padding)
+
             play_outline.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
                 play_outline.setImageResource(R.drawable.ic_play_outline_vector)

@@ -13,6 +13,10 @@ class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScro
             "items: ${items.hashCode()}, useGridPosition: $useGridPosition"
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        if (spacing <= 1) {
+            return
+        }
+
         val position = parent.getChildAdapterPosition(view)
         val medium = items.getOrNull(position) as? Medium ?: return
         val gridPositionToUse = if (useGridPosition) medium.gridPosition else position
