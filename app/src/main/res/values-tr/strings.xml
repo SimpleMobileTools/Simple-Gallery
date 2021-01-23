@@ -176,7 +176,7 @@
     <string name="allow_instant_change">Ekran kenarlarına tıklayarak anında medya değiştirmeye izin ver</string>
     <string name="allow_deep_zooming_images">Derin yakınlaştırma resimlerine izin ver</string>
     <string name="hide_extended_details">Durum çubuğu gizlendiğinde genişletilmiş ayrıntıları gizle</string>
-    <string name="show_at_bottom">Ekranın alt kısmındaki bazı eylem düğmelerini göster</string>
+    <string name="show_at_bottom">Ekranın alt kısmında bazı eylem düğmelerini göster</string>
     <string name="show_recycle_bin">Geri dönüşüm kutusu\'nu klasörler ekranında gösterme</string>
     <string name="deep_zoomable_images">Derin yakınlaştırılabilir resimler</string>
     <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
@@ -193,6 +193,8 @@
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
     <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
     <string name="folder_thumbnail_style">Klasör küçük resim stili</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Dosya sayısını ayrı bir satırda göster</string>
     <string name="show_file_count_brackets">Dosya sayısını parantez içinde göster</string>
     <string name="show_file_count_none">Dosya sayısını gösterme</string>

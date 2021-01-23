@@ -524,7 +524,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             invalidateOptionsMenu()
             setupLayoutManager()
             directories_grid.adapter = null
-            setupAdapter(mDirs)
+            setupAdapter(getRecyclerAdapter()?.dirs ?: mDirs)
         }
     }
 
@@ -761,9 +761,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun columnCountChanged() {
         invalidateOptionsMenu()
-        directories_grid.adapter?.notifyDataSetChanged()
-        getRecyclerAdapter()?.dirs?.apply {
-            measureRecyclerViewContent(this)
+        getRecyclerAdapter()?.apply {
+            notifyItemRangeChanged(0, dirs.size)
+            measureRecyclerViewContent(dirs)
         }
     }
 
@@ -936,7 +936,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
-        val lastModifieds = if (isRPlus()) mLastMediaFetcher!!.getLastModifieds() else HashMap()
+        val lastModifieds = mLastMediaFetcher!!.getLastModifieds()
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
 
         try {

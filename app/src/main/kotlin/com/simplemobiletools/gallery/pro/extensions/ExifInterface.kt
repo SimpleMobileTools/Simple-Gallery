@@ -1,6 +1,6 @@
 package com.simplemobiletools.gallery.pro.extensions
 
-import android.media.ExifInterface
+import androidx.exifinterface.media.ExifInterface
 import java.lang.reflect.Field
 import java.lang.reflect.Modifier
 

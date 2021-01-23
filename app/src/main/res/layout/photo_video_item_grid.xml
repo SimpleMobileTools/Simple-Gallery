@@ -5,8 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:focusable="true"
-    android:padding="1px">
+    android:focusable="true">
 
     <com.simplemobiletools.gallery.pro.views.MySquareImageView
         android:id="@+id/medium_thumbnail"

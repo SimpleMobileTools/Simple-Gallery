@@ -3,11 +3,11 @@ package com.simplemobiletools.gallery.pro.activities
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.exifinterface.media.ExifInterface
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH

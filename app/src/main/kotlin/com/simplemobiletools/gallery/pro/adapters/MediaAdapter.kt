@@ -18,10 +18,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.FAVORITES
-import com.simplemobiletools.commons.helpers.VIEW_TYPE_LIST
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -38,7 +35,7 @@ import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import java.util.*
 
-class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
+class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
@@ -442,7 +439,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
+            listener?.updateMediaGridDecoration(media)
             removeSelectedItems(positions)
+            currentMediaHash = media.hashCode()
         }
     }
 
@@ -458,12 +457,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
         if (thumbnailItems.hashCode() != currentMediaHash) {
             currentMediaHash = thumbnailItems.hashCode()
-            Handler().postDelayed({
-                media = thumbnailItems
-                enableInstantLoad()
-                notifyDataSetChanged()
-                finishActMode()
-            }, 100L)
+            media = thumbnailItems
+            enableInstantLoad()
+            notifyDataSetChanged()
+            finishActMode()
         }
     }
 
@@ -502,6 +499,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
+            val padding = if (config.thumbnailSpacing <= 1) {
+                config.thumbnailSpacing
+            } else {
+                0
+            }
+
+            media_item_holder.setPadding(padding, padding, padding, padding)
+
             play_outline.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
                 play_outline.setImageResource(R.drawable.ic_play_outline_vector)
@@ -537,21 +542,32 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 medium_check?.background?.applyColorFilter(primaryColor)
             }
 
+            if (isListViewType) {
+                media_item_holder.isSelected = isSelected
+            }
+
             var path = medium.path
             if (hasOTGConnected && context.isPathOnOTG(path)) {
                 path = path.getOTGPublicPath(context)
             }
 
-            val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+            val roundedCorners = when {
+                isListViewType -> ROUNDED_CORNERS_SMALL
+                config.fileRoundedCorners -> ROUNDED_CORNERS_BIG
+                else -> ROUNDED_CORNERS_NONE
+            }
+
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, rotatedImagePaths)
+                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(),
+                    rotatedImagePaths)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, rotatedImagePaths)
+                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
+                            medium.getKey(), rotatedImagePaths)
                     }
                 }, IMAGE_LOAD_DELAY)
             }

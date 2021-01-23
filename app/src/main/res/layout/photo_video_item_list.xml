@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/media_item_holder"
     android:layout_width="wrap_content"
@@ -8,6 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
+    android:foreground="@drawable/selector"
     android:paddingStart="@dimen/medium_margin"
     android:paddingTop="@dimen/small_margin"
     android:paddingBottom="@dimen/small_margin">
@@ -15,7 +15,7 @@
     <com.simplemobiletools.gallery.pro.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="@dimen/list_view_folder_thumbnail_size"
-        android:layout_height="@dimen/list_view_folder_thumbnail_size"/>
+        android:layout_height="@dimen/list_view_folder_thumbnail_size" />
 
     <ImageView
         android:id="@+id/medium_check"
@@ -29,7 +29,7 @@
         android:contentDescription="@null"
         android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_check_vector"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/medium_name"
@@ -45,7 +45,7 @@
         android:paddingEnd="@dimen/normal_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/bigger_text_size"
-        tools:text="My photo"/>
+        tools:text="My photo" />
 
     <ImageView
         android:id="@+id/play_outline"
@@ -56,7 +56,7 @@
         android:layout_marginEnd="@dimen/small_margin"
         android:paddingBottom="6dp"
         android:src="@drawable/ic_play_outline_vector"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/file_type"
@@ -65,9 +65,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/small_margin"
-        android:paddingBottom="@dimen/medium_margin"
-        android:paddingEnd="@dimen/small_margin"
         android:fontFamily="sans-serif-medium"
+        android:paddingEnd="@dimen/small_margin"
+        android:paddingBottom="@dimen/medium_margin"
         android:shadowColor="@color/default_background_color"
         android:shadowRadius="4"
         android:text="@string/gif"
@@ -87,6 +87,6 @@
         android:paddingBottom="@dimen/small_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/normal_text_size"
-        tools:text="00:05"/>
+        tools:text="00:05" />
 
 </RelativeLayout>

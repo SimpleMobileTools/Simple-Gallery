@@ -1,10 +1,10 @@
 package com.simplemobiletools.gallery.pro.fragments
 
-import android.media.ExifInterface
 import android.provider.MediaStore
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.view.MotionEvent
+import androidx.exifinterface.media.ExifInterface
 import androidx.fragment.app.Fragment
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.extensions.config

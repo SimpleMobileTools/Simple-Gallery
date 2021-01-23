@@ -30,13 +30,13 @@
     <string name="share_resized">Verkleinde versie delen</string>
     <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \"Upgraden naar Pro\" bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
     <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Als standaardmap instellen</string>
+    <string name="unset_as_default_folder">Standaardmap herstellen</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
     <string name="images">Afbeeldingen</string>
-    <string name="videos">Video’s</string>
+    <string name="videos">Video\'s</string>
     <string name="gifs">GIF-bestanden</string>
     <string name="raw_images">RAW-afbeeldingen</string>
     <string name="svgs">SVG-vectorafbeeldingen</string>
@@ -77,18 +77,18 @@
     <string name="editor">Bewerken</string>
     <string name="rotate">Draaien</string>
     <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Ongeldig pad naar video</string>
     <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="video_editing_failed">Videobewerking mislukt</string>
     <string name="image_editing_cancelled">Afbeelding bewerken is geannuleerd</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">Videobewerking is geannuleerd</string>
     <string name="file_edited_successfully">Wijzigingen zijn opgeslagen</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Bewerkte afbeelding is opgeslagen</string>
+    <string name="video_edited_successfully">Bewerkte video is opgeslagen</string>
     <string name="edit_image_with">Afbeelding bewerken met:</string>
-    <string name="edit_video_with">Edit video with:</string>
-    <string name="no_image_editor_found">Geen app gevonden voor fotobewerking</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="edit_video_with">Video bewerken met:</string>
+    <string name="no_image_editor_found">Geen app voor fotobewerking gevonden</string>
+    <string name="no_video_editor_found">Geen app voor videobewerking gevonden</string>
     <string name="unknown_file_location">Onbekende bestandslocatie</string>
     <string name="error_saving_file">Bronbestand kan niet worden overschreven</string>
     <string name="rotate_left">Linksom draaien</string>
@@ -117,7 +117,7 @@
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
     <string name="include_photos">Afbeeldingen weergeven</string>
-    <string name="include_videos">Video’s weergeven</string>
+    <string name="include_videos">Video\'s weergeven</string>
     <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
@@ -151,10 +151,10 @@
     <string name="show_folder_name">Mapnaam tonen</string>
 
     <!-- Settings -->
-    <string name="autoplay_videos">Video’s automatisch afspelen</string>
+    <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="remember_last_video_position">Laatste positie in video’s onthouden</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
-    <string name="loop_videos">Video’s herhalen</string>
+    <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
@@ -183,7 +183,7 @@
     <string name="show_recycle_bin_last">Prullenbak als laatste item tonen</string>
     <string name="allow_down_gesture">Naar beneden vegen om volledig scherm af te sluiten</string>
     <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
-    <string name="open_videos_on_separate_screen">Video’s altijd in apart scherm met horizontale veeggebaren openen</string>
+    <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
     <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
     <string name="allow_rotating_gestures">Afbeeldingen met veeggebaren draaien</string>
     <string name="file_loading_priority">Prioriteit bij inladen bestanden</string>
@@ -192,13 +192,15 @@
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
     <string name="allow_zooming_videos">Bij video\'s inzoomen met dubbelklikken</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Stijl voor thumbnails mappen</string>
+    <string name="file_thumbnail_style">Stijl voor thumbnails bestanden</string>
+    <string name="thumbnail_spacing">Afstand tussen thumbnails</string>
+    <string name="show_file_count_line">Aantal bestanden op aparte regel tonen</string>
+    <string name="show_file_count_brackets">Aantal bestanden tussen rechte haken tonen</string>
+    <string name="show_file_count_none">Aantal bestanden niet tonen</string>
+    <string name="limit_folder_title">Lange mapnamen tot 1 regel limiteren</string>
+    <string name="square">Vierkant</string>
+    <string name="rounded_corners">Afgeronde hoeken</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
@@ -261,7 +263,7 @@
     <string name="pesdk_brush_title_brushColor">Penseelkleur</string>
     <string name="pesdk_editor_title_name">Bewerken</string>
     <string name="pesdk_editor_title_closeEditorAlert">Afsluiten</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Veranderingen niet opslaan?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nee</string>
     <string name="pesdk_editor_cancel">Annuleren</string>
@@ -270,35 +272,35 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exporteren…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">%s exporteren.</string>
     <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Sticker Color</string>
-    <string name="pesdk_sticker_title_options">Sticker Options</string>
-    <string name="pesdk_sticker_button_add">Add</string>
-    <string name="pesdk_sticker_button_color">Color</string>
-    <string name="pesdk_sticker_button_delete">Delete</string>
-    <string name="pesdk_sticker_button_bringToFront">To Front</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
-    <string name="pesdk_sticker_button_replace">Replace</string>
-    <string name="pesdk_sticker_button_opacity">Opacity</string>
+    <string name="pesdk_sticker_title_color">Stickerkleur</string>
+    <string name="pesdk_sticker_title_options">Stickeropties</string>
+    <string name="pesdk_sticker_button_add">Toevoegen</string>
+    <string name="pesdk_sticker_button_color">Kleur</string>
+    <string name="pesdk_sticker_button_delete">Verwijderen</string>
+    <string name="pesdk_sticker_button_bringToFront">Naar voorgrond</string>
+    <string name="pesdk_sticker_button_straighten">Rechttrekken</string>
+    <string name="pesdk_sticker_button_replace">Vervangen</string>
+    <string name="pesdk_sticker_button_opacity">Ondoorzichtigheid</string>
     <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_button_saturation">Verzadiging</string>
+    <string name="pesdk_sticker_button_brightness">Helderheid</string>
     <string name="pesdk_sticker_category_name_custom">Uploads</string>
     <string name="pesdk_overlay_title_name">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
-    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
-    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
-    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
-    <string name="pesdk_overlay_asset_none">None</string>
-    <string name="pesdk_overlay_asset_golden">Golden</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
-    <string name="pesdk_overlay_asset_paper">Paper</string>
-    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normaal</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Donkerder</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Raster</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Bedekken</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Lichter</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Vermenigvuldigen</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Kleur doordrukken</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Zwak licht</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Fel licht</string>
+    <string name="pesdk_overlay_asset_none">Geen</string>
+    <string name="pesdk_overlay_asset_golden">Goud</string>
+    <string name="pesdk_overlay_asset_lightleak1">Licht lekken 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mozaïek</string>
+    <string name="pesdk_overlay_asset_paper">Papier</string>
+    <string name="pesdk_overlay_asset_rain">Regen</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Spiegelen H</string>
     <string name="pesdk_common_button_flipV">Spiegelen V</string>
@@ -322,7 +324,7 @@
     <string name="pesdk_common_title_greenColor">Groen</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarijn</string>
     <string name="pesdk_common_title_pipettableColor">Met pipet kiezen</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">Titel afkappen</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
@@ -353,7 +355,7 @@
     <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>
     <string name="faq_14_title">Ik heb een bestand of map verborgen. Hoe kan ik dit ongedaan maken?</string>
     <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_title">Waarom neemt de app zoveel ruimte in beslag?</string>
     <string name="faq_15_text">De cache voor de app kan oplopen tot 250MB; dit garandeert snellere laadtijden van afbeeldingen. Indien de app nog meer ruimte inneemt, komt dat hoogstwaarschijnlijk door de items in de prullenbak. Ook deze bestanden worden meegerekend met de ingenomen ruimte. Verwijder deze items zelf vanuit de prullenbak of vanuit de instellingen van de app. Ieder item in de prullenbak zal na 30 dagen automatisch verwijderd worden.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
@@ -408,7 +410,7 @@
         <b>Kijk ook eens naar de hele collectie apps van Simple Tools:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>Website van Simple Gallery Pro:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>

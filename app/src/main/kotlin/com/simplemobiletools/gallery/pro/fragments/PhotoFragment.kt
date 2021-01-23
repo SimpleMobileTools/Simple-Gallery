@@ -9,7 +9,6 @@ import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
-import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,6 +19,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.exifinterface.media.ExifInterface.*
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -410,7 +410,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadWithGlide(path: String, addZoomableView: Boolean) {
         val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
-            .signature(getFilePathToShow().getFileSignature())
+            .signature(mMedium.getKey())
             .format(DecodeFormat.PREFER_ARGB_8888)
             .priority(priority)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -450,7 +450,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                 .load(pathToLoad)
                 .centerInside()
-                .stableKey(mMedium.path.getFileKey())
+                .stableKey(mMedium.getSignature())
                 .resize(mScreenWidth, mScreenHeight)
 
             if (mCurrentRotationDegrees != 0) {
@@ -617,7 +617,7 @@ class PhotoFragment : ViewPagerFragment() {
         val minTileDpi = if (showHighestQuality) -1 else getMinTileDpi()
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
-            override fun make() = MyGlideImageDecoder(rotation, mMedium.getSignature())
+            override fun make() = MyGlideImageDecoder(rotation, mMedium.getKey())
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
@@ -715,7 +715,7 @@ class PhotoFragment : ViewPagerFragment() {
                 val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                 tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             } else {
-                val exif = android.media.ExifInterface(path)
+                val exif = androidx.exifinterface.media.ExifInterface(path)
                 exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
             }
 

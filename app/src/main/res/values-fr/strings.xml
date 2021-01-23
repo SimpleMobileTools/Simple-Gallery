@@ -30,7 +30,7 @@
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
-    <string name="set_as_default_folder">Définir comme défaut</string>
+    <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
 
     <!-- Filter -->
@@ -192,7 +192,9 @@
     <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
     <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
-    <string name="folder_thumbnail_style">Style des miniatures</string>
+    <string name="folder_thumbnail_style">Style des miniatures des dossiers</string>
+    <string name="file_thumbnail_style">Style des miniatures des fichiers</string>
+    <string name="thumbnail_spacing">Espacement des miniatures</string>
     <string name="show_file_count_line">Afficher le nombre de fichiers sur une autre ligne</string>
     <string name="show_file_count_brackets">Afficher le nombre de fichiers entre parenthèses</string>
     <string name="show_file_count_none">Ne pas afficher le nombre de fichiers</string>
@@ -270,8 +272,8 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exportation…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation %s</string>
     <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Couleur de Sticker</string>
-    <string name="pesdk_sticker_title_options">Options de Sticker</string>
+    <string name="pesdk_sticker_title_color">Couleur du Sticker</string>
+    <string name="pesdk_sticker_title_options">Options du Sticker</string>
     <string name="pesdk_sticker_button_add">Ajouter</string>
     <string name="pesdk_sticker_button_color">Couleur</string>
     <string name="pesdk_sticker_button_delete">Supprimer</string>
@@ -322,7 +324,7 @@
     <string name="pesdk_common_title_greenColor">Vert</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">Couper</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>

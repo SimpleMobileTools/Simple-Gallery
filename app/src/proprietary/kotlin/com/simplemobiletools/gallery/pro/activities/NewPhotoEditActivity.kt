@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
-import android.media.ExifInterface
+import androidx.exifinterface.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle

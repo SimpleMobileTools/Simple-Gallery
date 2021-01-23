@@ -269,7 +269,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
     var allowPhotoGestures: Boolean
-        get() = prefs.getBoolean(ALLOW_PHOTO_GESTURES, false)
+        get() = prefs.getBoolean(ALLOW_PHOTO_GESTURES, true)
         set(allowPhotoGestures) = prefs.edit().putBoolean(ALLOW_PHOTO_GESTURES, allowPhotoGestures).apply()
 
     var allowVideoGestures: Boolean
@@ -507,4 +507,12 @@ class Config(context: Context) : BaseConfig(context) {
     var limitFolderTitle: Boolean
         get() = prefs.getBoolean(LIMIT_FOLDER_TITLE, false)
         set(limitFolderTitle) = prefs.edit().putBoolean(LIMIT_FOLDER_TITLE, limitFolderTitle).apply()
+
+    var thumbnailSpacing: Int
+        get() = prefs.getInt(THUMBNAIL_SPACING, 1)
+        set(thumbnailSpacing) = prefs.edit().putInt(THUMBNAIL_SPACING, thumbnailSpacing).apply()
+
+    var fileRoundedCorners: Boolean
+        get() = prefs.getBoolean(FILE_ROUNDED_CORNERS, false)
+        set(fileRoundedCorners) = prefs.edit().putBoolean(FILE_ROUNDED_CORNERS, fileRoundedCorners).apply()
 }

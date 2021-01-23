@@ -30,7 +30,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val getProperFileSize = fileSorting and SORT_BY_SIZE != 0
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration
-        val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getLastModifieds() else HashMap()
+        val lastModifieds = if (getProperLastModified) mediaFetcher.getLastModifieds() else HashMap()
         val dateTakens = if (getProperDateTaken) mediaFetcher.getDateTakens() else HashMap()
 
         val media = if (showAll) {

@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 328
-        versionName "6.17.3"
+        versionCode 335
+        versionName "6.19.0"
         setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
     }
@@ -77,7 +77,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.32.4'
+    implementation 'com.simplemobiletools:commons:5.33.7'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
@@ -96,9 +96,9 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    kapt 'androidx.room:room-compiler:2.2.5'
-    implementation 'androidx.room:room-runtime:2.2.5'
-    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    kapt 'androidx.room:room-compiler:2.2.6'
+    implementation 'androidx.room:room-runtime:2.2.6'
+    annotationProcessor 'androidx.room:room-compiler:2.2.6'
 }
 
 // Apply the PESDKPlugin

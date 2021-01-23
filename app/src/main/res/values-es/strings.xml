@@ -28,7 +28,7 @@
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="no_date_takens_found">No se han encontrado valores de fechas tomadas</string>
     <string name="share_resized">Comparte una versión redimensionada</string>
-    <string name="upgraded_from_free">Oye,\n\nParece que actualizaste de la aplicación gratuita vieja. Ahora puedes desinstalar la versión vieja, que tiene un botón \'Actualizar a Pro\' en la aprte superior de los ajustes de la app.\n\nSolo tendrás los elementos de la Papelera de Reciclaje eliminados, favoritos desmarcados y también tendrás que reiniciar los ajustes de la app.\n\n¡Gracias!</string>
+    <string name="upgraded_from_free">Oye,\n\nParece que actualizaste de la aplicación gratuita vieja. Ahora puedes desinstalar la versión vieja, que tiene un botón \'Actualizar a Pro\' en la parte superior de los ajustes de la app.\n\nSólo tendrás los elementos de la Papelera de Reciclaje eliminados, favoritos desmarcados y también tendrás que reiniciar los ajustes de la app.\n\n¡Gracias!</string>
     <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
     <string name="set_as_default_folder">Poner como carpeta predeterminada</string>
     <string name="unset_as_default_folder">Quitar como carpeta predeterminada</string>
@@ -38,7 +38,7 @@
     <string name="images">Imágenes</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
-    <string name="raw_images">Imagenes RAW</string>
+    <string name="raw_images">Imágenes RAW</string>
     <string name="svgs">SVGs</string>
     <string name="portraits">Retratos</string>
     <string name="no_media_with_filters">No se han encontrado ficheros con los filtros seleccionados.</string>
@@ -117,7 +117,7 @@
     <string name="slideshow">Presentación de diapositivas</string>
     <string name="interval">Intervalo (segundos):</string>
     <string name="include_photos">Incluir fotos</string>
-    <string name="include_videos">Incluir vídeos</string>
+    <string name="include_videos">Incluir videos</string>
     <string name="include_gifs">Incluir GIFs</string>
     <string name="random_order">Orden aleatorio</string>
     <string name="move_backwards">Mover hacia atrás</string>
@@ -166,21 +166,21 @@
     <string name="black_background_at_fullscreen">Fondo y barra de estado negra en medios de pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar la interfaz del sistema en pantalla completa</string>
-    <string name="delete_empty_folders">Eliminar carpetas vacias despues de borrar su contenido</string>
+    <string name="delete_empty_folders">Eliminar carpetas vacias después de borrar su contenido</string>
     <string name="allow_photo_gestures">Permite controlar el brillo en las fotos con gestos verticales</string>
     <string name="allow_video_gestures">Permite controlar el volumen y el brillo del video con gestos verticales</string>
     <string name="show_media_count">Mostrar el número de archivos dentro de las carpetas en la página principal</string>
     <string name="show_extended_details">Mostrar información de los archivos en pantalla completa</string>
-    <string name="manage_extended_details">Información de lo archivos a mostrar</string>
+    <string name="manage_extended_details">Información de los archivos a mostrar</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo en pantalla completa</string>
-    <string name="allow_instant_change">Deslpazarse en los medios haciendo clic en los lados de la pantalla</string>
+    <string name="allow_instant_change">Desplazarse en los medios haciendo clic en los lados de la pantalla</string>
     <string name="allow_deep_zooming_images">Permitir zoom profundo</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
     <string name="show_at_bottom">Mostrar botones de acción en la parte inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostrar la papelera de reciclaje en la pantalla de carpetas</string>
     <string name="deep_zoomable_images">Imágenes ampliables con zoom</string>
     <string name="show_highest_quality">Mostrar imágenes con la mayor calidad posible</string>
-    <string name="show_recycle_bin_last">Mostrar la Papelera de reciclaje como el último elemento en la pantalla principal</string>
+    <string name="show_recycle_bin_last">Mostrar la papelera de reciclaje como el último elemento en la pantalla principal</string>
     <string name="allow_down_gesture">Permite cerrar la vista de pantalla completa con un gesto hacia abajo.</string>
     <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con un toque doble</string>
     <string name="open_videos_on_separate_screen">Abrir videos en una pantalla separada con nuevos gestos horizontales</string>
@@ -192,13 +192,15 @@
     <string name="avoid_showing_invalid_files">Evita mostrar archivos inválidos</string>
     <string name="show_image_file_types">Mostrar tipos de archivo de imagen</string>
     <string name="allow_zooming_videos">Permitir hacer zoom en videos con doble toque</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estilo de las miniaturas de las carpetas</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
+    <string name="show_file_count_line">Mostrar el recuento de archivos en una línea separada</string>
+    <string name="show_file_count_brackets">Mostrar el recuento de archivos entre paréntesis</string>
+    <string name="show_file_count_none">No mostrar el recuento de archivos</string>
+    <string name="limit_folder_title">Limitar los títulos largos de las carpetas a 1 línea</string>
+    <string name="square">Cuadrado</string>
+    <string name="rounded_corners">Esquinas redondeadas</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -261,7 +263,7 @@
     <string name="pesdk_brush_title_brushColor">Color del pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">¿Cerrar editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">¿Realmente queires descartar los cambios?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">¿Realmente quieres descartar los cambios?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sí</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -285,7 +287,7 @@
     <string name="pesdk_sticker_category_name_custom">Subidas</string>
     <string name="pesdk_overlay_title_name">Modo de fusión</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Más obscuro</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Más oscuro</string>
     <string name="pesdk_overlay_button_blendModeScreen">Pantalla</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Superpuesto</string>
     <string name="pesdk_overlay_button_blendModeLighten">Más claro</string>

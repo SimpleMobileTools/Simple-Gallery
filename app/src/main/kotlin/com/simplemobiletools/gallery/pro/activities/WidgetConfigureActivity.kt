@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.RemoteViews
+import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -167,7 +168,8 @@ class WidgetConfigureActivity : SimpleActivity() {
             val path = directoryDao.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
-                    loadJpg(path, config_image, config.cropThumbnails, ROUNDED_CORNERS_NONE)
+                    val signature = ObjectKey(System.currentTimeMillis().toString())
+                    loadJpg(path, config_image, config.cropThumbnails, ROUNDED_CORNERS_NONE, signature)
                 }
             }
         }

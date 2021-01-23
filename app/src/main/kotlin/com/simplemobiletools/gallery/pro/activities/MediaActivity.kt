@@ -46,6 +46,7 @@ import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -74,8 +75,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowFileTypes = true
+    private var mStoredRoundedCorners = false
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
+    private var mStoredThumbnailSpacing = 0
 
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
@@ -151,6 +154,16 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
             media_horizontal_fastscroller.updatePrimaryColor()
             media_vertical_fastscroller.updatePrimaryColor()
+        }
+
+        if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
+            media_grid.adapter = null
+            setupAdapter()
+        }
+
+        if (mStoredRoundedCorners != config.fileRoundedCorners) {
+            media_grid.adapter = null
+            setupAdapter()
         }
 
         media_horizontal_fastscroller.updateBubbleColors()
@@ -298,6 +311,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
+            mStoredThumbnailSpacing = thumbnailSpacing
+            mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
     }
@@ -356,6 +371,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                         media_empty_text_placeholder.beGone()
                     }
 
+                    handleGridSpacing(grouped)
                     getMediaAdapter()?.updateMedia(grouped)
                     measureRecyclerViewContent(grouped)
                 }
@@ -404,9 +420,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 media_grid.adapter = this
             }
             setupLayoutManager()
+            handleGridSpacing()
             measureRecyclerViewContent(mMedia)
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
+            handleGridSpacing()
             measureRecyclerViewContent(mMedia)
         } else {
             searchQueryChanged(mLastSearchedText)
@@ -691,7 +709,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        val spacing = config.thumbnailSpacing
+        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * (thumbnailWidth + spacing) - spacing
         media_horizontal_fastscroller.setContentWidth(fullWidth)
         media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
     }
@@ -718,9 +737,33 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
         }
 
-        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+        val spacing = config.thumbnailSpacing
+        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * (thumbnailHeight + spacing) - spacing
         media_vertical_fastscroller.setContentHeight(fullHeight)
         media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
+    }
+
+    private fun handleGridSpacing(media: ArrayList<ThumbnailItem> = mMedia) {
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
+            val spanCount = config.mediaColumnCnt
+            val spacing = config.thumbnailSpacing
+            val useGridPosition = media.firstOrNull() is ThumbnailSection
+
+            var currentGridDecoration: GridSpacingItemDecoration? = null
+            if (media_grid.itemDecorationCount > 0) {
+                currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+                currentGridDecoration.items = media
+            }
+
+            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, useGridPosition)
+            if (currentGridDecoration.toString() != newGridDecoration.toString()) {
+                if (currentGridDecoration != null) {
+                    media_grid.removeItemDecoration(currentGridDecoration)
+                }
+                media_grid.addItemDecoration(newGridDecoration)
+            }
+        }
     }
 
     private fun initZoomListener() {
@@ -773,9 +816,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun columnCountChanged() {
+        handleGridSpacing()
         invalidateOptionsMenu()
-        media_grid.adapter?.notifyDataSetChanged()
-        measureRecyclerViewContent(mMedia)
+        getMediaAdapter()?.apply {
+            notifyItemRangeChanged(0, media.size)
+            measureRecyclerViewContent(media)
+        }
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
@@ -943,6 +989,22 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setResult(Activity.RESULT_OK, this)
         }
         finish()
+    }
+
+    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {
+        var currentGridPosition = 0
+        media.forEach {
+            if (it is Medium) {
+                it.gridPosition = currentGridPosition++
+            } else if (it is ThumbnailSection) {
+                currentGridPosition = 0
+            }
+        }
+
+        if (media_grid.itemDecorationCount > 0) {
+            val currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+            currentGridDecoration.items = media
+        }
     }
 
     private fun setAsDefaultFolder() {
