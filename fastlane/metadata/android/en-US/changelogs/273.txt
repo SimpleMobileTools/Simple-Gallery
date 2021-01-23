@@ -1,0 +1,2 @@
+ * Fixed some smaller glitches
+ * Added some stability and translation improvements

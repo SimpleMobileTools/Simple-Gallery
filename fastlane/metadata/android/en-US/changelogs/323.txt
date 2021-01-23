@@ -1,0 +1,2 @@
+ * Fixed an editor glitch occurring if the file path contained spaces
+ * Added some stability improvements

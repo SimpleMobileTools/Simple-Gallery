@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Απλή Συλλογή</string>
+    <string name="app_launcher_name">Συλλογή</string>
+    <string name="edit">Επεξεργασία</string>
+    <string name="open_camera">Άνοιγμα κάμερας</string>
+    <string name="hidden">(κρυφά)</string>
+    <string name="excluded">(εξαιρούνται)</string>
+    <string name="pin_folder">Καρφίτσωμα φακέλου</string>
+    <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
+    <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>
+    <string name="show_all">Προβολή όλων στο φάκελο</string>
+    <string name="all_folders">Όλοι οι φάκελοι</string>
+    <string name="folder_view">Αλλαγή σε προβολή φακέλων</string>
+    <string name="other_folder">Άλλος φάκελος</string>
+    <string name="show_on_map">Εμφάνιση στο χάρτη</string>
+    <string name="unknown_location">Άγνωστη τοποθεσία</string>
+    <string name="volume">Ένταση</string>
+    <string name="brightness">Φωτεινότητα</string>
+    <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>
+    <string name="unlock_orientation">Ξεκλείδωμα προσανατολισμού</string>
+    <string name="change_orientation">Αλλαγή προσανατολισμού</string>
+    <string name="force_portrait">Εξαναγκασμός σε πορτρέτο</string>
+    <string name="force_landscape">Εξαναγκασμός σε τοπίο</string>
+    <string name="use_default_orientation">Χρήση προεπιλογής</string>
+    <string name="fix_date_taken">Διόρθωση ημερ. λήψης</string>
+    <string name="fixing">Διορθώνεται…</string>
+    <string name="dates_fixed_successfully">Η Ημερ. διορθώθηκε με επιτυχία</string>
+    <string name="no_date_takens_found">Δεν βρέθηκαν Τιμές Ημερομηνίας όταν ελήφθησαν</string>
+    <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
+    <string name="upgraded_from_free">Γειά σας,\n\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, απο το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.\n\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.\n\nΣας ευχαριστώ!</string>
+    <string name="switch_to_file_search">Εναλλαγή αναζήτησης αρχείων σε όλους τους ορατούς φακέλους</string>
+    <string name="set_as_default_folder">Ορισμός ως προεπιλεγμένου φακέλου</string>
+    <string name="unset_as_default_folder">Κατάργηση ως προεπιλεγμένου φακέλου</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
+    <string name="images">Εικόνες</string>
+    <string name="videos">Βίντεο</string>
+    <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW Εικόνες</string>
+    <string name="svgs">SVGs</string>
+    <string name="portraits">Πορτραίτα</string>
+    <string name="no_media_with_filters">Δεν βρέθηκε κανένα αρχείο πολυμέσων με τα επιλεγμένα φίλτρα.</string>
+    <string name="change_filters_underlined"><u>Αλλαγή φίλτρων</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Αυτή η λειτουργία κρύβει τον φάκελο προσθέτοντας ένα \".nomedia\" αρχείο μέσα του, θα κρύψει και όλους τους υποφακέλους επίσης. Μπορείτε να τους δείτε με την επιλογή του \'Εμφάνιση κρυφών δεδομένων\' στις Ρυθμίσεις. Συνέχεια?</string>
+    <string name="exclude">Εξαίρεση</string>
+    <string name="excluded_folders">Εξαίρεση φακέλων</string>
+    <string name="manage_excluded_folders">Διαχείριση εξαιρεμένων φακέλων</string>
+    <string name="exclude_folder_description">Αυτό θα εξαιρέσει το επιλεγμένο μαζί με τους υποφακέλους από την Απλή Συλλογή μόνο. Μπορείτε να διαχειριστείτε τους φακέλους που εξαιρέθηκαν στις Ρυθμίσεις.</string>
+    <string name="exclude_folder_parent">Να εξαιρεθεί μήπως ο γονικός φάκελος;</string>
+    <string name="excluded_activity_placeholder">Εξαιρώντας τους φακέλους, θα τους αποκρύψει μαζί με τους υποφακέλους τους μόνο στην Απλή Συλλογή, θα είναι ορατοί στις υπόλοιπες εφαρμογές.\n\nΑν θέλετε να τους αποκρύψετε και στις υπόλοιπες εφαρμογές, χρησιμοποιήστε την λειτουργία Απόκρυψη.</string>
+    <string name="remove_all">Διαγραφή όλων</string>
+    <string name="remove_all_description">Να αφαιρεθούν όλοι οι φάκελοι από την λίστα των εξαιρεμένων; Αυτό δεν θα διαγράψει τους φακέλους.</string>
+    <string name="hidden_folders">Κρυφοί φάκελοι</string>
+    <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
+    <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>
+    <string name="manage_included_folders">Διαχείριση φακέλων που συμπεριλαμβάνονται</string>
+    <string name="add_folder">Προσθήκη φακέλου</string>
+    <string name="included_activity_placeholder">Αν υπάρχουν κάποιοι φάκελοι που περιέχουν πολυμέσα, αλλά δεν αναγνωρίζονται από την εφαρμογή,  μπορείτε να τους προσθέσετε χειροκίνητα εδώ.\n\nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
+    <string name="no_media_add_included">Δεν βρέθηκαν αρχεία πολυμέσων. Μπορεί να λυθεί αυτό, προσθέτοντας τους φακέλους που περιέχουν αρχεία πολυμέσων με μη αυτόματο τρόπο.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Αλλαγή μεγέθους</string>
+    <string name="resize_and_save">Αλλαγή μεγέθους και αποθήκευση</string>
+    <string name="width">Πλάτος</string>
+    <string name="height">Ύψος</string>
+    <string name="keep_aspect_ratio">Διατήρηση αναλογίας</string>
+    <string name="invalid_values">Παρακαλώ εισάγετε σωστή ανάλυση</string>
+
+    <!-- Editor -->
+    <string name="editor">Επεξεργαστής</string>
+    <string name="rotate">Περιστροφή</string>
+    <string name="invalid_image_path">Άκυρη διαδρομή εικόνας</string>
+    <string name="invalid_video_path">Άκυρη διαδρομή βίντεο</string>
+    <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
+    <string name="video_editing_failed">Η επεξεργασία βίντεο απέτυχε</string>
+    <string name="image_editing_cancelled">Η επεξεργασία εικόνας ακυρώθηκε</string>
+    <string name="video_editing_cancelled">Η επεξεργασία βίντεο ακυρώθηκε</string>
+    <string name="file_edited_successfully">Επιτυχής επεξεργασία αρχείου</string>
+    <string name="image_edited_successfully">Επιτυχής επεξεργασία εικόνας</string>
+    <string name="video_edited_successfully">Επιτυχής επεξεργασία βίντεο</string>
+    <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
+    <string name="edit_video_with">Επεξεργασία βίντεο με:</string>
+    <string name="no_image_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
+    <string name="no_video_editor_found">Δεν βρέθηκε επεργαστής βίντεο</string>
+    <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
+    <string name="error_saving_file">Δεν ήταν δυνατή η αντικατάσταση του αρχείου πηγής</string>
+    <string name="rotate_left">Περιστροφή αριστερά</string>
+    <string name="rotate_right">Περιστροφή δεξιά</string>
+    <string name="rotate_one_eighty">Περιστροφή κατά 180º</string>
+    <string name="flip">Περιστροφή</string>
+    <string name="flip_horizontally">Οριζόντια περιστροφή</string>
+    <string name="flip_vertically">Κατακόρυφη περιστροφή</string>
+    <string name="free_aspect_ratio">Προσαρμογή</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Απλή Συλλογή</string>
+    <string name="set_as_wallpaper">Εφαρμογή ως ταπετσαρία</string>
+    <string name="set_as_wallpaper_failed">Η εφαρμογή ως ταπετσαρία απέτυχε</string>
+    <string name="set_as_wallpaper_with">Εφαρμογή ως ταπετσαρία με:</string>
+    <string name="setting_wallpaper">Η ταπετσαρία εφαρμόζεται...</string>
+    <string name="wallpaper_set_successfully">Η ταπετσαρία εφαρμόστηκε</string>
+    <string name="portrait_aspect_ratio">Αναλογία κατακόρυφης προβολής</string>
+    <string name="landscape_aspect_ratio">Αναλογία οριζόντιας προβολής</string>
+    <string name="home_screen">Αρχική οθόνη</string>
+    <string name="lock_screen">Οθόνη κλειδώματος</string>
+    <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Παρουσίαση διαφανιών</string>
+    <string name="interval">Χρόνος επανάληψης (δευτ.) :</string>
+    <string name="include_photos">Συμπερίληψη φωτογραφιών</string>
+    <string name="include_videos">Συμπερίληψη βίντεο</string>
+    <string name="include_gifs">Συμπερίληψη GIFs</string>6
+    <string name="random_order">Τυχαία σειρά</string>
+    <string name="move_backwards">Κίνηση προς τα πίσω</string>
+    <string name="loop_slideshow">Επανάληψη εμφάνισης διαφανειών</string>
+    <string name="animation">Κινήσεις</string>
+    <string name="no_animation">Χωρίς</string>
+    <string name="fade">Εξασθένηση</string>
+    <string name="slide">Ολίσθηση</string>
+    <string name="slideshow_ended">Τέλος εμφάνισης διαφανειών</string>
+    <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
+
+    <!-- View types -->
+    <string name="group_direct_subfolders">Ομαδοποίηση υποφακέλων</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Ομαδοποίηση κατά</string>
+    <string name="do_not_group_files">Χωρίς</string>
+    <string name="by_folder">Φάκελο</string>
+    <string name="by_last_modified">Τελευταία τροπ/ηση</string>
+    <string name="by_last_modified_daily">Τελευταία τροπ/ηση (ημερήσια)</string>
+    <string name="by_last_modified_monthly">Τελευταία τροπ/ηση (μηνιαία)</string>
+    <string name="by_date_taken">Ημερομ. λήψης</string>
+    <string name="by_date_taken_daily">Ημερομ. λήψης (ημερήσια)</string>
+    <string name="by_date_taken_monthly">Ημερομ. λήψης (μηνιαία)</string>
+    <string name="by_file_type">Τύπο αρχείου</string>
+    <string name="by_extension">Επέκταση</string>
+    <string name="grouping_and_sorting">Σημειώστε ότι ομαδοποίηση και ταξινόμηση είναι 2 ανεξάρτητα πεδία</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Εμφάνιση φακέλου στο widget:</string>
+    <string name="show_folder_name">Εμφάνιση ονόματος φακέλου</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
+    <string name="remember_last_video_position">Απομνημόνευση τελευταίας θέσης αναπαραγωγής βίντεο</string>
+    <string name="toggle_filename">Αλλαγή προβολής ονόματος αρχείων</string>
+    <string name="loop_videos">Επανάληψη βίντεο</string>
+    <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
+    <string name="max_brightness">Μέγιστη φωτεινότητα κατά την προβολή πλήρους οθόνης</string>
+    <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
+    <string name="show_thumbnail_video_duration">Εμφάνιση διάρκειας βίντεο</string>
+    <string name="screen_rotation_by">Περιστροφή πλήρους οθόνης σύμφωνα με</string>
+    <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
+    <string name="screen_rotation_device_rotation">Περιστροφή συσκευής</string>
+    <string name="screen_rotation_aspect_ratio">Αναλογία εικόνας</string>
+    <string name="black_background_at_fullscreen">Μαύρο φόντο και μπάρα κατάστασης σε πλήρη οθόνη</string>
+    <string name="scroll_thumbnails_horizontally">Κύλιση εικονιδίων οριζόντια</string>
+    <string name="hide_system_ui_at_fullscreen">Αυτόματη απόκρυψη στοιχείων συστήματος σε πλήρη οθόνη</string>
+    <string name="delete_empty_folders">Διαγραφή άδειων φακέλων, όταν διαγραφεί το περιεχόμενό τους</string>
+    <string name="allow_photo_gestures">Να επιτρέπεται ο έλεγχος φωτεινότητας με κατακόρυφες κινήσεις</string>
+    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες κινήσεις (gestures)</string>
+    <string name="show_media_count">Εμφάνιση του αριθμού πολυμέσων στον φάκελο, στην κύρια οθόνη</string>
+    <string name="show_extended_details">Εμφάνιση λεπτομερειών στα πολυμέσα σε κατάσταση πλήρους οθόνης</string>
+    <string name="manage_extended_details">Διαχείριση εκτεταμένων λεπτομερειών</string>
+    <string name="one_finger_zoom">Να επιτρέπεται μεγένθυση με ένα δάχτυλο σε πλήρη οθόνη</string>
+    <string name="allow_instant_change">Να επιτρέπεται η άμεση αλλαγή των μέσων με το άγγιγμα στις άκρες της οθόνης</string>
+    <string name="allow_deep_zooming_images">Επιτρέπει βαθύ ζουμ στις εικόνες</string>
+    <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
+    <string name="show_at_bottom">Εμφάνιση μερικών κουμπιών λειτουργιών στο κάτω μέρος της οθόνης</string>
+    <string name="show_recycle_bin">Εμφάνιση του κάδου ανακύκλωσης στην οθόνη φακέλων</string>
+    <string name="deep_zoomable_images">Βαθιά μεγέθυνση εικόνων</string>
+    <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
+    <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
+    <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
+    <string name="allow_one_to_one_zoom">Επιτρέπει μεγέθυνση 1:1 με δύο διπλά χτυπήματα</string>
+    <string name="open_videos_on_separate_screen">Να ανοίγονται πάντα τα βίντεο σε ξεχωριστή οθόνη με νέες οριζόντιες χειρονομίες</string>
+    <string name="show_notch">Εμφάνιση μιας εγκοπής αν διατίθεται</string>
+    <string name="allow_rotating_gestures">Επιτρέπει την περιστροφή εικόνων με χειρονομίες</string>
+    <string name="file_loading_priority">Προτεραιότητα φόρτωσης αρχείου</string>
+    <string name="speed">Ταχύτητα</string>
+    <string name="compromise">Συμβιβασμός</string>
+    <string name="avoid_showing_invalid_files">Αποφυγή εμφάνισης μη έγκυρων αρχείων</string>
+    <string name="show_image_file_types">Εμφάνιση τύπου αρχείου εικόνας</string>
+    <string name="allow_zooming_videos">Επιτρέπει την μεγέθυνση βίντεο με διπλό πάτημα</string>
+    <string name="folder_thumbnail_style">Στυλ μικρογραφίας φακέλου</string>
+    <string name="file_thumbnail_style">Στυλ μικρογραφίας αρχείου</string>
+    <string name="thumbnail_spacing">Απόσταση μικρογραφιών</string>
+    <string name="show_file_count_line">Εμφάνιση πλήθους αρχείων σε ξεχωριστή γραμμή</string>
+    <string name="show_file_count_brackets">Εμφάνιση πλήθους αρχείων σε αγκύλες</string>
+    <string name="show_file_count_none">Χωρίς εμφάνιση μέτρησης αρχείων</string>
+    <string name="limit_folder_title">Περιορισμό μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
+    <string name="square">Τετράγωνο</string>
+    <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Εικονίδια</string>
+    <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
+    <string name="extended_details">Περισσότερες λεπτομέρειες</string>
+    <string name="bottom_actions">Λειτουργίες στο κάτω μέρος</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Διαχείρηση εμφάνισης λειτουργιών</string>
+    <string name="toggle_favorite">Εναλλαγή αγαπημένων</string>
+    <string name="toggle_file_visibility">Εναλλαγή προβολής αρχείου</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Προσαρμογή</string>
+    <string name="pesdk_transform_button_resetCrop">Επαναφορά</string>
+    <string name="pesdk_transform_button_squareCrop">Τετράγωνο</string>
+    <string name="pesdk_transform_title_name">Μετατροπή</string>
+    <string name="pesdk_filter_title_name">Φίλτρο</string>
+    <string name="pesdk_filter_asset_none">Χωρίς</string>
+    <string name="pesdk_adjustments_title_name">Ρυθμίσεις</string>
+    <string name="pesdk_adjustments_button_shadowTool">Σκιές</string>
+    <string name="pesdk_adjustments_button_exposureTool">Έκθεση</string>
+    <string name="pesdk_adjustments_button_highlightTool">Φωτισμένα</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Φωτισμός</string>
+    <string name="pesdk_adjustments_button_contrastTool">Αντίθεση</string>
+    <string name="pesdk_adjustments_button_saturationTool">Κορεσμός</string>
+    <string name="pesdk_adjustments_button_clarityTool">Σαφήνεια</string>
+    <string name="pesdk_adjustments_button_gammaTool">Γάμμα</string>
+    <string name="pesdk_adjustments_button_blacksTool">Μαύρα</string>
+    <string name="pesdk_adjustments_button_whitesTool">Λευκά</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Θερμοκρασία</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Οξύτητα</string>
+    <string name="pesdk_adjustments_button_reset">Επαναφορά</string>
+    <string name="pesdk_focus_title_name">Εστίαση</string>
+    <string name="pesdk_focus_title_disabled">Χωρίς</string>
+    <string name="pesdk_focus_button_radial">Ακτίνα</string>
+    <string name="pesdk_focus_button_linear">Γραμμικά</string>
+    <string name="pesdk_focus_button_mirrored">Καθρέπτης</string>
+    <string name="pesdk_focus_button_gaussian">Θόλωση</string>
+    <string name="pesdk_text_title_name">Κείμενο</string>
+    <string name="pesdk_text_title_options">Επιλογή κειμένου</string>
+    <string name="pesdk_text_title_textColor">Χρώμα κειμένου</string>
+    <string name="pesdk_text_title_font">Γραμ/σειρά</string>
+    <string name="pesdk_text_button_add">Προσθήκη</string>
+    <string name="pesdk_text_button_edit">Επεξεργασία</string>
+    <string name="pesdk_text_button_straighten">Ίσιωμα</string>
+    <string name="pesdk_text_button_font">Γραμ/σειρά</string>
+    <string name="pesdk_text_button_color">Χρώμα</string>
+    <string name="pesdk_text_button_backgroundColor">BG Χρώμα</string>
+    <string name="pesdk_text_button_alignment">Ευθυγράμμιση</string>
+    <string name="pesdk_text_button_bringToFront">Σε Γραμ/σειρά</string>
+    <string name="pesdk_text_button_delete">Διαγραφή</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Το κείμενό μου</string>
+    <string name="pesdk_brush_title_name">Βούρτσα</string>
+    <string name="pesdk_brush_button_color">Χρώμα</string>
+    <string name="pesdk_brush_button_size">Μέγεθος</string>
+    <string name="pesdk_brush_button_hardness">Σκληρότητα</string>
+    <string name="pesdk_brush_button_bringToFront">Σε Γραμ/σειρά</string>
+    <string name="pesdk_brush_button_delete">Διαγραφή</string>
+    <string name="pesdk_brush_title_brushColor">Χρώμα Βούρτσας</string>
+    <string name="pesdk_editor_title_name">Επεξεργαστής</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Κλείσιμο Επεξεργαστή?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Θέλετε πραγματικά να απορρίψετε τις αλλαγές;</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ναί</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Όχι</string>
+    <string name="pesdk_editor_cancel">Ακύρωση</string>
+    <string name="pesdk_editor_accept">Αποδοχή</string>
+    <string name="pesdk_editor_save">Αποθήκευση</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Εξαγωγή…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Εξαγωγή %s.</string>
+    <string name="pesdk_sticker_title_name">Αυτοκόλλητο</string>
+    <string name="pesdk_sticker_title_color">Χρώμα Αυτοκόλλητου</string>
+    <string name="pesdk_sticker_title_options">Επιλογές Αυτοκόλλητου</string>
+    <string name="pesdk_sticker_button_add">Προσθήκη</string>
+    <string name="pesdk_sticker_button_color">Χρώμα</string>
+    <string name="pesdk_sticker_button_delete">Διαγραφή</string>
+    <string name="pesdk_sticker_button_bringToFront">Εμπρός</string>
+    <string name="pesdk_sticker_button_straighten">Ίσιωμα</string>
+    <string name="pesdk_sticker_button_replace">Αντικατάσταση</string>
+    <string name="pesdk_sticker_button_opacity">Αδιαφάνεια</string>
+    <string name="pesdk_sticker_button_contrast">Αντίθεση</string>
+    <string name="pesdk_sticker_button_saturation">Κορεσμός</string>
+    <string name="pesdk_sticker_button_brightness">Φωτεινότητα</string>
+    <string name="pesdk_sticker_category_name_custom">Μεταφορτώσεις</string>
+    <string name="pesdk_overlay_title_name">Επικάλειψη</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Κανονικό</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Σκούρο</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Οθόνη</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Ξάνοιγμα</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Πολλαπ/σμός</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Κάψιμο χρώματος</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Απαλό φως</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Σκληρό φως</string>
+    <string name="pesdk_overlay_asset_none">Χωρίς</string>
+    <string name="pesdk_overlay_asset_golden">Χρυσό</string>
+    <string name="pesdk_overlay_asset_lightleak1">Φωτεινή διαρροή 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Μωσαϊκό</string>
+    <string name="pesdk_overlay_asset_paper">Χαρτί</string>
+    <string name="pesdk_overlay_asset_rain">Βροχή</string>
+    <string name="pesdk_overlay_asset_vintage">Αντικέ</string>
+    <string name="pesdk_common_button_flipH">Αναστροφή Ο</string>
+    <string name="pesdk_common_button_flipV">Αναστροφή Κ</string>
+    <string name="pesdk_common_button_undo">Αναίρεση</string>
+    <string name="pesdk_common_button_redo">Επανάληψη</string>
+    <string name="pesdk_common_title_colorPicker">Επιλογέας χρώματος</string>
+    <string name="pesdk_common_title_transparentColor">Διαφάνεια</string>
+    <string name="pesdk_common_title_whiteColor">Λευκό</string>
+    <string name="pesdk_common_title_grayColor">Γκρί</string>
+    <string name="pesdk_common_title_blackColor">Μαύρο</string>
+    <string name="pesdk_common_title_lightBlueColor">Ανοιχτό μπλέ</string>
+    <string name="pesdk_common_title_blueColor">Μπλέ</string>
+    <string name="pesdk_common_title_purpleColor">Μώβ</string>
+    <string name="pesdk_common_title_orchidColor">Ορχιδέα</string>
+    <string name="pesdk_common_title_pinkColor">Ρόζ</string>
+    <string name="pesdk_common_title_redColor">Κόκκινο</string>
+    <string name="pesdk_common_title_orangeColor">Πορτοκαλί</string>
+    <string name="pesdk_common_title_goldColor">Χρυσό</string>
+    <string name="pesdk_common_title_yellowColor">Κίτρινο</string>
+    <string name="pesdk_common_title_oliveColor">Λαδί</string>
+    <string name="pesdk_common_title_greenColor">Πράσινο</string>
+    <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
+    <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
+    <string name="vesdk_video_trim_title_name">Κόψιμο</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
+    <string name="faq_1_text">Αρχικά πρέπει να βρείτε την τρέχουσα προεπιλεγμένη εφαρμογή γκάλερι στις Ρυθμίσεις (τμήμα Εφαρμογών) της συσκευής. Αναζητήστε για ένα κουμπί που αναφέρει κάτι σαν \"Άνοιγμα με προεπιλογή\", πατήστε το, μετά επιλέξτε \"Καθαρισμός προεπιλεγμένων\".
+        Την επόμενη φορά που θα προσπαθήσετε να ανοίξετε μία εικόνα ή ένα βίντεο θα πρέπει να δείτε έναν διάλογο επιλογής εφαρμογών, όπου μπορείτε να επιλέξετε Απλή Συλλογή να την κάνετε προεπιλεγμένη εφαρμογή.</string>
+    <string name="faq_2_title">Κλείδωσα την εφαρμογή με κωδικό, αλλά τον ξέχασα. Τι μπορώ να κάνω;</string>
+    <string name="faq_2_text">Υπάρχουν 2 λύσεις. Είτε επανεγκατάσταση της εφαρμογής, ή να εντοπίσετε την εφαρμογή στις ρυθμίσεις της συσκευής και να επιλέξετε \"Καθαρισμό δεδομένων\". Θα επαναφέρει όλες τις ρυθμίσεις και δεν θα σβήσει κάποιο αρχείο πολυμέσου.</string>
+    <string name="faq_3_title">Πώς μπορώ να κάνω ένα άλμπουμ να φαίνεται στην κορυφή;</string>
+    <string name="faq_3_text">Μπορείτε να πατήσετε παρατεταμένα στο άλμπουμ και να επιλέξετε το εικονίδιο καρφιτσώματος στο μενού, αυτό θα το καρφιτσώσει στην κορυφή. Επίσης μπορείτε να καρφιτσώσετε πολλαπλούς φακέλους, τα καρφιτσωμένα αντικείμενα θα είναι ταξινομημένα με την προεπιλεγμένη μέθοδο.</string>
+    <string name="faq_4_title">Πώς μπορώ να τρέξω μπροστά (fast forward) τα βίντεο;</string>
+    <string name="faq_4_text">Μπορείτε να το κάνετε πατώντας δύο φορές την πλευρά της οθόνης ή πατώντας το κείμενο τρέχοντος ή μέγιστης διάρκειας κοντά στη γραμμή αναζήτησης. Αν ενεργοποιήσετε το άνοιγμα βίντεο σε ξεχωριστή οθόνη στις ρυθμίσεις εφαρμογής, μπορείτε επίσης να χρησιμοποιήσετε και τις οριζόντιες κινήσεις.</string>
+    <string name="faq_5_title">Ποια είναι διαφορά μεταξύ απόκρυψης και εξαίρεσης ενός φακέλου;</string>
+    <string name="faq_5_text">Η εξαίρεση δεν επιτρέπει την εμφάνιση του φακέλου μόνο στην Απλή Συλλογή, ενώ η απόκρυψη λειτουργεί σε επίπεδο συστήματος και θα αποκρύψει τον φάκελο και από άλλες εφαρμογές γκάλερι. Λειτουργεί δημιουργώντας ένα άδειο \".nomedia\" αρχείο στον επιλεγμένο φάκελο, το οποίο μπορείτε να το διαγράψετε και με οποιονδήποτε διαχειριστή αρχείων. Σημειώστε ότι μερικές συσκευές δεν αποδέχονται την απόκρυψη φακέλων όπως Κάμερας, Στιγμιοτύπων, και Λήψεων.</string>
+    <string name="faq_6_title">Γιατί εμφανίζονται φάκελοι με εξώφυλλο μουσικής ή αυτόκολλητα;</string>
+    <string name="faq_6_text">Είναι πιθανόν να δείτε κάποια περίεργα άλμπουμ να εμφανίζονται. Μπορείτε να τα εξαιρέσετε εύκολα με παρατεταμένο άγγιγμα και επιλογή του Εξαίρεση. Στον επόμενο διάλογο μπορείτε να επιλέξετε επάνω φάκελο. Είναι πιθανό να μην επιτρέψει την εμφάνιση και άλλων σχετικών άλμπουμ.</string>
+    <string name="faq_7_title">Ένας φάκελος με εικόνες δεν εμφανίζεται. Τι μπορώ να κάνω;</string>
+    <string name="faq_7_text">Υπάρχουν διάφοροι λόγοι, αλλά είναι εύκολη η λύση. Επιλέξτε Ρυθμίσεις -> Διαχείριση Συμπεριβαλομένων Φακέλων, επιλέξτε Προσθήκη και πλοηγηθείτε στον ζητούμενο φάκελο.</string>
+    <string name="faq_8_title">Πώς μπορώ να επιλέξω μόνο κάποιους φακέλους να εμφανίζονται;</string>
+    <string name="faq_8_text">Η προσθήκη ενός φακέλου στους Συμπεριλαμβανόμενους Φακέλους δεν εξαιρεί αυτόματα τίποτα. Μπορείτε να πάτε στις Ρυμίσεις-> Διαχείριση Εξαιρεμένων Φακέλων, εξαιρέστε τον ριζικό φάκελο \"/\", έπειτα προσθέστε τους φακέλους στο Ρυθμίσεις -> Διαχείριση Συμπεριλαμβανομένων Φακέλων.
+        Αυτό θα κάνει ορατούς μόνο τους επιλεγμένους φακέλους, καθώς η εξαίρεση και η συμπερίληψη λειτουργούν αναδρομικά και αν ενας φάκελος ανήκει και στα δύο, θα εμφανιστεί.</string>
+    <string name="faq_10_title">Μπορώ να περικόψω εικόνες με την εφαρμογή;</string>
+    <string name="faq_10_text">Ναι, μπορείτε να περικόψετε εικόνες στον επεξεργαστή, σύροντας τις γωνίες εικόνας. Μπορείτε να μεταβείτε στον επεξεργαστή είτε πατώντας παρατεταμένα μια μικρογραφία εικόνας και επιλέγοντας Επεξεργασία, είτε επιλέγοντας Επεξεργασία από την προβολή πλήρους οθόνης.</string>
+    <string name="faq_11_title">Μπορώ να ομαδοποιήσω κάπως τις μικρογραφίες των αρχείων πολυμέσων?</string>
+    <string name="faq_11_text">Σίγουρα, απλά με την χρήση \"Ομαδοποίηση κατά\" Επέκταση ή Τύπο αρχείου. Μπορείτε την ομαδοποίηση με πολλά κριτήρια,  συμπεριλαμβανομένης της ημερομηνίας λήψης. Εάν χρησιμοποιείτε τη λειτουργία  \"Εμφάνιση όλων των περιεχομένων στο φάκελο\" μπορείτε να ομαδοποιήσετε και τους φακέλους επίσης.</string>
+    <string name="faq_12_title">Η ταξινόμηση κατά ημερομηνία δεν φαίνεται να λειτουργεί σωστά, πώς μπορώ να τη διορθώσω?</string>
+    <string name="faq_12_text">Αυτό πιθανότατα προκαλείται από την αντιγραφή των αρχείων από κάπου. Μπορείτε να το διορθώσετε επιλέγοντας τις μικρογραφίες αρχείων και επιλέγοντας \"Επιδιόρθωση ημερ. λήψης\".</string>
+    <string name="faq_13_title">Βλέπω κάποια χρωματική ζώνη στις εικόνες. Πώς μπορώ να βελτιώσω την ποιότητα?</string>
+    <string name="faq_13_text">Η τρέχουσα λύση για την εμφάνιση εικόνων λειτουργεί πολύ καλά στην πλειονότητα των περιπτώσεων, αλλά εάν θέλετε ακόμα καλύτερη ποιότητα εικόνας, μπορείτε να ενεργοποιήσετε την \"Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα\" στις ρυθμίσεις της εφαρμογής, στο πεδίο \"Βαθιά μεγέθυνση εικόνων\".</string>
+    <string name="faq_14_title">Έχω αποκρύψει ένα αρχείο/φάκελο. Πώς μπορώ να το επανεμφανίσω?</string>
+    <string name="faq_14_text">Μπορείτε είτε να επιλέξετε στο μενού \"Εμφάνιση προσωρινά κρυφών στοιχείων\" στην κύρια οθόνη, είτε να αλλάξετε σε \"Εμφάνιση κρυφών στοιχείων\" στις ρυθμίσεις της εφαρμογής για να δείτε το κρυφό στοιχείο. Αν θέλετε να το αποκρύψετε, πατήστε παρατεταμένα και επιλέξτε \"Απόκρυψη\". Οι φάκελοι αποκρύπτονται προσθέτοντας ένα κρυφό αρχείο \".nomedia\" , μπορείτε επίσης να διαγράψετε το αρχείο με οποιονδήποτε διαχειριστή αρχείων.</string>
+    <string name="faq_15_title">Γιατί η εφαρμογή καταλαμβάνει τόσο μεγάλο χώρο;</string>
+    <string name="faq_15_text">Η προσωρινή μνήμη της εφαρμογής μπορεί να δεσμεύσει έως και 250MB, διασφαλίζοντας την ταχύτερη προφόρτωση των εικόνων. Αν η εφαρμογή χρησιμοποιεί ακόμα περισσότερο χώρο, πιθανότατα οφείλεται στην κατοχή αντικειμένων στον Κάδο. Αυτά τα αρχεία υπολογίζονται στο μέγεθος της εφαρμογής. Μπορείτε να αδειάσετε τον Κάδο Ανακύκλωσης ανοίγοντάς τον και διαγράφοντας όλα τα αρχεία ή από τις ρυθμίσεις της εφαρμογής. Κάθε αρχείο στον Κάδο διαγράφεται αυτόματα μετά από 30 ημέρες.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Απλή Συλλογή Pro - Διαχείριση &amp; Επεξεργασία</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Μια premium εφαρμογή διαχείρισης/επεξεργασίας φωτο βίντεο GIF χωρίς διαφημήσεις</string>
+    <string name="app_long_description">
+        Η Απλή Συλλογή Pro είναι χωρίς σύνδεση και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
+
+        Η εφαρμογή δεν περιέχει διαφημίσεις και περιττά δικαιώματα. Εφόσον δεν απαιτεί πρόσβαση στο διαδίκτυο, έτσι προστατεύεται το απόρρητό σας.
+
+        -------------------------------------------------
+        <b>ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ-ΑΠΛΗΣ ΣΥΛΛΟΓΗΣ PRO</b>
+        -------------------------------------------------
+
+        • Χωρίς σύνδεση διαφημίσεις ή αναδυόμενα παράθυρα
+        • Επεξεργαστής Απλής Συλλογής – κόψιμο, περιστροφή, αλλαγή μεγέθους, σχεδίαση, φίλτρα και άλλα
+        • Δεν απαιτείται πρόσβαση στο διαδίκτυο, παρέχοντας μεγαλύτερη προστασία της ιδιωτικής ζωής και ασφάλειας
+        • Δεν απαιτούνται περιττά δικαιώματα
+        • Γρήγορη αναζήτηση εικόνων, βίντεο και αρχείων
+        • Άνοιγμα και προβολή πολλών διαφορετικών τύπων φωτογραφιών και βίντεο (RAW, SVG, πανοραμικών κλπ)
+        • Μια ποικιλία διαισθητικών χειρονομιών για εύκολη επεξεργασία και οργάνωση αρχείων
+        • Πολλοί τρόποι για φιλτράρισμα, ομαδοποίησης και ταξινόμησης αρχείων
+        • Προσαρμογή εμφάνισης της Απλής Συλλογής Pro
+        • Διατίθεται σε 32 γλώσσες
+        • Σημειώστε αρχεία ως αγαπημένα για γρήγορη πρόσβαση
+        • Προστατέψτε τις φωτογραφίες σας και βίντεο με μοτίβο, κωδικό ή δακτυλικό αποτύπωμα
+        • Χρησιμοποιήστε κωδικό, μοτίβο ή δακτυλικό αποτύπωμα για προστασία έναρξης της εφαρμογής ή συγκεκριμένων λειτουργιών
+        • Επαναφορά διαγραμμένων φωτογραφιών και βίντεο από τον κάδο ανακύκλωσης
+        • Εναλλαγή προβολής αρχείων για απόκρυψη φωτογραφιών και Βίντεο
+        • Δημιουργήστε μια προσαρμόσιμη παρουσίαση των αρχείων σας
+        • Δείτε λεπτομερείς πληροφορίες των αρχείων σας (ανάλυση, τιμές EXIF κλπ.)
+        • Η Απλή Συλλογή Pro είναι ανοικτού κώδικα
+        … και πάρα πολλά ακόμα!
+
+        <b>ΕΞΕΡΓΑΣΤΗΣ ΑΠΛΗΣ ΣΥΛΛΟΓΗΣ</b>
+        Η Απλή Συλλογή Pro σας διευκολύνει να επεξεργαστείτε τις φωτογραφίες σας άμεσα. Περικοπή, αναστροφή, περιστροφή και αλλαγή μεγέθους των εικόνων σας. Εάν αισθάνεστε λίγο πιο δημιουργικοί, μπορείτε να προσθέσετε φίλτρα και σχεδίαση στις φωτογραφίες σας!
+
+        <b>ΥΠΟΣΤΗΡΙΞΗ ΠΟΛΛΩΝ ΤΥΠΩΝ ΑΡΧΕΙΩΝ</b>
+        Σε αντίθεση με κάποιες άλλες εφαρμογές η Απλή Συλλογή Pro υποστηρίζει ένα τεράστιο φάσμα διαφορετικών τύπων αρχείων, όπως JPEG, PNG, MP4, MKV, RAW, SVG, Πανοραμικές φωτογραφίες, βίντεο πανοραμικών και πολλά άλλα.
+
+        <b>ΠΟΛΥ ΠΡΟΣΑΡΜΟΣΙΜΟΣ ΔΙΑΧΕΙΡΙΣΤΗΣ</b>
+        Από το UI στα κουμπιά λειτουργιών στην κάτω γραμμή εργαλείων, η Απλή Συλλογή Pro είναι ιδιαίτερα προσαρμόσιμη και λειτουργεί όπως εσείς θέλετε. Καμιά άλλη εφαρμογή δεν έχει τέτοια ευελιξία! Χάρη στον ανοιχτό κώδικα, είναι επίσης διαθέσιμη σε 32 γλώσσες!
+
+        <b>ΕΠΑΝΑΦΟΡΑ ΔΙΑΓΡΑΜΜΕΝΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
+        Διαγράψατε τυχαία μια πολύτιμη φωτογραφία ή βίντεο; Μην ανησυχείτε! Η Απλή Συλλογή Pro διαθέτει έναν εύχρηστο κάδο ανακύκλωσης όπου μπορείτε να ανακτήσετε τις διαγραμμένες φωτογραφίες και βίντεο πανεύκολα.
+
+        <b>ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΠΟΚΡΥΨΗ ΑΡΧΕΙΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
+        Χρησιμοποιώντας κωδικό, μοτίβο ή τον σαρωτή δακτυλικών αποτυπωμάτων της συσκευής σας, μπορείτε να προστατεύσετε και να αποκρύψετε φωτογραφίες, βίντεο ή ολόκληρα άλμπουμ. Μπορείτε να προστατεύσετε την ίδια την εφαρμογή ή να κλειδώσετε συγκεκριμένες λειτουργίες της. Για παράδειγμα, δεν μπορείτε να διαγράψετε ένα αρχείο χωρίς χρήση των δακτυλικών αποτυπωμάτων, συμβάλλοντας στην προστασία των αρχείων σας από τυχαία διαγραφή.
+
+        <b>Δείτε την πλήρη σειρά των Απλών Εργαλείων εδώ:</b>
+        https://www.simplemobiletools.com
+
+        <b>Αποκλειστική ιστοσελίδα της Απλή Συλλογή Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

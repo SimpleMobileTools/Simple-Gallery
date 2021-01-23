@@ -1,0 +1,4 @@
+ * Fixed a glitch with some favorite items disappearing
+ * Improve folder hiding, add the new .nomedia file into MediaStore
+ * Improve the performance of getting video file duration
+ * A few other improvements here and there

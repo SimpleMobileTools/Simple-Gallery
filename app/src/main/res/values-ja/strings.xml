@@ -1,116 +1,435 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">シンプル ギャラリー</string>
     <string name="app_launcher_name">ギャラリー</string>
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
-    <string name="open_with">&#8230;で開く</string>
-    <string name="no_app_found">有効なアプリが見つかりません</string>
     <string name="hidden">(非表示)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="show_all">Show all folders content</string>
-    <string name="all_folders">All media</string>
-    <string name="folder_view">Switch to folder view</string>
-    <string name="other_folder">Other folder</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
+    <string name="excluded">(除外)</string>
+    <string name="pin_folder">フォルダをピン留めする</string>
+    <string name="unpin_folder">フォルダのピン留めを外す</string>
+    <string name="pin_to_the_top">トップにピン留めする</string>
+    <string name="show_all">すべてを表示</string>
+    <string name="all_folders">すべてのフォルダ</string>
+    <string name="folder_view">フォルダを選択する</string>
+    <string name="other_folder">その他のフォルダ</string>
+    <string name="show_on_map">地図上で表示</string>
+    <string name="unknown_location">位置情報がありません</string>
+    <string name="volume">音量</string>
+    <string name="brightness">明るさ</string>
+    <string name="lock_orientation">画面の向きを固定する</string>
+    <string name="unlock_orientation">固定を解除する</string>
+    <string name="change_orientation">向きを固定する</string>
+    <string name="force_portrait">縦で固定</string>
+    <string name="force_landscape">横で固定</string>
+    <string name="use_default_orientation">デフォルト仕様</string>
+    <string name="fix_date_taken">撮影日の値を修正</string>
+    <string name="fixing">修正中…</string>
+    <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
+    <string name="no_date_takens_found">撮影日が見つかりません</string>
+    <string name="share_resized">リサイズした画像を共有</string>
+    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Pro版にアップグレード\"というボタンが設定の上部にある無料版はアンインストールすることができます。\n\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。\n\nありがとう!</string>
+    <string name="switch_to_file_search">表示されているすべてのフォルダで検索 に切り替え</string>
+    <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
+    <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
+
+    <!-- Filter -->
+    <string name="filter_media">表示する形式</string>
+    <string name="images">画像</string>
+    <string name="videos">ビデオ</string>
+    <string name="gifs">GIF</string>
+    <string name="raw_images">RAW</string>
+    <string name="svgs">SVG</string>
+    <string name="portraits">ポートレイト</string>
+    <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
+    <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="hide_folder_description">対象のフォルダに「.nomedia」ファイルを作成し、フォルダを非表示にします。そのフォルダの中にあるすべてのサブフォルダも非表示となります。非表示のフォルダを見るには、「設定」の中にある「非表示のフォルダを表示」で切り替えてください。このフォルダを非表示にしますか？</string>
+    <string name="exclude">除外する</string>
+    <string name="excluded_folders">除外フォルダ</string>
+    <string name="manage_excluded_folders">除外フォルダの管理</string>
+    <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、Simple Galleyの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
+    <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
+    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\n\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
+    <string name="remove_all">すべて解除</string>
+    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
+    <string name="hidden_folders">非表示フォルダ</string>
+    <string name="manage_hidden_folders">非表示フォルダの管理</string>
+    <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">追加フォルダ</string>
+    <string name="manage_included_folders">追加フォルダの管理</string>
+    <string name="add_folder">フォルダを追加</string>
+    <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
+    <string name="no_media_add_included">メディアファイルが見つかりません。メディアファイルを手動で追加することにより解決できます。</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">リサイズ</string>
+    <string name="resize_and_save">選択領域をリサイズして保存</string>
+    <string name="width">幅</string>
+    <string name="height">高さ</string>
+    <string name="keep_aspect_ratio">縦横比を固定</string>
+    <string name="invalid_values">解像度を正しく入力してください</string>
 
     <!-- Editor -->
-    <string name="editor">エディター</string>
-    <string name="save">保存</string>
+    <string name="editor">画像編集</string>
     <string name="rotate">回転</string>
-    <string name="path">Path</string>
     <string name="invalid_image_path">無効な画像パス</string>
+    <string name="invalid_video_path">無効な動画パス</string>
     <string name="image_editing_failed">画像の編集に失敗しました</string>
+    <string name="video_editing_failed">動画の編集に失敗しました</string>
+    <string name="image_editing_cancelled">画像の編集がキャンセルされました</string>
+    <string name="video_editing_cancelled">動画の編集がキャンセルされました</string>
+    <string name="file_edited_successfully">ファイルの編集に成功しました</string>
+    <string name="image_edited_successfully">画像の編集に成功しました</string>
+    <string name="video_edited_successfully">動画の編集に成功しました</string>
     <string name="edit_image_with">画像を編集:</string>
-    <string name="no_editor_found">画像エディターが見つかりません</string>
+    <string name="edit_video_with">動画を編集:</string>
+    <string name="no_image_editor_found">画像エディターが見つかりません</string>
+    <string name="no_video_editor_found">動画エディターが見つかりません</string>
     <string name="unknown_file_location">ファイルの場所が不明です</string>
     <string name="error_saving_file">元のファイルを上書きできません</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip horizontally</string>
-    <string name="flip_vertically">Flip vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="rotate_left">左に回転</string>
+    <string name="rotate_right">右に回転</string>
+    <string name="rotate_one_eighty">180度回転</string>
+    <string name="flip">反転</string>
+    <string name="flip_horizontally">水平方向に反転</string>
+    <string name="flip_vertically">垂直方向に反転</string>
+    <string name="free_aspect_ratio">任意</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">その他</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">シンプル壁紙</string>
-    <string name="set_as_wallpaper">壁紙として設定</string>
-    <string name="set_as_wallpaper_failed">壁紙としての設定に失敗しました</string>
-    <string name="set_as_wallpaper_with">壁紙として設定:</string>
-    <string name="no_wallpaper_setter_found">対応できるアプリが見つかりません</string>
-    <string name="setting_wallpaper">壁紙の設定&#8230;</string>
+    <string name="set_as_wallpaper">壁紙に設定</string>
+    <string name="set_as_wallpaper_failed">壁紙の設定に失敗しました</string>
+    <string name="set_as_wallpaper_with">壁紙に設定:</string>
+    <string name="setting_wallpaper">壁紙に設定中&#8230;</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">縦向きの縦横比</string>
+    <string name="landscape_aspect_ratio">横向きの縦横比</string>
+    <string name="home_screen">ホーム画面</string>
+    <string name="lock_screen">ロック画面</string>
+    <string name="home_and_lock_screen">ホーム画面とロック画面</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">スライドショー</string>
+    <string name="interval">間隔 (秒):</string>
+    <string name="include_photos">写真を含める</string>
+    <string name="include_videos">ビデオを含める</string>
+    <string name="include_gifs">GIFを含める</string>
+    <string name="random_order">ランダムな順序</string>
+    <string name="move_backwards">逆方向に進む</string>
+    <string name="loop_slideshow">スライドショーをリピート再生する</string>
+    <string name="animation">アニメーション</string>
+    <string name="no_animation">なし</string>
+    <string name="fade">フェード</string>
+    <string name="slide">スライド</string>
+    <string name="slideshow_ended">スライドショーが終了しました</string>
+    <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
+
+    <!-- View types -->
+    <string name="group_direct_subfolders">サブフォルダでグループ化</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">グループ分け</string>
+    <string name="do_not_group_files">何もしない</string>
+    <string name="by_folder">フォルダ</string>
+    <string name="by_last_modified">更新日時</string>
+    <string name="by_last_modified_daily">更新日時 (毎日)</string>
+    <string name="by_last_modified_monthly">更新日時 (毎月)</string>
+    <string name="by_date_taken">撮影日時</string>
+    <string name="by_date_taken_daily">撮影日時 (毎日)</string>
+    <string name="by_date_taken_monthly">撮影日時 (毎月)</string>
+    <string name="by_file_type">ファイル形式</string>
+    <string name="by_extension">拡張子</string>
+    <string name="grouping_and_sorting">グループ化とソートはそれぞれ違ったフィールドであることに注意してください</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">ウィジェットに表示するフォルダ:</string>
+    <string name="show_folder_name">フォルダ名を表示</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">非表示フォルダーを表示</string>
-    <string name="autoplay_videos">自動的にビデオを再生</string>
+    <string name="autoplay_videos">ビデオを自動再生</string>
+    <string name="remember_last_video_position">動画の最後の再生位置を記憶する</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
-    <string name="images_and_videos">Images and videos</string>
-    <string name="loop_videos">Loop videos</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="loop_videos">ビデオを繰り返し再生</string>
+    <string name="animate_gifs">アニメーションGIFを動かす</string>
+    <string name="max_brightness">再生時には明るさを最大にする</string>
+    <string name="crop_thumbnails">サムネイルを正方形に切り取る</string>
+    <string name="show_thumbnail_video_duration">動画の長さを表示</string>
+    <string name="screen_rotation_by">フルスクリーン再生の表示切り替え</string>
+    <string name="screen_rotation_system_setting">システム設定に従う</string>
+    <string name="screen_rotation_device_rotation">端末の向きに従う</string>
+    <string name="screen_rotation_aspect_ratio">メディアの縦横比に従う</string>
+    <string name="black_background_at_fullscreen">全画面表示では背景色を黒にする</string>
+    <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
+    <string name="hide_system_ui_at_fullscreen">全画面ではシステムUIを非表示</string>
+    <string name="delete_empty_folders">空になったフォルダは削除する</string>
+    <string name="allow_photo_gestures">垂直の動作で写真の明るさを制御</string>
+    <string name="allow_video_gestures">音量と明るさを縦の動作で変更</string>
+    <string name="show_media_count">フォルダ内のメディア数を表示する</string>
+    <string name="show_extended_details">フルスクリーンに詳細を重ねて表示する</string>
+    <string name="manage_extended_details">詳細表示を管理する</string>
+    <string name="one_finger_zoom">メディアを指だけでズームする</string>
+    <string name="allow_instant_change">端を押してメディアをスライド</string>
+    <string name="allow_deep_zooming_images">深いズームを許可</string>
+    <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
+    <string name="show_at_bottom">画面の下にはアクションを表示</string>
+    <string name="show_recycle_bin">フォルダ画面にごみ箱を表示</string>
+    <string name="deep_zoomable_images">画像のズームを深くする</string>
+    <string name="show_highest_quality">可能な限り高品質で画像を表示</string>
+    <string name="show_recycle_bin_last">ごみ箱をメイン画面の最後に表示</string>
+    <string name="allow_down_gesture">フルスクリーン表示を下にスワイプするジェスチャーで閉じる</string>
+    <string name="allow_one_to_one_zoom">ダブルタップして 1:1 ズームする</string>
+    <string name="open_videos_on_separate_screen">常に新しい左右のジェスチャーで動画を開く</string>
+    <string name="show_notch">利用可能なノッチを表示</string>
+    <string name="allow_rotating_gestures">ジェスチャーで画像を回転する</string>
+    <string name="file_loading_priority">ファイルの優先ローディング</string>
+    <string name="speed">スピード</string>
+    <string name="compromise">コンプロマイズ</string>
+    <string name="avoid_showing_invalid_files">無効なファイルを非表示</string>
+    <string name="show_image_file_types">画像ファイルの種類を表示</string>
+    <string name="allow_zooming_videos">ダブルタップで動画ズームを設定</string>
+    <string name="folder_thumbnail_style">フォルダサムネイルのスタイル</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
+    <string name="show_file_count_line">ファイル数を別の行に表示</string>
+    <string name="show_file_count_brackets">ファイル数を括弧内に表示</string>
+    <string name="show_file_count_none">ファイル数を非表示</string>
+    <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
+    <string name="square">四角</string>
+    <string name="rounded_corners">丸コーナー</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">サムネイル設定</string>
+    <string name="fullscreen_media">メディア設定</string>
+    <string name="extended_details">詳細も表示する</string>
+    <string name="bottom_actions">画面下部のアクション</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">表示するアクションの選択</string>
+    <string name="toggle_favorite">お気に入り</string>
+    <string name="toggle_file_visibility">表示/非表示の切替</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">カスタム</string>
+    <string name="pesdk_transform_button_resetCrop">リセット</string>
+    <string name="pesdk_transform_button_squareCrop">正方形</string>
+    <string name="pesdk_transform_title_name">変形</string>
+    <string name="pesdk_filter_title_name">フィルター</string>
+    <string name="pesdk_filter_asset_none">なし</string>
+    <string name="pesdk_adjustments_title_name">調整</string>
+    <string name="pesdk_adjustments_button_shadowTool">シャドウ</string>
+    <string name="pesdk_adjustments_button_exposureTool">露出</string>
+    <string name="pesdk_adjustments_button_highlightTool">ハイライト</string>
+    <string name="pesdk_adjustments_button_brightnessTool">明るさ</string>
+    <string name="pesdk_adjustments_button_contrastTool">コントラスト</string>
+    <string name="pesdk_adjustments_button_saturationTool">彩度</string>
+    <string name="pesdk_adjustments_button_clarityTool">明瞭度</string>
+    <string name="pesdk_adjustments_button_gammaTool">ガンマ</string>
+    <string name="pesdk_adjustments_button_blacksTool">黒レベル</string>
+    <string name="pesdk_adjustments_button_whitesTool">白レベル</string>
+    <string name="pesdk_adjustments_button_temperatureTool">色温度</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">シャープネス</string>
+    <string name="pesdk_adjustments_button_reset">リセット</string>
+    <string name="pesdk_focus_title_name">ぼかし</string>
+    <string name="pesdk_focus_title_disabled">なし</string>
+    <string name="pesdk_focus_button_radial">円形</string>
+    <string name="pesdk_focus_button_linear">直線</string>
+    <string name="pesdk_focus_button_mirrored">ミラー</string>
+    <string name="pesdk_focus_button_gaussian">ガウス</string>
+    <string name="pesdk_text_title_name">テキスト</string>
+    <string name="pesdk_text_title_options">テキスト オプション</string>
+    <string name="pesdk_text_title_textColor">文字色</string>
+    <string name="pesdk_text_title_font">フォント</string>
+    <string name="pesdk_text_button_add">追加</string>
+    <string name="pesdk_text_button_edit">編集</string>
+    <string name="pesdk_text_button_straighten">まっすぐにする</string>
+    <string name="pesdk_text_button_font">フォント</string>
+    <string name="pesdk_text_button_color">色</string>
+    <string name="pesdk_text_button_backgroundColor">背景色</string>
+    <string name="pesdk_text_button_alignment">配置</string>
+    <string name="pesdk_text_button_bringToFront">前面に</string>
+    <string name="pesdk_text_button_delete">削除</string>
+    <string name="pesdk_text_text_editTextPlaceholder">テキストを入力</string>
+    <string name="pesdk_brush_title_name">ブラシ</string>
+    <string name="pesdk_brush_button_color">色</string>
+    <string name="pesdk_brush_button_size">太さ</string>
+    <string name="pesdk_brush_button_hardness">硬度</string>
+    <string name="pesdk_brush_button_bringToFront">前面に</string>
+    <string name="pesdk_brush_button_delete">削除</string>
+    <string name="pesdk_brush_title_brushColor">ブラシの色</string>
+    <string name="pesdk_editor_title_name">エディター</string>
+    <string name="pesdk_editor_title_closeEditorAlert">エディターを閉じますか?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">本当に変更を破棄しますか？</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">はい</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">いいえ</string>
+    <string name="pesdk_editor_cancel">キャンセル</string>
+    <string name="pesdk_editor_accept">了解</string>
+    <string name="pesdk_editor_save">保存</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">エクスポート中…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">エクスポート%s</string>
+    <string name="pesdk_sticker_title_name">ステッカー</string>
+    <string name="pesdk_sticker_title_color">ステッカーの色</string>
+    <string name="pesdk_sticker_title_options">ステッカーオプション</string>
+    <string name="pesdk_sticker_button_add">追加</string>
+    <string name="pesdk_sticker_button_color">色</string>
+    <string name="pesdk_sticker_button_delete">削除</string>
+    <string name="pesdk_sticker_button_bringToFront">前面へ</string>
+    <string name="pesdk_sticker_button_straighten">まっすぐにする</string>
+    <string name="pesdk_sticker_button_replace">置き換え</string>
+    <string name="pesdk_sticker_button_opacity">不透明度</string>
+    <string name="pesdk_sticker_button_contrast">コントラスト</string>
+    <string name="pesdk_sticker_button_saturation">彩度</string>
+    <string name="pesdk_sticker_button_brightness">明るさ</string>
+    <string name="pesdk_sticker_category_name_custom">アップロード済</string>
+    <string name="pesdk_overlay_title_name">オーバーレイ</string>
+    <string name="pesdk_overlay_button_blendModeNormal">ノーマル</string>
+    <string name="pesdk_overlay_button_blendModeDarken">暗め</string>
+    <string name="pesdk_overlay_button_blendModeScreen">画面</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">オーバーレイ</string>
+    <string name="pesdk_overlay_button_blendModeLighten">明るめ</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">複写</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">焼き込みカラー</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">ソフトライト</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">ハードライト</string>
+    <string name="pesdk_overlay_asset_none">なし</string>
+    <string name="pesdk_overlay_asset_golden">ゴールデン</string>
+    <string name="pesdk_overlay_asset_lightleak1">光漏れ 1</string>
+    <string name="pesdk_overlay_asset_mosaic">モザイク</string>
+    <string name="pesdk_overlay_asset_paper">ペーパー</string>
+    <string name="pesdk_overlay_asset_rain">雨</string>
+    <string name="pesdk_overlay_asset_vintage">ビンテージ</string>
+    <string name="pesdk_common_button_flipH">水平方向に反転</string>
+    <string name="pesdk_common_button_flipV">垂直方向に反転</string>
+    <string name="pesdk_common_button_undo">元に戻す</string>
+    <string name="pesdk_common_button_redo">やり直し</string>
+    <string name="pesdk_common_title_colorPicker">カラーピッカー</string>
+    <string name="pesdk_common_title_transparentColor">透明</string>
+    <string name="pesdk_common_title_whiteColor">ホワイト</string>
+    <string name="pesdk_common_title_grayColor">グレー</string>
+    <string name="pesdk_common_title_blackColor">ブラック</string>
+    <string name="pesdk_common_title_lightBlueColor">ライトブルー</string>
+    <string name="pesdk_common_title_blueColor">ブルー</string>
+    <string name="pesdk_common_title_purpleColor">パープル</string>
+    <string name="pesdk_common_title_orchidColor">オーキッド</string>
+    <string name="pesdk_common_title_pinkColor">ピンク</string>
+    <string name="pesdk_common_title_redColor">レッド</string>
+    <string name="pesdk_common_title_orangeColor">オレンジ</string>
+    <string name="pesdk_common_title_goldColor">ゴールド</string>
+    <string name="pesdk_common_title_yellowColor">イエロー</string>
+    <string name="pesdk_common_title_oliveColor">オリーブ</string>
+    <string name="pesdk_common_title_greenColor">グリーン</string>
+    <string name="pesdk_common_title_aquamarinColor">アクアマリン</string>
+    <string name="pesdk_common_title_pipettableColor">ピペッティング可能な色</string>
+    <string name="vesdk_video_trim_title_name">トリム</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">どうすればSimpleギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
+    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。
+        次に画像や動画を開こうとした時に、アプリ選択が表示されるのでSimpleギャラリーを通常のアプリとして選択します。</string>
+    <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
+    <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて\"データを消去\"を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
+    <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
+    <string name="faq_3_text">アルバムを長押しで選択し、アクションメニューからピンアイコンを選択すれば一番上に固定されます。複数のフォルダをピン留めできます。ピン留めされた項目は、デフォルトのソート方法でソートされます。</string>
+    <string name="faq_4_title">動画を早送りするにはどうすればよいですか？</string>
+    <string name="faq_4_text">画面の横をダブルタップするか、検索バーの近くにある現在もしくは最大数のテキストをタップすれば可能です。別画面動画を開くことをアプリ設定で有効にしている場合、左右ジェスチャーも使用できます。</string>
+    <string name="faq_5_title">フォルダの非表示と除外の違いは何ですか？</string>
+    <string name="faq_5_text">除外はSimpleギャラリーでのみフォルダを非表示にし、非表示はシステム上で動作するので他のギャラリーからもフォルダを非表示にします。指定されたフォルダに空の\".nomedia\"ファイルを作成することにより動作し、任意のファイルマネージャーで削除することも出来ます。一部のデバイスでは、カメラ、スクリーンショット、ダウンロードのようなフォルダを非表示に出来ないことはご留意ください。</string>
+    <string name="faq_6_title">音楽のカバーアートやステッカーのフォルダが表示されるのはなぜですか？</string>
+    <string name="faq_6_text">通常ではないアルバムが表示されることがあります。長押しして除外を選択することで簡単に除くことができます。次のダイアログで親フォルダを選択すると、他の関連アルバムも表示されなくなります。</string>
+    <string name="faq_7_title">画像フォルダが表示されなかったり、全てのアイテムが表示されなかったりします。どうしたらいいですか？</string>
+    <string name="faq_7_text">理由はいくつかありますが、解決は簡単です。設定→含まれているフォルダの管理に移動し、Plusを選択し、必要なフォルダに移動します。</string>
+    <string name="faq_8_title">特定のフォルダのみ表示にしたい場合はどうすればいいですか？</string>
+    <string name="faq_8_text">含まれているフォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外されたフォルダの管理に移動し、ルートフォルダを除外し、設定→含まれているフォルダの管理で目的のフォルダを追加すれば可能です。
+        除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるのです。</string>
+    <string name="faq_10_title">このアプリで画像のトリミングは出来ますか？</string>
+    <string name="faq_10_text">はい、編集で画像をトリミング出来ます。画像の隅をドラッグしてください。画像のサムネイルを長押しし編集を選択するか、フルスクリーンで編集を選択することにより編集できます。</string>
+    <string name="faq_11_title">どうすればメディアファイルのサムネイルをグループ化できますか？</string>
+    <string name="faq_11_text">サムネイル表示中に\"グループ分け\"メニューを使用してください。撮影日を含めた、複数の条件でグループ化することが出来ます。\"すべてを表示\"機能を使えば、フォルダごとにグループ化することも出来ます。 </string>
+    <string name="faq_12_title">撮影日でソートがうまく機能しないようです。どうすれば直せますか？</string>
+    <string name="faq_12_text">おそらく、ファイルがコピーされたものであることが原因でしょう。ファイルサムネイルを選択し、\"撮影日の値を修正\"を選択することにより直せます。</string>
+    <string name="faq_13_title">画像にバンディングが見られます。どうすれば質を変えられますか？</string>
+    <string name="faq_13_text">現在の表示方法は大抵の場合問題は見られませんが、より高画質で表示したい場合はアプリ設定の\"画像のズームを深くする\"セクションで\"可能な限り高品質で画像を表示\"を有効にすると良いでしょう。 </string>
+    <string name="faq_14_title">非表示にしているファイルやフォルダがあります。もう一度表示するにはどうすればいいですか？</string>
+    <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。</string>
+    <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
+    <string name="faq_15_text">アプリのキャッシュがは画像の素早いローディングのため最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ゴミ箱内のアイテムが原因となっているはずです。ゴミ箱内のファイルもアプリ容量として加算されます。ゴミ箱を開くか、アプリの設定から全てのファイルを削除できます。ゴミ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">シンプルギャラリープロ-写真とビデオの管理と編集</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
+    <string name="app_short_description">お気に入りのフォトアルバム。スマートギャラリーで写真の切り取りや編集。</string>
     <string name="app_long_description">
-        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
+        シンプルギャラリーは、高度にカスタマイズ可能なオフラインのphoto vaultおよびファイル整理アプリです。ユーザー体験で世界中で何百万人もの人々に愛されています。 フォトギャラリーを使用して、写真の編集、削除した写真の復元、写真の保護と非表示、秘密のフォトアルバムの作成、写真のトリミングを簡単に行います。またRAW、SVG、GIF、パノラマなど、さまざまな写真やビデオ形式を表示することができます。 今すぐフォトギャラリーをダウンロードして、アルバムを好きなように管理してください！
 
-        ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 毎日の使用には完璧です。
+        -------------------------------------------------
+        <b>シンプルギャラリー-写真および動画の管理と編集</b>
+        -------------------------------------------------
 
-        広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
+        削除されたビデオを復元し、広告なしで写真をトリミングするオプションを備えた美しいモダンなフォトアルバム
 
-        このアプリは、大きな一連のアプリの一つです。 他のアプリは http://www.simplemobiletools.com で見つけることができます
+        高度な写真編集–写真のトリミング、写真の編集、画像の検索。 削除されたビデオを復元できる快適で使いやすいphoto vault
+
+        インターネットにアクセスする必要がないため、プライバシー、セキュリティ、安定性が向上-オフラインの秘密の写真アルバム
+
+        画像をすばやく検索、写真の非表示、編集、削除された写真・ビデオ・GIF・その他のファイルを復元
+
+        さまざまな種類の写真やビデオ（RAW、SVG、パノラマ、GIFなど）を開いて表示
+
+        写真管理で写真を簡単に編集・整理するための使いやすいジェスチャーが多数
+
+        ファイルをフィルタリング、グループ化、およびソートする多くの機能
+
+        パターンロック、PIN、指紋を使用して写真とビデオを保護・編集
+
+        PIN、パターンロック、指紋を使用して、アプリの起動や特定の機能も保護
+
+        ゴミ箱からビデオを復元
+
+        photo vaultを使用してファイルの表示の切り替え、写真とビデオの非表示、写真のトリミングが可能
+
+        フォトギャラリー内の多数のオプションを使用して、ファイルのカスタマイズショーを作成
+
+        •画像検索、写真編集、高品質は写真・ビデオ・GIFを指を使って簡単にズーム
+
+        ビデオを見やすくするために、水平・垂直方向を簡単に変更
+
+        ファイル整理-シンプルなモバイルフォトギャラリーでは、画像・ビデオ・GIFの名前変更、コピー/移動、表示/非表示、削除が可能
+
+        手間をかけずに画像を壁紙に設定
+
+        <b>高度な写真編集</b>
+         シンプルなギャラリーファイルの整理とフォトアルバムにより、簡単すぐに写真を編集することができます。 画像の切り抜き、反転、回転、サイズ変更、または必要なフィルターの適用などがお使いいただけます。
+
+        <b>様々なファイルタイプをサポート</b>
+         シンプルギャラリーは、JPEG、PNG、MP4、MKV、RAW、SVG、GIF、パノラマ写真、ビデオなど、さまざまな種類のファイルをサポートしています。
+
+        <b>カスタマイズ可能なファイル管理</b>
+        シンプルギャラリーはUIから下部のツールバーの機能ボタンまで、高度にカスタマイズ可能なファイル整理機能を備えています。
+
+        <b>削除された写真と動画の復元</b>
+        大切な写真やビデオをフォトアルバムから誤って削除したことはありませんか？シンプルなモバイルフォトギャラリーには、photo vaultアプリのおかげで削除された写真をすべて復元できる便利なオプションがあります。
+
+        <b>写真、動画、ファイルを保護して非表示に</b>
+         PIN、パターンロック、またはデバイスの指紋認証を使用して、写真の保護と編集、削除されたビデオの復元、写真の切り抜き、画像の検索を行うことができます。 ファイルオーガナイザー自体を保護したり、アプリの特定の機能をロックしたりすることができます。 たとえば、指紋認証をしないとファイルの削除ができません。
+
+        広告や不要な権限はありません。 完全にオープンソースで、カラーもカスタマイズ可能。
+
+        <b>シンプルツールの完全なリストはこちらからご確認ください：</b>
+         https://www.simplemobiletools.com
+
+        <b>シンプルギャラリープロのwebサイト：</b>
+         https://www.simplemobiletools.com/gallery
+
+        <b> Facebook：</b>
+         https://www.facebook.com/simplemobiletools
+
+        <b> Reddit：</b>
+         https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--

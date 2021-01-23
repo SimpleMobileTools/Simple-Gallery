@@ -1,18 +1,11 @@
 <resources>
 
-    <style name="AppTheme" parent="AppTheme.Base">
-
-    </style>
+    <style name="AppTheme" parent="AppTheme.Base"/>
 
     <style name="FullScreenTheme.Base" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
-        <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="FullScreenTheme" parent="FullScreenTheme.Base"/>
-
-    <style name="MyFullScreenActionBar" parent="Widget.AppCompat.Light.ActionBar">
-        <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
-    </style>
 </resources>

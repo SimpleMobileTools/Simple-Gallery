@@ -2,8 +2,5 @@
 <resources>
     <color name="actionbar_menu_icon">#454545</color>
     <color name="crop_image_view_background">#BB000000</color>
-
-    <!-- Default colors -->
-    <color name="default_text_color">@color/default_dark_theme_text_color</color>
-    <color name="default_background_color">@color/default_dark_theme_background_color</color>
+    <color name="circle_black_background">#66000000</color>
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/aspect_ratio_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/aspect_ratio_width_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/width"/>
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/aspect_ratio_width"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aspect_ratio_width_label"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/aspect_ratio_colon_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/aspect_ratio_width"
+        android:layout_alignBottom="@+id/aspect_ratio_width"
+        android:layout_toStartOf="@+id/aspect_ratio_height"
+        android:layout_toEndOf="@+id/aspect_ratio_width"
+        android:gravity="center"
+        android:text=":"
+        android:textStyle="bold"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/aspect_ratio_height_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_toEndOf="@+id/aspect_ratio_width_label"
+        android:text="@string/height"/>
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/aspect_ratio_height"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aspect_ratio_width_label"
+        android:layout_alignStart="@+id/aspect_ratio_height_label"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size"/>
+
+</RelativeLayout>

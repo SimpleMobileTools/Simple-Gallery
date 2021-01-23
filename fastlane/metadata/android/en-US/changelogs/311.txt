@@ -1,0 +1,4 @@
+ * Updated the image editor, fix a glitch with black preview
+ * Show Portrait images by default on Android 10
+ * Use a nicer icon on older devices
+ * Some translation and stability improvements

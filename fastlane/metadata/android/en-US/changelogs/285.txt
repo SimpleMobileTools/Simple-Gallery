@@ -1,0 +1,3 @@
+ * Fixed a few SD card related issues
+ * Fixed some theming issues
+ * Added some UI and translation improvements

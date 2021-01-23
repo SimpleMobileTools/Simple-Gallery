@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dir_tmb_size">150dp</dimen>
     <dimen name="medium_tmb_size">120dp</dimen>
-    <dimen name="pin_size">30dp</dimen>
-    <dimen name="play_outline_size">60dp</dimen>
-    <dimen name="play_outline_size_big">230dp</dimen>
-    <dimen name="timer_padding">32dp</dimen>
-    <dimen name="tmb_shadow_height">60dp</dimen>
+    <dimen name="sd_card_icon_size">30dp</dimen>
+    <dimen name="selection_check_size">38dp</dimen>
+    <dimen name="tmb_shadow_height">70dp</dimen>
+    <dimen name="lock_padding">80dp</dimen>
 </resources>

@@ -3,31 +3,17 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/save_as"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_check_vector"
         android:title="@string/save_as"
-        app:showAsAction="always"/>
-    <item
-        android:id="@+id/rotate"
-        android:icon="@drawable/ic_rotate_right"
-        android:title="@string/rotate"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/resize"
-        android:icon="@drawable/ic_minimize"
-        android:title="@string/resize"
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_edit_vector"
+        android:title="@string/edit_with"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/flip"
-        android:icon="@drawable/ic_flip"
-        android:title="@string/flip"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/flip_horizontally"
-                android:title="@string/flip_horizontally"/>
-            <item
-                android:id="@+id/flip_vertically"
-                android:title="@string/flip_vertically"/>
-        </menu>
-    </item>
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share_vector"
+        android:title="@string/share"
+        app:showAsAction="ifRoom"/>
 </menu>

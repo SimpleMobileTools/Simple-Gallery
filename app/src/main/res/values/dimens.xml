@@ -2,11 +2,26 @@
 <resources>
     <dimen name="dir_tmb_size">150dp</dimen>
     <dimen name="medium_tmb_size">100dp</dimen>
-    <dimen name="pin_size">20dp</dimen>
-    <dimen name="play_outline_size">40dp</dimen>
-    <dimen name="play_outline_size_big">150dp</dimen>
-    <dimen name="timer_padding">24dp</dimen>
-    <dimen name="tmb_shadow_height">50dp</dimen>
-
-    <dimen name="dragselect_hotspot_height">56dp</dimen>
+    <dimen name="sd_card_icon_size">20dp</dimen>
+    <dimen name="play_outline_icon_size">22dp</dimen>
+    <dimen name="selection_check_size">26dp</dimen>
+    <dimen name="play_outline_size_big">96dp</dimen>
+    <dimen name="tmb_shadow_height">70dp</dimen>
+    <dimen name="media_side_slider_width">60dp</dimen>
+    <dimen name="video_player_play_pause_size">60dp</dimen>
+    <dimen name="list_view_folder_thumbnail_size">72dp</dimen>
+    <dimen name="bottom_actions_height">64dp</dimen>
+    <dimen name="bottom_actions_height_double">128dp</dimen>
+    <dimen name="bottom_actions_height_bigger">164dp</dimen>
+    <dimen name="bottom_editor_color_picker_size">48dp</dimen>
+    <dimen name="bottom_filters_thumbnail_size">76dp</dimen>
+    <dimen name="bottom_filters_height">90dp</dimen>
+    <dimen name="bottom_filters_height_with_margin">98dp</dimen>
+    <dimen name="bottom_editor_actions_shadow_height">180dp</dimen>
+    <dimen name="portrait_photos_stripe_height">48dp</dimen>
+    <dimen name="default_status_action_height">86dp</dimen>
+    <dimen name="widget_initial_size">110dp</dimen>
+    <dimen name="full_brush_size">40dp</dimen>
+    <dimen name="lock_padding">30dp</dimen>
+    <dimen name="sample_thumbnail_size">180dp</dimen>
 </resources>

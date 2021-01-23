@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_edit_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/default_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_editor_crop_rotate_actions"
+        android:layout_marginBottom="@dimen/bottom_filters_height_with_margin"/>
+
+    <com.theartofdev.edmodo.cropper.CropImageView
+        android:id="@+id/crop_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/bottom_actions_height_bigger"
+        android:visibility="gone"
+        app:cropBackgroundColor="@color/crop_image_view_background"
+        app:cropInitialCropWindowPaddingRatio="0"/>
+
+    <com.simplemobiletools.gallery.pro.views.EditorDrawCanvas
+        android:id="@+id/editor_draw_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/bottom_actions_height_double"
+        android:background="@android:color/transparent"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/bottom_editor_actions_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_editor_actions_shadow_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background"/>
+
+    <include
+        android:id="@+id/bottom_editor_primary_actions"
+        layout="@layout/bottom_editor_primary_actions"/>
+
+    <include
+        android:id="@+id/bottom_aspect_ratios"
+        layout="@layout/bottom_actions_aspect_ratio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_editor_crop_rotate_actions"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/bottom_editor_filter_actions"
+        layout="@layout/bottom_editor_actions_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_editor_primary_actions"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/bottom_editor_crop_rotate_actions"
+        layout="@layout/bottom_editor_crop_rotate_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_editor_primary_actions"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/bottom_editor_draw_actions"
+        layout="@layout/bottom_editor_draw_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_editor_primary_actions"
+        android:visibility="gone"/>
+
+</RelativeLayout>

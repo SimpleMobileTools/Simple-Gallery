@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dialog_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin">
+
+        <RelativeLayout
+            android:id="@+id/dialog_folder_sample_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/dialog_radio_folder_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/medium_margin">
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/dialog_radio_folder_square"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/square" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/dialog_radio_folder_rounded_corners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/rounded_corners" />
+
+        </RadioGroup>
+
+        <include layout="@layout/divider" />
+
+        <RadioGroup
+            android:id="@+id/dialog_radio_folder_count_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:paddingBottom="@dimen/medium_margin">
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/dialog_radio_folder_count_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/show_file_count_line" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/dialog_radio_folder_count_brackets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/show_file_count_brackets" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/dialog_radio_folder_count_none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/show_file_count_none" />
+        </RadioGroup>
+
+        <include layout="@layout/divider" />
+
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/dialog_folder_limit_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/limit_folder_title" />
+
+    </LinearLayout>
+</ScrollView>

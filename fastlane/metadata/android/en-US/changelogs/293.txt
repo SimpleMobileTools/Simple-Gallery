@@ -1,0 +1,1 @@
+ * Fixed some folder sorting related glitches

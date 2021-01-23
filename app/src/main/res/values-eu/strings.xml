@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Galeria sinplea</string>
+    <string name="app_launcher_name">Galeria</string>
+    <string name="edit">Editatu</string>
+    <string name="open_camera">Ireki kamera</string>
+    <string name="hidden">(ezkutatuta)</string>
+    <string name="excluded">(baztertuta)</string>
+    <string name="pin_folder">Ainguratu karpeta</string>
+    <string name="unpin_folder">Kendu aingura karpetari</string>
+    <string name="pin_to_the_top">Ainguratu goian</string>
+    <string name="show_all">Erakutsi karpeta guztien edukia</string>
+    <string name="all_folders">Karpeta guztiak</string>
+    <string name="folder_view">Aldatu karpeta-ikuspegira</string>
+    <string name="other_folder">Bestelako karpeta</string>
+    <string name="show_on_map">Erakutsi mapan</string>
+    <string name="unknown_location">Kokapen ezezaguna</string>
+    <string name="volume">Bolumena</string>
+    <string name="brightness">Distira</string>
+    <string name="lock_orientation">Blokeatu orientazioa</string>
+    <string name="unlock_orientation">Desblokeatu orientazioa</string>
+    <string name="change_orientation">Aldatu orientazioa</string>
+    <string name="force_portrait">Behartu bertikala</string>
+    <string name="force_landscape">Behartu horizontala</string>
+    <string name="use_default_orientation">Erabili lehenetsitako orientazioa</string>
+    <string name="fix_date_taken">Konpondu ateratze-dataren balioa</string>
+    <string name="fixing">Konpontzen…</string>
+    <string name="dates_fixed_successfully">Datak ongi konpondu dira</string>
+    <string name="no_date_takens_found">Ateratze-dataren baliorik ez da aurkitu</string>
+    <string name="share_resized">Partekatu tamaina aldatutako bertsioa</string>
+    <string name="upgraded_from_free">Kaixo,\n\nbadirudi doako aplikazio zaharra eguneratu duzula. Orain bertsio zaharra desinstalatu dezakezu aplikazioaren ezarpenen goiko aldean dagoen \'Eskuratu Pro bertsioa\' botoiarekin. Azkenik, zakarrontzian dituzun elementuak ezabatuko dira, gogoko elementuei marka kenduko zaie eta zure azplikazio-ezarpenak berrezarri beharko dituzu.\n\nEskerrik asko!</string>
+    <string name="switch_to_file_search">Aldatu fitxategi-bilaketa ikusgai dauden karpeta guztien artean</string>
+    <string name="set_as_default_folder">Ezarri lehenetsitako karpeta gisa</string>
+    <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Iragazi multimedia</string>
+    <string name="images">Irudiak</string>
+    <string name="videos">Bideoak</string>
+    <string name="gifs">GIFak</string>
+    <string name="raw_images">RAW irudiak</string>
+    <string name="svgs">SVGak</string>
+    <string name="portraits">Erretratuak</string>
+    <string name="no_media_with_filters">Hautatutako filtroa duen multimedia fitxategirik ez da aurkitu.</string>
+    <string name="change_filters_underlined"><u>Aldatu filtroak</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Funtzio honek karpeta \'.nomedia\' fitxategi bat gehituz ezkutatzen du, azpikarpeta guztiak ere ezkutatuko ditu. Ezarpenetako \'Erakutsi ezkutatutako elementuak\' aukera aldatuz ikus ditzakezu. Jarraitu?</string>
+    <string name="exclude">Baztertu</string>
+    <string name="excluded_folders">Baztertutako karpetak</string>
+    <string name="manage_excluded_folders">Kudeatu baztertutako karpetak</string>
+    <string name="exclude_folder_description">Honek hautatutakoa bere azpikarpetekin baztertutako ditu Galeria Sinpletik soilik. Baztertutako karpetak ezarpenetan kudeatu ditzakezu.</string>
+    <string name="exclude_folder_parent">Baztertu nagusia horren ordez?</string>
+    <string name="excluded_activity_placeholder">Karpetak baztertzeak hauek eta beren azpikarpetak Galeria Sinplean soilik ezkutatuko ditu, beste aplikazioetan oraindik ikusgai egongo dira.\n\nBeste aplikazioetatik ere ezkutatu nahi badituzu, erabili Ezkutatu funtzioa.</string>
+    <string name="remove_all">Kendu guztiak</string>
+    <string name="remove_all_description">Kendu karpeta guztiak baztertutako zerrendatik? Honek ez ditu karpetak ezabatuko.</string>
+    <string name="hidden_folders">Ezkutatutako karpetak</string>
+    <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
+    <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Sartutako karpetak</string>
+    <string name="manage_included_folders">Kudeatu sartutako karpetak</string>
+    <string name="add_folder">Gehitu karpeta</string>
+    <string name="included_activity_placeholder">Multimedia duen karpetarik baduzu, baina aplikazioak ez badu hauteman, hemen eskuz gehitu dezakezu.\n\nHainbat elementu hemen gehitzeak ez du beste karpetarik baztertuko.</string>
+    <string name="no_media_add_included">Multimedia fitxategirik ez da aurkitu. Fitxategi horiek dituzten karpetak eskuz gehituz konpondu dezakezu.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Aldatu tamaina</string>
+    <string name="resize_and_save">Aldatu hautatutakoaren tamaina eta gorde</string>
+    <string name="width">Zabalera</string>
+    <string name="height">Altuera</string>
+    <string name="keep_aspect_ratio">Mantendu aspektu-erlazioa</string>
+    <string name="invalid_values">Sartu baliozko bereizmena</string>
+
+    <!-- Editor -->
+    <string name="editor">Editorea</string>
+    <string name="rotate">Biratu</string>
+    <string name="invalid_image_path">Irudiaren bide-izen baliogabea</string>
+    <string name="invalid_video_path">Bideoaren bide-izen baliogabea</string>
+    <string name="image_editing_failed">Irudia editatzeak huts egin du</string>
+    <string name="video_editing_failed">Bideoa editatzeak huts egin du</string>
+    <string name="image_editing_cancelled">Irudia editatzea utzi da</string>
+    <string name="video_editing_cancelled">Bideoa editatzea utzi da</string>
+    <string name="file_edited_successfully">Fitxategia ongi editatu da</string>
+    <string name="image_edited_successfully">Irudia ongi editatu da</string>
+    <string name="video_edited_successfully">Bideoa ongi editatu da</string>
+    <string name="edit_image_with">Editatu irudia honekin:</string>
+    <string name="edit_video_with">Editatu bideoa honekin:</string>
+    <string name="no_image_editor_found">Irudi-editorerik ez da aurkitu</string>
+    <string name="no_video_editor_found">Bideo-editorerik ez da aurkitu</string>
+    <string name="unknown_file_location">Fitxategi kokapen ezezaguna</string>
+    <string name="error_saving_file">Ezin izan da jatorrizko fitxategia gainidatzi</string>
+    <string name="rotate_left">Biratu ezkerrera</string>
+    <string name="rotate_right">Biratu eskuinera</string>
+    <string name="rotate_one_eighty">Biratu 180º</string>
+    <string name="flip">Irauli</string>
+    <string name="flip_horizontally">Irauli horizontalki</string>
+    <string name="flip_vertically">Irauli bertikalki</string>
+    <string name="free_aspect_ratio">Askea</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Bestelakoa</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Horma-paper sinplea</string>
+    <string name="set_as_wallpaper">Ezarri horma-paper gisa</string>
+    <string name="set_as_wallpaper_failed">Horma-paper gisa ezartzeak huts egin du</string>
+    <string name="set_as_wallpaper_with">Ezarri horma-paper gis honekin:</string>
+    <string name="setting_wallpaper">Horma-papera ezartzen&#8230;</string>
+    <string name="wallpaper_set_successfully">Horma-papera ongi ezarri da</string>
+    <string name="portrait_aspect_ratio">Aspektu-erlazio bertikala</string>
+    <string name="landscape_aspect_ratio">Aspektu-erlazio horizontala</string>
+    <string name="home_screen">Hasierako pantaila</string>
+    <string name="lock_screen">Blokeatutako pantaila</string>
+    <string name="home_and_lock_screen">Hasierako eta blokeatutako pantaila</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diaporama</string>
+    <string name="interval">Tartea (segunduak):</string>
+    <string name="include_photos">Sartu argazkiak</string>
+    <string name="include_videos">Sartu bideoak</string>
+    <string name="include_gifs">Sartu GIFak</string>
+    <string name="random_order">Ausazko ordena</string>
+    <string name="move_backwards">Mugitu atzera</string>
+    <string name="loop_slideshow">Errepikatu diaporama</string>
+    <string name="animation">Animazioa</string>
+    <string name="no_animation">Bat ere ez</string>
+    <string name="fade">Lausotu</string>
+    <string name="slide">Diapositiba</string>
+    <string name="slideshow_ended">Diaporama bukatu da</string>
+    <string name="no_media_for_slideshow">Diaporamarako multimediarik ez da aurkitu</string>
+
+    <!-- View types -->
+    <string name="group_direct_subfolders">Taldekatu zuzeneko azpikarpetak</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Taldekatu</string>
+    <string name="do_not_group_files">Ez taldekatu fitxategiak</string>
+    <string name="by_folder">Karpeta</string>
+    <string name="by_last_modified">Azken aldaketa</string>
+    <string name="by_last_modified_daily">Azken aldaketa (egunero)</string>
+    <string name="by_last_modified_monthly">Azken aldaketa (hilero)</string>
+    <string name="by_date_taken">Ateratze-data</string>
+    <string name="by_date_taken_daily">Ateratze-data (egunero)</string>
+    <string name="by_date_taken_monthly">Ateratze-data (hilero)</string>
+    <string name="by_file_type">Fitxategi mota</string>
+    <string name="by_extension">Luzapena</string>
+    <string name="grouping_and_sorting">Kontuan hartu taldekatzea eta ordenatzea bi eremu independente direla.</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Widgetean erakutsitako karpeta:</string>
+    <string name="show_folder_name">Erakutsi karpetaren izena</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Erreproduzitu bideoak automatikoki</string>
+    <string name="remember_last_video_position">Gogoratu azken bideoaren erreprodukzio-posizioa</string>
+    <string name="toggle_filename">Aldatu fitxategi-izenaren ikusgaitasuna</string>
+    <string name="loop_videos">Errepikatu bideoak</string>
+    <string name="animate_gifs">Animatu GIFak iruditxoetan</string>
+    <string name="max_brightness">Gehienezko distira multimedia pantaila osoan ikustean</string>
+    <string name="crop_thumbnails">Moztu iruditxoak karratutan</string>
+    <string name="show_thumbnail_video_duration">Erakutsi bideoen iraupena</string>
+    <string name="screen_rotation_by">Biratu pantaila osoko multimedia:</string>
+    <string name="screen_rotation_system_setting">Sistemaren ezarpena</string>
+    <string name="screen_rotation_device_rotation">Gailu-biratzea</string>
+    <string name="screen_rotation_aspect_ratio">Aspektu-erlazioa</string>
+    <string name="black_background_at_fullscreen">Hondo beltza pantaila osoko multimediarekin</string>
+    <string name="scroll_thumbnails_horizontally">Korritu iruditxoak horizontalki</string>
+    <string name="hide_system_ui_at_fullscreen">Automatikoki ezkutatu sistemaren EI pantaila osoko multimediarekin</string>
+    <string name="delete_empty_folders">Ezabatu hutsik dauden karpetak beren edukia ezabatu ondoren</string>
+    <string name="allow_photo_gestures">Baimendu argazkiaren distira kontrolatzea keinu bertikalekin</string>
+    <string name="allow_video_gestures">Baimendu bideoaren bolumena eta distira kontrolatzea keinu bertikalekin</string>
+    <string name="show_media_count">Erakutsi karpetaren multimedia-kopurua ikuspegi nagusian</string>
+    <string name="show_extended_details">Erakutsi xehetasun hedatuak pantaila osoko multimedian</string>
+    <string name="manage_extended_details">Kudeatu xehetasun hedatuak</string>
+    <string name="one_finger_zoom">Baimendu zooma hatz bakarrarekin pantaila osoko multimedian</string>
+    <string name="allow_instant_change">Baimendu multimedia berehala aldatzea pantaila-ertzeetan klik eginez</string>
+    <string name="allow_deep_zooming_images">Baimendu zoom sakona irudietan</string>
+    <string name="hide_extended_details">Ezkutatu xehetasun hedatuak egoera-barra ezkutatuta dagoenean</string>
+    <string name="show_at_bottom">Erakutsi ekintza-botoiak pantailaren beheko aldean</string>
+    <string name="show_recycle_bin">Erakutsi zakarrontzia karpeten pantailan</string>
+    <string name="deep_zoomable_images">Zoom sakona egin daitezkeen irudiak</string>
+    <string name="show_highest_quality">Erakutsi irudiak ahal den kalitate handienean</string>
+    <string name="show_recycle_bin_last">Erakutsi zakarrontzia azken elementu gisa pantaila nagusian</string>
+    <string name="allow_down_gesture">Baimendu pantaila osoko ikuspegia ixtea beherako keinuarekin</string>
+    <string name="allow_one_to_one_zoom">Baimendu 1:1 zooma bi aldiz birritan ukitzean</string>
+    <string name="open_videos_on_separate_screen">Ireki bideoak beste pantaila betean keinu horizontalekin</string>
+    <string name="show_notch">Erakutsi koska bat erabilgarri badago</string>
+    <string name="allow_rotating_gestures">Baimendu irudiak keinuekin biratzea</string>
+    <string name="file_loading_priority">Fitxategien kargatze-lehentasuna</string>
+    <string name="speed">Abiadura</string>
+    <string name="compromise">Konpromisoa</string>
+    <string name="avoid_showing_invalid_files">Ekidin fitxategi baliogabeak erakustea</string>
+    <string name="show_image_file_types">Erakutsi irudi-fitxategi motak</string>
+    <string name="allow_zooming_videos">Baimendu bideoen zooma birritan ukitzean</string>
+    <string name="folder_thumbnail_style">Karpeta-iruditxoaren estiloa</string>
+    <string name="file_thumbnail_style">Fitxategi-iruditxoaren estiloa</string>
+    <string name="thumbnail_spacing">Iruditxoen arteko tartea</string>
+    <string name="show_file_count_line">Erakutsi fitxategi kopurua beste lerro batean</string>
+    <string name="show_file_count_brackets">Erakutsi fitxategi kopurua parentesi artean</string>
+    <string name="show_file_count_none">Ez erakutsi fitxategi kopurua</string>
+    <string name="limit_folder_title">Mugatu karpeten izenburu luzeak lerro batera</string>
+    <string name="square">Karratua</string>
+    <string name="rounded_corners">Ertz biribilduak</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Iruditxoak</string>
+    <string name="fullscreen_media">Pantaila osoko multimedia</string>
+    <string name="extended_details">Xehetasun hedatuak</string>
+    <string name="bottom_actions">Beheko ekintzak</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Kudeatu ikusgai dauden beheko ekintzak</string>
+    <string name="toggle_favorite">Aldatu gogokoa</string>
+    <string name="toggle_file_visibility">Aldatu fitxategien ikusgaitasuna</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">Pertsonalizatu</string>
+    <string name="pesdk_transform_button_resetCrop">Berrezarri</string>
+    <string name="pesdk_transform_button_squareCrop">Karratua</string>
+    <string name="pesdk_transform_title_name">Eraldatu</string>
+    <string name="pesdk_filter_title_name">Filtroa</string>
+    <string name="pesdk_filter_asset_none">Bat ere ez</string>
+    <string name="pesdk_adjustments_title_name">Doitu</string>
+    <string name="pesdk_adjustments_button_shadowTool">Itzalak</string>
+    <string name="pesdk_adjustments_button_exposureTool">Esposizio</string>
+    <string name="pesdk_adjustments_button_highlightTool">Eremu distiratsuak</string>
+    <string name="pesdk_adjustments_button_brightnessTool">Distira</string>
+    <string name="pesdk_adjustments_button_contrastTool">Kontrastea</string>
+    <string name="pesdk_adjustments_button_saturationTool">Saturazioa</string>
+    <string name="pesdk_adjustments_button_clarityTool">Argitasuna</string>
+    <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
+    <string name="pesdk_adjustments_button_blacksTool">Beltzak</string>
+    <string name="pesdk_adjustments_button_whitesTool">Zuriak</string>
+    <string name="pesdk_adjustments_button_temperatureTool">Tenperatura</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">Zorroztasuna</string>
+    <string name="pesdk_adjustments_button_reset">Berrezarri</string>
+    <string name="pesdk_focus_title_name">Fokatzea</string>
+    <string name="pesdk_focus_title_disabled">Bat ere ez</string>
+    <string name="pesdk_focus_button_radial">Erradiala</string>
+    <string name="pesdk_focus_button_linear">Lineala</string>
+    <string name="pesdk_focus_button_mirrored">Ispilua</string>
+    <string name="pesdk_focus_button_gaussian">Gaussiarra</string>
+    <string name="pesdk_text_title_name">Testua</string>
+    <string name="pesdk_text_title_options">Testu-aukerak</string>
+    <string name="pesdk_text_title_textColor">Testuaren kolorea</string>
+    <string name="pesdk_text_title_font">Letra-tipoa</string>
+    <string name="pesdk_text_button_add">Gehitu</string>
+    <string name="pesdk_text_button_edit">Editatu</string>
+    <string name="pesdk_text_button_straighten">Zuzendu</string>
+    <string name="pesdk_text_button_font">Letra-tipoa</string>
+    <string name="pesdk_text_button_color">Kolorea</string>
+    <string name="pesdk_text_button_backgroundColor">HP kolorea</string>
+    <string name="pesdk_text_button_alignment">Lerrokatzea</string>
+    <string name="pesdk_text_button_bringToFront">Aurrera</string>
+    <string name="pesdk_text_button_delete">Ezabatu</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Zure testua</string>
+    <string name="pesdk_brush_title_name">Pintzela</string>
+    <string name="pesdk_brush_button_color">Kolorea</string>
+    <string name="pesdk_brush_button_size">Tamaina</string>
+    <string name="pesdk_brush_button_hardness">Gogortasuna</string>
+    <string name="pesdk_brush_button_bringToFront">Aurrera</string>
+    <string name="pesdk_brush_button_delete">Ezabatu</string>
+    <string name="pesdk_brush_title_brushColor">Pintzelaren kolorea</string>
+    <string name="pesdk_editor_title_name">Editorea</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Itxi editorea?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Ziur zaude aldaketak baztertu nahi dituzula?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Bai</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Ez</string>
+    <string name="pesdk_editor_cancel">Utzi</string>
+    <string name="pesdk_editor_accept">Onartu</string>
+    <string name="pesdk_editor_save">Gorde</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Esportatzen…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Esportatzen %s.</string>
+    <string name="pesdk_sticker_title_name">Eranskailua</string>
+    <string name="pesdk_sticker_title_color">Eranskailuaren kolorea</string>
+    <string name="pesdk_sticker_title_options">Eranskailu-aukerakSticker Options</string>
+    <string name="pesdk_sticker_button_add">Gehitu</string>
+    <string name="pesdk_sticker_button_color">Kolorea</string>
+    <string name="pesdk_sticker_button_delete">Ezabatu</string>
+    <string name="pesdk_sticker_button_bringToFront">Aurrera</string>
+    <string name="pesdk_sticker_button_straighten">Zuzendu</string>
+    <string name="pesdk_sticker_button_replace">Ordeztu</string>
+    <string name="pesdk_sticker_button_opacity">Opakutasuna</string>
+    <string name="pesdk_sticker_button_contrast">Kontrastea</string>
+    <string name="pesdk_sticker_button_saturation">Saturazioa</string>
+    <string name="pesdk_sticker_button_brightness">Distira</string>
+    <string name="pesdk_sticker_category_name_custom">Igotakoak</string>
+    <string name="pesdk_overlay_title_name">Gainjarri</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normala</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Ilundu</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Pantaila</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Gainjarri</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Argitu</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Biderkatu</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Kolore erreta</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Argi leuna</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Argi gogorra</string>
+    <string name="pesdk_overlay_asset_none">Bat ere ez</string>
+    <string name="pesdk_overlay_asset_golden">Urrea</string>
+    <string name="pesdk_overlay_asset_lightleak1">Argi-filtrazioa 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaikoa</string>
+    <string name="pesdk_overlay_asset_paper">Papera</string>
+    <string name="pesdk_overlay_asset_rain">Euria</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
+    <string name="pesdk_common_button_flipH">Biratu H</string>
+    <string name="pesdk_common_button_flipV">Biratu B</string>
+    <string name="pesdk_common_button_undo">Desegin</string>
+    <string name="pesdk_common_button_redo">Berregin</string>
+    <string name="pesdk_common_title_colorPicker">Kolore-hautatzailea</string>
+    <string name="pesdk_common_title_transparentColor">Gardena</string>
+    <string name="pesdk_common_title_whiteColor">Zuria</string>
+    <string name="pesdk_common_title_grayColor">Grisa</string>
+    <string name="pesdk_common_title_blackColor">Beltza</string>
+    <string name="pesdk_common_title_lightBlueColor">Urdin argia</string>
+    <string name="pesdk_common_title_blueColor">Urdina</string>
+    <string name="pesdk_common_title_purpleColor">Morea</string>
+    <string name="pesdk_common_title_orchidColor">Orkidea</string>
+    <string name="pesdk_common_title_pinkColor">Arrosa</string>
+    <string name="pesdk_common_title_redColor">Gorria</string>
+    <string name="pesdk_common_title_orangeColor">Laranja</string>
+    <string name="pesdk_common_title_goldColor">Urrea</string>
+    <string name="pesdk_common_title_yellowColor">Horia</string>
+    <string name="pesdk_common_title_oliveColor">Oliba</string>
+    <string name="pesdk_common_title_greenColor">Berdea</string>
+    <string name="pesdk_common_title_aquamarinColor">Akuamarinoa</string>
+    <string name="pesdk_common_title_pipettableColor">Hautatu kolorea (pipeta)</string>
+    <string name="vesdk_video_trim_title_name">Moztu</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
+        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_4_title">How can I fast forward videos?</string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items.  What can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A premium app for managing and editing your photos, videos, GIFs without ads</string>
+    <string name="app_long_description">
+        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+
+        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
+
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
+
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Ikusi Simple Tools-en sorta osoa hemen:</b>
+        https://www.simplemobiletools.com
+
+        <b>Simple Gallery Pro-ren webgune autonomoa:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

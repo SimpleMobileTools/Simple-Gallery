@@ -1,0 +1,2 @@
+ * Fixed a bug with some folders not being recognized
+ * Improved thumbnail loading performance in some cases

@@ -1,0 +1,3 @@
+ * Allow easily clearing the app cache from the app settings
+ * Allow customizing the spacing between file thumbnails, or using rounded corners
+ * Many other performance, UI, UX, translation and stability improvements

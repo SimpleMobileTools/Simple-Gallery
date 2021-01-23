@@ -3,22 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/save"
-        android:icon="@drawable/ic_check"
+        android:icon="@drawable/ic_check_vector"
         android:title="@string/save"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/portrait_aspect_ratio"
-        android:icon="@drawable/ic_minimize"
-        android:title="@string/portrait_aspect_ratio"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/landscape_aspect_ratio"
-        android:icon="@drawable/ic_maximize"
-        android:title="@string/landscape_aspect_ratio"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/rotate"
-        android:icon="@drawable/ic_rotate_right"
-        android:title="@string/rotate"
         app:showAsAction="ifRoom"/>
 </menu>

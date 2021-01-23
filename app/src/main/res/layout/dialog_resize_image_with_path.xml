@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/resize_image_with_path_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_width_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/width"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_width"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_width_label"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_height_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_toEndOf="@+id/image_width_label"
+        android:text="@string/height"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_height"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_width_label"
+        android:layout_alignStart="@+id/image_height_label"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_path_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_height"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:text="@string/path"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_path_label"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingEnd="@dimen/small_margin"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_path"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:singleLine="true"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_extension_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_name"
+        android:text="@string/extension"
+        android:textSize="@dimen/normal_text_size" />
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_extension"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_extension_label"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:singleLine="true"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size" />
+
+</RelativeLayout>

@@ -1,0 +1,2 @@
+ * Fixing some glitches with hidden folders not being shown when appropriate
+ * Added some stability and translation improvements

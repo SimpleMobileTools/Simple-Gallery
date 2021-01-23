@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/resize_image_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_width_label"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/width"/>
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_width"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_width_label"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/image_height_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_toEndOf="@+id/image_width_label"
+        android:text="@string/height"/>
+
+    <com.simplemobiletools.commons.views.MyEditText
+        android:id="@+id/image_height"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_width_label"
+        android:layout_alignStart="@+id/image_height_label"
+        android:inputType="number"
+        android:maxLength="6"
+        android:maxLines="1"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/normal_text_size"/>
+
+    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        android:id="@+id/keep_aspect_ratio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_height"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:checked="true"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        android:text="@string/keep_aspect_ratio"/>
+
+</RelativeLayout>
