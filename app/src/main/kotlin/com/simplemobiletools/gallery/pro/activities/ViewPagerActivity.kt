@@ -85,6 +85,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mFavoritePaths = ArrayList<String>()
     private var mIgnoredPaths = ArrayList<String>()
 
+    private var mIsSlideShowSelectedMediaFiles = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
@@ -94,6 +96,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
+        mIsSlideShowSelectedMediaFiles = intent.getBooleanExtra(SHOW_SELECTED_MEDIA_FILES, false)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -578,9 +581,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        mSlideshowMedia = mMediaFiles.filter {
-            it.isImage() || it.isPortrait() || (config.slideshowIncludeVideos && it.isVideo() || (config.slideshowIncludeGIFs && it.isGIF()))
-        }.toMutableList()
+        mSlideshowMedia = if (mIsSlideShowSelectedMediaFiles)
+            MediaActivity.mSelectedMedia
+        else {
+            mMediaFiles.filter {
+                it.isImage() || it.isPortrait() || (config.slideshowIncludeVideos && it.isVideo() || (config.slideshowIncludeGIFs && it.isGIF()))
+            }.toMutableList()
+        }
 
         if (config.slideshowRandomOrder) {
             mSlideshowMedia.shuffle()

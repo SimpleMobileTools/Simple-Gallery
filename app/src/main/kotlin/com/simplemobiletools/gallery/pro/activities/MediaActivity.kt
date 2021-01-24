@@ -82,6 +82,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
+        var mSelectedMedia = ArrayList<Medium>()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -411,7 +412,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                mAllowPickingMultiple, mPath, media_grid, fastscroller) {
+                mAllowPickingMultiple, mPath, media_grid, fastscroller, shouldSkipAuthentication()) {
                 if (it is Medium && !isFinishing) {
                     itemClicked(it.path)
                 }

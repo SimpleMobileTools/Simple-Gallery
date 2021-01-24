@@ -101,4 +101,9 @@
         android:icon="@drawable/ic_select_all_vector"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_slideshow"
+        android:icon="@drawable/ic_slideshow_vector"
+        android:title="@string/slideshow"
+        app:showAsAction="ifRoom"/>
 </menu>

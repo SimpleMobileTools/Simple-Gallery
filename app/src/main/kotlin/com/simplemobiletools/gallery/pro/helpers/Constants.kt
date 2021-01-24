@@ -101,6 +101,7 @@ const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SLIDE_DURATION = 500L
 const val SLIDESHOW_FADE_DURATION = 1500L
 const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
+const val SHOW_SELECTED_MEDIA_FILES = "show_selected_media_files"
 
 // slideshow animations
 const val SLIDESHOW_ANIMATION_NONE = 0

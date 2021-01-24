@@ -23,6 +23,7 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -36,7 +37,7 @@ import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+                   val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, val isShouldSkipAuthentication : Boolean = false, itemClick: (Any) -> Unit, ) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
@@ -159,6 +160,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
             R.id.cab_fix_date_taken -> fixDateTaken()
             R.id.cab_set_as -> setAs()
             R.id.cab_delete -> checkDeleteConfirmation()
+            R.id.cab_slideshow -> startSlideShow()
         }
     }
 
@@ -442,6 +444,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
             listener?.updateMediaGridDecoration(media)
             removeSelectedItems(positions)
             currentMediaHash = media.hashCode()
+        }
+    }
+
+    private fun startSlideShow(){
+        MediaActivity.mSelectedMedia = getSelectedItems()
+        if (getSelectedItems().isNotEmpty()) {
+            Intent(activity, ViewPagerActivity::class.java).apply {
+                val item = getSelectedItems().firstOrNull { it is Medium } as? Medium ?: return
+                putExtra(SKIP_AUTHENTICATION, isShouldSkipAuthentication)
+                putExtra(PATH, item.path)
+                putExtra(SHOW_SELECTED_MEDIA_FILES, true)
+                putExtra(SLIDESHOW_START_ON_ENTER, true)
+                activity.startActivity(this)
+            }
         }
     }
 
