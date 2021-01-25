@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="remember_last_video_position">Zapamätať si pozíciu posledného prehraného videa</string>
-    <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>

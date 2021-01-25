@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="remember_last_video_position">Запоминать позицию воспроизведения последнего видео</string>
-    <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Зациклить видео</string>
     <string name="animate_gifs">Анимировать миниатюры GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>

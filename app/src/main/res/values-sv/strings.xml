@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Spela upp videor automatiskt</string>
     <string name="remember_last_video_position">Kom ihåg senaste videouppspelningsposition</string>
-    <string name="toggle_filename">Visa/dölj filnamn</string>
     <string name="loop_videos">Spela upp videor om och om igen</string>
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas i helskärmsläge</string>

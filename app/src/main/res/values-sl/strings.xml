@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
     <string name="remember_last_video_position">Zapomni si zadnji položaj predvajanja</string>
-    <string name="toggle_filename">Preklopi vidljivost imen datotek</string>
     <string name="loop_videos">Ponavljaj videoposnetke</string>
     <string name="animate_gifs">Animiraj GIFe v predogledu</string>
     <string name="max_brightness">Najvišja svetlost pri celozaslonskem predvajanju</string>

@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Пуштај видео снимке аутоматски</string>
     <string name="remember_last_video_position">Запамти позицију задње пуштаног видеа</string>
-    <string name="toggle_filename">Измени видљивост датотеке</string>
     <string name="loop_videos">Пуштај видео снимке у недоглед</string>
     <string name="animate_gifs">Анимирај ГИФове на сличицама</string>
     <string name="max_brightness">Максимално осветљење када се пушта медиј преко целог екрана</string>

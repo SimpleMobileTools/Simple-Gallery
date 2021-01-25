@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Automatikus videó lejátszás</string>
     <string name="remember_last_video_position">Emlékezzen a videó utolsó lejátszási pozícióra</string>
-    <string name="toggle_filename">Fájlnév láthatóság módosítása</string>
     <string name="loop_videos">Videók ismétlése</string>
     <string name="animate_gifs">Animált GIF miniatűr</string>
     <string name="max_brightness">Maximális fényerő a teljes képernyős médiánál</string>

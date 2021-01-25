@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Erreproduzitu bideoak automatikoki</string>
     <string name="remember_last_video_position">Gogoratu azken bideoaren erreprodukzio-posizioa</string>
-    <string name="toggle_filename">Aldatu fitxategi-izenaren ikusgaitasuna</string>
     <string name="loop_videos">Errepikatu bideoak</string>
     <string name="animate_gifs">Animatu GIFak iruditxoetan</string>
     <string name="max_brightness">Gehienezko distira multimedia pantaila osoan ikustean</string>

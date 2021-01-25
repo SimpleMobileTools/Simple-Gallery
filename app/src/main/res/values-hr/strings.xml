@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="remember_last_video_position">Zapamti poziciju zadnjeg reproduciranog videozapisa</string>
-    <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>
     <string name="animate_gifs">Prikaz animacije GIF-ova na sličicama</string>
     <string name="max_brightness">Maksimalna svjetlina pri pregledu datoteka</string>

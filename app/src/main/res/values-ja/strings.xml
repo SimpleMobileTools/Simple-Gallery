@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生</string>
     <string name="remember_last_video_position">動画の最後の再生位置を記憶する</string>
-    <string name="toggle_filename">ファイル名の表示を切り替え</string>
     <string name="loop_videos">ビデオを繰り返し再生</string>
     <string name="animate_gifs">アニメーションGIFを動かす</string>
     <string name="max_brightness">再生時には明るさを最大にする</string>

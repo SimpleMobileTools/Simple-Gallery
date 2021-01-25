@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Přehrávat videa automaticky</string>
     <string name="remember_last_video_position">Zapamatovat pozici posledního přehraného videa</string>
-    <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Maximální jas obrazovky při zobrazení médií</string>

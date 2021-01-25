@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Afspil automatisk videoer</string>
     <string name="remember_last_video_position">Husk sidste position ved videoafspilning</string>
-    <string name="toggle_filename">Skift filnavnets synlighed</string>
     <string name="loop_videos">Kør videoer i sløjfe</string>
     <string name="animate_gifs">Animer GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>

@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Putar video secara otomatis</string>
     <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>
-    <string name="toggle_filename">Ubah visibilitas nama berkas</string>
     <string name="loop_videos">Video berulang</string>
     <string name="animate_gifs">Animasi GIF di thumbnail</string>
     <string name="max_brightness">Kecerahan maksimum saat melihat di layar penuh</string>

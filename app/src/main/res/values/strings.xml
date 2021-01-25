@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="remember_last_video_position">Remember last video playback position</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
     <string name="loop_videos">Loop videos</string>
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing fullscreen media</string>

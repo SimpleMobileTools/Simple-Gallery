@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Відтворювати відео автоматично</string>
     <string name="remember_last_video_position">Запам\'ятовувати місце зупинки перегляду</string>
-    <string name="toggle_filename">Перемкнути відображення імені файлу</string>
     <string name="loop_videos">Зациклити відео</string>
     <string name="animate_gifs">Анімувати ескізи GIF-файлів</string>
     <string name="max_brightness">Максимальна яскравість екрана при повноекранному перегляді медіафайлу</string>

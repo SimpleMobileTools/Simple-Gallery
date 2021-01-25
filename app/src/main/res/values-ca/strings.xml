@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
-    <string name="toggle_filename">Canviar la visibilitat del nom d’arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>

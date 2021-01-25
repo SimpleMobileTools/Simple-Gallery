@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">동영상 자동재생</string>
     <string name="remember_last_video_position">마지막 재생 위치 기억</string>
-    <string name="toggle_filename">파일 이름 보기</string>
     <string name="loop_videos">동영상 반복</string>
     <string name="animate_gifs">섬네일에서 GIF 애니메이션 활성화</string>
     <string name="max_brightness">전체화면 시 최대 밝기로 보기</string>

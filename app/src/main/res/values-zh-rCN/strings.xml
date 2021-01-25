@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">自动播放视频</string>
     <string name="remember_last_video_position">记住上次视频播放位置</string>
-    <string name="toggle_filename">显示文件名</string>
     <string name="loop_videos">循环播放视频</string>
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">全屏时最高亮度</string>

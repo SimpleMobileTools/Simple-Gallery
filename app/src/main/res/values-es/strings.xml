@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="remember_last_video_position">Recordar la última posición en la reproducción de video</string>
-    <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
     <string name="loop_videos">Reproducir videos en bucle</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
     <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>

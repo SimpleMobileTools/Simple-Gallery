@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
-    <string name="toggle_filename">Permuter l\'affichage des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
     <string name="animate_gifs">Animer les miniatures des GIF</string>
     <string name="max_brightness">Luminosité maximale</string>
