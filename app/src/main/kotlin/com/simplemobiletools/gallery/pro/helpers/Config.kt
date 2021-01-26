@@ -269,7 +269,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
     var allowPhotoGestures: Boolean
-        get() = prefs.getBoolean(ALLOW_PHOTO_GESTURES, true)
+        get() = prefs.getBoolean(ALLOW_PHOTO_GESTURES, false)
         set(allowPhotoGestures) = prefs.edit().putBoolean(ALLOW_PHOTO_GESTURES, allowPhotoGestures).apply()
 
     var allowVideoGestures: Boolean
