@@ -28,7 +28,7 @@
     <string name="dates_fixed_successfully">Päivämäärät korjattu</string>
     <string name="no_date_takens_found">Kuvanottopäivämääriä ei löytynyt</string>
     <string name="share_resized">Jaa versio, jonka kokoa on muutettu</string>
-    <string name="upgraded_from_free">Hei,\n\näyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on 'Päivitä Pro-versioon'-painike sovellusasetusten yläosassa.\n\nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. sinun täytyy myös nollata sovellusasetukset.\n\nKiitos!</string>
+    <string name="upgraded_from_free">Hei,\n\näyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.\n\nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. sinun täytyy myös nollata sovellusasetukset.\n\nKiitos!</string>
     <string name="switch_to_file_search">Vaihda tiedostohakuun kaikissa näkyvillä olevissa kansioissa</string>
     <string name="set_as_default_folder">Aseta oletushakemistoksi</string>
     <string name="unset_as_default_folder">Älä käytä oletushakemistona</string>
@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Toista videot automaattisesti</string>
     <string name="remember_last_video_position">Muista toistokohta</string>
-    <string name="toggle_filename">Tiedostonimien näkyvyys</string>
     <string name="loop_videos">Jatkuvat videot</string>
     <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>
     <string name="max_brightness">Täysi kirkkaus mediaa katsoessa</string>
@@ -354,6 +353,7 @@
     <string name="faq_13_text">Nykyinen ratkaisu kuvien näyttämiseen toimii valtaosassa tapauksia hyvin, mutta jos haluat vielä paremman laadun, voit ottaa asetuksissa käyttöön \"Näytä kuvat korkeimmalla mahdollisella laadulla\", joka on \"Syväzoomattavat kuvat\" osiossa.</string>
     <string name="faq_14_title">Olen piilottanut tiedoston/kansion. Miten saan sen näkyviin?</string>
     <string name="faq_14_text">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella.</string>
+    <string name="faq_14_text_extended">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
     <string name="faq_15_text">Välimuisti voi viedä jopa 250MB; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
 
