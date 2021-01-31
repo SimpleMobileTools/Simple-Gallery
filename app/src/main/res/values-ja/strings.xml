@@ -51,7 +51,7 @@
     <string name="manage_excluded_folders">除外フォルダの管理</string>
     <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、シンプルギャラリーの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
     <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
-    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。  他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
+    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。\n\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
     <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
     <string name="hidden_folders">非表示フォルダ</string>
