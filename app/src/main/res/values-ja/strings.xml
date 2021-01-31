@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">シンプル ギャラリー</string>
+    <string name="app_name">シンプルギャラリー</string>
     <string name="app_launcher_name">ギャラリー</string>
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
@@ -49,9 +49,9 @@
     <string name="exclude">除外する</string>
     <string name="excluded_folders">除外フォルダ</string>
     <string name="manage_excluded_folders">除外フォルダの管理</string>
-    <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、Simple Galleyの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
+    <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、シンプルギャラリーの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
     <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
-    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\n\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
+    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。  他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
     <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
     <string name="hidden_folders">非表示フォルダ</string>
@@ -326,9 +326,9 @@
     <string name="vesdk_video_trim_title_name">トリム</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">どうすればSimpleギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
+    <string name="faq_1_title">どうすればシンプルギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
     <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。
-        次に画像や動画を開こうとした時に、アプリ選択が表示されるのでSimpleギャラリーを通常のアプリとして選択します。</string>
+        次に画像や動画を開こうとした時に、アプリ選択が表示されるのでシンプルギャラリーを通常のアプリとして選択します。</string>
     <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
     <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて\"データを消去\"を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
     <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
@@ -336,7 +336,7 @@
     <string name="faq_4_title">動画を早送りするにはどうすればよいですか？</string>
     <string name="faq_4_text">画面の横をダブルタップするか、検索バーの近くにある現在もしくは最大数のテキストをタップすれば可能です。別画面動画を開くことをアプリ設定で有効にしている場合、左右ジェスチャーも使用できます。</string>
     <string name="faq_5_title">フォルダの非表示と除外の違いは何ですか？</string>
-    <string name="faq_5_text">除外はSimpleギャラリーでのみフォルダを非表示にし、非表示はシステム上で動作するので他のギャラリーからもフォルダを非表示にします。指定されたフォルダに空の\".nomedia\"ファイルを作成することにより動作し、任意のファイルマネージャーで削除することも出来ます。一部のデバイスでは、カメラ、スクリーンショット、ダウンロードのようなフォルダを非表示に出来ないことはご留意ください。</string>
+    <string name="faq_5_text">除外はシンプルギャラリーでのみフォルダを非表示にし、非表示はシステム上で動作するので他のギャラリーからもフォルダを非表示にします。指定されたフォルダに空の\".nomedia\"ファイルを作成することにより動作し、任意のファイルマネージャーで削除することも出来ます。一部のデバイスでは、カメラ、スクリーンショット、ダウンロードのようなフォルダを非表示に出来ないことはご留意ください。</string>
     <string name="faq_6_title">音楽のカバーアートやステッカーのフォルダが表示されるのはなぜですか？</string>
     <string name="faq_6_text">通常ではないアルバムが表示されることがあります。長押しして除外を選択することで簡単に除くことができます。次のダイアログで親フォルダを選択すると、他の関連アルバムも表示されなくなります。</string>
     <string name="faq_7_title">画像フォルダが表示されなかったり、全てのアイテムが表示されなかったりします。どうしたらいいですか？</string>
@@ -360,7 +360,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">シンプルギャラリープロ-写真とビデオの管理と編集</string>
+    <string name="app_title">シンプルギャラリー プロ - 写真とビデオの管理と編集</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">お気に入りのフォトアルバム。スマートギャラリーで写真の切り取りや編集。</string>
     <string name="app_long_description">
@@ -419,10 +419,10 @@
 
         広告や不要な権限はありません。 完全にオープンソースで、カラーもカスタマイズ可能。
 
-        <b>シンプルツールの完全なリストはこちらからご確認ください：</b>
+        <b>Simple Mobile Tools の完全なリストはこちらからご確認ください：</b>
          https://www.simplemobiletools.com
 
-        <b>シンプルギャラリープロのwebサイト：</b>
+        <b>シンプルギャラリー プロのwebサイト：</b>
          https://www.simplemobiletools.com/gallery
 
         <b> Facebook：</b>
