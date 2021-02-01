@@ -45,13 +45,13 @@
     <string name="change_filters_underlined"><u>Muuta suotimia</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Continue?</string>
+    <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Jatketaanko?</string>
     <string name="exclude">Poissulje</string>
     <string name="excluded_folders">Poissuljetut kansiot</string>
     <string name="manage_excluded_folders">Hallitse poissuljettuja kansioita</string>
     <string name="exclude_folder_description">Tämä poissulkee valitun ja alikansiot vain Simple Gallerysta. Voit hallinnoida poissuljettuja kansioita asetuksista.</string>
     <string name="exclude_folder_parent">Poissulje yläkansio tämän sijaan?</string>
-    <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-funktiota.</string>
+    <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-toimintoa.</string>
     <string name="remove_all">Poista kaikki</string>
     <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
     <string name="hidden_folders">Piilotetut kansiot</string>
@@ -62,7 +62,7 @@
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
     <string name="add_folder">Lisää kansio</string>
-    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
+    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut niitä, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
     <string name="no_media_add_included">Mediatiedostoja ei löytynyt. Lisää mediatiedostoja sisältävät kansiot manuaalisesti.</string>
 
     <!-- Resizing -->
@@ -91,12 +91,12 @@
     <string name="no_video_editor_found">Videoeditoria ei löytynyt</string>
     <string name="unknown_file_location">Tuntematon tiedostosijainti</string>
     <string name="error_saving_file">Lähdetiedoston ylikirjoitus epäonnistui</string>
-    <string name="rotate_left">Käännä vasemmalle</string>
-    <string name="rotate_right">Käännä oikealle</string>
-    <string name="rotate_one_eighty">Käännä 180º</string>
-    <string name="flip">Pyöräytä</string>
-    <string name="flip_horizontally">Pyöräytä vaakasuoraan</string>
-    <string name="flip_vertically">Pyöräytä pystysuoraan</string>
+    <string name="rotate_left">Kierrä vasemmalle</string>
+    <string name="rotate_right">Kierrä oikealle</string>
+    <string name="rotate_one_eighty">Kierrä 180º</string>
+    <string name="flip">Käännä</string>
+    <string name="flip_horizontally">Käännä vaakasuoraan</string>
+    <string name="flip_vertically">Käännä pystysuoraan</string>
     <string name="free_aspect_ratio">Vapaa</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Muu</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -198,7 +198,7 @@
     <string name="show_file_count_brackets">Näytä tiedostojen lukumäärä suluissa</string>
     <string name="show_file_count_none">Älä näytä tiedostojen lukumäärää</string>
     <string name="limit_folder_title">Rajoita pitkät kansioiden nimet yhdelle riville</string>
-    <string name="square">Neliö</string>
+    <string name="square">Suorakulmio</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
 
     <!-- Setting sections -->
@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_text_title_name">Teksti</string>
     <string name="pesdk_text_title_options">Tekstiasetukset</string>
-    <string name="pesdk_text_title_textColor">Tekstin värir</string>
+    <string name="pesdk_text_title_textColor">Tekstin väri</string>
     <string name="pesdk_text_title_font">Fontti</string>
     <string name="pesdk_text_button_add">Lisää</string>
     <string name="pesdk_text_button_edit">Muokkaa</string>
@@ -328,7 +328,7 @@
     <!-- FAQ -->
     <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen?</string>
     <string name="faq_1_text">Etsi ensin laitteen asetuksista oletusgalleriasovellus, valitse sen asetuksista \"Avaa oletuksena\" ja valitse \"Poista oletukset\". Seuraavalla kerralla kun avaat kuvan tai videon, pyydetään valitsemaan uusi oletussovellus.</string>
-    <string name="faq_2_title">Lukitsin sovelluksen salasalalla, jonka unohdin. Mitä voin tehdä?</string>
+    <string name="faq_2_title">Lukitsin sovelluksen salasanalla, jonka unohdin. Mitä voin tehdä?</string>
     <string name="faq_2_text">Tähän on kaksi ratkaisua. Voit joko asentaa sovelluksen uudelleen tai etsiä sovelluksen laitteen asetuksista ja tyhjentää sovelluksen tiedot. Sovelluksen asetukset nollautuvat, mutta mediatiedostoja ei poisteta.</string>
     <string name="faq_3_title">Kuinka saan albumin näkymään aina ylhäällä?</string>
     <string name="faq_3_text">Paina pitkään haluamaasi albumia ja valitse Kiinnitä toimintovalikosta. Voit kiinnittää useita kansiota, kiinnitetyt kansiot järjestetään oletuksena olevalla järjestystavalla.</string>
@@ -353,9 +353,9 @@
     <string name="faq_13_text">Nykyinen ratkaisu kuvien näyttämiseen toimii valtaosassa tapauksia hyvin, mutta jos haluat vielä paremman laadun, voit ottaa asetuksissa käyttöön \"Näytä kuvat korkeimmalla mahdollisella laadulla\", joka on \"Syväzoomattavat kuvat\" osiossa.</string>
     <string name="faq_14_title">Olen piilottanut tiedoston/kansion. Miten saan sen näkyviin?</string>
     <string name="faq_14_text">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella.</string>
-    <string name="faq_14_text_extended">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text_extended">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Huomaa, että piilottaminen toimii kuitenkin rekursiivisesti, joten jos piilotat kansion, myös kaikki alikansiot piilotetaan. Joten alikansioiden piilottamiseksi sinun on otettava yläkansion piilotus pois käytöstä.</string>
     <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
-    <string name="faq_15_text">Välimuisti voi viedä jopa 250MB; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
+    <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
