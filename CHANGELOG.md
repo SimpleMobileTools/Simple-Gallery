@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.19.1 *(2021-01-26)*
+----------------------------
+
+ * Disable brightness setting with gestures at fullscreen view, allow toggling it
+ * Fix deleting files from the Camera, Downloads and Screenshots folder on some devices
+ * Some other translation and UX improvements
+
 Version 6.19.0 *(2021-01-21)*
 ----------------------------
 

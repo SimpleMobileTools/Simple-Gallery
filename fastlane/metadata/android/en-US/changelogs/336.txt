@@ -1,0 +1,3 @@
+ * Disable brightness setting with gestures at fullscreen view, allow toggling it
+ * Fix deleting files from the Camera, Downloads and Screenshots folder on some devices
+ * Some other translation and UX improvements

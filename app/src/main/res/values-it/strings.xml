@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci automaticamente i video</string>
     <string name="remember_last_video_position">Ricorda l\'ultimo stato di riproduzione dei video</string>
-    <string name="toggle_filename">Visibilità nome del file</string>
     <string name="loop_videos">Ripeti i video</string>
     <string name="animate_gifs">Anima le GIF in miniatura</string>
     <string name="max_brightness">Luminosità max durante la visualizzazione</string>
@@ -355,6 +354,7 @@
     <string name="faq_13_text">L\'attuale soluzione per visualizzare immagini funziona bene nella maggior parte dei casi, ma se si vuole una qualità ancora maggiore, si può attivare \"Mostra le immagini alla massima qualità possibile\" nelle impostazioni dell\'app, nella sezione \"Immagini ingrandibili a fondo\".</string>
     <string name="faq_14_title">Ho nascosto un file/una cartella. Come posso mostrarlo/a di nuovo?</string>
     <string name="faq_14_text">Si può premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Per farla rimanere visibile, premere a lungo e selezionare \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, si può eliminare il file con qualsiasi gestore di file.</string>
+    <string name="faq_14_text_extended">Si può premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Per farla rimanere visibile, premere a lungo e selezionare \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, si può eliminare il file con qualsiasi gestore di file. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Perchè l\'app occupa così tanto spazio?</string>
     <string name="faq_15_text">La cache dell\'app può occupare massimo 250MB, serve per veloccizare il caricamento delle immagini. Se l\'app sta prendendo sempre più spazio, molto probabilmente è causato dagli elementi nel Cestino. Questi file contano nella dimensione dell\'app. Puoi svuotare il Cestino aprendolo ed eliminando tutti i file, oppure andando nelle impostazioni dell\'app. Ogni file nel Cestino viene eliminato automaticamente dopo 30 giorni.</string>
 

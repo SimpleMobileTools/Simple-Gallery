@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
     <string name="remember_last_video_position">Pamiętaj ostatni moment odtwarzania filmów</string>
-    <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
     <string name="animate_gifs">Animowane miniatury GIFów</string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>
@@ -353,6 +352,7 @@
     <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości w przypadków. Jeśli jednak tak nie jest, pomocna może okazać się opcja \'Pokazuj obrazy w najwyższej możliwej jakości\' w sekcji \'Duże powiększanie obrazów\'.</string>
     <string name="faq_14_title">Mam ukryte pliki i / lub foldery. Jak mogę zobaczyć?</string>
     <string name="faq_14_text">Możesz to zrobić albo wybierając opcję \'Tymczasowo pokaż ukryte multimedia\' w menu na ekranie głównym, lub \'Pokazuj ukryte elementy\' w ustawieniach. Foldery są ukrywane poprzez dodanie do nich pustego, ukrytego pliku \'.nomedia\'. Usunąć go możesz dowolnym menedżerem plików.</string>
+    <string name="faq_14_text_extended">Możesz to zrobić albo wybierając opcję \'Tymczasowo pokaż ukryte multimedia\' w menu na ekranie głównym, lub \'Pokazuj ukryte elementy\' w ustawieniach. Foldery są ukrywane poprzez dodanie do nich pustego, ukrytego pliku \'.nomedia\'. Usunąć go możesz dowolnym menedżerem plików. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250MB, zapewniając szybsze ładowanie obrazów. Aplikacja może zajmować więcej miejsca przez elementy w Koszu, które doliczane są do rozmiaru aplikacji. Wyczyść Kosz przez otwarcie go i usunięcie wszystkich elementów, lub z poziomu ustawień aplikacji. Każdy plik w Koszu jest też automatycznie usuwany po 30 dniach.</string>
 

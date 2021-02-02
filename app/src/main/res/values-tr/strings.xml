@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Videoları otomatik oynat</string>
     <string name="remember_last_video_position">Son video oynatma konumunu hatırla</string>
-    <string name="toggle_filename">Dosya adı görünürlüğünü aç/kapat</string>
     <string name="loop_videos">Videoları tekrarla</string>
     <string name="animate_gifs">Küçük resimlerdeki GIF\'leri hareketlendir</string>
     <string name="max_brightness">Tam ekran medya görüntülerken maksimum parlaklık</string>
@@ -193,7 +192,7 @@
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
     <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
     <string name="folder_thumbnail_style">Klasör küçük resim stili</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="file_thumbnail_style">Dosya küçük resim stili</string>
     <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Dosya sayısını ayrı bir satırda göster</string>
     <string name="show_file_count_brackets">Dosya sayısını parantez içinde göster</string>
@@ -355,6 +354,7 @@
     <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
     <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz.</string>
+    <string name="faq_14_text_extended">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
 

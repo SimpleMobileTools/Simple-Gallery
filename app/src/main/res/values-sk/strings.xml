@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="remember_last_video_position">Zapamätať si pozíciu posledného prehraného videa</string>
-    <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
@@ -355,6 +354,7 @@
     <string name="faq_13_text">Súčasné riešenie funguje správne v drvivej väčšine prípadov, ak ale chcete zobraziť obrázky v lepšej kvalite, môžete povoliť možnosť \"Zobraziť obrázky v najlepšej možnej kvalite\" v nastaveniach aplikácie, v sekcií \"Hlboko priblížiteľné obrázky\".</string>
     <string name="faq_14_title">Skryl som súbor/priečinok, ako ho viem odkryť?</string>
     <string name="faq_14_text">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov.</string>
+    <string name="faq_14_text_extended">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov. Poznamenávame, že ukrývanie priečinkov funguje rekurzívne, čiže ak jeden ukryjete, ukryté budú aj jeho podpriečinky. Čiže ak chcete odkryť nejaký podpriečinok, musíte odkryť jeho nadradené priečinky.</string>
     <string name="faq_15_title">Prečo apka zaberá toľko miesta?</string>
     <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
 

@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
-    <string name="toggle_filename">Canviar la visibilitat del nom d’arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>
@@ -355,6 +354,7 @@
     <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una millor qualitat d\'imatge, podeu activar \"Mostra les imatges amb la màxima qualitat possible\" a la configuració de l’aplicació, a la secció \"Imatges ampliades a mida\".</string>
     <string name="faq_14_title">He amagat un fitxer / carpeta. Com puc mostrar-la?</string>
     <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers.</string>
+    <string name="faq_14_text_extended">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Per què l’aplicació ocupa molt d’espai?</string>
     <string name="faq_15_text">La memòria cau d’aplicacions pot ocupar fins a 250 MB, garanteix una càrrega de les imatges més ràpida. Si l’aplicació ocupa més espai, probablement sigui per tenir elements a la Paperera de reciclatge. Aquests fitxers compten a la mida de l’aplicació. Podeu esborrar la paperera de reciclatge obrint-la i suprimint tots els fitxers o des de la configuració de l’aplicació. Els fitxers de la paperera s’eliminen automàticament després de 30 dies.</string>
 

@@ -15,10 +15,6 @@
     <string name="other_folder">其他資料夾</string>
     <string name="show_on_map">在地圖上顯示</string>
     <string name="unknown_location">未知的位置</string>
-    <string name="increase_column_count">增加欄數</string>
-    <string name="reduce_column_count">減少欄數</string>
-    <string name="change_cover_image">更換封面圖片</string>
-    <string name="select_photo">選擇相片</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="lock_orientation">鎖定方向</string>
@@ -134,9 +130,6 @@
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
 
     <!-- View types -->
-    <string name="change_view_type">改變瀏覽類型</string>
-    <string name="grid">格狀</string>
-    <string name="list">列表</string>
     <string name="group_direct_subfolders">歸類子資料夾</string>
 
     <!-- Grouping at media thumbnails -->
@@ -160,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
     <string name="remember_last_video_position">記住影片上次播放位置</string>
-    <string name="toggle_filename">顯示檔案名稱</string>
     <string name="loop_videos">影片循環播放</string>
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
     <string name="max_brightness">瀏覽時最大亮度</string>
@@ -362,6 +354,7 @@
     <string name="faq_13_text">目前顯示圖片的處理方法，在大部分情況下都能正常運行。但如果你想要更好的圖片品質，你可以在程式設定中[可深度縮放的圖片]部分，啟用[以最高品質顯示圖片]。</string>
     <string name="faq_14_title">我隱藏了一個檔案/資料夾。我如何取消隱藏?</string>
     <string name="faq_14_text">你可以在主畫面的選單項按[暫時顯示隱藏的項目]，或者在程式設定中切換[顯示隱藏的項目]來看隱藏項目。如果你想要取消隱藏，只要長按然後選擇[取消隱藏]。以添加\".nomedia\"檔案進行隱藏的資料夾，你也可以用任何檔案管理器來刪除這檔案。</string>
+    <string name="faq_14_text_extended">你可以在主畫面的選單項按[暫時顯示隱藏的項目]，或者在程式設定中切換[顯示隱藏的項目]來看隱藏項目。如果你想要取消隱藏，只要長按然後選擇[取消隱藏]。以添加\".nomedia\"檔案進行隱藏的資料夾，你也可以用任何檔案管理器來刪除這檔案。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">為什麼這應用程式占用了這麼多空間?</string>
     <string name="faq_15_text">應用程式快取最多占用250MB，以確保更快的圖片讀取。如果這應用程式占用了多更多的空間，最有可能是因為你在垃圾桶內有東西。那些檔案也計入應用程式大小內。你可以開啟垃圾桶並刪除全部檔案，或者從應用程式設定來清除垃圾桶。垃圾桶內的每個檔案都會在30天後自動刪除。</string>
 
