@@ -97,7 +97,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         media_refresh_layout.setOnRefreshListener { getMedia() }
         try {
-            mPath = intent.getStringExtra(DIRECTORY)
+            mPath = intent.getStringExtra(DIRECTORY) ?: ""
         } catch (e: Exception) {
             showErrorToast(e)
             finish()
