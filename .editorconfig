@@ -17,7 +17,7 @@ insert_final_newline = true
 charset = utf-8
 indent_style = space
 indent_size = 4
-continuation_indent_size = 8
+continuation_indent_size = 4
 
 [*.xml]
 continuation_indent_size = 4
