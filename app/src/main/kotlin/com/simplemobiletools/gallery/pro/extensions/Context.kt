@@ -502,9 +502,13 @@ fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThu
     try {
         var builder = Picasso.get()
             .load(pathToLoad)
-            .centerCrop()
-            .fit()
             .stableKey(signature.toString())
+
+        builder = if (cropThumbnails) {
+            builder.centerCrop().fit()
+        } else {
+            builder.centerInside()
+        }
 
         if (roundCorners != ROUNDED_CORNERS_NONE) {
             val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
