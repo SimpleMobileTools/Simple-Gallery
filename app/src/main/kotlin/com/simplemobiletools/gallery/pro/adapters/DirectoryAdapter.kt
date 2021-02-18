@@ -677,7 +677,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             dir_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                dir_check.background?.applyColorFilter(primaryColor)
+                dir_check.background?.applyColorFilter(adjustedPrimaryColor)
+                dir_check.applyColorFilter(contrastColor)
             }
 
             if (isListViewType) {

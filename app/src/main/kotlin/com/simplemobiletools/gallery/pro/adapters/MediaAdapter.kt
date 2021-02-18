@@ -539,7 +539,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                medium_check?.background?.applyColorFilter(primaryColor)
+                medium_check?.background?.applyColorFilter(adjustedPrimaryColor)
+                medium_check.applyColorFilter(contrastColor)
             }
 
             if (isListViewType) {
