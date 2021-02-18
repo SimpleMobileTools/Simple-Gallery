@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
+import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
 import android.provider.MediaStore.Files
@@ -12,12 +13,16 @@ import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -30,6 +35,7 @@ import com.simplemobiletools.gallery.pro.interfaces.*
 import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
+import com.squareup.picasso.Picasso
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileInputStream
@@ -468,6 +474,16 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
         .asBitmap()
         .load(path)
         .apply(options)
+        .listener(object : RequestListener<Bitmap> {
+            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                tryLoadingWithPicasso(path, target, signature)
+                return false
+            }
+
+            override fun onResourceReady(resource: Bitmap?, model: Any?, targetBitmap: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                return false
+            }
+        })
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
         val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
@@ -476,6 +492,22 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
     }
 
     builder.into(target)
+}
+
+// intended mostly for Android 11 issues, that fail loading PNG files bigger than 10 MB
+fun tryLoadingWithPicasso(path: String, view: MySquareImageView, signature: ObjectKey) {
+    var pathToLoad = "file://$path"
+    pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
+
+    try {
+        Picasso.get()
+            .load(pathToLoad)
+            .centerCrop()
+            .fit()
+            .stableKey(signature.toString())
+            .into(view)
+    } catch (e: Exception) {
+    }
 }
 
 fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
@@ -576,11 +608,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             getImagesOnly -> filteredDirectories.filter { it.types and TYPE_IMAGES != 0 }
             else -> filteredDirectories.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
+                    (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
             }
         }) as ArrayList<Directory>
 
@@ -654,11 +686,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
             else -> media.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
+                    (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
             }
         }) as ArrayList<Medium>
 
@@ -935,14 +967,14 @@ fun Context.updateDirectoryPath(path: String) {
     val sorting = config.getFolderSorting(path)
     val grouping = config.getFolderGrouping(path)
     val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
-            sorting and SORT_BY_DATE_TAKEN != 0 ||
-            grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
-            grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+        sorting and SORT_BY_DATE_TAKEN != 0 ||
+        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
 
     val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
-            sorting and SORT_BY_DATE_MODIFIED != 0 ||
-            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
-            grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+        sorting and SORT_BY_DATE_MODIFIED != 0 ||
+        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
 
