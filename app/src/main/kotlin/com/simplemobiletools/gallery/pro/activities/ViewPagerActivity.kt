@@ -272,7 +272,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             try {
-                mPath = intent.getStringExtra(PATH)
+                mPath = intent.getStringExtra(PATH) ?: ""
                 mShowAll = config.showAll
             } catch (e: Exception) {
                 showErrorToast(e)
