@@ -494,33 +494,6 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.into(target)
 }
 
-// intended mostly for Android 11 issues, that fail loading PNG files bigger than 10 MB
-fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey) {
-    var pathToLoad = "file://$path"
-    pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
-
-    try {
-        var builder = Picasso.get()
-            .load(pathToLoad)
-            .stableKey(signature.toString())
-
-        builder = if (cropThumbnails) {
-            builder.centerCrop().fit()
-        } else {
-            builder.centerInside()
-        }
-
-        if (roundCorners != ROUNDED_CORNERS_NONE) {
-            val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
-            val cornerRadius = resources.getDimension(cornerSize).toInt()
-            builder = builder.transform(RoundedCornersTransformation(cornerRadius.toFloat()))
-        }
-
-        builder.into(view)
-    } catch (e: Exception) {
-    }
-}
-
 fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
         .signature(signature)
@@ -583,6 +556,33 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
     }
 
     builder.into(target)
+}
+
+// intended mostly for Android 11 issues, that fail loading PNG files bigger than 10 MB
+fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey) {
+    var pathToLoad = "file://$path"
+    pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
+
+    try {
+        var builder = Picasso.get()
+            .load(pathToLoad)
+            .stableKey(signature.toString())
+
+        builder = if (cropThumbnails) {
+            builder.centerCrop().fit()
+        } else {
+            builder.centerInside()
+        }
+
+        if (roundCorners != ROUNDED_CORNERS_NONE) {
+            val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+            val cornerRadius = resources.getDimension(cornerSize).toInt()
+            builder = builder.transform(RoundedCornersTransformation(cornerRadius.toFloat()))
+        }
+
+        builder.into(view)
+    } catch (e: Exception) {
+    }
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
