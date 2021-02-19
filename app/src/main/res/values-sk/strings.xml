@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Obmedziť názvy dlhých priečinkov na 1 riadok</string>
     <string name="square">Štvorec</string>
     <string name="rounded_corners">Zaoblené rohy</string>
+    <string name="export_favorite_paths">Exportovať cesty obľúbených položiek</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

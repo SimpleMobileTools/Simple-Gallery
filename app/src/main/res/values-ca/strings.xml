@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Limiteu els títols de carpeta llarga a 1 línia</string>
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Cantonades arrodonides</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

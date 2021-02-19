@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Длинное название папки одной строкой</string>
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

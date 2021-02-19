@@ -200,6 +200,7 @@
     <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
     <string name="square">四角</string>
     <string name="rounded_corners">丸コーナー</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>

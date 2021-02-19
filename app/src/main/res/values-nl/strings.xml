@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Lange mapnamen tot 1 regel limiteren</string>
     <string name="square">Vierkant</string>
     <string name="rounded_corners">Afgeronde hoeken</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>

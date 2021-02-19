@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Uzun klasör başlıklarını 1 satırla sınırla</string>
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>

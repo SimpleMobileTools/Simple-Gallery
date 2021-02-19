@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Rajoita pitkät kansioiden nimet yhdelle riville</string>
     <string name="square">Suorakulmio</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>

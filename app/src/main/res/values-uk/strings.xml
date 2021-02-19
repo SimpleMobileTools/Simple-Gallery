@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Обмежити довгі назви тек одним рядком</string>
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>

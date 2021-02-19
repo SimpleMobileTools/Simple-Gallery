@@ -200,6 +200,7 @@
     <string name="limit_folder_title">将较长的文件夹标题字符限制为1行</string>
     <string name="square">方形</string>
     <string name="rounded_corners">圆角</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

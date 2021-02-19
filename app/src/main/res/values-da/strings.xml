@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Begræns lange mappenavne til 1 linje</string>
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>

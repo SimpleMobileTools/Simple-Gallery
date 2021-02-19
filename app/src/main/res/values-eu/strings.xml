@@ -200,6 +200,7 @@
     <string name="limit_folder_title">Mugatu karpeten izenburu luzeak lerro batera</string>
     <string name="square">Karratua</string>
     <string name="rounded_corners">Ertz biribilduak</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iruditxoak</string>
