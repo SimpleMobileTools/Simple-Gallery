@@ -77,7 +77,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredShowFileTypes = true
     private var mStoredRoundedCorners = false
     private var mStoredTextColor = 0
-    private var mStoredPrimaryColor = 0
+    private var mStoredAdjustedPrimaryColor = 0
     private var mStoredThumbnailSpacing = 0
 
     companion object {
@@ -150,10 +150,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
-        if (mStoredPrimaryColor != config.primaryColor) {
+        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
-            media_horizontal_fastscroller.updatePrimaryColor()
-            media_vertical_fastscroller.updatePrimaryColor()
+            media_horizontal_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
+            media_vertical_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
         }
 
         if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
@@ -310,11 +311,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredTextColor = textColor
-            mStoredPrimaryColor = primaryColor
             mStoredThumbnailSpacing = thumbnailSpacing
             mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
+        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

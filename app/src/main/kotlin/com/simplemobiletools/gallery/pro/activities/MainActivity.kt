@@ -84,7 +84,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredTextColor = 0
-    private var mStoredPrimaryColor = 0
+    private var mStoredAdjustedPrimaryColor = 0
     private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,7 +108,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent)
         mAllowPickingMultiple = intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
-                mIsGetAnyContentIntent || mIsSetWallpaperIntent
+            mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         storeStateVariables()
@@ -185,10 +185,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getRecyclerAdapter()?.updateTextColor(config.textColor)
         }
 
-        if (mStoredPrimaryColor != config.primaryColor) {
+        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
             getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
-            directories_vertical_fastscroller.updatePrimaryColor()
-            directories_horizontal_fastscroller.updatePrimaryColor()
+            directories_vertical_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
+            directories_horizontal_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
         }
 
         val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
@@ -201,8 +202,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
 
         directories_empty_placeholder.setTextColor(config.textColor)
-        directories_empty_placeholder_2.setTextColor(getAdjustedPrimaryColor())
-        directories_switch_searching.setTextColor(getAdjustedPrimaryColor())
+        directories_empty_placeholder_2.setTextColor(adjustedPrimaryColor)
+        directories_switch_searching.setTextColor(adjustedPrimaryColor)
         directories_switch_searching.underlineText()
 
         if (!mIsSearchOpen) {
@@ -337,9 +338,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredTextColor = textColor
-            mStoredPrimaryColor = primaryColor
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
+        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {
@@ -571,11 +572,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val files = File(it.path).listFiles()
             files?.filter {
                 it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
-                        ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                                (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                                (it.isGif() && filter and TYPE_GIFS != 0) ||
-                                (it.isRawFast() && filter and TYPE_RAWS != 0) ||
-                                (it.isSvg() && filter and TYPE_SVGS != 0))
+                    ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                        (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                        (it.isGif() && filter and TYPE_GIFS != 0) ||
+                        (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                        (it.isSvg() && filter and TYPE_SVGS != 0))
             }?.mapTo(itemsToDelete) { it.toFileDirItem(applicationContext) }
         }
 
@@ -776,20 +777,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun isGetContentIntent(intent: Intent) = intent.action == Intent.ACTION_GET_CONTENT && intent.type != null
 
     private fun isGetImageContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type!!.startsWith("image/") || intent.type == Images.Media.CONTENT_TYPE)
+        (intent.type!!.startsWith("image/") || intent.type == Images.Media.CONTENT_TYPE)
 
     private fun isGetVideoContentIntent(intent: Intent) = isGetContentIntent(intent) &&
-            (intent.type!!.startsWith("video/") || intent.type == Video.Media.CONTENT_TYPE)
+        (intent.type!!.startsWith("video/") || intent.type == Video.Media.CONTENT_TYPE)
 
     private fun isGetAnyContentIntent(intent: Intent) = isGetContentIntent(intent) && intent.type == "*/*"
 
     private fun isSetWallpaperIntent(intent: Intent?) = intent?.action == Intent.ACTION_SET_WALLPAPER
 
     private fun hasImageContentData(intent: Intent) = (intent.data == Images.Media.EXTERNAL_CONTENT_URI ||
-            intent.data == Images.Media.INTERNAL_CONTENT_URI)
+        intent.data == Images.Media.INTERNAL_CONTENT_URI)
 
     private fun hasVideoContentData(intent: Intent) = (intent.data == Video.Media.EXTERNAL_CONTENT_URI ||
-            intent.data == Video.Media.INTERNAL_CONTENT_URI)
+        intent.data == Video.Media.INTERNAL_CONTENT_URI)
 
     private fun isImageType(intent: Intent) = (intent.type?.startsWith("image/") == true || intent.type == Images.Media.CONTENT_TYPE)
 
@@ -948,14 +949,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 val sorting = config.getFolderSorting(directory.path)
                 val grouping = config.getFolderGrouping(directory.path)
                 val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
-                        sorting and SORT_BY_DATE_TAKEN != 0 ||
-                        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
-                        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+                    sorting and SORT_BY_DATE_TAKEN != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                    grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
 
                 val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
-                        sorting and SORT_BY_DATE_MODIFIED != 0 ||
-                        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
-                        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+                    sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                    grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
                 val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
                     getProperFileSize, favoritePaths, false, lastModifieds, dateTakens)
@@ -1047,14 +1048,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val sorting = config.getFolderSorting(folder)
             val grouping = config.getFolderGrouping(folder)
             val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
-                    sorting and SORT_BY_DATE_TAKEN != 0 ||
-                    grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
-                    grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+                sorting and SORT_BY_DATE_TAKEN != 0 ||
+                grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
 
             val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
-                    sorting and SORT_BY_DATE_MODIFIED != 0 ||
-                    grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
-                    grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+                sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
             val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
                 getProperFileSize, favoritePaths, false, lastModifieds, dateTakens)
