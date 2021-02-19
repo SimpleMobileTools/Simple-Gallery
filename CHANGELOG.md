@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.19.2 *(2021-02-19)*
+----------------------------
+
+ * Fixed some Android 11 related glitches
+ * Added a White theme with special handling
+ * Many stability, translation and performance improvements
+
 Version 6.19.1 *(2021-01-26)*
 ----------------------------
 
