@@ -577,7 +577,7 @@ fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThu
         if (roundCorners != ROUNDED_CORNERS_NONE) {
             val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
             val cornerRadius = resources.getDimension(cornerSize).toInt()
-            builder = builder.transform(RoundedCornersTransformation(cornerRadius.toFloat()))
+            builder = builder.transform(PicassoRoundedCornersTransformation(cornerRadius.toFloat()))
         }
 
         builder.into(view)

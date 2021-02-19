@@ -4,7 +4,7 @@ import android.graphics.*
 import com.squareup.picasso.Transformation
 
 // taken from https://stackoverflow.com/a/35241525/1967672
-class RoundedCornersTransformation(private val radius: Float) : Transformation {
+class PicassoRoundedCornersTransformation(private val radius: Float) : Transformation {
 
     override fun transform(source: Bitmap): Bitmap {
         val size = Math.min(source.width, source.height)
