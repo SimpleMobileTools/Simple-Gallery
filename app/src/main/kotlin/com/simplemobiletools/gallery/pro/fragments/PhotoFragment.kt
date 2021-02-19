@@ -351,11 +351,15 @@ class PhotoFragment : ViewPagerFragment() {
             showPortraitStripe()
         }
 
-        mImageOrientation = getImageOrientation()
-        when {
-            mMedium.isGIF() -> loadGif()
-            mMedium.isSVG() -> loadSVG()
-            else -> loadBitmap()
+        ensureBackgroundThread {
+            mImageOrientation = getImageOrientation()
+            activity?.runOnUiThread {
+                when {
+                    mMedium.isGIF() -> loadGif()
+                    mMedium.isSVG() -> loadSVG()
+                    else -> loadBitmap()
+                }
+            }
         }
     }
 
@@ -687,9 +691,9 @@ class PhotoFragment : ViewPagerFragment() {
             val inputStream = if (mMedium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(mMedium.path)) else File(mMedium.path).inputStream()
             val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, mMedium.name), HashMap<String, Any>())
             imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
-                    imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
-                    imageParser.contains("GPano:FullPanoWidthPixels=") ||
-                    imageParser.contains("GPano:ProjectionType>Equirectangular")
+                imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
+                imageParser.contains("GPano:FullPanoWidthPixels=") ||
+                imageParser.contains("GPano:ProjectionType>Equirectangular")
         } catch (e: Exception) {
             false
         } catch (e: OutOfMemoryError) {
