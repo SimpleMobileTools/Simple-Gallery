@@ -200,7 +200,7 @@
     <string name="limit_folder_title">Περιορισμό μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
     <string name="square">Τετράγωνο</string>
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
