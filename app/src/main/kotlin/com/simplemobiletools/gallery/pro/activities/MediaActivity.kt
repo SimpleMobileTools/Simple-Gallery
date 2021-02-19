@@ -559,9 +559,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath(), true)
-        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(this, true) == 0) {
-            tryDeleteFileDirItem(fileDirItem, true, true)
+        if (config.deleteEmptyFolders) {
+            val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath(), true)
+            if (!fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory) {
+                ensureBackgroundThread {
+                    if (fileDirItem.getProperFileCount(this, true) == 0) {
+                        tryDeleteFileDirItem(fileDirItem, true, true)
+                    }
+                }
+            }
         }
     }
 

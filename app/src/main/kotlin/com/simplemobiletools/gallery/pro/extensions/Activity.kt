@@ -158,7 +158,9 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     } else {
         try {
             if (file.createNewFile()) {
-                addNoMediaIntoMediaStore(file.absolutePath)
+                ensureBackgroundThread {
+                    addNoMediaIntoMediaStore(file.absolutePath)
+                }
             } else {
                 toast(R.string.unknown_error_occurred)
             }
