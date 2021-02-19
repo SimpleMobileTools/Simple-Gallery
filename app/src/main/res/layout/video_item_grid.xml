@@ -13,28 +13,13 @@
         android:layout_height="match_parent" />
 
     <ImageView
-        android:id="@+id/play_outline"
+        android:id="@+id/play_portrait_outline"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_margin="@dimen/small_margin"
         android:src="@drawable/ic_play_outline_vector"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/file_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/small_margin"
-        android:fontFamily="sans-serif-medium"
-        android:shadowColor="@color/default_background_color"
-        android:shadowRadius="4"
-        android:text="@string/gif"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/bigger_text_size"
         android:visibility="gone" />
 
     <TextView
