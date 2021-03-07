@@ -40,6 +40,7 @@
             android:id="@+id/media_grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layoutAnimation="@anim/layout_animation"
             android:scrollbars="none"
             app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
             app:spanCount="@integer/media_columns_vertical_scroll" />

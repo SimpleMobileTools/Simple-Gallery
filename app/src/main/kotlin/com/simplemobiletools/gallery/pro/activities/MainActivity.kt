@@ -1206,6 +1206,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 runOnUiThread {
                     directories_grid.adapter = this
                     setupScrollDirection()
+
+                    if (config.viewTypeFolders == VIEW_TYPE_LIST) {
+                        directories_grid.scheduleLayoutAnimation()
+                    }
                 }
             }
             measureRecyclerViewContent(dirsToShow)
