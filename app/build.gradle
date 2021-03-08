@@ -96,9 +96,9 @@ dependencies {
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
 
     kapt "androidx.room:room-compiler:2.2.6"
     implementation "androidx.room:room-ktx:2.2.6"
