@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
-    <string name="toggle_filename">Canviar la visibilitat del nom d’arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>
@@ -192,13 +191,16 @@
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
     <string name="show_image_file_types">Mostra els tipus de fitxers d\’imatges</string>
     <string name="allow_zooming_videos">Permet fer zoom als vídeos amb dos cops</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="folder_thumbnail_style">Estil de miniatura de carpeta</string>
+    <string name="file_thumbnail_style">Estil de miniatura del fitxer</string>
+    <string name="thumbnail_spacing">Espai entre miniatures</string>
+    <string name="show_file_count_line">Mostra el recompte de fitxers en una línia diferent</string>
+    <string name="show_file_count_brackets">Mostra el recompte de fitxers entre claudàtors</string>
+    <string name="show_file_count_none">No mostreu el recompte de fitxers</string>
+    <string name="limit_folder_title">Limiteu els títols de carpeta llarga a 1 línia</string>
+    <string name="square">Quadrat</string>
+    <string name="rounded_corners">Cantonades arrodonides</string>
+    <string name="export_favorite_paths">Exportar camins de fitxers preferits</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -288,7 +290,7 @@
     <string name="pesdk_overlay_button_blendModeDarken">Enfosquir</string>
     <string name="pesdk_overlay_button_blendModeScreen">Pantalla</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Superposició</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Alleugerir</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Multiplicar</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Color cremat</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">Llum suau</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">Veig algunes bandes de colors a les imatges. Com puc millorar la qualitat?</string>
     <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una millor qualitat d\'imatge, podeu activar \"Mostra les imatges amb la màxima qualitat possible\" a la configuració de l’aplicació, a la secció \"Imatges ampliades a mida\".</string>
     <string name="faq_14_title">He amagat un fitxer / carpeta. Com puc mostrar-la?</string>
-    <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers.</string>
+    <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Per què l’aplicació ocupa molt d’espai?</string>
     <string name="faq_15_text">La memòria cau d’aplicacions pot ocupar fins a 250 MB, garanteix una càrrega de les imatges més ràpida. Si l’aplicació ocupa més espai, probablement sigui per tenir elements a la Paperera de reciclatge. Aquests fitxers compten a la mida de l’aplicació. Podeu esborrar la paperera de reciclatge obrint-la i suprimint tots els fitxers o des de la configuració de l’aplicació. Els fitxers de la paperera s’eliminen automàticament després de 30 dies.</string>
 

@@ -77,18 +77,18 @@
     <string name="editor">Redigering</string>
     <string name="rotate">Roter</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Ugyldig videobane</string>
     <string name="image_editing_failed">Bilderedigering feilet</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="video_editing_failed">Videoredigering feilet</string>
     <string name="image_editing_cancelled">Bilderedigering avbrutt</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">Videoredigering avbrutt</string>
     <string name="file_edited_successfully">Fil vellykket redigert</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Bilde vellykket redigert</string>
+    <string name="video_edited_successfully">Video vellykket redigert</string>
     <string name="edit_image_with">Rediger bilde med:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Rediger video med:</string>
     <string name="no_image_editor_found">Ingen bilderedigeringsapp funnet</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Ingen videoredigeringsapp funnet</string>
     <string name="unknown_file_location">Ukjent filplassering</string>
     <string name="error_saving_file">Kunne ikke overskrive kildefilen</string>
     <string name="rotate_left">Roter til venstre</string>
@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
     <string name="remember_last_video_position">Husk siste videoavspillingsposisjon</string>
-    <string name="toggle_filename">Vis/skjul filnavn</string>
     <string name="loop_videos">Gjenta videoer</string>
     <string name="animate_gifs">Animert GIF i minibildevisning</string>
     <string name="max_brightness">Maks lysstyrke ved mediavisning</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Vis bildefiltyper</string>
     <string name="allow_zooming_videos">Tillat zooming av videoer ved å dobbelttrykke dem</string>
     <string name="folder_thumbnail_style">Minibildestil for mapper</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Vis antall filer på en separat linje</string>
     <string name="show_file_count_brackets">Vis antall filer i parentes</string>
     <string name="show_file_count_none">Ikke vis antall filer</string>
     <string name="limit_folder_title">Begrens lange mappetitler til 1 linje</string>
     <string name="square">Firkantet</string>
     <string name="rounded_corners">Avrundede hjørner</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
@@ -261,7 +263,7 @@
     <string name="pesdk_brush_title_brushColor">Penselfarge</string>
     <string name="pesdk_editor_title_name">Redigering</string>
     <string name="pesdk_editor_title_closeEditorAlert">Lukke Redigering?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Vil du forkaste endringene?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nei</string>
     <string name="pesdk_editor_cancel">Avbryt</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
     <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 

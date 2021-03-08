@@ -71,7 +71,7 @@ class MediaFetcher(val context: Context) {
             val excludedPaths = config.excludedFolders
             val includedPaths = config.includedFolders
 
-            val folderNomediaStatuses = HashMap<String, Boolean>()
+            val folderNoMediaStatuses = HashMap<String, Boolean>()
             val distinctPathsMap = HashMap<String, String>()
             val distinctPaths = folders.distinctBy {
                 when {
@@ -85,9 +85,13 @@ class MediaFetcher(val context: Context) {
             }
 
             val noMediaFolders = context.getNoMediaFoldersSync()
+            noMediaFolders.forEach { folder ->
+                folderNoMediaStatuses["$folder/$NOMEDIA"] = true
+            }
+
             distinctPaths.filter {
-                it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNomediaStatuses, noMediaFolders) { path, hasNoMedia ->
-                    folderNomediaStatuses[path] = hasNoMedia
+                it.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses) { path, hasNoMedia ->
+                    folderNoMediaStatuses[path] = hasNoMedia
                 }
             }.toMutableList() as ArrayList<String>
         } catch (e: Exception) {
@@ -321,18 +325,16 @@ class MediaFetcher(val context: Context) {
                     media.add(this)
                 }
             } else {
-                var lastModified = 0L
-                if (getProperLastModified) {
-                    if (isRPlus()) {
-                        var newLastModified = lastModifieds.remove(path)
-                        if (newLastModified == null) {
-                            newLastModified = file.lastModified()
-                        }
-                        lastModified = newLastModified
+                var lastModified: Long
+                var newLastModified = lastModifieds.remove(path)
+                if (newLastModified == null) {
+                    newLastModified = if (getProperLastModified) {
+                        file.lastModified()
                     } else {
-                        lastModified = file.lastModified()
+                        0L
                     }
                 }
+                lastModified = newLastModified
 
                 var dateTaken = lastModified
                 val videoDuration = if (getVideoDurations && isVideo) context.getDuration(path) ?: 0 else 0
@@ -594,7 +596,7 @@ class MediaFetcher(val context: Context) {
             return
         }
 
-        media.sortWith(Comparator { o1, o2 ->
+        media.sortWith { o1, o2 ->
             o1 as Medium
             o2 as Medium
             var result = when {
@@ -621,7 +623,7 @@ class MediaFetcher(val context: Context) {
                 result *= -1
             }
             result
-        })
+        }
     }
 
     fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
@@ -666,8 +668,14 @@ class MediaFetcher(val context: Context) {
         val today = formatDate(System.currentTimeMillis().toString(), true)
         val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString(), true)
         for ((key, value) in mediumGroups) {
+            var currentGridPosition = 0
             val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
             thumbnailItems.add(ThumbnailSection(sectionKey))
+
+            value.forEach {
+                it.gridPosition = currentGridPosition++
+            }
+
             thumbnailItems.addAll(value)
         }
 

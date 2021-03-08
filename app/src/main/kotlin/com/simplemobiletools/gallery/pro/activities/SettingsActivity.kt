@@ -12,7 +12,8 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.dialogs.ChangeThumbnailStyleDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeFileThumbnailStyleDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -53,7 +54,6 @@ class SettingsActivity : SimpleActivity() {
         setupRememberLastVideo()
         setupLoopVideos()
         setupOpenVideosOnSeparateScreen()
-        setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
         setupDarkBackground()
@@ -65,13 +65,11 @@ class SettingsActivity : SimpleActivity() {
         setupFileDeletionPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowPhotoGestures()
-        setupAllowVideoGestures()
         setupAllowDownGesture()
         setupAllowRotatingWithGestures()
         setupShowNotch()
         setupBottomActions()
-        setupThumbnailVideoDuration()
-        setupThumbnailFileTypes()
+        setupFileThumbnailStyle()
         setupFolderThumbnailStyle()
         setupKeepLastModified()
         setupEnablePullToRefresh()
@@ -90,6 +88,7 @@ class SettingsActivity : SimpleActivity() {
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
+        setupClearCache()
         setupExportSettings()
         setupImportSettings()
         invalidateOptionsMenu()
@@ -231,14 +230,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupAnimateGifs() {
-        settings_animate_gifs.isChecked = config.animateGifs
-        settings_animate_gifs_holder.setOnClickListener {
-            settings_animate_gifs.toggle()
-            config.animateGifs = settings_animate_gifs.isChecked
-        }
-    }
-
     private fun setupMaxBrightness() {
         settings_max_brightness.isChecked = config.maxBrightness
         settings_max_brightness_holder.setOnClickListener {
@@ -252,22 +243,6 @@ class SettingsActivity : SimpleActivity() {
         settings_crop_thumbnails_holder.setOnClickListener {
             settings_crop_thumbnails.toggle()
             config.cropThumbnails = settings_crop_thumbnails.isChecked
-        }
-    }
-
-    private fun setupThumbnailVideoDuration() {
-        settings_show_thumbnail_video_duration.isChecked = config.showThumbnailVideoDuration
-        settings_show_thumbnail_video_duration_holder.setOnClickListener {
-            settings_show_thumbnail_video_duration.toggle()
-            config.showThumbnailVideoDuration = settings_show_thumbnail_video_duration.isChecked
-        }
-    }
-
-    private fun setupThumbnailFileTypes() {
-        settings_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
-        settings_show_thumbnail_file_types_holder.setOnClickListener {
-            settings_show_thumbnail_file_types.toggle()
-            config.showThumbnailFileTypes = settings_show_thumbnail_file_types.isChecked
         }
     }
 
@@ -382,14 +357,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupAllowVideoGestures() {
-        settings_allow_video_gestures.isChecked = config.allowVideoGestures
-        settings_allow_video_gestures_holder.setOnClickListener {
-            settings_allow_video_gestures.toggle()
-            config.allowVideoGestures = settings_allow_video_gestures.isChecked
-        }
-    }
-
     private fun setupAllowDownGesture() {
         settings_allow_down_gesture.isChecked = config.allowDownGesture
         settings_allow_down_gesture_holder.setOnClickListener {
@@ -415,10 +382,16 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupFileThumbnailStyle() {
+        settings_file_thumbnail_style_holder.setOnClickListener {
+            ChangeFileThumbnailStyleDialog(this)
+        }
+    }
+
     private fun setupFolderThumbnailStyle() {
         settings_folder_thumbnail_style.text = getFolderStyleText()
         settings_folder_thumbnail_style_holder.setOnClickListener {
-            ChangeThumbnailStyleDialog(this) {
+            ChangeFolderThumbnailStyleDialog(this) {
                 settings_folder_thumbnail_style.text = getFolderStyleText()
             }
         }
@@ -624,6 +597,23 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupClearCache() {
+        ensureBackgroundThread {
+            runOnUiThread {
+                settings_clear_cache_size.text = cacheDir.getProperSize(true).formatSize()
+            }
+        }
+
+        settings_clear_cache_holder.setOnClickListener {
+            ensureBackgroundThread {
+                cacheDir.deleteRecursively()
+                runOnUiThread {
+                    settings_clear_cache_size.text = cacheDir.getProperSize(true).formatSize()
+                }
+            }
+        }
+    }
+
     private fun setupExportSettings() {
         settings_export_holder.setOnClickListener {
             val configItems = LinkedHashMap<String, Any>().apply {
@@ -631,6 +621,7 @@ class SettingsActivity : SimpleActivity() {
                 put(TEXT_COLOR, config.textColor)
                 put(BACKGROUND_COLOR, config.backgroundColor)
                 put(PRIMARY_COLOR, config.primaryColor)
+                put(ACCENT_COLOR, config.accentColor)
                 put(APP_ICON_COLOR, config.appIconColor)
                 put(USE_ENGLISH, config.useEnglish)
                 put(WAS_USE_ENGLISH_TOGGLED, config.wasUseEnglishToggled)
@@ -650,6 +641,7 @@ class SettingsActivity : SimpleActivity() {
                 put(ANIMATE_GIFS, config.animateGifs)
                 put(CROP_THUMBNAILS, config.cropThumbnails)
                 put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
+                put(SHOW_THUMBNAIL_FILE_TYPES, config.showThumbnailFileTypes)
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
@@ -706,6 +698,8 @@ class SettingsActivity : SimpleActivity() {
                 put(FOLDER_THUMBNAIL_STYLE, config.folderStyle)
                 put(FOLDER_MEDIA_COUNT, config.showFolderMediaCount)
                 put(LIMIT_FOLDER_TITLE, config.limitFolderTitle)
+                put(THUMBNAIL_SPACING, config.thumbnailSpacing)
+                put(FILE_ROUNDED_CORNERS, config.fileRoundedCorners)
             }
 
             exportSettings(configItems)
@@ -763,6 +757,7 @@ class SettingsActivity : SimpleActivity() {
                 TEXT_COLOR -> config.textColor = value.toInt()
                 BACKGROUND_COLOR -> config.backgroundColor = value.toInt()
                 PRIMARY_COLOR -> config.primaryColor = value.toInt()
+                ACCENT_COLOR -> config.accentColor = value.toInt()
                 APP_ICON_COLOR -> {
                     if (getAppIconColors().contains(value.toInt())) {
                         config.appIconColor = value.toInt()
@@ -787,6 +782,7 @@ class SettingsActivity : SimpleActivity() {
                 ANIMATE_GIFS -> config.animateGifs = value.toBoolean()
                 CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
                 SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
+                SHOW_THUMBNAIL_FILE_TYPES -> config.showThumbnailFileTypes = value.toBoolean()
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
@@ -842,6 +838,8 @@ class SettingsActivity : SimpleActivity() {
                 FOLDER_THUMBNAIL_STYLE -> config.folderStyle = value.toInt()
                 FOLDER_MEDIA_COUNT -> config.showFolderMediaCount = value.toInt()
                 LIMIT_FOLDER_TITLE -> config.limitFolderTitle = value.toBoolean()
+                THUMBNAIL_SPACING -> config.thumbnailSpacing = value.toInt()
+                FILE_ROUNDED_CORNERS -> config.fileRoundedCorners = value.toBoolean()
                 ALBUM_COVERS -> {
                     val existingCovers = config.parseAlbumCovers()
                     val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>

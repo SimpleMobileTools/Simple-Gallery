@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
@@ -20,6 +19,7 @@ import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.exifinterface.media.ExifInterface
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -91,21 +91,21 @@ fun SimpleActivity.launchAbout() {
             LICENSE_APNG
 
     val faqItems = arrayListOf(
-        FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
-        FAQItem(R.string.faq_1_title, R.string.faq_1_text),
-        FAQItem(R.string.faq_2_title, R.string.faq_2_text),
         FAQItem(R.string.faq_3_title, R.string.faq_3_text),
-        FAQItem(R.string.faq_4_title, R.string.faq_4_text),
-        FAQItem(R.string.faq_5_title, R.string.faq_5_text),
-        FAQItem(R.string.faq_6_title, R.string.faq_6_text),
+        FAQItem(R.string.faq_12_title, R.string.faq_12_text),
         FAQItem(R.string.faq_7_title, R.string.faq_7_text),
+        FAQItem(R.string.faq_14_title, R.string.faq_14_text),
+        FAQItem(R.string.faq_1_title, R.string.faq_1_text),
+        FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
+        FAQItem(R.string.faq_5_title, R.string.faq_5_text),
+        FAQItem(R.string.faq_4_title, R.string.faq_4_text),
+        FAQItem(R.string.faq_6_title, R.string.faq_6_text),
         FAQItem(R.string.faq_8_title, R.string.faq_8_text),
         FAQItem(R.string.faq_10_title, R.string.faq_10_text),
         FAQItem(R.string.faq_11_title, R.string.faq_11_text),
-        FAQItem(R.string.faq_12_title, R.string.faq_12_text),
         FAQItem(R.string.faq_13_title, R.string.faq_13_text),
-        FAQItem(R.string.faq_14_title, R.string.faq_14_text),
         FAQItem(R.string.faq_15_title, R.string.faq_15_text),
+        FAQItem(R.string.faq_2_title, R.string.faq_2_text),
         FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
         FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons),
         FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons),
@@ -165,7 +165,9 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     } else {
         try {
             if (file.createNewFile()) {
-                addNoMediaIntoMediaStore(file.absolutePath)
+                ensureBackgroundThread {
+                    addNoMediaIntoMediaStore(file.absolutePath)
+                }
             } else {
                 toast(R.string.unknown_error_occurred)
             }
@@ -285,7 +287,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
 
                     out?.flush()
 
-                    if (fileDocument?.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
+                    if (fileDocument.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
                         mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
                     }
@@ -605,7 +607,7 @@ fun Activity.fileRotatedSuccessfully(path: String, lastModified: Long) {
         updateLastModified(path, lastModified)
     }
 
-    Picasso.get().invalidate(path.getFileKey())
+    Picasso.get().invalidate(path.getFileKey(lastModified))
     // we cannot refresh a specific image in Glide Cache, so just clear it all
     val glide = Glide.get(applicationContext)
     glide.clearDiskCache()

@@ -71,24 +71,24 @@
     <string name="width">Largura</string>
     <string name="height">Altura</string>
     <string name="keep_aspect_ratio">Manter proporção</string>
-    <string name="invalid_values">Digite uma resolução válida</string>
+    <string name="invalid_values">Introduza uma resolução válida</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rodar</string>
     <string name="invalid_image_path">Caminho inválido</string>
-    <string name="invalid_video_path">Invalid video path</string>
-    <string name="image_editing_failed">Falha na edição da imagem</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="invalid_video_path">Caminho de vídeo inválido</string>
+    <string name="image_editing_failed">Falha ao editar a imagem</string>
+    <string name="video_editing_failed">Falha ao editar o vídeo</string>
     <string name="image_editing_cancelled">Edição de imagem cancelada</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">Edição de vídeo cancelada</string>
     <string name="file_edited_successfully">Imagem editada com sucesso</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Imagem editada com sucesso</string>
+    <string name="video_edited_successfully">Vídeo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
-    <string name="edit_video_with">Edit video with:</string>
-    <string name="no_image_editor_found">Editor não encontrado</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="edit_video_with">Editar vídeo com:</string>
+    <string name="no_image_editor_found">Editor de imagem não encontrado</string>
+    <string name="no_video_editor_found">Editor de vídeo não encontrado</string>
     <string name="unknown_file_location">Localização desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o ficheiro original</string>
     <string name="rotate_left">Rodar à esquerda</string>
@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="remember_last_video_position">Memorizar posição da reprodução</string>
-    <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIF nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>
@@ -193,17 +192,20 @@
     <string name="show_image_file_types">Mostrar o tipo de imagem</string>
     <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
     <string name="folder_thumbnail_style">Estilo de miniatura das pastas</string>
+    <string name="file_thumbnail_style">Estilo das miniaturas</string>
+    <string name="thumbnail_spacing">Espaçamento entre miniaturas</string>
     <string name="show_file_count_line">Mostrar número de ficherios em linha distinta</string>
     <string name="show_file_count_brackets">Mostrar número de ficheiros em chavetas</string>
-    <string name="show_file_count_none">não mostrar número de ficheiros</string>
+    <string name="show_file_count_none">Não mostrar número de ficheiros</string>
     <string name="limit_folder_title">Restringir título das pastas a 1 linha</string>
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
+    <string name="export_favorite_paths">Exportar caminho dos ficheiros favoritos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Multimédia em ecrã completo</string>
-    <string name="extended_details">Detalhes extra</string>
+    <string name="extended_details">Mais detalhes</string>
     <string name="bottom_actions">Ações em baixo</string>
 
     <!-- Bottom actions -->
@@ -261,7 +263,7 @@
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fechar editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Tem a certeza de que deseja descartar as alterações?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -270,35 +272,35 @@
     <string name="pesdk_editor_text_exportProgressUnknown">A exportar…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar %s.</string>
     <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Sticker Color</string>
-    <string name="pesdk_sticker_title_options">Sticker Options</string>
-    <string name="pesdk_sticker_button_add">Add</string>
-    <string name="pesdk_sticker_button_color">Color</string>
-    <string name="pesdk_sticker_button_delete">Delete</string>
-    <string name="pesdk_sticker_button_bringToFront">To Front</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
-    <string name="pesdk_sticker_button_replace">Replace</string>
-    <string name="pesdk_sticker_button_opacity">Opacity</string>
-    <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_sticker_title_color">Cor do sticker</string>
+    <string name="pesdk_sticker_title_options">Opções do sticker</string>
+    <string name="pesdk_sticker_button_add">Adicionar</string>
+    <string name="pesdk_sticker_button_color">Cor</string>
+    <string name="pesdk_sticker_button_delete">Apagar</string>
+    <string name="pesdk_sticker_button_bringToFront">Para a frente</string>
+    <string name="pesdk_sticker_button_straighten">Endireitar</string>
+    <string name="pesdk_sticker_button_replace">Substituir</string>
+    <string name="pesdk_sticker_button_opacity">Opacidade</string>
+    <string name="pesdk_sticker_button_contrast">Contraste</string>
+    <string name="pesdk_sticker_button_saturation">Saturação</string>
+    <string name="pesdk_sticker_button_brightness">Brilho</string>
+    <string name="pesdk_sticker_category_name_custom">Carregamentos</string>
+    <string name="pesdk_overlay_title_name">Sobreposição</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
-    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
-    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
-    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
-    <string name="pesdk_overlay_asset_none">None</string>
-    <string name="pesdk_overlay_asset_golden">Golden</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Escurecer</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Ecrã</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Sobreposição</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Clarear</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiplicar</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Aquecimento de cor</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Luz suave</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Luz forte</string>
+    <string name="pesdk_overlay_asset_none">Nenhuma</string>
+    <string name="pesdk_overlay_asset_golden">Dourada</string>
     <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
-    <string name="pesdk_overlay_asset_paper">Paper</string>
-    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaico</string>
+    <string name="pesdk_overlay_asset_paper">Papel</string>
+    <string name="pesdk_overlay_asset_rain">Chuva</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Inversão horizontal</string>
     <string name="pesdk_common_button_flipV">Inversão vertical</string>
@@ -322,7 +324,7 @@
     <string name="pesdk_common_title_greenColor">Verde</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarino</string>
     <string name="pesdk_common_title_pipettableColor">Pipeta de cores</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">Recortar</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
     <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 

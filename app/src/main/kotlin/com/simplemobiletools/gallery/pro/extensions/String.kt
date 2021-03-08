@@ -11,8 +11,7 @@ fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedP
 
 // cache which folders contain .nomedia files to avoid checking them over and over again
 fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean,
-                                 folderNoMediaStatuses: HashMap<String, Boolean>, noMediaFolders: ArrayList<String> = ArrayList(),
-                                 callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
+                                 folderNoMediaStatuses: HashMap<String, Boolean>, callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
     if (isEmpty()) {
         return false
     }
@@ -37,7 +36,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        noMediaFolders.contains(this) || File(this, NOMEDIA).exists()
+        folderNoMediaStatuses.getOrElse("$this/$NOMEDIA", { false }) || File(this, NOMEDIA).exists()
     }
 
     return if (!showHidden && containsNoMedia) {
@@ -54,14 +53,14 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
             var curPath = this
             for (i in 0 until count { it == '/' } - 1) {
                 curPath = curPath.substringBeforeLast('/')
-                val pathToCheck = "$curPath/${NOMEDIA}"
+                val pathToCheck = "$curPath/$NOMEDIA"
                 if (folderNoMediaStatuses.contains(pathToCheck)) {
                     if (folderNoMediaStatuses[pathToCheck] == true) {
                         containsNoMediaOrDot = true
                         break
                     }
                 } else {
-                    val noMediaExists = noMediaFolders.contains(pathToCheck) || File(pathToCheck).exists()
+                    val noMediaExists = folderNoMediaStatuses.getOrElse(pathToCheck, { false }) || File(pathToCheck).exists()
                     callback(pathToCheck, noMediaExists)
                     if (noMediaExists) {
                         containsNoMediaOrDot = true

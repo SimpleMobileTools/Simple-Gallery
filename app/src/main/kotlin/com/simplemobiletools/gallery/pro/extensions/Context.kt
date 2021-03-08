@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
+import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
 import android.provider.MediaStore.Files
@@ -12,12 +13,17 @@ import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
@@ -29,6 +35,7 @@ import com.simplemobiletools.gallery.pro.interfaces.*
 import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
+import com.squareup.picasso.Picasso
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileInputStream
@@ -379,7 +386,12 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>, noMediaFolders: ArrayList<String>): String {
     val dirName = getFolderNameFromPath(path)
-    return if (path.doesThisOrParentHaveNoMedia(noMediaFolders) && !path.isThisOrParentIncluded(includedFolders)) {
+    val folderNoMediaStatuses = java.util.HashMap<String, Boolean>()
+    noMediaFolders.forEach { folder ->
+        folderNoMediaStatuses["$folder/$NOMEDIA"] = true
+    }
+
+    return if (path.doesThisOrParentHaveNoMedia(folderNoMediaStatuses, null) && !path.isThisOrParentIncluded(includedFolders)) {
         "$dirName $hidden"
     } else {
         dirName
@@ -398,17 +410,17 @@ fun Context.getFolderNameFromPath(path: String): String {
 }
 
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
-                      roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+                      roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     target.isHorizontalScrolling = horizontalScroll
     if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
         if (type == TYPE_IMAGES && path.isPng()) {
-            loadPng(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
+            loadPng(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
         } else {
-            loadJpg(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
+            loadJpg(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_GIFS) {
         if (!animateGifs) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
             return
         }
 
@@ -419,12 +431,12 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
 
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
         } catch (e: OutOfMemoryError) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_SVGS) {
-        loadSVG(path, target, cropThumbnails, roundCorners)
+        loadSVG(path, target, cropThumbnails, roundCorners, signature)
     }
 }
 
@@ -449,9 +461,9 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-        .signature(path.getFileSignature())
+        .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .priority(Priority.LOW)
@@ -462,6 +474,16 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
         .asBitmap()
         .load(path)
         .apply(options)
+        .listener(object : RequestListener<Bitmap> {
+            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                tryLoadingWithPicasso(path, target, cropThumbnails, roundCorners, signature)
+                return false
+            }
+
+            override fun onResourceReady(resource: Bitmap?, model: Any?, targetBitmap: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                return false
+            }
+        })
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
         val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
@@ -472,9 +494,9 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.into(target)
 }
 
-fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-        .signature(path.getFileSignature())
+        .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
         .priority(Priority.LOW)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -494,9 +516,9 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.into(target)
 }
 
-fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
-        .signature(path.getFileSignature())
+        .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
         .priority(Priority.LOW)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -516,10 +538,10 @@ fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnail
     builder.into(target)
 }
 
-fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int) {
+fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey) {
     target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
 
-    val options = RequestOptions().signature(path.getFileSignature())
+    val options = RequestOptions().signature(signature)
     var builder = Glide.with(applicationContext)
         .`as`(PictureDrawable::class.java)
         .listener(SvgSoftwareLayerSetter())
@@ -534,6 +556,33 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
     }
 
     builder.into(target)
+}
+
+// intended mostly for Android 11 issues, that fail loading PNG files bigger than 10 MB
+fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey) {
+    var pathToLoad = "file://$path"
+    pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
+
+    try {
+        var builder = Picasso.get()
+            .load(pathToLoad)
+            .stableKey(signature.toString())
+
+        builder = if (cropThumbnails) {
+            builder.centerCrop().fit()
+        } else {
+            builder.centerInside()
+        }
+
+        if (roundCorners != ROUNDED_CORNERS_NONE) {
+            val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+            val cornerRadius = resources.getDimension(cornerSize).toInt()
+            builder = builder.transform(PicassoRoundedCornersTransformation(cornerRadius.toFloat()))
+        }
+
+        builder.into(view)
+    } catch (e: Exception) {
+    }
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
@@ -552,10 +601,14 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
 
-        val noMediaFolders = getNoMediaFoldersSync()
         val folderNoMediaStatuses = HashMap<String, Boolean>()
+        val noMediaFolders = getNoMediaFoldersSync()
+        noMediaFolders.forEach { folder ->
+            folderNoMediaStatuses["$folder/$NOMEDIA"] = true
+        }
+
         var filteredDirectories = directories.filter {
-            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses, noMediaFolders) { path, hasNoMedia ->
+            it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden, folderNoMediaStatuses) { path, hasNoMedia ->
                 folderNoMediaStatuses[path] = hasNoMedia
             }
         } as ArrayList<Directory>
@@ -566,20 +619,32 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             getImagesOnly -> filteredDirectories.filter { it.types and TYPE_IMAGES != 0 }
             else -> filteredDirectories.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
+                    (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.types and TYPE_PORTRAITS != 0)
             }
         }) as ArrayList<Directory>
 
-        val hiddenString = resources.getString(R.string.hidden)
-        filteredDirectories.forEach {
-            it.name = if (it.path.doesThisOrParentHaveNoMedia(noMediaFolders) && !it.path.isThisOrParentIncluded(includedPaths)) {
-                "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
-            } else {
-                it.name.removeSuffix(hiddenString).trim()
+        if (shouldShowHidden) {
+            val hiddenString = resources.getString(R.string.hidden)
+            filteredDirectories.forEach {
+                val noMediaPath = "${it.path}/$NOMEDIA"
+                val hasNoMedia = if (folderNoMediaStatuses.keys.contains(noMediaPath)) {
+                    folderNoMediaStatuses[noMediaPath]!!
+                } else {
+                    it.path.doesThisOrParentHaveNoMedia(folderNoMediaStatuses) { path, hasNoMedia ->
+                        val newPath = "$path/$NOMEDIA"
+                        folderNoMediaStatuses[newPath] = hasNoMedia
+                    }
+                }
+
+                it.name = if (hasNoMedia && !it.path.isThisOrParentIncluded(includedPaths)) {
+                    "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
+                } else {
+                    it.name.removeSuffix(hiddenString).trim()
+                }
             }
         }
 
@@ -632,11 +697,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
             else -> media.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
-                        (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
-                        (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
-                        (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
+                    (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
+                    (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
+                    (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS) ||
+                    (filterMedia and TYPE_PORTRAITS != 0 && it.type == TYPE_PORTRAITS)
             }
         }) as ArrayList<Medium>
 
@@ -913,18 +978,18 @@ fun Context.updateDirectoryPath(path: String) {
     val sorting = config.getFolderSorting(path)
     val grouping = config.getFolderGrouping(path)
     val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
-            sorting and SORT_BY_DATE_TAKEN != 0 ||
-            grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
-            grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+        sorting and SORT_BY_DATE_TAKEN != 0 ||
+        grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+        grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
 
     val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
-            sorting and SORT_BY_DATE_MODIFIED != 0 ||
-            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
-            grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+        sorting and SORT_BY_DATE_MODIFIED != 0 ||
+        grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+        grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
     val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
 
-    val lastModifieds = if (isRPlus() && getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
+    val lastModifieds = if (getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
     val dateTakens = mediaFetcher.getFolderDateTakens(path)
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,

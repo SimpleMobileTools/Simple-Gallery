@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Пуштај видео снимке аутоматски</string>
     <string name="remember_last_video_position">Запамти позицију задње пуштаног видеа</string>
-    <string name="toggle_filename">Измени видљивост датотеке</string>
     <string name="loop_videos">Пуштај видео снимке у недоглед</string>
     <string name="animate_gifs">Анимирај ГИФове на сличицама</string>
     <string name="max_brightness">Максимално осветљење када се пушта медиј преко целог екрана</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Сличице</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">Имам проблема са приказом боја у сликама. Како да унапредим квалитет приказа слика?</string>
     <string name="faq_13_text">Тренутно решење за приказивање слика функционише добро у већини случајева, али ако хоћете још бољи квалитет слика, можете да укључите \"Прикажи слике у најбољем могућем квалитету\" у подешавањима апликације, у \"Дубоко зумирање слика\" секцији.</string>
     <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново?</string>
-    <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека.</string>
+    <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 

@@ -30,7 +30,7 @@
     <string name="share_resized">Partager une version redimensionnée</string>
     <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
-    <string name="set_as_default_folder">Définir comme défaut</string>
+    <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
 
     <!-- Filter -->
@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
-    <string name="toggle_filename">Permuter l\'affichage des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
     <string name="animate_gifs">Animer les miniatures des GIF</string>
     <string name="max_brightness">Luminosité maximale</string>
@@ -192,13 +191,16 @@
     <string name="avoid_showing_invalid_files">Éviter l\'affichage de fichiers invalides</string>
     <string name="show_image_file_types">Afficher les types d\'image</string>
     <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
-    <string name="folder_thumbnail_style">Style des miniatures</string>
+    <string name="folder_thumbnail_style">Style des miniatures des dossiers</string>
+    <string name="file_thumbnail_style">Style des miniatures des fichiers</string>
+    <string name="thumbnail_spacing">Espacement des miniatures</string>
     <string name="show_file_count_line">Afficher le nombre de fichiers sur une autre ligne</string>
     <string name="show_file_count_brackets">Afficher le nombre de fichiers entre parenthèses</string>
     <string name="show_file_count_none">Ne pas afficher le nombre de fichiers</string>
     <string name="limit_folder_title">Limiter à une ligne les noms de fichiers</string>
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -270,8 +272,8 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exportation…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation %s</string>
     <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Couleur de Sticker</string>
-    <string name="pesdk_sticker_title_options">Options de Sticker</string>
+    <string name="pesdk_sticker_title_color">Couleur du Sticker</string>
+    <string name="pesdk_sticker_title_options">Options du Sticker</string>
     <string name="pesdk_sticker_button_add">Ajouter</string>
     <string name="pesdk_sticker_button_color">Couleur</string>
     <string name="pesdk_sticker_button_delete">Supprimer</string>
@@ -322,7 +324,7 @@
     <string name="pesdk_common_title_greenColor">Vert</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">Couper</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
@@ -350,7 +352,7 @@
     <string name="faq_13_title">Je vois des bandes de couleurs sur les images. Comment puis-je améliorer la qualité ?</string>
     <string name="faq_13_text">La solution actuelle d\'affichage des images fonctionne bien dans la grande majorité des cas, mais si vous voulez une qualité d\'image encore meilleure, vous pouvez activer l\'option \"Afficher les images avec la plus haute qualité possible\" dans la section \"Niveau de zoom maximal des images\" des paramètres de l\'application.</string>
     <string name="faq_14_title">J\'ai caché un fichier ou un dossier. Comment puis-je en rétablir l\'affichage ?</string>
-    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers.</string>
+    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers. Notez que le masquage fonctionne de manière récursive, donc si vous masquez un dossier, tous les sous-dossiers seront également masqués. Donc, pour afficher les sous-dossiers, vous devez afficher le dossier parent.</string>
     <string name="faq_15_title">Pourquoi l\'application prend-elle tant de place ?</string>
     <string name="faq_15_text">Le cache d\'application peut prendre jusqu\'à 250 Mo pour accélérer le chargement des images. Si l\'application occupe encore plus d\'espace, c\'est probablement parce que vous avez des éléments dans la corbeille. Ces fichiers comptent pour la taille de l\'application. Vous pouvez vider la corbeille en l\'ouvrant et en supprimant tous les fichiers ou à partir des paramètres de l\'application. Chaque fichier de la corbeille est automatiquement supprimé après 30 jours.</string>
 

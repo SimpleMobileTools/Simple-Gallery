@@ -1,0 +1,2 @@
+ * Updated the photo and video editor to fix some glitches
+ * Added some translation and stability improvements

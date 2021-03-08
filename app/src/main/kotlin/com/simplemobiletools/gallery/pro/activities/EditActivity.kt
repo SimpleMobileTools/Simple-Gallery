@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.Color
 import android.graphics.Point
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,6 +15,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RelativeLayout
+import androidx.exifinterface.media.ExifInterface
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -808,7 +808,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (newPath.isEmpty()) {
             val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
             if (filename.isNotEmpty()) {
-                val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH).getParentPath() else internalStoragePath
+                val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH)?.getParentPath() else internalStoragePath
                 newPath = "$path/$filename"
                 shouldAppendFilename = false
             }

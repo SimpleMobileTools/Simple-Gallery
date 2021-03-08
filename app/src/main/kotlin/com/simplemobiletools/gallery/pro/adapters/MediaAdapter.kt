@@ -18,10 +18,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.FAVORITES
-import com.simplemobiletools.commons.helpers.VIEW_TYPE_LIST
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -34,18 +31,24 @@ import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
-import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
+import kotlinx.android.synthetic.main.photo_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
+import kotlinx.android.synthetic.main.video_item_grid.view.*
+import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
+import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
+import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
+import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
 import java.util.*
 
-class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
+class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
-        MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
+    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
     private val ITEM_SECTION = 0
-    private val ITEM_MEDIUM = 1
+    private val ITEM_MEDIUM_VIDEO_PORTRAIT = 1
+    private val ITEM_MEDIUM_PHOTO = 2
 
     private val config = activity.config
     private val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
@@ -75,9 +78,17 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.layout.thumbnail_section
         } else {
             if (isListViewType) {
-                R.layout.photo_video_item_list
+                if (viewType == ITEM_MEDIUM_PHOTO) {
+                    R.layout.photo_item_list
+                } else {
+                    R.layout.video_item_list
+                }
             } else {
-                R.layout.photo_video_item_grid
+                if (viewType == ITEM_MEDIUM_PHOTO) {
+                    R.layout.photo_item_grid
+                } else {
+                    R.layout.video_item_grid
+                }
             }
         }
         return createViewHolder(layoutType, parent)
@@ -104,10 +115,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     override fun getItemViewType(position: Int): Int {
         val tmbItem = media[position]
-        return if (tmbItem is ThumbnailSection) {
-            ITEM_SECTION
-        } else {
-            ITEM_MEDIUM
+        return when {
+            tmbItem is ThumbnailSection -> ITEM_SECTION
+            (tmbItem as Medium).isVideo() || tmbItem.isPortrait() -> ITEM_MEDIUM_VIDEO_PORTRAIT
+            else -> ITEM_MEDIUM_PHOTO
         }
     }
 
@@ -442,7 +453,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
+            listener?.updateMediaGridDecoration(media)
             removeSelectedItems(positions)
+            currentMediaHash = media.hashCode()
         }
     }
 
@@ -458,12 +471,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
         if (thumbnailItems.hashCode() != currentMediaHash) {
             currentMediaHash = thumbnailItems.hashCode()
-            Handler().postDelayed({
-                media = thumbnailItems
-                enableInstantLoad()
-                notifyDataSetChanged()
-                finishActMode()
-            }, 100L)
+            media = thumbnailItems
+            enableInstantLoad()
+            notifyDataSetChanged()
+            finishActMode()
         }
     }
 
@@ -502,13 +513,21 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
-            play_outline.beVisibleIf(medium.isVideo() || medium.isPortrait())
+            val padding = if (config.thumbnailSpacing <= 1) {
+                config.thumbnailSpacing
+            } else {
+                0
+            }
+
+            media_item_holder.setPadding(padding, padding, padding, padding)
+
+            play_portrait_outline?.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
-                play_outline.setImageResource(R.drawable.ic_play_outline_vector)
-                play_outline.beVisible()
+                play_portrait_outline?.setImageResource(R.drawable.ic_play_outline_vector)
+                play_portrait_outline?.beVisible()
             } else if (medium.isPortrait()) {
-                play_outline.setImageResource(R.drawable.ic_portrait_photo_vector)
-                play_outline.beVisibleIf(showFileTypes)
+                play_portrait_outline?.setImageResource(R.drawable.ic_portrait_photo_vector)
+                play_portrait_outline?.beVisibleIf(showFileTypes)
             }
 
             if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
@@ -519,7 +538,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 })
                 file_type.beVisible()
             } else {
-                file_type.beGone()
+                file_type?.beGone()
             }
 
             medium_name.beVisibleIf(displayFilenames || isListViewType)
@@ -528,13 +547,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
             if (showVideoDuration) {
-                video_duration.text = medium.videoDuration.getFormattedDuration()
+                video_duration?.text = medium.videoDuration.getFormattedDuration()
             }
-            video_duration.beVisibleIf(showVideoDuration)
+            video_duration?.beVisibleIf(showVideoDuration)
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                medium_check?.background?.applyColorFilter(primaryColor)
+                medium_check?.background?.applyColorFilter(adjustedPrimaryColor)
+                medium_check.applyColorFilter(contrastColor)
+            }
+
+            if (isListViewType) {
+                media_item_holder.isSelected = isSelected
             }
 
             var path = medium.path
@@ -542,23 +566,30 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 path = path.getOTGPublicPath(context)
             }
 
-            val roundedCorners = if (isListViewType) ROUNDED_CORNERS_SMALL else ROUNDED_CORNERS_NONE
+            val roundedCorners = when {
+                isListViewType -> ROUNDED_CORNERS_SMALL
+                config.fileRoundedCorners -> ROUNDED_CORNERS_BIG
+                else -> ROUNDED_CORNERS_NONE
+            }
+
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, rotatedImagePaths)
+                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(),
+                    rotatedImagePaths)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, rotatedImagePaths)
+                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
+                            medium.getKey(), rotatedImagePaths)
                     }
                 }, IMAGE_LOAD_DELAY)
             }
 
             if (isListViewType) {
                 medium_name.setTextColor(textColor)
-                play_outline.applyColorFilter(textColor)
+                play_portrait_outline?.applyColorFilter(textColor)
             }
         }
     }

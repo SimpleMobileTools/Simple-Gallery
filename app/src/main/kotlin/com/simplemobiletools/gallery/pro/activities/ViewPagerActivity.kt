@@ -15,19 +15,18 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.exifinterface.media.ExifInterface
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
@@ -273,7 +272,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             try {
-                mPath = intent.getStringExtra(PATH)
+                mPath = intent.getStringExtra(PATH) ?: ""
                 mShowAll = config.showAll
             } catch (e: Exception) {
                 showErrorToast(e)
@@ -1164,10 +1163,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), File(mDirectory).isDirectory)
-        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(this, true) == 0) {
-            tryDeleteFileDirItem(fileDirItem, true, true)
-            scanPathRecursively(mDirectory)
+        if (config.deleteEmptyFolders) {
+            val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), File(mDirectory).isDirectory)
+            if (!fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory) {
+                ensureBackgroundThread {
+                    if (fileDirItem.getProperFileCount(this, true) == 0) {
+                        tryDeleteFileDirItem(fileDirItem, true, true)
+                        scanPathRecursively(mDirectory)
+                    }
+                }
+            }
         }
     }
 

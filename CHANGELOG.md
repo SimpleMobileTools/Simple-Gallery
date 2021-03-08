@@ -1,6 +1,52 @@
 Changelog
 ==========
 
+Version 6.19.2 *(2021-02-19)*
+----------------------------
+
+ * Fixed some Android 11 related glitches
+ * Added a White theme with special handling
+ * Many stability, translation and performance improvements
+
+Version 6.19.1 *(2021-01-26)*
+----------------------------
+
+ * Disable brightness setting with gestures at fullscreen view, allow toggling it
+ * Fix deleting files from the Camera, Downloads and Screenshots folder on some devices
+ * Some other translation and UX improvements
+
+Version 6.19.0 *(2021-01-21)*
+----------------------------
+
+ * Allow easily clearing the app cache from the app settings
+ * Allow customizing the spacing between file thumbnails, or using rounded corners
+ * Many other performance, UI, UX, translation and stability improvements
+
+Version 6.18.3 *(2021-01-14)*
+----------------------------
+
+ * Speed up fullscreen medium loading a bit too
+
+Version 6.18.2 *(2021-01-14)*
+----------------------------
+
+ * Improve the performance at scrolling media thumbnails
+ * Speed up cached folder fetching
+ * Some stability and translation improvements
+
+Version 6.18.1 *(2021-01-03)*
+----------------------------
+
+ * Updated the photo and video editor to fix some glitches
+ * Added some translation and stability improvements
+
+Version 6.18.0 *(2020-12-08)*
+----------------------------
+
+ * Added a Video Editor
+ * Added Stickers and Overlays to the Photo Editor
+ * Some translation, stability and UI improvements
+
 Version 6.17.3 *(2020-11-10)*
 ----------------------------
 

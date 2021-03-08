@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Videoları otomatik oynat</string>
     <string name="remember_last_video_position">Son video oynatma konumunu hatırla</string>
-    <string name="toggle_filename">Dosya adı görünürlüğünü aç/kapat</string>
     <string name="loop_videos">Videoları tekrarla</string>
     <string name="animate_gifs">Küçük resimlerdeki GIF\'leri hareketlendir</string>
     <string name="max_brightness">Tam ekran medya görüntülerken maksimum parlaklık</string>
@@ -176,7 +175,7 @@
     <string name="allow_instant_change">Ekran kenarlarına tıklayarak anında medya değiştirmeye izin ver</string>
     <string name="allow_deep_zooming_images">Derin yakınlaştırma resimlerine izin ver</string>
     <string name="hide_extended_details">Durum çubuğu gizlendiğinde genişletilmiş ayrıntıları gizle</string>
-    <string name="show_at_bottom">Ekranın alt kısmındaki bazı eylem düğmelerini göster</string>
+    <string name="show_at_bottom">Ekranın alt kısmında bazı eylem düğmelerini göster</string>
     <string name="show_recycle_bin">Geri dönüşüm kutusu\'nu klasörler ekranında gösterme</string>
     <string name="deep_zoomable_images">Derin yakınlaştırılabilir resimler</string>
     <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Resim dosyası türlerini göster</string>
     <string name="allow_zooming_videos">Videoları iki kez dokunarak yakınlaştırmaya izin ver</string>
     <string name="folder_thumbnail_style">Klasör küçük resim stili</string>
+    <string name="file_thumbnail_style">Dosya küçük resim stili</string>
+    <string name="thumbnail_spacing">Küçük resim aralığı</string>
     <string name="show_file_count_line">Dosya sayısını ayrı bir satırda göster</string>
     <string name="show_file_count_brackets">Dosya sayısını parantez içinde göster</string>
     <string name="show_file_count_none">Dosya sayısını gösterme</string>
     <string name="limit_folder_title">Uzun klasör başlıklarını 1 satırla sınırla</string>
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
@@ -270,19 +272,19 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Dışa aktarılıyor…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">%s dışa aktarılıyor.</string>
     <string name="pesdk_sticker_title_name">Etiket</string>
-    <string name="pesdk_sticker_title_color">Sticker Color</string>
+    <string name="pesdk_sticker_title_color">Etiket Rengi</string>
     <string name="pesdk_sticker_title_options">Etiket Seçenekleri</string>
     <string name="pesdk_sticker_button_add">Ekle</string>
-    <string name="pesdk_sticker_button_color">Color</string>
+    <string name="pesdk_sticker_button_color">Renk</string>
     <string name="pesdk_sticker_button_delete">Sil</string>
     <string name="pesdk_sticker_button_bringToFront">Öne</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_straighten">Düzleştir</string>
     <string name="pesdk_sticker_button_replace">Değiştir</string>
     <string name="pesdk_sticker_button_opacity">Opaklık</string>
-    <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_sticker_button_contrast">Kontrast</string>
+    <string name="pesdk_sticker_button_saturation">Doygunluk</string>
+    <string name="pesdk_sticker_button_brightness">Parlaklık</string>
+    <string name="pesdk_sticker_category_name_custom">Yüklemeler</string>
     <string name="pesdk_overlay_title_name">Kaplama</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
     <string name="pesdk_overlay_button_blendModeDarken">Karartma</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">Görüntülerde renk şeritleri görüyorum. Kaliteyi nasıl arttırabilirim?</string>
     <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
     <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
-    <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz.</string>
+    <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
 

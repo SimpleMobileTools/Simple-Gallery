@@ -26,7 +26,12 @@ import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
+import kotlinx.android.synthetic.main.activity_media.*
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.activity_search.media_empty_text_placeholder
+import kotlinx.android.synthetic.main.activity_search.media_grid
+import kotlinx.android.synthetic.main.activity_search.media_horizontal_fastscroller
+import kotlinx.android.synthetic.main.activity_search.media_vertical_fastscroller
 import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
@@ -71,22 +76,6 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem?.actionView as? SearchView)?.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (mIsSearchOpen) {
-                        mLastSearchedText = newText
-                        textChanged(newText)
-                    }
-                    return true
-                }
-            })
-        }
-
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 mIsSearchOpen = true
@@ -103,6 +92,22 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             }
         })
         mSearchMenuItem?.expandActionView()
+
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    if (mIsSearchOpen) {
+                        mLastSearchedText = newText
+                        textChanged(newText)
+                    }
+                    return true
+                }
+            })
+        }
     }
 
     private fun textChanged(text: String) {
@@ -119,6 +124,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                         media_empty_text_placeholder.beGone()
                     }
 
+                    handleGridSpacing(grouped)
                     getMediaAdapter()?.updateMedia(grouped)
                     measureRecyclerViewContent(grouped)
                 }
@@ -139,15 +145,31 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                 media_grid.adapter = this
             }
             setupLayoutManager()
+            handleGridSpacing(mAllMedia)
             measureRecyclerViewContent(mAllMedia)
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mAllMedia)
+            handleGridSpacing(mAllMedia)
             measureRecyclerViewContent(mAllMedia)
         } else {
             textChanged(mLastSearchedText)
         }
 
         setupScrollDirection()
+    }
+
+    private fun handleGridSpacing(media: ArrayList<ThumbnailItem>) {
+        val viewType = config.getFolderViewType(SHOW_ALL)
+        if (viewType == VIEW_TYPE_GRID) {
+            if (media_grid.itemDecorationCount > 0) {
+                media_grid.removeItemDecorationAt(0)
+            }
+
+            val spanCount = config.mediaColumnCnt
+            val spacing = config.thumbnailSpacing
+            val decoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, true)
+            media_grid.addItemDecoration(decoration)
+        }
     }
 
     private fun getMediaAdapter() = media_grid.adapter as? MediaAdapter
@@ -356,5 +378,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun selectedPaths(paths: ArrayList<String>) {
+    }
+
+    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {
     }
 }

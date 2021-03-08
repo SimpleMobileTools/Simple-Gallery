@@ -156,8 +156,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun checkHideBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
-        menu.findItem(R.id.cab_hide).isVisible = selectedPaths.any { !it.doesThisOrParentHaveNoMedia() }
-        menu.findItem(R.id.cab_unhide).isVisible = selectedPaths.any { it.doesThisOrParentHaveNoMedia() }
+        menu.findItem(R.id.cab_hide).isVisible = selectedPaths.any { !it.doesThisOrParentHaveNoMedia(HashMap(), null) }
+        menu.findItem(R.id.cab_unhide).isVisible = selectedPaths.any { it.doesThisOrParentHaveNoMedia(HashMap(), null) }
     }
 
     private fun checkPinBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
@@ -327,7 +327,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 val affectedPositions = ArrayList<Int>()
                 val includedFolders = config.includedFolders
                 val newDirs = dirs.filterIndexed { index, directory ->
-                    val removeDir = directory.path.doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
+                    val removeDir = directory.path.doesThisOrParentHaveNoMedia(HashMap(), null) && !includedFolders.contains(directory.path)
                     if (removeDir) {
                         affectedPositions.add(index)
                     }
@@ -677,7 +677,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             dir_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                dir_check.background?.applyColorFilter(primaryColor)
+                dir_check.background?.applyColorFilter(adjustedPrimaryColor)
+                dir_check.applyColorFilter(contrastColor)
+            }
+
+            if (isListViewType) {
+                dir_holder.isSelected = isSelected
             }
 
             if (scrollHorizontally && !isListViewType && folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
@@ -710,7 +715,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     else -> ROUNDED_CORNERS_BIG
                 }
 
-                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners)
+                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, directory.getKey())
             }
 
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))

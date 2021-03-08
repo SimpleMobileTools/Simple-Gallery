@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dialog_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/normal_margin">
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_spacing_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="@dimen/normal_margin"
+            android:paddingTop="@dimen/bigger_margin"
+            android:paddingEnd="@dimen/normal_margin"
+            android:paddingBottom="@dimen/bigger_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/dialog_file_style_spacing_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/dialog_file_style_spacing"
+                android:ellipsize="end"
+                android:lines="1"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingEnd="@dimen/medium_margin"
+                android:text="@string/thumbnail_spacing" />
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/dialog_file_style_spacing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:background="@null"
+                android:clickable="false" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_rounded_corners_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/normal_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/dialog_file_style_rounded_corners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/rounded_corners"
+                app:switchPadding="@dimen/medium_margin" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_animate_gifs_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/normal_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/dialog_file_style_animate_gifs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/animate_gifs"
+                app:switchPadding="@dimen/medium_margin" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_show_thumbnail_video_duration_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/normal_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/dialog_file_style_show_thumbnail_video_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_thumbnail_video_duration"
+                app:switchPadding="@dimen/medium_margin" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_show_thumbnail_file_types_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/normal_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/dialog_file_style_show_thumbnail_file_types"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_image_file_types"
+                app:switchPadding="@dimen/medium_margin" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

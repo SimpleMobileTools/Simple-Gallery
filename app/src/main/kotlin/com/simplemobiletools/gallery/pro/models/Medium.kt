@@ -1,10 +1,7 @@
 package com.simplemobiletools.gallery.pro.models
 
 import android.content.Context
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
@@ -15,6 +12,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.pro.helpers.*
+import java.io.File
 import java.io.Serializable
 import java.util.*
 
@@ -24,13 +22,18 @@ data class Medium(
     @ColumnInfo(name = "filename") var name: String,
     @ColumnInfo(name = "full_path") var path: String,
     @ColumnInfo(name = "parent_path") var parentPath: String,
-    @ColumnInfo(name = "last_modified") val modified: Long,
+    @ColumnInfo(name = "last_modified") var modified: Long,
     @ColumnInfo(name = "date_taken") var taken: Long,
-    @ColumnInfo(name = "size") val size: Long,
-    @ColumnInfo(name = "type") val type: Int,
-    @ColumnInfo(name = "video_duration") val videoDuration: Int,
+    @ColumnInfo(name = "size") var size: Long,
+    @ColumnInfo(name = "type") var type: Int,
+    @ColumnInfo(name = "video_duration") var videoDuration: Int,
     @ColumnInfo(name = "is_favorite") var isFavorite: Boolean,
-    @ColumnInfo(name = "deleted_ts") var deletedTS: Long) : Serializable, ThumbnailItem() {
+    @ColumnInfo(name = "deleted_ts") var deletedTS: Long,
+
+    @Ignore var gridPosition: Int = 0   // used at grid view decoration at Grouping enabled
+) : Serializable, ThumbnailItem() {
+
+    constructor() : this(null, "", "", "", 0L, 0L, 0L, 0, 0, false, 0L, 0)
 
     companion object {
         private const val serialVersionUID = -6553149366975655L
@@ -91,5 +94,15 @@ data class Medium(
         return calendar.timeInMillis.toString()
     }
 
-    fun getSignature() = ObjectKey("$path-$modified-$size")
+    fun getSignature(): String {
+        val lastModified = if (modified > 1) {
+            modified
+        } else {
+            File(path).lastModified()
+        }
+
+        return "$path-$lastModified-$size"
+    }
+
+    fun getKey() = ObjectKey(getSignature())
 }

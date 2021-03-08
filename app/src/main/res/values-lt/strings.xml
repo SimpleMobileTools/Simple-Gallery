@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
     <string name="remember_last_video_position">Remember last video playback position</string>
-    <string name="toggle_filename">Perjungti bylos pavadinimo matomumą</string>
     <string name="loop_videos">Klipuoti vaizdo įrašus</string>
     <string name="animate_gifs">Animuoti GIF\'us miniatiūrose</string>
     <string name="max_brightness">Maksimalus ryškumas, kai medija peržiūrima viso ekrano rėžimu</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
     <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 

@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
     <string name="remember_last_video_position">Zapomni si zadnji položaj predvajanja</string>
-    <string name="toggle_filename">Preklopi vidljivost imen datotek</string>
     <string name="loop_videos">Ponavljaj videoposnetke</string>
     <string name="animate_gifs">Animiraj GIFe v predogledu</string>
     <string name="max_brightness">Najvišja svetlost pri celozaslonskem predvajanju</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Show image file types</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto?</string>
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
     <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
-    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora?</string>
     <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se vštevajo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
 

@@ -153,7 +153,6 @@
     <!-- Settings -->
     <string name="autoplay_videos">Putar video secara otomatis</string>
     <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>
-    <string name="toggle_filename">Ubah visibilitas nama berkas</string>
     <string name="loop_videos">Video berulang</string>
     <string name="animate_gifs">Animasi GIF di thumbnail</string>
     <string name="max_brightness">Kecerahan maksimum saat melihat di layar penuh</string>
@@ -193,12 +192,15 @@
     <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
+    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
+    <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>
@@ -352,7 +354,7 @@
     <string name="faq_13_title">Saya melihat beberapa pita warna pada gambar. Bagaimana saya meningkatkan kualitasnya?</string>
     <string name="faq_13_text">Solusi saat ini untuk menampilkan gambar berfungsi dengan baik dalam sebagian besar kasus, namun jika anda ingin kualitas gambar yang lebih baik, anda bisa mengaktifkan \"Tampilkan gambar dalam kualitas tertinggi\" di pengaturan aplikasi, pada bagian \"Zum gambar mendalam\".</string>
     <string name="faq_14_title">Saya punya berkas/folder tersembunyi. Bagaimana cara memunculkannya?</string>
-    <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas.</string>
+    <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong?</string>
     <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
 

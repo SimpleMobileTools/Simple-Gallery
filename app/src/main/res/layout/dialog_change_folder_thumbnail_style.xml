@@ -14,19 +14,19 @@
         android:paddingRight="@dimen/activity_margin">
 
         <RelativeLayout
-            android:id="@+id/dialog_sample_holder"
+            android:id="@+id/dialog_folder_sample_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <RadioGroup
-            android:id="@+id/dialog_radio_style"
+            android:id="@+id/dialog_radio_folder_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/dialog_radio_square"
+                android:id="@+id/dialog_radio_folder_square"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
@@ -34,7 +34,7 @@
                 android:text="@string/square" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/dialog_radio_rounded_corners"
+                android:id="@+id/dialog_radio_folder_rounded_corners"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
@@ -46,14 +46,14 @@
         <include layout="@layout/divider" />
 
         <RadioGroup
-            android:id="@+id/dialog_radio_count_holder"
+            android:id="@+id/dialog_radio_folder_count_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
             android:paddingBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/dialog_radio_count_line"
+                android:id="@+id/dialog_radio_folder_count_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
@@ -61,7 +61,7 @@
                 android:text="@string/show_file_count_line" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/dialog_radio_count_brackets"
+                android:id="@+id/dialog_radio_folder_count_brackets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
@@ -69,7 +69,7 @@
                 android:text="@string/show_file_count_brackets" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/dialog_radio_count_none"
+                android:id="@+id/dialog_radio_folder_count_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
@@ -80,7 +80,7 @@
         <include layout="@layout/divider" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-            android:id="@+id/dialog_limit_title"
+            android:id="@+id/dialog_folder_limit_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
