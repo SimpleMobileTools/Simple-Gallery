@@ -18,6 +18,7 @@ import android.provider.MediaStore.Images
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.exifinterface.media.ExifInterface
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
@@ -36,7 +37,13 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
-import java.io.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -423,7 +430,12 @@ fun Activity.hasNavBar(): Boolean {
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }
 
-fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasRescanned: Boolean = false, callback: (() -> Unit)? = null) {
+fun AppCompatActivity.fixDateTaken(
+    paths: ArrayList<String>,
+    showToasts: Boolean,
+    hasRescanned: Boolean = false,
+    callback: (() -> Unit)? = null
+) {
     val BATCH_SIZE = 50
     if (showToasts) {
         toast(R.string.fixing)
@@ -434,7 +446,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
 
-        ensureBackgroundThread {
+        lifecycleScope.launch(Dispatchers.IO) {
             val dateTakens = ArrayList<DateTaken>()
 
             for (path in paths) {
@@ -478,10 +490,8 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                     toast(R.string.no_date_takens_found)
                 }
 
-                runOnUiThread {
-                    callback?.invoke()
-                }
-                return@ensureBackgroundThread
+                withContext(Dispatchers.Main) { callback?.invoke() }
+                return@launch
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
@@ -494,7 +504,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, hasResc
                     dateTakensDB.insertAll(dateTakens)
                 }
 
-                runOnUiThread {
+                withContext(Dispatchers.Main) {
                     if (showToasts) {
                         toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
                     }
