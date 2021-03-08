@@ -8,6 +8,7 @@ import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
+import android.os.Process
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.widget.ImageView
@@ -587,6 +588,11 @@ fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThu
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
     ensureBackgroundThread {
+        try {
+            Process.setThreadPriority(Process.THREAD_PRIORITY_MORE_FAVORABLE)
+        } catch (ignored: Exception) {
+        }
+
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
