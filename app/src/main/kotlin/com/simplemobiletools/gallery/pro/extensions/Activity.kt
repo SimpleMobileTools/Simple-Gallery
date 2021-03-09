@@ -19,7 +19,6 @@ import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.exifinterface.media.ExifInterface
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -37,9 +36,6 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -446,7 +442,7 @@ fun AppCompatActivity.fixDateTaken(
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
 
-        lifecycleScope.launch(Dispatchers.IO) {
+        ensureBackgroundThread {
             val dateTakens = ArrayList<DateTaken>()
 
             for (path in paths) {
@@ -490,8 +486,10 @@ fun AppCompatActivity.fixDateTaken(
                     toast(R.string.no_date_takens_found)
                 }
 
-                withContext(Dispatchers.Main) { callback?.invoke() }
-                return@launch
+                runOnUiThread {
+                    callback?.invoke()
+                }
+                return@ensureBackgroundThread
             }
 
             val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
@@ -504,7 +502,7 @@ fun AppCompatActivity.fixDateTaken(
                     dateTakensDB.insertAll(dateTakens)
                 }
 
-                withContext(Dispatchers.Main) {
+                runOnUiThread {
                     if (showToasts) {
                         toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
                     }
