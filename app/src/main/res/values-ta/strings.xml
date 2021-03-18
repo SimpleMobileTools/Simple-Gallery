@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">எளிய கேலரி</string>
-    <string name="app_launcher_name">ேலரி</string>
+    <string name="app_launcher_name">கேலரி</string>
     <string name="edit">மாற்று</string>
     <string name="open_camera">புகைப்படக்கருவியை திறக்கவும்</string>
     <string name="hidden">(மறைக்கப்பற்றுள்ளவை)</string>
