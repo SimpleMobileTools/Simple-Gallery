@@ -88,16 +88,16 @@ dependencies {
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
     implementation 'info.androidhive:imagefilters:1.0.7'
-    implementation('com.squareup.picasso:picasso:2.71828') {
-        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    }
-    compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okio:okio:2.10.0'
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
     implementation 'com.github.tibbi:subsampling-scale-image-view:961f7b5f2d'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.7.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.9.0'
+    implementation('com.squareup.picasso:picasso:2.71828') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
