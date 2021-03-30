@@ -172,7 +172,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(screenRotation) = prefs.edit().putInt(SCREEN_ROTATION, screenRotation).apply()
 
     var fileLoadingPriority: Int
-        get() = prefs.getInt(FILE_LOADING_PRIORITY, PRIORITY_COMPROMISE)
+        get() = prefs.getInt(FILE_LOADING_PRIORITY, PRIORITY_SPEED)
         set(fileLoadingPriority) = prefs.edit().putInt(FILE_LOADING_PRIORITY, fileLoadingPriority).apply()
 
     var loopVideos: Boolean
