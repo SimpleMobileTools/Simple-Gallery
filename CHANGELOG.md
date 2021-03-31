@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.19.5 *(2021-03-31)*
+----------------------------
+
+ * Changed the default file loading priority to Speed
+ * Apply the max brightness option to panoramas too
+ * Some smaller stability and translation improvements
+
 Version 6.19.4 *(2021-03-09)*
 ----------------------------
 
