@@ -191,15 +191,15 @@
     <string name="avoid_showing_invalid_files">Evita di mostrare file non validi</string>
     <string name="show_image_file_types">Mostra i tipi di file immagine</string>
     <string name="allow_zooming_videos">Permetti l\'ingrandimento dei video con un doppio tocco</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
+    <string name="folder_thumbnail_style">Stile anteprime delle cartelle</string>
+    <string name="file_thumbnail_style">Stile anteprime dei file</string>
+    <string name="thumbnail_spacing">Spaziatura tra le anteprime</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
     <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
+    <string name="rounded_corners">Angoli arrotondati</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
 
     <!-- Setting sections -->
