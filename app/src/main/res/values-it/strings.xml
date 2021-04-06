@@ -80,8 +80,8 @@
     <string name="invalid_video_path">Percorso del video non valido</string>
     <string name="image_editing_failed">Modifica dell\'immagine fallita</string>
     <string name="video_editing_failed">Modifica del video fallita</string>
-    <string name="image_editing_cancelled">Modifica immagine annullata</string>
-    <string name="video_editing_cancelled">Modifica video annullata</string>
+    <string name="image_editing_cancelled">Modifica dell\'immagine annullata</string>
+    <string name="video_editing_cancelled">Modifica del video annullata</string>
     <string name="file_edited_successfully">File modificato correttamente</string>
     <string name="image_edited_successfully">Immagine modificata correttamente</string>
     <string name="video_edited_successfully">Video modificato correttamente</string>
@@ -285,11 +285,11 @@
     <string name="pesdk_sticker_button_saturation">Saturazione</string>
     <string name="pesdk_sticker_button_brightness">Luminosità</string>
     <string name="pesdk_sticker_category_name_custom">Uploads</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_title_name">Sovrapponi</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normale</string>
     <string name="pesdk_overlay_button_blendModeDarken">Scurisci</string>
     <string name="pesdk_overlay_button_blendModeScreen">Schermo</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Sovrapponi</string>
     <string name="pesdk_overlay_button_blendModeLighten">Illumina</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Moltiplica</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Colore bruciato</string>
