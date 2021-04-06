@@ -284,7 +284,7 @@
     <string name="pesdk_sticker_button_contrast">Contrasto</string>
     <string name="pesdk_sticker_button_saturation">Saturazione</string>
     <string name="pesdk_sticker_button_brightness">Luminosità</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
+    <string name="pesdk_sticker_category_name_custom">Caricati</string>
     <string name="pesdk_overlay_title_name">Sovrapponi</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normale</string>
     <string name="pesdk_overlay_button_blendModeDarken">Scurisci</string>
