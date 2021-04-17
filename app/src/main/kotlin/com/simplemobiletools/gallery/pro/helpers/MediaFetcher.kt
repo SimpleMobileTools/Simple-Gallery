@@ -1,8 +1,11 @@
 package com.simplemobiletools.gallery.pro.helpers
 
+import android.annotation.SuppressLint
+import android.content.ContentResolver
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import android.os.Bundle
 import android.os.Environment
 import android.provider.BaseColumns
 import android.provider.MediaStore.Files
@@ -97,19 +100,37 @@ class MediaFetcher(val context: Context) {
         }
     }
 
+    @SuppressLint("NewApi")
     private fun getLatestFileFolders(): LinkedHashSet<String> {
         val uri = Files.getContentUri("external")
         val projection = arrayOf(Images.ImageColumns.DATA)
         val parents = LinkedHashSet<String>()
-        val sorting = "${BaseColumns._ID} DESC LIMIT 50"
         var cursor: Cursor? = null
         try {
-            cursor = context.contentResolver.query(uri, projection, null, null, sorting)
-            if (cursor?.moveToFirst() == true) {
-                do {
-                    val path = cursor.getStringValue(Images.ImageColumns.DATA) ?: continue
-                    parents.add(path.getParentPath())
-                } while (cursor.moveToNext())
+            if (isRPlus()) {
+                val bundle = Bundle().apply {
+                    putInt(ContentResolver.QUERY_ARG_LIMIT, 10)
+                    putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(BaseColumns._ID))
+                    putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
+                }
+
+                cursor = context.contentResolver.query(uri, projection, bundle, null)
+                if (cursor?.moveToFirst() == true) {
+                    do {
+                        val path = cursor.getStringValue(Images.ImageColumns.DATA) ?: continue
+                        parents.add(path.getParentPath())
+                    } while (cursor.moveToNext())
+                }
+            } else {
+                val sorting = "${BaseColumns._ID} DESC LIMIT 10"
+                cursor = context.contentResolver.query(uri, projection, null, null, sorting)
+                if (cursor?.moveToFirst() == true) {
+                    do {
+                        val path = cursor.getStringValue(Images.ImageColumns.DATA) ?: continue
+                        mydebug("path $path")
+                        parents.add(path.getParentPath())
+                    } while (cursor.moveToNext())
+                }
             }
         } catch (e: Exception) {
             context.showErrorToast(e)
