@@ -74,11 +74,7 @@ fun Activity.openEditor(path: String, forceChooser: Boolean = false) {
 
 fun Activity.launchCamera() {
     val intent = Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)
-    if (intent.resolveActivity(packageManager) != null) {
-        startActivity(intent)
-    } else {
-        toast(R.string.no_app_found)
-    }
+    launchActivityIntent(intent)
 }
 
 fun SimpleActivity.launchAbout() {
