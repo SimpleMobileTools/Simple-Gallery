@@ -42,7 +42,7 @@ import java.io.File
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
-        MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
+    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
@@ -439,12 +439,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val filter = config.filterMedia
             File(it).listFiles()?.filter {
                 !File(it.absolutePath).isDirectory &&
-                        it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
-                        ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                                (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                                (it.isGif() && filter and TYPE_GIFS != 0) ||
-                                (it.isRawFast() && filter and TYPE_RAWS != 0) ||
-                                (it.isSvg() && filter and TYPE_SVGS != 0))
+                    it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                    ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                        (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                        (it.isGif() && filter and TYPE_GIFS != 0) ||
+                        (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                        (it.isSvg() && filter and TYPE_SVGS != 0))
             }?.mapTo(paths) { it.absolutePath }
         }
 
@@ -503,18 +503,22 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size
-                val items = if (itemsCnt == 1) {
-                    var folder = getSelectedPaths().first().getFilenameFromPath()
-                    if (folder == RECYCLE_BIN) {
-                        folder = activity.getString(R.string.recycle_bin)
+                if (itemsCnt == 1 && getSelectedItems().first().isRecycleBin()) {
+                    ConfirmationDialog(activity, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+                        deleteFolders()
                     }
+                    return
+                }
+
+                val items = if (itemsCnt == 1) {
+                    val folder = getSelectedPaths().first().getFilenameFromPath()
                     "\"$folder\""
                 } else {
                     resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
-                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
+                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.areFavorites())) {
                     R.string.deletion_confirmation
                 } else {
                     R.string.move_to_recycle_bin_confirmation
