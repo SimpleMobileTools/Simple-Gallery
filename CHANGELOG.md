@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.19.6 *(2021-04-18)*
+----------------------------
+
+ * Fixed some photo editor related glitches
+ * Some smaller bugfixes, translation and stability improvements
+
 Version 6.19.5 *(2021-03-31)*
 ----------------------------
 

@@ -1,0 +1,1 @@
+ * Some smaller bugfixes, translation and stability improvements
