@@ -127,7 +127,6 @@ class MediaFetcher(val context: Context) {
                 if (cursor?.moveToFirst() == true) {
                     do {
                         val path = cursor.getStringValue(Images.ImageColumns.DATA) ?: continue
-                        mydebug("path $path")
                         parents.add(path.getParentPath())
                     } while (cursor.moveToNext())
                 }
