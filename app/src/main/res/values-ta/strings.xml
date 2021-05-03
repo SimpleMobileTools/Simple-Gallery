@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">காணக்கூடிய அனைத்து கோப்புறைகளிலும் கோப்பு தேடலுக்கு மாறவும்</string>
     <string name="set_as_default_folder">இயல்புநிலை கோப்புறையாக அமைக்கவும்</string>
     <string name="unset_as_default_folder">இயல்புநிலை கோப்புறையாக அமைக்காதீர்கள்</string>
-    
+
     <!-- Filter -->
     <string name="filter_media">மீடியாவை வடிகட்டவும்</string>
     <string name="images">புகைப்படங்கள்</string>
@@ -43,7 +43,7 @@
     <string name="portraits">உருவப்படங்கள்</string>
     <string name="no_media_with_filters">தேர்ந்தெடுக்கப்பட்ட வடிப்பான்களுடன் ஊடக கோப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை.</string>
     <string name="change_filters_underlined"><u>வடிப்பான்களை மாற்றவும்</u></string>
-    
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">இந்த செயல்பாடு ஒரு \'.nomedia\' கோப்பைச் சேர்ப்பதன் மூலம் கோப்புறையை மறைக்கிறது, இது எல்லா துணை கோப்புறைகளையும் மறைக்கும். அமைப்புகளில் \'மறைக்கப்பட்ட உருப்படிகளைக் காண்பி\' விருப்பத்தை மாற்றுவதன் மூலம் அவற்றைக் காணலாம். தொடரவா?</string>
     <string name="exclude">விலக்கு</string>
@@ -64,7 +64,7 @@
     <string name="add_folder">கோப்புறையை சேர்</string>
     <string name="included_activity_placeholder">உங்களிடம் சில கோப்புறைகள் இருந்தால், அவை பயன்பாட்டைக் கொண்டிருக்கவில்லை, ஆனால் அவற்றை கைமுறையாக இங்கே சேர்க்கலாம்.\n\nசில உருப்படிகளை இங்கே சேர்ப்பது வேறு எந்த கோப்புறையையும் விலக்காது.</string>
     <string name="no_media_add_included">மீடியா கோப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை. மீடியா கோப்புகளைக் கொண்ட கோப்புறைகளை கைமுறையாகச் சேர்ப்பதன் மூலம் அதைத் தீர்க்கலாம்.</string>
-    
+
     <!-- Resizing -->
     <string name="resize">மறுஅளவிடு</string>
     <string name="resize_and_save">தேர்வை மறுஅளவிட்டு சேமி</string>
@@ -72,7 +72,7 @@
     <string name="height">உயரம்</string>
     <string name="keep_aspect_ratio">விகித விகிதத்தை வைத்திரு</string>
     <string name="invalid_values">சரியான தீர்மானத்தை உள்ளிடவும்</string>
-    
+
     <!-- Editor -->
     <string name="editor">திருத்தி</string>
     <string name="rotate">சுழற்று</string>
@@ -97,8 +97,8 @@
     <string name="flip">புரட்டு</string>
     <string name="flip_horizontally">கிடைமட்டமாக புரட்டு</string>
     <string name="flip_vertically">செங்குத்தாக புரட்டு</string>
-    <string name="free_aspect_ratio">கட்டுப்பாடற்ற</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">மற்ற</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">கட்டுப்பாடற்ற</string>                   <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">மற்ற</string>                         <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">எளிய சுவரொட்டி</string>
