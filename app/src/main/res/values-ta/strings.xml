@@ -57,6 +57,7 @@
     <string name="hidden_folders">மறைத்த கோப்புறைகள்</string>
     <string name="manage_hidden_folders">மறைத்த கோப்புறைகளை நிர்வகி</string>
     <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எந்த கோப்புறைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
+
     <!-- Include folders -->
     <string name="include_folders">உள்ளடக்கிய கோப்புறைகள்</string>
     <string name="manage_included_folders">உள்ளடக்கிய கோப்புறைகளை நிர்வகி</string>
