@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">表示されているすべてのフォルダで検索 に切り替え</string>
     <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>

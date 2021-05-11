@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
     <string name="set_as_default_folder">Utilizar como pasta padrão</string>
     <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>

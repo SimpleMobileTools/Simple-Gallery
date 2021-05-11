@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
     <string name="set_as_default_folder">Imposta come cartella di default</string>
     <string name="unset_as_default_folder">Non impostare come cartella di default</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>

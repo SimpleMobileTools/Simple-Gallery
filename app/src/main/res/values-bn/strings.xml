@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">সব দেখা যাওয়া ফোল্ডারে ফাইল সার্চে চলে যান</string>
     <string name="set_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে সেট করুন</string>
     <string name="unset_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে আর রাখবেন না</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">মিডিয়া ফিল্টার করুন</string>

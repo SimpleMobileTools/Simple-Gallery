@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
     <string name="set_as_default_folder">Встановити теку за замовчуванням</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
