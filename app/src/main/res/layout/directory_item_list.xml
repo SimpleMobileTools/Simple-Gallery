@@ -89,7 +89,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/medium_margin"
-        android:gravity="end"
+        android:gravity="end|bottom"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/tiny_margin">
 
@@ -109,6 +109,15 @@
             android:contentDescription="@string/pin"
             android:paddingBottom="@dimen/small_margin"
             android:src="@drawable/ic_pin"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/dir_drag_handle"
+            android:layout_width="@dimen/selection_check_size"
+            android:layout_height="@dimen/selection_check_size"
+            android:layout_marginStart="@dimen/small_margin"
+            android:contentDescription="@string/reorder_by_dragging"
+            android:src="@drawable/ic_drag_handle_vector"
             android:visibility="gone" />
 
     </LinearLayout>

@@ -56,6 +56,19 @@
         android:visibility="gone" />
 
     <ImageView
+        android:id="@+id/dir_drag_handle"
+        android:layout_width="@dimen/drag_handle_size"
+        android:layout_height="@dimen/drag_handle_size"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="@drawable/circle_black_background"
+        android:contentDescription="@string/reorder_by_dragging"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/ic_drag_handle_vector"
+        android:visibility="gone" />
+
+    <ImageView
         android:id="@+id/dir_shadow_holder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
