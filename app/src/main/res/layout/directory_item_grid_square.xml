@@ -55,18 +55,27 @@
         android:src="@drawable/ic_pin"
         android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/dir_drag_handle"
-        android:layout_width="@dimen/drag_handle_size"
-        android:layout_height="@dimen/drag_handle_size"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/medium_margin"
-        android:background="@drawable/circle_black_background"
-        android:contentDescription="@string/reorder_by_dragging"
-        android:padding="@dimen/small_margin"
-        android:src="@drawable/ic_drag_handle_vector"
-        android:visibility="gone" />
+    <RelativeLayout
+        android:id="@+id/dir_drag_handle_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/dir_shadow_holder"
+        android:layout_alignEnd="@+id/dir_shadow_holder"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/dir_drag_handle"
+            android:layout_width="@dimen/drag_handle_size"
+            android:layout_height="@dimen/drag_handle_size"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/circle_black_background"
+            android:contentDescription="@string/reorder_by_dragging"
+            android:padding="@dimen/small_margin"
+            android:src="@drawable/ic_drag_handle_vector" />
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/dir_shadow_holder"

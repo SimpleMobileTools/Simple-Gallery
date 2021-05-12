@@ -1,73 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_properties"
         android:icon="@drawable/ic_info"
         android:title="@string/properties"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_pin"
         android:icon="@drawable/ic_pin"
         android:title="@string/pin_to_the_top"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_unpin"
         android:icon="@drawable/ic_unpin"
         android:title="@string/unpin_folder"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cab_change_order"
+        android:icon="@drawable/ic_drag_handle_vector"
+        android:title="@string/reorder_by_dragging"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_rename"
         android:icon="@drawable/ic_rename_new"
         android:title="@string/rename"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_hide"
         android:icon="@drawable/ic_hide"
         android:title="@string/hide_folder"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_unhide"
         android:icon="@drawable/ic_unhide_vector"
         android:title="@string/unhide_folder"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_copy_to"
         android:title="@string/copy_to"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_move_to"
         android:title="@string/move_to"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_create_shortcut"
         android:title="@string/create_shortcut"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_empty_recycle_bin"
         android:title="@string/empty_recycle_bin"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_empty_disable_recycle_bin"
         android:title="@string/empty_and_disable_recycle_bin"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_exclude"
         android:title="@string/exclude"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_lock"
         android:title="@string/lock_folder"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_unlock"
         android:title="@string/unlock_folder"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/cab_change_cover_image"
         android:title="@string/change_cover_image"
@@ -75,15 +80,15 @@
         <menu>
             <item
                 android:id="@+id/cab_select_photo"
-                android:title="@string/select_photo"/>
+                android:title="@string/select_photo" />
             <item
                 android:id="@+id/cab_use_default"
-                android:title="@string/use_default"/>
+                android:title="@string/use_default" />
         </menu>
     </item>
     <item
         android:id="@+id/cab_select_all"
         android:icon="@drawable/ic_select_all_vector"
         android:title="@string/select_all"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 </menu>
