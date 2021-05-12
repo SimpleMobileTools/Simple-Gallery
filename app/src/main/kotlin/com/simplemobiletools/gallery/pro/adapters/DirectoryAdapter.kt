@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.text.TextUtils
 import android.view.Menu
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -48,6 +49,9 @@ import kotlinx.android.synthetic.main.directory_item_list.view.dir_drag_handle
 import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
 import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
@@ -98,7 +102,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs.getOrNull(position) ?: return
         holder.bindView(dir, true, !isPickIntent) { itemView, adapterPosition ->
-            setupView(itemView, dir)
+            setupView(itemView, dir, holder)
         }
         bindViewHolder(holder)
     }
@@ -699,7 +703,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyDataSetChanged()
     }
 
-    private fun setupView(view: View, directory: Directory) {
+    private fun setupView(view: View, directory: Directory, holder: ViewHolder) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
@@ -795,15 +799,34 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             } else {
                 dir_drag_handle_wrapper.beVisibleIf(isChangingOrder)
             }
+
+            if (isChangingOrder) {
+                dir_drag_handle.applyColorFilter(textColor)
+                dir_drag_handle.setOnTouchListener { v, event ->
+                    if (event.action == MotionEvent.ACTION_DOWN) {
+                        startReorderDragListener.requestDrag(holder)
+                    }
+                    false
+                }
+            }
         }
     }
 
-    override fun onRowClear(myViewHolder: ViewHolder?) {
-    }
-
     override fun onRowMoved(fromPosition: Int, toPosition: Int) {
+        if (fromPosition < toPosition) {
+            for (i in fromPosition until toPosition) {
+                Collections.swap(dirs, i, i + 1)
+            }
+        } else {
+            for (i in fromPosition downTo toPosition + 1) {
+                Collections.swap(dirs, i, i - 1)
+            }
+        }
+
+        notifyItemMoved(fromPosition, toPosition)
     }
 
-    override fun onRowSelected(myViewHolder: ViewHolder?) {
-    }
+    override fun onRowClear(myViewHolder: ViewHolder?) {}
+
+    override fun onRowSelected(myViewHolder: ViewHolder?) {}
 }
