@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -54,7 +55,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
-                       val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+                       val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
     MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick), ItemTouchHelperContract {
 
     private val config = activity.config
@@ -826,7 +827,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyItemMoved(fromPosition, toPosition)
     }
 
-    override fun onRowClear(myViewHolder: ViewHolder?) {}
+    override fun onRowSelected(myViewHolder: ViewHolder?) {
+        swipeRefreshLayout?.isEnabled = false
+    }
 
-    override fun onRowSelected(myViewHolder: ViewHolder?) {}
+    override fun onRowClear(myViewHolder: ViewHolder?) {
+        swipeRefreshLayout?.isEnabled = true
+    }
 }
