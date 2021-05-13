@@ -111,7 +111,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getItemCount() = dirs.size
 
     override fun prepareActionMode(menu: Menu) {
-        mydebug("prepareaction")
         val selectedPaths = getSelectedPaths()
         if (selectedPaths.isEmpty()) {
             return
