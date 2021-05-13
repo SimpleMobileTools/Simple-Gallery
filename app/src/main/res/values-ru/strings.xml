@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">Переключиться на поиск файлов по всем видимым папкам</string>
     <string name="set_as_default_folder">Установить как папку по умолчанию</string>
     <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging">Менять порядок папок перетаскиванием</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
