@@ -864,6 +864,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     override fun onRowClear(myViewHolder: ViewHolder?) {
-        swipeRefreshLayout?.isEnabled = true
+        swipeRefreshLayout?.isEnabled = activity.config.enablePullToRefresh
     }
 }
