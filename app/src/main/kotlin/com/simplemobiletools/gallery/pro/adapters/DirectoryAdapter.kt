@@ -67,7 +67,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
-    private var isChangingOrder = false
+    private var isDragAndDropping = false
     private var startReorderDragListener: StartReorderDragListener
 
     private var showMediaCount = config.showFolderMediaCount
@@ -111,6 +111,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getItemCount() = dirs.size
 
     override fun prepareActionMode(menu: Menu) {
+        mydebug("prepareaction")
         val selectedPaths = getSelectedPaths()
         if (selectedPaths.isEmpty()) {
             return
@@ -118,6 +119,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         val isOneItemSelected = isOneItemSelected()
         menu.apply {
+            findItem(R.id.cab_move_to_top).isVisible = isDragAndDropping
+            findItem(R.id.cab_move_to_bottom).isVisible = isDragAndDropping
+
             findItem(R.id.cab_rename).isVisible = !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected
 
@@ -140,6 +144,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
 
         when (id) {
+            R.id.cab_move_to_top -> moveSelectedItemsToTop()
+            R.id.cab_move_to_bottom -> moveSelectedItemsToBottom()
             R.id.cab_properties -> showProperties()
             R.id.cab_rename -> renameDir()
             R.id.cab_pin -> pinFolders(true)
@@ -173,7 +179,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun onActionModeCreated() {}
 
     override fun onActionModeDestroyed() {
-        if (isChangingOrder) {
+        if (isDragAndDropping) {
             notifyDataSetChanged()
 
             val reorderedFoldersList = dirs.map { it.path }
@@ -181,7 +187,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.directorySorting = SORT_BY_CUSTOM
         }
 
-        isChangingOrder = false
+        isDragAndDropping = false
     }
 
     override fun onViewRecycled(holder: ViewHolder) {
@@ -200,6 +206,28 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val pinnedFolders = config.pinnedFolders
         menu.findItem(R.id.cab_pin).isVisible = selectedPaths.any { !pinnedFolders.contains(it) }
         menu.findItem(R.id.cab_unpin).isVisible = selectedPaths.any { pinnedFolders.contains(it) }
+    }
+
+    private fun moveSelectedItemsToTop() {
+        selectedKeys.reversed().forEach { key ->
+            val position = dirs.indexOfFirst { it.path.hashCode() == key }
+            val tempItem = dirs[position]
+            dirs.removeAt(position)
+            dirs.add(0, tempItem)
+        }
+
+        notifyDataSetChanged()
+    }
+
+    private fun moveSelectedItemsToBottom() {
+        selectedKeys.forEach { key ->
+            val position = dirs.indexOfFirst { it.path.hashCode() == key }
+            val tempItem = dirs[position]
+            dirs.removeAt(position)
+            dirs.add(dirs.size, tempItem)
+        }
+
+        notifyDataSetChanged()
     }
 
     private fun showProperties() {
@@ -463,8 +491,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun changeOrder() {
-        isChangingOrder = true
+        isDragAndDropping = true
         notifyDataSetChanged()
+        actMode?.invalidate()
     }
 
     private fun moveFilesTo() {
@@ -800,12 +829,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_path.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
                 dir_location.applyColorFilter(textColor)
-                dir_drag_handle.beVisibleIf(isChangingOrder)
+                dir_drag_handle.beVisibleIf(isDragAndDropping)
             } else {
-                dir_drag_handle_wrapper.beVisibleIf(isChangingOrder)
+                dir_drag_handle_wrapper.beVisibleIf(isDragAndDropping)
             }
 
-            if (isChangingOrder) {
+            if (isDragAndDropping) {
                 dir_drag_handle.applyColorFilter(textColor)
                 dir_drag_handle.setOnTouchListener { v, event ->
                     if (event.action == MotionEvent.ACTION_DOWN) {

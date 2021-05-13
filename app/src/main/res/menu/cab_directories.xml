@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/cab_move_to_top"
+        android:icon="@drawable/ic_move_to_top_vector"
+        android:title="@string/move_to_top"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_move_to_bottom"
+        android:icon="@drawable/ic_move_to_bottom_vector"
+        android:title="@string/move_to_bottom"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
