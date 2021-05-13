@@ -114,6 +114,18 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     if (sorting and SORT_BY_RANDOM != 0) {
         dirs.shuffle()
         return movePinnedDirectoriesToFront(dirs)
+    } else if (sorting and SORT_BY_CUSTOM != 0) {
+        val newDirsOrdered = ArrayList<Directory>()
+        config.customFoldersOrder.split("|||").forEach { path ->
+            val index = dirs.indexOfFirst { it.path == path }
+            if (index != -1) {
+                val dir = dirs.removeAt(index)
+                newDirsOrdered.add(dir)
+            }
+        }
+
+        dirs.mapTo(newDirsOrdered, { it })
+        return newDirsOrdered
     }
 
     dirs.sortWith(Comparator { o1, o2 ->
