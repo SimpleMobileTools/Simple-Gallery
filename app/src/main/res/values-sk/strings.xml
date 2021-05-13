@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Nastaviť ako predvolený priečinok</string>
     <string name="unset_as_default_folder">Odobrať predvolený priečinok</string>
     <string name="reorder_by_dragging">Zmeniť poradie priečinkov presunutím</string>
-    <string name="use_custom_sorting">Použiť manuálne zoradenie presúvaním</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>

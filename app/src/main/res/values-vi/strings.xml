@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="use_custom_sorting">Use custom sorting set by Drag and Drop</string>
 
     <!-- Filter -->
     <string name="filter_media">Lọc</string>
