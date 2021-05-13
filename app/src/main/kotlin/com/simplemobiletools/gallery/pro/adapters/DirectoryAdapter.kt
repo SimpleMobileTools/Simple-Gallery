@@ -175,6 +175,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun onActionModeDestroyed() {
         if (isChangingOrder) {
             notifyDataSetChanged()
+
+            val reorderedFoldersList = dirs.map { it.path }
+            config.customFoldersOrder = TextUtils.join("|||", reorderedFoldersList)
         }
 
         isChangingOrder = false

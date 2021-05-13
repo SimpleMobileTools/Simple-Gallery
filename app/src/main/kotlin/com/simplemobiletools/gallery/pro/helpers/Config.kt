@@ -515,4 +515,8 @@ class Config(context: Context) : BaseConfig(context) {
     var fileRoundedCorners: Boolean
         get() = prefs.getBoolean(FILE_ROUNDED_CORNERS, false)
         set(fileRoundedCorners) = prefs.edit().putBoolean(FILE_ROUNDED_CORNERS, fileRoundedCorners).apply()
+
+    var customFoldersOrder: String
+        get() = prefs.getString(CUSTOM_FOLDERS_ORDER, "")!!
+        set(customFoldersOrder) = prefs.edit().putString(CUSTOM_FOLDERS_ORDER, customFoldersOrder).apply()
 }
