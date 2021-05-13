@@ -32,6 +32,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(pathToUse)
             sorting_dialog_bottom_note.beVisibleIf(!isDirectorySorting)
+            sorting_dialog_radio_custom.beVisibleIf(isDirectorySorting)
         }
 
         AlertDialog.Builder(activity)
@@ -51,6 +52,10 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             val isSortingByNameOrPath = checkedId == sortingRadio.sorting_dialog_radio_name.id || checkedId == sortingRadio.sorting_dialog_radio_path.id
             view.sorting_dialog_numeric_sorting.beVisibleIf(isSortingByNameOrPath)
             view.use_for_this_folder_divider.beVisibleIf(view.sorting_dialog_numeric_sorting.isVisible() || view.sorting_dialog_use_for_this_folder.isVisible())
+
+            val isCustomSorting = checkedId == sortingRadio.sorting_dialog_radio_custom.id
+            view.sorting_dialog_radio_order.beVisibleIf(!isCustomSorting)
+            view.sorting_dialog_order_divider.beVisibleIf(!isCustomSorting)
         }
 
         val sortBtn = when {
@@ -59,6 +64,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortingRadio.sorting_dialog_radio_last_modified
             currSorting and SORT_BY_DATE_TAKEN != 0 -> sortingRadio.sorting_dialog_radio_date_taken
             currSorting and SORT_BY_RANDOM != 0 -> sortingRadio.sorting_dialog_radio_random
+            currSorting and SORT_BY_CUSTOM != 0 -> sortingRadio.sorting_dialog_radio_custom
             else -> sortingRadio.sorting_dialog_radio_name
         }
         sortBtn.isChecked = true
@@ -82,6 +88,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             R.id.sorting_dialog_radio_size -> SORT_BY_SIZE
             R.id.sorting_dialog_radio_last_modified -> SORT_BY_DATE_MODIFIED
             R.id.sorting_dialog_radio_random -> SORT_BY_RANDOM
+            R.id.sorting_dialog_radio_custom -> SORT_BY_CUSTOM
             else -> SORT_BY_DATE_TAKEN
         }
 

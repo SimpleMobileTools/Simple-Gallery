@@ -178,6 +178,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             val reorderedFoldersList = dirs.map { it.path }
             config.customFoldersOrder = TextUtils.join("|||", reorderedFoldersList)
+            config.directorySorting = SORT_BY_CUSTOM
         }
 
         isChangingOrder = false
