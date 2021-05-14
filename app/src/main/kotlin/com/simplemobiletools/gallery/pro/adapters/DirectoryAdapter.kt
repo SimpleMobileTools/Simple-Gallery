@@ -68,7 +68,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
     private var isDragAndDropping = false
-    private var startReorderDragListener: StartReorderDragListener
+    private var startReorderDragListener: StartReorderDragListener? = null
 
     private var showMediaCount = config.showFolderMediaCount
     private var folderStyle = config.folderStyle
@@ -77,15 +77,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     init {
         setupDragListener(true)
         fillLockedFolders()
-
-        val touchHelper = ItemTouchHelper(ItemMoveCallback(this, true))
-        touchHelper.attachToRecyclerView(recyclerView)
-
-        startReorderDragListener = object : StartReorderDragListener {
-            override fun requestDrag(viewHolder: RecyclerView.ViewHolder) {
-                touchHelper.startDrag(viewHolder)
-            }
-        }
     }
 
     override fun getActionMenuId() = R.menu.cab_directories
@@ -493,6 +484,17 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         isDragAndDropping = true
         notifyDataSetChanged()
         actMode?.invalidate()
+
+        if (startReorderDragListener == null) {
+            val touchHelper = ItemTouchHelper(ItemMoveCallback(this, true))
+            touchHelper.attachToRecyclerView(recyclerView)
+
+            startReorderDragListener = object : StartReorderDragListener {
+                override fun requestDrag(viewHolder: RecyclerView.ViewHolder) {
+                    touchHelper.startDrag(viewHolder)
+                }
+            }
+        }
     }
 
     private fun moveFilesTo() {
@@ -837,7 +839,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_drag_handle.applyColorFilter(textColor)
                 dir_drag_handle.setOnTouchListener { v, event ->
                     if (event.action == MotionEvent.ACTION_DOWN) {
-                        startReorderDragListener.requestDrag(holder)
+                        startReorderDragListener?.requestDrag(holder)
                     }
                     false
                 }
