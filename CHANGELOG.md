@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.20.0 *(2021-05-14)*
+----------------------------
+
+ * Allow ordering folders in a custom order by Drag & Drop
+ * Properly show the recycle bin files size in all cases
+ * Show at least 3 items at the main screens top menu
+ * Fixed some split screen related glitches
+ * Updated the photo/video editor, videos can now be paused easier
+ * Added some stability and translation improvements
+
 Version 6.19.6 *(2021-04-18)*
 ----------------------------
 
