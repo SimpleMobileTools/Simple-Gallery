@@ -27,6 +27,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.exifinterface.media.ExifInterface
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
@@ -323,6 +324,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun initContinue() {
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
@@ -368,7 +370,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            mIsFullScreen = if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
+            mIsFullScreen = if (isNougatPlus() && isInMultiWindowMode) {
+                visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE != 0
+            } else if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
                 false
             } else {
                 visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
