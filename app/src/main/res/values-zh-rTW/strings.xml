@@ -32,6 +32,8 @@
     <string name="switch_to_file_search">檔案搜尋目標切換成全部的可見資料夾</string>
     <string name="set_as_default_folder">設為預設資料夾</string>
     <string name="unset_as_default_folder">取消設為預設資料夾</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -327,37 +329,37 @@
     <string name="vesdk_video_trim_title_name">Trim</string>
 
     <!-- FAQ -->
-   <string name="faq_1_title">如何將簡易相簿設為裝置預設的相簿？</string>
+   <string name="faq_1_title">如何將簡易相簿設為裝置的預設相簿？</string>
     <string name="faq_1_text">首先開啟裝置的設定，在應用程式相關設定處找到目前的預設相簿。
 	選擇「預設為開啟」或類似的選項，然後按「清除預設值」。
         之後開啟圖片或影片檔案時會出現選擇 APP 的畫面，此時即可將簡易相簿設為預設相簿。</string>
     <string name="faq_2_title">用密碼把這個 APP 上鎖後忘記密碼該怎麼辦？</string>
-    <string name="faq_2_text">有兩種解決方法。一是重新安裝本 APP。一是在裝置的設定中找到本 APP，然後按「清除資料」（或「清除儲存空間」等類似的字眼），APP 的設定將會被重置，但不會移除任何媒體檔案。</string>
+    <string name="faq_2_text">有兩種解決方法。一是重新安裝本 APP。一是在裝置的設定中找到本 APP，然後按「清除資料」（或「清除儲存空間」等類似的字眼），APP 的設定將會被重設，但不會移除任何媒體檔案。</string>
     <string name="faq_3_title">如何使某個相簿顯示在最頂端？</string>
-    <string name="faq_3_text">長按該相簿，按圖釘圖示或在選單中選擇「釘選在頂端」。您可以同時釘選數個相簿，它們將會依照預設排序方式排序。</string>
+    <string name="faq_3_text">長按該相簿，接著按圖釘圖示或選單中的「釘選在頂端」。您可以同時釘選數個相簿，它們將會依照預設排序方式排序。</string>
     <string name="faq_4_title">如何快轉影片？</string>
-    <string name="faq_4_text">您可按兩下螢幕邊邊，或者按一下進度條旁邊的目前播放時間／影片時長文字。若您在設定中啟用了「總是用新的水平手勢在獨立畫面開啟影片」，則您也可以使用水平手勢快轉。</string>
+    <string name="faq_4_text">按兩下螢幕邊邊，或者按一下進度條旁邊的目前播放時間／影片時長文字。若您在設定中啟用了「總是用新的水平手勢在獨立畫面開啟影片」，則您也可以使用水平手勢快轉。</string>
     <string name="faq_5_title">「隱藏」與「排除」資料夾的差別是？</string>
-    <string name="faq_5_text">「排除」只會使該資料夾在簡易相簿中隱藏；而「隱藏」則是整個系統級別的，會使其在所有相簿中隱藏，其運作原理是在該資料夾中建立一個空的「.nomedia」檔案（您可使用任意檔案管理器移除此檔案）。另外，某些裝置不允許隱藏相片、螢幕擷圖、下載等資料夾。</string>
+    <string name="faq_5_text">「排除」只會使該資料夾在簡易相簿中隱藏；而「隱藏」則會影響整個系統，使其也會在其他的相簿 APP 中隱藏，其運作原理是在該資料夾中建立一個空的「.nomedia」檔案（您可使用任意檔案管理器移除此檔案）。另外，某些裝置不允許隱藏相片、螢幕擷圖、下載等資料夾。</string>
     <string name="faq_6_title">為何出現了音樂的封面圖或是貼圖的資料夾？</string>
-    <string name="faq_6_text">有時候會出現一些異常的相簿。長按並點選排除可排除它們。在接下來的對話框選擇它們的上層資料夾的話，有機會避免相關的相簿出現。</string>
-    <string name="faq_7_title">某個含有圖片的資料夾沒出現，抑或是沒有顯示所有項目時，該怎麼辦？</string>
-    <string name="faq_7_text">可能有很多種原因，但解法很簡單。前往設定 -> 管理包含資料夾、按加號(+)、選擇該資料夾即可。</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_6_text">有時候會出現一些異常的相簿。長按並點選排除可排除它們，在接下來的對話框選擇它們的上層資料夾的話，有機會避免相關的相簿出現。</string>
+    <string name="faq_7_title">有個含有圖片的資料夾沒出現，抑或是沒有顯示所有項目時，該怎麼辦？</string>
+    <string name="faq_7_text">可能有很多種原因，但解法很簡單。前往「設定」 -> 「管理包含資料夾」、按加號(+)、選擇該資料夾即可。</string>
+    <string name="faq_8_title">如果只想顯示特定資料夾呢？</string>
+    <string name="faq_8_text">如果只將某資料夾加入至「包含資料夾」的話，其他的資料夾並不會被自動排除。請前往「設定」->「管理排除資料夾」、將根資料夾「/」排除，並在「設定」->「管理包含資料夾」中加入欲顯示的資料夾。
+        這樣就只會顯示所選的資料夾，因為排除與包含都是遞迴的，所以若某資料夾同時被包含及排除，其將會顯示。</string>
     <string name="faq_10_title">這個 APP 可以裁剪圖片嗎？</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_10_text">可以，在編輯器中拖動圖片的角落即可裁剪圖片。對縮圖長按並選擇編輯，或者在全螢幕檢視時選擇編輯皆可進入編輯器。</string>
+    <string name="faq_11_title">有辦法分類縮圖嗎？</string>
+    <string name="faq_11_text">可以，在檢視縮圖時使用選單中的「歸類」即可，有多種分類方式可供選擇，包含拍攝日期等。若使用了「資料夾內容全部顯示」功能，則也可以依資料夾來分類。</string>
+    <string name="faq_12_title">依照拍攝日期的排序好像排得不太對，要怎麼修正？</string>
+    <string name="faq_12_text">很有可能是因為檔案是從其他地方複製過來的。選擇縮圖並選擇「修復拍攝日期數值」即可修正。</string>
+    <string name="faq_13_title">看到圖片上出現了色帶問題，要如何改善畫質？</string>
+    <string name="faq_13_text">目前顯示圖片的方式在大多數情況下都能正常運作，但若想要更好的畫質，可以啟用「設定」->「可深度縮放的圖片」段落中的「以最高品質顯示圖片」。</string>
+    <string name="faq_14_title">如何取消隱藏檔案／資料夾？</string>
+    <string name="faq_14_text">按主畫面選單中的「暫時顯示隱藏的檔案」或設定中的「顯示隱藏的項目」就能看到隱藏的項目。若要取消隱藏，長按並選擇「取消隱藏」即可。資料夾隱藏的原理是在其內新增一個「.nomedia」檔案，因此可用任意檔案管理器將其刪除。檔案／資料夾是以遞迴的方式被隱藏的，因此若某資料夾被隱藏，其子資料夾也會被隱藏。若要取消隱藏子資料夾，其上層資料夾需先被取消隱藏。</string>
+    <string name="faq_15_title">這個 APP 怎麼佔用了這麼多空間？</string>
+    <string name="faq_15_text">APP 快取最高會佔用 250MB，來讓圖片載入得更快。如果本 APP 佔用了超過 250MB 的空間，很有可能是因為有檔案在回收桶裡，這些檔案也會算在 APP 佔用的空間上。您可以開啟回收桶並刪除所有檔案，或是從設定中清空它。檔案被丟入回收桶 30 天後將會自動被刪除。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
@@ -406,7 +408,7 @@
         不小心刪除掉珍貴的照片或影片？別擔心！簡易相簿 Pro 標榜有便利的回收桶，您可以利用其輕鬆恢復照片&amp;影片。
 
         <b>保護&amp;隱藏照片、影片和檔案</b>
-        使用 PIN碼、圖形或裝置的指紋掃描器來保護及隱藏照片、影片及整個相簿。您可以保護應用程式本身或者對程式的特定功能設個鎖。例如：您無法未經指紋掃描就刪除檔案，有助於防止檔案遭意外刪除。
+        使用 PIN 碼、圖形或裝置的指紋掃描器來保護及隱藏照片、影片及整個相簿。您可以保護應用程式本身或者對程式的特定功能上鎖。例如：您無法未經指紋掃描就刪除檔案，有助於防止檔案遭意外刪除。
 
         <b>於此查看全套簡易工具系列：</b>
         https://www.simplemobiletools.com
