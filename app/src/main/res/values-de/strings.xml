@@ -102,7 +102,7 @@
     <string name="other_aspect_ratio">Anderes</string>                            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Schlichte Hintergrund</string>
+    <string name="simple_wallpaper">Schlichter Hintergrund</string>
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen.</string>
     <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit</string>
