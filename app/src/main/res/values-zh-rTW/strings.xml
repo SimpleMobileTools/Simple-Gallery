@@ -195,8 +195,8 @@
     <string name="allow_zooming_videos">點兩下螢幕來縮放影片</string>
     <string name="folder_thumbnail_style">資料夾縮圖樣式</string>
     <string name="file_thumbnail_style">檔案縮圖樣式</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
+    <string name="thumbnail_spacing">縮圖的間隔</string>
+    <string name="show_file_count_line">獨立一行顯示檔案數量</string>
     <string name="show_file_count_brackets">在括號內顯示檔案數量</string>
     <string name="show_file_count_none">不顯示檔案數量</string>
     <string name="limit_folder_title">資料夾名稱最長只顯示一行</string>
@@ -283,9 +283,9 @@
     <string name="pesdk_sticker_button_straighten">Straighten</string>
     <string name="pesdk_sticker_button_replace">更改</string>
     <string name="pesdk_sticker_button_opacity">不透明度</string>
-    <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
+    <string name="pesdk_sticker_button_contrast">對比</string>
+    <string name="pesdk_sticker_button_saturation">飽和度</string>
+    <string name="pesdk_sticker_button_brightness">亮度</string>
     <string name="pesdk_sticker_category_name_custom">Uploads</string>
     <string name="pesdk_overlay_title_name">Overlay</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
