@@ -52,9 +52,9 @@
     <string name="manage_excluded_folders">Gestionar carpetas excluidas</string>
     <string name="exclude_folder_description">Esto excluirá la selección junto con sus subcarpetas, solamente de Simple Gallery. Puede gestionar las carpetas excluidas en los Ajustes.</string>
     <string name="exclude_folder_parent">¿Excluir mejor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excluir las carpetas las excluirá junto a sus subcarpetas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\n\nSi desea ocultarlo de otras aplicaciones, utilice la función \"Ocultar\".</string>
+    <string name="excluded_activity_placeholder">La opción de excluir las carpetas las excluirá junto a sus subcarpetas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\n\nSi desea ocultarlo de otras aplicaciones, utilice la función \"Ocultar\".</string>
     <string name="remove_all">Eliminar todo</string>
-    <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
+    <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Nota: Esto no borrará las carpetas.</string>
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que no tiene carpetas ocultas con archivos \".nomedia\".</string>
@@ -153,17 +153,17 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir videos automáticamente</string>
-    <string name="remember_last_video_position">Recordar la última posición en la reproducción de video</string>
-    <string name="loop_videos">Reproducir videos en bucle</string>
+    <string name="remember_last_video_position">Recordar la última posición de avance en la reproducción de video</string>
+    <string name="loop_videos">Repetir reproducción de videos en bucle</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
-    <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>
+    <string name="max_brightness">Incrementar el brillo de la pantalla al máximo cuando se muestran los archivos multimedia</string>
     <string name="crop_thumbnails">Recortar miniaturas en cuadrados</string>
     <string name="show_thumbnail_video_duration">Mostrar la duración de los videos</string>
     <string name="screen_rotation_by">Rotar multimedia en pantalla completa según</string>
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
-    <string name="black_background_at_fullscreen">Fondo y barra de estado negra en medios en pantalla completa</string>
+    <string name="black_background_at_fullscreen">Fondo y barra de estado completamente oscuros en medios al estar en pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar la interfaz del sistema en pantalla completa</string>
     <string name="delete_empty_folders">Eliminar carpetas vacías después de borrar su contenido</string>
@@ -263,8 +263,8 @@
     <string name="pesdk_brush_button_delete">Eliminar</string>
     <string name="pesdk_brush_title_brushColor">Color del pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">¿Cerrar editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">¿Realmente quiere descartar los cambios?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">¿Desea cerrar el editor?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">¿Realmente desea descartar todos los cambios?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sí</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
