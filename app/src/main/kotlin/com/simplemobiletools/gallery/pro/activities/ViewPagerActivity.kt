@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.pm.ShortcutInfo
@@ -322,6 +323,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @SuppressLint("NewApi")
     private fun initContinue() {
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
@@ -367,7 +369,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            mIsFullScreen = if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
+            mIsFullScreen = if (isNougatPlus() && isInMultiWindowMode) {
+                visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE != 0
+            } else if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
                 false
             } else {
                 visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
@@ -1236,16 +1240,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 putExtra(SHOW_PREV_ITEM, view_pager.currentItem != 0)
                 putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.size - 1)
 
-                if (resolveActivity(packageManager) != null) {
-                    try {
-                        startActivityForResult(this, REQUEST_VIEW_VIDEO)
-                    } catch (e: NullPointerException) {
-                        showErrorToast(e)
-                    }
-                } else {
+                try {
+                    startActivityForResult(this, REQUEST_VIEW_VIDEO)
+                } catch (e: ActivityNotFoundException) {
                     if (!tryGenericMimeType(this, mimeType, newUri)) {
                         toast(R.string.no_app_found)
                     }
+                } catch (e: Exception) {
+                    showErrorToast(e)
                 }
             }
         }

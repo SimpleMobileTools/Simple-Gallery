@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">எளிய காட்சியகம்</string>
+    <string name="app_launcher_name">காட்சியகம்</string>
+    <string name="edit">மாற்று</string>
+    <string name="open_camera">படக்கருவியை திற</string>
+    <string name="hidden">(மறைந்த)</string>
+    <string name="excluded">(விலக்கிய)</string>
+    <string name="pin_folder">கோப்புறையை முள்</string>
+    <string name="unpin_folder">கோப்புறையை முள்ளெடு</string>
+    <string name="pin_to_the_top">மேலே போடு</string>
+    <string name="show_all">எல்லா கோப்புறைகளின் உள்ளடக்கத்தை காட்டு</string>
+    <string name="all_folders">எல்லா கோப்புறைகள்</string>
+    <string name="folder_view">கோப்புறை பார்வைக்கு மாறு</string>
+    <string name="other_folder">பிற கோப்புறை</string>
+    <string name="show_on_map">வரைபடத்தில் காண்பி</string>
+    <string name="unknown_location">தெரியாத இடம்</string>
+    <string name="volume">ஒலி</string>
+    <string name="brightness">ஒளி</string>
+    <string name="lock_orientation">நோக்குநிலையை பூட்டு</string>
+    <string name="unlock_orientation">நோக்குநிலையை பூட்டவிழ்</string>
+    <string name="change_orientation">நோக்குநிலையை மாற்று</string>
+    <string name="force_portrait">எப்பொழுதும் உருவப்படம்</string>
+    <string name="force_landscape">நிலத்தோற்ற நிலை</string>
+    <string name="use_default_orientation">இயல்புநிலை நோக்குநிலையைப் பயன்படுத்து</string>
+    <string name="fix_date_taken">தேதி எடுத்த மதிப்பை சரிசெய்யவும்</string>
+    <string name="fixing">சரிசெய்தல்…</string>
+    <string name="dates_fixed_successfully">தேதிகள் வெற்றிகரமாக சரி செய்யப்பட்டன</string>
+    <string name="no_date_takens_found">தேதி எடுக்கப்பட்ட மதிப்புகள் எதுவும் கண்டறியப்படவில்லை</string>
+    <string name="share_resized">மறுஅளவிடப்பட்ட பதிப்பைப் பகிரவும்</string>
+    <string name="upgraded_from_free">ஏய்,\n\nபழைய இலவச பயன்பாட்டிலிருந்து மேம்படுத்தப்பட்டதாக தெரிகிறது. பயன்பாட்டு அமைப்புகளின் மேலே \'புரோவுக்கு மேம்படுத்து\' பொத்தானைக் கொண்ட பழைய பதிப்பை இப்போது நீங்கள் நிறுவல் நீக்கலாம்.\n\nநீங்கள் மறுசுழற்சி தொட்டி உருப்படிகளை மட்டுமே நீக்குவீர்கள், பிடித்த உருப்படிகள் குறிக்கப்படாமல் இருக்கும், மேலும் உங்கள் பயன்பாட்டு அமைப்புகளையும் மீட்டமைக்க வேண்டும்.\n\nநன்றி!</string>
+    <string name="switch_to_file_search">காணக்கூடிய அனைத்து கோப்புறைகளிலும் கோப்பு தேடலுக்கு மாறவும்</string>
+    <string name="set_as_default_folder">இயல்புநிலை கோப்புறையாக அமைக்கவும்</string>
+    <string name="unset_as_default_folder">இயல்புநிலை கோப்புறையாக அமைக்காதீர்கள்</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+
+    <!-- Filter -->
+    <string name="filter_media">மீடியாவை வடிகட்டவும்</string>
+    <string name="images">புகைப்படங்கள்</string>
+    <string name="videos">காணொலிகள்</string>
+    <string name="gifs">GIFகள்</string>
+    <string name="raw_images">RAW புகைப்படங்கள்</string>
+    <string name="svgs">SVGகள்</string>
+    <string name="portraits">உருவப்படங்கள்</string>
+    <string name="no_media_with_filters">தேர்ந்தெடுக்கப்பட்ட வடிப்பான்களுடன் ஊடக கோப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை.</string>
+    <string name="change_filters_underlined"><u>வடிப்பான்களை மாற்றவும்</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">இந்த செயல்பாடு ஒரு \'.nomedia\' கோப்பைச் சேர்ப்பதன் மூலம் கோப்புறையை மறைக்கிறது, இது எல்லா துணை கோப்புறைகளையும் மறைக்கும். அமைப்புகளில் \'மறைக்கப்பட்ட உருப்படிகளைக் காண்பி\' விருப்பத்தை மாற்றுவதன் மூலம் அவற்றைக் காணலாம். தொடரவா?</string>
+    <string name="exclude">விலக்கு</string>
+    <string name="excluded_folders">விலக்கிய கோப்புறைகள்</string>
+    <string name="manage_excluded_folders">விலக்கிய கோப்புறைகளை நிர்வகி</string>
+    <string name="exclude_folder_description">இது எளிய கேலரியில் இருந்து அதன் துணை கோப்புறைகளுடன் தேர்வை விலக்கும். அமைப்புகளில் விலக்கப்பட்ட கோப்புறைகளை நீங்கள் நிர்வகிக்கலாம்.</string>
+    <string name="exclude_folder_parent">அதற்கு பதிலாக ஒரு பெற்றோரை விலக்கவா?</string>
+    <string name="excluded_activity_placeholder">கோப்புறைகளைத் தவிர்த்து, எளிய கேலரியில் மறைத்து வைக்கப்பட்டுள்ள அவற்றின் துணை கோப்புறைகளுடன் அவற்றை ஒன்றிணைக்கும், அவை இன்னும் பிற பயன்பாடுகளில் தெரியும்.\n\nபிற பயன்பாடுகளிலிருந்தும் அவற்றை மறைக்க விரும்பினால், மறை செயல்பாட்டைப் பயன்படுத்தவும்.</string>
+    <string name="remove_all">எல்லாம் நீக்கு</string>
+    <string name="remove_all_description">விலக்கப்பட்டவர்களின் பட்டியலிலிருந்து எல்லா கோப்புறைகளையும் அகற்றவா? இது கோப்புறைகளை நீக்காது.</string>
+    <string name="hidden_folders">மறைத்த கோப்புறைகள்</string>
+    <string name="manage_hidden_folders">மறைத்த கோப்புறைகளை நிர்வகி</string>
+    <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எந்த கோப்புறைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">உள்ளடக்கிய கோப்புறைகள்</string>
+    <string name="manage_included_folders">உள்ளடக்கிய கோப்புறைகளை நிர்வகி</string>
+    <string name="add_folder">கோப்புறையை சேர்</string>
+    <string name="included_activity_placeholder">உங்களிடம் சில கோப்புறைகள் இருந்தால், அவை பயன்பாட்டைக் கொண்டிருக்கவில்லை, ஆனால் அவற்றை கைமுறையாக இங்கே சேர்க்கலாம்.\n\nசில உருப்படிகளை இங்கே சேர்ப்பது வேறு எந்த கோப்புறையையும் விலக்காது.</string>
+    <string name="no_media_add_included">மீடியா கோப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை. மீடியா கோப்புகளைக் கொண்ட கோப்புறைகளை கைமுறையாகச் சேர்ப்பதன் மூலம் அதைத் தீர்க்கலாம்.</string>
+
+    <!-- Resizing -->
+    <string name="resize">மறுஅளவிடு</string>
+    <string name="resize_and_save">தேர்வை மறுஅளவிட்டு சேமி</string>
+    <string name="width">அகலம்</string>
+    <string name="height">உயரம்</string>
+    <string name="keep_aspect_ratio">விகித விகிதத்தை வைத்திரு</string>
+    <string name="invalid_values">சரியான தீர்மானத்தை உள்ளிடவும்</string>
+
+    <!-- Editor -->
+    <string name="editor">திருத்தி</string>
+    <string name="rotate">சுழற்று</string>
+    <string name="invalid_image_path">தவறான பட பாதை</string>
+    <string name="invalid_video_path">தவறான காணொலி பாதை</string>
+    <string name="image_editing_failed">பட திருத்தம் தோல்வி</string>
+    <string name="video_editing_failed">காணொலி திருத்தம் தோல்வி</string>
+    <string name="image_editing_cancelled">பட திருத்தம் ரத்து</string>
+    <string name="video_editing_cancelled">காணொலி திருத்தம் ரத்து</string>
+    <string name="file_edited_successfully">கோப்பு திருத்தம் வெற்றி</string>
+    <string name="image_edited_successfully">பட திருத்தம் வெற்றி</string>
+    <string name="video_edited_successfully">காணொலி திருத்தம் வெற்றி</string>
+    <string name="edit_image_with">படத்தை இதனுடன் திருத்து:</string>
+    <string name="edit_video_with">வீடியோவை இதனுடன் திருத்து:</string>
+    <string name="no_image_editor_found">பட திருத்தி ஏதுமில்லை</string>
+    <string name="no_video_editor_found">காணொலி திருத்தி ஏதுமில்லை</string>
+    <string name="unknown_file_location">அறியப்படா கோப்பு இடம்</string>
+    <string name="error_saving_file">மூல கோப்பை மேலெழுத முடியவில்லை</string>
+    <string name="rotate_left">இடதுபுறம் சுழற்று</string>
+    <string name="rotate_right">வலதுபுறம் சுழற்று</string>
+    <string name="rotate_one_eighty">180º ஆல் சுழற்று</string>
+    <string name="flip">புரட்டு</string>
+    <string name="flip_horizontally">கிடைமட்டமாக புரட்டு</string>
+    <string name="flip_vertically">செங்குத்தாக புரட்டு</string>
+    <string name="free_aspect_ratio">கட்டுப்பாடற்ற</string>                   <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">மற்ற</string>                         <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">எளிய சுவரொட்டி</string>
+    <string name="set_as_wallpaper">சுவரொட்டியாக அமை</string>
+    <string name="set_as_wallpaper_failed">சுவரொட்டியாக அமைத்தல் தோல்வி</string>
+    <string name="set_as_wallpaper_with">இதனுடன் சுவரொட்டியாக அமை:</string>
+    <string name="setting_wallpaper">சுவரொட்டி அமைத்தல்&#8230;</string>
+    <string name="wallpaper_set_successfully">சுவரொட்டி அமைத்தல் வெற்றி</string>
+    <string name="portrait_aspect_ratio">உருவப்படம் விகிதம்</string>
+    <string name="landscape_aspect_ratio">நிலத்தோற்ற விகிதம்</string>
+    <string name="home_screen">முகப்புத் திரை</string>
+    <string name="lock_screen">பூட்டுத் திரை</string>
+    <string name="home_and_lock_screen">முகப்பு மற்றும் பூட்டுத் திரை</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">ஸ்லைடுஷோ</string>
+    <string name="interval">இடைவெளி (விநாடிகள்):</string>
+    <string name="include_photos">புகைப்படங்களைச் உள்ளடக்கு</string>
+    <string name="include_videos">காணொலிகளை உள்ளடக்கு</string>
+    <string name="include_gifs">GIFகளை உள்ளடக்கு</string>
+    <string name="random_order">சீரற்ற வரிசை</string>
+    <string name="move_backwards">பின்னோக்கி நகர்த்து</string>
+    <string name="loop_slideshow">லூப் ஸ்லைடுஷோ</string>
+    <string name="animation">இயங்குபடம்</string>
+    <string name="no_animation">ஏதுமில்லை</string>
+    <string name="fade">மங்கல்</string>
+    <string name="slide">ஸ்லைடு</string>
+    <string name="slideshow_ended">ஸ்லைடுஷோ முடிந்தது</string>
+    <string name="no_media_for_slideshow">ஸ்லைடுஷோவுக்கான ஊடகங்கள் எதுவும் கிடைக்கவில்லை</string>
+
+    <!-- View types -->
+    <string name="group_direct_subfolders">குழு நேரடி துணை கோப்புறைகள்</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">குழு</string>
+    <string name="do_not_group_files">கோப்புகளை குழு செய்ய வேண்டாம்</string>
+    <string name="by_folder">கோப்புறை</string>
+    <string name="by_last_modified">கடைசியாக மாற்றப்பட்டது</string>
+    <string name="by_last_modified_daily">கடைசியாக மாற்றியமைக்கப்பட்டது (தினசரி)</string>
+    <string name="by_last_modified_monthly">கடைசியாக மாற்றியமைக்கப்பட்டது (மாதாந்திரம்)</string>
+    <string name="by_date_taken">எடுக்கப்பட்ட தேதி</string>
+    <string name="by_date_taken_daily">எடுக்கப்பட்ட தேதி (தினசரி)</string>
+    <string name="by_date_taken_monthly">எடுக்கப்பட்ட தேதி (மாதாந்திர)</string>
+    <string name="by_file_type">கோப்பு வகை</string>
+    <string name="by_extension">நீட்டிப்பு</string>
+    <string name="grouping_and_sorting">தொகுத்தல் மற்றும் வரிசைப்படுத்துதல் 2 சுயாதீன புலங்கள் என்பதை நினைவில் கொள்க</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">விட்ஜெட்டில் கோப்புறை காட்டப்பட்டுள்ளது:</string>
+    <string name="show_folder_name">கோப்புறை பெயரைக் காட்டு</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">வீடியோக்களை தானாக இயக்கு</string>
+    <string name="remember_last_video_position">கடைசி வீடியோ பின்னணி நிலையை நினைவில் கொள்க</string>
+    <string name="loop_videos">வீடியோக்களை லூப் செய்</string>
+    <string name="animate_gifs">சிறு உருவங்களில் GIF களை உயிரூட்டுங்கள்</string>
+    <string name="max_brightness">முழுத்திரை மீடியாவைப் பார்க்கும்போது அதிகபட்ச பிரகாசம்</string>
+    <string name="crop_thumbnails">சிறு உருவங்களை சதுரங்களாக செய்யவும்</string>
+    <string name="show_thumbnail_video_duration">வீடியோ காலங்களைக் காட்டு</string>
+    <string name="screen_rotation_by">முழுத்திரை ஊடகத்தை சுழற்று</string>
+    <string name="screen_rotation_system_setting">கணினி அமைப்பு</string>
+    <string name="screen_rotation_device_rotation">சாதன சுழற்சி</string>
+    <string name="screen_rotation_aspect_ratio">விகிதம்</string>
+    <string name="black_background_at_fullscreen">முழுத்திரை ஊடகங்களில் கருப்பு பின்னணி</string>
+    <string name="scroll_thumbnails_horizontally">சிறு உருவங்களை கிடைமட்டமாக உருட்டவும்</string>
+    <string name="hide_system_ui_at_fullscreen">முழுத்திரை மீடியாவில் கணினி UI ஐ தானாக மறைக்கவும்</string>
+    <string name="delete_empty_folders">வெற்று கோப்புறைகளை அவற்றின் உள்ளடக்கத்தை நீக்கிய பின் நீக்கவும்</string>
+    <string name="allow_photo_gestures">செங்குத்து சைகைகளுடன் புகைப்பட பிரகாசத்தை கட்டுப்படுத்த அனுமதிக்கவும்</string>
+    <string name="allow_video_gestures">வீடியோ அளவு மற்றும் பிரகாசத்தை செங்குத்து சைகைகளுடன் கட்டுப்படுத்த அனுமதிக்கவும்</string>
+    <string name="show_media_count">கோப்புறை மீடியா எண்ணிக்கையை பிரதான பார்வையில் காட்டு</string>
+    <string name="show_extended_details">முழுத்திரை ஊடகங்களில் நீட்டிக்கப்பட்ட விவரங்களைக் காட்டு</string>
+    <string name="manage_extended_details">நீட்டிக்கப்பட்ட விவரங்களை நிர்வகிக்கவும்</string>
+    <string name="one_finger_zoom">முழுத்திரை மீடியாவில் ஒரு விரல் பெரிதாக்க அனுமதிக்கவும்</string>
+    <string name="allow_instant_change">திரை பக்கங்களில் கிளிக் செய்வதன் மூலம் உடனடியாக ஊடகத்தை மாற்ற அனுமதிக்கவும்</string>
+    <string name="allow_deep_zooming_images">ஆழமான பெரிதாக்கும் படங்களை அனுமதிக்கவும்</string>
+    <string name="hide_extended_details">நிலைப்பட்டி மறைக்கப்படும்போது நீட்டிக்கப்பட்ட விவரங்களை மறைக்கவும்</string>
+    <string name="show_at_bottom">திரையின் அடிப்பகுதியில் சில செயல் பொத்தான்களைக் காட்டு</string>
+    <string name="show_recycle_bin">கோப்புறைகள் திரையில் மறுசுழற்சி தொட்டியைக் காட்டு</string>
+    <string name="deep_zoomable_images">ஆழமான பெரிதாக்கக்கூடிய படங்கள்</string>
+    <string name="show_highest_quality">படங்களை மிக உயர்ந்த தரத்தில் காட்டுங்கள்</string>
+    <string name="show_recycle_bin_last">பிரதான திரையில் கடைசி உருப்படியாக மறுசுழற்சி தொட்டியைக் காட்டு</string>
+    <string name="allow_down_gesture">கீழ்நிலை சைகை மூலம் முழுத்திரை காட்சியை மூட அனுமதிக்கவும்</string>
+    <string name="allow_one_to_one_zoom">இரண்டு இரட்டை தட்டுகளுடன் 1: 1 பெரிதாக்க அனுமதிக்கவும்</string>
+    <string name="open_videos_on_separate_screen">புதிய கிடைமட்ட சைகைகளுடன் வீடியோக்களை எப்போதும் தனித் திரையில் திறக்கவும்</string>
+    <string name="show_notch">கிடைத்தால் ஒரு உச்சநிலையைக் காட்டு</string>
+    <string name="allow_rotating_gestures">சைகைகளுடன் படங்களை சுழற்ற அனுமதிக்கவும்</string>
+    <string name="file_loading_priority">கோப்பு ஏற்றுதல் முன்னுரிமை</string>
+    <string name="speed">வேகம்</string>
+    <string name="compromise">சமரசம்</string>
+    <string name="avoid_showing_invalid_files">தவறான கோப்புகளைக் காண்பிப்பதைத் தவிர்க்கவும்</string>
+    <string name="show_image_file_types">பட கோப்பு வகைகளைக் காட்டு</string>
+    <string name="allow_zooming_videos">வீடியோக்களை இருமுறை தட்டுவதன் மூலம் பெரிதாக்க அனுமதிக்கவும்</string>
+    <string name="folder_thumbnail_style">கோப்புறை சிறு நடை</string>
+    <string name="file_thumbnail_style">கோப்பு சிறு உருவத்தின் பாணி</string>
+    <string name="thumbnail_spacing">சிறுபடத்தில் இடைவெளி</string>
+    <string name="show_file_count_line">கோப்பு எண்ணிக்கையை தனி வரியில் காண்பி</string>
+    <string name="show_file_count_brackets">கோப்பு எண்ணிக்கையை அடைப்புக்குறிக்குள் காட்டு</string>
+    <string name="show_file_count_none">கோப்பு எண்ணிக்கையைக் காட்ட வேண்டாம்</string>
+    <string name="limit_folder_title">நீண்ட கோப்புறை தலைப்புகளை 1 வரிக்கு மட்டுப்படுத்தவும்</string>
+    <string name="square">சதுரம்</string>
+    <string name="rounded_corners">மழுங்கையாக்கப்பட்ட மூலைகள்</string>
+    <string name="export_favorite_paths">பிடித்த கோப்பு பாதைகளை ஏற்றுமதி செய்க</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">சிறு உருவங்கள்</string>
+    <string name="fullscreen_media">முழுத்திரை ஊடகம்</string>
+    <string name="extended_details">விரிவாக்கப்பட்ட விவரங்கள்</string>
+    <string name="bottom_actions">கீழே செயல்கள்</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">புலப்படும் கீழ் செயல்களை நிர்வகிக்கவும்</string>
+    <string name="toggle_favorite">பிடித்ததை நிலைமாற்று</string>
+    <string name="toggle_file_visibility">கோப்பு தெரிவுநிலையை நிலைமாற்று</string>
+
+    <!-- New editor strings -->
+    <string name="pesdk_transform_button_freeCrop">தனிப்பயன்</string>
+    <string name="pesdk_transform_button_resetCrop">மீட்டமை</string>
+    <string name="pesdk_transform_button_squareCrop">சதுரம்</string>
+    <string name="pesdk_transform_title_name">உருமாற்றம்</string>
+    <string name="pesdk_filter_title_name">வடிகட்டி</string>
+    <string name="pesdk_filter_asset_none">எதுவுமில்லை</string>
+    <string name="pesdk_adjustments_title_name">சரிசெய்</string>
+    <string name="pesdk_adjustments_button_shadowTool">நிழல்கள்</string>
+    <string name="pesdk_adjustments_button_exposureTool">நேரிடுவது</string>
+    <string name="pesdk_adjustments_button_highlightTool">சிறப்பம்சங்கள்</string>
+    <string name="pesdk_adjustments_button_brightnessTool">பிரகாசம்</string>
+    <string name="pesdk_adjustments_button_contrastTool">மாறுபாடு</string>
+    <string name="pesdk_adjustments_button_saturationTool">செறிவூட்டல்</string>
+    <string name="pesdk_adjustments_button_clarityTool">தெளிவு</string>
+    <string name="pesdk_adjustments_button_gammaTool">காமா</string>
+    <string name="pesdk_adjustments_button_blacksTool">கறுப்புகள்</string>
+    <string name="pesdk_adjustments_button_whitesTool">வெள்ளைகள்</string>
+    <string name="pesdk_adjustments_button_temperatureTool">வெப்ப நிலை</string>
+    <string name="pesdk_adjustments_button_sharpnessTool">கூர்மை</string>
+    <string name="pesdk_adjustments_button_reset">மீட்டமை</string>
+    <string name="pesdk_focus_title_name">கவனம் செலுத்துங்கள்</string>
+    <string name="pesdk_focus_title_disabled">எதுவுமில்லை</string>
+    <string name="pesdk_focus_button_radial">ரேடியல்</string>
+    <string name="pesdk_focus_button_linear">நேரியல்</string>
+    <string name="pesdk_focus_button_mirrored">பிரதிபலித்தது</string>
+    <string name="pesdk_focus_button_gaussian">காஸியன்</string>
+    <string name="pesdk_text_title_name">உரை</string>
+    <string name="pesdk_text_title_options">உரை விருப்பங்கள்</string>
+    <string name="pesdk_text_title_textColor">உரை வண்ணம்</string>
+    <string name="pesdk_text_title_font">எழுத்துரு</string>
+    <string name="pesdk_text_button_add">கூட்டு</string>
+    <string name="pesdk_text_button_edit">தொகு</string>
+    <string name="pesdk_text_button_straighten">நேராக்கு</string>
+    <string name="pesdk_text_button_font">எழுத்துரு</string>
+    <string name="pesdk_text_button_color">நிறம்</string>
+    <string name="pesdk_text_button_backgroundColor">பி.ஜி நிறம்</string>
+    <string name="pesdk_text_button_alignment">சீரமைப்பு</string>
+    <string name="pesdk_text_button_bringToFront">முன்</string>
+    <string name="pesdk_text_button_delete">அழி</string>
+    <string name="pesdk_text_text_editTextPlaceholder">உங்கள் உரை</string>
+    <string name="pesdk_brush_title_name">தூரிகை</string>
+    <string name="pesdk_brush_button_color">நிறம்</string>
+    <string name="pesdk_brush_button_size">அளவு</string>
+    <string name="pesdk_brush_button_hardness">கடினத்தன்மை</string>
+    <string name="pesdk_brush_button_bringToFront">முன்</string>
+    <string name="pesdk_brush_button_delete">அழி</string>
+    <string name="pesdk_brush_title_brushColor">தூரிகை வண்ணம்</string>
+    <string name="pesdk_editor_title_name">எடிட்டர்</string>
+    <string name="pesdk_editor_title_closeEditorAlert">மூடு எடிட்டர்?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">மாற்றங்களை நிராகரிக்க விரும்புகிறீர்களா?</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">ஆம்</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">இல்லை</string>
+    <string name="pesdk_editor_cancel">ரத்துசெய்</string>
+    <string name="pesdk_editor_accept">ஏற்றுக்கொள்</string>
+    <string name="pesdk_editor_save">சேமி</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">ஏற்றுமதி செய்கிறது…</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">ஏற்றுமதி செய்கிறது %s.</string>
+    <string name="pesdk_sticker_title_name">ஸ்டிக்கர்</string>
+    <string name="pesdk_sticker_title_color">ஸ்டிக்கர் நிறம்</string>
+    <string name="pesdk_sticker_title_options">ஸ்டிக்கர் விருப்பங்கள்</string>
+    <string name="pesdk_sticker_button_add">கூட்டு</string>
+    <string name="pesdk_sticker_button_color">நிறம்</string>
+    <string name="pesdk_sticker_button_delete">அழி</string>
+    <string name="pesdk_sticker_button_bringToFront">முன்</string>
+    <string name="pesdk_sticker_button_straighten">நேராக்கு</string>
+    <string name="pesdk_sticker_button_replace">மாற்றவும்</string>
+    <string name="pesdk_sticker_button_opacity">ஒளிபுகா தன்மை</string>
+    <string name="pesdk_sticker_button_contrast">மாறுபாடு</string>
+    <string name="pesdk_sticker_button_saturation">செறிவூட்டல்</string>
+    <string name="pesdk_sticker_button_brightness">பிரகாசம்</string>
+    <string name="pesdk_sticker_category_name_custom">பதிவேற்றங்கள்</string>
+    <string name="pesdk_overlay_title_name">மேலடுக்கு</string>
+    <string name="pesdk_overlay_button_blendModeNormal">இயல்பானது</string>
+    <string name="pesdk_overlay_button_blendModeDarken">இருட்டாக</string>
+    <string name="pesdk_overlay_button_blendModeScreen">திரை</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">மேலடுக்கு</string>
+    <string name="pesdk_overlay_button_blendModeLighten">ஒளிரச் செய்யுங்கள்</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">பெருக்கவும்</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">வண்ண எரிப்பு</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">மென்மையான ஒளி</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">கடின ஒளி</string>
+    <string name="pesdk_overlay_asset_none">எதுவுமில்லை</string>
+    <string name="pesdk_overlay_asset_golden">கோல்டன்</string>
+    <string name="pesdk_overlay_asset_lightleak1">லைட்லீக் 1</string>
+    <string name="pesdk_overlay_asset_mosaic">மொசைக்</string>
+    <string name="pesdk_overlay_asset_paper">காகிதம்</string>
+    <string name="pesdk_overlay_asset_rain">மழை</string>
+    <string name="pesdk_overlay_asset_vintage">விண்டேஜ்</string>
+    <string name="pesdk_common_button_flipH">திருப்பு கி</string>
+    <string name="pesdk_common_button_flipV">திருப்பு செ</string>
+    <string name="pesdk_common_button_undo">செயல்தவிர்</string>
+    <string name="pesdk_common_button_redo">மீண்டும் செய்</string>
+    <string name="pesdk_common_title_colorPicker">வண்ண தெரிவு</string>
+    <string name="pesdk_common_title_transparentColor">ஒளி புகும்</string>
+    <string name="pesdk_common_title_whiteColor">வெள்ளை</string>
+    <string name="pesdk_common_title_grayColor">சாம்பல்</string>
+    <string name="pesdk_common_title_blackColor">கருப்பு</string>
+    <string name="pesdk_common_title_lightBlueColor">வெளிர் நீலம்</string>
+    <string name="pesdk_common_title_blueColor">நீலம்</string>
+    <string name="pesdk_common_title_purpleColor">ஊதா</string>
+    <string name="pesdk_common_title_orchidColor">ஆர்க்கிட்</string>
+    <string name="pesdk_common_title_pinkColor">இளஞ்சிவப்பு</string>
+    <string name="pesdk_common_title_redColor">சிவப்பு</string>
+    <string name="pesdk_common_title_orangeColor">ஆரஞ்சு</string>
+    <string name="pesdk_common_title_goldColor">தங்கம்</string>
+    <string name="pesdk_common_title_yellowColor">மஞ்சள்</string>
+    <string name="pesdk_common_title_oliveColor">ஆலிவ்</string>
+    <string name="pesdk_common_title_greenColor">பச்சை</string>
+    <string name="pesdk_common_title_aquamarinColor">அக்வாமரின்</string>
+    <string name="pesdk_common_title_pipettableColor">பைப்பேட் வண்ணம்</string>
+    <string name="vesdk_video_trim_title_name">ஒழுங்கமைக்கவும்</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">எளிய கேலரியை இயல்புநிலை சாதன கேலரியாக மாற்றுவது எப்படி?</string>
+    <string name="faq_1_text">முதலில் உங்கள் சாதன அமைப்புகளின் பயன்பாடுகள் பிரிவில் தற்போது இயல்புநிலை கேலரியைக் கண்டுபிடிக்க வேண்டும், \"இயல்புநிலையாகத் திற\" போன்ற ஒன்றைக் கூறும் பொத்தானைத் தேடுங்கள், அதைக் கிளிக் செய்து, \"இயல்புநிலைகளை அழி\" என்பதைத் தேர்ந்தெடுக்கவும்.
+        அடுத்த முறை நீங்கள் ஒரு படத்தை அல்லது வீடியோவைத் திறக்க முயற்சிப்பீர்கள், நீங்கள் ஒரு பயன்பாட்டு தேர்வாளரைப் பார்க்க வேண்டும், அங்கு நீங்கள் எளிய கேலரியைத் தேர்ந்தெடுத்து அதை இயல்புநிலை பயன்பாடாக மாற்றலாம்.</string>
+    <string name="faq_2_title">கடவுச்சொல்லுடன் பயன்பாட்டை பூட்டினேன், ஆனால் நான் அதை மறந்துவிட்டேன். என்னால் என்ன செய்ய முடியும்?</string>
+    <string name="faq_2_text">நீங்கள் அதை 2 வழிகளில் தீர்க்கலாம். நீங்கள் பயன்பாட்டை நிறுவலாம் அல்லது உங்கள் சாதன அமைப்புகளில் பயன்பாட்டைக் கண்டுபிடித்து \"தரவை அழி\" என்பதைத் தேர்ந்தெடுக்கலாம். இது உங்கள் எல்லா அமைப்புகளையும் மீட்டமைக்கும், இது எந்த மீடியா கோப்புகளையும் அகற்றாது.</string>
+    <string name="faq_3_title">ஒரு ஆல்பத்தை எப்போதும் மேலே காண்பிப்பது எப்படி?</string>
+    <string name="faq_3_text">நீங்கள் விரும்பிய ஆல்பத்தை நீண்ட நேரம் அழுத்தி, செயல்கள் மெனுவில் பின் ஐகானைத் தேர்ந்தெடுக்கலாம், அது மேலே பொருத்தப்படும். நீங்கள் பல கோப்புறைகளையும் பின் செய்யலாம், பின் செய்யப்பட்ட உருப்படிகள் இயல்புநிலை வரிசையாக்க முறையால் வரிசைப்படுத்தப்படும்.</string>
+    <string name="faq_4_title">வீடியோக்களை எவ்வாறு வேகமாக அனுப்புவது?</string>
+    <string name="faq_4_text">திரையின் பக்கத்தை இருமுறை தட்டுவதன் மூலமோ அல்லது சீக்பார் அருகே தற்போதைய அல்லது அதிகபட்ச கால நூல்களைத் தட்டுவதன் மூலமோ நீங்கள் இதைச் செய்யலாம். பயன்பாட்டு அமைப்புகளில் தனித் திரையில் வீடியோக்களைத் திறக்க நீங்கள் இயக்கினால், கிடைமட்ட சைகைகளையும் பயன்படுத்தலாம்.</string>
+    <string name="faq_5_title">ஒரு கோப்புறையை மறைப்பதற்கும் விலக்குவதற்கும் என்ன வித்தியாசம்?</string>
+    <string name="faq_5_text">விலக்கு எளிய கேலரியில் மட்டுமே கோப்புறையைக் காண்பிப்பதைத் தடுக்கிறது, அதே சமயம் கணினி வாரியாக மறைக்கிறது, மேலும் இது மற்ற கேலரிகளிலிருந்தும் கோப்புறையை மறைக்கிறது. கொடுக்கப்பட்ட கோப்புறையில் வெற்று \".nomedia\" கோப்பை உருவாக்குவதன் மூலம் இது செயல்படுகிறது, அதை நீங்கள் எந்த கோப்பு மேலாளரிடமும் அகற்றலாம். கேமரா, ஸ்கிரீன் ஷாட்கள் மற்றும் பதிவிறக்கங்கள் போன்ற கோப்புறைகளை மறைக்க சில சாதனங்கள் அனுமதிக்காது என்பதை நினைவில் கொள்க.</string>
+    <string name="faq_6_title">மியூசிக் கவர் ஆர்ட் அல்லது ஸ்டிக்கர்களைக் கொண்ட கோப்புறைகள் ஏன் காண்பிக்கப்படுகின்றன?</string>
+    <string name="faq_6_text">சில அசாதாரண ஆல்பங்கள் காண்பிக்கப்படுவதை நீங்கள் காண்பீர்கள். அவற்றை நீண்ட நேரம் அழுத்தி, விலக்கு என்பதைத் தேர்ந்தெடுப்பதன் மூலம் அவற்றை எளிதாக விலக்கலாம். அடுத்த உரையாடலில் நீங்கள் பெற்றோர் கோப்புறையைத் தேர்ந்தெடுக்கலாம், இது பிற தொடர்புடைய ஆல்பங்களையும் காண்பிப்பதைத் தடுக்கும் வாய்ப்புகள் உள்ளன.</string>
+    <string name="faq_7_title">படத்தைக் கொண்ட கோப்புறை காண்பிக்கப்படவில்லை, அல்லது அது எல்லா உருப்படிகளையும் காட்டாது. என்னால் என்ன செய்ய முடியும்?</string>
+    <string name="faq_7_text">அதற்கு பல காரணங்கள் இருக்கலாம், ஆனால் அதைத் தீர்ப்பது எளிதானது. அமைப்புகள் -> சேர்க்கப்பட்ட கோப்புறைகளை நிர்வகிக்கவும், பிளஸ் என்பதைத் தேர்ந்தெடுத்து தேவையான கோப்புறையில் செல்லவும்.</string>
+    <string name="faq_8_title">ஒரு சில குறிப்பிட்ட கோப்புறைகளை நான் காண விரும்பினால் என்ன செய்வது?</string>
+    <string name="faq_8_text">சேர்க்கப்பட்ட கோப்புறைகளில் ஒரு கோப்புறையைச் சேர்ப்பது தானாக எதையும் விலக்காது. நீங்கள் செய்யக்கூடியது அமைப்புகள் -> விலக்கப்பட்ட கோப்புறைகளை நிர்வகி, \"/\" என்ற ரூட் கோப்புறையை விலக்கி, பின்னர் அமைப்புகளில் விரும்பிய கோப்புறைகளைச் சேர்க்கவும் -> சேர்க்கப்பட்ட கோப்புறைகளை நிர்வகிக்கவும்.
+        இது தேர்ந்தெடுக்கப்பட்ட கோப்புறைகளை மட்டுமே காணும், ஏனெனில் தவிர்த்து, உள்ளடக்குவது இரண்டும் சுழல்நிலை மற்றும் ஒரு கோப்புறை விலக்கப்பட்டு சேர்க்கப்பட்டால், அது காண்பிக்கப்படும்.</string>
+    <string name="faq_10_title">இந்த பயன்பாட்டின் மூலம் படங்களை செதுக்க முடியுமா?</string>
+    <string name="faq_10_text">ஆம், பட மூலைகளை இழுப்பதன் மூலம், எடிட்டரில் படங்களை செதுக்கலாம். பட சிறுபடத்தை நீண்ட நேரம் அழுத்தி திருத்து என்பதைத் தேர்ந்தெடுப்பதன் மூலம் அல்லது முழுத்திரைக் காட்சியில் இருந்து திருத்து என்பதைத் தேர்ந்தெடுப்பதன் மூலம் நீங்கள் எடிட்டரைப் பெறலாம்.</string>
+    <string name="faq_11_title">நான் எப்படியாவது குழு மீடியா கோப்பு சிறு உருவங்களை குழு செய்யலாமா?</string>
+    <string name="faq_11_text">நிச்சயமாக, சிறுபடங்களின் பார்வையில் \"குழு மூலம்\" மெனு உருப்படியைப் பயன்படுத்தவும். எடுக்கப்பட்ட தேதி உட்பட பல அளவுகோல்களால் கோப்புகளை தொகுக்கலாம். \"எல்லா கோப்புறைகளையும் காண்பி\" செயல்பாட்டை நீங்கள் பயன்படுத்தினால், அவற்றை கோப்புறைகளாலும் தொகுக்கலாம்.</string>
+    <string name="faq_12_title">எடுக்கப்பட்ட தேதியின்படி வரிசைப்படுத்துவது சரியாக வேலை செய்யத் தெரியவில்லை, அதை எவ்வாறு சரிசெய்வது?</string>
+    <string name="faq_12_text">கோப்புகள் எங்கிருந்தோ நகலெடுக்கப்படுவதால் இது பெரும்பாலும் ஏற்படுகிறது. கோப்பு சிறு உருவங்களைத் தேர்ந்தெடுத்து \"தேதியை எடுத்த மதிப்பை சரி\" என்பதைத் தேர்ந்தெடுப்பதன் மூலம் அதை சரிசெய்யலாம்.</string>
+    <string name="faq_13_title">படங்களில் சில கலர் பேண்டிங்கை நான் காண்கிறேன். தரத்தை எவ்வாறு மேம்படுத்துவது?</string>
+    <string name="faq_13_text">படங்களைக் காண்பிப்பதற்கான தற்போதைய தீர்வு பெரும்பாலான சந்தர்ப்பங்களில் சிறப்பாக செயல்படுகிறது, ஆனால் நீங்கள் இன்னும் சிறந்த படத் தரத்தை விரும்பினால், \"ஆழமான பெரிதாக்கக்கூடிய படங்கள்\" பிரிவில், பயன்பாட்டு அமைப்புகளில் \"படங்களை மிக உயர்ந்த தரத்தில் காட்டு\" என்பதை இயக்கலாம். .</string>
+    <string name="faq_14_title">நான் ஒரு கோப்பு / கோப்புறையை மறைத்துள்ளேன். நான் அதை எப்படி அமறைக்க முடியும்?</string>
+    <string name="faq_14_text">பிரதான திரையில் \"தற்காலிகமாக மறைக்கப்பட்ட உருப்படிகளைக் காண்பி\" மெனு உருப்படியை அழுத்தவும் அல்லது மறைக்கப்பட்ட உருப்படியைக் காண பயன்பாட்டு அமைப்புகளில் \"மறைக்கப்பட்ட உருப்படிகளைக் காண்பி\" என்பதை மாற்றவும். நீங்கள் அதை மறைக்க விரும்பினால், அதை நீண்ட நேரம் அழுத்தி \"மறை\" என்பதைத் தேர்ந்தெடுக்கவும். கோப்புறைகள் ஒரு மறைக்கப்பட்ட \".nomedia\" கோப்பைச் சேர்ப்பதன் மூலம் மறைக்கப்படுகின்றன, நீங்கள் எந்த கோப்பு மேலாளரிடமும் கோப்பை நீக்கலாம். மறைப்பது மீண்டும் மீண்டும் செயல்படுகிறது என்பதை நினைவில் கொள்க, எனவே நீங்கள் ஒரு கோப்புறையை மறைத்தால், எல்லா துணை கோப்புறைகளும் மறைக்கப்படும். எனவே துணை கோப்புறைகளை மறைக்க நீங்கள் பெற்றோர் கோப்புறையை மறைக்க வேண்டும்.</string>
+    <string name="faq_15_title">பயன்பாடு ஏன் அதிக இடத்தை எடுத்துக்கொள்கிறது?</string>
+    <string name="faq_15_text">பயன்பாட்டு தற்காலிக சேமிப்பு 250MB வரை ஆகலாம், இது படத்தை விரைவாக ஏற்றுவதை உறுதி செய்கிறது. பயன்பாடு இன்னும் அதிக இடத்தை எடுத்துக்கொண்டால், மறுசுழற்சி தொட்டியில் நீங்கள் உருப்படிகளை வைத்திருப்பதால் இது பெரும்பாலும் ஏற்படலாம். அந்த கோப்புகள் பயன்பாட்டு அளவிற்கு எண்ணப்படுகின்றன. மறுசுழற்சி தொட்டியைத் திறந்து எல்லா கோப்புகளையும் நீக்குவதன் மூலம் அல்லது பயன்பாட்டு அமைப்புகளிலிருந்து அழிக்கலாம். தொட்டியில் உள்ள ஒவ்வொரு கோப்பும் 30 நாட்களுக்குப் பிறகு தானாகவே நீக்கப்படும்.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">எளிய காட்சியகம் தொ - பட நிர்வாகி &amp; திருத்தி</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">விளம்பரங்கள் இல்லாமல் உங்கள் புகைப்படங்கள், வீடியோக்கள், GIF களை நிர்வகிப்பதற்கும் திருத்துவதற்கும் ஒரு பிரீமியம் பயன்பாடு</string>
+    <string name="app_long_description">
+        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+
+        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
+
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
+
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

@@ -420,6 +420,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 setupZoomListener(mZoomListener)
                 media_grid.adapter = this
             }
+
+            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+            if (viewType == VIEW_TYPE_LIST) {
+                media_grid.scheduleLayoutAnimation()
+            }
+
             setupLayoutManager()
             handleGridSpacing()
             measureRecyclerViewContent(mMedia)

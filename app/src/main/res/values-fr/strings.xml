@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
+    <string name="reorder_by_dragging">Réordonner par glisser</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -200,7 +201,7 @@
     <string name="limit_folder_title">Limiter à une ligne les noms de fichiers</string>
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">Exporter les emplacements favoris</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

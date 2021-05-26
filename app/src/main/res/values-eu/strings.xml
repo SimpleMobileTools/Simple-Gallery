@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Aldatu fitxategi-bilaketa ikusgai dauden karpeta guztien artean</string>
     <string name="set_as_default_folder">Ezarri lehenetsitako karpeta gisa</string>
     <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
 
     <!-- Filter -->
     <string name="filter_media">Iragazi multimedia</string>

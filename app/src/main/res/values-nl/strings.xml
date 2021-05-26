@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
+    <string name="reorder_by_dragging">Volgorde mappen bepalen met sleepgebaren</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>

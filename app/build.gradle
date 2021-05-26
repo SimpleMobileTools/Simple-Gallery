@@ -17,8 +17,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 337
-        versionName "6.19.2"
+        versionCode 343
+        versionName "6.20.1"
         setProperty("archivesBaseName", "gallery-$versionCode")
         vectorDrawables.useSupportLibrary = true
     }
@@ -41,6 +41,7 @@ android {
         }
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (keystorePropertiesFile.exists()) {
                 signingConfig signingConfigs.release
@@ -77,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.33.34'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:1fcf1ebded'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
@@ -87,18 +88,22 @@ dependencies {
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
     implementation 'info.androidhive:imagefilters:1.0.7'
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.okio:okio:2.10.0'
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
     implementation 'com.github.tibbi:subsampling-scale-image-view:961f7b5f2d'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.7.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.9.0'
+    implementation('com.squareup.picasso:picasso:2.71828') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
 
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
 
-    kapt 'androidx.room:room-compiler:2.2.6'
-    implementation 'androidx.room:room-runtime:2.2.6'
-    annotationProcessor 'androidx.room:room-compiler:2.2.6'
+    kapt 'androidx.room:room-compiler:2.3.0'
+    implementation 'androidx.room:room-runtime:2.3.0'
+    annotationProcessor 'androidx.room:room-compiler:2.3.0'
 }
 
 // Apply the PESDKPlugin

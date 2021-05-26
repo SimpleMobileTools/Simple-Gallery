@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
     <string name="set_as_default_folder">Varsayılan klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Varsayılan klasör olarak ayarlama</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>

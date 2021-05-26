@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
 
     <!-- Filter -->
     <string name="filter_media">Média szűrő</string>

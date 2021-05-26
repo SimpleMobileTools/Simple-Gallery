@@ -16,10 +16,7 @@ import com.simplemobiletools.gallery.pro.dialogs.ChangeFileThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.emptyTheRecycleBin
-import com.simplemobiletools.gallery.pro.extensions.mediaDB
-import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -576,9 +573,18 @@ class SettingsActivity : SimpleActivity() {
     private fun setupEmptyRecycleBin() {
         ensureBackgroundThread {
             try {
-                mRecycleBinContentSize = mediaDB.getDeletedMedia().sumByLong { it.size }
+                mRecycleBinContentSize = mediaDB.getDeletedMedia().sumByLong { medium ->
+                    val size = medium.size
+                    if (size == 0L) {
+                        val path = medium.path.removePrefix(RECYCLE_BIN).prependIndent(recycleBinPath)
+                        File(path).length()
+                    } else {
+                        size
+                    }
+                }
             } catch (ignored: Exception) {
             }
+
             runOnUiThread {
                 settings_empty_recycle_bin_size.text = mRecycleBinContentSize.formatSize()
             }

@@ -1,6 +1,44 @@
 Changelog
 ==========
 
+Version 6.20.1 *(2021-05-14)*
+----------------------------
+
+ * Adding a crashfix
+
+Version 6.20.0 *(2021-05-14)*
+----------------------------
+
+ * Allow ordering folders in a custom order by Drag & Drop
+ * Properly show the recycle bin files size in all cases
+ * Show at least 3 items at the main screens top menu
+ * Fixed some split screen related glitches
+ * Updated the photo/video editor, videos can now be paused easier
+ * Added some stability and translation improvements
+
+Version 6.19.6 *(2021-04-18)*
+----------------------------
+
+ * Fixed some photo editor related glitches
+ * Some smaller bugfixes, translation and stability improvements
+
+Version 6.19.5 *(2021-03-31)*
+----------------------------
+
+ * Changed the default file loading priority to Speed
+ * Apply the max brightness option to panoramas too
+ * Some smaller stability and translation improvements
+
+Version 6.19.4 *(2021-03-09)*
+----------------------------
+
+ * Adding some crashfixes
+
+Version 6.19.3 *(2021-03-08)*
+----------------------------
+
+ * Added some design, stability, translation and performance improvements
+
 Version 6.19.2 *(2021-02-19)*
 ----------------------------
 

@@ -55,6 +55,12 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
 
         window.statusBarColor = resources.getColor(R.color.circle_black_background)
+
+        if (config.maxBrightness) {
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
+        }
     }
 
     override fun onPause() {

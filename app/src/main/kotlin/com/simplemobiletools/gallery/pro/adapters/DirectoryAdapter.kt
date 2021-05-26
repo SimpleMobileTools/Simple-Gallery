@@ -8,9 +8,13 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.text.TextUtils
 import android.view.Menu
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -18,6 +22,9 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.interfaces.ItemMoveCallback
+import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
+import com.simplemobiletools.commons.interfaces.StartReorderDragListener
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -31,6 +38,7 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
+import kotlinx.android.synthetic.main.directory_item_grid_square.view.*
 import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_check
 import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_location
 import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_lock
@@ -38,11 +46,17 @@ import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_name
 import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_pin
 import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_thumbnail
 import kotlinx.android.synthetic.main.directory_item_list.view.*
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_drag_handle
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
+import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
-                       val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
-        MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
+                       val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick), ItemTouchHelperContract {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
@@ -53,6 +67,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
+    private var isDragAndDropping = false
+    private var startReorderDragListener: StartReorderDragListener? = null
 
     private var showMediaCount = config.showFolderMediaCount
     private var folderStyle = config.folderStyle
@@ -78,7 +94,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs.getOrNull(position) ?: return
         holder.bindView(dir, true, !isPickIntent) { itemView, adapterPosition ->
-            setupView(itemView, dir)
+            setupView(itemView, dir, holder)
         }
         bindViewHolder(holder)
     }
@@ -93,6 +109,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         val isOneItemSelected = isOneItemSelected()
         menu.apply {
+            findItem(R.id.cab_move_to_top).isVisible = isDragAndDropping
+            findItem(R.id.cab_move_to_bottom).isVisible = isDragAndDropping
+
             findItem(R.id.cab_rename).isVisible = !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected
 
@@ -115,10 +134,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
 
         when (id) {
+            R.id.cab_move_to_top -> moveSelectedItemsToTop()
+            R.id.cab_move_to_bottom -> moveSelectedItemsToBottom()
             R.id.cab_properties -> showProperties()
             R.id.cab_rename -> renameDir()
             R.id.cab_pin -> pinFolders(true)
             R.id.cab_unpin -> pinFolders(false)
+            R.id.cab_change_order -> changeOrder()
             R.id.cab_empty_recycle_bin -> tryEmptyRecycleBin(true)
             R.id.cab_empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
             R.id.cab_hide -> toggleFoldersVisibility(true)
@@ -146,7 +168,17 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     override fun onActionModeCreated() {}
 
-    override fun onActionModeDestroyed() {}
+    override fun onActionModeDestroyed() {
+        if (isDragAndDropping) {
+            notifyDataSetChanged()
+
+            val reorderedFoldersList = dirs.map { it.path }
+            config.customFoldersOrder = TextUtils.join("|||", reorderedFoldersList)
+            config.directorySorting = SORT_BY_CUSTOM
+        }
+
+        isDragAndDropping = false
+    }
 
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
@@ -164,6 +196,28 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val pinnedFolders = config.pinnedFolders
         menu.findItem(R.id.cab_pin).isVisible = selectedPaths.any { !pinnedFolders.contains(it) }
         menu.findItem(R.id.cab_unpin).isVisible = selectedPaths.any { pinnedFolders.contains(it) }
+    }
+
+    private fun moveSelectedItemsToTop() {
+        selectedKeys.reversed().forEach { key ->
+            val position = dirs.indexOfFirst { it.path.hashCode() == key }
+            val tempItem = dirs[position]
+            dirs.removeAt(position)
+            dirs.add(0, tempItem)
+        }
+
+        notifyDataSetChanged()
+    }
+
+    private fun moveSelectedItemsToBottom() {
+        selectedKeys.forEach { key ->
+            val position = dirs.indexOfFirst { it.path.hashCode() == key }
+            val tempItem = dirs[position]
+            dirs.removeAt(position)
+            dirs.add(dirs.size, tempItem)
+        }
+
+        notifyDataSetChanged()
     }
 
     private fun showProperties() {
@@ -426,6 +480,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         listener?.recheckPinnedFolders()
     }
 
+    private fun changeOrder() {
+        isDragAndDropping = true
+        notifyDataSetChanged()
+        actMode?.invalidate()
+
+        if (startReorderDragListener == null) {
+            val touchHelper = ItemTouchHelper(ItemMoveCallback(this, true))
+            touchHelper.attachToRecyclerView(recyclerView)
+
+            startReorderDragListener = object : StartReorderDragListener {
+                override fun requestDrag(viewHolder: RecyclerView.ViewHolder) {
+                    touchHelper.startDrag(viewHolder)
+                }
+            }
+        }
+    }
+
     private fun moveFilesTo() {
         activity.handleDeletePasswordProtection {
             copyMoveTo(false)
@@ -439,12 +510,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val filter = config.filterMedia
             File(it).listFiles()?.filter {
                 !File(it.absolutePath).isDirectory &&
-                        it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
-                        ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                                (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                                (it.isGif() && filter and TYPE_GIFS != 0) ||
-                                (it.isRawFast() && filter and TYPE_RAWS != 0) ||
-                                (it.isSvg() && filter and TYPE_SVGS != 0))
+                    it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                    ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                        (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                        (it.isGif() && filter and TYPE_GIFS != 0) ||
+                        (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                        (it.isSvg() && filter and TYPE_SVGS != 0))
             }?.mapTo(paths) { it.absolutePath }
         }
 
@@ -503,18 +574,22 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size
-                val items = if (itemsCnt == 1) {
-                    var folder = getSelectedPaths().first().getFilenameFromPath()
-                    if (folder == RECYCLE_BIN) {
-                        folder = activity.getString(R.string.recycle_bin)
+                if (itemsCnt == 1 && getSelectedItems().first().isRecycleBin()) {
+                    ConfirmationDialog(activity, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+                        deleteFolders()
                     }
+                    return
+                }
+
+                val items = if (itemsCnt == 1) {
+                    val folder = getSelectedPaths().first().getFilenameFromPath()
                     "\"$folder\""
                 } else {
                     resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
-                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
+                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.areFavorites())) {
                     R.string.deletion_confirmation
                 } else {
                     R.string.move_to_recycle_bin_confirmation
@@ -663,7 +738,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyDataSetChanged()
     }
 
-    private fun setupView(view: View, directory: Directory) {
+    private fun setupView(view: View, directory: Directory, holder: ViewHolder) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
@@ -755,7 +830,42 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_path.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
                 dir_location.applyColorFilter(textColor)
+                dir_drag_handle.beVisibleIf(isDragAndDropping)
+            } else {
+                dir_drag_handle_wrapper.beVisibleIf(isDragAndDropping)
+            }
+
+            if (isDragAndDropping) {
+                dir_drag_handle.applyColorFilter(textColor)
+                dir_drag_handle.setOnTouchListener { v, event ->
+                    if (event.action == MotionEvent.ACTION_DOWN) {
+                        startReorderDragListener?.requestDrag(holder)
+                    }
+                    false
+                }
             }
         }
+    }
+
+    override fun onRowMoved(fromPosition: Int, toPosition: Int) {
+        if (fromPosition < toPosition) {
+            for (i in fromPosition until toPosition) {
+                Collections.swap(dirs, i, i + 1)
+            }
+        } else {
+            for (i in fromPosition downTo toPosition + 1) {
+                Collections.swap(dirs, i, i - 1)
+            }
+        }
+
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onRowSelected(myViewHolder: ViewHolder?) {
+        swipeRefreshLayout?.isEnabled = false
+    }
+
+    override fun onRowClear(myViewHolder: ViewHolder?) {
+        swipeRefreshLayout?.isEnabled = activity.config.enablePullToRefresh
     }
 }

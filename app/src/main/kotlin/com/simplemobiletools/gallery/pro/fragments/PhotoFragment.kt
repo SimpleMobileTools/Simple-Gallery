@@ -374,8 +374,10 @@ class PhotoFragment : ViewPagerFragment() {
 
             mView.apply {
                 gestures_view.beGone()
-                gif_view.setInputSource(source)
                 gif_view_frame.beVisible()
+                ensureBackgroundThread {
+                    gif_view.setInputSource(source)
+                }
             }
         } catch (e: Exception) {
             loadBitmap()
@@ -385,11 +387,13 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadSVG() {
-        Glide.with(context!!)
-            .`as`(PictureDrawable::class.java)
-            .listener(SvgSoftwareLayerSetter())
-            .load(mMedium.path)
-            .into(mView.gestures_view)
+        if (context != null) {
+            Glide.with(context!!)
+                .`as`(PictureDrawable::class.java)
+                .listener(SvgSoftwareLayerSetter())
+                .load(mMedium.path)
+                .into(mView.gestures_view)
+        }
     }
 
     private fun loadBitmap(addZoomableView: Boolean = true) {

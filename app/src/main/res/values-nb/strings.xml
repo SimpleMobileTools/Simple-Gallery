@@ -32,6 +32,7 @@
     <string name="switch_to_file_search">Skift til filsøk i alle synlige mapper</string>
     <string name="set_as_default_folder">Sett som standardmappe</string>
     <string name="unset_as_default_folder">Ikke lenger sett som standardmappe</string>
+    <string name="reorder_by_dragging">Reorder folders by dragging</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
