@@ -2,7 +2,7 @@
 
 <img alt="Logo" src="fastlane/metadata/android/en-US/images/icon.png" width="120" />
 
-Simple Gallery Pro is a highly customizable lightweight gallery loved by millions of people for its great user experience. Organize and edit your photos, recover deleted files with the recycle bin, protect & hide files and easily view a huge variety of different photo and video formats including RAW, SVG, GIF, panoramic and much more.
+<b>Simple Gallery Pro</b> is a highly customizable lightweight gallery loved by millions of people for its great user experience. Organize and edit your photos, recover deleted files with the recycle bin, protect & hide files and easily view a huge variety of different photo and video formats including RAW, SVG, GIF, panoramic and much more.
 
 -------------------------------------------------
 SIMPLE GALLERY PRO – FEATURES
