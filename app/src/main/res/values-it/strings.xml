@@ -28,11 +28,11 @@
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="no_date_takens_found">Nessun valore trovato per data creazione</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
-    <string name="upgraded_from_free">Hey,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
+    <string name="upgraded_from_free">Ehi,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
-    <string name="set_as_default_folder">Imposta come cartella di default</string>
-    <string name="unset_as_default_folder">Non impostare come cartella di default</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="set_as_default_folder">Imposta come cartella predefinita</string>
+    <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
+    <string name="reorder_by_dragging">Riordina cartelle trascinandole</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
@@ -57,7 +57,7 @@
     <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
     <string name="hidden_folders">Cartelle nascoste</string>
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
-    <string name="hidden_folders_placeholder">Non si ha alcuna cartella nascosta con un file \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
@@ -325,7 +325,7 @@
     <string name="pesdk_common_title_greenColor">Verde</string>
     <string name="pesdk_common_title_aquamarinColor">Acquamarina</string>
     <string name="pesdk_common_title_pipettableColor">Colore pipettabile</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">Ritaglia</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Come posso impostare Semplice Galleria come la galleria predefinita del dispositivo?</string>
