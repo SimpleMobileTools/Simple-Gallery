@@ -15,7 +15,7 @@
     <string name="other_folder">Інша тека</string>
     <string name="show_on_map">Показати на мапі</string>
     <string name="unknown_location">Невідоме розташування</string>
-    <string name="volume">Об\'єм</string>
+    <string name="volume">Гучність</string>
     <string name="brightness">Яскравість</string>
     <string name="lock_orientation">Закріпити орієнтацію</string>
     <string name="unlock_orientation">Відкріпити орієнтацію</string>
@@ -240,7 +240,7 @@
     <string name="pesdk_focus_button_radial">Радіальний</string>
     <string name="pesdk_focus_button_linear">Лінійний</string>
     <string name="pesdk_focus_button_mirrored">Дзеркальний</string>
-    <string name="pesdk_focus_button_gaussian">Гаусс</string>
+    <string name="pesdk_focus_button_gaussian">Гаусове розмивання</string>
     <string name="pesdk_text_title_name">Текст</string>
     <string name="pesdk_text_title_options">Параметри тексту</string>
     <string name="pesdk_text_title_textColor">Колір тексту</string>
@@ -363,7 +363,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - фотоменеджер і редактор</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Переглядайте ваші спогади без затримок із цією фото і відео залереєю</string>
+    <string name="app_short_description">Переглядайте ваші спогади без затримок із цією фото і відео галереєю</string>
     <string name="app_long_description">
         Simple Gallery Pro - це офлайн-галерея з великою кількістю налаштувань. Впорядковуйте та редагуйте ваші фото, відновлюйте видалені файли з кошика, захищайте та приховуйте файли і переглядайте фото і відео різноманітних форматів, включаючи RAW, SVG та багато іншого.
 
