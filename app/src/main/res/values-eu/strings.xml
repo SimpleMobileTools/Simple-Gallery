@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">Aldatu fitxategi-bilaketa ikusgai dauden karpeta guztien artean</string>
     <string name="set_as_default_folder">Ezarri lehenetsitako karpeta gisa</string>
     <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging">Berrordenatu karpetak arrastatuz</string>
 
     <!-- Filter -->
     <string name="filter_media">Iragazi multimedia</string>
@@ -148,7 +148,7 @@
     <string name="grouping_and_sorting">Kontuan hartu taldekatzea eta ordenatzea bi eremu independente direla.</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Widgetean erakutsitako karpeta:</string>
+    <string name="folder_on_widget">Trepetan erakutsitako karpeta:</string>
     <string name="show_folder_name">Erakutsi karpetaren izena</string>
 
     <!-- Settings -->
@@ -201,7 +201,7 @@
     <string name="limit_folder_title">Mugatu karpeten izenburu luzeak lerro batera</string>
     <string name="square">Karratua</string>
     <string name="rounded_corners">Ertz biribilduak</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">Esportatu gogoko fitxategi-bideak</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iruditxoak</string>
@@ -274,7 +274,7 @@
     <string name="pesdk_editor_text_exportProgress" formatted="false">Esportatzen %s.</string>
     <string name="pesdk_sticker_title_name">Eranskailua</string>
     <string name="pesdk_sticker_title_color">Eranskailuaren kolorea</string>
-    <string name="pesdk_sticker_title_options">Eranskailu-aukerakSticker Options</string>
+    <string name="pesdk_sticker_title_options">Eranskailu-aukerak</string>
     <string name="pesdk_sticker_button_add">Gehitu</string>
     <string name="pesdk_sticker_button_color">Kolorea</string>
     <string name="pesdk_sticker_button_delete">Ezabatu</string>
@@ -302,7 +302,7 @@
     <string name="pesdk_overlay_asset_mosaic">Mosaikoa</string>
     <string name="pesdk_overlay_asset_paper">Papera</string>
     <string name="pesdk_overlay_asset_rain">Euria</string>
-    <string name="pesdk_overlay_asset_vintage">Vintage</string>
+    <string name="pesdk_overlay_asset_vintage">Antzinakoa</string>
     <string name="pesdk_common_button_flipH">Biratu H</string>
     <string name="pesdk_common_button_flipV">Biratu B</string>
     <string name="pesdk_common_button_undo">Desegin</string>
