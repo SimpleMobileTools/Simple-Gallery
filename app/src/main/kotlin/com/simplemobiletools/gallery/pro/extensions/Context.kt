@@ -223,15 +223,15 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                 val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
                 if (subDirs.isNotEmpty()) {
                     val lastModified = if (isSortingAscending) {
-                        subDirs.minBy { it.modified }?.modified
+                        subDirs.minByOrNull { it.modified }?.modified
                     } else {
-                        subDirs.maxBy { it.modified }?.modified
+                        subDirs.maxByOrNull { it.modified }?.modified
                     } ?: 0
 
                     val dateTaken = if (isSortingAscending) {
-                        subDirs.minBy { it.taken }?.taken
+                        subDirs.minByOrNull { it.taken }?.taken
                     } else {
-                        subDirs.maxBy { it.taken }?.taken
+                        subDirs.maxByOrNull { it.taken }?.taken
                     } ?: 0
 
                     var mediaTypes = 0
