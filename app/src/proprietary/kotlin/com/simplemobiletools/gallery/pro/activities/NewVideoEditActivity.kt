@@ -288,6 +288,7 @@ class NewVideoEditActivity : SimpleActivity() {
             getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
 
             configure<VideoEditorSaveSettings> {
+                it.allowOrientationMatrixMetadata = true
                 it.setOutputToTemp()
                 it.outputMode = OutputMode.EXPORT_IF_NECESSARY
             }
