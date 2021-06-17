@@ -44,6 +44,11 @@ abstract class GalleryDatabase : RoomDatabase() {
         }
 
         fun destroyInstance() {
+            if (db != null) {
+                if(db!!.isOpen) {
+                    db?.close();
+                }
+            }
             db = null
         }
 
