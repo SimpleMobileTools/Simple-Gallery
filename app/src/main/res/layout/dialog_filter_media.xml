@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/filter_media_dialog_holder"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/images"/>
+            android:text="@string/images" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/filter_media_videos"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/videos"/>
+            android:text="@string/videos" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/filter_media_gifs"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/gifs"/>
+            android:text="@string/gifs" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/filter_media_raws"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/raw_images"/>
+            android:text="@string/raw_images" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/filter_media_svgs"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/svgs"/>
+            android:text="@string/svgs" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/filter_media_portraits"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/portraits"/>
+            android:text="@string/portraits" />
 
     </LinearLayout>
 </ScrollView>
