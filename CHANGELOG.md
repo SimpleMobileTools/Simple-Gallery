@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.20.2 *(2021-06-18)*
+----------------------------
+
+ * Fixed a glitch with some PNG thumbnails not showing up well
+ * Fixed an issue with edited exported videos being too low resolution
+ * Adding some stability and translation improvements
+
 Version 6.20.1 *(2021-05-14)*
 ----------------------------
 
