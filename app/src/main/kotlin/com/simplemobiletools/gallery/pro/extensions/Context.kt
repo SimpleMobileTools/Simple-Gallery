@@ -742,10 +742,13 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
                 }
 
                 if (mediaToDelete.isNotEmpty()) {
-                    mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
+                    try {
+                        mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
 
-                    mediaToDelete.filter { it.isFavorite }.forEach {
-                        favoritesDB.deleteFavoritePath(it.path)
+                        mediaToDelete.filter { it.isFavorite }.forEach {
+                            favoritesDB.deleteFavoritePath(it.path)
+                        }
+                    } catch (ignored: Exception) {
                     }
                 }
             }.start()
