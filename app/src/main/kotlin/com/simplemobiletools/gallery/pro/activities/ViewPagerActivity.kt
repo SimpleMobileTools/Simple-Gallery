@@ -779,35 +779,42 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentMedium = getCurrentMedium()
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
         bottom_favorite.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE != 0 && currentMedium?.getIsInRecycleBin() == false)
+        bottom_favorite.setOnLongClickListener { toast(R.string.toggle_favorite); true }
         bottom_favorite.setOnClickListener {
             toggleFavorite()
         }
 
         bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && currentMedium?.isSVG() == false)
+        bottom_edit.setOnLongClickListener { toast(R.string.edit); true }
         bottom_edit.setOnClickListener {
             openEditor(getCurrentPath())
         }
 
         bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
+        bottom_share.setOnLongClickListener { toast(R.string.share); true }
         bottom_share.setOnClickListener {
             shareMediumPath(getCurrentPath())
         }
 
         bottom_delete.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_DELETE != 0)
+        bottom_delete.setOnLongClickListener { toast(R.string.delete); true }
         bottom_delete.setOnClickListener {
             checkDeleteConfirmation()
         }
 
+        bottom_rotate.setOnLongClickListener { toast(R.string.rotate); true }
         bottom_rotate.setOnClickListener {
             rotateImage(90)
         }
 
         bottom_properties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
+        bottom_properties.setOnLongClickListener { toast(R.string.properties); true }
         bottom_properties.setOnClickListener {
             showProperties()
         }
 
         bottom_change_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
+        bottom_change_orientation.setOnLongClickListener { toast(R.string.change_orientation); true }
         bottom_change_orientation.setOnClickListener {
             requestedOrientation = when (requestedOrientation) {
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
@@ -819,16 +826,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         bottom_slideshow.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SLIDESHOW != 0)
+        bottom_slideshow.setOnLongClickListener { toast(R.string.slideshow); true }
         bottom_slideshow.setOnClickListener {
             initSlideshow()
         }
 
         bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
+        bottom_show_on_map.setOnLongClickListener { toast(R.string.show_on_map); true }
         bottom_show_on_map.setOnClickListener {
             showFileOnMap(getCurrentPath())
         }
 
         bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
+        bottom_toggle_file_visibility.setOnLongClickListener { toast(R.string.toggle_file_visibility); true }
         bottom_toggle_file_visibility.setOnClickListener {
             currentMedium?.apply {
                 toggleFileVisibility(!isHidden()) {
@@ -838,26 +848,31 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && currentMedium?.getIsInRecycleBin() == false)
+        bottom_rename.setOnLongClickListener { toast(R.string.rename); true }
         bottom_rename.setOnClickListener {
             renameFile()
         }
 
         bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
+        bottom_set_as.setOnLongClickListener { toast(R.string.set_as); true }
         bottom_set_as.setOnClickListener {
             setAs(getCurrentPath())
         }
 
         bottom_copy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
+        bottom_copy.setOnLongClickListener { toast(R.string.copy); true }
         bottom_copy.setOnClickListener {
             copyMoveTo(true)
         }
 
         bottom_move.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
+        bottom_move.setOnLongClickListener { toast(R.string.move); true }
         bottom_move.setOnClickListener {
             moveFileTo()
         }
 
         bottom_resize.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RESIZE != 0 && currentMedium?.isImage() == true)
+        bottom_resize.setOnLongClickListener { toast(R.string.resize); true }
         bottom_resize.setOnClickListener {
             resizeImage()
         }
