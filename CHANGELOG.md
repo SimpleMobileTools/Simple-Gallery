@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.20.3 *(2021-06-28)*
+----------------------------
+
+ * Disable fullscreen image rotation during a zooming gesture
+ * Fixed a glitch with fullscreen bottom action buttons being misplaced
+ * Allow long pressing the bottom actions for a tooltip
+ * Added some stability and translation improvements
+
 Version 6.20.2 *(2021-06-18)*
 ----------------------------
 
