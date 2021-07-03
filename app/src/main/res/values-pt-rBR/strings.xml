@@ -28,11 +28,11 @@
     <string name="dates_fixed_successfully">Datas corrigidas com sucesso</string>
     <string name="no_date_takens_found">Nenhum valor de data foi encontrado</string>
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
-    <string name="upgraded_from_free">Olá,\n\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de atualizar para a versão Pro no topo da pagina de Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
+    <string name="upgraded_from_free">Olá,\n\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de atualizar para a versão Pro no topo da página de Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
     <string name="switch_to_file_search">Alternar para a pesquisa de arquivos em todas as pastas visíveis</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="set_as_default_folder">Definir como pasta padrão</string>
+    <string name="unset_as_default_folder">Indefinir como pasta padrão</string>
+    <string name="reorder_by_dragging">Reordenar as pastas ao arrastar</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar mídia</string>
@@ -77,19 +77,19 @@
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Girar</string>
-    <string name="invalid_image_path">Caminho inválido</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_image_path">Caminho de imagem inválido</string>
+    <string name="invalid_video_path">Caminho de vídeo inválido</string>
     <string name="image_editing_failed">Falha na edição da imagem</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="video_editing_failed">Falha na edição de vídeo</string>
     <string name="image_editing_cancelled">Edição de imagem cancelada</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">Edição de vídeo cancelada</string>
     <string name="file_edited_successfully">Arquivo editado com sucesso</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Imagem editada com sucesso</string>
+    <string name="video_edited_successfully">Vídeo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Editar vídeo com:</string>
     <string name="no_image_editor_found">Nenhum editor de imagem encontrado</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Nenhum editor de vídeo encontrado </string>
     <string name="unknown_file_location">Localização de arquivo desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o arquivo original</string>
     <string name="rotate_left">Girar para a esquerda</string>
@@ -102,7 +102,7 @@
     <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Papel de Parede</string>
+    <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Definir como papel de parede</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como papel de parede</string>
     <string name="set_as_wallpaper_with">Definir papel de parede com:</string>
@@ -169,7 +169,7 @@
     <string name="delete_empty_folders">Apagar pastas vazias após excluir o seu conteúdo</string>
     <string name="allow_photo_gestures">Habilitar controle do brilho com gestos na vertical</string>
     <string name="allow_video_gestures">Habilitar controle de volume e brilho com gestos na vertical</string>
-    <string name="show_media_count">Exibir quantidade de arquivos em cada pasta na tela inicial</string>
+    <string name="show_media_count">Exibir a quantidade de arquivos em cada pasta na tela inicial</string>
     <string name="show_extended_details">Exibir detalhes adicionais quando em tela cheia</string>
     <string name="manage_extended_details">Gerenciar detalhes adicionais</string>
     <string name="one_finger_zoom">Habilitar zoom com um dedo em exibição de tela cheia</string>
@@ -192,16 +192,16 @@
     <string name="avoid_showing_invalid_files">Evitar a exibição de arquivos inválidos</string>
     <string name="show_image_file_types">Exibir tipos de arquivo de imagem</string>
     <string name="allow_zooming_videos">Permitir zoom de vídeos com um toque duplo neles</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="folder_thumbnail_style">Estilo da miniatura de pasta</string>
+    <string name="file_thumbnail_style">Estilo da miniatura de arquivo</string>
+    <string name="thumbnail_spacing">Espaçamento da miniatura</string>
+    <string name="show_file_count_line">Exibir a quantidade de arquivos em uma linha separada</string>
+    <string name="show_file_count_brackets">Exibir a quantidade de arquivos entre parênteses</string>
+    <string name="show_file_count_none">Não exibir a quantidade de arquivos</string>
+    <string name="limit_folder_title">Limitar nomes longos em uma linha</string>
+    <string name="square">Quadrado</string>
+    <string name="rounded_corners">Cantos arredondados</string>
+    <string name="export_favorite_paths">Exportar caminho dos favoritos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -264,7 +264,7 @@
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fechar Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Você realmente deseja descartar as alterações?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -272,36 +272,36 @@
     <string name="pesdk_editor_save">Salvar</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Exportando…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportando %s.</string>
-    <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Sticker Color</string>
-    <string name="pesdk_sticker_title_options">Sticker Options</string>
-    <string name="pesdk_sticker_button_add">Add</string>
-    <string name="pesdk_sticker_button_color">Color</string>
-    <string name="pesdk_sticker_button_delete">Delete</string>
-    <string name="pesdk_sticker_button_bringToFront">To Front</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
-    <string name="pesdk_sticker_button_replace">Replace</string>
-    <string name="pesdk_sticker_button_opacity">Opacity</string>
-    <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_sticker_title_name">Adesivo</string>
+    <string name="pesdk_sticker_title_color">Cor do adesivo</string>
+    <string name="pesdk_sticker_title_options">Opções do adesivo</string>
+    <string name="pesdk_sticker_button_add">Adicionar</string>
+    <string name="pesdk_sticker_button_color">Cor</string>
+    <string name="pesdk_sticker_button_delete">Excluir</string>
+    <string name="pesdk_sticker_button_bringToFront">Trazer para frente</string>
+    <string name="pesdk_sticker_button_straighten">Endireitar</string>
+    <string name="pesdk_sticker_button_replace">Substituir</string>
+    <string name="pesdk_sticker_button_opacity">Opacidade</string>
+    <string name="pesdk_sticker_button_contrast">Contraste</string>
+    <string name="pesdk_sticker_button_saturation">Saturação</string>
+    <string name="pesdk_sticker_button_brightness">Brilho</string>
+    <string name="pesdk_sticker_category_name_custom">Envio</string>
+    <string name="pesdk_overlay_title_name">Sobreposição</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
-    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
-    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
-    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
-    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Escurecer</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Tela</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Sobreposição</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Iluminar</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Multiplicar</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Exposição de Cor</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Luz Suave</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Luz Intensa</string>
+    <string name="pesdk_overlay_asset_none">Nenhum</string>
     <string name="pesdk_overlay_asset_golden">Golden</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
-    <string name="pesdk_overlay_asset_paper">Paper</string>
-    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_lightleak1">Vazamento de luz 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mosaico</string>
+    <string name="pesdk_overlay_asset_paper">Papel</string>
+    <string name="pesdk_overlay_asset_rain">Chuva</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Giro H</string>
     <string name="pesdk_common_button_flipV">Giro V</string>
@@ -338,14 +338,14 @@
     <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast forward)?</string>
     <string name="faq_4_text">Você pode fazer isso tocando duas vezes na lateral da tela ou tocando nos textos atuais ou de duração máxima próximos à barra de busca. Se você ativar a abertura de vídeos em uma tela separada nas configurações do aplicativo, também poderá usar gestos horizontais.</string>
     <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta?</string>
-    <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser. Note que alguns dispositivos não permitem esconder algumas pastas como Camera, Screenshots e Downloads.</string>
     <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista?</string>
-    <string name="faq_6_text">Pode acontecer de que algumas pastas incomuns apareçam. Você pode utlizar a opção Ignorar nestas pastas, adicionando-as a lista de pastas ignoradas. Uma maneira de fazer isso é realizar um toque longo em uma destas pastas, selecionar a opção Ignorar e, em seguida, selecionar a pasta pai.</string>
+    <string name="faq_6_text">Pode acontecer de que algumas pastas incomuns apareçam. Você pode utilizar a opção Ignorar nestas pastas, adicionando-as a lista de pastas ignoradas. Uma maneira de fazer isso é realizar um toque longo em uma destas pastas, selecionar a opção Ignorar e, em seguida, selecionar a pasta pai.</string>
     <string name="faq_7_title">Uma das minhas pastas não aparece, ou nem todos os seus itens são exibidos. O que posso fazer?</string>
     <string name="faq_7_text">Isso pode ocorrer por diversos motivos, mas resolver o problema é fácil. Entre em Configurações --> Gerenciar pastas incluídas, toque no botão \"+\", e selecione a pasta em questão.</string>
     <string name="faq_8_title">Como posso fazer para exibir apenas certas pastas?</string>
     <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -> Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -> Gerenciar pastas incluídas.
-        Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funçoes recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
+        Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funções recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
     <string name="faq_10_title">Posso recortar imagens usando este app?</string>
     <string name="faq_10_text">Sim, você pode recortar imagens no editor, arrastando os cantos da imagem. Você pode entrar no editor fazendo um toque longo na imagem e selecionando Editar, ou selecionando Editar a partir da visualização de tela cheia.</string>
     <string name="faq_11_title">É possível exibir os meus arquivos de mídia em subgrupos ao invés de em uma única grande lista?</string>
@@ -355,7 +355,7 @@
     <string name="faq_13_title">Algumas imagens exibem artefatos de exibição, como bandas de cor. Como posso melhorar a qualidade da exibição?</string>
     <string name="faq_13_text">O nosso método atual para a exibição de imagens funciona bem na grande maioria dos casos, mas caso você queira uma qualidade ainda melhor, ative a opção \"Exibir imagens na maior qualidade possível\" na seção \"Zoom aprofundado para imagens\" das configurações deste aplicativo.</string>
     <string name="faq_14_title">Eu ocultei um arquivo/pasta. Como posso desfazer isso?</string>
-    <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser. Note que esconder funciona recursivamente, então se você esconder uma pasta, todas as subpastas ficaram escondidas também. Então, para re exibir as subpastas, você precisa re exibir a pasta principal.</string>
     <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
 
@@ -385,9 +385,10 @@
         • Disponível em 32 idiomas
         • Marque seus arquivos favoritos para acesso mais rápido
         • Proteja suas imagens e vídeos com um padrão, PIN, ou impressão digital
+        • Use PIN, padrão &amp; ou impressão digital para proteger o aplicativo de ser iniciado e outras funções específicas também
         • Recupere imagens e vídeos que foram excluídos para a lixeira
         • Oculte arquivos para deixar de exibir certas imagens ou vídeos no app.
-        • Crie um slideshow customizado com os seus arquivos
+        • Crie apresentação customizada com os seus arquivos
         • Exiba informações avançadas sobre seus arquivos (resolução, metadados EXIF, etc)
         • A Simple Galeria Pro tem código aberto!
         … e muito mais!
