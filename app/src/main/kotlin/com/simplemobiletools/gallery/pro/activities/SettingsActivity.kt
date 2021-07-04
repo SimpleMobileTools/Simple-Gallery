@@ -614,8 +614,9 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupClearCache() {
         ensureBackgroundThread {
+            val size = cacheDir.getProperSize(true).formatSize()
             runOnUiThread {
-                settings_clear_cache_size.text = cacheDir.getProperSize(true).formatSize()
+                settings_clear_cache_size.text = size
             }
         }
 
