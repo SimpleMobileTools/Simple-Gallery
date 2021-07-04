@@ -286,11 +286,11 @@
     <string name="pesdk_sticker_button_saturation">Κορεσμός</string>
     <string name="pesdk_sticker_button_brightness">Φωτεινότητα</string>
     <string name="pesdk_sticker_category_name_custom">Μεταφορτώσεις</string>
-    <string name="pesdk_overlay_title_name">Επικάλειψη</string>
+    <string name="pesdk_overlay_title_name">Επικάλυψη</string>
     <string name="pesdk_overlay_button_blendModeNormal">Κανονικό</string>
     <string name="pesdk_overlay_button_blendModeDarken">Σκούρο</string>
     <string name="pesdk_overlay_button_blendModeScreen">Οθόνη</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Επικάλυψη</string>
     <string name="pesdk_overlay_button_blendModeLighten">Ξάνοιγμα</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Πολλαπ/σμός</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Κάψιμο χρώματος</string>
