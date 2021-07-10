@@ -190,7 +190,7 @@
     <string name="speed">வேகம்</string>
     <string name="compromise">சமரசம்</string>
     <string name="avoid_showing_invalid_files">தவறான கோப்புகளைக் காண்பிப்பதைத் தவிர்</string>
-    <string name="show_image_file_types">பட கோப்பு வகளைக் காட்டு</string>
+    <string name="show_image_file_types">பட கோப்பு வகைகளைக் காட்டு</string>
     <string name="allow_zooming_videos">காணொளிகளை இருமுறை தட்டுவதன் மூலம் பெரிதாக்க அனுமதி</string>
     <string name="folder_thumbnail_style">கோப்புறை சிறுவுருவ பாணி</string>
     <string name="file_thumbnail_style">கோப்பு சிறுவுருவ பாணி</string>
@@ -363,7 +363,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">எளிய காட்சியகம் தொ - பட நிர்வாகி &amp; திருத்தி</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">விளம்பரங்களில்லாமல் உங்கள் புகைப்படங்கள், காணொளிகள், GIFகளை நிர்வகிப்பதற்கும் திருத்துவதற்கும் ஓர் உயர்தர பயன்பாடு</string>
+    <string name="app_short_description">விளம்பரங்களின்றி உங்கள் புகைப்படங்கள், காணொளிகள், GIFகளை நிர்வகிப்பதற்கும் திருத்துவதற்கும் ஓர் உயர்தர பயன்பாடு</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
