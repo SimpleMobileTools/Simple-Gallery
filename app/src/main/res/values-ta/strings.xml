@@ -197,7 +197,7 @@
     <string name="thumbnail_spacing">சிறுபடத்தில் இடைவெளி</string>
     <string name="show_file_count_line">கோப்பு எண்ணிக்கையை தனி வரியில் காண்பி</string>
     <string name="show_file_count_brackets">கோப்பு எண்ணிக்கையை அடைப்புக்குறிக்குள் காட்டு</string>
-    <string name="show_file_count_none">கோப்பு எண்ணிக்கையைக் காட்ட வேண்டாம்</string>
+    <string name="show_file_count_none">கோப்பு எண்ணிக்கையைக் காட்டாதே</string>
     <string name="limit_folder_title">நீண்ட கோப்புறை தலைப்புகளை 1 வரிக்கு மட்டுப்படுத்து</string>
     <string name="square">சதுரம்</string>
     <string name="rounded_corners">மழுங்கையாக்கப்பட்ட மூலைகள்</string>
