@@ -228,7 +228,7 @@
     <string name="pesdk_adjustments_button_brightnessTool">Φωτισμός</string>
     <string name="pesdk_adjustments_button_contrastTool">Αντίθεση</string>
     <string name="pesdk_adjustments_button_saturationTool">Κορεσμός</string>
-    <string name="pesdk_adjustments_button_clarityTool">Σαφήνεια</string>
+    <string name="pesdk_adjustments_button_clarityTool">Ευκρίνεια</string>
     <string name="pesdk_adjustments_button_gammaTool">Γάμμα</string>
     <string name="pesdk_adjustments_button_blacksTool">Μαύρα</string>
     <string name="pesdk_adjustments_button_whitesTool">Λευκά</string>
@@ -254,7 +254,7 @@
     <string name="pesdk_text_button_alignment">Ευθυγράμμιση</string>
     <string name="pesdk_text_button_bringToFront">Σε Γραμ/σειρά</string>
     <string name="pesdk_text_button_delete">Διαγραφή</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Το κείμενό μου</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Το κειμενό μου</string>
     <string name="pesdk_brush_title_name">Βούρτσα</string>
     <string name="pesdk_brush_button_color">Χρώμα</string>
     <string name="pesdk_brush_button_size">Μέγεθος</string>
@@ -326,6 +326,8 @@
     <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
     <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
     <string name="vesdk_video_trim_title_name">Κόψιμο</string>
+    <string name="pesdk_text_title_input">Προσθήκη Κειμένου</string>
+    <string name="pesdk_transform_button_circleCropMask">Κύκλος</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
