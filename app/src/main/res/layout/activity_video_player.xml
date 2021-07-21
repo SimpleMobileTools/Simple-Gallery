@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.alexvasilkov.gestures.GestureFrameLayout
+    <com.alexvasilkov.gestures.views.GestureFrameLayout
         android:id="@+id/video_surface_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,9 +15,9 @@
             android:id="@+id/video_surface"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
-    </com.alexvasilkov.gestures.GestureFrameLayout>
+    </com.alexvasilkov.gestures.views.GestureFrameLayout>
 
     <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/video_volume_controller"

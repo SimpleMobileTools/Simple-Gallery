@@ -154,7 +154,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_duration.setOnClickListener { doSkip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
         video_surface_frame.setOnClickListener { toggleFullscreen() }
-        video_surface_frame.controller.settings.swallowDoubleTaps = true
+        video_surface_frame.controller.settings.isDoubleTapEnabled = true
 
         video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
         video_next_file.setOnClickListener { handleNextFile() }

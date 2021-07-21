@@ -85,7 +85,7 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.okio:okio:2.10.0'
     implementation 'com.caverock:androidsvg-aar:1.4'
-    implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
+    implementation 'com.alexvasilkov:gesture-views:2.8.1'
     implementation 'com.github.tibbi:subsampling-scale-image-view:60fb7362d5'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'com.github.penfeizhou.android.animation:awebp:2.10.0'

@@ -138,6 +138,8 @@ class PhotoFragment : ViewPagerFragment() {
                     override fun onStateChanged(state: State) {
                         mCurrentGestureViewZoom = state.zoom
                     }
+
+                    override fun onStateReset(oldState: State?, newState: State?) = Unit
                 })
 
                 gestures_view.setOnTouchListener { v, event ->
@@ -681,7 +683,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun getMinTileDpi(): Int {
         val metrics = resources.displayMetrics
         val averageDpi = (metrics.xdpi + metrics.ydpi) / 2
-        val device = "${Build.BRAND} ${Build.MODEL}".toLowerCase()
+        val device = "${Build.BRAND} ${Build.MODEL}".lowercase(Locale.getDefault())
         return when {
             WEIRD_DEVICES.contains(device) -> WEIRD_TILE_DPI
             averageDpi > 400 -> HIGH_TILE_DPI

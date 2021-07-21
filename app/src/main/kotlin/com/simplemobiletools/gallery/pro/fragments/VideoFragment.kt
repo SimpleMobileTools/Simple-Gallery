@@ -88,7 +88,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
             video_preview.setOnClickListener { toggleFullscreen() }
-            video_surface_frame.controller.settings.swallowDoubleTaps = true
+            video_surface_frame.controller.settings.isDoubleTapEnabled = true
 
             video_play_outline.setOnClickListener {
                 if (mConfig.openVideosOnSeparateScreen) {
