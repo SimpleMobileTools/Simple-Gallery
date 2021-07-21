@@ -1,5 +1,10 @@
 buildscript {
-    ext.is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
+    ext {
+        is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
+        googleVrVersion = "1.180.0"
+        glideVersion = "4.12.0"
+        roomVersion = "2.3.0"
+    }
 
     repositories {
         google()
