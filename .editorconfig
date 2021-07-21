@@ -21,3 +21,6 @@ continuation_indent_size = 4
 
 [*.xml]
 continuation_indent_size = 4
+
+[*.yml]
+indent_size = 2
