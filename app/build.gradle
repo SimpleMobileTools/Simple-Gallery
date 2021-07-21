@@ -10,8 +10,8 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
@@ -67,11 +67,6 @@ android {
         abortOnError false
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
     packagingOptions {
         exclude 'META-INF/library_release.kotlin_module'
     }
@@ -81,7 +76,7 @@ dependencies {
     implementation 'com.github.SimpleMobileTools:Simple-Commons:0a6688146c'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
@@ -93,13 +88,13 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
     implementation 'com.github.tibbi:subsampling-scale-image-view:60fb7362d5'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.9.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.10.0'
     implementation('com.squareup.picasso:picasso:2.71828') {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
-    compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
+    compileOnly 'com.squareup.okhttp3:okhttp:4.9.1'
 
-    kapt 'com.github.bumptech.glide:compiler:4.10.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
 
     kapt 'androidx.room:room-compiler:2.3.0'
     implementation 'androidx.room:room-runtime:2.3.0'
