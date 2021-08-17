@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.5.10'
+    ext.kotlin_version = '1.5.21'
     ext.is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
 
     repositories {
@@ -13,10 +13,10 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         if (is_proprietary) {
-            classpath 'ly.img.android.pesdk:plugin:8.3.1'
+            classpath 'ly.img.android.pesdk:plugin:8.3.3'
         }
 
         // NOTE: Do not place your application dependencies here; they belong

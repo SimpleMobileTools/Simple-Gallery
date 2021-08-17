@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:0a6688146c'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:e3c531cbd1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
@@ -113,12 +113,12 @@ if (is_proprietary) {
     imglyConfig {
         vesdk {
             enabled true
-            licencePath 'vesdk_license'
+            licensePath 'vesdk_license'
         }
 
         pesdk {
             enabled true
-            licencePath 'pesdk_license'
+            licensePath 'pesdk_license'
         }
 
         modules {
