@@ -21,10 +21,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.exifinterface.media.ExifInterface
@@ -57,6 +54,7 @@ import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
+import com.simplemobiletools.gallery.pro.views.CustomViewPager
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
@@ -73,6 +71,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mShowAll = false
     private var mIsSlideshowActive = false
     private var mPrevHashcode = 0
+    private var isLocked = true
 
     private var mSlideshowHandler = Handler()
     private var mSlideshowInterval = SLIDESHOW_DEFAULT_INTERVAL
@@ -85,12 +84,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
     private var mIgnoredPaths = ArrayList<String>()
+    private lateinit var customViewPager : CustomViewPager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
+        customViewPager = findViewById(R.id.view_pager)
         window.decorView.setBackgroundColor(config.backgroundColor)
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
@@ -241,6 +243,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return true
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
             mPos = -1
@@ -876,6 +879,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_resize.setOnClickListener {
             resizeImage()
         }
+
+        bottom_lock.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_LOCK_SWIPE != 0)
+        bottom_lock.setOnLongClickListener { toast(R.string.lock_swipe); true }
+        bottom_lock.setOnClickListener {
+            toggleSwipe()
+        }
+    }
+
+    private fun toggleSwipe() {
+        val currentMedium = getCurrentMedium()
+        isLocked = !isLocked
+        customViewPager.setEnableSwipe()
+        updateBottomActionIcons(currentMedium)
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -888,6 +904,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide
         bottom_toggle_file_visibility.setImageResource(hideIcon)
+
+        val unLockIcon = if (isLocked) R.drawable.ic_lock_open else R.drawable.ic_lock_vector
+        bottom_lock.setImageResource(unLockIcon)
 
         bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
         bottom_change_orientation.setImageResource(getChangeOrientationIcon())
@@ -1286,7 +1305,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 bottom_actions.animate().alpha(newAlpha).start()
                 arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
                     bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename, bottom_set_as, bottom_copy, bottom_move,
-                    bottom_resize).forEach {
+                    bottom_resize, bottom_lock).forEach {
                     it.isClickable = !mIsFullScreen
                 }
             }
