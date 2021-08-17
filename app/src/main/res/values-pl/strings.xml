@@ -22,13 +22,13 @@
     <string name="change_orientation">Zmień orientację ekranu</string>
     <string name="force_portrait">Wymuś pionową</string>
     <string name="force_landscape">Wymuś poziomą</string>
-    <string name="use_default_orientation">Używaj systemowej</string>
-    <string name="fix_date_taken">Napraw datę utworzenia</string>
+    <string name="use_default_orientation">Użyj systemowej</string>
+    <string name="fix_date_taken">Napraw datę wykonania</string>
     <string name="fixing">Naprawianie…</string>
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
-    <string name="no_date_takens_found">Nie znaleziono dat utworzenia</string>
+    <string name="no_date_takens_found">Nie znaleziono dat wykonania</string>
     <string name="share_resized">Udostępnij wersję ze zmienionym rozmiarem</string>
-    <string name="upgraded_from_free">Witaj,\n\nwygląda na to, że uaktualniłeś/aś starą darmową aplikację na nową płatną. Możesz teraz odinstalować poprzednią przyciskiem \"Uaktualnij do Pro\" na górze w ustawieniach aplikacji.\n\nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.\n\nDzięki!</string>
+    <string name="upgraded_from_free">Witaj,\n\nwygląda na to, że uaktualniłeś(-aś) starą darmową aplikację na nową płatną. Możesz teraz odinstalować poprzednią przyciskiem „Uaktualnij do Pro” na górze w ustawieniach aplikacji.\n\nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.\n\nDzięki!</string>
     <string name="switch_to_file_search">Przełącz na przeszukiwanie plików we wszystkich widocznych folderach</string>
     <string name="set_as_default_folder">Ustaw jako folder domyślny</string>
     <string name="unset_as_default_folder">Anuluj ustawienie folderu domyślnego</string>
@@ -46,18 +46,18 @@
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik \".nomedia\", ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję \"Pokazuj ukryte elementy\" w Ustawieniach. Kontynuować?</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik „.nomedia”, i ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję „Pokazuj ukryte elementy” w Ustawieniach. Kontynuować?</string>
     <string name="exclude">Wyklucz</string>
     <string name="excluded_folders">Wykluczone foldery</string>
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
     <string name="exclude_folder_description">Spowoduje to wykluczenie wybranego folderu i jego podfolderów z Prostej galerii. Możesz zarządzać wykluczonymi folderami w Ustawieniach.</string>
     <string name="exclude_folder_parent">Czy zamiast tego wykluczyć folder nadrzędny?</string>
-    <string name="excluded_activity_placeholder">Wykluczenie folderów spowoduje ukrycie ich wraz z podfolderami tylko w Prostej Galerii, w innych aplikacjach będą nadal widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji \"Ukryj folder\".</string>
+    <string name="excluded_activity_placeholder">Wykluczenie folderów spowoduje ukrycie ich wraz z podfolderami tylko w Prostej Galerii, w innych aplikacjach będą nadal widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji „Ukryj folder”.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Czy usunąć wszystkie foldery z listy wykluczonych? Nie spowoduje to fizycznego usunięcia folderów.</string>
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
-    <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
@@ -88,8 +88,8 @@
     <string name="video_edited_successfully">Wideo zostało zedytowane</string>
     <string name="edit_image_with">Edytuj obraz w:</string>
     <string name="edit_video_with">Edytuj wideo w:</string>
-    <string name="no_image_editor_found">Nie znalaziono edytora obrazów</string>
-    <string name="no_video_editor_found">Nie znalaziono edytora wideo</string>
+    <string name="no_image_editor_found">Nie znaleziono edytora obrazów</string>
+    <string name="no_video_editor_found">Nie znaleziono edytora wideo</string>
     <string name="unknown_file_location">Nieznana lokalizacja pliku</string>
     <string name="error_saving_file">Nie udało się nadpisać pliku źródłowego</string>
     <string name="rotate_left">Obróć w lewo</string>
@@ -104,7 +104,7 @@
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Prosta tapeta</string>
     <string name="set_as_wallpaper">Ustaw jako tapetę</string>
-    <string name="set_as_wallpaper_failed">Ustawienie jako tapetę nie powiodło się</string>
+    <string name="set_as_wallpaper_failed">Ustawienie jako tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
     <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
@@ -140,16 +140,16 @@
     <string name="by_last_modified">Data ostatniej modyfikacji</string>
     <string name="by_last_modified_daily">Data ostatniej modyfikacji (dziennie)</string>
     <string name="by_last_modified_monthly">Data ostatniej modyfikacji (miesięcznie)</string>
-    <string name="by_date_taken">Data utworzenia</string>
-    <string name="by_date_taken_daily">Data utworzenia (dziennie)</string>
-    <string name="by_date_taken_monthly">Daty utworzenia (miesięcznie)</string>
+    <string name="by_date_taken">Data wykonania</string>
+    <string name="by_date_taken_daily">Data wykonania (dziennie)</string>
+    <string name="by_date_taken_monthly">Data wykonania (miesięcznie)</string>
     <string name="by_file_type">Typ pliku</string>
     <string name="by_extension">Rozszerzenie</string>
     <string name="grouping_and_sorting">Uwaga: Grupowanie i sortowanie to dwa niezależne pola</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder wyświetlany na widżecie:</string>
-    <string name="show_folder_name">Wyświetl nazwę folderu</string>
+    <string name="folder_on_widget">Folder wyświetlony w widżecie:</string>
+    <string name="show_folder_name">Pokazuj nazwę folderu</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj wideo automatycznie</string>
@@ -158,7 +158,7 @@
     <string name="animate_gifs">Animuj GIF-y na miniaturkach </string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów na pełnym ekranie</string>
     <string name="crop_thumbnails">Przycinaj miniaturki do kwadratów</string>
-    <string name="show_thumbnail_video_duration">Wyświetlaj czas trwania wideo</string>
+    <string name="show_thumbnail_video_duration">Pokazuj czas trwania wideo</string>
     <string name="screen_rotation_by">Obracaj pełnoekranowe multimedia według</string>
     <string name="screen_rotation_system_setting">Ustawienie systemu</string>
     <string name="screen_rotation_device_rotation">Orientacja urządzenia</string>
@@ -173,7 +173,7 @@
     <string name="show_extended_details">Pokazuj dodatkowe szczegóły w multimediach pełnoekranowych</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w multimediach pełnoekranowych</string>
-    <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów, klikając boki ekranu</string>
+    <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów, naciskając boki ekranu</string>
     <string name="allow_deep_zooming_images">Zezwalaj na mocne powiększanie obrazów</string>
     <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
@@ -183,22 +183,22 @@
     <string name="show_recycle_bin_last">Pokazuj kosz jako ostatni element na głównym ekranie</string>
     <string name="allow_down_gesture">Zezwalaj na zamykanie widoku pełnoekranowego gestem pociągnięcia w dół</string>
     <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi dotknięciami</string>
-    <string name="open_videos_on_separate_screen">Zawsze otwieraj wideo na osobnym ekranie z nowymi poziomymi gestami</string>
-    <string name="show_notch">Pokazuj wcięcie (jeśli dostępne)</string>
+    <string name="open_videos_on_separate_screen">Zawsze otwieraj wideo na osobnym ekranie z innymi poziomymi gestami</string>
+    <string name="show_notch">Pokazuj wycięcie ekranu, jeśli jest dostępne</string>
     <string name="allow_rotating_gestures">Zezwalaj na obracanie obrazów gestami</string>
     <string name="file_loading_priority">Priorytet ładowania plików</string>
     <string name="speed">Szybkość</string>
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Unikaj wyświetlania nieprawidłowych plików</string>
-    <string name="show_image_file_types">Pokazuj typy plików obrazów</string>
-    <string name="allow_zooming_videos">Zezwalaj na powiększanie wideo przez dwukrotne ich dotknięcie</string>
+    <string name="show_image_file_types">Pokazuj typy plików graficznych</string>
+    <string name="allow_zooming_videos">Zezwalaj na powiększanie wideo przez dwukrotne ich naciśnięcie</string>
     <string name="folder_thumbnail_style">Styl miniaturki folderów</string>
     <string name="file_thumbnail_style">Styl miniaturki plików</string>
     <string name="thumbnail_spacing">Odstępy między miniaturkami</string>
-    <string name="show_file_count_line">Pokaż liczbę plików w osobnym wierszu</string>
-    <string name="show_file_count_brackets">Pokaż liczbę plików w nawiasach</string>
+    <string name="show_file_count_line">Pokazuj liczbę plików w osobnej linii</string>
+    <string name="show_file_count_brackets">Pokazuj liczbę plików w nawiasach</string>
     <string name="show_file_count_none">Nie pokazuj liczby plików</string>
-    <string name="limit_folder_title">Ogranicz długie tytuły folderów do 1 linii</string>
+    <string name="limit_folder_title">Ograniczaj długie tytuły folderów do 1 linii</string>
     <string name="square">Kwadrat</string>
     <string name="rounded_corners">Zaokrąglone rogi</string>
     <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
@@ -212,7 +212,7 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Zarządzaj przyciskami akcji na dolnym pasku</string>
     <string name="toggle_favorite">Ulubione</string>
-    <string name="toggle_file_visibility">Przełącz widoczność pliku </string>
+    <string name="toggle_file_visibility">Przełącz widoczność pliku</string>
 
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Własne</string>
@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">Linearny</string>
     <string name="pesdk_focus_button_mirrored">Lustrzany</string>
     <string name="pesdk_focus_button_gaussian">Gaussa</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Dodaj tekst</string>
     <string name="pesdk_text_title_name">Tekst</string>
     <string name="pesdk_text_title_options">Opcje tekstu</string>
     <string name="pesdk_text_title_textColor">Kolor tekstu</string>
@@ -330,31 +330,31 @@
 
     <!-- FAQ -->
     <string name="faq_1_title">Jak mogę ustawić Prostą galerię jako domyślną galerię urządzenia?</string>
-    <string name="faq_1_text">Najpierw znajdź obecną domyślną galerię urządzenia w ustawieniach systemowych (sekcja \"Aplikacje\"). Na ekranie z informacjami o niej wybierz \"Otwórz domyślnie\", a następnie \"Wyczyść domyślne\". Gdy podczas następnej próby otwarcia zdjęcia czy wideo system zapyta Cię, którą aplikacją to zrobić, wybierz Prostą galerię i opcję zapamiętania tego wyboru.</string>
-    <string name="faq_2_title">Zablokowałem/am aplikację hasłem i zapomniałem/am je. Co mogę zrobić?</string>
-    <string name="faq_2_text">Możesz rozwiązać to na 2 sposoby. Możesz zarówno przeinstalować aplikację, jak i znaleźć ją w ustawieniach swojego urządzenia i wybrać \"Wyczyść dane\". Przywróci to oryginalne ustawienia aplikacji, nie usuwając żadnych plików multimediów.</string>
+    <string name="faq_1_text">Najpierw znajdź aktualnie domyślną galerię urządzenia w ustawieniach systemowych (sekcja „Aplikacje”). Na ekranie z informacjami o niej wybierz „Otwórz domyślnie”, a następnie „Wyczyść domyślne”. Gdy podczas następnej próby otwarcia zdjęcia czy wideo system zapyta Cię, którą aplikacją to zrobić, wybierz Prostą galerię i opcję zapamiętania tego wyboru.</string>
+    <string name="faq_2_title">Zablokowałem aplikację hasłem i zapomniałem je. Co mogę zrobić?</string>
+    <string name="faq_2_text">Możesz rozwiązać to na 2 sposoby. Możesz zarówno przeinstalować aplikację, jak i znaleźć ją w ustawieniach swojego urządzenia i wybrać „Wyczyść dane”. Przywróci to oryginalne ustawienia aplikacji, nie usuwając żadnych plików multimedialnych.</string>
     <string name="faq_3_title">Jak sprawić, aby album zawsze pojawiał się na górze?</string>
-    <string name="faq_3_text">Możesz przytrzymać dłużej palcem na albumie i wybrać ikonę pinezki z menu akcji, co przypnie go na górze. Możesz przypinać także wiele folderów. Przypięte elementy będą posortowane domyślną metodą sortowania.</string>
+    <string name="faq_3_text">Możesz przytrzymać dłużej palcem na albumie i wybrać ikonę pinezki z menu akcji, która przypnie go na górze. Możesz przypinać także wiele folderów. Przypięte elementy będą posortowane domyślną metodą sortowania.</string>
     <string name="faq_4_title">Jak mogę przewijać wideo?</string>
-    <string name="faq_4_text">Możesz to zrobić, dotykając dwa razy z boku ekranu, albo dotykając tekstów aktualnej lub maksymalnej długości przy pasku postępu. Jeśli włączysz w ustawieniach "Zawsze otwieraj wideo na osobnym ekranie...", możesz też używać gestów poziomych.</string>
+    <string name="faq_4_text">Możesz to zrobić, dotykając dwukrotnie boku ekranu lub tekstów aktualnej/maksymalnej długości przy pasku postępu. Jeśli włączysz w ustawieniach „Zawsze otwieraj wideo na osobnym ekranie...”, możesz też używać poziomych gestów.</string>
     <string name="faq_5_title">Jaka jest różnica między ukryciem a wykluczeniem folderu?</string>
-    <string name="faq_5_text">Wykluczenie działa tylko w obrębie Prostej galerii, podczas gdy ukrywanie ma wpływ także na inne galerie. Działa to przez dodanie do folderu pustego pliku \".nomedia\", który możesz potem usunąć w dowolnym menedżerze plików. Uwaga: Niektóre urządzenia nie pozwalają na ukrywanie folderów takich jak Aparat, Zrzuty ekranu i Pobrane.</string>
+    <string name="faq_5_text">Wykluczanie działa tylko w obrębie Prostej galerii, podczas gdy ukrywanie ma wpływ także na inne galerie. Działa to przez dodanie do folderu pustego pliku „.nomedia”, który możesz potem usunąć w dowolnym menedżerze plików. Uwaga: Niektóre urządzenia nie pozwalają na ukrywanie folderów takich, jak Aparat, Zrzuty ekranu i Pobrane.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami albumów muzycznych czy naklejkami?</string>
-    <string name="faq_6_text">Może się zdarzyć, że zobaczysz w aplikacji jakieś nietypowe albumy. Możesz je łatwo wykluczyć przez długie przyciśnięcie na nich i wybranie Wyklucz. W następnym oknie możesz potem wybrać folder nadrzędny, co może zapobiec pokazywaniu się innych, powiązanych albumów.</string>
-    <string name="faq_7_title">Nie pokazuje mi się folder ze zdjęciami albo nie pokazuje wszystkich elementów. Co mogę zrobić?</string>
-    <string name="faq_7_text">Może to być spowodowane wieloma rzeczami, jednak rozwiązanie jest proste. Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami naciśnij plus i dodaj odpowiedni folder do listy.</string>
-    <string name="faq_8_title">Co jeśli chcę widzieć tylko wybrane foldery?</string>
-    <string name="faq_8_text">Dodanie folderu do dołączonych folderów nie wykluczy automatycznie pozostałych. Aby tak zrobić, przejdź do ustawień, wybierz \"Zarządzaj wykluczonymi folderami\" i wyklucz główny folder systemowy (\"/\"). Następnie dodaj foldery, które chcesz widzieć, do listy w \"Zarządzaj dołączonymi folderami\". Dzięki temu zobaczysz jedynie dołączone foldery, ponieważ zarówno dołączanie, jak i wykluczanie, działają rekursywnie, i jeśli folder jest na obu listach, to zostanie pokazany.</string>
-    <string name="faq_10_title">Czy mogę w tej aplikacji kadrować obrazy?</string>
-    <string name="faq_10_text">Tak. Możesz kadrować obrazy w edytorze przez przeciąganie krawędzi obrazu. Edytor otworzysz, przytrzymując miniaturkę obrazu i wybierając opcję \"Edytuj\", bądź wybierając tę samą opcję w menu pełnoekranowym.</string>
+    <string name="faq_6_text">Może się zdarzyć, że zobaczysz w aplikacji jakieś nietypowe albumy. Możesz je łatwo wykluczyć przez długie naciśniecie ich i wybranie Wyklucz. W następnym oknie możesz wybrać folder nadrzędny, co może zapobiec pokazywaniu się innych, powiązanych albumów.</string>
+    <string name="faq_7_title">Folder z obrazami nie wyświetla się lub nie pokazuje wszystkich elementów. Co mogę zrobić?</string>
+    <string name="faq_7_text">Może mieć to wiele powodów, jednak rozwiązanie jest proste. Przejdź do ustawień aplikacji, a następnie w sekcji z dołączonymi folderami naciśnij plus i dodaj odpowiedni folder do listy.</string>
+    <string name="faq_8_title">Co zrobić, jeśli chcę, aby było widocznych tylko kilka określonych folderów?</string>
+    <string name="faq_8_text">Dodanie folderu do dołączonych folderów nie wykluczy automatycznie pozostałych. Aby tak zrobić, przejdź do ustawień, wybierz „Zarządzaj wykluczonymi folderami” i wyklucz główny folder systemowy (\„/”). Następnie dodaj foldery, które chcesz widzieć, do listy w „Zarządzaj dołączonymi folderami”. Dzięki temu zobaczysz jedynie dołączone foldery, ponieważ zarówno dołączanie, jak i wykluczanie działają rekursywnie, i jeśli folder jest na obu listach, to zostanie pokazany.</string>
+    <string name="faq_10_title">Czy mogę kadrować obrazy za pomocą tej aplikacji?</string>
+    <string name="faq_10_text">Tak. Możesz kadrować obrazy w edytorze przez przeciąganie krawędzi obrazu. Możesz przejść do edytora, naciskając długo miniaturkę obrazu i wybierając Edytuj, bądź wybierając tę samą opcję w widoku pełnoekranowym.</string>
     <string name="faq_11_title">Czy mogę jakoś grupować miniaturki multimediów?</string>
-    <string name="faq_11_text">Tak. Użyj opcji menu \"Grupuj według\", gdy jesteś w widoku miniaturek. Możesz grupować pliki według wielu kryteriów, włącznie z datą ich utworzenia. Jeśli użyjesz opcji \"Pokaż zawartość wszystkich folderów\", możesz je także grupować według folderów.</string>
-    <string name="faq_12_title">Sortowanie według daty utworzenia nie działa poprawnie. Jak mogę to naprawić?</string>
-    <string name="faq_12_text">Najprawdopodobniej jest to spowodowane przekopiowaniem plików z innego miejsca. Możesz to naprawić przez zaznaczenie miniaturki pliku i wybranie \"Napraw datę utworzenia\".</string>
+    <string name="faq_11_text">Tak. Po prostu użyj w menu opcji „Grupuj według”, gdy jesteś w widoku miniaturek. Możesz grupować pliki według wielu kryteriów, włącznie z datą ich wykonania. Jeśli użyjesz opcji „Pokaż zawartość wszystkich folderów”, możesz je także grupować według folderów.</string>
+    <string name="faq_12_title">Sortowanie według daty wykonania nie działa poprawnie. Jak mogę to naprawić?</string>
+    <string name="faq_12_text">Najprawdopodobniej jest to spowodowane przekopiowaniem plików z innego miejsca. Możesz to naprawić przez zaznaczenie miniaturki pliku i wybranie „Napraw datę wykonania”.</string>
     <string name="faq_13_title">Na obrazach widzę kolorowe paski. Jak mogę poprawić jakość?</string>
-    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości przypadków. Jeśli jednak potrzebujesz lepszej jakości, możesz włączyć \"Pokazuj obrazy w najwyższej możliwej jakości\" w opcjach w sekcji \"Mocne powiększanie obrazów\".</string>
+    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości przypadków. Jeśli jednak potrzebujesz lepszej jakości, możesz włączyć „Pokazuj obrazy w najwyższej możliwej jakości” w opcjach w sekcji „Mocne powiększanie obrazów”.</string>
     <string name="faq_14_title">Mam ukryty plik/folder. Jak mogę go przywrócić?</string>
-    <string name="faq_14_text">Możesz zarówno wybrać \"Tymczasowo pokaż ukryte multimedia\" w menu na głównym ekranie lub włączyć opcję \"Pokazuj ukryte elementy\" w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, przyciśnij na nim dłużej i wybierz \"Odkryj folder\". Foldery są ukrywane przez dodanie do nich ukrytego pliku \".nomedia\", który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
+    <string name="faq_14_text">Możesz wybrać „Tymczasowo pokaż ukryte multimedia” w menu na głównym ekranie albo włączyć opcję „Pokazuj ukryte elementy” w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, przyciśnij na nim dłużej i wybierz „Odkryj folder”. Foldery są ukrywane przez dodanie do nich ukrytego pliku „.nomedia”, który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
     <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250 MB, aby zapewnić szybsze ładowanie obrazów. Jeśli aplikacja zajmuje więcej miejsca, jest to najprawdopodobniej spowodowane tym, że masz elementy w koszu. Pliki te liczą się do rozmiaru aplikacji. Możesz wyczyścić kosz przez otwarcie go i usunięcie wszystkich plików, albo z poziomu ustawień aplikacji. Każdy plik w koszu jest usuwany automatycznie po 30 dniach.</string>
 
@@ -366,16 +366,16 @@
     <string name="app_long_description">
         Prosta galeria Pro to wysoce konfigurowalna galeria bez dostępu do Internetu. Organizuj i edytuj swoje zdjęcia, odzyskuj przypadkowo usunięte pliki dzięki funkcji kosza, chroń je i ukrywaj, a także przeglądaj różne formaty zdjęć i wideo, w tym RAW, SVG i wiele innych.
 
-        Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że aplikacja nie wymaga połączenia z Internetem, Twoja prywatność jest chroniona.
+        Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że nie wymaga połączenia z Internetem, Twoja prywatność jest chroniona.
 
         -------------------------------------------------
         <b>PROSTA GALERIA PRO – FUNKCJE</b>
         -------------------------------------------------
 
         • Galeria bez dostępu do Internetu - bez reklam i wyskakujących okienek
-        • Prosty edytor zdjęć - przycinaj, obracaj, zmieniaj rozmiar, rysuj, nakładaj filtry i wiele więcej
-        • Nie wymaga dostępu do Internetu, zapewniając prywatność i bezpieczeństwo
-        • Nie wymaga zbędnych uprawnień
+        • Prosty edytor zdjęć - przycinaj, obracaj, zmieniaj rozmiar, rysuj, nakładaj filtry, i wiele więcej
+        • Nie jest potrzebny dostęp do Internetu, co zapewnia większą prywatność i bezpieczeństwo
+        • Nie są wymagane żadne niepotrzebne uprawnienia
         • Szybkie wyszukiwanie obrazów, wideo i plików
         • Otwieraj i przeglądaj wiele różnych typów zdjęć i wideo (RAW, SVG, panoramiczne itd.)
         • Różnorodność intuicyjnych gestów dla prostszego edytowania i organizowania plików
@@ -384,7 +384,7 @@
         • Dostępna w 32 językach
         • Oznaczaj pliki jako ulubione dla łatwiejszego dostępu
         • Chroń swoje zdjęcia i wideo wzorem, PIN-em lub odciskiem palca
-        • Użyj PIN, wzór lub odcisk palca do ochrony całej aplikacji, jak i konkretnych funkcji
+        • Użyj PIN-u, wzoru lub odcisku palca do ochrony całej aplikacji, jak i konkretnych funkcji
         • Odzyskuj utracone zdjęcia i wideo dzięki funkcji kosza
         • Zmieniaj widoczność plików, aby ukrywać zdjęcia i wideo
         • Twórz konfigurowalne pokazy slajdów ze swoich plików
@@ -402,7 +402,7 @@
         Od interfejsu do przycisków funkcyjnych na dolnym pasku, Prosta galeria Pro jest wysoce konfigurowalna, przez co działa i wygląda tak, jak chcesz. Żadna inna aplikacja galerii nie jest pod tym względem tak wszechstronna. Dzięki temu, że jest otwartoźródłowa, jesteśmy dostępni w 32 językach!
 
         <b>ODZYSKIWANIE USUNIĘTYCH ZDJĘĆ I WIDEO</b>
-        Niechcący usunąłeś ważne zdjęcie lub film? Nie martw się! Prosta galeria Pro posiada przydatną funkcję kosza, z którego możesz łatwo przywrócić usunięte zdjęcia i wideo.
+        Niechcący usunąłeś(-aś) ważne zdjęcie lub film? Nie martw się! Prosta galeria Pro posiada przydatną funkcję kosza, z którego możesz łatwo przywrócić usunięte zdjęcia i wideo.
 
         <b>OCHRONA I UKRYWANIE ZDJĘĆ, WIDEO I PLIKÓW</b>
         Przez PIN, wzór lub odcisk palca możesz chronić swoje zdjęcia, wideo i całe albumy. Możesz chronić całą aplikację albo blokować tylko specyficzne funkcje. Na przykład, nie możesz usunąć pliku bez zeskanowania odcisku palca, dzięki czemu zapobiegasz przypadkowemu usuwaniu plików.
@@ -410,7 +410,7 @@
         <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
         https://www.simplemobiletools.com
 
-        <b>Strona domowa Prostej galerii Pro:</b>
+        <b>Strona internetowa Prostej galerii Pro:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
