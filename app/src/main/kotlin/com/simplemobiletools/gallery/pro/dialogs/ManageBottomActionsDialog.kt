@@ -29,6 +29,7 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
             manage_bottom_actions_copy.isChecked = actions and BOTTOM_ACTION_COPY != 0
             manage_bottom_actions_move.isChecked = actions and BOTTOM_ACTION_MOVE != 0
             manage_bottom_actions_resize.isChecked = actions and BOTTOM_ACTION_RESIZE != 0
+            manage_bottom_actions_lockSwipe.isChecked = actions and BOTTOM_ACTION_LOCK_SWIPE != 0
         }
 
         AlertDialog.Builder(activity)
@@ -72,6 +73,8 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
                 result += BOTTOM_ACTION_MOVE
             if (manage_bottom_actions_resize.isChecked)
                 result += BOTTOM_ACTION_RESIZE
+            if (manage_bottom_actions_lockSwipe.isChecked)
+                result += BOTTOM_ACTION_LOCK_SWIPE
         }
 
         activity.config.visibleBottomActions = result
