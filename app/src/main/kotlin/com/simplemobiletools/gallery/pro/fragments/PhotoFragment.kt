@@ -36,6 +36,7 @@ import com.davemorrissey.labs.subscaleview.DecoderFactory
 import com.davemorrissey.labs.subscaleview.ImageDecoder
 import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.github.penfeizhou.animation.apng.APNGDrawable
 import com.github.penfeizhou.animation.webp.WebPDrawable
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
@@ -289,7 +290,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
         if (mWasInit) {
-            if (!mMedium.isGIF() && !mMedium.isWebP()) {
+            if (!mMedium.isGIF() && !mMedium.isWebP() && !mMedium.isApng()) {
                 photoFragmentVisibilityChanged(menuVisible)
             }
         }
@@ -357,6 +358,7 @@ class PhotoFragment : ViewPagerFragment() {
                 when {
                     mMedium.isGIF() -> loadGif()
                     mMedium.isSVG() -> loadSVG()
+                    mMedium.isApng() -> loadAPNG()
                     else -> loadBitmap()
                 }
             }
@@ -393,6 +395,13 @@ class PhotoFragment : ViewPagerFragment() {
                 .listener(SvgSoftwareLayerSetter())
                 .load(mMedium.path)
                 .into(mView.gestures_view)
+        }
+    }
+
+    private fun loadAPNG() {
+        if (context != null) {
+            val drawable = APNGDrawable.fromFile(mMedium.path)
+            mView.gestures_view.setImageDrawable(drawable)
         }
     }
 
@@ -440,8 +449,15 @@ class PhotoFragment : ViewPagerFragment() {
                     return false
                 }
 
-                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                    mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    val allowZoomingImages = context?.config?.allowZoomingImages ?: true
+                    mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || allowZoomingImages == false
                     if (mIsFragmentVisible && addZoomableView) {
                         scheduleZoomableView()
                     }
@@ -469,7 +485,8 @@ class PhotoFragment : ViewPagerFragment() {
 
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
-                    mView.gestures_view.controller.settings.isZoomEnabled = mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
+                    mView.gestures_view.controller.settings.isZoomEnabled =
+                        mMedium.isRaw() || mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
                     if (mIsFragmentVisible && addZoomableView) {
                         scheduleZoomableView()
                     }
@@ -491,7 +508,7 @@ class PhotoFragment : ViewPagerFragment() {
         val files = File(mMedium.parentPath).listFiles()?.toMutableList() as? ArrayList<File>
         if (files != null) {
             val screenWidth = context!!.realScreenSize.x
-            val itemWidth = context!!.resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt() + context!!.resources.getDimension(R.dimen.one_dp).toInt()
+            val itemWidth = resources.getDimension(R.dimen.portrait_photos_stripe_height).toInt() + resources.getDimension(R.dimen.one_dp).toInt()
             val sideWidth = screenWidth / 2 - itemWidth / 2
             val fakeItemsCnt = ceil(sideWidth / itemWidth.toDouble()).toInt()
 
@@ -552,9 +569,9 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun setupStripeBottomMargin() {
-        var bottomMargin = context!!.navigationBarHeight + context!!.resources.getDimension(R.dimen.normal_margin).toInt()
+        var bottomMargin = context!!.navigationBarHeight + resources.getDimension(R.dimen.normal_margin).toInt()
         if (context!!.config.bottomActions) {
-            bottomMargin += context!!.resources.getDimension(R.dimen.bottom_actions_height).toInt()
+            bottomMargin += resources.getDimension(R.dimen.bottom_actions_height).toInt()
         }
         (mView.photo_portrait_stripe_wrapper.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
     }
@@ -692,7 +709,12 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun checkIfPanorama() {
         mIsPanorama = try {
-            val inputStream = if (mMedium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(mMedium.path)) else File(mMedium.path).inputStream()
+            val inputStream = if (mMedium.path.startsWith("content:/")) {
+                context!!.contentResolver.openInputStream(Uri.parse(mMedium.path))
+            } else {
+                File(mMedium.path).inputStream()
+            }
+
             val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, mMedium.name), HashMap<String, Any>())
             imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
                 imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
