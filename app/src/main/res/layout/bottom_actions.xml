@@ -108,9 +108,24 @@
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_orientation_auto_vector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bottom_slideshow"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_lock"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_properties"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <ImageView
+        android:id="@+id/bottom_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/lockswipe"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_lock_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_slideshow"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"/>
 
@@ -125,7 +140,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_show_on_map"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"
+        app:layout_constraintStart_toEndOf="@+id/bottom_lock"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"/>
 
@@ -233,5 +248,7 @@
         app:layout_constraintStart_toEndOf="@+id/bottom_move"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

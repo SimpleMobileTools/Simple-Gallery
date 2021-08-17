@@ -420,6 +420,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="lockswipe">LockSwipe</string>
+    <string name="lock_swipe">Lock Swipe</string>
 
     <!--
         Haven't found some strings? There's more at
