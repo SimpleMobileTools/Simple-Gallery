@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">লিনিয়ার</string>
     <string name="pesdk_focus_button_mirrored">আয়না</string>
     <string name="pesdk_focus_button_gaussian">গাউসিয়ান</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">লেখা</string>
     <string name="pesdk_text_title_options">লেখার অপশন</string>
     <string name="pesdk_text_title_textColor">লেখার রঙ</string>

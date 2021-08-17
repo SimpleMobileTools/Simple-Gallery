@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">线性</string>
     <string name="pesdk_focus_button_mirrored">镜像</string>
     <string name="pesdk_focus_button_gaussian">高斯</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">文字</string>
     <string name="pesdk_text_title_options">文字选项</string>
     <string name="pesdk_text_title_textColor">文字颜色</string>

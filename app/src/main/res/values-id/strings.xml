@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Cermin</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Teks</string>
     <string name="pesdk_text_title_options">Opsi Teks</string>
     <string name="pesdk_text_title_textColor">Warna Teks</string>

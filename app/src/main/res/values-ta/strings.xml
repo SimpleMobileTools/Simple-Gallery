@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">நேரியல்</string>
     <string name="pesdk_focus_button_mirrored">பிரதிபலித்தது</string>
     <string name="pesdk_focus_button_gaussian">காஸியன்</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">உரை</string>
     <string name="pesdk_text_title_options">உரை விருப்பங்கள்</string>
     <string name="pesdk_text_title_textColor">உரை வண்ணம்</string>

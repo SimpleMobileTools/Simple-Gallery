@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">直線</string>
     <string name="pesdk_focus_button_mirrored">ミラー</string>
     <string name="pesdk_focus_button_gaussian">ガウス</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">テキスト</string>
     <string name="pesdk_text_title_options">テキスト オプション</string>
     <string name="pesdk_text_title_textColor">文字色</string>

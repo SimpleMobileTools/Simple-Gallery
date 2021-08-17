@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Лінійний</string>
     <string name="pesdk_focus_button_mirrored">Дзеркальний</string>
     <string name="pesdk_focus_button_gaussian">Гаусове розмивання</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Текст</string>
     <string name="pesdk_text_title_options">Параметри тексту</string>
     <string name="pesdk_text_title_textColor">Колір тексту</string>

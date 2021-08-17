@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Mirrored</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">टेक्स</string>
     <string name="pesdk_text_title_options">Text Options</string>
     <string name="pesdk_text_title_textColor">टेक्सको रङ</string>

@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Tuyến tính</string>
     <string name="pesdk_focus_button_mirrored">Nhân đôi</string>
     <string name="pesdk_focus_button_gaussian">Đường cong gauss</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Văn bản</string>
     <string name="pesdk_text_title_options">Tùy chọn văn bản</string>
     <string name="pesdk_text_title_textColor">Màu văn bản</string>

@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Lineaarinen</string>
     <string name="pesdk_focus_button_mirrored">Peilattu</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Teksti</string>
     <string name="pesdk_text_title_options">Tekstiasetukset</string>
     <string name="pesdk_text_title_textColor">Tekstin väri</string>

@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">خطي</string>
     <string name="pesdk_focus_button_mirrored">مرآة</string>
     <string name="pesdk_focus_button_gaussian">جاوس</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">النص</string>
     <string name="pesdk_text_title_options">خيارات النص</string>
     <string name="pesdk_text_title_textColor">لون الخط</string>

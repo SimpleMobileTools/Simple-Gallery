@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Lineární</string>
     <string name="pesdk_focus_button_mirrored">Zrcadlové</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Text</string>
     <string name="pesdk_text_title_options">Nastavení textu</string>
     <string name="pesdk_text_title_textColor">Barva textu</string>

@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Lineala</string>
     <string name="pesdk_focus_button_mirrored">Ispilua</string>
     <string name="pesdk_focus_button_gaussian">Gaussiarra</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Testua</string>
     <string name="pesdk_text_title_options">Testu-aukerak</string>
     <string name="pesdk_text_title_textColor">Testuaren kolorea</string>

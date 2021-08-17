@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Doğrusal</string>
     <string name="pesdk_focus_button_mirrored">Aynalı</string>
     <string name="pesdk_focus_button_gaussian">Gauss</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Metin</string>
     <string name="pesdk_text_title_options">Metin Seçenekleri</string>
     <string name="pesdk_text_title_textColor">Metin Rengi</string>

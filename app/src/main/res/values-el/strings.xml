@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Γραμμικά</string>
     <string name="pesdk_focus_button_mirrored">Καθρέπτης</string>
     <string name="pesdk_focus_button_gaussian">Θόλωση</string>
+    <string name="pesdk_text_title_input">Προσθήκη Κειμένου</string>
     <string name="pesdk_text_title_name">Κείμενο</string>
     <string name="pesdk_text_title_options">Επιλογή κειμένου</string>
     <string name="pesdk_text_title_textColor">Χρώμα κειμένου</string>

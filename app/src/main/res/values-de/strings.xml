@@ -241,6 +241,7 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Gespiegelt</string>
     <string name="pesdk_focus_button_gaussian">Gaußsch</string>
+    <string name="pesdk_text_title_input">Add text</string>
     <string name="pesdk_text_title_name">Text</string>
     <string name="pesdk_text_title_options">Textoptionen</string>
     <string name="pesdk_text_title_textColor">Textfarbe</string>
