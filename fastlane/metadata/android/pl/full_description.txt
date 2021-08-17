@@ -1,15 +1,15 @@
 Prosta galeria Pro to wysoce konfigurowalna galeria bez dostępu do Internetu. Organizuj i edytuj swoje zdjęcia, odzyskuj przypadkowo usunięte pliki dzięki funkcji kosza, chroń je i ukrywaj, a także przeglądaj różne formaty zdjęć i wideo, w tym RAW, SVG i wiele innych.
 
-Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że aplikacja nie wymaga połączenia z Internetem, Twoja prywatność jest chroniona.
+Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że nie wymaga połączenia z Internetem, Twoja prywatność jest chroniona.
 
 -------------------------------------------------
 <b>PROSTA GALERIA PRO – FUNKCJE</b>
 -------------------------------------------------
 
 • Galeria bez dostępu do Internetu - bez reklam i wyskakujących okienek
-• Prosty edytor zdjęć - przycinaj, obracaj, zmieniaj rozmiar, rysuj, nakładaj filtry i wiele więcej
-• Nie wymaga dostępu do Internetu, zapewniając prywatność i bezpieczeństwo
-• Nie wymaga zbędnych uprawnień
+• Prosty edytor zdjęć - przycinaj, obracaj, zmieniaj rozmiar, rysuj, nakładaj filtry, i wiele więcej
+• Nie jest potrzebny dostęp do Internetu, co zapewnia większą prywatność i bezpieczeństwo
+• Nie są wymagane żadne niepotrzebne uprawnienia
 • Szybkie wyszukiwanie obrazów, wideo i plików
 • Otwieraj i przeglądaj wiele różnych typów zdjęć i wideo (RAW, SVG, panoramiczne itd.)
 • Różnorodność intuicyjnych gestów dla prostszego edytowania i organizowania plików
@@ -18,7 +18,7 @@ Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że aplikacja nie
 • Dostępna w 32 językach
 • Oznaczaj pliki jako ulubione dla łatwiejszego dostępu
 • Chroń swoje zdjęcia i wideo wzorem, PIN-em lub odciskiem palca
-• Użyj PIN, wzór lub odcisk palca do ochrony całej aplikacji, jak i konkretnych funkcji
+• Użyj PIN-u, wzoru lub odcisku palca do ochrony całej aplikacji, jak i konkretnych funkcji
 • Odzyskuj utracone zdjęcia i wideo dzięki funkcji kosza
 • Zmieniaj widoczność plików, aby ukrywać zdjęcia i wideo
 • Twórz konfigurowalne pokazy slajdów ze swoich plików
@@ -36,7 +36,7 @@ W przeciwieństwie do niektórych galerii i organizerów zdjęć, Prosta galeria
 Od interfejsu do przycisków funkcyjnych na dolnym pasku, Prosta galeria Pro jest wysoce konfigurowalna, przez co działa i wygląda tak, jak chcesz. Żadna inna aplikacja galerii nie jest pod tym względem tak wszechstronna. Dzięki temu, że jest otwartoźródłowa, jesteśmy dostępni w 32 językach!
 
 <b>ODZYSKIWANIE USUNIĘTYCH ZDJĘĆ I WIDEO</b>
-Niechcący usunąłeś ważne zdjęcie lub film? Nie martw się! Prosta galeria Pro posiada przydatną funkcję kosza, z którego możesz łatwo przywrócić usunięte zdjęcia i wideo.
+Niechcący usunąłeś(-aś) ważne zdjęcie lub film? Nie martw się! Prosta galeria Pro posiada przydatną funkcję kosza, z którego możesz łatwo przywrócić usunięte zdjęcia i wideo.
 
 <b>OCHRONA I UKRYWANIE ZDJĘĆ, WIDEO I PLIKÓW</b>
 Przez PIN, wzór lub odcisk palca możesz chronić swoje zdjęcia, wideo i całe albumy. Możesz chronić całą aplikację albo blokować tylko specyficzne funkcje. Na przykład, nie możesz usunąć pliku bez zeskanowania odcisku palca, dzięki czemu zapobiegasz przypadkowemu usuwaniu plików.
