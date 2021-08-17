@@ -64,6 +64,9 @@ SIMPLE GALLERY PRO – FEATURES
 
 • Set any image as wallpaper without hassle
 
+• Lock & unlock swiping between photos
+
+
 … and much much more!
 
 ADVANCED PHOTO EDITOR
