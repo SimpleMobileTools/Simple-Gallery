@@ -326,8 +326,6 @@
     <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
     <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
     <string name="vesdk_video_trim_title_name">Κόψιμο</string>
-    <string name="pesdk_text_title_input">Προσθήκη Κειμένου</string>
-    <string name="pesdk_transform_button_circleCropMask">Κύκλος</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
