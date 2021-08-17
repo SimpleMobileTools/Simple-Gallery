@@ -1,9 +1,3 @@
-# Copying and distribution of this file, with or without modification,
-# are permitted in any medium without royalty provided this notice is
-# preserved.  This file is offered as-is, without any warranty.
-# Names of contributors must not be used to endorse or promote products
-# derived from this file without specific prior written permission.
-
 # EditorConfig
 # http://EditorConfig.org
 
@@ -22,3 +16,7 @@ max_line_length = 160
 
 [*.xml]
 continuation_indent_size = 4
+
+[*.kt]
+ij_kotlin_name_count_to_use_star_import = 5
+ij_kotlin_name_count_to_use_star_import_for_members = 5
