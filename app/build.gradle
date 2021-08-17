@@ -82,7 +82,7 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
