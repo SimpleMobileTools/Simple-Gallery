@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.21.0 *(2021-08-18)*
+----------------------------
+
+ * Add support for APNG files
+ * Fixed some crashes at zooming HEIC files
+ * Do not allow clicking bottom buttons at fullscreen mode
+
 Version 6.20.3 *(2021-06-28)*
 ----------------------------
 

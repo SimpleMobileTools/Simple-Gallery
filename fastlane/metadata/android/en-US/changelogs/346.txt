@@ -1,0 +1,3 @@
+ * Add support for APNG files
+ * Fixed some crashes at zooming HEIC files
+ * Do not allow clicking bottom buttons at fullscreen mode
