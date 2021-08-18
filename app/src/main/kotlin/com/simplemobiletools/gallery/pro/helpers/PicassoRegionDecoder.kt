@@ -5,7 +5,13 @@ import android.graphics.*
 import android.net.Uri
 import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 
-class PicassoRegionDecoder(val showHighestQuality: Boolean, val screenWidth: Int, val screenHeight: Int, val minTileDpi: Int) : ImageRegionDecoder {
+class PicassoRegionDecoder(
+    val showHighestQuality: Boolean,
+    val screenWidth: Int,
+    val screenHeight: Int,
+    val minTileDpi: Int,
+    val isHeic: Boolean
+) : ImageRegionDecoder {
     private var decoder: BitmapRegionDecoder? = null
     private val decoderLock = Any()
 
@@ -29,9 +35,8 @@ class PicassoRegionDecoder(val showHighestQuality: Boolean, val screenWidth: Int
 
             val options = BitmapFactory.Options()
             options.inSampleSize = newSampleSize
-            options.inPreferredConfig = if (showHighestQuality) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565
+            options.inPreferredConfig = if (showHighestQuality || isHeic) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565
             val bitmap = decoder!!.decodeRegion(rect, options)
-
             return bitmap ?: throw RuntimeException("Region decoder returned null bitmap - image format may not be supported")
         }
     }
