@@ -802,6 +802,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             checkDeleteConfirmation()
         }
 
+        bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
         bottom_rotate.setOnLongClickListener { toast(R.string.rotate); true }
         bottom_rotate.setOnClickListener {
             rotateImage(90)
