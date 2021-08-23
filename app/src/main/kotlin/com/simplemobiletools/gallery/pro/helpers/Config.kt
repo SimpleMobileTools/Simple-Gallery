@@ -519,4 +519,8 @@ class Config(context: Context) : BaseConfig(context) {
     var customFoldersOrder: String
         get() = prefs.getString(CUSTOM_FOLDERS_ORDER, "")!!
         set(customFoldersOrder) = prefs.edit().putString(CUSTOM_FOLDERS_ORDER, customFoldersOrder).apply()
+
+    var tempSaveAsOverwrite: Boolean
+        get() = prefs.getBoolean(TEMP_SAVE_AS_OVERWRITE, false)
+        set(tempSaveAsOverwrite) = prefs.edit().putBoolean(TEMP_SAVE_AS_OVERWRITE, tempSaveAsOverwrite).apply()
 }

@@ -38,10 +38,7 @@ import com.simplemobiletools.gallery.pro.adapters.FiltersAdapter
 import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.copyNonDimensionAttributesTo
-import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
-import com.simplemobiletools.gallery.pro.extensions.openEditor
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -92,6 +89,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var oldExif: ExifInterface? = null
     private var filterInitialBitmap: Bitmap? = null
     private var originalUri: Uri? = null
+    private var realPath: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -149,11 +147,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            val realPath = intent.extras!!.getString(REAL_FILE_PATH)
+            realPath = intent.extras!!.getString(REAL_FILE_PATH)
             uri = when {
                 isPathOnOTG(realPath!!) -> uri
-                realPath.startsWith("file:/") -> Uri.parse(realPath)
-                else -> Uri.fromFile(File(realPath))
+                realPath!!.startsWith("file:/") -> Uri.parse(realPath)
+                else -> Uri.fromFile(File(realPath!!))
             }
         } else {
             (getRealPathFromURI(uri!!))?.apply {
@@ -312,19 +310,22 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         } else if (editor_draw_canvas.isVisible()) {
             val bitmap = editor_draw_canvas.getBitmap()
             if (saveUri.scheme == "file") {
-                SaveAsDialog(this, saveUri.path!!, true) {
-                    saveBitmapToFile(bitmap, it, true)
+                SaveAsDialog(this, saveUri.path!!, true, showOverwriteOption = realPath != null, overwriteExisting = config.tempSaveAsOverwrite) {
+                    savePath, overwriteExisting ->
+                    saveBitmapToFileWithOverwriteHandling(bitmap, savePath, true, overwriteExisting)
                 }
             } else if (saveUri.scheme == "content") {
                 val filePathGetter = getNewFilePath()
-                SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
-                    saveBitmapToFile(bitmap, it, true)
+                SaveAsDialog(this, filePathGetter.first, filePathGetter.second, showOverwriteOption = realPath != null, overwriteExisting = config.tempSaveAsOverwrite) {
+                    savePath, overwriteExisting ->
+                    saveBitmapToFileWithOverwriteHandling(bitmap, savePath, true, overwriteExisting)
                 }
             }
         } else {
             val currentFilter = getFiltersAdapter()?.getCurrentFilter() ?: return
             val filePathGetter = getNewFilePath()
-            SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
+            SaveAsDialog(this, filePathGetter.first, filePathGetter.second, showOverwriteOption = realPath != null, overwriteExisting = config.tempSaveAsOverwrite) {
+                savePath, overwriteExisting ->
                 toast(R.string.saving)
 
                 // clean up everything to free as much memory as possible
@@ -337,7 +338,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     try {
                         val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
                         currentFilter.filter.processFilter(originalBitmap)
-                        saveBitmapToFile(originalBitmap, it, false)
+                        saveBitmapToFileWithOverwriteHandling(originalBitmap, savePath, false, overwriteExisting)
                     } catch (e: OutOfMemoryError) {
                         toast(R.string.out_of_memory_error)
                     }
@@ -357,6 +358,30 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         } catch (e: Exception) {
         } finally {
             inputStream?.close()
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun saveBitmapToFileWithOverwriteHandling(bitmap: Bitmap, path: String, showSavingToast: Boolean, overwriteExisting: Boolean) {
+        config.tempSaveAsOverwrite = overwriteExisting
+        if (overwriteExisting && realPath != null) {
+            movePathToRecycleBin(realPath) { wasSuccess ->
+                if (wasSuccess)
+                    saveBitmapToFile(bitmap, realPath!!, showSavingToast)
+                else
+                    toast(R.string.unknown_error_occurred)
+            }
+            return
+        }
+        saveBitmapToFile(bitmap, path, showSavingToast)
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun movePathToRecycleBin(path: String?, callback: ((wasSuccess: Boolean) -> Unit)?) {
+        if (config.useRecycleBin && path != null) {
+            movePathsInRecycleBin(arrayListOf(path)) { wasSuccess ->
+                callback?.invoke(wasSuccess)
+            }
         }
     }
 
@@ -782,13 +807,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     finish()
                 }
             } else if (saveUri.scheme == "file") {
-                SaveAsDialog(this, saveUri.path!!, true) {
-                    saveBitmapToFile(bitmap, it, true)
+                SaveAsDialog(this, saveUri.path!!, true, showOverwriteOption = realPath != null, overwriteExisting = config.tempSaveAsOverwrite) {
+                    savePath, overwriteExisting ->
+                    saveBitmapToFileWithOverwriteHandling(bitmap, savePath, true, overwriteExisting)
                 }
             } else if (saveUri.scheme == "content") {
                 val filePathGetter = getNewFilePath()
-                SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
-                    saveBitmapToFile(bitmap, it, true)
+                SaveAsDialog(this, filePathGetter.first, filePathGetter.second, showOverwriteOption = realPath != null, overwriteExisting = config.tempSaveAsOverwrite) {
+                    savePath, overwriteExisting ->
+                    saveBitmapToFileWithOverwriteHandling(bitmap, savePath, true, overwriteExisting)
                 }
             } else {
                 toast(R.string.unknown_file_location)

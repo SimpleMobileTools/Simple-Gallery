@@ -100,6 +100,7 @@
     <string name="flip_vertically">По вертикали</string>
     <string name="free_aspect_ratio">Свободно</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Другое</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="save_as_overwrite">Перезаписать исходный файл</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>

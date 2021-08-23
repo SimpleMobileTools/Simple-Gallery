@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -8,8 +9,9 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
 
-class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val cancelCallback: (() -> Unit)? = null,
-                   val callback: (savePath: String) -> Unit) {
+class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean,
+                   val showOverwriteOption: Boolean = false, val overwriteExisting: Boolean = false, val cancelCallback: (() -> Unit)? = null,
+                   val callback: (savePath: String, overwriteExisting: Boolean) -> Unit) {
 
     init {
         var realPath = path.getParentPath()
@@ -39,6 +41,25 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                     realPath = it
                 }
             }
+
+            if (showOverwriteOption) {
+                if (overwriteExisting) {
+                    save_as_overwrite.isChecked = true
+                    save_as_new.visibility = View.GONE
+                }
+                save_as_overwrite.setOnCheckedChangeListener { buttonView, isChecked ->
+                    if (isChecked) {
+                        activity.hideKeyboard(save_as_overwrite)
+                        save_as_new.visibility = View.GONE
+                    } else {
+                        save_as_name.setSelection(save_as_name.text.toString().length)
+                        activity.showKeyboard(save_as_name)
+                        save_as_new.visibility = View.VISIBLE
+                    }
+                }
+            } else {
+                save_as_overwrite.visibility = View.GONE
+            }
         }
 
         AlertDialog.Builder(activity)
@@ -47,7 +68,8 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                 .setOnCancelListener { cancelCallback?.invoke() }
                 .create().apply {
                     activity.setupDialogStuff(view, this, R.string.save_as) {
-                        showKeyboard(view.save_as_name)
+                        if (!view.save_as_overwrite.isChecked)
+                            showKeyboard(view.save_as_name)
                         getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                             val filename = view.save_as_name.value
                             val extension = view.save_as_extension.value
@@ -62,6 +84,12 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                                 return@setOnClickListener
                             }
 
+                            if (view.save_as_overwrite.isChecked) {
+                                callback(path, true)
+                                dismiss()
+                                return@setOnClickListener
+                            }
+
                             val newFilename = "$filename.$extension"
                             val newPath = "${realPath.trimEnd('/')}/$newFilename"
                             if (!newFilename.isAValidFilename()) {
@@ -72,11 +100,11 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                             if (activity.getDoesFilePathExist(newPath)) {
                                 val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
                                 ConfirmationDialog(activity, title) {
-                                    callback(newPath)
+                                    callback(newPath, false)
                                     dismiss()
                                 }
                             } else {
-                                callback(newPath)
+                                callback(newPath, false)
                                 dismiss()
                             }
                         }

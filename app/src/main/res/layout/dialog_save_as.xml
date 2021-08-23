@@ -7,6 +7,19 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_margin">
 
+    <com.simplemobiletools.commons.views.MySwitchCompat
+        android:id="@+id/save_as_overwrite"
+        android:text="@string/save_as_overwrite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_margin"/>
+
+    <LinearLayout
+        android:id="@+id/save_as_new"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/save_as_path_label"
         android:layout_width="wrap_content"
@@ -46,5 +59,7 @@
         android:singleLine="true"
         android:textCursorDrawable="@null"
         android:textSize="@dimen/normal_text_size"/>
+
+    </LinearLayout>
 
 </LinearLayout>
