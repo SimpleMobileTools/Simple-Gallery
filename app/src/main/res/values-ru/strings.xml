@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">Линия</string>
     <string name="pesdk_focus_button_mirrored">Зеркало</string>
     <string name="pesdk_focus_button_gaussian">Гаусс</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Добавить текст</string>
     <string name="pesdk_text_title_name">Текст</string>
     <string name="pesdk_text_title_options">Параметры</string>
     <string name="pesdk_text_title_textColor">Цвет</string>
