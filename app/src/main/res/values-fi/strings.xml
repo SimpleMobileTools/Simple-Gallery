@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">Lineaarinen</string>
     <string name="pesdk_focus_button_mirrored">Peilattu</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Lisää tekstiä</string>
     <string name="pesdk_text_title_name">Teksti</string>
     <string name="pesdk_text_title_options">Tekstiasetukset</string>
     <string name="pesdk_text_title_textColor">Tekstin väri</string>
@@ -361,57 +361,57 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro - Valokuvien selaus ja muokkaus</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro on laajasti kustomoitava offline-galleria. Organisoi &amp; muokkaa valokuvia, palauta poistettuja tiedostoja roskakorista, suojaa &amp; piilota tiedostoja ja katso useiden eri tiedostomuotojen valokuvia &amp; videoita, mukaanlukien RAW- ja SVG-tiedostot.	
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Sovellus ei sisällä mainoksia eikä se vaadi tarpeettomia käyttöoikeuksia. Yksityisyytesi on turvattu, sillä sovellus ei vaadi myöskään internet-yhteyttä.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – OMINAISUUDET</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Offline-galleria ilman mainoksia tai ponnahdusilmoituksia
+        • Simple gallery valokuvaeditori – rajaa, kierrä, muuta kokoa, piirrä, lisää suodattimia ja paljon muuta
+        • Internet-yhteyttä ei käytetä, turvallisuutesi ja yksityisyytesi on turvattu
+        • Ei tarpeettomia sovelluksen käyttöoikeuksia
+        • Pikahaku kuville, videoille &amp; tiedostoille
+        • Avaa &amp; katso monen eri tyypin kuvia ja videoita (RAW, SVG, panoraama jne.)
+        • Useita intuitiivisia eleitä tiedostojen organisointiin &amp; muokkaukseen
+        • Monia tapoja suodattaa, ryhmitellä &amp; lajitella tiedostoja
+        • Mukauta Simple Gallery Pro:n ulkoasua
+        • Saatavilla 32 kielellä
+        • Tiedostojen suosikkimerkinnät nopeaa käyttöä varten
+        • Suojaa kuvia &amp; videoita kuviolla, PIN-koodilla tai sormenjäljellä
+        • Käytä PIN-koodia, kuviota tai sormenjälkeä suojaamaan sovelluksen käynnistämisen tai sen toimintoja
+        • Palauta poistettuja valokuvia &amp; videoita roskakorista
+        • Muuta tiedostojen näkyvyyttä piilottaaksesi kuvia &amp; videoita
+        • Luo mukautettava diaesitys tiedostoistasi
+        • Näytä tarkennettua tietoja tiedostoista (tarkkuus, EXIF-arvot jne.)
+        • Simple Gallery Pro on avointa lähdekoodia
+        … ja paljon, paljon muuta!
 
         <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+	Simple Gallery Pro:N avulla kuvien muokkaus lennosta on helppoa. Rajaa, käännä, peilaa ja muuta kuvien kokoa. Jos koet itsesi luovaksi, voit lisätä suodattimia tai piirtää itse kuviin!
 
         <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        Useista muista galleriasovelluksista poiketen Simple Gallery Pro tukee laajaa skaalaa eri tiedostotyyppejä, mukaanlukien JPEG, PNG, MP4, MKV, RAW, SVG, panoraamakuvat, panoraamavideot.
 
         <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+	Käyttöliittymästä alarivin toimintopainikkeisiinm Simple Gallery Pro on mukautettavissa ja toimii kuten sinä haluat. Muut galleriasovellukset eivät ole näin joustavia! Kiitos avoimen lähdekoodin, sovellus on saatavilla 32 kielellä!
 
         <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        Poistitko vahingossa arvokkaan kuvan tai videon? Ei huolta! Simple Gallery Pro sisältää roskakoritoiminnon, josta voit palauttaa poistetut kuvat ja videot helposti.
 
         <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        Voit suojata ja piilottaa kuvia ja videoita tai kokonaisia albumeita PIN-koodin, kuvion tai laitteesi sormenjälkitunnistimen avulla. Voit myös suojata koko sovelluksen tai asettaa rajoituksia tiettyihin sovelluksen toimintoihin. Esimerkiksi tiedostot voi suojata vahingossa tapahtuvilta poistamisilta asettamalla sovelluksen vaatimaan sormenjäljen tunnistuksen ennen poistoa.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Katso koko Simple Tools-sovellusvalikoima täältä:</b>
         https://www.simplemobiletools.com
 
-        <b>Standalone website of Simple Gallery Pro:</b>
+        <b>Simple Gallery Pro:n oma sivusto:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
