@@ -801,7 +801,11 @@ fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFil
 
 fun Context.updateFavorite(path: String, isFavorite: Boolean) {
     if (isFavorite) {
-        favoritesDB.insert(getFavoriteFromPath(path))
+        try {
+            favoritesDB.insert(getFavoriteFromPath(path))
+        } catch (e: Exception) {
+            toast(R.string.unknown_error_occurred)
+        }
     } else {
         favoritesDB.deleteFavoritePath(path)
     }
@@ -812,7 +816,7 @@ fun Context.getUpdatedDeletedMedia(): ArrayList<Medium> {
     val media = try {
         mediaDB.getDeletedMedia() as ArrayList<Medium>
     } catch (ignored: Exception) {
-        ArrayList<Medium>()
+        ArrayList()
     }
 
     media.forEach {
