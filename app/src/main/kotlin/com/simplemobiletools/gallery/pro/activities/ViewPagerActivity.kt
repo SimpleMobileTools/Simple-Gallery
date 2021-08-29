@@ -1175,7 +1175,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         }
                     }
                 }
-            } else if (medium.path == mPath) {
+            } else if (medium.path.equals(mPath, true)) {
                 return i
             }
         }
