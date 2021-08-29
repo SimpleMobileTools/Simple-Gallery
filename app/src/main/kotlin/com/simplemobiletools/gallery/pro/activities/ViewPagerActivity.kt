@@ -258,6 +258,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        initBottomActionsLayout()
+    }
+
     private fun initViewPager() {
         val uri = intent.data
         if (uri != null) {
@@ -1122,11 +1127,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
             updateActionbarTitle()
         }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        initBottomActionsLayout()
     }
 
     private fun refreshViewPager() {
