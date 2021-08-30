@@ -523,9 +523,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             val destinationPath = it
             val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as java.util.ArrayList<String>
-            activity.rescanPaths(newPaths) {
-                activity.fixDateTaken(newPaths, false)
-            }
+            activity.fixDateTaken(newPaths, false)
 
             config.tempFolderPath = ""
             listener?.refreshItems()

@@ -887,11 +887,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun scanFinalPath(path: String) {
         val paths = arrayListOf(path)
-        rescanPaths(paths) {
-            fixDateTaken(paths, false)
-            setResult(Activity.RESULT_OK, intent)
-            toast(R.string.file_saved)
-            finish()
-        }
+        fixDateTaken(paths, false)
+        setResult(Activity.RESULT_OK, intent)
+        toast(R.string.file_saved)
+        finish()
     }
 }

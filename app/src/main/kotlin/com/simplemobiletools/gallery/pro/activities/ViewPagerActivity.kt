@@ -625,9 +625,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
         tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             val newPath = "$it/${currPath.getFilenameFromPath()}"
-            rescanPaths(arrayListOf(newPath)) {
-                fixDateTaken(arrayListOf(newPath), false)
-            }
+            fixDateTaken(arrayListOf(newPath), false)
 
             config.tempFolderPath = ""
             if (!isCopyOperation) {
@@ -1019,13 +1017,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         toast(R.string.file_saved)
         val paths = arrayListOf(file.absolutePath)
-        rescanPaths(paths) {
-            fixDateTaken(paths, false)
+        fixDateTaken(paths, false)
 
-            if (config.keepLastModified) {
-                File(file.absolutePath).setLastModified(lastModified)
-                updateLastModified(file.absolutePath, lastModified)
-            }
+        if (config.keepLastModified) {
+            File(file.absolutePath).setLastModified(lastModified)
+            updateLastModified(file.absolutePath, lastModified)
         }
         out.close()
     }

@@ -40,8 +40,10 @@ import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
 import java.util.*
 
-class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+class MediaAdapter(
+    activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
+    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit
+) :
     MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
@@ -355,9 +357,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
 
             val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as ArrayList<String>
-            activity.rescanPaths(newPaths) {
-                activity.fixDateTaken(newPaths, false)
-            }
+            activity.fixDateTaken(newPaths, false)
+
             if (!isCopyOperation) {
                 listener?.refreshItems()
                 activity.updateFavoritePaths(fileDirItems, destinationPath)
@@ -531,11 +532,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
             }
 
             if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
-                file_type.setText(when (medium.type) {
-                    TYPE_GIFS -> R.string.gif
-                    TYPE_RAWS -> R.string.raw
-                    else -> R.string.svg
-                })
+                file_type.setText(
+                    when (medium.type) {
+                        TYPE_GIFS -> R.string.gif
+                        TYPE_RAWS -> R.string.raw
+                        else -> R.string.svg
+                    }
+                )
                 file_type.beVisible()
             } else {
                 file_type?.beGone()
@@ -573,16 +576,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: ArrayList<ThumbnailI
             }
 
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(),
-                    rotatedImagePaths)
+                activity.loadImage(
+                    medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(),
+                    rotatedImagePaths
+                )
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
-                            medium.getKey(), rotatedImagePaths)
+                        activity.loadImage(
+                            medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
+                            medium.getKey(), rotatedImagePaths
+                        )
                     }
                 }, IMAGE_LOAD_DELAY)
             }
