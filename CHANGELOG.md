@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.21.1 *(2021-09-07)*
+----------------------------
+
+ * Fixed some glitches related to third party intent handling
+ * Avoid rescanning paths in some cases to prevent file corruption
+ * Fixed a glitch with Rotate bottom button being always visible at fullscreen view
+ * Couple other stability, UX and translation improvements
+
 Version 6.21.0 *(2021-08-18)*
 ----------------------------
 
