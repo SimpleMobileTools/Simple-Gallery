@@ -1,0 +1,1 @@
+ * Fixed a crash related to fixing date taken values

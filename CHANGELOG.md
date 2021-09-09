@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.21.2 *(2021-09-09)*
+----------------------------
+
+ * Fixed a crash related to fixing date taken values
+
 Version 6.21.1 *(2021-09-07)*
 ----------------------------
 
