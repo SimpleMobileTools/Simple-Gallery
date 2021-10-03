@@ -442,7 +442,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
-                    ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
+                    ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0, false) {}
                     config.wasUpgradedFromFreeShown = true
                 }
 
