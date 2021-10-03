@@ -1,0 +1,2 @@
+ * Fixed a glitch with edited videos being low quality
+ * Added some UX, translation and stability improvements

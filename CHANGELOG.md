@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.21.3 *(2021-10-03)*
+----------------------------
+
+ * Fixed a glitch with edited videos being low quality
+ * Added some UX, translation and stability improvements
+
 Version 6.21.2 *(2021-09-09)*
 ----------------------------
 
