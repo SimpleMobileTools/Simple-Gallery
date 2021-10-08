@@ -1045,3 +1045,18 @@ fun Context.getFileDateTaken(path: String): Long {
 
     return 0L
 }
+
+fun Context.getFileUrisFromFileDirItems(fileDirItems: ArrayList<FileDirItem>): ArrayList<Uri> {
+    val fileUris = ArrayList<Uri>()
+    val allIds = MediaFetcher(this).getMediaStoreIds()
+    val filePaths = fileDirItems.map { it.path.lowercase(Locale.getDefault()) }
+    for ((filePath, mediaStoreId) in allIds) {
+        if (filePaths.contains(filePath.lowercase(Locale.getDefault()))) {
+            val baseUri = getFileUri(filePath)
+            val uri = ContentUris.withAppendedId(baseUri, mediaStoreId)
+            fileUris.add(uri)
+        }
+    }
+
+    return fileUris
+}
