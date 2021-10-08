@@ -616,32 +616,6 @@ class MediaFetcher(val context: Context) {
         return sizes
     }
 
-    fun getMediaStoreIds(): HashMap<String, Long> {
-        val ids = HashMap<String, Long>()
-        val projection = arrayOf(
-            Images.Media.DATA,
-            Images.Media._ID
-        )
-
-        val uri = Files.getContentUri("external")
-
-        try {
-            context.queryCursor(uri, projection) { cursor ->
-                try {
-                    val id = cursor.getLongValue(Images.Media._ID)
-                    if (id != 0L) {
-                        val path = cursor.getStringValue(Images.Media.DATA)
-                        ids[path] = id
-                    }
-                } catch (e: Exception) {
-                }
-            }
-        } catch (e: Exception) {
-        }
-
-        return ids
-    }
-
     fun sortMedia(media: ArrayList<Medium>, sorting: Int) {
         if (sorting and SORT_BY_RANDOM != 0) {
             media.shuffle()
