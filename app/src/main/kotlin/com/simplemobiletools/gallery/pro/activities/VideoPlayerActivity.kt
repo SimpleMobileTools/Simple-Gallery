@@ -443,7 +443,16 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         val newAlpha = if (isFullScreen) 0f else 1f
-        arrayOf(video_prev_file, video_toggle_play_pause, video_next_file, video_curr_time, video_seekbar, video_duration, top_shadow, video_bottom_gradient).forEach {
+        arrayOf(
+            video_prev_file,
+            video_toggle_play_pause,
+            video_next_file,
+            video_curr_time,
+            video_seekbar,
+            video_duration,
+            top_shadow,
+            video_bottom_gradient
+        ).forEach {
             it.animate().alpha(newAlpha).start()
         }
         video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
@@ -540,8 +549,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
                 if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold &&
-                        downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION &&
-                        video_surface_frame.controller.state.zoom == 1f) {
+                    downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION &&
+                    video_surface_frame.controller.state.zoom == 1f
+                ) {
                     supportFinishAfterTransition()
                 }
 

@@ -2,12 +2,14 @@ package com.simplemobiletools.gallery.pro.extensions
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
+import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
+import android.net.Uri
 import android.os.Process
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
@@ -27,6 +29,7 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
@@ -42,8 +45,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
-import java.util.HashSet
-import java.util.LinkedHashSet
+import java.util.*
 import kotlin.Comparator
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -239,7 +241,8 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                         mediaTypes = mediaTypes or it.types
                     }
 
-                    val directory = Directory(newDirId++,
+                    val directory = Directory(
+                        newDirId++,
                         parent,
                         subDirs.first().tmb,
                         getFolderNameFromPath(parent),
@@ -249,7 +252,8 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                         subDirs.sumByLong { it.size },
                         getPathLocation(parent),
                         mediaTypes,
-                        "")
+                        ""
+                    )
 
                     directory.containsMediaFilesDirectly = false
                     dirs.add(directory)
@@ -422,8 +426,10 @@ fun Context.getFolderNameFromPath(path: String): String {
     }
 }
 
-fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
-                      roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadImage(
+    type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
+    roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null
+) {
     target.isHorizontalScrolling = horizontalScroll
     if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
         if (type == TYPE_IMAGES && path.isPng()) {
@@ -474,7 +480,14 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadPng(
+    path: String,
+    target: MySquareImageView,
+    cropThumbnails: Boolean,
+    roundCorners: Int,
+    signature: ObjectKey,
+    skipMemoryCacheAtPaths: ArrayList<String>? = null
+) {
     val options = RequestOptions()
         .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -493,7 +506,13 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
                 return true
             }
 
-            override fun onResourceReady(resource: Bitmap?, model: Any?, targetBitmap: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+            override fun onResourceReady(
+                resource: Bitmap?,
+                model: Any?,
+                targetBitmap: Target<Bitmap>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
                 return false
             }
         })
@@ -507,7 +526,14 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.into(target)
 }
 
-fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadJpg(
+    path: String,
+    target: MySquareImageView,
+    cropThumbnails: Boolean,
+    roundCorners: Int,
+    signature: ObjectKey,
+    skipMemoryCacheAtPaths: ArrayList<String>? = null
+) {
     val options = RequestOptions()
         .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -529,7 +555,14 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.into(target)
 }
 
-fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+fun Context.loadStaticGIF(
+    path: String,
+    target: MySquareImageView,
+    cropThumbnails: Boolean,
+    roundCorners: Int,
+    signature: ObjectKey,
+    skipMemoryCacheAtPaths: ArrayList<String>? = null
+) {
     val options = RequestOptions()
         .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
@@ -598,7 +631,12 @@ fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThu
     }
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
+fun Context.getCachedDirectories(
+    getVideosOnly: Boolean = false,
+    getImagesOnly: Boolean = false,
+    forceShowHidden: Boolean = false,
+    callback: (ArrayList<Directory>) -> Unit
+) {
     ensureBackgroundThread {
         try {
             Process.setThreadPriority(Process.THREAD_PRIORITY_MORE_FAVORABLE)
@@ -780,7 +818,16 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 
 fun Context.updateDBDirectory(directory: Directory) {
     try {
-        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types, directory.sortValue)
+        directoryDao.updateDirectory(
+            directory.path,
+            directory.tmb,
+            directory.mediaCnt,
+            directory.modified,
+            directory.taken,
+            directory.size,
+            directory.types,
+            directory.sortValue
+        )
     } catch (ignored: Exception) {
     }
 }
@@ -923,8 +970,10 @@ fun Context.addPathToDB(path: String) {
         try {
             val isFavorite = favoritesDB.isFavorite(path)
             val videoDuration = if (type == TYPE_VIDEOS) getDuration(path) ?: 0 else 0
-            val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                File(path).length(), type, videoDuration, isFavorite, 0L)
+            val medium = Medium(
+                null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
+                File(path).length(), type, videoDuration, isFavorite, 0L
+            )
 
             mediaDB.insert(medium)
         } catch (ignored: Exception) {
@@ -932,8 +981,10 @@ fun Context.addPathToDB(path: String) {
     }
 }
 
-fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
-                                     includedFolders: MutableSet<String>, getProperFileSize: Boolean, noMediaFolders: ArrayList<String>): Directory {
+fun Context.createDirectoryFromMedia(
+    path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
+    includedFolders: MutableSet<String>, getProperFileSize: Boolean, noMediaFolders: ArrayList<String>
+): Directory {
     val OTGPath = config.OTGPath
     val grouped = MediaFetcher(this).groupMedia(curMedia, path)
     var thumbnail: String? = null
@@ -1018,8 +1069,10 @@ fun Context.updateDirectoryPath(path: String) {
     val lastModifieds = if (getProperLastModified) mediaFetcher.getFolderLastModifieds(path) else HashMap()
     val dateTakens = mediaFetcher.getFolderDateTakens(path)
     val favoritePaths = getFavoritePaths()
-    val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,
-        favoritePaths, false, lastModifieds, dateTakens)
+    val curMedia = mediaFetcher.getFilesFrom(
+        path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,
+        favoritePaths, false, lastModifieds, dateTakens
+    )
     val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize, noMediaFolders)
     updateDBDirectory(directory)
 }

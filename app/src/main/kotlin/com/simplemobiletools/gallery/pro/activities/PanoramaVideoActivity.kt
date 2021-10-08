@@ -14,7 +14,10 @@ import com.google.vr.sdk.widgets.video.VrVideoEventListener
 import com.google.vr.sdk.widgets.video.VrVideoView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.hasNavBar
+import com.simplemobiletools.gallery.pro.extensions.hideSystemUI
+import com.simplemobiletools.gallery.pro.extensions.showSystemUI
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
 import com.simplemobiletools.gallery.pro.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama_video.*
@@ -244,7 +247,8 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         video_time_holder.setPadding(0, 0, right, bottom)
         video_time_holder.background = resources.getDrawable(R.drawable.gradient_background)
         video_time_holder.onGlobalLayout {
-            val newBottomMargin = video_time_holder.height - resources.getDimension(R.dimen.video_player_play_pause_size).toInt() - resources.getDimension(R.dimen.activity_margin).toInt()
+            val newBottomMargin = video_time_holder.height - resources.getDimension(R.dimen.video_player_play_pause_size)
+                .toInt() - resources.getDimension(R.dimen.activity_margin).toInt()
             (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = newBottomMargin
 
             (cardboard.layoutParams as RelativeLayout.LayoutParams).apply {

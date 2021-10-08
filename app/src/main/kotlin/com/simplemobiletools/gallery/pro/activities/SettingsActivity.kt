@@ -107,9 +107,11 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
+        arrayListOf(
+            visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
             file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
-            migrating_label).forEach {
+            migrating_label
+        ).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -142,7 +144,8 @@ class SettingsActivity : SimpleActivity() {
             val items = arrayListOf(
                 RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
                 RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
-                RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
+                RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files))
+            )
 
             RadioGroupDialog(this@SettingsActivity, items, config.fileLoadingPriority) {
                 config.fileLoadingPriority = it as Int
@@ -151,11 +154,13 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun getFileLoadingPriorityText() = getString(when (config.fileLoadingPriority) {
-        PRIORITY_SPEED -> R.string.speed
-        PRIORITY_COMPROMISE -> R.string.compromise
-        else -> R.string.avoid_showing_invalid_files
-    })
+    private fun getFileLoadingPriorityText() = getString(
+        when (config.fileLoadingPriority) {
+            PRIORITY_SPEED -> R.string.speed
+            PRIORITY_COMPROMISE -> R.string.compromise
+            else -> R.string.avoid_showing_invalid_files
+        }
+    )
 
     private fun setupManageIncludedFolders() {
         settings_manage_included_folders_holder.setOnClickListener {
@@ -403,10 +408,12 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun getFolderStyleText() = getString(when (config.folderStyle) {
-        FOLDER_STYLE_SQUARE -> R.string.square
-        else -> R.string.rounded_corners
-    })
+    private fun getFolderStyleText() = getString(
+        when (config.folderStyle) {
+            FOLDER_STYLE_SQUARE -> R.string.square
+            else -> R.string.rounded_corners
+        }
+    )
 
     private fun setupKeepLastModified() {
         settings_keep_last_modified.isChecked = config.keepLastModified
@@ -508,7 +515,8 @@ class SettingsActivity : SimpleActivity() {
             val items = arrayListOf(
                 RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
                 RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
-                RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
+                RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio))
+            )
 
             RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
                 config.screenRotation = it as Int
@@ -517,11 +525,13 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun getScreenRotationText() = getString(when (config.screenRotation) {
-        ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
-        ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
-        else -> R.string.screen_rotation_aspect_ratio
-    })
+    private fun getScreenRotationText() = getString(
+        when (config.screenRotation) {
+            ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
+            ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
+            else -> R.string.screen_rotation_aspect_ratio
+        }
+    )
 
     private fun setupBottomActions() {
         settings_bottom_actions.isChecked = config.bottomActions

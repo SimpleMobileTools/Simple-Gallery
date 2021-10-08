@@ -178,6 +178,7 @@ class WidgetConfigureActivity : SimpleActivity() {
     private fun handleFolderNameDisplay() {
         val showFolderName = folder_picker_show_folder_name.isChecked
         config_folder_name.beVisibleIf(showFolderName)
-        (config_image.layoutParams as RelativeLayout.LayoutParams).bottomMargin = if (showFolderName) 0 else resources.getDimension(R.dimen.normal_margin).toInt()
+        (config_image.layoutParams as RelativeLayout.LayoutParams).bottomMargin =
+            if (showFolderName) 0 else resources.getDimension(R.dimen.normal_margin).toInt()
     }
 }

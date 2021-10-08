@@ -24,9 +24,11 @@ import java.util.*
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperLastModified: Boolean,
-                     getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean,
-                     lastModifieds: HashMap<String, Long>, dateTakens: HashMap<String, Long>): ArrayList<Medium> {
+    fun getFilesFrom(
+        curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperLastModified: Boolean,
+        getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean,
+        lastModifieds: HashMap<String, Long>, dateTakens: HashMap<String, Long>
+    ): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -39,8 +41,10 @@ class MediaFetcher(val context: Context) {
                 curMedia.addAll(newMedia)
             }
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize,
-                favoritePaths, getVideoDurations, lastModifieds, dateTakens)
+            val newMedia = getMediaInFolder(
+                curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize,
+                favoritePaths, getVideoDurations, lastModifieds, dateTakens
+            )
             curMedia.addAll(newMedia)
         }
 
@@ -248,9 +252,11 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
-                                 getProperLastModified: Boolean, getProperFileSize: Boolean, favoritePaths: ArrayList<String>,
-                                 getVideoDurations: Boolean, lastModifieds: HashMap<String, Long>, dateTakens: HashMap<String, Long>): ArrayList<Medium> {
+    private fun getMediaInFolder(
+        folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
+        getProperLastModified: Boolean, getProperFileSize: Boolean, favoritePaths: ArrayList<String>,
+        getVideoDurations: Boolean, lastModifieds: HashMap<String, Long>, dateTakens: HashMap<String, Long>
+    ): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val isRecycleBin = folder == RECYCLE_BIN
         val deletedMedia = if (isRecycleBin) {
@@ -387,8 +393,10 @@ class MediaFetcher(val context: Context) {
         return media
     }
 
-    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>,
-                              getVideoDurations: Boolean): ArrayList<Medium> {
+    private fun getMediaOnOTG(
+        folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>,
+        getVideoDurations: Boolean
+    ): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val checkFileExistence = context.config.fileLoadingPriority == PRIORITY_VALIDITY
@@ -443,7 +451,9 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_IMAGES
             }
 
-            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", "${context.config.OTGPath}/"))
+            val path = Uri.decode(
+                file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", "${context.config.OTGPath}/")
+            )
             val videoDuration = if (getVideoDurations) context.getDuration(path) ?: 0 else 0
             val isFavorite = favoritePaths.contains(path)
             val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
@@ -692,7 +702,8 @@ class MediaFetcher(val context: Context) {
 
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
         val sorted = if (currentGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 ||
-            currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0) {
+            currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+        ) {
             mediumGroups.toSortedMap(if (sortDescending) compareByDescending {
                 it.toLongOrNull() ?: 0L
             } else {
@@ -726,7 +737,11 @@ class MediaFetcher(val context: Context) {
 
     private fun getFormattedKey(key: String, grouping: Int, today: String, yesterday: String): String {
         var result = when {
-            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getFinalDate(formatDate(key, true), today, yesterday)
+            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getFinalDate(
+                formatDate(key, true),
+                today,
+                yesterday
+            )
             grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 || grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0 -> formatDate(key, false)
             grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
             grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()

@@ -215,7 +215,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     return false
                 }
 
-                override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                override fun onResourceReady(
+                    bitmap: Bitmap?,
+                    model: Any?,
+                    target: Target<Bitmap>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (filterInitialBitmap == null) {
                         loadCropImageView()
@@ -604,7 +610,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                                 return false
                             }
 
-                            override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
+                            override fun onResourceReady(
+                                resource: Bitmap?,
+                                model: Any?,
+                                target: Target<Bitmap>?,
+                                dataSource: DataSource?,
+                                isFirstResource: Boolean
+                            ) = false
                         })
                         .submit(thumbnailSize, thumbnailSize)
                         .get()
@@ -678,7 +690,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun updateAspectRatioButtons() {
-        arrayOf(bottom_aspect_ratio_free, bottom_aspect_ratio_one_one, bottom_aspect_ratio_four_three, bottom_aspect_ratio_sixteen_nine, bottom_aspect_ratio_other).forEach {
+        arrayOf(
+            bottom_aspect_ratio_free,
+            bottom_aspect_ratio_one_one,
+            bottom_aspect_ratio_four_three,
+            bottom_aspect_ratio_sixteen_nine,
+            bottom_aspect_ratio_other
+        ).forEach {
             it.setTextColor(Color.WHITE)
         }
 
@@ -808,7 +826,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (newPath.isEmpty()) {
             val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
             if (filename.isNotEmpty()) {
-                val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH)?.getParentPath() else internalStoragePath
+                val path =
+                    if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH)?.getParentPath() else internalStoragePath
                 newPath = "$path/$filename"
                 shouldAppendFilename = false
             }
@@ -825,7 +844,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun saveBitmapToFile(bitmap: Bitmap, path: String, showSavingToast: Boolean) {
         if (!packageName.contains("slootelibomelpmis".reversed(), true)) {
             if (baseConfig.appRunCount > 100) {
-                val label = "sknahT .moc.slootelibomelpmis.www morf eno lanigiro eht daolnwod ytefas nwo ruoy roF .ppa eht fo noisrev ekaf a gnisu era uoY".reversed()
+                val label =
+                    "sknahT .moc.slootelibomelpmis.www morf eno lanigiro eht daolnwod ytefas nwo ruoy roF .ppa eht fo noisrev ekaf a gnisu era uoY".reversed()
                 runOnUiThread {
                     ConfirmationDialog(this, label, positive = com.simplemobiletools.commons.R.string.ok, negative = 0) {
                         launchViewIntent("6629852208836920709=di?ved/sppa/erots/moc.elgoog.yalp//:sptth".reversed())

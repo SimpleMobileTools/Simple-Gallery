@@ -548,7 +548,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
+        val fileDirItems =
+            folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
         when {
             fileDirItems.isEmpty() -> return
             fileDirItems.size == 1 -> {
@@ -609,9 +610,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 if (config.deleteEmptyFolders) {
-                    folders.filter { !it.absolutePath.isDownloadsFolder() && it.isDirectory && it.toFileDirItem(this).getProperFileCount(this, true) == 0 }.forEach {
-                        tryDeleteFileDirItem(it.toFileDirItem(this), true, true)
-                    }
+                    folders.filter { !it.absolutePath.isDownloadsFolder() && it.isDirectory && it.toFileDirItem(this).getProperFileCount(this, true) == 0 }
+                        .forEach {
+                            tryDeleteFileDirItem(it.toFileDirItem(this), true, true)
+                        }
                 }
             }
         }
@@ -958,8 +960,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
                     grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
-                val curMedia = mLastMediaFetcher!!.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
-                    getProperFileSize, favoritePaths, false, lastModifieds, dateTakens)
+                val curMedia = mLastMediaFetcher!!.getFilesFrom(
+                    directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
+                    getProperFileSize, favoritePaths, false, lastModifieds, dateTakens
+                )
 
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
@@ -1057,8 +1061,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
                 grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
 
-            val newMedia = mLastMediaFetcher!!.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
-                getProperFileSize, favoritePaths, false, lastModifieds, dateTakens)
+            val newMedia = mLastMediaFetcher!!.getFilesFrom(
+                folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
+                getProperFileSize, favoritePaths, false, lastModifieds, dateTakens
+            )
 
             if (newMedia.isEmpty()) {
                 continue
@@ -1189,7 +1195,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (currAdapter == null || forceRecreate) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), directories_refresh_layout, fastscroller) {
+            DirectoryAdapter(
+                this,
+                dirsToShow,
+                this,
+                directories_grid,
+                isPickIntent(intent) || isGetAnyContentIntent(intent),
+                directories_refresh_layout,
+                fastscroller
+            ) {
                 val clickedDir = it as Directory
                 val path = clickedDir.path
                 if (clickedDir.subfoldersCount == 1 || !config.groupDirectSubfolders) {
@@ -1216,7 +1230,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             runOnUiThread {
                 if (textToSearch.isNotEmpty()) {
-                    dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
+                    dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }
+                        .toMutableList() as ArrayList
                 }
                 checkPlaceholderVisibility(dirsToShow)
 
@@ -1299,8 +1314,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
-        ?: ""
+    private fun getBubbleTextItem(index: Int) =
+        getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
+            ?: ""
 
     private fun setupLatestMediaId() {
         ensureBackgroundThread {

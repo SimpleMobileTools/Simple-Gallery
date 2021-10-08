@@ -104,9 +104,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     private fun confirmWallpaper() {
         if (isNougatPlus()) {
             val items = arrayListOf(
-                    RadioItem(WallpaperManager.FLAG_SYSTEM, getString(R.string.home_screen)),
-                    RadioItem(WallpaperManager.FLAG_LOCK, getString(R.string.lock_screen)),
-                    RadioItem(WallpaperManager.FLAG_SYSTEM or WallpaperManager.FLAG_LOCK, getString(R.string.home_and_lock_screen)))
+                RadioItem(WallpaperManager.FLAG_SYSTEM, getString(R.string.home_screen)),
+                RadioItem(WallpaperManager.FLAG_LOCK, getString(R.string.lock_screen)),
+                RadioItem(WallpaperManager.FLAG_SYSTEM or WallpaperManager.FLAG_LOCK, getString(R.string.home_and_lock_screen))
+            )
 
             RadioGroupDialog(this, items) {
                 wallpaperFlag = it as Int
