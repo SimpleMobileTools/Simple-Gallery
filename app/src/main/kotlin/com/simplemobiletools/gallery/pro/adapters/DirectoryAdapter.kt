@@ -54,8 +54,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
-                       val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+class DirectoryAdapter(
+    activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
+    val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit
+) :
     MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick), ItemTouchHelperContract {
 
     private val config = activity.config
@@ -457,10 +459,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val hashToCheck = config.getFolderProtectionHash(firstPath)
         SecurityDialog(activity, hashToCheck, tabToShow) { hash, type, success ->
             if (success) {
-                paths.filter { config.isFolderProtected(it) && config.getFolderProtectionType(it) == tabToShow && config.getFolderProtectionHash(it) == hashToCheck }.forEach {
-                    config.removeFolderProtection(it)
-                    lockedFolderPaths.remove(it)
-                }
+                paths.filter { config.isFolderProtected(it) && config.getFolderProtectionType(it) == tabToShow && config.getFolderProtectionHash(it) == hashToCheck }
+                    .forEach {
+                        config.removeFolderProtection(it)
+                        lockedFolderPaths.remove(it)
+                    }
 
                 listener?.refreshItems()
                 finishActMode()
@@ -522,8 +525,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             val destinationPath = it
-            val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as java.util.ArrayList<String>
-            activity.fixDateTaken(newPaths, false)
+            val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as ArrayList<String>
+            activity.rescanPaths(newPaths) {
+                activity.fixDateTaken(newPaths, false)
+            }
 
             config.tempFolderPath = ""
             listener?.refreshItems()
@@ -788,7 +793,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     else -> ROUNDED_CORNERS_BIG
                 }
 
-                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, directory.getKey())
+                activity.loadImage(
+                    thumbnailType,
+                    directory.tmb,
+                    dir_thumbnail,
+                    scrollHorizontally,
+                    animateGifs,
+                    cropThumbnails,
+                    roundedCorners,
+                    directory.getKey()
+                )
             }
 
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))

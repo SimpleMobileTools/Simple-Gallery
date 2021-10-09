@@ -357,7 +357,9 @@ class MediaAdapter(
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
 
             val newPaths = fileDirItems.map { "$destinationPath/${it.name}" }.toMutableList() as ArrayList<String>
-            activity.fixDateTaken(newPaths, false)
+            activity.rescanPaths(newPaths) {
+                activity.fixDateTaken(newPaths, false)
+            }
 
             if (!isCopyOperation) {
                 listener?.refreshItems()
