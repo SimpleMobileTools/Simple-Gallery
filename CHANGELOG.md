@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.21.4 *(2021-10-09)*
+----------------------------
+
+ * Fixed some file operations on Android 11+
+ * Fixed files not being recognized by some apps after edit/copy
+ * Added some stability, translation and UX improvements
+
 Version 6.21.3 *(2021-10-03)*
 ----------------------------
 
