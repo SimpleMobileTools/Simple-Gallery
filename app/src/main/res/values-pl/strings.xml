@@ -94,7 +94,7 @@
     <string name="error_saving_file">Nie udało się nadpisać pliku źródłowego</string>
     <string name="rotate_left">Obróć w lewo</string>
     <string name="rotate_right">Obróć w prawo</string>
-    <string name="rotate_one_eighty">Obróć o 180 stopni</string>
+    <string name="rotate_one_eighty">Obróć o 180°</string>
     <string name="flip">Odbij</string>
     <string name="flip_horizontally">Odbij w poziomie</string>
     <string name="flip_vertically">Odbij w pionie</string>
@@ -219,7 +219,7 @@
     <string name="pesdk_transform_button_resetCrop">Resetuj</string>
     <string name="pesdk_transform_button_squareCrop">Kwadrat</string>
     <string name="pesdk_transform_title_name">Przekształć</string>
-    <string name="pesdk_filter_title_name">Filtruj</string>
+    <string name="pesdk_filter_title_name">Filtr</string>
     <string name="pesdk_filter_asset_none">Brak</string>
     <string name="pesdk_adjustments_title_name">Dostosuj</string>
     <string name="pesdk_adjustments_button_shadowTool">Cienie</string>
