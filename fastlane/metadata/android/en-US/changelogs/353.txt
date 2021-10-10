@@ -1,0 +1,2 @@
+ * Reverting to the previous way of file deletion
+ * Added some stability and translation improvements

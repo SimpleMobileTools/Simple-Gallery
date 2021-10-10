@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.21.6 *(2021-10-10)*
+----------------------------
+
+ * Reverting to the previous way of file deletion
+ * Added some stability and translation improvements
+
 Version 6.21.5 *(2021-10-10)*
 ----------------------------
 
