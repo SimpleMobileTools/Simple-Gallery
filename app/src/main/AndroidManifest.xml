@@ -20,6 +20,11 @@
         android:name="android.permission.CAMERA"
         tools:node="remove"/>
 
+    <!-- used by Reprint -->
+    <uses-permission
+        android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"
+        tools:node="remove" />
+
     <uses-sdk
         tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano"/>
 
