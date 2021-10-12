@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.isVisible
 import com.simplemobiletools.commons.extensions.setupDialogStuff
@@ -13,9 +14,11 @@ import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
-class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, val showFolderCheckbox: Boolean,
-                          val path: String = "", val callback: () -> Unit) :
-        DialogInterface.OnClickListener {
+class ChangeSortingDialog(
+    val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, val showFolderCheckbox: Boolean,
+    val path: String = "", val callback: () -> Unit
+) :
+    DialogInterface.OnClickListener {
     private var currSorting = 0
     private var config = activity.config
     private var pathToUse = if (!isDirectorySorting && path.isEmpty()) SHOW_ALL else path
@@ -36,11 +39,11 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
         }
 
         AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, this)
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.sort_by)
-                }
+            .setPositiveButton(R.string.ok, this)
+            .setNegativeButton(R.string.cancel, null)
+            .create().apply {
+                activity.setupDialogStuff(view, this, R.string.sort_by)
+            }
 
         setupSortRadio()
         setupOrderRadio()
@@ -54,8 +57,8 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             view.use_for_this_folder_divider.beVisibleIf(view.sorting_dialog_numeric_sorting.isVisible() || view.sorting_dialog_use_for_this_folder.isVisible())
 
             val isCustomSorting = checkedId == sortingRadio.sorting_dialog_radio_custom.id
-            view.sorting_dialog_radio_order.beVisibleIf(!isCustomSorting)
-            view.sorting_dialog_order_divider.beVisibleIf(!isCustomSorting)
+            view.sorting_dialog_radio_order.beGoneIf(isCustomSorting)
+            view.sorting_dialog_order_divider.beGoneIf(isCustomSorting)
         }
 
         val sortBtn = when {
