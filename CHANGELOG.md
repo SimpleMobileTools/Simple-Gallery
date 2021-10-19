@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.21.7 *(2021-10-19)*
+----------------------------
+
+ * Fixed a glitch with videos being corrupt after editing
+ * Some stability and translation improvements
+
 Version 6.21.6 *(2021-10-10)*
 ----------------------------
 
