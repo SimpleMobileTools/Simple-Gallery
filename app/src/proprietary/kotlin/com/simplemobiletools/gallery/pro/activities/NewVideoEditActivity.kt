@@ -150,14 +150,6 @@ class NewVideoEditActivity : SimpleActivity() {
                                         inputStream.close()
                                         outputStream.close()
 
-                                        try {
-                                            if (isNougatPlus()) {
-                                                val newExif = ExifInterface(destinationFilePath)
-                                                oldExif?.copyTo(newExif, false)
-                                            }
-                                        } catch (ignored: Exception) {
-                                        }
-
                                         if (config.keepLastModified) {
                                             // add 1 s to the last modified time to properly update the thumbnail
                                             updateLastModified(destinationFilePath, sourceFileLastModified + 1000)
