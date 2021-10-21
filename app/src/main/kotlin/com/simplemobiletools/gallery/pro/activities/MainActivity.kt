@@ -943,13 +943,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
 
         if (config.showRecycleBinAtFolders && !config.showRecycleBinLast && !dirs.map { it.path }.contains(RECYCLE_BIN)) {
-            val recycleBin = Directory().apply {
-                path = RECYCLE_BIN
-                name = getString(R.string.recycle_bin)
-                location = LOCATION_INTERNAL
-            }
+            if (mediaDB.getDeletedMediaCount() > 0) {
+                val recycleBin = Directory().apply {
+                    path = RECYCLE_BIN
+                    name = getString(R.string.recycle_bin)
+                    location = LOCATION_INTERNAL
+                }
 
-            dirs.add(0, recycleBin)
+                dirs.add(0, recycleBin)
+            }
+        }
+
+        if (dirs.map { it.path }.contains(FAVORITES)) {
+            if (mediaDB.getFavoritesCount() > 0) {
+                val favorites = Directory().apply {
+                    path = FAVORITES
+                    name = getString(R.string.favorites)
+                    location = LOCATION_INTERNAL
+                }
+
+                dirs.add(0, favorites)
+            }
         }
 
         try {
@@ -1042,6 +1056,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         val foldersToScan = mLastMediaFetcher!!.getFoldersToScan()
+        foldersToScan.remove(FAVORITES)
         foldersToScan.add(0, FAVORITES)
         if (config.showRecycleBinAtFolders) {
             if (foldersToScan.contains(RECYCLE_BIN)) {
@@ -1054,7 +1069,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             foldersToScan.remove(RECYCLE_BIN)
         }
 
-        dirs.filterNot { it.path == RECYCLE_BIN }.forEach {
+        dirs.filterNot { it.path == RECYCLE_BIN || it.path == FAVORITES }.forEach {
             foldersToScan.remove(it.path)
         }
 
