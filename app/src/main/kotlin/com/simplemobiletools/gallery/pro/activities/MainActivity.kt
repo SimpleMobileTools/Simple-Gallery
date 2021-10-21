@@ -1034,7 +1034,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val foldersToScan = mLastMediaFetcher!!.getFoldersToScan()
         foldersToScan.add(FAVORITES)
         if (config.showRecycleBinAtFolders) {
-            foldersToScan.add(RECYCLE_BIN)
+            if (!foldersToScan.contains(RECYCLE_BIN)) {
+                foldersToScan.add(RECYCLE_BIN)
+            }
         } else {
             foldersToScan.remove(RECYCLE_BIN)
         }
