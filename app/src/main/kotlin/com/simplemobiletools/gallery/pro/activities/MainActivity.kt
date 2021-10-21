@@ -942,6 +942,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val lastModifieds = mLastMediaFetcher!!.getLastModifieds()
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
 
+        if (config.showRecycleBinAtFolders && !config.showRecycleBinLast && !dirs.map { it.path }.contains(RECYCLE_BIN)) {
+            val recycleBin = Directory().apply {
+                path = RECYCLE_BIN
+                name = getString(R.string.recycle_bin)
+                location = LOCATION_INTERNAL
+            }
+
+            dirs.add(0, recycleBin)
+        }
+
         try {
             for (directory in dirs) {
                 if (mShouldStopFetching || isDestroyed || isFinishing) {
@@ -1044,7 +1054,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             foldersToScan.remove(RECYCLE_BIN)
         }
 
-        dirs.forEach {
+        dirs.filterNot { it.path == RECYCLE_BIN }.forEach {
             foldersToScan.remove(it.path)
         }
 
