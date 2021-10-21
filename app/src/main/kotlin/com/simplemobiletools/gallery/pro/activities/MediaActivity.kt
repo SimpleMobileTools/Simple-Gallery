@@ -611,8 +611,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val newMedia = it
                 try {
                     gotMedia(newMedia, false)
-                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !getDoesFilePathExist(it.path) }.forEach {
-                        mediaDB.deleteMediumPath(it.path)
+                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.forEach {
+                        if (!getDoesFilePathExist(it.path)) {
+                            mediaDB.deleteMediumPath(it.path)
+                        } else if (mPath == FAVORITES) {
+                            favoritesDB.deleteFavoritePath(it.path)
+                            mediaDB.updateFavorite(it.path, false)
+                        }
                     }
                 } catch (e: Exception) {
                 }
