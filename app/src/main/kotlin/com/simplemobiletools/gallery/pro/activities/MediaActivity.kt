@@ -611,12 +611,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val newMedia = it
                 try {
                     gotMedia(newMedia, false)
-                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.forEach {
-                        if (!getDoesFilePathExist(it.path)) {
-                            mediaDB.deleteMediumPath(it.path)
-                        } else if (mPath == FAVORITES) {
+
+                    val newPaths = newMedia.mapNotNull { it as? Medium }.map { it.path }
+                    oldMedia.mapNotNull { it as? Medium }.filter { !newPaths.contains(it.path) }.forEach {
+                        if (mPath == FAVORITES && getDoesFilePathExist(it.path)) {
                             favoritesDB.deleteFavoritePath(it.path)
                             mediaDB.updateFavorite(it.path, false)
+                        } else {
+                            mediaDB.deleteMediumPath(it.path)
                         }
                     }
                 } catch (e: Exception) {
