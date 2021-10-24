@@ -847,14 +847,14 @@ fun Context.getFavoritePaths(): ArrayList<String> {
 fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
 
 fun Context.updateFavorite(path: String, isFavorite: Boolean) {
-    if (isFavorite) {
-        try {
+    try {
+        if (isFavorite) {
             favoritesDB.insert(getFavoriteFromPath(path))
-        } catch (e: Exception) {
-            toast(R.string.unknown_error_occurred)
+        } else {
+            favoritesDB.deleteFavoritePath(path)
         }
-    } else {
-        favoritesDB.deleteFavoritePath(path)
+    } catch (e: Exception) {
+        toast(R.string.unknown_error_occurred)
     }
 }
 
