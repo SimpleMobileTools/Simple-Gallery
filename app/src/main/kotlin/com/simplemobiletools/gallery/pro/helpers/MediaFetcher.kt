@@ -43,7 +43,7 @@ class MediaFetcher(val context: Context) {
         } else {
             val newMedia = getMediaInFolder(
                 curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize,
-                favoritePaths, getVideoDurations, lastModifieds, dateTakens
+                favoritePaths, getVideoDurations, lastModifieds.clone() as HashMap<String, Long>, dateTakens.clone() as HashMap<String, Long>
             )
             curMedia.addAll(newMedia)
         }
