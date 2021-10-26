@@ -128,19 +128,9 @@
             android:parentActivityName=".activities.MainActivity"/>
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.LicenseActivity"
-            android:label="@string/third_party_licences"
-            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity"/>
-
-        <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity"/>
-
-        <activity
-            android:name="com.simplemobiletools.commons.activities.FAQActivity"
-            android:label="@string/frequently_asked_questions"
-            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity"/>
 
         <activity
             android:name=".activities.SettingsActivity"
