@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
     <string name="set_as_default_folder">Utilizar como pasta padrão</string>
     <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging">Organizar pastas com arrasto</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -104,8 +104,8 @@
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Definir como fundo do ecrã</string>
-    <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
-    <string name="set_as_wallpaper_with">Definir como fundo com:</string>
+    <string name="set_as_wallpaper_failed">Falha ao definir o fundo de ecrã</string>
+    <string name="set_as_wallpaper_with">Definir fundo com:</string>
     <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
     <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
     <string name="portrait_aspect_ratio">Proporção na vertical</string>
@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Espelhado</string>
     <string name="pesdk_focus_button_gaussian">Gaussiano</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Adicionar texto</string>
     <string name="pesdk_text_title_name">Texto</string>
     <string name="pesdk_text_title_options">Opções de texto</string>
     <string name="pesdk_text_title_textColor">Cor do texto</string>
@@ -299,7 +299,7 @@
     <string name="pesdk_overlay_button_blendModeHardLight">Luz forte</string>
     <string name="pesdk_overlay_asset_none">Nenhuma</string>
     <string name="pesdk_overlay_asset_golden">Dourada</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
+    <string name="pesdk_overlay_asset_lightleak1">Luz fraca 1</string>
     <string name="pesdk_overlay_asset_mosaic">Mosaico</string>
     <string name="pesdk_overlay_asset_paper">Papel</string>
     <string name="pesdk_overlay_asset_rain">Chuva</string>
