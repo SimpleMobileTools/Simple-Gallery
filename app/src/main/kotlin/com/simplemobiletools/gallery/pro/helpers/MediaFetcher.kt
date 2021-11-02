@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.BaseColumns
+import android.provider.MediaStore
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.text.format.DateFormat
@@ -387,6 +388,96 @@ class MediaFetcher(val context: Context) {
                 val isFavorite = favoritePaths.contains(path)
                 val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
                 media.add(medium)
+            }
+        }
+
+        return media
+    }
+
+    @SuppressLint("InlinedApi")
+    fun getAndroid11FolderMedia(
+        isPickImage: Boolean, isPickVideo: Boolean, favoritePaths: ArrayList<String>
+    ): HashMap<String, ArrayList<Medium>> {
+        val media = HashMap<String, ArrayList<Medium>>()
+        val filterMedia = context.config.filterMedia
+        val showHidden = context.config.shouldShowHidden
+
+        val projection = arrayOf(
+            Images.Media.DISPLAY_NAME,
+            Images.Media.DATA,
+            Images.Media.DATE_MODIFIED,
+            Images.Media.DATE_TAKEN,
+            Images.Media.SIZE,
+            MediaStore.MediaColumns.DURATION
+        )
+
+        val uri = Files.getContentUri("external")
+
+        context.queryCursor(uri, projection) { cursor ->
+            if (shouldStop) {
+                return@queryCursor
+            }
+
+            try {
+                val filename = cursor.getStringValue(Images.Media.DISPLAY_NAME)
+                val path = cursor.getStringValue(Images.Media.DATA)
+                val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+                val size = cursor.getLongValue(Images.Media.SIZE)
+                val videoDuration = Math.round(cursor.getIntValue(MediaStore.MediaColumns.DURATION) / 1000.toDouble()).toInt()
+
+                val isPortrait = false
+                val isImage = path.isImageFast()
+                val isVideo = if (isImage) false else path.isVideoFast()
+                val isGif = if (isImage || isVideo) false else path.isGif()
+                val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
+                val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
+
+                if (!isImage && !isVideo && !isGif && !isRaw && !isSvg) {
+                    return@queryCursor
+                }
+
+                if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
+                    return@queryCursor
+
+                if (isImage && (isPickVideo || filterMedia and TYPE_IMAGES == 0))
+                    return@queryCursor
+
+                if (isGif && filterMedia and TYPE_GIFS == 0)
+                    return@queryCursor
+
+                if (isRaw && filterMedia and TYPE_RAWS == 0)
+                    return@queryCursor
+
+                if (isSvg && filterMedia and TYPE_SVGS == 0)
+                    return@queryCursor
+
+                if (!showHidden && filename.startsWith('.'))
+                    return@queryCursor
+
+                if (size <= 0L) {
+                    return@queryCursor
+                }
+
+                val type = when {
+                    isVideo -> TYPE_VIDEOS
+                    isGif -> TYPE_GIFS
+                    isRaw -> TYPE_RAWS
+                    isSvg -> TYPE_SVGS
+                    isPortrait -> TYPE_PORTRAITS
+                    else -> TYPE_IMAGES
+                }
+
+                val isFavorite = favoritePaths.contains(path)
+                val medium = Medium(null, filename, path, path.getParentPath(), lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
+                val parent = medium.parentPath.lowercase(Locale.getDefault())
+                val currentFolderMedia = media[parent]
+                if (currentFolderMedia == null) {
+                    media[parent] = ArrayList<Medium>()
+                }
+
+                media[parent]?.add(medium)
+            } catch (e: Exception) {
             }
         }
 
