@@ -35,6 +35,7 @@ import kotlinx.android.synthetic.main.photo_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import kotlinx.android.synthetic.main.video_item_grid.view.*
 import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
+import kotlinx.android.synthetic.main.video_item_grid.view.favorite
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
@@ -523,6 +524,8 @@ class MediaAdapter(
             }
 
             media_item_holder.setPadding(padding, padding, padding, padding)
+
+            favorite.beVisibleIf(medium.isFavorite)
 
             play_portrait_outline?.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
