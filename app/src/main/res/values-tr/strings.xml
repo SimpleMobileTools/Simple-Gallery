@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
     <string name="set_as_default_folder">Varsayılan klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Varsayılan klasör olarak ayarlama</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
@@ -201,7 +201,7 @@
     <string name="limit_folder_title">Uzun klasör başlıklarını 1 satırla sınırla</string>
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">Doğrusal</string>
     <string name="pesdk_focus_button_mirrored">Aynalı</string>
     <string name="pesdk_focus_button_gaussian">Gauss</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Metin ekle</string>
     <string name="pesdk_text_title_name">Metin</string>
     <string name="pesdk_text_title_options">Metin Seçenekleri</string>
     <string name="pesdk_text_title_textColor">Metin Rengi</string>
@@ -263,8 +263,8 @@
     <string name="pesdk_brush_button_bringToFront">Öne</string>
     <string name="pesdk_brush_button_delete">Sil</string>
     <string name="pesdk_brush_title_brushColor">Fırça Rengi</string>
-    <string name="pesdk_editor_title_name">Editör</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Editör kapatılsın mı?</string>
+    <string name="pesdk_editor_title_name">Düzenleyici</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Düzenleyici kapatılsın mı?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Değişiklikleri gerçekten atmak istiyor musunuz?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Evet</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Hayır</string>
@@ -364,7 +364,7 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici, Düzenleyici</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Bu fotoğraf ve video galerisinde kesintisiz olarak anılarınıza göz atın</string>
+    <string name="app_short_description">Fotoğraf, video ve GIF\'lerinizi yönetmek ve düzenlemek için seçkin bir uygulama</string>
     <string name="app_long_description">
         Basit Galeri Pro, özelleştirilebilir bir çevrimdışı galeridir. Fotoğraflarınızı düzenleyin ve organize edin, geri dönüşüm kutusuyla silinen dosyaları kurtarın, dosyaları koruyun ve gizleyin ve RAW, SVG ve çok daha fazlası dahil olmak üzere çok çeşitli fotoğraf ve video formatlarını görüntüleyin.
 
@@ -375,7 +375,7 @@
         -------------------------------------------------
 
         • Reklamsız veya açılır penceresiz, çevrimdışı galeri
-        • Basit galeri fotoğraf editörü - kırpma, döndürme, yeniden boyutlandırma, çizim, filtreler ve daha fazlası
+        • Basit galeri fotoğraf düzenleyici - kırpma, döndürme, yeniden boyutlandırma, çizim, filtreler ve daha fazlası
         • İnternet erişimi gerekmez, size daha fazla gizlilik ve güvenlik sunar
         • Gereksiz izinler gerekmez
         • Resimleri, videoları ve dosyaları hızlıca arama
@@ -383,7 +383,7 @@
         • Dosyaları kolayca düzenlemek ve organize etmek için çeşitli sezgisel hareketler
         • Dosyaları filtrelemenin, gruplandırmanın ve sıralamanın birçok yolu
         • Basit Galeri Pro\'nun görünümünü özelleştirme
-        • 32 dilde mevcut
+        • 32 dilde kullanılabilir
         • Hızlı erişim için dosyaları sık kullanılan olarak işaretleme
         • Fotoğraflarınızı ve videolarınızı desen, pin veya parmak izi ile koruma
         • Uygulama başlatılmasını veya belirli işlevleri de korumak için pin, desen ve parmak izi kullanma
@@ -394,7 +394,7 @@
         • Basit Galeri Pro açık kaynak kodludur
         … ve çok daha fazlası!
 
-        <b>FOTOĞRAF GALERİSİ EDİTÖRÜ</b>
+        <b>FOTOĞRAF GALERİSİ DÜZENLEYİCİSİ</b>
         Basit Galeri Pro, fotoğraflarınızı anında düzenlemenizi kolaylaştırır. Resimlerinizi kırpın, çevirin, döndürün ve yeniden boyutlandırın. Kendinizi biraz daha yaratıcı hissediyorsanız, filtre ekleyebilir ve resimlerinizi çizebilirsiniz!
 
         <b>BİRÇOK DOSYA TÜRÜ İÇİN DESTEK</b>
