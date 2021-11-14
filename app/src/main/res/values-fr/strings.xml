@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
     <string name="reorder_by_dragging">Réordonner par glisser</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
     <string name="images">Images</string>
@@ -42,9 +41,8 @@
     <string name="raw_images">Images RAW</string>
     <string name="svgs">SVGs</string>
     <string name="portraits">Portraits</string>
-    <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés</string>
+    <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés.</string>
     <string name="change_filters_underlined"><u>Modifier les filtres</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option cache le dossier en y ajoutant un fichier \".nomedia\", cela cachera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole \"Œil\" (permettant l\'affichage) depuis les paramètres. Continuer ?</string>
     <string name="exclude">Exclure le dossier</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Dossiers cachés</string>
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
     <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché avec un fichier \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
     <string name="add_folder">Ajouter un dossier</string>
     <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias qui ne sont pas affichés dans l\'application, vous pouvez les ajouter manuellement ici.\n\nCet ajout n\'exclura aucun autre dossier.</string>
     <string name="no_media_add_included">Aucun fichier multimédia n\'a été trouvé. Vous pouvez ajouter manuellement des dossiers contenant des fichiers multimédia.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
     <string name="resize_and_save">Redimensionner la sélection et enregistrer</string>
@@ -73,7 +69,6 @@
     <string name="height">Hauteur</string>
     <string name="keep_aspect_ratio">Conserver le rapport d\'affichage</string>
     <string name="invalid_values">Veuillez entrer une résolution valide</string>
-
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="rotate">Pivoter</string>
@@ -98,9 +93,10 @@
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
-    <string name="free_aspect_ratio">Libre</string>                   <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Autre</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Libre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Autre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fond d\'écran simple</string>
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
@@ -113,7 +109,6 @@
     <string name="home_screen">Écran d\'accueil</string>
     <string name="lock_screen">Écran de déverrouillage</string>
     <string name="home_and_lock_screen">Écran d\'accueil et écran de déverrouillage</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
@@ -129,10 +124,8 @@
     <string name="slide">Glissement</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Mode sous-dossiers</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grouper par</string>
     <string name="do_not_group_files">Ne pas grouper les fichiers</string>
@@ -146,11 +139,9 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
@@ -202,18 +193,15 @@
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les emplacements favoris</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>
     <string name="extended_details">Détails supplémentaires</string>
     <string name="bottom_actions">Barre d\'actions</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
     <string name="toggle_favorite">Ajouter aux favoris</string>
     <string name="toggle_file_visibility">Visibilité du fichier</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libre</string>
     <string name="pesdk_transform_button_resetCrop">Réinitialiser</string>
@@ -327,7 +315,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
     <string name="vesdk_video_trim_title_name">Couper</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
     <string name="faq_1_text">Il faut dans un premier temps, trouver l\'application \"Galerie\" par défaut dans la section \"Applications\" des paramètres de l\'appareil, puis appuyer sur \"Ouvrir par défaut\", et enfin sélectionner \"Réinitialiser les paramètres par défaut\". 		La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez \"Simple Gallery\" puis \"Toujours\".</string>
@@ -357,7 +344,6 @@
     <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers. Notez que le masquage fonctionne de manière récursive, donc si vous masquez un dossier, tous les sous-dossiers seront également masqués. Donc, pour afficher les sous-dossiers, vous devez afficher le dossier parent.</string>
     <string name="faq_15_title">Pourquoi l\'application prend-elle tant de place ?</string>
     <string name="faq_15_text">Le cache d\'application peut prendre jusqu\'à 250 Mo pour accélérer le chargement des images. Si l\'application occupe encore plus d\'espace, c\'est probablement parce que vous avez des éléments dans la corbeille. Ces fichiers comptent pour la taille de l\'application. Vous pouvez vider la corbeille en l\'ouvrant et en supprimant tous les fichiers ou à partir des paramètres de l\'application. Chaque fichier de la corbeille est automatiquement supprimé après 30 jours.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editeur</string>
@@ -419,7 +405,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
       </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
