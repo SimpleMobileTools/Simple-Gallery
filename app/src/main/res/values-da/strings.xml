@@ -339,8 +339,7 @@
     <string name="vesdk_video_trim_title_name">Trim</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hvordan kan jeg gøre Simple Gallery til min enheds standardgalleri\?</string>
-    <string name="faq_1_text">Først skal du finde det nuværende standardgalleri i Apps-sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
-        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standardapp.</string>
+    <string name="faq_1_text">Først skal du finde det nuværende standardgalleri i Apps-sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\". Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standardapp.</string>
     <string name="faq_2_title">Jeg har låst appen med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre\?</string>
     <string name="faq_2_text">Du har to muligheder. Du kan enten geninstallere appen, eller finde den i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogen mediefiler.</string>
     <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen\?</string>
