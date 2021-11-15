@@ -28,12 +28,17 @@
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
     <string name="no_date_takens_found">Nie znaleziono dat wykonania</string>
     <string name="share_resized">Udostępnij wersję ze zmienionym rozmiarem</string>
-    <string name="upgraded_from_free">Witaj,\n\nwygląda na to, że uaktualniłeś(-aś) starą darmową aplikację na nową płatną. Możesz teraz odinstalować poprzednią przyciskiem „Uaktualnij do Pro” na górze w ustawieniach aplikacji.\n\nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.\n\nDzięki!</string>
+    <string name="upgraded_from_free">Witaj,
+\n
+\nwygląda na to, że uaktualniłeś(-aś) starą darmową aplikację na nową płatną. Możesz teraz odinstalować poprzednią przyciskiem „Uaktualnij do Pro” na górze w ustawieniach aplikacji.
+\n
+\nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.
+\n
+\nDzięki!</string>
     <string name="switch_to_file_search">Przełącz na przeszukiwanie plików we wszystkich widocznych folderach</string>
     <string name="set_as_default_folder">Ustaw jako folder domyślny</string>
     <string name="unset_as_default_folder">Anuluj ustawienie folderu domyślnego</string>
     <string name="reorder_by_dragging">Przeorganizuj foldery przeciągając</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
     <string name="images">Obrazy</string>
@@ -44,7 +49,6 @@
     <string name="portraits">Portrety</string>
     <string name="no_media_with_filters">Nie znaleziono plików multimedialnych z wybranymi filtrami.</string>
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik „.nomedia”, i ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję „Pokazuj ukryte elementy” w Ustawieniach. Kontynuować?</string>
     <string name="exclude">Wyklucz</string>
@@ -58,14 +62,12 @@
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
     <string name="add_folder">Dodaj folder</string>
     <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je dodać ręcznie tutaj.\n\nDodanie tutaj niektórych elementów nie wykluczy żadnego innego folderu.</string>
     <string name="no_media_add_included">Nie znaleziono żadnych plików multimedialnych. Możesz to naprawić, dodając ręcznie foldery z plikami multimediami.</string>
-
     <!-- Resizing -->
     <string name="resize">Zmień rozmiar</string>
     <string name="resize_and_save">Zmień rozmiar zaznaczenia i zapisz</string>
@@ -73,7 +75,6 @@
     <string name="height">Wysokość</string>
     <string name="keep_aspect_ratio">Zachowaj proporcje</string>
     <string name="invalid_values">Podaj poprawną rozdzielczość</string>
-
     <!-- Editor -->
     <string name="editor">Edytor</string>
     <string name="rotate">Obróć</string>
@@ -98,22 +99,22 @@
     <string name="flip">Odbij</string>
     <string name="flip_horizontally">Odbij w poziomie</string>
     <string name="flip_vertically">Odbij w pionie</string>
-    <string name="free_aspect_ratio">Dowolne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Inne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Dowolne</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Inne</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Prosta tapeta</string>
     <string name="set_as_wallpaper">Ustaw jako tapetę</string>
     <string name="set_as_wallpaper_failed">Ustawienie jako tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
-    <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
+    <string name="setting_wallpaper">Ustawianie tapety…</string>
     <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
     <string name="portrait_aspect_ratio">Proporcje ekranu w pionie</string>
     <string name="landscape_aspect_ratio">Proporcje ekranu w poziomie</string>
     <string name="home_screen">Ekran główny</string>
     <string name="lock_screen">Ekran blokady</string>
     <string name="home_and_lock_screen">Ekran główny i blokady</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
     <string name="interval">Czas trwania (sekundy):</string>
@@ -129,10 +130,8 @@
     <string name="slide">Przesuwanie</string>
     <string name="slideshow_ended">Pokaz slajdów zakończony</string>
     <string name="no_media_for_slideshow">Nie znaleziono multimediów do pokazu slajdów</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Grupuj bezpośrednie podfoldery</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupuj według</string>
     <string name="do_not_group_files">Nie grupuj plików</string>
@@ -146,11 +145,9 @@
     <string name="by_file_type">Typ pliku</string>
     <string name="by_extension">Rozszerzenie</string>
     <string name="grouping_and_sorting">Uwaga: Grupowanie i sortowanie to dwa niezależne pola</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Folder wyświetlony w widżecie:</string>
     <string name="show_folder_name">Pokazuj nazwę folderu</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj wideo automatycznie</string>
     <string name="remember_last_video_position">Pamiętaj ostatnią pozycję odtwarzania wideo</string>
@@ -202,18 +199,15 @@
     <string name="square">Kwadrat</string>
     <string name="rounded_corners">Zaokrąglone rogi</string>
     <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturki</string>
     <string name="fullscreen_media">Widok pełnoekranowy</string>
     <string name="extended_details">Dodatkowe szczegóły</string>
     <string name="bottom_actions">Dolne przyciski akcji</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Zarządzaj przyciskami akcji na dolnym pasku</string>
     <string name="toggle_favorite">Ulubione</string>
     <string name="toggle_file_visibility">Przełącz widoczność pliku</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Własne</string>
     <string name="pesdk_transform_button_resetCrop">Resetuj</string>
@@ -265,7 +259,7 @@
     <string name="pesdk_brush_title_brushColor">Kolor pędzla</string>
     <string name="pesdk_editor_title_name">Edytor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Czy zamknąć edytor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Czy na pewno chcesz odrzucić zmiany?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Czy odrzucić zmiany\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Tak</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nie</string>
     <string name="pesdk_editor_cancel">Anuluj</string>
@@ -327,7 +321,6 @@
     <string name="pesdk_common_title_aquamarinColor">Akwamaryna</string>
     <string name="pesdk_common_title_pipettableColor">Kolor z pipety</string>
     <string name="vesdk_video_trim_title_name">Przytnij</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Jak mogę ustawić Prostą galerię jako domyślną galerię urządzenia?</string>
     <string name="faq_1_text">Najpierw znajdź aktualnie domyślną galerię urządzenia w ustawieniach systemowych (sekcja „Aplikacje”). Na ekranie z informacjami o niej wybierz „Otwórz domyślnie”, a następnie „Wyczyść domyślne”. Gdy podczas następnej próby otwarcia zdjęcia czy wideo system zapyta Cię, którą aplikacją to zrobić, wybierz Prostą galerię i opcję zapamiętania tego wyboru.</string>
@@ -357,7 +350,6 @@
     <string name="faq_14_text">Możesz wybrać „Tymczasowo pokaż ukryte multimedia” w menu na głównym ekranie albo włączyć opcję „Pokazuj ukryte elementy” w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, przyciśnij na nim dłużej i wybierz „Odkryj folder”. Foldery są ukrywane przez dodanie do nich ukrytego pliku „.nomedia”, który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
     <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250 MB, aby zapewnić szybsze ładowanie obrazów. Jeśli aplikacja zajmuje więcej miejsca, jest to najprawdopodobniej spowodowane tym, że masz elementy w koszu. Pliki te liczą się do rozmiaru aplikacji. Możesz wyczyścić kosz przez otwarcie go i usunięcie wszystkich plików, albo z poziomu ustawień aplikacji. Każdy plik w koszu jest usuwany automatycznie po 30 dniach.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Prosta galeria Pro - Menedżer i edytor zdjęć</string>
@@ -419,7 +411,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
