@@ -11,7 +11,7 @@
     <string name="pin_to_the_top">置顶固定</string>
     <string name="show_all">文件视图</string>
     <string name="all_folders">所有文件夹</string>
-    <string name="folder_view">文件夹视图</string>
+    <string name="folder_view">切换至文件夹视图</string>
     <string name="other_folder">其他文件夹</string>
     <string name="show_on_map">在地图上显示</string>
     <string name="unknown_location">未知位置</string>
@@ -164,19 +164,19 @@
     <string name="screen_rotation_system_setting">跟随系统设置</string>
     <string name="screen_rotation_device_rotation">跟随设备旋转</string>
     <string name="screen_rotation_aspect_ratio">根据高宽比</string>
-    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏</string>
+    <string name="black_background_at_fullscreen">全屏时使用黑色背景</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
-    <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
+    <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏系统界面</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
     <string name="allow_photo_gestures">使用纵向滑动手势控制照片亮度</string>
     <string name="allow_video_gestures">使用纵向滑动手势控制视频音量和亮度</string>
     <string name="show_media_count">在主界面显示文件夹媒体计数</string>
-    <string name="show_extended_details">全屏浏览媒体时显示详细信息</string>
-    <string name="manage_extended_details">管理详细信息项目</string>
+    <string name="show_extended_details">全屏浏览媒体时显示更多详情</string>
+    <string name="manage_extended_details">管理更多详情项目</string>
     <string name="one_finger_zoom">单指缩放</string>
     <string name="allow_instant_change">点击屏幕边缘来切换媒体</string>
     <string name="allow_deep_zooming_images">允许深度放大图像</string>
-    <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
+    <string name="hide_extended_details">状态栏隐藏时，同时隐藏更多详情</string>
     <string name="show_at_bottom">显示底栏</string>
     <string name="show_recycle_bin">在文件夹界面显示回收站</string>
     <string name="deep_zoomable_images">深度放大图像</string>
@@ -206,7 +206,7 @@
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
-    <string name="extended_details">扩展详情</string>
+    <string name="extended_details">更多详情</string>
     <string name="bottom_actions">底栏选项</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">管理底栏选项</string>
