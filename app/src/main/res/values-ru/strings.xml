@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Установить как папку по умолчанию</string>
     <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
     <string name="reorder_by_dragging">Менять порядок папок перетаскиванием</string>
-
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
     <string name="images">Изображения</string>
@@ -44,7 +43,6 @@
     <string name="portraits">Портреты</string>
     <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\". Также будут скрыты все подпапки. Можно показать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
@@ -52,20 +50,20 @@
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
     <string name="exclude_folder_description">Эта функция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
     <string name="exclude_folder_parent">Исключить только родительскую папку?</string>
-    <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их и в других приложениях, используйте функцию \"Скрыть\".</string>
+    <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях.
+\n
+\nЕсли вы хотите скрыть их и в других приложениях, используйте функцию \"Скрыть\".</string>
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых папок? Сами папки не будут удалены.</string>
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавить папку</string>
     <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные приложением, вы можете добавить их вручную.\n\nДобавление папки не приводит к исключению каких-либо других.</string>
     <string name="no_media_add_included">Медиафайлы не найдены. Вы можете исправить данную проблему, добавив папки с медиафайлами вручную.</string>
-
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
     <string name="resize_and_save">Изменить и сохранить</string>
@@ -73,7 +71,6 @@
     <string name="height">Высота</string>
     <string name="keep_aspect_ratio">Сохранять соотношение сторон</string>
     <string name="invalid_values">Указано недопустимое разрешение</string>
-
     <!-- Editor -->
     <string name="editor">Редактор</string>
     <string name="rotate">Поворот</string>
@@ -98,9 +95,10 @@
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
-    <string name="free_aspect_ratio">Свободно</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Другое</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Свободно</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Другое</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
@@ -113,7 +111,6 @@
     <string name="home_screen">Домашний экран</string>
     <string name="lock_screen">Экран блокировки</string>
     <string name="home_and_lock_screen">Домашний экран и экран блокировки</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
     <string name="interval">Интервал (в секундах):</string>
@@ -129,10 +126,8 @@
     <string name="slide">Сдвиг</string>
     <string name="slideshow_ended">Слайдшоу завершено</string>
     <string name="no_media_for_slideshow">Не найдено медиафайлов для слайдшоу</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Объединять вложенные папки</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Группировать по…</string>
     <string name="do_not_group_files">Не группировать</string>
@@ -146,11 +141,9 @@
     <string name="by_file_type">Тип файла</string>
     <string name="by_extension">Расширение</string>
     <string name="grouping_and_sorting">Обратите внимание, что группировка и сортировка — это два независимых поля</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Папка, отображаемая в виджете:</string>
     <string name="show_folder_name">Показывать имя папки</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="remember_last_video_position">Запоминать позицию воспроизведения последнего видео</string>
@@ -202,18 +195,15 @@
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>
     <string name="extended_details">Подробности</string>
     <string name="bottom_actions">Нижние кнопки действий</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Настройка нижних кнопок действий</string>
     <string name="toggle_favorite">Переключение избранного</string>
     <string name="toggle_file_visibility">Переключение видимости файлов</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Свободная</string>
     <string name="pesdk_transform_button_resetCrop">Сброс</string>
@@ -327,7 +317,6 @@
     <string name="pesdk_common_title_aquamarinColor">Аквамарин</string>
     <string name="pesdk_common_title_pipettableColor">Цвет заливки</string>
     <string name="vesdk_video_trim_title_name">Обрезка</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Как сделать Simple Gallery галереей по умолчанию?</string>
     <string name="faq_1_text">Сначала вы должны найти галерею по умолчанию в разделе \"Приложения\" настроек вашего устройства; найдите кнопку, названную \"Открыть по умолчанию\",затем нажмите на неё и выберите \"Очистить значения по умолчанию\".
@@ -359,7 +348,6 @@
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером. Обратите внимание, что скрытие работает рекурсивно, поэтому, если вы скроете папку, все вложенные папки также станут скрытыми. Соответственно, для того, чтобы были видны вложенные папки, нужно сделать видимой родительскую.</string>
     <string name="faq_15_title">Почему приложение занимает так много места?</string>
     <string name="faq_15_text">Кеш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые элементы. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Галерея Pro - управление изображениями</string>
@@ -421,10 +409,8 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
-
 </resources>
