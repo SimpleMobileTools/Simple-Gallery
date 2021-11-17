@@ -166,7 +166,7 @@
     <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
     <string name="allow_photo_gestures">Zezwalaj na kontrolowanie jasności obrazów pionowymi gestami</string>
     <string name="allow_video_gestures">Zezwalaj na kontrolowanie głośności i jasności wideo pionowymi gestami</string>
-    <string name="show_media_count">Pokazuj liczbę multimediów w folderze w głównym widoku</string>
+    <string name="show_media_count">Pokazuj liczbę multimediów w folderze w widoku głównym</string>
     <string name="show_extended_details">Pokazuj dodatkowe szczegóły w multimediach na pełnym ekranie</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w multimediach na pełnym ekranie</string>
@@ -179,7 +179,7 @@
     <string name="show_highest_quality">Pokazuj obrazy w najwyższej możliwej jakości</string>
     <string name="show_recycle_bin_last">Pokazuj kosz jako ostatni element na ekranie głównym</string>
     <string name="allow_down_gesture">Zezwalaj na zamykanie widoku pełnoekranowego gestem pociągnięcia w dół</string>
-    <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi dotknięciami</string>
+    <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi naciśnięciami</string>
     <string name="open_videos_on_separate_screen">Zawsze otwieraj wideo na osobnym ekranie z innymi poziomymi gestami</string>
     <string name="show_notch">Pokazuj wycięcie ekranu, jeśli jest dostępne</string>
     <string name="allow_rotating_gestures">Zezwalaj na obracanie obrazów gestami</string>
@@ -205,7 +205,7 @@
     <string name="extended_details">Dodatkowe szczegóły</string>
     <string name="bottom_actions">Dolne przyciski akcji</string>
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Zarządzaj przyciskami akcji na dolnym pasku</string>
+    <string name="manage_bottom_actions">Zarządzaj widocznością dolnych przycisków akcji</string>
     <string name="toggle_favorite">Ulubione</string>
     <string name="toggle_file_visibility">Przełącz widoczność pliku</string>
     <!-- New editor strings -->
@@ -328,8 +328,8 @@
     <string name="faq_2_text">Możesz rozwiązać to na 2 sposoby. Możesz zarówno przeinstalować aplikację, jak i znaleźć ją w ustawieniach swojego urządzenia i wybrać „Wyczyść dane”. Przywróci to oryginalne ustawienia aplikacji, nie usuwając żadnych plików multimedialnych.</string>
     <string name="faq_3_title">Jak sprawić, aby album zawsze pojawiał się na górze?</string>
     <string name="faq_3_text">Możesz przytrzymać dłużej palcem na albumie i wybrać ikonę pinezki z menu akcji, która przypnie go na górze. Możesz przypinać także wiele folderów. Przypięte elementy będą posortowane domyślną metodą sortowania.</string>
-    <string name="faq_4_title">Jak mogę przewijać wideo?</string>
-    <string name="faq_4_text">Możesz to zrobić, dotykając dwukrotnie boku ekranu lub tekstów aktualnej/maksymalnej długości przy pasku postępu. Jeśli włączysz w ustawieniach „Zawsze otwieraj wideo na osobnym ekranie...”, możesz też używać poziomych gestów.</string>
+    <string name="faq_4_title">Jak mogę przewijać wideo do przodu\?</string>
+    <string name="faq_4_text">Możesz to zrobić, naciskając dwukrotnie bok ekranu albo tekst aktualnego lub całkowitego czasu trwania w pobliżu paska przewijania. Jeśli włączysz „Zawsze otwieraj wideo na osobnym ekranie…” w ustawieniach aplikacji, możesz też używać poziomych gestów.</string>
     <string name="faq_5_title">Jaka jest różnica między ukryciem a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczanie działa tylko w obrębie Prostej galerii, podczas gdy ukrywanie ma wpływ także na inne galerie. Działa to przez dodanie do folderu pustego pliku „.nomedia”, który możesz potem usunąć w dowolnym menedżerze plików. Uwaga: Niektóre urządzenia nie pozwalają na ukrywanie folderów takich, jak Aparat, Zrzuty ekranu i Pobrane.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami albumów muzycznych czy naklejkami?</string>
@@ -345,7 +345,7 @@
     <string name="faq_12_title">Sortowanie według daty wykonania nie działa poprawnie. Jak mogę to naprawić?</string>
     <string name="faq_12_text">Najprawdopodobniej jest to spowodowane przekopiowaniem plików z innego miejsca. Możesz to naprawić przez zaznaczenie miniaturek plików i wybranie „Napraw datę wykonania”.</string>
     <string name="faq_13_title">Na obrazach widzę kolorowe paski. Jak mogę poprawić jakość?</string>
-    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości przypadków. Jeśli jednak potrzebujesz lepszej jakości, możesz włączyć „Pokazuj obrazy w najwyższej możliwej jakości” w opcjach w sekcji „Mocne powiększanie obrazów”.</string>
+    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości przypadków. Jeśli jednak potrzebujesz lepszej jakości, możesz włączyć „Pokazuj obrazy w najwyższej możliwej jakości” w ustawieniach aplikacji w sekcji „Mocne powiększanie obrazów”.</string>
     <string name="faq_14_title">Mam ukryty plik/folder. Jak mogę go przywrócić?</string>
     <string name="faq_14_text">Możesz wybrać „Tymczasowo pokaż ukryte multimedia” w menu na ekranie głównym albo włączyć opcję „Pokazuj ukryte elementy” w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, przyciśnij na nim dłużej i wybierz „Odkryj folder”. Foldery są ukrywane przez dodanie do nich ukrytego pliku „.nomedia”, który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
     <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
