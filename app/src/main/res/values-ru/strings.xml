@@ -196,7 +196,7 @@
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Миниатюры</string>
+    <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>
     <string name="extended_details">Подробности</string>
     <string name="bottom_actions">Нижние кнопки действий</string>
