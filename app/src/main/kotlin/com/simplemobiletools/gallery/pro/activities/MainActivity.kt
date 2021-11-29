@@ -862,10 +862,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         runOnUiThread {
             checkPlaceholderVisibility(dirs)
-
-            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-            /*directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
-            directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)*/
             setupAdapter(dirs.clone() as ArrayList<Directory>)
         }
 
@@ -947,7 +943,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize, noMediaFolders)
                 }
 
-                //mydebug("end ${System.currentTimeMillis() - time} ${directory.name}")
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
                 if (directory.copy(subfoldersCount = 0, subfoldersMediaCount = 0) == newDir) {
                     continue
@@ -1055,7 +1050,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 runOnUiThread {
                     directories_empty_placeholder.beGone()
                     directories_empty_placeholder_2.beGone()
-                    directories_grid.beVisible()
+                    directories_fastscroller.beVisible()
                 }
             }
 
@@ -1163,7 +1158,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         directories_empty_placeholder_2.underlineText()
-        directories_grid.beVisibleIf(directories_empty_placeholder.isGone())
+        directories_fastscroller.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "", forceRecreate: Boolean = false) {

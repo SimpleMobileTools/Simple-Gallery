@@ -364,8 +364,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     if (grouped.isEmpty()) {
                         media_empty_text_placeholder.text = getString(R.string.no_items_found)
                         media_empty_text_placeholder.beVisible()
+                        media_fastscroller.beGone()
                     } else {
                         media_empty_text_placeholder.beGone()
+                        media_fastscroller.beVisible()
                     }
 
                     handleGridSpacing(grouped)
@@ -661,11 +663,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = 0
-            bottomMargin = 0
-        }
-
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
             media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -692,13 +689,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
         mZoomListener = null
     }
 
@@ -848,12 +838,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             if (media_empty_text_placeholder.isVisible()) {
                 media_empty_text_placeholder.text = getString(R.string.no_media_with_filters)
             }
-            media_grid.beVisibleIf(media_empty_text_placeholder.isGone())
+            media_fastscroller.beVisibleIf(media_empty_text_placeholder.isGone())
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-            val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-            /*media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
-            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)*/
             setupAdapter()
         }
 
