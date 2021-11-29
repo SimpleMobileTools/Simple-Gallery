@@ -61,8 +61,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
     private var mLastSearchedText = ""
-    private var mDateFormat = ""
-    private var mTimeFormat = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -125,9 +123,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
-        mDateFormat = config.dateFormat
-        mTimeFormat = getTimeFormat()
-
         if (mStoredAnimateGifs != config.animateGifs) {
             getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -167,6 +162,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         media_fastscroller.updateColors(adjustedPrimaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
+        getMediaAdapter()?.apply {
+            dateFormat = config.dateFormat
+            timeFormat = getTimeFormat()
+        }
+
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
@@ -459,15 +459,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }*/
     }
 
-    private fun getBubbleTextItem(index: Int, sorting: Int): String {
-        var realIndex = index
-        val mediaAdapter = getMediaAdapter()
-        if (mediaAdapter?.isASectionTitle(index) == true) {
-            realIndex++
-        }
-        return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
-    }
-
     private fun checkLastMediaChanged() {
         if (isDestroyed || config.getFolderSorting(mPath) and SORT_BY_RANDOM != 0) {
             return
@@ -688,7 +679,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        /*val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
             topMargin = 0
             bottomMargin = 0
@@ -712,7 +703,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     1
                 }
             }
-        }
+        }*/
     }
 
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
@@ -810,7 +801,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupListLayoutManager() {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        /*val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -821,7 +812,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             bottomMargin = smallMargin
         }
 
-        mZoomListener = null
+        mZoomListener = null*/
     }
 
     private fun increaseColumnCount() {

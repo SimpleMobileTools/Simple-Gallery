@@ -248,15 +248,6 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         }*/
     }
 
-    private fun getBubbleTextItem(index: Int, sorting: Int): String {
-        var realIndex = index
-        val mediaAdapter = getMediaAdapter()
-        if (mediaAdapter?.isASectionTitle(index) == true) {
-            realIndex++
-        }
-        return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
-    }
-
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
         media_grid.onGlobalLayout {
             if (config.scrollHorizontally) {
