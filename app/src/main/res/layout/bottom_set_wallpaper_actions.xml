@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
-        android:src="@drawable/ic_minimize"
+        android:src="@drawable/ic_minimize_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_set_wallpaper_rotate"
         app:layout_constraintHorizontal_bias="0.5"
