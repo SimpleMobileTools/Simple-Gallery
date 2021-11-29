@@ -58,7 +58,6 @@
                 android:id="@+id/directories_grid"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/directories_switch_searching"
                 android:layoutAnimation="@anim/layout_animation"
                 android:scrollbars="none"
                 app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"

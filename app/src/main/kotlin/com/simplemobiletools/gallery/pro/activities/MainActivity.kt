@@ -627,6 +627,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             setupListLayoutManager()
         }
+
+        (directories_refresh_layout.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.BELOW, R.id.directories_switch_searching)
     }
 
     private fun setupGridLayoutManager() {
