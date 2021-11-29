@@ -690,6 +690,21 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
+    private fun setupListLayoutManager() {
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        layoutManager.spanCount = 1
+        layoutManager.orientation = RecyclerView.VERTICAL
+        media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
+        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
+            topMargin = smallMargin
+            bottomMargin = smallMargin
+        }
+
+        mZoomListener = null
+    }
+
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
         media_grid.onGlobalLayout {
             if (config.scrollHorizontally) {
@@ -782,21 +797,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             mZoomListener = null
         }
-    }
-
-    private fun setupListLayoutManager() {
-        /*val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        layoutManager.spanCount = 1
-        layoutManager.orientation = RecyclerView.VERTICAL
-        media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
-        mZoomListener = null*/
     }
 
     private fun increaseColumnCount() {
