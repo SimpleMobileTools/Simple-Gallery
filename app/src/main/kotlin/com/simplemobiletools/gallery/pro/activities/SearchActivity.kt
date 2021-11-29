@@ -26,10 +26,8 @@ import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
-import kotlinx.android.synthetic.main.activity_media.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_search.*
-import kotlinx.android.synthetic.main.activity_search.media_empty_text_placeholder
-import kotlinx.android.synthetic.main.activity_search.media_grid
 import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
@@ -229,23 +227,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupScrollDirection() {
         val viewType = config.getFolderViewType(SHOW_ALL)
-        val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-        /*media_vertical_fastscroller.isHorizontal = false
-        media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
-
-        media_horizontal_fastscroller.isHorizontal = true
-        media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
-
-        val sorting = config.getFolderSorting(SHOW_ALL)
-        if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.setViews(media_grid) {
-                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        } else {
-            media_vertical_fastscroller.setViews(media_grid) {
-                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        }*/
+        val scrollHorizontally = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
+        media_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {

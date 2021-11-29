@@ -14,7 +14,6 @@ import android.provider.MediaStore.Video
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -631,7 +630,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        /*val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
             topMargin = 0
             bottomMargin = 0
@@ -639,13 +638,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
-            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
-            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
-        layoutManager.spanCount = config.dirColumnCnt*/
+        layoutManager.spanCount = config.dirColumnCnt
     }
 
     private fun setupListLayoutManager() {
@@ -1285,22 +1284,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setupScrollDirection() {
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-        /*directories_vertical_fastscroller.isHorizontal = false
-        directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
-
-        directories_horizontal_fastscroller.isHorizontal = true
-        directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
-
-        if (allowHorizontalScroll) {
-            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
-            }
-        } else {
-            directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
-            }
-        }*/
+        val scrollHorizontally = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
+        directories_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {

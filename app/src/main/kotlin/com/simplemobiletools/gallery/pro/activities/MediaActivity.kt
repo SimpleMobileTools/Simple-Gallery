@@ -12,7 +12,6 @@ import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
@@ -440,23 +439,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupScrollDirection() {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-        val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-        /*media_vertical_fastscroller.isHorizontal = false
-        media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
-
-        media_horizontal_fastscroller.isHorizontal = true
-        media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
-
-        val sorting = config.getFolderSorting(if (mShowAll) SHOW_ALL else mPath)
-        if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        } else {
-            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        }*/
+        val scrollHorizontally = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
+        media_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
     private fun checkLastMediaChanged() {
@@ -679,7 +663,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        /*val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
             topMargin = 0
             bottomMargin = 0
@@ -687,10 +671,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
-            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
-            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
         layoutManager.spanCount = config.mediaColumnCnt
@@ -703,7 +687,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     1
                 }
             }
-        }*/
+        }
     }
 
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
