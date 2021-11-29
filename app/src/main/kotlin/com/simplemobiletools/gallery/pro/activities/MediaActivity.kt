@@ -420,7 +420,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-            if (viewType == VIEW_TYPE_LIST) {
+            if (viewType == VIEW_TYPE_LIST && areSystemAnimationsEnabled) {
                 media_grid.scheduleLayoutAnimation()
             }
 

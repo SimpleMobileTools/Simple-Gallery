@@ -1196,7 +1196,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     directories_grid.adapter = this
                     setupScrollDirection()
 
-                    if (config.viewTypeFolders == VIEW_TYPE_LIST) {
+                    if (config.viewTypeFolders == VIEW_TYPE_LIST && areSystemAnimationsEnabled) {
                         directories_grid.scheduleLayoutAnimation()
                     }
                 }
