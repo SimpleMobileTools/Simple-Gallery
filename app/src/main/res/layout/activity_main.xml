@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/directories_refresh_layout"
+    android:id="@+id/directories_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:id="@+id/directories_holder"
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/directories_switch_searching"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/switch_to_file_search"
+        android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/directories_switch_searching"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:padding="@dimen/activity_margin"
-            android:text="@string/switch_to_file_search"
-            android:visibility="gone" />
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/directories_empty_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/directories_switch_searching"
+        android:alpha="0.8"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingEnd="@dimen/activity_margin"
+        android:text="@string/no_media_with_filters"
+        android:textSize="@dimen/bigger_text_size"
+        android:textStyle="italic"
+        android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/directories_empty_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/directories_switch_searching"
-            android:alpha="0.8"
-            android:gravity="center_horizontal"
-            android:paddingStart="@dimen/activity_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/activity_margin"
-            android:text="@string/no_media_with_filters"
-            android:textSize="@dimen/bigger_text_size"
-            android:textStyle="italic"
-            android:visibility="gone" />
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/directories_empty_placeholder_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/directories_empty_placeholder"
+        android:layout_centerHorizontal="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/change_filters_underlined"
+        android:textSize="@dimen/bigger_text_size"
+        android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/directories_empty_placeholder_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/directories_empty_placeholder"
-            android:layout_centerHorizontal="true"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin"
-            android:text="@string/change_filters_underlined"
-            android:textSize="@dimen/bigger_text_size"
-            android:visibility="gone" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/directories_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/directories_switch_searching">
 
         <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
             android:id="@+id/directories_fastscroller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/directories_switch_searching"
             app:supportSwipeToRefresh="true">
 
             <com.simplemobiletools.commons.views.MyRecyclerView
@@ -65,5 +65,5 @@
                 app:spanCount="@integer/directory_columns_vertical_scroll" />
 
         </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
-    </RelativeLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

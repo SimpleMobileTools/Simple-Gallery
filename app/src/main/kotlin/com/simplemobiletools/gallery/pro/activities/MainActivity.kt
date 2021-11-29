@@ -197,6 +197,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         directories_fastscroller.updateColors(adjustedPrimaryColor)
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
+        getRecyclerAdapter()?.apply {
+            dateFormat = config.dateFormat
+            timeFormat = getTimeFormat()
+        }
 
         directories_empty_placeholder.setTextColor(config.textColor)
         directories_empty_placeholder_2.setTextColor(adjustedPrimaryColor)
@@ -491,6 +495,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     gotDirectories(getCurrentlyDisplayedDirs())
                 }
             }
+
+            getRecyclerAdapter()?.directorySorting = config.directorySorting
         }
     }
 
@@ -625,7 +631,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        /*val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
             topMargin = 0
             bottomMargin = 0
@@ -639,11 +645,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
-        layoutManager.spanCount = config.dirColumnCnt
+        layoutManager.spanCount = config.dirColumnCnt*/
     }
 
     private fun setupListLayoutManager() {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        /*val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -654,7 +660,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             bottomMargin = smallMargin
         }
 
-        mZoomListener = null
+        mZoomListener = null*/
     }
 
     private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
@@ -1345,10 +1351,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
-
-    private fun getBubbleTextItem(index: Int) =
-        getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
-            ?: ""
 
     private fun setupLatestMediaId() {
         ensureBackgroundThread {

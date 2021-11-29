@@ -769,7 +769,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             val spacing = config.thumbnailSpacing
             val useGridPosition = media.firstOrNull() is ThumbnailSection
 
-            var currentGridDecoration: GridSpacingItemDecoration? = null
+            /*var currentGridDecoration: GridSpacingItemDecoration? = null
             if (media_grid.itemDecorationCount > 0) {
                 currentGridDecoration = media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
                 currentGridDecoration.items = media
@@ -781,7 +781,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     media_grid.removeItemDecoration(currentGridDecoration)
                 }
                 media_grid.addItemDecoration(newGridDecoration)
-            }
+            }*/
         }
     }
 
