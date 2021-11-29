@@ -25,7 +25,6 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
-import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_search.*
 import java.io.File
@@ -33,8 +32,6 @@ import java.io.File
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mIsSearchOpen = false
     private var mLastSearchedText = ""
-    private var mDateFormat = ""
-    private var mTimeFormat = ""
 
     private var mSearchMenuItem: MenuItem? = null
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -44,9 +41,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         media_empty_text_placeholder.setTextColor(config.textColor)
-        mDateFormat = config.dateFormat
-        mTimeFormat = getTimeFormat()
         getAllMedia()
+        media_fastscroller.updateColors(getAdjustedPrimaryColor())
     }
 
     override fun onDestroy() {
@@ -122,7 +118,6 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
                     handleGridSpacing(grouped)
                     getMediaAdapter()?.updateMedia(grouped)
-                    measureRecyclerViewContent(grouped)
                 }
             } catch (ignored: Exception) {
             }
@@ -141,11 +136,9 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             }
             setupLayoutManager()
             handleGridSpacing(mAllMedia)
-            measureRecyclerViewContent(mAllMedia)
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mAllMedia)
             handleGridSpacing(mAllMedia)
-            measureRecyclerViewContent(mAllMedia)
         } else {
             textChanged(mLastSearchedText)
         }
@@ -231,51 +224,6 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         media_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
-    private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
-        media_grid.onGlobalLayout {
-            if (config.scrollHorizontally) {
-                calculateContentWidth(media)
-            } else {
-                calculateContentHeight(media)
-            }
-        }
-    }
-
-    private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
-        /*media_horizontal_fastscroller.setContentWidth(fullWidth)
-        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())*/
-    }
-
-    private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        val pathToCheck = SHOW_ALL
-        val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
-        val sectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
-        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height ?: 0
-
-        var fullHeight = 0
-        var curSectionItems = 0
-        media.forEach {
-            if (it is ThumbnailSection) {
-                fullHeight += sectionTitleHeight
-                if (curSectionItems != 0) {
-                    val rows = ((curSectionItems - 1) / layoutManager.spanCount + 1)
-                    fullHeight += rows * thumbnailHeight
-                }
-                curSectionItems = 0
-            } else {
-                curSectionItems++
-            }
-        }
-
-        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * thumbnailHeight
-        /*media_vertical_fastscroller.setContentHeight(fullHeight)
-        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())*/
-    }
-
     private fun getAllMedia() {
         getCachedMedia("") {
             if (it.isNotEmpty()) {
@@ -348,9 +296,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    override fun selectedPaths(paths: ArrayList<String>) {
-    }
+    override fun selectedPaths(paths: ArrayList<String>) {}
 
-    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {
-    }
+    override fun updateMediaGridDecoration(media: ArrayList<ThumbnailItem>) {}
 }
