@@ -3,8 +3,6 @@ package com.simplemobiletools.gallery.pro.dialogs
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.extensions.beGoneIf
-import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getTimeFormat
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
@@ -66,7 +64,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             return
 
         shownMedia = media
-        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid, null) {
+        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid) {
             if (it is Medium) {
                 callback(it.path)
                 dialog.dismiss()
@@ -80,7 +78,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         view.apply {
             media_grid.adapter = adapter
 
-            media_vertical_fastscroller.isHorizontal = false
+            /*media_vertical_fastscroller.isHorizontal = false
             media_vertical_fastscroller.beGoneIf(scrollHorizontally)
 
             media_horizontal_fastscroller.isHorizontal = true
@@ -96,7 +94,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
                     val medium = (media[it] as? Medium)
                     media_vertical_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
                 }
-            }
+            }*/
         }
     }
 }

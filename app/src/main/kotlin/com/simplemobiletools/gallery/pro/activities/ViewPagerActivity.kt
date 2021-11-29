@@ -895,10 +895,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on_vector else R.drawable.ic_star_off_vector
+        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_vector else R.drawable.ic_star_outline_vector
         bottom_favorite.setImageResource(favoriteIcon)
 
-        val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide
+        val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide_vector else R.drawable.ic_hide_vector
         bottom_toggle_file_visibility.setImageResource(hideIcon)
 
         bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
@@ -929,7 +929,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         printHelper.orientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         try {
-            val resolution = path.getImageResolution()
+            val resolution = path.getImageResolution(this)
             if (resolution == null) {
                 toast(R.string.unknown_error_occurred)
                 return
@@ -987,7 +987,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     @TargetApi(Build.VERSION_CODES.N)
     private fun resizeImage() {
         val oldPath = getCurrentPath()
-        val originalSize = oldPath.getImageResolution() ?: return
+        val originalSize = oldPath.getImageResolution(this) ?: return
         ResizeWithPathDialog(this, originalSize, oldPath) { newSize, newPath ->
             ensureBackgroundThread {
                 try {

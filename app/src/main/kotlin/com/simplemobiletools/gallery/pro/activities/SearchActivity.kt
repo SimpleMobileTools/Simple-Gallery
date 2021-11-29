@@ -30,8 +30,6 @@ import kotlinx.android.synthetic.main.activity_media.*
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_search.media_empty_text_placeholder
 import kotlinx.android.synthetic.main.activity_search.media_grid
-import kotlinx.android.synthetic.main.activity_search.media_horizontal_fastscroller
-import kotlinx.android.synthetic.main.activity_search.media_vertical_fastscroller
 import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
@@ -136,8 +134,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupAdapter() {
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
-            val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
-            MediaAdapter(this, ArrayList(), this, false, false, "", media_grid, fastscroller) {
+            MediaAdapter(this, ArrayList(), this, false, false, "", media_grid) {
                 if (it is Medium) {
                     itemClicked(it.path)
                 }
@@ -233,7 +230,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupScrollDirection() {
         val viewType = config.getFolderViewType(SHOW_ALL)
         val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-        media_vertical_fastscroller.isHorizontal = false
+        /*media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
         media_horizontal_fastscroller.isHorizontal = true
@@ -248,7 +245,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             media_vertical_fastscroller.setViews(media_grid) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
-        }
+        }*/
     }
 
     private fun getBubbleTextItem(index: Int, sorting: Int): String {
@@ -274,8 +271,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
         val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
-        media_horizontal_fastscroller.setContentWidth(fullWidth)
-        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
+        /*media_horizontal_fastscroller.setContentWidth(fullWidth)
+        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())*/
     }
 
     private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
@@ -301,8 +298,8 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * thumbnailHeight
-        media_vertical_fastscroller.setContentHeight(fullHeight)
-        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
+        /*media_vertical_fastscroller.setContentHeight(fullHeight)
+        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())*/
     }
 
     private fun getAllMedia() {

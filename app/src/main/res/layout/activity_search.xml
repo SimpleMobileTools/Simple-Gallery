@@ -19,36 +19,18 @@
         android:textStyle="italic"
         android:visibility="gone" />
 
-    <com.simplemobiletools.commons.views.MyRecyclerView
-        android:id="@+id/media_grid"
+    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+        android:id="@+id/media_fastscroller"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
-        app:spanCount="@integer/media_columns_vertical_scroll" />
+        android:layout_height="wrap_content">
 
-    <com.simplemobiletools.commons.views.FastScroller
-        android:id="@+id/media_vertical_fastscroller"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:paddingStart="@dimen/normal_margin"
-        android:visibility="gone">
+        <com.simplemobiletools.commons.views.MyRecyclerView
+            android:id="@+id/media_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+            app:spanCount="@integer/media_columns_vertical_scroll" />
 
-        <include layout="@layout/fastscroller_handle_vertical" />
-
-    </com.simplemobiletools.commons.views.FastScroller>
-
-    <com.simplemobiletools.commons.views.FastScroller
-        android:id="@+id/media_horizontal_fastscroller"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:paddingTop="@dimen/normal_margin"
-        android:visibility="gone">
-
-        <include layout="@layout/fastscroller_handle_horizontal" />
-
-    </com.simplemobiletools.commons.views.FastScroller>
+    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
 </RelativeLayout>

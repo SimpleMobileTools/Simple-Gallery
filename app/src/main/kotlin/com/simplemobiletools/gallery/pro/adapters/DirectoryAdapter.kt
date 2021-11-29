@@ -26,7 +26,6 @@ import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
@@ -56,9 +55,9 @@ import kotlin.collections.HashMap
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
-    val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit
+    val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, itemClick: (Any) -> Unit
 ) :
-    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick), ItemTouchHelperContract {
+    MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
@@ -616,9 +615,9 @@ class DirectoryAdapter(
         val selectedDirs = getSelectedItems()
         selectedDirs.forEach {
             val path = it.path
-            if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
+            /*if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
                 SAFPath = path
-            }
+            }*/
         }
 
         activity.handleSAFDialog(SAFPath) {

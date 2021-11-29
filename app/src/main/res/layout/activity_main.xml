@@ -47,40 +47,23 @@
             android:textSize="@dimen/bigger_text_size"
             android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyRecyclerView
-            android:id="@+id/directories_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/directories_switch_searching"
-            android:layoutAnimation="@anim/layout_animation"
-            android:scrollbars="none"
-            app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
-            app:spanCount="@integer/directory_columns_vertical_scroll" />
-
-        <com.simplemobiletools.commons.views.FastScroller
-            android:id="@+id/directories_vertical_fastscroller"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/directories_switch_searching"
-            android:layout_alignParentEnd="true"
-            android:paddingStart="@dimen/normal_margin"
-            android:visibility="gone">
-
-            <include layout="@layout/fastscroller_handle_vertical" />
-
-        </com.simplemobiletools.commons.views.FastScroller>
-
-        <com.simplemobiletools.commons.views.FastScroller
-            android:id="@+id/directories_horizontal_fastscroller"
+        <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+            android:id="@+id/directories_fastscroller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:paddingTop="@dimen/normal_margin"
-            android:visibility="gone">
+            android:layout_below="@+id/directories_switch_searching"
+            app:supportSwipeToRefresh="true">
 
-            <include layout="@layout/fastscroller_handle_horizontal" />
+            <com.simplemobiletools.commons.views.MyRecyclerView
+                android:id="@+id/directories_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/directories_switch_searching"
+                android:layoutAnimation="@anim/layout_animation"
+                android:scrollbars="none"
+                app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+                app:spanCount="@integer/directory_columns_vertical_scroll" />
 
-        </com.simplemobiletools.commons.views.FastScroller>
+        </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
     </RelativeLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

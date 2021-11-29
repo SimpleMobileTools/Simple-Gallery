@@ -20,7 +20,6 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
@@ -42,9 +41,9 @@ import java.util.*
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit
+    val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit
 ) :
-    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
+    MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L

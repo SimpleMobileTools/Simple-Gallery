@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_actions_wrapper"
     android:layout_width="match_parent"
@@ -16,13 +15,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/toggle_favorite"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_star_off_vector"
+        android:src="@drawable/ic_star_outline_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_edit"
@@ -37,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_favorite"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_share"
@@ -52,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_edit"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_delete"
@@ -67,7 +66,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_share"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_rotate"
@@ -82,7 +81,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_delete"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_properties"
@@ -91,13 +90,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/properties"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_properties_vector"
+        android:src="@drawable/ic_info_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_change_orientation"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_rotate"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_change_orientation"
@@ -112,7 +111,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_properties"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_slideshow"
@@ -127,7 +126,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_show_on_map"
@@ -142,7 +141,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_slideshow"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_toggle_file_visibility"
@@ -151,13 +150,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/toggle_file_visibility"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_hide"
+        android:src="@drawable/ic_hide_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_rename"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_show_on_map"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_rename"
@@ -166,13 +165,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/rename"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_rename_new"
+        android:src="@drawable/ic_rename_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_set_as"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_toggle_file_visibility"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_set_as"
@@ -187,7 +186,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_rename"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_copy"
@@ -196,13 +195,13 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/copy"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_copy"
+        android:src="@drawable/ic_copy_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_move"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_set_as"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_move"
@@ -217,7 +216,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_copy"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bottom_resize"
@@ -232,6 +231,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_move"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

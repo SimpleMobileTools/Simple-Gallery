@@ -153,8 +153,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
-            media_horizontal_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
-            media_vertical_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
         }
 
         if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
@@ -167,8 +165,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
-        media_horizontal_fastscroller.updateBubbleColors()
-        media_vertical_fastscroller.updateBubbleColors()
+        media_fastscroller.updateColors(adjustedPrimaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
@@ -410,10 +407,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
-            val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(
                 this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                mAllowPickingMultiple, mPath, media_grid, fastscroller
+                mAllowPickingMultiple, mPath, media_grid
             ) {
                 if (it is Medium && !isFinishing) {
                     itemClicked(it.path)
@@ -445,7 +441,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupScrollDirection() {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
         val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-        media_vertical_fastscroller.isHorizontal = false
+        /*media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
         media_horizontal_fastscroller.isHorizontal = true
@@ -460,7 +456,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
-        }
+        }*/
     }
 
     private fun getBubbleTextItem(index: Int, sorting: Int): String {
@@ -734,8 +730,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
         val spacing = config.thumbnailSpacing
         val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * (thumbnailWidth + spacing) - spacing
-        media_horizontal_fastscroller.setContentWidth(fullWidth)
-        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
+        /*media_horizontal_fastscroller.setContentWidth(fullWidth)
+        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())*/
     }
 
     private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
@@ -762,8 +758,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         val spacing = config.thumbnailSpacing
         fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * (thumbnailHeight + spacing) - spacing
-        media_vertical_fastscroller.setContentHeight(fullHeight)
-        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
+        /*media_vertical_fastscroller.setContentHeight(fullHeight)
+        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())*/
     }
 
     private fun handleGridSpacing(media: ArrayList<ThumbnailItem> = mMedia) {
@@ -932,8 +928,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
             val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-            media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
-            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
+            /*media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
+            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)*/
             setupAdapter()
         }
 
