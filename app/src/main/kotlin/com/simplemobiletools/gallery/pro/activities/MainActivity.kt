@@ -631,11 +631,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = 0
-            bottomMargin = 0
-        }
-
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
             directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -652,60 +647,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
         mZoomListener = null
-    }
-
-    private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
-        directories_grid.onGlobalLayout {
-            if (config.scrollHorizontally) {
-                calculateContentWidth(directories)
-            } else {
-                calculateContentHeight(directories)
-            }
-        }
-    }
-
-    private fun calculateContentWidth(directories: ArrayList<Directory>) {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-
-        val fullWidth = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
-            val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
-        } else {
-            val thumbnailWidth = (layoutManager.getChildAt(0)?.width ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
-            val columnCount = (directories.size - 1) / layoutManager.spanCount + 1
-            columnCount * thumbnailWidth
-        }
-
-        /*directories_horizontal_fastscroller.setContentWidth(fullWidth)
-        directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())*/
-    }
-
-    private fun calculateContentHeight(directories: ArrayList<Directory>) {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-
-        val fullHeight = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
-            val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
-            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
-        } else {
-            var thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0)
-            if (config.viewTypeFolders == VIEW_TYPE_GRID) {
-                thumbnailHeight += resources.getDimension(R.dimen.medium_margin).toInt() * 2
-            }
-
-            val rowCount = (directories.size - 1) / layoutManager.spanCount + 1
-            rowCount * thumbnailHeight
-        }
-
-        /*directories_vertical_fastscroller.setContentHeight(fullHeight)
-        directories_vertical_fastscroller.setScrollToY(directories_grid.computeVerticalScrollOffset())*/
     }
 
     private fun initZoomListener() {
@@ -768,7 +710,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         invalidateOptionsMenu()
         getRecyclerAdapter()?.apply {
             notifyItemRangeChanged(0, dirs.size)
-            measureRecyclerViewContent(dirs)
         }
     }
 
@@ -1263,7 +1204,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-            measureRecyclerViewContent(dirsToShow)
         } else {
             runOnUiThread {
                 if (textToSearch.isNotEmpty()) {
@@ -1273,7 +1213,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 checkPlaceholderVisibility(dirsToShow)
 
                 (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
-                measureRecyclerViewContent(dirsToShow)
             }
         }
 
