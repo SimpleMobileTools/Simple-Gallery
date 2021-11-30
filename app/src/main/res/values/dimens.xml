@@ -4,6 +4,7 @@
     <dimen name="medium_tmb_size">100dp</dimen>
     <dimen name="sd_card_icon_size">20dp</dimen>
     <dimen name="play_outline_icon_size">22dp</dimen>
+    <dimen name="favorite_icon_size">24dp</dimen>
     <dimen name="selection_check_size">26dp</dimen>
     <dimen name="drag_handle_size">34dp</dimen>
     <dimen name="play_outline_size_big">96dp</dimen>

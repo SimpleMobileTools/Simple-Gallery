@@ -525,7 +525,7 @@ class MediaAdapter(
 
             media_item_holder.setPadding(padding, padding, padding, padding)
 
-            favorite.beVisibleIf(medium.isFavorite)
+            favorite.beVisibleIf(medium.isFavorite && config.markFavoriteItems)
 
             play_portrait_outline?.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {

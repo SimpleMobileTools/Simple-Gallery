@@ -22,11 +22,13 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
             dialog_file_style_animate_gifs.isChecked = config.animateGifs
             dialog_file_style_show_thumbnail_video_duration.isChecked = config.showThumbnailVideoDuration
             dialog_file_style_show_thumbnail_file_types.isChecked = config.showThumbnailFileTypes
+            dialog_file_style_mark_favorite_items.isChecked = config.markFavoriteItems
 
             dialog_file_style_rounded_corners_holder.setOnClickListener { dialog_file_style_rounded_corners.toggle() }
             dialog_file_style_animate_gifs_holder.setOnClickListener { dialog_file_style_animate_gifs.toggle() }
             dialog_file_style_show_thumbnail_video_duration_holder.setOnClickListener { dialog_file_style_show_thumbnail_video_duration.toggle() }
             dialog_file_style_show_thumbnail_file_types_holder.setOnClickListener { dialog_file_style_show_thumbnail_file_types.toggle() }
+            dialog_file_style_mark_favorite_items_holder.setOnClickListener { dialog_file_style_mark_favorite_items.toggle() }
 
             dialog_file_style_spacing_holder.setOnClickListener {
                 val items = arrayListOf(
@@ -61,6 +63,7 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
         config.animateGifs = view.dialog_file_style_animate_gifs.isChecked
         config.showThumbnailVideoDuration = view.dialog_file_style_show_thumbnail_video_duration.isChecked
         config.showThumbnailFileTypes = view.dialog_file_style_show_thumbnail_file_types.isChecked
+        config.markFavoriteItems = view.dialog_file_style_mark_favorite_items.isChecked
         config.thumbnailSpacing = thumbnailSpacing
     }
 

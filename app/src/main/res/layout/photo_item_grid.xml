@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/small_margin"
         android:fontFamily="sans-serif-medium"
         android:shadowColor="@color/default_background_color"
@@ -29,14 +29,15 @@
 
     <ImageView
         android:id="@+id/favorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/favorite_icon_size"
+        android:layout_height="@dimen/favorite_icon_size"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_margin="@dimen/small_margin"
+        android:padding="@dimen/tiny_margin"
         android:gravity="end"
         android:background="@drawable/circle_black_background"
-        android:src="@drawable/ic_star_on_vector"
+        android:src="@drawable/ic_star_vector"
         android:visibility="gone" />
 
     <ImageView
