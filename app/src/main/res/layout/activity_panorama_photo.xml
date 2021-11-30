@@ -27,7 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/activity_margin"
-        android:src="@drawable/ic_cardboard"/>
+        android:src="@drawable/ic_cardboard_vector"/>
 
     <ImageView
         android:id="@+id/explore"

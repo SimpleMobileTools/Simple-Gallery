@@ -3,9 +3,7 @@ package com.simplemobiletools.gallery.pro.dialogs
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.extensions.beGoneIf
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getTimeFormat
+import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -14,23 +12,28 @@ import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getCachedMedia
+import com.simplemobiletools.gallery.pro.helpers.GridSpacingItemDecoration
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
+import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.dialog_medium_picker.view.*
 
 class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownMedia = ArrayList<ThumbnailItem>()
     val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
-    val viewType = activity.config.getFolderViewType(if (activity.config.showAll) SHOW_ALL else path)
+    val config = activity.config
+    val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
     var isGridViewType = viewType == VIEW_TYPE_GRID
 
     init {
         (view.media_grid.layoutManager as MyGridLayoutManager).apply {
-            orientation = if (activity.config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
-            spanCount = if (isGridViewType) activity.config.mediaColumnCnt else 1
+            orientation = if (config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
+            spanCount = if (isGridViewType) config.mediaColumnCnt else 1
         }
+
+        view.media_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
 
         dialog = AlertDialog.Builder(activity)
             .setPositiveButton(R.string.ok, null)
@@ -66,36 +69,39 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             return
 
         shownMedia = media
-        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid, null) {
+        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid) {
             if (it is Medium) {
                 callback(it.path)
                 dialog.dismiss()
             }
         }
 
-        val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
-        val sorting = activity.config.getFolderSorting(if (path.isEmpty()) SHOW_ALL else path)
-        val dateFormat = activity.config.dateFormat
-        val timeFormat = activity.getTimeFormat()
+        val scrollHorizontally = config.scrollHorizontally && isGridViewType
         view.apply {
             media_grid.adapter = adapter
+            media_fastscroller.setScrollVertically(!scrollHorizontally)
+        }
+        handleGridSpacing(media)
+    }
 
-            media_vertical_fastscroller.isHorizontal = false
-            media_vertical_fastscroller.beGoneIf(scrollHorizontally)
+    private fun handleGridSpacing(media: ArrayList<ThumbnailItem>) {
+        if (isGridViewType) {
+            val spanCount = config.mediaColumnCnt
+            val spacing = config.thumbnailSpacing
+            val useGridPosition = media.firstOrNull() is ThumbnailSection
 
-            media_horizontal_fastscroller.isHorizontal = true
-            media_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
+            var currentGridDecoration: GridSpacingItemDecoration? = null
+            if (view.media_grid.itemDecorationCount > 0) {
+                currentGridDecoration = view.media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+                currentGridDecoration.items = media
+            }
 
-            if (scrollHorizontally) {
-                media_horizontal_fastscroller.setViews(media_grid) {
-                    val medium = (media[it] as? Medium)
-                    media_horizontal_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
+            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, useGridPosition)
+            if (currentGridDecoration.toString() != newGridDecoration.toString()) {
+                if (currentGridDecoration != null) {
+                    view.media_grid.removeItemDecoration(currentGridDecoration)
                 }
-            } else {
-                media_vertical_fastscroller.setViews(media_grid) {
-                    val medium = (media[it] as? Medium)
-                    media_vertical_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
-                }
+                view.media_grid.addItemDecoration(newGridDecoration)
             }
         }
     }

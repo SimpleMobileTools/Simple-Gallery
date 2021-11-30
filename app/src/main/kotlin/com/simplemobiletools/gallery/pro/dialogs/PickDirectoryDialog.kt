@@ -14,8 +14,10 @@ import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
-class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
-                          val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(
+    val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
+    val callback: (path: String) -> Unit
+) {
     private var dialog: AlertDialog
     private var shownDirectories = ArrayList<Directory>()
     private var allDirectories = ArrayList<Directory>()
@@ -31,15 +33,17 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
+        view.directories_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
+
         val builder = AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
-                .setOnKeyListener { dialogInterface, i, keyEvent ->
-                    if (keyEvent.action == KeyEvent.ACTION_UP && i == KeyEvent.KEYCODE_BACK) {
-                        backPressed()
-                    }
-                    true
+            .setPositiveButton(R.string.ok, null)
+            .setNegativeButton(R.string.cancel, null)
+            .setOnKeyListener { dialogInterface, i, keyEvent ->
+                if (keyEvent.action == KeyEvent.ACTION_UP && i == KeyEvent.KEYCODE_BACK) {
+                    backPressed()
                 }
+                true
+            }
 
         if (showOtherFolderButton) {
             builder.setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
@@ -90,7 +94,8 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             allDirectories = newDirs.clone() as ArrayList<Directory>
         }
 
-        val distinctDirs = newDirs.filter { showFavoritesBin || (!it.isRecycleBin() && !it.areFavorites()) }.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
+        val distinctDirs = newDirs.filter { showFavoritesBin || (!it.isRecycleBin() && !it.areFavorites()) }.distinctBy { it.path.getDistinctPath() }
+            .toMutableList() as ArrayList<Directory>
         val sortedDirs = activity.getSortedDirectories(distinctDirs)
         val dirs = activity.getDirsToShow(sortedDirs, allDirectories, currentPathPrefix).clone() as ArrayList<Directory>
         if (dirs.hashCode() == shownDirectories.hashCode()) {
@@ -121,27 +126,9 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
         }
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
-        val sorting = activity.config.directorySorting
-        val dateFormat = activity.config.dateFormat
-        val timeFormat = activity.getTimeFormat()
         view.apply {
             directories_grid.adapter = adapter
-
-            directories_vertical_fastscroller.isHorizontal = false
-            directories_vertical_fastscroller.beGoneIf(scrollHorizontally)
-
-            directories_horizontal_fastscroller.isHorizontal = true
-            directories_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
-
-            if (scrollHorizontally) {
-                directories_horizontal_fastscroller.setViews(directories_grid) {
-                    directories_horizontal_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
-                }
-            } else {
-                directories_vertical_fastscroller.setViews(directories_grid) {
-                    directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting, activity, dateFormat, timeFormat))
-                }
-            }
+            directories_fastscroller.setScrollVertically(!scrollHorizontally)
         }
     }
 

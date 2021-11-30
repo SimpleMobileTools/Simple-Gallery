@@ -14,7 +14,6 @@ import android.provider.MediaStore.Video
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -188,8 +187,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
             getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
-            directories_vertical_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
-            directories_horizontal_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
         }
 
         val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
@@ -197,9 +194,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(mDirs, forceRecreate = true)
         }
 
-        directories_horizontal_fastscroller.updateBubbleColors()
-        directories_vertical_fastscroller.updateBubbleColors()
+        directories_fastscroller.updateColors(adjustedPrimaryColor)
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
+        getRecyclerAdapter()?.apply {
+            dateFormat = config.dateFormat
+            timeFormat = getTimeFormat()
+        }
 
         directories_empty_placeholder.setTextColor(config.textColor)
         directories_empty_placeholder_2.setTextColor(adjustedPrimaryColor)
@@ -494,6 +494,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     gotDirectories(getCurrentlyDisplayedDirs())
                 }
             }
+
+            getRecyclerAdapter()?.directorySorting = config.directorySorting
         }
     }
 
@@ -625,21 +627,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             setupListLayoutManager()
         }
+
+        (directories_refresh_layout.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.BELOW, R.id.directories_switch_searching)
     }
 
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = 0
-            bottomMargin = 0
-        }
-
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
-            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
-            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
         layoutManager.spanCount = config.dirColumnCnt
@@ -649,61 +648,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = RecyclerView.VERTICAL
-        directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (directories_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
+        directories_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         mZoomListener = null
-    }
-
-    private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
-        directories_grid.onGlobalLayout {
-            if (config.scrollHorizontally) {
-                calculateContentWidth(directories)
-            } else {
-                calculateContentHeight(directories)
-            }
-        }
-    }
-
-    private fun calculateContentWidth(directories: ArrayList<Directory>) {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-
-        val fullWidth = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
-            val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
-        } else {
-            val thumbnailWidth = (layoutManager.getChildAt(0)?.width ?: 0) + resources.getDimension(R.dimen.medium_margin).toInt() * 2
-            val columnCount = (directories.size - 1) / layoutManager.spanCount + 1
-            columnCount * thumbnailWidth
-        }
-
-        directories_horizontal_fastscroller.setContentWidth(fullWidth)
-        directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())
-    }
-
-    private fun calculateContentHeight(directories: ArrayList<Directory>) {
-        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
-
-        val fullHeight = if (config.folderStyle == FOLDER_STYLE_SQUARE) {
-            val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
-            ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
-        } else {
-            var thumbnailHeight = (layoutManager.getChildAt(0)?.height ?: 0)
-            if (config.viewTypeFolders == VIEW_TYPE_GRID) {
-                thumbnailHeight += resources.getDimension(R.dimen.medium_margin).toInt() * 2
-            }
-
-            val rowCount = (directories.size - 1) / layoutManager.spanCount + 1
-            rowCount * thumbnailHeight
-        }
-
-        directories_vertical_fastscroller.setContentHeight(fullHeight)
-        directories_vertical_fastscroller.setScrollToY(directories_grid.computeVerticalScrollOffset())
     }
 
     private fun initZoomListener() {
@@ -766,7 +712,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         invalidateOptionsMenu()
         getRecyclerAdapter()?.apply {
             notifyItemRangeChanged(0, dirs.size)
-            measureRecyclerViewContent(dirs)
         }
     }
 
@@ -919,10 +864,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         runOnUiThread {
             checkPlaceholderVisibility(dirs)
-
-            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-            directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
-            directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
             setupAdapter(dirs.clone() as ArrayList<Directory>)
         }
 
@@ -931,13 +872,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mLastMediaFetcher = MediaFetcher(applicationContext)
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
+        val favoritePaths = getFavoritePaths()
+
+        /*if (isRPlus()) {
+            mLastMediaFetcher!!.getAndroid11FolderMedia(getImagesOnly, getVideosOnly, favoritePaths)
+            return
+        }*/
+
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
         val noMediaFolders = getNoMediaFoldersSync()
         val tempFolderPath = config.tempFolderPath
         val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
-        val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
         val lastModifieds = mLastMediaFetcher!!.getLastModifieds()
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
@@ -1105,7 +1052,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 runOnUiThread {
                     directories_empty_placeholder.beGone()
                     directories_empty_placeholder_2.beGone()
-                    directories_grid.beVisible()
+                    directories_fastscroller.beVisible()
                 }
             }
 
@@ -1213,7 +1160,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         directories_empty_placeholder_2.underlineText()
-        directories_grid.beVisibleIf(directories_empty_placeholder.isGone())
+        directories_fastscroller.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "", forceRecreate: Boolean = false) {
@@ -1224,15 +1171,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (currAdapter == null || forceRecreate) {
             initZoomListener()
-            val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(
                 this,
                 dirsToShow,
                 this,
                 directories_grid,
                 isPickIntent(intent) || isGetAnyContentIntent(intent),
-                directories_refresh_layout,
-                fastscroller
+                directories_refresh_layout
             ) {
                 val clickedDir = it as Directory
                 val path = clickedDir.path
@@ -1251,12 +1196,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     directories_grid.adapter = this
                     setupScrollDirection()
 
-                    if (config.viewTypeFolders == VIEW_TYPE_LIST) {
+                    if (config.viewTypeFolders == VIEW_TYPE_LIST && areSystemAnimationsEnabled) {
                         directories_grid.scheduleLayoutAnimation()
                     }
                 }
             }
-            measureRecyclerViewContent(dirsToShow)
         } else {
             runOnUiThread {
                 if (textToSearch.isNotEmpty()) {
@@ -1266,7 +1210,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 checkPlaceholderVisibility(dirsToShow)
 
                 (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
-                measureRecyclerViewContent(dirsToShow)
             }
         }
 
@@ -1277,22 +1220,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun setupScrollDirection() {
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-        directories_vertical_fastscroller.isHorizontal = false
-        directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
-
-        directories_horizontal_fastscroller.isHorizontal = true
-        directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
-
-        if (allowHorizontalScroll) {
-            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
-            }
-        } else {
-            directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
-            }
-        }
+        val scrollHorizontally = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
+        directories_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
@@ -1343,10 +1272,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
-
-    private fun getBubbleTextItem(index: Int) =
-        getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this, mDateFormat, mTimeFormat)
-            ?: ""
 
     private fun setupLatestMediaId() {
         ensureBackgroundThread {

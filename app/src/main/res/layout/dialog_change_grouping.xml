@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/grouping_dialog_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -26,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/do_not_group_files"/>
+                android:text="@string/do_not_group_files" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_last_modified_daily"
@@ -34,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_last_modified_daily"/>
+                android:text="@string/by_last_modified_daily" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_last_modified_monthly"
@@ -42,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_last_modified_monthly"/>
+                android:text="@string/by_last_modified_monthly" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_date_taken_daily"
@@ -50,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_date_taken_daily"/>
+                android:text="@string/by_date_taken_daily" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_date_taken_monthly"
@@ -58,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_date_taken_monthly"/>
+                android:text="@string/by_date_taken_monthly" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_file_type"
@@ -66,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_file_type"/>
+                android:text="@string/by_file_type" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_extension"
@@ -74,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_extension"/>
+                android:text="@string/by_extension" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_folder"
@@ -82,12 +81,11 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_folder"/>
+                android:text="@string/by_folder" />
 
         </RadioGroup>
 
-        <include
-            layout="@layout/divider"/>
+        <include layout="@layout/divider" />
 
         <RadioGroup
             android:id="@+id/grouping_dialog_radio_order"
@@ -102,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/ascending"/>
+                android:text="@string/ascending" />
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_descending"
@@ -110,12 +108,12 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/descending"/>
+                android:text="@string/descending" />
         </RadioGroup>
 
         <include
             android:id="@+id/use_for_this_folder_divider"
-            layout="@layout/divider"/>
+            layout="@layout/divider" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/grouping_dialog_use_for_this_folder"
@@ -123,7 +121,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/use_for_this_folder"/>
+            android:text="@string/use_for_this_folder" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/grouping_dialog_bottom_note"
@@ -132,7 +130,7 @@
             android:paddingStart="@dimen/small_margin"
             android:paddingEnd="@dimen/medium_margin"
             android:text="@string/grouping_and_sorting"
-            android:textSize="@dimen/smaller_text_size"/>
+            android:textSize="@dimen/smaller_text_size" />
 
     </LinearLayout>
 </ScrollView>

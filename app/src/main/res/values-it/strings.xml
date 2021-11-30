@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
     <string name="reorder_by_dragging">Riordina cartelle trascinandole</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
     <string name="images">Immagini</string>
@@ -44,7 +43,6 @@
     <string name="portraits">Ritratti</string>
     <string name="no_media_with_filters">Nessun file trovato con il filtro selezionato.</string>
     <string name="change_filters_underlined"><u>Cambia filtro</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Si possono vedere attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
     <string name="exclude">Escludi</string>
@@ -58,14 +56,14 @@
     <string name="hidden_folders">Cartelle nascoste</string>
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
     <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>
     <string name="add_folder">Aggiungi cartella</string>
-    <string name="included_activity_placeholder">Se si hanno alcune cartelle che contengono media, ma non sono state riconosciute dall\'app, si possono aggiungerle manualmente qui.</string>
+    <string name="included_activity_placeholder">Se hai alcune cartelle che contengono media, ma non sono state riconosciute dall\'applicazione, puoi aggiungerle manualmente qui.
+\n
+\nL\'aggiunta di alcuni elementi qui non escluderà nessun\'altra cartella.</string>
     <string name="no_media_add_included">Nessun file multimediale trovato. È risolvibile aggiungendo a mano le cartelle contenenti i file multimediali.</string>
-
     <!-- Resizing -->
     <string name="resize">Ridimensiona</string>
     <string name="resize_and_save">Ridimensiona la selezione e salva</string>
@@ -73,7 +71,6 @@
     <string name="height">Altezza</string>
     <string name="keep_aspect_ratio">Mantieni proporzioni</string>
     <string name="invalid_values">Inserisci una risoluzione valida</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Ruota</string>
@@ -98,22 +95,22 @@
     <string name="flip">Capovolgi</string>
     <string name="flip_horizontally">Capovolgi orizzontalmente</string>
     <string name="flip_vertically">Capovolgi verticalmente</string>
-    <string name="free_aspect_ratio">Libero</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Altro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Libero</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Altro</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Sfondo semplice</string>
     <string name="set_as_wallpaper">Imposta come sfondo</string>
     <string name="set_as_wallpaper_failed">Impostazione sfondo non riuscita</string>
     <string name="set_as_wallpaper_with">Imposta come sfondo con:</string>
-    <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
+    <string name="setting_wallpaper">Impostazione sfondo…</string>
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
     <string name="portrait_aspect_ratio">Proporzioni ritratto</string>
     <string name="landscape_aspect_ratio">Proporzioni panorama</string>
     <string name="home_screen">Schermata principale</string>
     <string name="lock_screen">Schermata di blocco</string>
     <string name="home_and_lock_screen">Entrambe le schermate</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Presentazione</string>
     <string name="interval">Intervallo (secondi):</string>
@@ -129,10 +126,8 @@
     <string name="slide">Diapositiva</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Raggruppa per</string>
     <string name="do_not_group_files">Non raggruppare i file</string>
@@ -146,11 +141,9 @@
     <string name="by_file_type">Tipo di file</string>
     <string name="by_extension">Estensione</string>
     <string name="grouping_and_sorting">Notare che il raggruppamento e l\'ordinamento sono due campi indipendenti</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Cartella mostrata nel widget:</string>
     <string name="show_folder_name">Mostra il nome della cartella</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci automaticamente i video</string>
     <string name="remember_last_video_position">Ricorda l\'ultimo stato di riproduzione dei video</string>
@@ -194,6 +187,7 @@
     <string name="allow_zooming_videos">Permetti l\'ingrandimento dei video con un doppio tocco</string>
     <string name="folder_thumbnail_style">Stile anteprime delle cartelle</string>
     <string name="file_thumbnail_style">Stile anteprime dei file</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Spaziatura tra le anteprime</string>
     <string name="show_file_count_line">Mostra il numero dei file in una riga separata</string>
     <string name="show_file_count_brackets">Mostra il numero dei file tra parentesi</string>
@@ -202,18 +196,15 @@
     <string name="square">Quadrato</string>
     <string name="rounded_corners">Angoli arrotondati</string>
     <string name="export_favorite_paths">Esporta i percorsi dei file preferiti</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>
     <string name="fullscreen_media">Media a schermo intero</string>
     <string name="extended_details">Dettagli estesi</string>
     <string name="bottom_actions">Azioni inferiori</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gestisci la visibilità delle azioni</string>
     <string name="toggle_favorite">Attiva / disattiva preferito</string>
     <string name="toggle_file_visibility">Attiva / disattiva la visibilità dei file</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libera</string>
     <string name="pesdk_transform_button_resetCrop">Reimposta</string>
@@ -273,7 +264,7 @@
     <string name="pesdk_editor_save">Salva</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Esportazione…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Esportazione %s.</string>
-    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_name">Adesivo</string>
     <string name="pesdk_sticker_title_color">Colore Sticker</string>
     <string name="pesdk_sticker_title_options">Opzioni Sticker Options</string>
     <string name="pesdk_sticker_button_add">Aggiungi</string>
@@ -327,7 +318,6 @@
     <string name="pesdk_common_title_aquamarinColor">Acquamarina</string>
     <string name="pesdk_common_title_pipettableColor">Colore pipettabile</string>
     <string name="vesdk_video_trim_title_name">Ritaglia</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Come posso impostare Semplice Galleria come la galleria predefinita del dispositivo?</string>
     <string name="faq_1_text">Si deve prima trovare l\'attuale galleria predefinita nella sezione App delle impostazioni di sistema, cercare un pulsante che dice qualcosa come \"App predefinite\", cliccarlo e poi selezionare \"Ripristina predefiniti\".
@@ -343,7 +333,7 @@
     <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica?</string>
     <string name="faq_6_text">Può succedere che si vedano apparire alcuni album insoliti. Si possono escluderli facilmente toccandoli a lungo e selezionando Escludi. Nella finestra successiva si possono quindi selezionare la cartella superiore, con la possibilità di impedire la visualizzazione anche di altri album correlati.</string>
     <string name="faq_7_title">Una cartella con immagini non viene mostrata, cosa posso fare?</string>
-    <string name="faq_7_text">Può succedere per vari motivi, ma la soluzione è semplice. Vai in Impostazioni -> Gestisci le cartelle incluse, tocca il tasto Più e naviga verso la cartella desiderata.</string>
+    <string name="faq_7_text">Può succedere per vari motivi, ma la soluzione è semplice. Vai in Impostazioni -&gt; Gestisci le cartelle incluse, tocca il tasto Più e naviga verso la cartella desiderata.</string>
     <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle?</string>
     <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni → Gestisci le cartelle escluse, escludi la cartella root \"/\", poi aggiungi le cartelle desiderate in Impostazioni → Gestisci le cartelle incluse.
         Ciò renderà visibili solo le cartelle selezionate, dato che sia l\'esclusione che l\'inclusione sono ricorsive e se una cartella è sia esclusa che inclusa, verrà mostrata.</string>
@@ -359,7 +349,6 @@
     <string name="faq_14_text">Si può premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Per farla rimanere visibile, premere a lungo e selezionare \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, si può eliminare il file con qualsiasi gestore di file. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Perchè l\'app occupa così tanto spazio?</string>
     <string name="faq_15_text">La cache dell\'app può occupare massimo 250MB, serve per veloccizare il caricamento delle immagini. Se l\'app sta prendendo sempre più spazio, molto probabilmente è causato dagli elementi nel Cestino. Questi file contano nella dimensione dell\'app. Puoi svuotare il Cestino aprendolo ed eliminando tutti i file, oppure andando nelle impostazioni dell\'app. Ogni file nel Cestino viene eliminato automaticamente dopo 30 giorni.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Semplice Galleria Pro - gestore di foto &amp; editor</string>
@@ -421,7 +410,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

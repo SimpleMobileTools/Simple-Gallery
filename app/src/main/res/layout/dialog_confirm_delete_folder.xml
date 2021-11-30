@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/dialog_confirm_delete_folder_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,7 +11,7 @@
         android:paddingLeft="@dimen/big_margin"
         android:paddingTop="@dimen/big_margin"
         android:paddingRight="@dimen/big_margin"
-        android:textSize="@dimen/bigger_text_size"/>
+        android:textSize="@dimen/bigger_text_size" />
 
     <TextView
         android:id="@+id/message_warning"
@@ -24,6 +23,6 @@
         android:paddingRight="@dimen/big_margin"
         android:paddingBottom="@dimen/activity_margin"
         android:textColor="@color/md_red_700"
-        android:textSize="@dimen/bigger_text_size"/>
+        android:textSize="@dimen/bigger_text_size" />
 
 </RelativeLayout>

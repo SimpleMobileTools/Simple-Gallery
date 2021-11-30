@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
+import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.*
@@ -26,7 +27,6 @@ import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
@@ -56,9 +56,9 @@ import kotlin.collections.HashMap
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
-    val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit
+    val isPickIntent: Boolean, val swipeRefreshLayout: SwipeRefreshLayout? = null, itemClick: (Any) -> Unit
 ) :
-    MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick), ItemTouchHelperContract {
+    MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract, RecyclerViewFastScroller.OnPopupTextUpdate {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
@@ -75,6 +75,9 @@ class DirectoryAdapter(
     private var showMediaCount = config.showFolderMediaCount
     private var folderStyle = config.folderStyle
     private var limitFolderTitle = config.limitFolderTitle
+    var directorySorting = config.directorySorting
+    var dateFormat = config.dateFormat
+    var timeFormat = activity.getTimeFormat()
 
     init {
         setupDragListener(true)
@@ -616,9 +619,9 @@ class DirectoryAdapter(
         val selectedDirs = getSelectedItems()
         selectedDirs.forEach {
             val path = it.path
-            if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
+            /*if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
                 SAFPath = path
-            }
+            }*/
         }
 
         activity.handleSAFDialog(SAFPath) {
@@ -880,4 +883,6 @@ class DirectoryAdapter(
     override fun onRowClear(myViewHolder: ViewHolder?) {
         swipeRefreshLayout?.isEnabled = activity.config.enablePullToRefresh
     }
+
+    override fun onChange(position: Int) = dirs.getOrNull(position)?.getBubbleText(directorySorting, activity, dateFormat, timeFormat) ?: ""
 }

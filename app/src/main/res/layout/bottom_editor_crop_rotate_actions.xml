@@ -28,7 +28,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/resize"
         android:padding="@dimen/normal_margin"
-        android:src="@drawable/ic_minimize"
+        android:src="@drawable/ic_minimize_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_aspect_ratio"
         app:layout_constraintHorizontal_bias="0.5"

@@ -157,14 +157,14 @@
     <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
-    <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
+    <string name="crop_thumbnails">Voorbeelden bijsnijden</string>
     <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
-    <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
+    <string name="scroll_thumbnails_horizontally">Voorbeelden horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
     <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
@@ -192,9 +192,10 @@
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
     <string name="allow_zooming_videos">Bij video\'s inzoomen met dubbelklikken</string>
-    <string name="folder_thumbnail_style">Stijl voor thumbnails mappen</string>
-    <string name="file_thumbnail_style">Stijl voor thumbnails bestanden</string>
-    <string name="thumbnail_spacing">Afstand tussen thumbnails</string>
+    <string name="folder_thumbnail_style">Stijl voor voorbeelden van mappen</string>
+    <string name="file_thumbnail_style">Stijl voor voorbeelden van bestanden</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="thumbnail_spacing">Afstand tussen voorbeelden</string>
     <string name="show_file_count_line">Aantal bestanden op aparte regel tonen</string>
     <string name="show_file_count_brackets">Aantal bestanden tussen rechte haken tonen</string>
     <string name="show_file_count_none">Aantal bestanden niet tonen</string>
@@ -204,7 +205,7 @@
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Miniatuurvoorbeelden</string>
+    <string name="thumbnails">Voorbeelden</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
     <string name="bottom_actions">Acties onder aan het scherm</string>

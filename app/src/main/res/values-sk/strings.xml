@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Povoliť približovanie videí dvojitým ťuknutím</string>
     <string name="folder_thumbnail_style">Štýl miniatúr priečinkov</string>
     <string name="file_thumbnail_style">Štýl miniatúr súborov</string>
+    <string name="mark_favorite_items">Označiť obľúbené položky</string>
     <string name="thumbnail_spacing">Medzery medzi miniatúrami</string>
     <string name="show_file_count_line">Zobraziť počet súborov na samostatnom riadku</string>
     <string name="show_file_count_brackets">Zobraziť počet súborov v zátvorkách</string>

@@ -12,7 +12,6 @@ import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
@@ -61,8 +60,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
     private var mLastSearchedText = ""
-    private var mDateFormat = ""
-    private var mTimeFormat = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -125,9 +122,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
-        mDateFormat = config.dateFormat
-        mTimeFormat = getTimeFormat()
-
         if (mStoredAnimateGifs != config.animateGifs) {
             getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -153,8 +147,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
-            media_horizontal_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
-            media_vertical_fastscroller.updatePrimaryColor(adjustedPrimaryColor)
         }
 
         if (mStoredThumbnailSpacing != config.thumbnailSpacing) {
@@ -167,9 +159,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
-        media_horizontal_fastscroller.updateBubbleColors()
-        media_vertical_fastscroller.updateBubbleColors()
+        media_fastscroller.updateColors(adjustedPrimaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
+        getMediaAdapter()?.apply {
+            dateFormat = config.dateFormat
+            timeFormat = getTimeFormat()
+        }
+
         media_empty_text_placeholder.setTextColor(config.textColor)
         media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
 
@@ -368,13 +364,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     if (grouped.isEmpty()) {
                         media_empty_text_placeholder.text = getString(R.string.no_items_found)
                         media_empty_text_placeholder.beVisible()
+                        media_fastscroller.beGone()
                     } else {
                         media_empty_text_placeholder.beGone()
+                        media_fastscroller.beVisible()
                     }
 
                     handleGridSpacing(grouped)
                     getMediaAdapter()?.updateMedia(grouped)
-                    measureRecyclerViewContent(grouped)
                 }
             } catch (ignored: Exception) {
             }
@@ -410,10 +407,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
-            val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(
                 this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                mAllowPickingMultiple, mPath, media_grid, fastscroller
+                mAllowPickingMultiple, mPath, media_grid
             ) {
                 if (it is Medium && !isFinishing) {
                     itemClicked(it.path)
@@ -424,17 +420,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-            if (viewType == VIEW_TYPE_LIST) {
+            if (viewType == VIEW_TYPE_LIST && areSystemAnimationsEnabled) {
                 media_grid.scheduleLayoutAnimation()
             }
 
             setupLayoutManager()
             handleGridSpacing()
-            measureRecyclerViewContent(mMedia)
         } else if (mLastSearchedText.isEmpty()) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
             handleGridSpacing()
-            measureRecyclerViewContent(mMedia)
         } else {
             searchQueryChanged(mLastSearchedText)
         }
@@ -444,32 +438,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupScrollDirection() {
         val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-        val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-        media_vertical_fastscroller.isHorizontal = false
-        media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
-
-        media_horizontal_fastscroller.isHorizontal = true
-        media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
-
-        val sorting = config.getFolderSorting(if (mShowAll) SHOW_ALL else mPath)
-        if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        } else {
-            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
-            }
-        }
-    }
-
-    private fun getBubbleTextItem(index: Int, sorting: Int): String {
-        var realIndex = index
-        val mediaAdapter = getMediaAdapter()
-        if (mediaAdapter?.isASectionTitle(index) == true) {
-            realIndex++
-        }
-        return mediaAdapter?.getItemBubbleText(realIndex, sorting, mDateFormat, mTimeFormat) ?: ""
+        val scrollHorizontally = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
+        media_fastscroller.setScrollVertically(!scrollHorizontally)
     }
 
     private fun checkLastMediaChanged() {
@@ -693,17 +663,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupGridLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = 0
-            bottomMargin = 0
-        }
-
         if (config.scrollHorizontally) {
             layoutManager.orientation = RecyclerView.HORIZONTAL
-            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
             layoutManager.orientation = RecyclerView.VERTICAL
-            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
         layoutManager.spanCount = config.mediaColumnCnt
@@ -719,51 +684,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
-        media_grid.onGlobalLayout {
-            if (config.scrollHorizontally) {
-                calculateContentWidth(media)
-            } else {
-                calculateContentHeight(media)
-            }
-        }
-    }
-
-    private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
+    private fun setupListLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
-        val spacing = config.thumbnailSpacing
-        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * (thumbnailWidth + spacing) - spacing
-        media_horizontal_fastscroller.setContentWidth(fullWidth)
-        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
-    }
-
-    private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        val pathToCheck = if (mPath.isEmpty()) SHOW_ALL else mPath
-        val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
-        val sectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
-        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height ?: 0
-
-        var fullHeight = 0
-        var curSectionItems = 0
-        media.forEach {
-            if (it is ThumbnailSection) {
-                fullHeight += sectionTitleHeight
-                if (curSectionItems != 0) {
-                    val rows = ((curSectionItems - 1) / layoutManager.spanCount + 1)
-                    fullHeight += rows * thumbnailHeight
-                }
-                curSectionItems = 0
-            } else {
-                curSectionItems++
-            }
-        }
-
-        val spacing = config.thumbnailSpacing
-        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * (thumbnailHeight + spacing) - spacing
-        media_vertical_fastscroller.setContentHeight(fullHeight)
-        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
+        layoutManager.spanCount = 1
+        layoutManager.orientation = RecyclerView.VERTICAL
+        media_refresh_layout.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        mZoomListener = null
     }
 
     private fun handleGridSpacing(media: ArrayList<ThumbnailItem> = mMedia) {
@@ -813,21 +739,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun setupListLayoutManager() {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        layoutManager.spanCount = 1
-        layoutManager.orientation = RecyclerView.VERTICAL
-        media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
-        val smallMargin = resources.getDimension(R.dimen.small_margin).toInt()
-        (media_grid.layoutParams as RelativeLayout.LayoutParams).apply {
-            topMargin = smallMargin
-            bottomMargin = smallMargin
-        }
-
-        mZoomListener = null
-    }
-
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
         columnCountChanged()
@@ -843,7 +754,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         invalidateOptionsMenu()
         getMediaAdapter()?.apply {
             notifyItemRangeChanged(0, media.size)
-            measureRecyclerViewContent(media)
         }
     }
 
@@ -928,12 +838,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             if (media_empty_text_placeholder.isVisible()) {
                 media_empty_text_placeholder.text = getString(R.string.no_media_with_filters)
             }
-            media_grid.beVisibleIf(media_empty_text_placeholder.isGone())
+            media_fastscroller.beVisibleIf(media_empty_text_placeholder.isGone())
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-            val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
-            media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
-            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
             setupAdapter()
         }
 
