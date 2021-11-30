@@ -93,8 +93,8 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
     implementation 'com.github.tibbi:subsampling-scale-image-view:60fb7362d5'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.11.0'
-    implementation 'com.github.penfeizhou.android.animation:apng:2.11.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.17.0'
+    implementation 'com.github.penfeizhou.android.animation:apng:2.17.0'
     implementation('com.squareup.picasso:picasso:2.71828') {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
