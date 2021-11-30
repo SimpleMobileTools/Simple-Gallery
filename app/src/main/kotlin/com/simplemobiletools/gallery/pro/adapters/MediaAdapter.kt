@@ -307,36 +307,37 @@ class MediaAdapter(
         }
     }
 
-    private fun rotateSelection(degrees: Int) {
-        val paths = getSelectedPaths().filter { it.isImageFast() }
+    private fun handleRotate(paths: List<String>, degrees: Int) {
         var fileCnt = paths.size
         rotatedImagePaths.clear()
-        val handleRotate = {
-            activity.toast(R.string.saving)
-            ensureBackgroundThread {
-                paths.forEach {
-                    rotatedImagePaths.add(it)
-                    activity.saveRotatedImageToFile(it, it, degrees, true) {
-                        fileCnt--
-                        if (fileCnt == 0) {
-                            activity.runOnUiThread {
-                                listener?.refreshItems()
-                                finishActMode()
-                            }
+        activity.toast(R.string.saving)
+        ensureBackgroundThread {
+            paths.forEach {
+                rotatedImagePaths.add(it)
+                activity.saveRotatedImageToFile(it, it, degrees, true) {
+                    fileCnt--
+                    if (fileCnt == 0) {
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun rotateSelection(degrees: Int) {
+        val paths = getSelectedPaths().filter { it.isImageFast() }
 
         if (paths.any { activity.needsStupidWritePermissions(it) }) {
             activity.handleSAFDialog(paths.first { activity.needsStupidWritePermissions(it) }) {
                 if (it) {
-                    handleRotate()
+                    handleRotate(paths, degrees)
                 }
             }
         } else {
-            handleRotate()
+            handleRotate(paths, degrees)
         }
     }
 
