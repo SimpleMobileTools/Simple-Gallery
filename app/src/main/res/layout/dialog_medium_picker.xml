@@ -6,7 +6,7 @@
     android:paddingTop="@dimen/activity_margin">
 
     <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
-        android:id="@+id/directories_fastscroller"
+        android:id="@+id/media_fastscroller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

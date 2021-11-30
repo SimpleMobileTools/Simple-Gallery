@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.pro.dialogs
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.extensions.getTimeFormat
+import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -29,6 +29,8 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             orientation = if (activity.config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
             spanCount = if (isGridViewType) activity.config.mediaColumnCnt else 1
         }
+
+        view.media_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
 
         dialog = AlertDialog.Builder(activity)
             .setPositiveButton(R.string.ok, null)
@@ -72,29 +74,9 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
-        val sorting = activity.config.getFolderSorting(if (path.isEmpty()) SHOW_ALL else path)
-        val dateFormat = activity.config.dateFormat
-        val timeFormat = activity.getTimeFormat()
         view.apply {
             media_grid.adapter = adapter
-
-            /*media_vertical_fastscroller.isHorizontal = false
-            media_vertical_fastscroller.beGoneIf(scrollHorizontally)
-
-            media_horizontal_fastscroller.isHorizontal = true
-            media_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
-
-            if (scrollHorizontally) {
-                media_horizontal_fastscroller.setViews(media_grid) {
-                    val medium = (media[it] as? Medium)
-                    media_horizontal_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
-                }
-            } else {
-                media_vertical_fastscroller.setViews(media_grid) {
-                    val medium = (media[it] as? Medium)
-                    media_vertical_fastscroller.updateBubbleText(medium?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: "")
-                }
-            }*/
+            media_fastscroller.setScrollVertically(!scrollHorizontally)
         }
     }
 }
