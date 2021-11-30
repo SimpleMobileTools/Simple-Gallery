@@ -332,7 +332,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen?</string>
     <string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
-    <string name="faq_4_text"></string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
@@ -359,7 +359,62 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
     <string name="app_title">Simple Gallery Pro – Fényképkezelő és -szerkesztő</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Prémium alkalmazás a fényképei, videói, GIF-ei kezeléséhez és szerkesztéséhez, reklámok nélkül</string>
-    <string name="app_long_description"></string>
+    <string name="app_long_description">
+        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+
+        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
+
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
+
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Standalone website of Simple Gallery Pro:</b>
+        https://www.simplemobiletools.com/gallery
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
