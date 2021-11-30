@@ -15,7 +15,7 @@
     <string name="other_folder">Annen mappe</string>
     <string name="show_on_map">Vis på kart</string>
     <string name="unknown_location">Ukjent plassering</string>
-    <string name="volume">Volum</string>
+    <string name="volume">Lydstyrke</string>
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås skjermorientering</string>
     <string name="unlock_orientation">Lås opp skjermorientering</string>
@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Sett som standardmappe</string>
     <string name="unset_as_default_folder">Ikke lenger sett som standardmappe</string>
     <string name="reorder_by_dragging">Endre mapperekkefølge ved å dra</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
     <string name="images">Bilder</string>
@@ -44,7 +43,6 @@
     <string name="portraits">Portretter</string>
     <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denne funksjonen skjuler mappen ved å legge til filen \'.nomedia\' i den. Alle undermapper blir også skjult. Du kan se dem ved å aktivere alternativet \'Vis skjulte elementer\' i innstillinger. Fortsette?</string>
     <string name="exclude">Ekskluder</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Håndter skjulte mapper</string>
     <string name="hidden_folders_placeholder">Ser ut til at du ikke har skjult noen mapper med en \".nomedia\"-fil.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
     <string name="manage_included_folders">Håndter inkluderte mapper</string>
     <string name="add_folder">Legg til mappe</string>
     <string name="included_activity_placeholder">Hvis du har noen mapper som inneholder media, men ikke ble gjenkjent av appen, kan du legge dem til manuelt her.\n\nÅ legge til noen elementer her, ekskluderer ikke noen annen mappe.</string>
     <string name="no_media_add_included">Ingen mediafiler er funnet. Dette kan løses ved å legge til mapper som inneholder mediafiler manuelt.</string>
-
     <!-- Resizing -->
     <string name="resize">Endre størrelse</string>
     <string name="resize_and_save">Endre størrelse og lagre</string>
@@ -73,7 +69,6 @@
     <string name="height">Høyde</string>
     <string name="keep_aspect_ratio">Behold sideforhold</string>
     <string name="invalid_values">Oppfør en gyldig oppløsning</string>
-
     <!-- Editor -->
     <string name="editor">Redigering</string>
     <string name="rotate">Roter</string>
@@ -98,22 +93,22 @@
     <string name="flip">Speilvend</string>
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
-    <string name="free_aspect_ratio">Fri</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Annen</string>            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Fri</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Annen</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrunnsbilde</string>
     <string name="set_as_wallpaper">Sett som bakgrunnsbilde</string>
     <string name="set_as_wallpaper_failed">Å sette som bakgrunnsbilde feilet</string>
     <string name="set_as_wallpaper_with">Sett som bakgrunnsbilde med:</string>
-    <string name="setting_wallpaper">Stiller inn bakgrunnsbilde&#8230;</string>
+    <string name="setting_wallpaper">Stiller inn bakgrunnsbilde…</string>
     <string name="wallpaper_set_successfully">Bakgrunnsbilde vellykket stilt inn</string>
     <string name="portrait_aspect_ratio">Portrett-sideforhold</string>
     <string name="landscape_aspect_ratio">Landskap-sideforhold</string>
     <string name="home_screen">Startskjerm</string>
     <string name="lock_screen">Låseskjerm</string>
     <string name="home_and_lock_screen">Start- og låseskjerm</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Lysbildeshow</string>
     <string name="interval">Intervall (sekunder):</string>
@@ -129,10 +124,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Grupper direkte undermapper</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupper etter</string>
     <string name="do_not_group_files">Ikke grupper filer</string>
@@ -146,11 +139,9 @@
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Endelse</string>
     <string name="grouping_and_sorting">Vær oppmerksom på at gruppering og sortering er to uavhengige områder</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på modulen:</string>
     <string name="show_folder_name">Vis mappenavn</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
     <string name="remember_last_video_position">Husk siste videoavspillingsposisjon</string>
@@ -203,18 +194,15 @@
     <string name="square">Firkantet</string>
     <string name="rounded_corners">Avrundede hjørner</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
     <string name="fullscreen_media">Mediavisning</string>
     <string name="extended_details">Utvidede detaljer</string>
     <string name="bottom_actions">Handlinger nederst</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Behandle nedre handlingsknapper</string>
     <string name="toggle_favorite">Favoritt av/på</string>
     <string name="toggle_file_visibility">Filsynlighet av/på</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Egendefinert</string>
     <string name="pesdk_transform_button_resetCrop">Tilbakestill</string>
@@ -328,7 +316,6 @@
     <string name="pesdk_common_title_aquamarinColor">Akvamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettefarge</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
@@ -344,9 +331,9 @@
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
     <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
@@ -360,7 +347,6 @@
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
@@ -422,7 +408,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

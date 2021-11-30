@@ -9,9 +9,9 @@
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
     <string name="pin_to_the_top">Épingler en haut</string>
-    <string name="show_all">Affichage \"Tous les dossiers\"</string>
+    <string name="show_all">Afficher tous les contenus</string>
     <string name="all_folders">Tous les dossiers</string>
-    <string name="folder_view">Affichage \"Galerie\"</string>
+    <string name="folder_view">Basculer en vue galerie</string>
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
@@ -28,44 +28,48 @@
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="no_date_takens_found">Aucune date de prise de vue trouvée</string>
     <string name="share_resized">Partager une version redimensionnée</string>
-    <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
+    <string name="upgraded_from_free">Hé,
+\n
+\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton « Mettre à niveau vers » Pro en haut des paramètres de l\'application.
+\n
+\nVos éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.
+\n
+\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
     <string name="reorder_by_dragging">Réordonner par glisser</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
     <string name="images">Images</string>
     <string name="videos">Vidéos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">GIF</string>
     <string name="raw_images">Images RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Portraits</string>
-    <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés</string>
+    <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés.</string>
     <string name="change_filters_underlined"><u>Modifier les filtres</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Cette option cache le dossier en y ajoutant un fichier \".nomedia\", cela cachera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole \"Œil\" (permettant l\'affichage) depuis les paramètres. Continuer ?</string>
+    <string name="hide_folder_description">Cette option masque le dossier en y ajoutant un fichier .nomedia ; il masquera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole « Œil » (permettant l\'affichage) depuis les paramètres. Continuer \?</string>
     <string name="exclude">Exclure le dossier</string>
     <string name="excluded_folders">Dossiers exclus</string>
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Gallery uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
-    <string name="exclude_folder_parent">Exclure un dossier parent ?</string>
-    <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.\n\nSi vous voulez aussi les cacher ailleurs, utilisez la fonction \"Cacher\".</string>
+    <string name="exclude_folder_parent">Exclure un dossier parent \?</string>
+    <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.
+\n
+\nSi vous voulez aussi les cacher ailleurs, utilisez la fonction Cacher.</string>
     <string name="remove_all">Tout supprimer</string>
-    <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Cela n\'effacera pas les dossiers.</string>
+    <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions \? Ceci n\'effacera pas les dossiers.</string>
     <string name="hidden_folders">Dossiers cachés</string>
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
-    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché avec un fichier \".nomedia\".</string>
-
+    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché avec un fichier .nomedia.</string>
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
     <string name="add_folder">Ajouter un dossier</string>
     <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias qui ne sont pas affichés dans l\'application, vous pouvez les ajouter manuellement ici.\n\nCet ajout n\'exclura aucun autre dossier.</string>
     <string name="no_media_add_included">Aucun fichier multimédia n\'a été trouvé. Vous pouvez ajouter manuellement des dossiers contenant des fichiers multimédia.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
     <string name="resize_and_save">Redimensionner la sélection et enregistrer</string>
@@ -73,7 +77,6 @@
     <string name="height">Hauteur</string>
     <string name="keep_aspect_ratio">Conserver le rapport d\'affichage</string>
     <string name="invalid_values">Veuillez entrer une résolution valide</string>
-
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="rotate">Pivoter</string>
@@ -98,9 +101,10 @@
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
-    <string name="free_aspect_ratio">Libre</string>                   <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Autre</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Libre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Autre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fond d\'écran simple</string>
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
@@ -113,7 +117,6 @@
     <string name="home_screen">Écran d\'accueil</string>
     <string name="lock_screen">Écran de déverrouillage</string>
     <string name="home_and_lock_screen">Écran d\'accueil et écran de déverrouillage</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
@@ -129,10 +132,8 @@
     <string name="slide">Glissement</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Mode sous-dossiers</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grouper par</string>
     <string name="do_not_group_files">Ne pas grouper les fichiers</string>
@@ -146,11 +147,9 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
@@ -177,7 +176,7 @@
     <string name="allow_deep_zooming_images">Activer les options de zoom avancées</string>
     <string name="hide_extended_details">Cacher les informations supplémentaires si la barre d\'état est masquée</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
-    <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
+    <string name="show_recycle_bin">Afficher la corbeille à l\'écran des dossiers</string>
     <string name="deep_zoomable_images">Niveau de zoom</string>
     <string name="show_highest_quality">Afficher les images avec la meilleure qualité possible</string>
     <string name="show_recycle_bin_last">Afficher la corbeille en fin de liste sur l\'écran principal</string>
@@ -203,18 +202,15 @@
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les emplacements favoris</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>
     <string name="extended_details">Détails supplémentaires</string>
     <string name="bottom_actions">Barre d\'actions</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
     <string name="toggle_favorite">Ajouter aux favoris</string>
     <string name="toggle_file_visibility">Visibilité du fichier</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libre</string>
     <string name="pesdk_transform_button_resetCrop">Réinitialiser</string>
@@ -274,7 +270,7 @@
     <string name="pesdk_editor_save">Enregistrer</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Exportation…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportation %s</string>
-    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_name">Autocollant</string>
     <string name="pesdk_sticker_title_color">Couleur du Sticker</string>
     <string name="pesdk_sticker_title_options">Options du Sticker</string>
     <string name="pesdk_sticker_button_add">Ajouter</string>
@@ -328,99 +324,41 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Couleur de la pipette</string>
     <string name="vesdk_video_trim_title_name">Couper</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
-    <string name="faq_1_text">Il faut dans un premier temps, trouver l\'application \"Galerie\" par défaut dans la section \"Applications\" des paramètres de l\'appareil, puis appuyer sur \"Ouvrir par défaut\", et enfin sélectionner \"Réinitialiser les paramètres par défaut\". 		La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez \"Simple Gallery\" puis \"Toujours\".</string>
+    <string name="faq_1_text">Il faut dans un premier temps, trouver l\'application « Galerie » par défaut dans la section « Applications » des paramètres de l\'appareil, puis appuyer sur « Ouvrir par défaut », et enfin sélectionner « Réinitialiser les paramètres par défaut ». La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez Simple Gallery puis « Toujours ».</string>
     <string name="faq_2_title">J\'ai verrouillé l\'application avec un mot de passe et je ne m\'en rappelle plus. Que faire ?</string>
-    <string name="faq_2_text">Il y a deux façons de procéder. Soit vous réinstallez l\'application, soit vous recherchez l\'application dans les paramètres de l\'appareil et appuyez sur \"Effacer les données\". Cela va seulement réinitialiser les paramètres de l\'application et ne supprimera pas vos fichiers.</string>
+    <string name="faq_2_text">Il y a deux façons de procéder. Soit vous réinstallez l\'application, soit vous recherchez l\'application dans les paramètres de l\'appareil et appuyez sur « Effacer les données ». Cela réinitialisera seulement les paramètres de l\'application et ne supprimera pas vos fichiers.</string>
     <string name="faq_3_title">Comment faire pour qu\'un album soit toujours affiché tout en haut ?</string>
-    <string name="faq_3_text">Vous devez simplement effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
+    <string name="faq_3_text">Vous devez simplement effectuer un appui prolongé sur l\'album en question et choisir l\'icône « Épingler » dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
     <string name="faq_4_text">Appuyez deux fois sur le côté de l\'écran, ou appuyez sur la valeur de durée actuelle ou maximale près de la barre de recherche. Si vous activez l\'ouverture des vidéos sur un écran séparé dans les paramètres de l\'application, vous pouvez également utiliser des gestes horizontaux.</string>
     <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier ?</string>
-    <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Cacher un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris pour les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers. Notez que certains appareils ne permettent pas de masquer certains dossiers tels qu\'Appareil photo, Captures d\'écran et Téléchargements.</string>
+    <string name="faq_5_text">Exclure un dossier permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que cacher un dossier rend le dossier invisible sur l\'ensemble de l\'appareil, y compris pour les autres applications de galerie. Dans le dernier cas, un fichier .nomedia est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers. Notez que certains appareils ne permettent pas de masquer certains dossiers tels qu\'Appareil photo, Captures d\'écran et Téléchargements.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
-    <string name="faq_6_text">Il est possible que des albums qui ne devraient pas être affichés le soient. Vous pouvez les exclure facilement en les sélectionnant par un appui prolongé, puis en choisissant l\'option \"Exclure\", après quoi vous pouvez aussi sélectionner le dossier parent, ce qui devrait éviter l\'apparition d\'albums similaires.</string>
+    <string name="faq_6_text">Il est possible que des albums qui ne devraient pas être affichés le soient. Vous pouvez les exclure facilement en les sélectionnant par un appui prolongé, puis en choisissant l\'option « Exclure », après quoi vous pouvez aussi sélectionner le dossier parent, ce qui devrait éviter l\'apparition d\'albums similaires.</string>
     <string name="faq_7_title">Un dossier avec des images n\'apparaît pas. Que faire ?</string>
-    <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans \"Paramètres\", puis \"Gérer les dossiers ajoutés\", appuyez sur \"+\" et sélectionnez le dossier voulu.</string>
+    <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans Paramètres, puis Gérer les dossiers ajoutés, appuyez sur + et sélectionnez le dossier voulu.</string>
     <string name="faq_8_title">Comment faire apparaître uniquement certains dossiers ?</string>
-    <string name="faq_8_text">Ajouter un dossier dans les \"Dossiers ajoutés\" rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans \"Paramètres\", puis \"Gérer les dossiers exclus\", exclure le dossier racine \"/\", puis ajouter les dossiers souhaités dans \"Paramètres\", puis \"Gérer les dossiers ajoutés\". Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
+    <string name="faq_8_text">Ajouter un dossier dans les « Dossiers ajoutés » rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans Paramètres, puis « Gérer les dossiers exclus », exclure le dossier racine /, puis ajouter les dossiers souhaités dans « Paramètres », puis « Gérer les dossiers ajoutés ». Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
     <string name="faq_10_title">Puis-je recadrer des images avec cette application ?</string>
-    <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant \"Modifier\", ou en sélectionnant \"Modifier\" en mode plein écran.</string>
+    <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant « Modifier », ou en sélectionnant « Modifier » en mode plein écran.</string>
     <string name="faq_11_title">Puis-je regrouper les miniatures des fichiers multimédias ?</string>
-    <string name="faq_11_text">Bien sûr, il vous suffit d\'utiliser l\'option de menu \"Grouper par\" lorsque vous êtes dans l\'affichage des miniatures. Vous pouvez regrouper les fichiers selon plusieurs critères, y compris la date de prise de vue. Si vous utilisez la fonction \"Affichage Tous les dossiers\", vous pouvez également les regrouper par dossier.</string>
+    <string name="faq_11_text">Bien sûr, il vous suffit d\'utiliser l\'option de menu « Grouper par » lorsque vous êtes dans l\'affichage des miniatures. Vous pouvez regrouper les fichiers selon plusieurs critères, y compris la date de prise de vue. Si vous utilisez la fonction « Afficher tous les contenus », vous pouvez également les regrouper par dossier.</string>
     <string name="faq_12_title">Le tri par date de prise de vue ne semble pas fonctionner correctement, comment puis-je le corriger ?</string>
-    <string name="faq_12_text">Il est très probablement causé par les fichiers copiés quelque part. Vous pouvez le corriger en sélectionnant les miniatures du fichier et en sélectionnant \"Corriger la valeur des dates de prise des photos\".</string>
+    <string name="faq_12_text">Il est très probablement causé par les fichiers copiés quelque part. Vous pouvez le corriger en sélectionnant les miniatures du fichier et en sélectionnant « Corriger la valeur des dates de prise des photos ».</string>
     <string name="faq_13_title">Je vois des bandes de couleurs sur les images. Comment puis-je améliorer la qualité ?</string>
-    <string name="faq_13_text">La solution actuelle d\'affichage des images fonctionne bien dans la grande majorité des cas, mais si vous voulez une qualité d\'image encore meilleure, vous pouvez activer l\'option \"Afficher les images avec la plus haute qualité possible\" dans la section \"Niveau de zoom maximal des images\" des paramètres de l\'application.</string>
+    <string name="faq_13_text">La solution actuelle d\'affichage des images fonctionne bien dans la grande majorité des cas, mais si vous voulez une qualité d\'image encore meilleure, vous pouvez activer l\'option « Afficher les images avec la plus haute qualité possible » dans la section « Niveau de zoom maximal des images » des paramètres de l\'application.</string>
     <string name="faq_14_title">J\'ai caché un fichier ou un dossier. Comment puis-je en rétablir l\'affichage ?</string>
-    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers. Notez que le masquage fonctionne de manière récursive, donc si vous masquez un dossier, tous les sous-dossiers seront également masqués. Donc, pour afficher les sous-dossiers, vous devez afficher le dossier parent.</string>
+    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option « Afficher les fichiers cachés » du menu de l\'écran principal, ou appuyer sur le bouton « Afficher les éléments cachés » dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole « Œil » permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier .nomedia à leur racine, vous pouvez également supprimer ce fichier avec nimporte quel explorateur de fichiers. Notez que le masquage fonctionne de manière récursive, donc si vous masquez un dossier, tous les sous-dossiers seront également masqués. Donc, pour afficher les sous-dossiers, vous devez afficher le dossier parent.</string>
     <string name="faq_15_title">Pourquoi l\'application prend-elle tant de place ?</string>
     <string name="faq_15_text">Le cache d\'application peut prendre jusqu\'à 250 Mo pour accélérer le chargement des images. Si l\'application occupe encore plus d\'espace, c\'est probablement parce que vous avez des éléments dans la corbeille. Ces fichiers comptent pour la taille de l\'application. Vous pouvez vider la corbeille en l\'ouvrant et en supprimant tous les fichiers ou à partir des paramètres de l\'application. Chaque fichier de la corbeille est automatiquement supprimé après 30 jours.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editeur</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
-    <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
-
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
-
-        -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
-        -------------------------------------------------
-
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
-
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
-
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
-
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
-
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
-
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Standalone website of Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-      </string>
-
+    <string name="app_long_description"> Simple Gallery Pro est une galerie hors ligne hautement personnalisable. Organisez et modifiez vos photos, récupérez les fichiers supprimés avec la corbeille, protégez et cachez les fichiers et visualisez une grande variété de formats photo et vidéo différents, notamment RAW, SVG et bien plus encore. L\'application ne contient pas de publicités ni de permissions inutiles. Comme l\'application ne nécessite pas non plus d\'accès à Internet, votre vie privée est protégée. ------------------------------------------------- <b>SIMPLE GALLERY PRO - CARACTÉRISTIQUES</b> ------------------------------------------------- - Galerie hors ligne sans publicités ni popups - Galerie simple d\'édition de photos - rognage, rotation, redimensionnement, dessin, filtres et plus encore - Pas d\'accès Internet nécessaire, vous offrant plus de confidentialité et de sécurité - Aucune autorisation inutile requise - Recherche rapide d\'images, de vidéos &amp; de fichiers - Ouverture &amp; de nombreux types de photos et de vidéos (RAW, SVG, panoramiques, etc.) - Une variété de gestes intuitifs pour modifier facilement &amp; organiser les fichiers - De nombreuses façons de filtrer, X979X] trier les fichiers - Personnalisez l\'apparence de Simple Gallery Pro - Disponible en 32 langues - Marquez les fichiers comme favoris pour un accès rapide - Protégez vos photos &amp; vidéos avec un motif, un pin ou une empreinte digitale - Utilisez un pin, X1205X] l\'empreinte digitale pour protéger le lancement de l\'application ou des fonctions spécifiques aussi - Récupérer les photos &amp; vidéos supprimées de la corbeille - Basculer la visibilité des fichiers pour cacher les photos &amp; vidéos - Créer un diaporama personnalisable de vos fichiers - Afficher des informations détaillées de vos fichiers (résolution, valeurs EXIF etc) - Simple Gallery Pro est open source ... et bien plus encore ! <b>ÉDITEUR DE GALERIE PHOTO</b> Simple Gallery Pro permet de modifier facilement vos photos à la volée. Recadrez, retournez, faites pivoter et redimensionnez vos photos. Si vous vous sentez un peu plus créatif, vous pouvez ajouter des filtres et dessiner sur vos photos ! <b>SUPPORT DE NOMBREUX TYPES DE FICHIERS</b> Contrairement à d\'autres visionneuses de galeries &amp; et organisateurs de photos, Simple Gallery Pro supporte un grand nombre de types de fichiers différents, notamment JPEG, PNG, MP4, MKV, RAW, SVG, photos panoramiques, vidéos panoramiques et bien plus encore. <b>GESTIONNAIRE DE GALERIE HAUTEMENT PERSONNALISABLE</b> De l\'interface utilisateur aux boutons de fonction de la barre d\'outils inférieure, Simple Gallery Pro est hautement personnalisable et fonctionne comme vous le souhaitez. Aucun autre gestionnaire de galerie n\'a ce genre de flexibilité ! Grâce au principe du libre, nous sommes également disponibles en 32 langues ! <b>RECOUVREZ LES PHOTOS ET VIDÉOS SUPPRIMÉES</b> Vous avez accidentellement supprimé une photo ou une vidéo précieuse \? Ne vous inquiétez pas ! Simple Gallery Pro dispose d\'une corbeille pratique où vous pouvez récupérer les photos et vidéos supprimées facilement. [PROTÉGER <b> CACHER DES PHOTOS, VIDÉOS ET FICHIERS </b> En utilisant un code, un motif ou le scanner d\'empreintes digitales de votre appareil, vous pouvez protéger et cacher des photos, des vidéos et des albums entiers. Vous pouvez protéger l\'application elle-même ou placer des verrous sur des fonctions spécifiques de l\'application. Par exemple, vous ne pouvez pas supprimer un fichier sans un scan d\'empreintes digitales, ce qui permet de protéger vos fichiers contre les suppressions accidentelles. <b>Découvrez la suite complète de Simple Tools ici :</b> https://www.simplemobiletools.com <b>Site Web autonome de Simple Gallery Pro :</b> https://www.simplemobiletools.com/gallery <b>Facebook :</b> https://www.facebook.com/simplemobiletools <b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

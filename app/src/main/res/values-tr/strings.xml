@@ -28,12 +28,17 @@
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
     <string name="no_date_takens_found">Çekilen Tarih bulunamadı</string>
     <string name="share_resized">Yeniden boyutlandırılmış sürümü paylaş</string>
-    <string name="upgraded_from_free">Merhaba,\n\neski ücretsiz uygulamadan yükseltmiş gibisiniz. Artık uygulama ayarlarının en üst kısmında \'Pro\'ya Yükselt\' düğmesi olan eski sürümü kaldırabilirsiniz.\n\nYalnızca Geri Dönüşüm Kutusu öğelerinin silinmesi, sık kullanılanların işaretlerinin kaldırılması ve uygulama ayarlarınızı sıfırlamanız gerekir.\n\nTeşekkürler!</string>
+    <string name="upgraded_from_free">Merhaba,
+\n
+\neski ücretsiz uygulamadan yükseltmiş gibi görünüyorsunuz. Artık uygulama ayarlarının en üst kısmında \'Pro\'ya Yükselt\' düğmesi olan eski sürümü kaldırabilirsiniz.
+\n
+\nYalnızca Geri Dönüşüm Kutusu ögelerinin silinmesi, sık kullanılanların işaretlerinin kaldırılması ve uygulama ayarlarınızı sıfırlamanız gerekir.
+\n
+\nTeşekkürler!</string>
     <string name="switch_to_file_search">Tüm görünür klasörler arasında dosya aramaya geç</string>
     <string name="set_as_default_folder">Varsayılan klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Varsayılan klasör olarak ayarlama</string>
     <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
-
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
     <string name="images">Resimler</string>
@@ -44,7 +49,6 @@
     <string name="portraits">Portreler</string>
     <string name="no_media_with_filters">Seçilen filtrelerle hiçbir medya dosyası bulunamadı.</string>
     <string name="change_filters_underlined"><u>Filtreleri değiştir</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre bir \'.nomedia\' dosyası ekleyerek gizler, tüm alt klasörleri de gizler. Ayarlar\'dan \'Gizli öğeleri göster\' seçeneğini değiştirerek onları görebilirsiniz. Devam edilsin mi?</string>
     <string name="exclude">Hariç tut</string>
@@ -58,14 +62,12 @@
     <string name="hidden_folders">Gizli klasörler</string>
     <string name="manage_hidden_folders">Gizli klasörleri yönet</string>
     <string name="hidden_folders_placeholder">\".nomedia\" dosyasıyla gizlenmiş herhangi bir klasörünüz yok gibi görünüyor.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>
     <string name="manage_included_folders">Dahil edilen klasörleri yönet</string>
     <string name="add_folder">Klasör ekle</string>
     <string name="included_activity_placeholder">Medya içeren, ancak uygulama tarafından tanınmayan bazı klasörleriniz varsa, bunları elle ekleyebilirsiniz.\n\nBuraya bazı öğeler eklemek başka bir klasörü hariç tutmaz.</string>
     <string name="no_media_add_included">Hiçbir medya dosyası bulunamadı. Medya dosyalarını içeren klasörleri elle ekleyerek çözebilirsiniz.</string>
-
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
     <string name="resize_and_save">Seçimi yeniden boyutlandır ve kaydet</string>
@@ -73,7 +75,6 @@
     <string name="height">Yükseklik</string>
     <string name="keep_aspect_ratio">En-boy oranını koru</string>
     <string name="invalid_values">Lütfen geçerli bir çözünürlük girin</string>
-
     <!-- Editor -->
     <string name="editor">Düzenleyici</string>
     <string name="rotate">Döndür</string>
@@ -98,22 +99,22 @@
     <string name="flip">Çevir</string>
     <string name="flip_horizontally">Yatay olarak çevir</string>
     <string name="flip_vertically">Dikey olarak çevir</string>
-    <string name="free_aspect_ratio">Serbest</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Diğer</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Serbest</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Diğer</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Basit Duvar Kağıdı</string>
     <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
     <string name="set_as_wallpaper_failed">Duvar kağıdı olarak ayarlanmadı</string>
     <string name="set_as_wallpaper_with">Şununla duvar kağıdı olarak ayarla:</string>
-    <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor&#8230;</string>
+    <string name="setting_wallpaper">Duvar kağıdı ayarlanıyor…</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
     <string name="portrait_aspect_ratio">Dikey en boy oranı</string>
     <string name="landscape_aspect_ratio">Yatay en boy oranı</string>
     <string name="home_screen">Ana ekran</string>
     <string name="lock_screen">Kilit ekranı</string>
     <string name="home_and_lock_screen">Ana ve kilit ekranı</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Slayt gösterisi</string>
     <string name="interval">Süre (saniye):</string>
@@ -129,10 +130,8 @@
     <string name="slide">Kaydır</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Doğrudan alt klasörleri gruplandır</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Gruplandırma</string>
     <string name="do_not_group_files">Dosyaları gruplandırma</string>
@@ -146,11 +145,9 @@
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
     <string name="grouping_and_sorting">Lütfen gruplandırmanın ve sıralamanın 2 bağımsız alan olduğunu unutmayın</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Widget\'ta gösterilen klasör:</string>
     <string name="show_folder_name">Klasör adını göster</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Videoları otomatik oynat</string>
     <string name="remember_last_video_position">Son video oynatma konumunu hatırla</string>
@@ -203,18 +200,15 @@
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
     <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>
     <string name="extended_details">Genişletilmiş ayrıntılar</string>
     <string name="bottom_actions">Alt eylemler</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Görünür alt eylemleri yönet</string>
     <string name="toggle_favorite">Favoriyi göster/gizle</string>
     <string name="toggle_file_visibility">Dosya görünürlüğünü aç/kapat</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Özel</string>
     <string name="pesdk_transform_button_resetCrop">Sıfırla</string>
@@ -328,7 +322,6 @@
     <string name="pesdk_common_title_aquamarinColor">Akuamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetlenebilir renk</string>
     <string name="vesdk_video_trim_title_name">Kırp</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Basit Galeri\'yi nasıl varsayılan cihaz galerisi yapabilirim?</string>
     <string name="faq_1_text">Önce cihaz ayarlarınızın Uygulamalar bölümünde varsayılan galeriyi bulmanız, \"Varsayılan olarak aç\" gibi bir şey söyleyen bir düğme aramanız, üzerine tıklamanız ve ardından \"Varsayılanları Temizle\"yi seçmeniz gerekir.
@@ -344,9 +337,9 @@
     <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
     <string name="faq_6_text">Bazı olağandışı albümlerin ortaya çıktığını göreceksiniz. Onları uzun süre basarak ve Hariç tut\'u seçerek kolayca hariç tutabilirsiniz. Bir sonraki iletişim kutusunda, üst klasörü seçebilirsiniz, ancak diğer ilgili albümlerin de gösterilmesini önleyecektir.</string>
     <string name="faq_7_title">Resimler içeren bir klasör görünmüyor, ne yapabilirim?</string>
-    <string name="faq_7_text">Bunun birden fazla nedeni olabilir, ancak bunu çözmek kolaydır. Sadece Ayarlar -> Dahil Edilen Klasörleri Yönet\'e gidin, Artı\'yı seçin ve gerekli klasöre gidin.</string>
+    <string name="faq_7_text">Bunun birden fazla nedeni olabilir, ancak bunu çözmek kolaydır. Sadece Ayarlar -&gt; Dahil Edilen Klasörleri Yönet\'e gidin, Artı\'yı seçin ve gerekli klasöre gidin.</string>
     <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur?</string>
-    <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -> Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -> Dahil Edilen Klasörleri Yönet.
+    <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -&gt; Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -&gt; Dahil Edilen Klasörleri Yönet.
         Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
     <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim?</string>
     <string name="faq_10_text">Evet, görüntü köşelerini sürükleyerek resimleri düzenleyicide kırpabilirsiniz. Düzenleyiciye, bir resim küçük resmine uzun basıp Düzenle\'yi seçerek veya tam ekran görünümünden Düzenle\'yi seçerek ulaşabilirsiniz.</string>
@@ -360,7 +353,6 @@
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici, Düzenleyici</string>
@@ -422,7 +414,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

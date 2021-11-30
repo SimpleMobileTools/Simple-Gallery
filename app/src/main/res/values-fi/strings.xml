@@ -28,12 +28,17 @@
     <string name="dates_fixed_successfully">Päivämäärät korjattu</string>
     <string name="no_date_takens_found">Kuvanottopäivämääriä ei löytynyt</string>
     <string name="share_resized">Jaa versio, jonka kokoa on muutettu</string>
-    <string name="upgraded_from_free">Hei,\n\näyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.\n\nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. sinun täytyy myös nollata sovellusasetukset.\n\nKiitos!</string>
+    <string name="upgraded_from_free">Hei,
+\n
+\nNäyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.
+\n
+\nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. Sinun täytyy myös nollata sovellusasetukset.
+\n
+\nKiitos!</string>
     <string name="switch_to_file_search">Vaihda tiedostohakuun kaikissa näkyvillä olevissa kansioissa</string>
     <string name="set_as_default_folder">Aseta oletushakemistoksi</string>
     <string name="unset_as_default_folder">Älä käytä oletushakemistona</string>
     <string name="reorder_by_dragging">Järjestä kansiot uudelleen vetämällä</string>
-
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>
     <string name="images">Kuvat</string>
@@ -44,7 +49,6 @@
     <string name="portraits">Potretit</string>
     <string name="no_media_with_filters">Mediaa ei löytynyt valituilla suotimilla.</string>
     <string name="change_filters_underlined"><u>Muuta suotimia</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Jatketaanko?</string>
     <string name="exclude">Poissulje</string>
@@ -58,14 +62,13 @@
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
     <string name="add_folder">Lisää kansio</string>
-    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut niitä, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
+    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediatiedostoja, mutta sovellus ei tunnistanut niitä, voit lisätä ne manuaalisesti tähän.
+\nLisääminen ei poissulje muita kansioita.</string>
     <string name="no_media_add_included">Mediatiedostoja ei löytynyt. Lisää mediatiedostoja sisältävät kansiot manuaalisesti.</string>
-
     <!-- Resizing -->
     <string name="resize">Rajaa</string>
     <string name="resize_and_save">Rajaa valinta ja tallenna</string>
@@ -73,7 +76,6 @@
     <string name="height">Korkeus</string>
     <string name="keep_aspect_ratio">Säilytä kuvasuhde</string>
     <string name="invalid_values">Aseta oikea resoluutio.</string>
-
     <!-- Editor -->
     <string name="editor">Editori</string>
     <string name="rotate">Käännä</string>
@@ -98,22 +100,22 @@
     <string name="flip">Käännä</string>
     <string name="flip_horizontally">Käännä vaakasuoraan</string>
     <string name="flip_vertically">Käännä pystysuoraan</string>
-    <string name="free_aspect_ratio">Vapaa</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Muu</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Vapaa</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Muu</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Aseta taustakuvaksi</string>
     <string name="set_as_wallpaper_failed">Taustakuvan asetus epäonnistui</string>
     <string name="set_as_wallpaper_with">Aseta taustakuvaksi sovelluksella:</string>
-    <string name="setting_wallpaper">Asetetaan taustakuvaa&#8230;</string>
+    <string name="setting_wallpaper">Asetetaan taustakuvaa…</string>
     <string name="wallpaper_set_successfully">Taustakuva asetettu onnistuneesti</string>
     <string name="portrait_aspect_ratio">Kuvasuhde pystyssä</string>
     <string name="landscape_aspect_ratio">Kuvasuhde vaakatasossa</string>
     <string name="home_screen">Aloitusnäyttö</string>
     <string name="lock_screen">Lukitusnäyttö</string>
     <string name="home_and_lock_screen">Aloitusnäyttö ja lukitusnäyttö</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Diaesitys</string>
     <string name="interval">Aikaväli (sekunteja):</string>
@@ -129,10 +131,8 @@
     <string name="slide">Liuku</string>
     <string name="slideshow_ended">Diaesitys päättyi</string>
     <string name="no_media_for_slideshow">Mediaa diaesitykseen ei löytynyt</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Ryhmitä välittömät alikansiot</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Ryhmitä</string>
     <string name="do_not_group_files">Älä ryhmitä tiedostoja</string>
@@ -146,11 +146,9 @@
     <string name="by_file_type">Tiedoston tyyppi</string>
     <string name="by_extension">Tiedoston pääte</string>
     <string name="grouping_and_sorting">Huomoi, että ryhmitys ja lajittelu ovat kaksi eri toimintoa</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Pienoissovelluksessa näytettävä kansio:</string>
     <string name="show_folder_name">Näytä kansion nimi</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Toista videot automaattisesti</string>
     <string name="remember_last_video_position">Muista toistokohta</string>
@@ -203,18 +201,15 @@
     <string name="square">Suorakulmio</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
     <string name="export_favorite_paths">Vie suosikkitiedostojen polut</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
     <string name="extended_details">Yksityiskohtaiset tiedot</string>
     <string name="bottom_actions">Alareunan toiminnot</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Hallitse näkyviä alarivin toimintoja</string>
     <string name="toggle_favorite">Suosikkimerkinnän muutos</string>
     <string name="toggle_file_visibility">Tiedoston näkyvyyden muutos</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Vapaa</string>
     <string name="pesdk_transform_button_resetCrop">Nollaa</string>
@@ -305,7 +300,7 @@
     <string name="pesdk_overlay_asset_paper">Paperi</string>
     <string name="pesdk_overlay_asset_rain">Sade</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
-     <string name="pesdk_common_button_flipH">Käännä vaakasuunnassa</string>
+    <string name="pesdk_common_button_flipH">Käännä vaakasuunnassa</string>
     <string name="pesdk_common_button_flipV">Käännä pystysuunnassa</string>
     <string name="pesdk_common_button_undo">Kumoa</string>
     <string name="pesdk_common_button_redo">Tee uudelleen</string>
@@ -328,7 +323,6 @@
     <string name="pesdk_common_title_aquamarinColor">Akvamariini</string>
     <string name="pesdk_common_title_pipettableColor">Poimi väri</string>
     <string name="vesdk_video_trim_title_name">Leikkaa</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen?</string>
     <string name="faq_1_text">Etsi ensin laitteen asetuksista oletusgalleriasovellus, valitse sen asetuksista \"Avaa oletuksena\" ja valitse \"Poista oletukset\". Seuraavalla kerralla kun avaat kuvan tai videon, pyydetään valitsemaan uusi oletussovellus.</string>
@@ -343,15 +337,15 @@
     <string name="faq_6_title">Miksi galleriassa näkyy kansioita musiikkialbumien kansitaiteella tai tarroilla?</string>
     <string name="faq_6_text">Voi olla, että joitain epätavallisia albumeita näytetään. Voit poissulkea ne helposti painamalla pitkään albumia ja valitsemalla Poissulje. Avautuvassa valikossa voit valita yläkansion, jonka poissulku mahdollisesti estää myös muiden epätoivottujen albumien näkymisen.</string>
     <string name="faq_7_title">Kuvan sisältävä kansio ei näy tai siinä ei näy kaikkia kuvia. Mitä voin tehdä?</string>
-    <string name="faq_7_text">Tämä voi johtua useasta syystä, mutta ratkaisu on helppoa. Mene asetuksiin -> Hallitse sisällytettyjä kansioita -> Plus-painike -> Navigoi haluaamasi kansioon.</string>
+    <string name="faq_7_text">Tämä voi johtua useasta syystä, mutta ratkaisu on helppoa. Mene asetuksiin -&gt; Hallitse sisällytettyjä kansioita -&gt; Plus-painike -&gt; Navigoi haluaamasi kansioon.</string>
     <string name="faq_8_title">Mitä jos haluan vain muutaman tietyn kansion näkyviin?</string>
-    <string name="faq_8_text">Kansion lisääminen sisällytettyihin kansioihin ei automaattisesti poissulje muita kansioita. Voit mennä asetuksiin -> Hallitse poissuljettuja kansioita -> poissulje juurikansio \"/\", sen jälkeen lisää haluamasi näytettävät kansiot asetuksien Hallitse sisällytettyjä kansioita-toiminnolla.
+    <string name="faq_8_text">Kansion lisääminen sisällytettyihin kansioihin ei automaattisesti poissulje muita kansioita. Voit mennä asetuksiin -&gt; Hallitse poissuljettuja kansioita -&gt; poissulje juurikansio \"/\", sen jälkeen lisää haluamasi näytettävät kansiot asetuksien Hallitse sisällytettyjä kansioita-toiminnolla.
         Siten vain valitut kansiot näytetä. Poissulku ja sisällyttäminen ovat rekursiivisia, mutta jos kansio kuuluu molempiin, se näytetään.</string>
     <string name="faq_10_title">Voinko rajata kuvia tällä sovelluksella?</string>
     <string name="faq_10_text">Kyllä, voit rajata kuvia editorissa vetämällä kuvan kulmista. Pääset editoriin joko painamalla pitkään pienoiskuvaa ja valitsemalla Muokkaa, tai valitsemalla Muokkaa koko näytön tilassa.</string>
     <string name="faq_11_title">Voinko ryhmittää mediatieodostojen pienoiskuvia jotenkin?</string>
     <string name="faq_11_text">Jep, käytä vain \"Ryhmitä\"-valintaa pienoiskuvanäkymässä. Voit ryhmittää tiedostoja useilla kriteereillä, kuten kuvanottopäivämäärän mukaan. Jos käytät \"Näytä kansion koko sisältö\" -toimintoa, voit ryhmittää myös kansioiden perusteella.</string>
-    <string name="faq_12_title">Lajittelu ottopäivämäärän mukaan ei vaikuta toimivan oikein</string>
+    <string name="faq_12_title">Lajittelu ottopäivämäärän mukaan ei vaikuta toimivan oikein, kuinka voin korjata ongelman\?</string>
     <string name="faq_12_text">Luultavimmin tämä johtuu siitä, että kuvat on kopioitu. Voit korjata tämän valitsemalla pienoiskuvat ja valitsemalla \"Korjaa kuvanottopäivämäärät\".</string>
     <string name="faq_13_title">Kuvissa näkyy joitain väriraitoja. Miten voin parantaa laatua?</string>
     <string name="faq_13_text">Nykyinen ratkaisu kuvien näyttämiseen toimii valtaosassa tapauksia hyvin, mutta jos haluat vielä paremman laadun, voit ottaa asetuksissa käyttöön \"Näytä kuvat korkeimmalla mahdollisella laadulla\", joka on \"Syväzoomattavat kuvat\" osiossa.</string>
@@ -359,7 +353,6 @@
     <string name="faq_14_text">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Huomaa, että piilottaminen toimii kuitenkin rekursiivisesti, joten jos piilotat kansion, myös kaikki alikansiot piilotetaan. Joten alikansioiden piilottamiseksi sinun on otettava yläkansion piilotus pois käytöstä.</string>
     <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
     <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Valokuvien selaus ja muokkaus</string>
@@ -421,7 +414,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

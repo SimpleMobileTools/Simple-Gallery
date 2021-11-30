@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galéria</string>
@@ -6,47 +6,51 @@
     <string name="open_camera">Kamera megnyitása</string>
     <string name="hidden">(rejtett)</string>
     <string name="excluded">(kizárva)</string>
-    <string name="pin_folder">Mappa kitűzés</string>
-    <string name="unpin_folder">Mappa kitűzés megszüntetése</string>
+    <string name="pin_folder">Mappa kitűzése</string>
+    <string name="unpin_folder">Mappa kitűzésének megszüntetése</string>
     <string name="pin_to_the_top">Kitűzés felülre</string>
-    <string name="show_all">Mutassa az összes mappa tartalmát</string>
+    <string name="show_all">Összes mappa tartalmának megjelenítése</string>
     <string name="all_folders">Összes mappa</string>
     <string name="folder_view">Váltás mappa nézetre</string>
     <string name="other_folder">Egyéb mappa</string>
-    <string name="show_on_map">Mutassa a térképen</string>
+    <string name="show_on_map">Megjelenítése a térképen</string>
     <string name="unknown_location">Ismeretlen helyszín</string>
     <string name="volume">Hangerő</string>
     <string name="brightness">Fényesség</string>
     <string name="lock_orientation">Tájolás zárolása</string>
     <string name="unlock_orientation">Tájolás feloldása</string>
-    <string name="change_orientation">Tájolás változtatása</string>
+    <string name="change_orientation">Tájolás módosítása</string>
     <string name="force_portrait">Álló mód kényszerítése</string>
     <string name="force_landscape">Fekvő mód kényszerítése</string>
     <string name="use_default_orientation">Alapértelmezett tájolás használata</string>
     <string name="fix_date_taken">Dátum javítása</string>
-    <string name="fixing">Javítás...</string>
-    <string name="dates_fixed_successfully">Sikeres dátum javítás</string>
+    <string name="fixing">Javítás…</string>
+    <string name="dates_fixed_successfully">Dátumok sikeresen javítva</string>
     <string name="no_date_takens_found">Nem találhatók Dátum értékek</string>
     <string name="share_resized">Átméretezett verzió megosztása</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Üdv,
+\n
+\nÚgy néz ki, hogy a régi ingyenes alkalmazásról frissített. Most már eltávolíthatja a régi verziót, amelyben az „Upgrade to Pro” gomb szerepel az alkalmazásbeállítások tetején.
+\n
+\nCsak a Kuka elemei lesznek törölve, a kedvenc elemek jelöletlenek lesznek, és vissza kell majd állítania az alkalmazásbeállításokat.
+\n
+\nKöszönöm!</string>
     <string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-
+    <string name="set_as_default_folder">Beállítás alapértelmezett mappaként</string>
+    <string name="unset_as_default_folder">Eltávolítás mint alapértelmezett mappa</string>
+    <string name="reorder_by_dragging">Mappák átrendezése húzással</string>
     <!-- Filter -->
-    <string name="filter_media">Média szűrő</string>
+    <string name="filter_media">Médiafájlok szűrése</string>
     <string name="images">Kép</string>
     <string name="videos">Videó</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">RAW kép</string>
+    <string name="raw_images">RAW-kép</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portrék</string>
+    <string name="portraits">Portré</string>
     <string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
     <string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ez a funkció elrejti a mappát egy \'.nomedia\' fájl hozzáadásával, és elrejti az almappákat is. Láthatóvá teheti ezeket a Beállítások  \"Mutassa a rejtett elemeket\" menüpontban. Folytatja?</string>
+    <string name="hide_folder_description">Ez a funkció elrejti a mappát egy „.nomedia” fájl hozzáadásával, és elrejti az almappákat is. Láthatóvá teheti ezeket a Beállítások „Rejtett elemek megjelenítése\" lehetőségének bekapcsolásáva. Folytatja\?</string>
     <string name="exclude">Kizárás</string>
     <string name="excluded_folders">Kizárt mappák</string>
     <string name="manage_excluded_folders">Kizárt mappák kezelése</string>
@@ -57,15 +61,15 @@
     <string name="remove_all_description">Összes mappa eltávolítása a Kizárás listából. Ez nem törli a mappákat.</string>
     <string name="hidden_folders">Rejtett mappák</string>
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
-    <string name="hidden_folders_placeholder">Úgy tűnik, a mappái nincsenek elrejtve egy \".nomedia\" fájllal.</string>
-
+    <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
     <!-- Include folders -->
-    <string name="include_folders">Befoglalt mappák</string>
-    <string name="manage_included_folders">Befoglalt mappák kezelése</string>
+    <string name="include_folders">Belevett mappák</string>
+    <string name="manage_included_folders">Belevett mappák kezelése</string>
     <string name="add_folder">Mappa hozzáadása</string>
-    <string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek média fájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is  hozzáadhatja ezeket.\n\nAz elemek hozzáadása nem zár ki más mappákat.</string>
-    <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák manuális hozzáadásával.</string>
-
+    <string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek médiafájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is hozzáadhatja ezeket.
+\n
+\nAz elemek hozzáadása nem zár ki más mappákat.</string>
+    <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák kézi hozzáadásával.</string>
     <!-- Resizing -->
     <string name="resize">Átméretezés</string>
     <string name="resize_and_save">Kiválasztás átméretezése és mentés</string>
@@ -73,54 +77,53 @@
     <string name="height">Magasság</string>
     <string name="keep_aspect_ratio">Képarány megtartása</string>
     <string name="invalid_values">Írjon be érvényes felbontást</string>
-
     <!-- Editor -->
     <string name="editor">Szerkesztő</string>
     <string name="rotate">Forgatás</string>
     <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
-    <string name="invalid_video_path">Invalid video path</string>
-    <string name="image_editing_failed">Sikertelen kép szerkesztés</string>
-    <string name="video_editing_failed">Video editing failed</string>
-    <string name="image_editing_cancelled">A képszerkesztés megszakítva</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
-    <string name="file_edited_successfully">A fájl szerkesztése sikerült</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
-    <string name="edit_image_with">Kép szerkesztés ezzel:</string>
-    <string name="edit_video_with">Edit video with:</string>
-    <string name="no_image_editor_found">Nem található kép szerkesztő</string>
-    <string name="no_video_editor_found">No video editor found</string>
-    <string name="unknown_file_location">Ismeretlen fájl hely</string>
-    <string name="error_saving_file">Nem lehet felülírni a forrás fájlt</string>
+    <string name="invalid_video_path">Érvénytelen videó elérési útvonal</string>
+    <string name="image_editing_failed">Képszerkesztés sikertelen</string>
+    <string name="video_editing_failed">Videószerkesztés sikertelen</string>
+    <string name="image_editing_cancelled">Képszerkesztés megszakítva</string>
+    <string name="video_editing_cancelled">Videószerkesztés megszakítva</string>
+    <string name="file_edited_successfully">Fájlszerkesztés sikeres</string>
+    <string name="image_edited_successfully">Képszerkesztés sikeres</string>
+    <string name="video_edited_successfully">Videószerkesztés sikeres</string>
+    <string name="edit_image_with">Kép szerkesztése ezzel:</string>
+    <string name="edit_video_with">Videó szerkesztése ezzel:</string>
+    <string name="no_image_editor_found">Nem található képszerkesztő</string>
+    <string name="no_video_editor_found">Nem található videószerkesztő</string>
+    <string name="unknown_file_location">Ismeretlen fájlhely</string>
+    <string name="error_saving_file">Nem lehet felülírni a forrásfájlt</string>
     <string name="rotate_left">Forgatás balra</string>
     <string name="rotate_right">Forgatás jobbra</string>
-    <string name="rotate_one_eighty">180º-os forgatás</string>
+    <string name="rotate_one_eighty">Forgatás 180º-kal</string>
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
-    <string name="free_aspect_ratio">Szabad</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Egyéb</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Szabad</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Beállítás háttérképként</string>
-    <string name="set_as_wallpaper_failed">Nem sikerült a beállítás háttérképként</string>
+    <string name="set_as_wallpaper_failed">A háttérképként beállítás sikertelen</string>
     <string name="set_as_wallpaper_with">Beállítás háttérképként ezzel:</string>
-    <string name="setting_wallpaper">Beállítás háttérképként...</string>
+    <string name="setting_wallpaper">Beállítás háttérképként…</string>
     <string name="wallpaper_set_successfully">Sikeresen beállítva háttérképnek</string>
     <string name="portrait_aspect_ratio">Álló képarány</string>
     <string name="landscape_aspect_ratio">Fekvő képarány</string>
-    <string name="home_screen">Kezdő képernyő</string>
-    <string name="lock_screen">Zárolás képernyő</string>
-    <string name="home_and_lock_screen">Kezdő és zárolás képernyő</string>
-
+    <string name="home_screen">Kezdőképernyő</string>
+    <string name="lock_screen">Zárolási képernyő</string>
+    <string name="home_and_lock_screen">Kezdő- és zárolási képernyő</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavetítés</string>
     <string name="interval">Időköz (másodperc):</string>
-    <string name="include_photos">Fotók befoglalása</string>
-    <string name="include_videos">Videók befoglalása</string>
-    <string name="include_gifs">GIF befoglalása</string>
-    <string name="random_order">Véletlen sorrend</string>
+    <string name="include_photos">Fotók belevétele</string>
+    <string name="include_videos">Videók belevétele</string>
+    <string name="include_gifs">GIF-ek belevétele</string>
+    <string name="random_order">Véletlenszerű sorrend</string>
     <string name="move_backwards">Áthelyezés hátra</string>
     <string name="loop_slideshow">Diavetítés ismétlése</string>
     <string name="animation">Animáció</string>
@@ -129,10 +132,8 @@
     <string name="slide">Csúsztatás</string>
     <string name="slideshow_ended">A diavetítés vége</string>
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
-
     <!-- View types -->
-    <string name="group_direct_subfolders">Közvetlen almappa csoport</string>
-
+    <string name="group_direct_subfolders">Közvetlen almappák csoportosítása</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Csoportosítás</string>
     <string name="do_not_group_files">Nincs csoportosítás</string>
@@ -143,117 +144,112 @@
     <string name="by_date_taken">Dátum</string>
     <string name="by_date_taken_daily">Felvétel dátuma (naponta)</string>
     <string name="by_date_taken_monthly">Felvétel dátuma (havonta)</string>
-    <string name="by_file_type">Fájl típus</string>
+    <string name="by_file_type">Fájltípus</string>
     <string name="by_extension">Kiterjesztés</string>
-    <string name="grouping_and_sorting">Kérjük, vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
-
+    <string name="grouping_and_sorting">Vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
     <!-- Widgets -->
-    <string name="folder_on_widget">Mappa mutatása a widgeten:</string>
-    <string name="show_folder_name">Mutassa a mappa nevét</string>
-
+    <string name="folder_on_widget">Mappa megjelenítése a modulon:</string>
+    <string name="show_folder_name">Mappanév megjelenítése</string>
     <!-- Settings -->
-    <string name="autoplay_videos">Automatikus videó lejátszás</string>
-    <string name="remember_last_video_position">Emlékezzen a videó utolsó lejátszási pozícióra</string>
+    <string name="autoplay_videos">Automatikus videólejátszás</string>
+    <string name="remember_last_video_position">Videó utolsó lejátszási pozíciójának megjegyzése</string>
     <string name="loop_videos">Videók ismétlése</string>
-    <string name="animate_gifs">Animált GIF miniatűr</string>
-    <string name="max_brightness">Maximális fényerő a teljes képernyős médiánál</string>
-    <string name="crop_thumbnails">Miniatűrök négyzet alakúra vágva</string>
-    <string name="show_thumbnail_video_duration">Mutassa a videó időtartamát</string>
+    <string name="animate_gifs">Animált GIF-ek a bélyegképeken</string>
+    <string name="max_brightness">Maximális fényerő teljes képernyős média megtekintésénél</string>
+    <string name="crop_thumbnails">Bélyegképek négyzetesre vágása</string>
+    <string name="show_thumbnail_video_duration">Videók időtartamának megjelenítése</string>
     <string name="screen_rotation_by">Teljes képernyős média forgatása</string>
-    <string name="screen_rotation_system_setting">Rendszer beállítások</string>
-    <string name="screen_rotation_device_rotation">Eszköz elforgatás</string>
+    <string name="screen_rotation_system_setting">Rendszerbeállítások</string>
+    <string name="screen_rotation_device_rotation">Eszköz elforgatása</string>
     <string name="screen_rotation_aspect_ratio">Képarány</string>
     <string name="black_background_at_fullscreen">Fekete háttérszín teljes képernyős médiánál</string>
-    <string name="scroll_thumbnails_horizontally">Miniatűrök görgetése vízszintesen</string>
-    <string name="hide_system_ui_at_fullscreen">Automatikusan elrejti a rendszer UI-t teljes képernyőn</string>
+    <string name="scroll_thumbnails_horizontally">Bélyegképek görgetése vízszintesen</string>
+    <string name="hide_system_ui_at_fullscreen">A rendszer felületének automatikus elrejtése teljes képernyős médiánál</string>
     <string name="delete_empty_folders">Az üres mappák törlése a tartalom törlése után</string>
-    <string name="allow_photo_gestures">Engedélyezi a kép fényerő módosítást függőleges gesztusokkal</string>
-    <string name="allow_video_gestures">Engedélyezi a videó hangerő és fényerő módosítást függőleges gesztusokkal</string>
-    <string name="show_media_count">Mutassa a fájlok számát a mappákban</string>
-    <string name="show_extended_details">Mutassa a kiterjesztett adatokat a teljes képernyős médián keresztül</string>
+    <string name="allow_photo_gestures">Függőleges gesztusokkal történő fényerőmódosítás engedélyezése</string>
+    <string name="allow_video_gestures">Függőleges gesztusokkal történő videóhangerő és -fényerő módosítás engedélyezése</string>
+    <string name="show_media_count">A mappákban lévő fájlok számának megjelenítése</string>
+    <string name="show_extended_details">Bővített részletek megjelenítése a teljes képernyős média felett</string>
     <string name="manage_extended_details">Bővített részletek kezelése</string>
-    <string name="one_finger_zoom">Engedélyezi az egy ujjas nagyítást a teljes képernyős médiában</string>
-    <string name="allow_instant_change">Engedélyezi a azonnali média váltást a képernyő oldalára kattintva</string>
-    <string name="allow_deep_zooming_images">Engedélyezi a képek mély nagyítását</string>
-    <string name="hide_extended_details">Bővített részletek elrejtése az állapotsor rejtett állapotában</string>
-    <string name="show_at_bottom">Mutassa a művelet gombokat a képernyő alján</string>
-    <string name="show_recycle_bin">Mutassa a Lomtárat a mappák képernyőjén</string>
+    <string name="one_finger_zoom">Egy ujjas nagyítás engedélyezése a teljes képernyős médiában</string>
+    <string name="allow_instant_change">Azonnali médiaváltás engedélyezése a képernyő oldalára kattintva</string>
+    <string name="allow_deep_zooming_images">Képek mély nagyításának engedélyezése</string>
+    <string name="hide_extended_details">Bővített részletek elrejtése, ha az állapotsor rejtett</string>
+    <string name="show_at_bottom">Egyes műveleti gombok megjelenítése a képernyő alján</string>
+    <string name="show_recycle_bin">Lomtár megjelenítése a mappák képernyőjén</string>
     <string name="deep_zoomable_images">Mély nagyítású képek</string>
-    <string name="show_highest_quality">Mutassa a képeket a lehető legjobb minőségben</string>
-    <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
-    <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
-    <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
-    <string name="open_videos_on_separate_screen">Mindig külön képernyőn nyissa meg a videókat új vízszintes mozdulattal</string>
-    <string name="show_notch">Notch mutatása, ha elérhető</string>
-    <string name="allow_rotating_gestures">Engedélyezi a kép forgatását gesztusokkal</string>
-    <string name="file_loading_priority">Fájl betöltés prioritása</string>
+    <string name="show_highest_quality">Képek megjelenítése a lehető legjobb minőségben</string>
+    <string name="show_recycle_bin_last">Lomtár megjelenítése a főképernyő utolsó elemeként</string>
+    <string name="allow_down_gesture">Teljes képernyős nézet bezárásának engedélyezése a lefelé gesztussal</string>
+    <string name="allow_one_to_one_zoom">Az 1:1 nagyítás engedélyezése két dupla érintéssel</string>
+    <string name="open_videos_on_separate_screen">Az új vízszintes gesztusokkal mindig külön képernyőn nyitja meg a videókat</string>
+    <string name="show_notch">Notch megjelenítése, ha elérhető</string>
+    <string name="allow_rotating_gestures">Képek gesztusokkal történő forgatásának engedélyezése</string>
+    <string name="file_loading_priority">Fájlbetöltés prioritása</string>
     <string name="speed">Gyors</string>
     <string name="compromise">Kiegyensúlyozott</string>
-    <string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
-    <string name="show_image_file_types">Mutassa a kép fájl típusokat</string>
-    <string name="allow_zooming_videos">A videók nagyításának engedélyezése dupla koppintással</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
+    <string name="avoid_showing_invalid_files">Érvénytelen fájlok megjelenítésének elkerülése</string>
+    <string name="show_image_file_types">Képfájltípusok megjelenítése</string>
+    <string name="allow_zooming_videos">Videók dupla koppintással történő nagyításának engedélyezése</string>
+    <string name="folder_thumbnail_style">Mappák bélyegképének stílusa</string>
+    <string name="file_thumbnail_style">Fájlok bélyegképének stílusa</string>
     <string name="mark_favorite_items">Mark favorite items</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
-
+    <string name="thumbnail_spacing">Bélyegképek térköze</string>
+    <string name="show_file_count_line">Fájlok számának megjelenítése külön sorban</string>
+    <string name="show_file_count_brackets">Fájlok számának megjelenítése zárójelben</string>
+    <string name="show_file_count_none">Ne jelenítse meg a fájlok számát</string>
+    <string name="limit_folder_title">Hosszú mappanevek egy sorra korlátozása</string>
+    <string name="square">Négyzet</string>
+    <string name="rounded_corners">Lekerekített sarkok</string>
+    <string name="export_favorite_paths">Kedvenc fájlútvonalak exportálása</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Miniatűrök</string>
+    <string name="thumbnails">Bélyegképek</string>
     <string name="fullscreen_media">Teljes képernyős média</string>
     <string name="extended_details">Bővített részletek</string>
-    <string name="bottom_actions">Gomb műveletek</string>
-
+    <string name="bottom_actions">Gombműveletek</string>
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Látható gomb műveletek kezelése</string>
-    <string name="toggle_favorite">Kedvencek módosítása</string>
-    <string name="toggle_file_visibility">Fájl láthatóság módosítása</string>
-
+    <string name="manage_bottom_actions">Látható gombok műveletének kezelése</string>
+    <string name="toggle_favorite">Kedvenc be/ki</string>
+    <string name="toggle_file_visibility">Fájl láthatósága be/ki</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Egyéni</string>
-    <string name="pesdk_transform_button_resetCrop">Alaphelyzetbe</string>
+    <string name="pesdk_transform_button_resetCrop">Visszaállítás</string>
     <string name="pesdk_transform_button_squareCrop">Négyzet</string>
     <string name="pesdk_transform_title_name">Átalakítás</string>
     <string name="pesdk_filter_title_name">Szűrő</string>
-    <string name="pesdk_filter_asset_none">Nincs</string>
-    <string name="pesdk_adjustments_title_name">Beállít</string>
+    <string name="pesdk_filter_asset_none">Egyik sem</string>
+    <string name="pesdk_adjustments_title_name">Igazítás</string>
     <string name="pesdk_adjustments_button_shadowTool">Árnyékok</string>
-    <string name="pesdk_adjustments_button_exposureTool">Kitettség</string>
+    <string name="pesdk_adjustments_button_exposureTool">Expozíció</string>
     <string name="pesdk_adjustments_button_highlightTool">Kiemelések</string>
     <string name="pesdk_adjustments_button_brightnessTool">Fényerő</string>
     <string name="pesdk_adjustments_button_contrastTool">Kontraszt</string>
-    <string name="pesdk_adjustments_button_saturationTool">Színtelítettség</string>
+    <string name="pesdk_adjustments_button_saturationTool">Telítettség</string>
     <string name="pesdk_adjustments_button_clarityTool">Világosság</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
     <string name="pesdk_adjustments_button_blacksTool">Feketék</string>
     <string name="pesdk_adjustments_button_whitesTool">Fehérek</string>
     <string name="pesdk_adjustments_button_temperatureTool">Színhőmérséklet</string>
     <string name="pesdk_adjustments_button_sharpnessTool">Élesség</string>
-    <string name="pesdk_adjustments_button_reset">Alaphelyzetbe</string>
+    <string name="pesdk_adjustments_button_reset">Visszaállítás</string>
     <string name="pesdk_focus_title_name">Fókusz</string>
-    <string name="pesdk_focus_title_disabled">Nincs</string>
+    <string name="pesdk_focus_title_disabled">Egyik sem</string>
     <string name="pesdk_focus_button_radial">Sugárirányú</string>
     <string name="pesdk_focus_button_linear">Lineáris</string>
     <string name="pesdk_focus_button_mirrored">Tükrözött</string>
-    <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_focus_button_gaussian">Gauss</string>
+    <string name="pesdk_text_title_input">Szöveg hozzáadása</string>
     <string name="pesdk_text_title_name">Szöveg</string>
-    <string name="pesdk_text_title_options">Szöveg beállítások</string>
+    <string name="pesdk_text_title_options">Szövegbeállítások</string>
     <string name="pesdk_text_title_textColor">Szöveg színe</string>
-    <string name="pesdk_text_title_font">Betűtípus</string>
+    <string name="pesdk_text_title_font">Betűkészlet</string>
     <string name="pesdk_text_button_add">Hozzáadás</string>
     <string name="pesdk_text_button_edit">Szerkesztés</string>
-    <string name="pesdk_text_button_straighten">Egyenesített</string>
-    <string name="pesdk_text_button_font">Betűtípus</string>
+    <string name="pesdk_text_button_straighten">Egyenesítés</string>
+    <string name="pesdk_text_button_font">Betűkészlet</string>
     <string name="pesdk_text_button_color">Szín</string>
     <string name="pesdk_text_button_backgroundColor">Háttérszín</string>
-    <string name="pesdk_text_button_alignment">Igazítás</string>
+    <string name="pesdk_text_button_alignment">Elrendezés</string>
     <string name="pesdk_text_button_bringToFront">Előre</string>
     <string name="pesdk_text_button_delete">Törlés</string>
     <string name="pesdk_text_text_editTextPlaceholder">Saját szöveg</string>
@@ -266,49 +262,49 @@
     <string name="pesdk_brush_title_brushColor">Ecset színe</string>
     <string name="pesdk_editor_title_name">Szerkesztő</string>
     <string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Valóban el akarja dobni a változtatásokat?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Valóban elveti a változtatásokat\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Igen</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nem</string>
-    <string name="pesdk_editor_cancel">Mégsem</string>
-    <string name="pesdk_editor_accept">Elfogad</string>
+    <string name="pesdk_editor_cancel">Mégse</string>
+    <string name="pesdk_editor_accept">Elfogadás</string>
     <string name="pesdk_editor_save">Mentés</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Exportálás…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">%s exportálása.</string>
-    <string name="pesdk_sticker_title_name">Sticker</string>
-    <string name="pesdk_sticker_title_color">Sticker Color</string>
-    <string name="pesdk_sticker_title_options">Sticker Options</string>
-    <string name="pesdk_sticker_button_add">Add</string>
-    <string name="pesdk_sticker_button_color">Color</string>
-    <string name="pesdk_sticker_button_delete">Delete</string>
-    <string name="pesdk_sticker_button_bringToFront">To Front</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
-    <string name="pesdk_sticker_button_replace">Replace</string>
-    <string name="pesdk_sticker_button_opacity">Opacity</string>
-    <string name="pesdk_sticker_button_contrast">Contrast</string>
-    <string name="pesdk_sticker_button_saturation">Saturation</string>
-    <string name="pesdk_sticker_button_brightness">Brightness</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
-    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
-    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
-    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
-    <string name="pesdk_overlay_asset_none">None</string>
-    <string name="pesdk_overlay_asset_golden">Golden</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
-    <string name="pesdk_overlay_asset_paper">Paper</string>
-    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_sticker_title_name">Matrica</string>
+    <string name="pesdk_sticker_title_color">Matrica színe</string>
+    <string name="pesdk_sticker_title_options">Matricabeállítások</string>
+    <string name="pesdk_sticker_button_add">Hozzáadás</string>
+    <string name="pesdk_sticker_button_color">Szín</string>
+    <string name="pesdk_sticker_button_delete">Törlés</string>
+    <string name="pesdk_sticker_button_bringToFront">Előre</string>
+    <string name="pesdk_sticker_button_straighten">Egyenesítés</string>
+    <string name="pesdk_sticker_button_replace">Csere</string>
+    <string name="pesdk_sticker_button_opacity">Átlátszatlanság</string>
+    <string name="pesdk_sticker_button_contrast">Kontraszt</string>
+    <string name="pesdk_sticker_button_saturation">Telítettség</string>
+    <string name="pesdk_sticker_button_brightness">Fényerő</string>
+    <string name="pesdk_sticker_category_name_custom">Feltöltések</string>
+    <string name="pesdk_overlay_title_name">Rávetítés</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normál</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Sötétítés</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Szendvicsnegatív</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Rávetítés</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Világosítás</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">Többszörözés</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">Színégetés</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">Gyenge fény</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">Erős fény</string>
+    <string name="pesdk_overlay_asset_none">Egyik sem</string>
+    <string name="pesdk_overlay_asset_golden">Arany</string>
+    <string name="pesdk_overlay_asset_lightleak1">Fényszivárgás 1</string>
+    <string name="pesdk_overlay_asset_mosaic">Mozaik</string>
+    <string name="pesdk_overlay_asset_paper">Papír</string>
+    <string name="pesdk_overlay_asset_rain">Eső</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Tükrözés vízszintesen</string>
     <string name="pesdk_common_button_flipV">Tükrözés függőlegesen</string>
     <string name="pesdk_common_button_undo">Visszavonás</string>
-    <string name="pesdk_common_button_redo">Visszavom</string>
+    <string name="pesdk_common_button_redo">Mégis</string>
     <string name="pesdk_common_title_colorPicker">Színválasztó</string>
     <string name="pesdk_common_title_transparentColor">Áttetsző</string>
     <string name="pesdk_common_title_whiteColor">Fehér</string>
@@ -316,19 +312,18 @@
     <string name="pesdk_common_title_blackColor">Fekete</string>
     <string name="pesdk_common_title_lightBlueColor">Világoskék</string>
     <string name="pesdk_common_title_blueColor">Kék</string>
-    <string name="pesdk_common_title_purpleColor">Bíbor</string>
+    <string name="pesdk_common_title_purpleColor">Lila</string>
     <string name="pesdk_common_title_orchidColor">Orchidea</string>
     <string name="pesdk_common_title_pinkColor">Rózsaszín</string>
-    <string name="pesdk_common_title_redColor">Piros</string>
+    <string name="pesdk_common_title_redColor">Vörös</string>
     <string name="pesdk_common_title_orangeColor">Narancssárga</string>
     <string name="pesdk_common_title_goldColor">Arany</string>
     <string name="pesdk_common_title_yellowColor">Sárga</string>
-    <string name="pesdk_common_title_oliveColor">Oliva</string>
+    <string name="pesdk_common_title_oliveColor">Olívzöld</string>
     <string name="pesdk_common_title_greenColor">Zöld</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
-    <string name="pesdk_common_title_pipettableColor">Pipetta szín</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
-
+    <string name="pesdk_common_title_aquamarinColor">Akvamarin</string>
+    <string name="pesdk_common_title_pipettableColor">Pipettázható szín</string>
+    <string name="vesdk_video_trim_title_name">Levágás</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának?</string>
     <string name="faq_1_text">Először meg kell találnia az alapértelmezett galériát az eszköz beállításainak Alkalmazások részében. Keressen egy olyan gombot, amely valami olyasmit, mint az \"Legyen alapértelmezett\", kattintson rá, majd válassza a \"Alapértelmezések törlése\" pontot.
@@ -344,28 +339,27 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
     <string name="faq_6_text">Lehet, hogy látni fog néhány szokatlan album megjelenést. Könnyen kizárhatja a hosszú megnyomással és a Kizárás kiválasztásával. A következő párbeszédablakban kiválaszthatja a szülő mappát, és valószínűleg megakadályozza, hogy a többi kapcsolódó album is megjelenjen.</string>
     <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek?</string>
-    <string name="faq_7_text">Ennek több oka lehet, de megoldása egyszerű. Menjen a Beállítások -&gt; Befoglalt mappák kezelése lehetőségre, válassza a plusz jelet, és keresse meg a kívánt mappát.</string>
+    <string name="faq_7_text">Ennek több oka lehet, de megoldása egyszerű. Menjen a Beállítások -&gt; Belevett mappák kezelése lehetőségre, válassza a plusz jelet, és keresse meg a kívánt mappát.</string>
     <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni?</string>
     <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban.
 Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglalás rekurzív. Ha egy mappát hozzáadunk mindkettőhöz, akkor megjelenik.</string>
     <string name="faq_10_title">Tudom vágni a képeket ezzel az alkalmazással?</string>
-    <string name="faq_10_text">Igen, megvághatja a képeket a szerkesztőben a kép sarkainak húzásával. A szerkesztőhöz eljuthat egy miniatűr kép hosszú megnyomásával és a Szerkesztés választásával, vagy a Szerkesztés választásával a teljes képernyős nézetben.</string>
-    <string name="faq_11_title">Valamilyen módon össze tudom csoportosítani a médiafájl bélyegképeit?</string>
-    <string name="faq_11_text">Persze, a miniatűr nézetben használja a \"Csoport\" menüpontot. A fájlokat többféle kritérium alapján csoportosíthatja, beleértve a dátumot is. Ha a \"Mutassa az összes mappa tartalmát\" funkciót választja, akkor mappákba is csoportosíthatja ezeket.</string>
+    <string name="faq_10_text">Igen, megvághatja a képeket a szerkesztőben a kép sarkainak húzásával. A szerkesztőhöz eljuthat egy bélyegkép hosszú megnyomásával és a Szerkesztés választásával, vagy a Szerkesztés választásával a teljes képernyős nézetben.</string>
+    <string name="faq_11_title">Valamilyen módon tudom csoportosítani a médiafájlok bélyegképeit\?</string>
+    <string name="faq_11_text">Persze, a bélyegképes nézetben használja a „Csoportosítás” menüpontot. A fájlokat többféle kritérium alapján is csoportosíthatja, beleértve a dátumot is. Ha az „Összes mappa tartalmának megjelenítése” funkciót választja, akkor mappákba is csoportosíthatja ezeket.</string>
     <string name="faq_12_title">A dátum szerinti rendezés nem működik megfelelően, hogyan tudom megjavítani?</string>
-    <string name="faq_12_text">Valószínűleg a fájlok másolásából származik. Ezt a fájl bélyegképének kiválasztásával és a \"Dátum javítása\" lehetőség kiválasztásával oldhatja meg.</string>
+    <string name="faq_12_text">Valószínűleg a fájlok másolásából adódik. Ezt a fájl bélyegképének kiválasztásával és a „Dátum javítása” lehetőség kiválasztásával oldhatja meg.</string>
     <string name="faq_13_title">Néhány színcsíkot látok a képeken. Hogyan javíthatom a minőséget?</string>
-    <string name="faq_13_text">Az esetek többségében a kép megjelenítés jelenlegi megoldása jól működik. Ha még jobb képminőséget szeretne, engedélyezheti a \"Mutassa a képeket a lehető legjobb minőségben\" opcióval az alkalmazás beállításaiban, a \"Mély nagyítású képek\" szakaszban.</string>
-    <string name="faq_14_title">Elrejtettem egy fájlt/mappát. Hogyan tudom látni?</string>
-    <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a \"Rejtettek ideiglenes mutatása\" elemet a fő képernyőn, vagy válassza a \"Mutassa a rejtett elemeket\" az alkalmazás beállításaiban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza a \"Elrejtés megszüntetés\" lehetőséget. A mappák elrejtése egy rejtett \". nomedia\" fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel is törölheti. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_13_text">Az esetek többségében a képek megjelenítésének jelenlegi megoldása jól működik, de ha még jobb képminőséget szeretne, akkor engedélyezheti a \"Képek megjelenítése a lehető legjobb minőségben\" lehetőséget az alkalmazásbeállításokban, a „Mély nagyítású képek” szakaszban.</string>
+    <string name="faq_14_title">Elrejtettem egy fájlt/mappát. Hogyan tudom újra megjeleníteni\?</string>
+    <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a „Rejtett elemek ideiglenes megjelenítése” elemet a főképernyőn, vagy válassza a „Rejtett elemek megjelenítése” lehetőséget az alkalmazásbeállításokban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza az „Elrejtés megszüntetése” lehetőséget. A mappák elrejtése egy rejtett „.nomedia” fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel törölheti. Vegye figyelembe, hogy az elrejtés rekurzív módon működik, ha elrejt egy mappát, akkor az összes almappája is rejtett lesz. Így az almappák elrejtésének megszüntetéséhez láthatóvá kell tennie a szülőmappát is.</string>
     <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet?</string>
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro – Fényképkezelő és -szerkesztő</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
+    <string name="app_short_description">Prémium alkalmazás a fényképei, videói, GIF-ei kezeléséhez és szerkesztéséhez, reklámok nélkül</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
@@ -410,10 +404,10 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
         Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
 
-        <b>Nézze meg a Simple Tools csomagot itt:</b>
+        <b>Check out the full suite of Simple Tools here:</b>
         https://www.simplemobiletools.com
 
-        <b>A Simple Gallery Pro önálló weboldala:</b>
+        <b>Standalone website of Simple Gallery Pro:</b>
         https://www.simplemobiletools.com/gallery
 
         <b>Facebook:</b>
@@ -422,7 +416,6 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
