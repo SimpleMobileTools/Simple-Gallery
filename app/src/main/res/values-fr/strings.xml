@@ -193,6 +193,7 @@
     <string name="allow_zooming_videos">Zoomer les vidéos par un double appui</string>
     <string name="folder_thumbnail_style">Style des miniatures des dossiers</string>
     <string name="file_thumbnail_style">Style des miniatures des fichiers</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Espacement des miniatures</string>
     <string name="show_file_count_line">Afficher le nombre de fichiers sur une autre ligne</string>
     <string name="show_file_count_brackets">Afficher le nombre de fichiers entre parenthèses</string>

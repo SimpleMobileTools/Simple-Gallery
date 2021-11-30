@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Baimendu bideoen zooma birritan ukitzean</string>
     <string name="folder_thumbnail_style">Karpeta-iruditxoaren estiloa</string>
     <string name="file_thumbnail_style">Fitxategi-iruditxoaren estiloa</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Iruditxoen arteko tartea</string>
     <string name="show_file_count_line">Erakutsi fitxategi kopurua beste lerro batean</string>
     <string name="show_file_count_brackets">Erakutsi fitxategi kopurua parentesi artean</string>

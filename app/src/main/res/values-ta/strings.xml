@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">காணொளிகளை இருமுறை தட்டுவதன் மூலம் பெரிதாக்க அனுமதி</string>
     <string name="folder_thumbnail_style">கோப்புறை சிறுவுருவ பாணி</string>
     <string name="file_thumbnail_style">கோப்பு சிறுவுருவ பாணி</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">சிறுபடத்தில் இடைவெளி</string>
     <string name="show_file_count_line">கோப்பு எண்ணிக்கையை தனி வரியில் காண்பி</string>
     <string name="show_file_count_brackets">கோப்பு எண்ணிக்கையை அடைப்புக்குறிக்குள் காட்டு</string>

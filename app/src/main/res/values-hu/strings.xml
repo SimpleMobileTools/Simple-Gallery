@@ -193,6 +193,7 @@
     <string name="allow_zooming_videos">Videók dupla koppintással történő nagyításának engedélyezése</string>
     <string name="folder_thumbnail_style">Mappák bélyegképének stílusa</string>
     <string name="file_thumbnail_style">Fájlok bélyegképének stílusa</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Bélyegképek térköze</string>
     <string name="show_file_count_line">Fájlok számának megjelenítése külön sorban</string>
     <string name="show_file_count_brackets">Fájlok számának megjelenítése zárójelben</string>
