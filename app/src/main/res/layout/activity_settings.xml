@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_scrollview"
     android:layout_width="match_parent"
@@ -12,1256 +11,1036 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/settings_customize_colors_holder"
+        <TextView
+            android:id="@+id/settings_color_customization_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/color_customization" />
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_customize_colors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/customize_colors" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_use_english_holder"
+        <LinearLayout
+            android:id="@+id/settings_color_customization_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_use_english"
+            <RelativeLayout
+                android:id="@+id/settings_customize_colors_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/use_english_language"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_all_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_customize_colors_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/customize_colors" />
 
-        <RelativeLayout
-            android:id="@+id/settings_change_date_time_format_holder"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_general_settings_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/general_settings" />
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_change_date_time_format"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/change_date_and_time_format" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_file_loading_priority_holder"
+        <LinearLayout
+            android:id="@+id/settings_general_settings_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_file_loading_priority_label"
+            <RelativeLayout
+                android:id="@+id/settings_use_english_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/settings_file_loading_priority"
-                android:ellipsize="end"
-                android:lines="1"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/file_loading_priority" />
+                android:background="@drawable/ripple_top_corners">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_file_loading_priority"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/medium_margin"
-                android:background="@null"
-                android:clickable="false"
-                tools:text="@string/compromise" />
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_use_english"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/use_english_language" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/visibility_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/visibility"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_manage_included_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_included_folders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_included_folders" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_manage_excluded_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_excluded_folders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_excluded_folders" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_manage_hidden_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_hidden_folders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_hidden_folders" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_show_hidden_items_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_hidden_items"
+            <RelativeLayout
+                android:id="@+id/settings_change_date_time_format_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_hidden_items"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_change_date_time_format"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_date_and_time_format" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/videos_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/videos"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/settings_autoplay_videos_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_autoplay_videos"
+            <RelativeLayout
+                android:id="@+id/settings_file_loading_priority_holder"
+                style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/autoplay_videos"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_file_loading_priority_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/file_loading_priority" />
 
-        <RelativeLayout
-            android:id="@+id/settings_remember_last_video_position_holder"
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_file_loading_priority"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_file_loading_priority_label"
+                    tools:text="@string/compromise" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_visibility_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/visibility" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_remember_last_video_position"
+        <LinearLayout
+            android:id="@+id/settings_visibility_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_manage_included_folders_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/remember_last_video_position"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_manage_included_folders"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_included_folders" />
 
-        <RelativeLayout
-            android:id="@+id/settings_loop_videos_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_loop_videos"
+            <RelativeLayout
+                android:id="@+id/settings_manage_excluded_folders_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/loop_videos"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_manage_excluded_folders"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_excluded_folders" />
 
-        <RelativeLayout
-            android:id="@+id/settings_open_videos_on_separate_screen_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_open_videos_on_separate_screen"
+            <RelativeLayout
+                android:id="@+id/settings_manage_hidden_folders_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/open_videos_on_separate_screen"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_manage_hidden_folders"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_hidden_folders" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_video_gestures_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingRight="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_video_gestures"
+            <RelativeLayout
+                android:id="@+id/settings_show_hidden_items_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingLeft="@dimen/medium_margin"
-                android:text="@string/allow_video_gestures"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_hidden_items"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_hidden_items" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/thumbnails_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/thumbnails"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/settings_crop_thumbnails_holder"
+        <TextView
+            android:id="@+id/settings_videos_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/videos" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_crop_thumbnails"
+        <LinearLayout
+            android:id="@+id/settings_videos_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_autoplay_videos_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/crop_thumbnails"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_autoplay_videos"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/autoplay_videos" />
 
-        <RelativeLayout
-            android:id="@+id/settings_file_thumbnail_style_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_file_thumbnail_style_label"
+            <RelativeLayout
+                android:id="@+id/settings_remember_last_video_position_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/file_thumbnail_style" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_remember_last_video_position"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remember_last_video_position" />
 
-        <RelativeLayout
-            android:id="@+id/settings_folder_thumbnail_style_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_folder_thumbnail_style_label"
+            <RelativeLayout
+                android:id="@+id/settings_loop_videos_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/settings_folder_thumbnail_style"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/folder_thumbnail_style" />
+                android:background="@drawable/ripple_background">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_folder_thumbnail_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/medium_margin"
-                android:background="@null"
-                android:clickable="false" />
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_loop_videos"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loop_videos" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/scrolling_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/scrolling"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_scroll_horizontally_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_scroll_horizontally"
+            <RelativeLayout
+                android:id="@+id/settings_open_videos_on_separate_screen_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/scroll_thumbnails_horizontally"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_open_videos_on_separate_screen"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open_videos_on_separate_screen" />
 
-        <RelativeLayout
-            android:id="@+id/settings_enable_pull_to_refresh_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_enable_pull_to_refresh"
+            <RelativeLayout
+                android:id="@+id/settings_allow_video_gestures_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/enable_pull_to_refresh"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_video_gestures"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_video_gestures" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/fullscreen_media_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/fullscreen_media"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/settings_max_brightness_holder"
+        <TextView
+            android:id="@+id/settings_thumbnails_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/thumbnails" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_max_brightness"
+        <LinearLayout
+            android:id="@+id/settings_thumbnails_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_crop_thumbnails_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/max_brightness"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_crop_thumbnails"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/crop_thumbnails" />
 
-        <RelativeLayout
-            android:id="@+id/settings_black_background_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_black_background"
+            <RelativeLayout
+                android:id="@+id/settings_file_thumbnail_style_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/black_background_at_fullscreen"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_file_thumbnail_style_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/file_thumbnail_style" />
 
-        <RelativeLayout
-            android:id="@+id/settings_hide_system_ui_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_hide_system_ui"
+            <RelativeLayout
+                android:id="@+id/settings_folder_thumbnail_style_holder"
+                style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/hide_system_ui_at_fullscreen"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_folder_thumbnail_style_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/folder_thumbnail_style" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_instant_change_holder"
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_folder_thumbnail_style"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_folder_thumbnail_style_label"
+                    tools:text="Default" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_scrolling_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/scrolling" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_instant_change"
+        <LinearLayout
+            android:id="@+id/settings_scrolling_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_scroll_horizontally_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_instant_change"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_scroll_horizontally"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scroll_thumbnails_horizontally" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_photo_gestures_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_photo_gestures"
+            <RelativeLayout
+                android:id="@+id/settings_enable_pull_to_refresh_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_photo_gestures"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_enable_pull_to_refresh"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_pull_to_refresh" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_down_gesture_holder"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_fullscreen_media_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/fullscreen_media" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_down_gesture"
+        <LinearLayout
+            android:id="@+id/settings_fullscreen_media_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_max_brightness_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_down_gesture"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_max_brightness"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_brightness" />
 
-        <RelativeLayout
-            android:id="@+id/settings_show_notch_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_notch"
+            <RelativeLayout
+                android:id="@+id/settings_black_background_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_notch"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_black_background"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/black_background_at_fullscreen" />
 
-        <RelativeLayout
-            android:id="@+id/settings_screen_rotation_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_screen_rotation_label"
+            <RelativeLayout
+                android:id="@+id/settings_hide_system_ui_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/settings_screen_rotation"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/screen_rotation_by" />
+                android:background="@drawable/ripple_background">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_screen_rotation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/medium_margin"
-                android:background="@null"
-                android:clickable="false" />
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_hide_system_ui"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hide_system_ui_at_fullscreen" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/deep_zoomable_images_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/deep_zoomable_images"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_allow_zooming_images_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_zooming_images"
+            <RelativeLayout
+                android:id="@+id/settings_allow_instant_change_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_deep_zooming_images"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_instant_change"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_instant_change" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_rotating_with_gestures_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_rotating_with_gestures"
+            <RelativeLayout
+                android:id="@+id/settings_allow_photo_gestures_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_rotating_gestures"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_photo_gestures"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_photo_gestures" />
 
-        <RelativeLayout
-            android:id="@+id/settings_show_highest_quality_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_highest_quality"
+            <RelativeLayout
+                android:id="@+id/settings_allow_down_gesture_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_highest_quality"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_down_gesture"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_down_gesture" />
 
-        <RelativeLayout
-            android:id="@+id/settings_allow_one_to_one_zoom_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_one_to_one_zoom"
+            <RelativeLayout
+                android:id="@+id/settings_show_notch_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_one_to_one_zoom"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_notch"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_notch" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/extended_details_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/extended_details"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/settings_show_extended_details_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_extended_details"
+            <RelativeLayout
+                android:id="@+id/settings_screen_rotation_holder"
+                style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_extended_details"
-                app:switchPadding="@dimen/medium_margin" />
-        </RelativeLayout>
+                android:background="@drawable/ripple_bottom_corners">
 
-        <RelativeLayout
-            android:id="@+id/settings_hide_extended_details_holder"
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_screen_rotation_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/screen_rotation_by" />
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_screen_rotation"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_screen_rotation_label"
+                    tools:text="@string/screen_rotation_system_setting" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_deep_zoomable_images_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/deep_zoomable_images" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_hide_extended_details"
+        <LinearLayout
+            android:id="@+id/settings_deep_zoomable_images_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_allow_zooming_images_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/hide_extended_details"
-                app:switchPadding="@dimen/medium_margin" />
-        </RelativeLayout>
+                android:background="@drawable/ripple_top_corners">
 
-        <RelativeLayout
-            android:id="@+id/settings_manage_extended_details_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_zooming_images"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_deep_zooming_images" />
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_extended_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_extended_details" />
+            </RelativeLayout>
 
-        </RelativeLayout>
-
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/security_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/security"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_hidden_item_password_protection_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_hidden_item_password_protection"
+            <RelativeLayout
+                android:id="@+id/settings_allow_rotating_with_gestures_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_hidden_items"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_rotating_with_gestures"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_rotating_gestures" />
 
-        <RelativeLayout
-            android:id="@+id/settings_app_password_protection_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_app_password_protection"
+            <RelativeLayout
+                android:id="@+id/settings_show_highest_quality_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_whole_app"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_highest_quality"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_highest_quality" />
 
-        <RelativeLayout
-            android:id="@+id/settings_file_deletion_password_protection_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_file_deletion_password_protection"
+            <RelativeLayout
+                android:id="@+id/settings_allow_one_to_one_zoom_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_file_deletion"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_allow_one_to_one_zoom"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/allow_one_to_one_zoom" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/file_operations_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/file_operations"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/settings_delete_empty_folders_holder"
+        <TextView
+            android:id="@+id/settings_extended_details_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/extended_details" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_delete_empty_folders"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/delete_empty_folders"
-                app:switchPadding="@dimen/medium_margin" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_keep_last_modified_holder"
+        <LinearLayout
+            android:id="@+id/settings_extended_details_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_keep_last_modified"
+            <RelativeLayout
+                android:id="@+id/settings_show_extended_details_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/keep_last_modified"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_extended_details"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_extended_details" />
 
-        <RelativeLayout
-            android:id="@+id/settings_skip_delete_confirmation_holder"
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_hide_extended_details_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_hide_extended_details"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hide_extended_details" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_manage_extended_details_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_manage_extended_details"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_extended_details" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_security_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/security" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_skip_delete_confirmation"
+        <LinearLayout
+            android:id="@+id/settings_security_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_hidden_item_password_protection_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/skip_delete_confirmation"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_hidden_item_password_protection"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_protect_hidden_items" />
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/bottom_actions_label"
-            android:layout_width="wrap_content"
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_app_password_protection_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_app_password_protection"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_protect_whole_app" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_file_deletion_password_protection_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_file_deletion_password_protection"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_protect_file_deletion" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_file_operations_label"
+            style="@style/SettingsSectionLabelStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/bottom_actions"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
+            android:text="@string/file_operations" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/settings_file_operations_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_delete_empty_folders_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_top_corners">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_delete_empty_folders"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_empty_folders" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_keep_last_modified_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_keep_last_modified"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keep_last_modified" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_skip_delete_confirmation_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_skip_delete_confirmation"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/skip_delete_confirmation" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_bottom_actions_label"
+            style="@style/SettingsSectionLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bottom_actions" />
+
+        <LinearLayout
             android:id="@+id/settings_bottom_actions_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_bottom_actions"
+            <RelativeLayout
+                android:id="@+id/settings_bottom_actions_checkbox_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_at_bottom"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_bottom_actions_checkbox"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_at_bottom" />
 
-        <RelativeLayout
-            android:id="@+id/settings_manage_bottom_actions_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_bottom_actions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_bottom_actions" />
-
-        </RelativeLayout>
-
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/recycle_bin_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/recycle_bin"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_use_recycle_bin_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_use_recycle_bin"
+            <RelativeLayout
+                android:id="@+id/settings_manage_bottom_actions_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/move_items_into_recycle_bin"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_bottom_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_manage_bottom_actions"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_bottom_actions" />
 
-        <RelativeLayout
-            android:id="@+id/settings_show_recycle_bin_holder"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_recycle_bin_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/recycle_bin" />
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_recycle_bin"
+        <LinearLayout
+            android:id="@+id/settings_recycle_bin_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/settings_use_recycle_bin_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_recycle_bin"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_use_recycle_bin"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/move_items_into_recycle_bin" />
 
-        <RelativeLayout
-            android:id="@+id/settings_show_recycle_bin_last_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_recycle_bin_last"
+            <RelativeLayout
+                android:id="@+id/settings_show_recycle_bin_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_recycle_bin_last"
-                app:switchPadding="@dimen/medium_margin" />
+                android:background="@drawable/ripple_background">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_recycle_bin"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_recycle_bin" />
 
-        <RelativeLayout
-            android:id="@+id/settings_empty_recycle_bin_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
+            </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_empty_recycle_bin_label"
+            <RelativeLayout
+                android:id="@+id/settings_show_recycle_bin_last_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/settings_empty_recycle_bin_size"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/empty_recycle_bin" />
+                android:background="@drawable/ripple_background">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_empty_recycle_bin_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/medium_margin"
-                android:background="@null"
-                android:clickable="false" />
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_show_recycle_bin_last"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_recycle_bin_last" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/migrating_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/bigger_margin"
-            android:layout_marginTop="@dimen/section_margin"
-            android:text="@string/migrating"
-            android:textAllCaps="true"
-            android:textSize="@dimen/smaller_text_size" />
-
-        <RelativeLayout
-            android:id="@+id/settings_clear_cache_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/bigger_margin">
-
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_clear_cache_label"
+            <RelativeLayout
+                android:id="@+id/settings_empty_recycle_bin_holder"
+                style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/settings_clear_cache_size"
-                android:paddingStart="@dimen/medium_margin"
-                android:paddingEnd="@dimen/medium_margin"
-                android:text="@string/clear_cache" />
+                android:background="@drawable/ripple_bottom_corners">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_clear_cache_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/medium_margin"
-                android:background="@null"
-                android:clickable="false" />
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_empty_recycle_bin_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty_recycle_bin" />
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_empty_recycle_bin_size"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_empty_recycle_bin_label"
+                    tools:text="0 B" />
 
-        <RelativeLayout
-            android:id="@+id/settings_export_holder"
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/settings_migrating_label"
+            style="@style/SettingsSectionLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:text="@string/migrating" />
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_export"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/export_settings" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_import_holder"
+        <LinearLayout
+            android:id="@+id/settings_migrating_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/normal_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/normal_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/section_holder_stroke"
+            android:orientation="vertical">
 
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_import"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/settings_clear_cache_holder"
+                style="@style/SettingsHolderTextViewStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/import_settings" />
+                android:background="@drawable/ripple_top_corners">
 
-        </RelativeLayout>
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_clear_cache_label"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear_cache" />
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_clear_cache_size"
+                    style="@style/SettingsTextValueStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/settings_clear_cache_label"
+                    tools:text="0 B" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_export_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_export"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export_settings" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_import_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_import"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_settings" />
+
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
