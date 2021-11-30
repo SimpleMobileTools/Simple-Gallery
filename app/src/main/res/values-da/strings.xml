@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Tillad zoom på videoer ved dobbelttryk</string>
     <string name="folder_thumbnail_style">Miniaturestil på mapper</string>
     <string name="file_thumbnail_style">Miniaturestil på filer</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Afstand mellem miniaturer</string>
     <string name="show_file_count_line">Vis antal filer på separat linje</string>
     <string name="show_file_count_brackets">Vis antal filer i parantes</string>

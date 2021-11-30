@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">點兩下螢幕來縮放影片</string>
     <string name="folder_thumbnail_style">資料夾縮圖樣式</string>
     <string name="file_thumbnail_style">檔案縮圖樣式</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">縮圖的間隔</string>
     <string name="show_file_count_line">獨立一行顯示檔案數量</string>
     <string name="show_file_count_brackets">在括號內顯示檔案數量</string>

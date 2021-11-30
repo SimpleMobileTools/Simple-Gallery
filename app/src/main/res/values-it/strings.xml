@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Permetti l\'ingrandimento dei video con un doppio tocco</string>
     <string name="folder_thumbnail_style">Stile anteprime delle cartelle</string>
     <string name="file_thumbnail_style">Stile anteprime dei file</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Spaziatura tra le anteprime</string>
     <string name="show_file_count_line">Mostra il numero dei file in una riga separata</string>
     <string name="show_file_count_brackets">Mostra il numero dei file tra parentesi</string>

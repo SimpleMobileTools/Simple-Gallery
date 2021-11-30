@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Permite mărirea clipurilor video prin dubla atingere a acestora</string>
     <string name="folder_thumbnail_style">Stilul miniaturii dosarului</string>
     <string name="file_thumbnail_style">Stilul miniaturii fișierului</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Spațierea miniaturilor</string>
     <string name="show_file_count_line">Afișează numărul de fișiere pe o linie separată</string>
     <string name="show_file_count_brackets">Afișează numărul de fișiere în paranteze</string>

@@ -194,6 +194,7 @@
     <string name="allow_zooming_videos">Lähennä videoita tuplanapautuksella</string>
     <string name="folder_thumbnail_style">Kansion pienoiskuvan tyyli</string>
     <string name="file_thumbnail_style">Tiedoston pienoiskuvan tyyli</string>
+    <string name="mark_favorite_items">Mark favorite items</string>
     <string name="thumbnail_spacing">Pienoiskuvan asettelu</string>
     <string name="show_file_count_line">Näytä tiedostojen lukumäärä erillisellä rivillä</string>
     <string name="show_file_count_brackets">Näytä tiedostojen lukumäärä suluissa</string>
