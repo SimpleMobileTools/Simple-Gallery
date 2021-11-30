@@ -615,15 +615,8 @@ class DirectoryAdapter(
             return
         }
 
-        var SAFPath = ""
+        val SAFPath = getFirstSelectedItemPath() ?: return
         val selectedDirs = getSelectedItems()
-        selectedDirs.forEach {
-            val path = it.path
-            /*if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
-                SAFPath = path
-            }*/
-        }
-
         activity.handleSAFDialog(SAFPath) {
             if (!it) {
                 return@handleSAFDialog
