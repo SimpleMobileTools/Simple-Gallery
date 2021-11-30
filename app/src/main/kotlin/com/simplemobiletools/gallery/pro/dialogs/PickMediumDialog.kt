@@ -12,22 +12,25 @@ import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getCachedMedia
+import com.simplemobiletools.gallery.pro.helpers.GridSpacingItemDecoration
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
+import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.dialog_medium_picker.view.*
 
 class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownMedia = ArrayList<ThumbnailItem>()
     val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
-    val viewType = activity.config.getFolderViewType(if (activity.config.showAll) SHOW_ALL else path)
+    val config = activity.config
+    val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
     var isGridViewType = viewType == VIEW_TYPE_GRID
 
     init {
         (view.media_grid.layoutManager as MyGridLayoutManager).apply {
-            orientation = if (activity.config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
-            spanCount = if (isGridViewType) activity.config.mediaColumnCnt else 1
+            orientation = if (config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
+            spanCount = if (isGridViewType) config.mediaColumnCnt else 1
         }
 
         view.media_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
@@ -73,10 +76,33 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             }
         }
 
-        val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
+        val scrollHorizontally = config.scrollHorizontally && isGridViewType
         view.apply {
             media_grid.adapter = adapter
             media_fastscroller.setScrollVertically(!scrollHorizontally)
+        }
+        handleGridSpacing(media)
+    }
+
+    private fun handleGridSpacing(media: ArrayList<ThumbnailItem>) {
+        if (isGridViewType) {
+            val spanCount = config.mediaColumnCnt
+            val spacing = config.thumbnailSpacing
+            val useGridPosition = media.firstOrNull() is ThumbnailSection
+
+            var currentGridDecoration: GridSpacingItemDecoration? = null
+            if (view.media_grid.itemDecorationCount > 0) {
+                currentGridDecoration = view.media_grid.getItemDecorationAt(0) as GridSpacingItemDecoration
+                currentGridDecoration.items = media
+            }
+
+            val newGridDecoration = GridSpacingItemDecoration(spanCount, spacing, config.scrollHorizontally, config.fileRoundedCorners, media, useGridPosition)
+            if (currentGridDecoration.toString() != newGridDecoration.toString()) {
+                if (currentGridDecoration != null) {
+                    view.media_grid.removeItemDecoration(currentGridDecoration)
+                }
+                view.media_grid.addItemDecoration(newGridDecoration)
+            }
         }
     }
 }
