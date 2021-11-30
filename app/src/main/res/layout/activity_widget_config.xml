@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/config_holder"
     android:layout_width="match_parent"
@@ -17,22 +15,17 @@
 
         <RelativeLayout
             android:id="@+id/folder_picker_show_folder_name_holder"
+            style="@style/SettingsHolderCheckboxStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/activity_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingEnd="@dimen/medium_margin"
-            android:paddingBottom="@dimen/activity_margin">
+            android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MySwitchCompat
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
                 android:id="@+id/folder_picker_show_folder_name"
+                style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:text="@string/show_folder_name"
-                app:switchPadding="@dimen/medium_margin"/>
+                android:text="@string/show_folder_name" />
 
         </RelativeLayout>
 
@@ -44,7 +37,7 @@
             android:layout_marginTop="@dimen/small_margin"
             android:layout_marginBottom="@dimen/normal_margin"
             android:paddingStart="@dimen/activity_margin"
-            android:text="@string/folder_on_widget"/>
+            android:text="@string/folder_on_widget" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/folder_picker_value"
@@ -54,7 +47,7 @@
             android:layout_marginStart="@dimen/activity_margin"
             android:background="@drawable/button_background"
             android:padding="@dimen/normal_margin"
-            tools:text="@string/internal"/>
+            tools:text="@string/internal" />
 
     </RelativeLayout>
 
@@ -71,7 +64,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/normal_margin"
             android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginRight="@dimen/normal_margin"/>
+            android:layout_marginRight="@dimen/normal_margin" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/config_folder_name"
@@ -83,7 +76,7 @@
             android:lines="1"
             android:padding="@dimen/tiny_margin"
             android:textSize="@dimen/bigger_text_size"
-            tools:text="@string/internal"/>
+            tools:text="@string/internal" />
 
     </RelativeLayout>
 
@@ -91,7 +84,7 @@
         android:id="@+id/config_bg_color"
         android:layout_width="@dimen/widget_colorpicker_size"
         android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_above="@+id/config_save"/>
+        android:layout_above="@+id/config_save" />
 
     <RelativeLayout
         android:id="@+id/config_bg_seekbar_holder"
@@ -108,14 +101,14 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/activity_margin"
-            android:paddingRight="@dimen/activity_margin"/>
+            android:paddingRight="@dimen/activity_margin" />
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/config_text_color"
         android:layout_width="@dimen/widget_colorpicker_size"
         android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:id="@+id/config_save"
@@ -128,6 +121,6 @@
         android:paddingRight="@dimen/activity_margin"
         android:text="@string/ok"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/big_text_size"/>
+        android:textSize="@dimen/big_text_size" />
 
 </RelativeLayout>
