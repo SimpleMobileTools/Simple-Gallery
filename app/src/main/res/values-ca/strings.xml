@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">Permet fer zoom als vídeos amb dos cops</string>
     <string name="folder_thumbnail_style">Estil de miniatura de carpeta</string>
     <string name="file_thumbnail_style">Estil de miniatura del fitxer</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Marca els articles preferits</string>
     <string name="thumbnail_spacing">Espai entre miniatures</string>
     <string name="show_file_count_line">Mostra el recompte de fitxers en una línia diferent</string>
     <string name="show_file_count_brackets">Mostra el recompte de fitxers entre claudàtors</string>
