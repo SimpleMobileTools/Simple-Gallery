@@ -22,17 +22,30 @@
         android:src="@drawable/ic_play_outline_vector"
         android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/video_duration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/favorite"
+        android:layout_width="@dimen/favorite_icon_size"
+        android:layout_height="@dimen/favorite_icon_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@drawable/circle_black_background"
+        android:gravity="end"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/ic_star_vector"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/video_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/play_portrait_outline"
+        android:layout_alignBottom="@+id/play_portrait_outline"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_toEndOf="@id/play_portrait_outline"
         android:ellipsize="end"
         android:gravity="end"
         android:maxLines="1"
-        android:paddingLeft="@dimen/small_margin"
-        android:paddingRight="@dimen/small_margin"
         android:shadowColor="@color/default_background_color"
         android:shadowRadius="4"
         android:textColor="@android:color/white"

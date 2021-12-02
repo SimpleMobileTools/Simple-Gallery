@@ -108,5 +108,21 @@
                 android:text="@string/show_image_file_types" />
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_file_style_mark_favorite_items_holder"
+            style="@style/SettingsHolderCheckboxStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/dialog_file_style_mark_favorite_items"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mark_favorite_items" />
+
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>

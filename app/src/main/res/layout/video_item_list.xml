@@ -18,6 +18,19 @@
         android:layout_height="@dimen/list_view_folder_thumbnail_size" />
 
     <ImageView
+        android:id="@+id/favorite"
+        android:layout_width="@dimen/favorite_list_icon_size"
+        android:layout_height="@dimen/favorite_list_icon_size"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/smaller_margin"
+        android:padding="@dimen/tiny_margin"
+        android:gravity="end"
+        android:background="@drawable/circle_black_background"
+        android:src="@drawable/ic_star_vector"
+        android:visibility="gone" />
+
+    <ImageView
         android:id="@+id/medium_check"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"
