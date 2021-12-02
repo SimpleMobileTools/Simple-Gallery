@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.22.1 *(2021-12-02)*
+----------------------------
+
+ * Redesigned some screens and views, added an Auto theme
+ * Mark favorited item thumbnails
+ * Fixed some file operations on Android 11+
+ * Couple other stability, translation and UX improvements
+ * This version won't be on Google Play
+
 Version 6.22.0 *(2021-10-26)*
 ----------------------------
 
