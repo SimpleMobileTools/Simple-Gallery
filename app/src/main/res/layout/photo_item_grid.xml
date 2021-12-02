@@ -29,8 +29,8 @@
 
     <ImageView
         android:id="@+id/favorite"
-        android:layout_width="@dimen/favorite_icon_size"
-        android:layout_height="@dimen/favorite_icon_size"
+        android:layout_width="@dimen/selection_check_size"
+        android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/small_margin"
