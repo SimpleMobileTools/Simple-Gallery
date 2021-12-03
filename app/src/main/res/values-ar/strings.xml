@@ -42,7 +42,7 @@
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>
     <string name="images">الصور</string>
-    <string name="videos">الفيديوات</string>
+    <string name="videos">الفيديوهات</string>
     <string name="gifs">الصور المتحركة (GIF)</string>
     <string name="raw_images">صور الخام (RAW)</string>
     <string name="svgs">صور الرسومات المتجهة (SVG)</string>
@@ -191,7 +191,7 @@
     <string name="allow_zooming_videos">السماح بتكبير مقاطع الفيديو مع النقر المزدوج عليها</string>
     <string name="folder_thumbnail_style">نمط الصورة المصغرة للمجلد</string>
     <string name="file_thumbnail_style">نمط الصورة المصغرة للملف</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">وضع علامة على العناصر المفضلة</string>
     <string name="thumbnail_spacing">تباعد الصور المصغرة</string>
     <string name="show_file_count_line">إظهار عدد الملفات في سطر منفصل</string>
     <string name="show_file_count_brackets">إظهار عدد الملفات بين قوسين</string>
@@ -200,7 +200,6 @@
     <string name="square">مربع</string>
     <string name="rounded_corners">زوايا مستديرة</string>
     <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
