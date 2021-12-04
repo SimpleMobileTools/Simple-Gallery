@@ -44,7 +44,7 @@
     <string name="no_media_with_filters">Nessun file trovato con il filtro selezionato.</string>
     <string name="change_filters_underlined"><u>Cambia filtro</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Si possono vedere attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
+    <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file .nomedia all\'interno, nasconderà anche tutte le sottocartelle. Si possono vedere attivando l\'opzione «Mostra cartelle nascoste» nelle impostazioni. Continuare\?</string>
     <string name="exclude">Escludi</string>
     <string name="excluded_folders">Cartelle escluse</string>
     <string name="manage_excluded_folders">Gestisci le cartelle escluse</string>
@@ -187,7 +187,7 @@
     <string name="allow_zooming_videos">Permetti l\'ingrandimento dei video con un doppio tocco</string>
     <string name="folder_thumbnail_style">Stile anteprime delle cartelle</string>
     <string name="file_thumbnail_style">Stile anteprime dei file</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Segna gli elementi preferiti</string>
     <string name="thumbnail_spacing">Spaziatura tra le anteprime</string>
     <string name="show_file_count_line">Mostra il numero dei file in una riga separata</string>
     <string name="show_file_count_brackets">Mostra il numero dei file tra parentesi</string>
