@@ -1071,7 +1071,7 @@ fun Context.updateDirectoryPath(path: String) {
     val favoritePaths = getFavoritePaths()
     val curMedia = mediaFetcher.getFilesFrom(
         path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified, getProperFileSize,
-        favoritePaths, false, lastModifieds, dateTakens
+        favoritePaths, false, lastModifieds, dateTakens, null
     )
     val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, getProperFileSize, noMediaFolders)
     updateDBDirectory(directory)

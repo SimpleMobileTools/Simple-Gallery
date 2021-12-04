@@ -873,12 +873,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
         val favoritePaths = getFavoritePaths()
-
-        /*if (isRPlus()) {
-            mLastMediaFetcher!!.getAndroid11FolderMedia(getImagesOnly, getVideosOnly, favoritePaths)
-            return
-        }*/
-
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
@@ -913,6 +907,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
+        val android11Files = mLastMediaFetcher?.getAndroid11FolderMedia(getImagesOnly, getVideosOnly, favoritePaths)
         try {
             for (directory in dirs) {
                 if (mShouldStopFetching || isDestroyed || isFinishing) {
@@ -933,7 +928,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 val curMedia = mLastMediaFetcher!!.getFilesFrom(
                     directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
-                    getProperFileSize, favoritePaths, false, lastModifieds, dateTakens
+                    getProperFileSize, favoritePaths, false, lastModifieds, dateTakens, android11Files
                 )
 
                 val newDir = if (curMedia.isEmpty()) {
@@ -1040,7 +1035,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             val newMedia = mLastMediaFetcher!!.getFilesFrom(
                 folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
-                getProperFileSize, favoritePaths, false, lastModifieds, dateTakens
+                getProperFileSize, favoritePaths, false, lastModifieds, dateTakens, android11Files
             )
 
             if (newMedia.isEmpty()) {

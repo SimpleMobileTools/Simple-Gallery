@@ -38,7 +38,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
                 val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize,
-                    favoritePaths, getVideoDurations, lastModifieds, dateTakens)
+                    favoritePaths, getVideoDurations, lastModifieds, dateTakens, null)
                 media.addAll(newMedia)
             }
 
@@ -46,7 +46,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             media
         } else {
             mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, getProperLastModified, getProperFileSize, favoritePaths,
-                getVideoDurations, lastModifieds, dateTakens)
+                getVideoDurations, lastModifieds, dateTakens, null)
         }
 
         return mediaFetcher.groupMedia(media, pathToUse)
