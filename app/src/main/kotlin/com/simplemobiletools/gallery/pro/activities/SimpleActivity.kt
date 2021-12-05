@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.activities
 
-import android.annotation.SuppressLint
 import android.database.ContentObserver
 import android.net.Uri
 import android.provider.MediaStore.Images
@@ -56,7 +55,6 @@ open class SimpleActivity : BaseSimpleActivity() {
 
     override fun getAppLauncherName() = getString(R.string.app_launcher_name)
 
-    @SuppressLint("InlinedApi")
     protected fun checkNotchSupport() {
         if (isPiePlus()) {
             val cutoutMode = when {
