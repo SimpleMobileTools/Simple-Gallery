@@ -395,7 +395,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.tempFolderPath.isNotEmpty()) {
             val newFolder = File(config.tempFolderPath)
             if (getDoesFilePathExist(newFolder.absolutePath) && newFolder.isDirectory) {
-                if (newFolder.list()?.isEmpty() == true && newFolder.getProperSize(true) == 0L && newFolder.getFileCount(true) == 0) {
+                if (newFolder.getProperSize(true) == 0L && newFolder.getFileCount(true) == 0 && newFolder.list()?.isEmpty() == true) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
                     tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true, true)
                 }
@@ -1225,8 +1225,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
             if (!getDoesFilePathExist(it.path, OTGPath)) {
                 invalidDirs.add(it)
-            } else if (it.path != config.tempFolderPath) {
-                val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
+            } else if (it.path != config.tempFolderPath && !isRPlus()) {
+                // avoid calling file.list() or listfiles() on Android 11+, it became way too slow
+                val children = if (isPathOnOTG(it.path)) {
+                    getOTGFolderChildrenNames(it.path)
+                } else {
+                    File(it.path).list()?.asList()
+                }
+
                 val hasMediaFile = children?.any {
                     it != null && (it.isMediaFile() || (it.startsWith("img_", true) && File(it).isDirectory))
                 } ?: false
