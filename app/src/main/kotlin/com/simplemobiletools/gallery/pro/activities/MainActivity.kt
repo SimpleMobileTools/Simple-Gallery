@@ -434,7 +434,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun tryLoadGallery() {
+        // avoid calling anything right after granting the permission, it will be called from onResume()
+        val wasMissingPermission = config.appRunCount == 1 && !hasPermission(PERMISSION_WRITE_STORAGE)
         handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (wasMissingPermission) {
+                return@handlePermission
+            }
+
             if (it) {
                 if (!mWasDefaultFolderChecked) {
                     openDefaultFolder()
@@ -1068,7 +1074,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         mLoadedInitialPhotos = true
-        checkLastMediaChanged()
+        if (config.appRunCount > 1) {
+            checkLastMediaChanged()
+        }
 
         runOnUiThread {
             directories_refresh_layout.isRefreshing = false
