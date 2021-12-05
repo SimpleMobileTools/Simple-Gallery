@@ -187,7 +187,7 @@
     <string name="allow_zooming_videos">Масштабировать видео двойным нажатием по нему</string>
     <string name="folder_thumbnail_style">Вид миниатюр папок</string>
     <string name="file_thumbnail_style">Вид миниатюр файлов</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Пометка избранных элементов</string>
     <string name="thumbnail_spacing">Промежуток между миниатюрами</string>
     <string name="show_file_count_line">Показывать количество файлов отдельной строкой</string>
     <string name="show_file_count_brackets">Показывать количество файлов в скобках</string>

@@ -208,7 +208,7 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Zarządzaj widocznością dolnych przycisków akcji</string>
     <string name="toggle_favorite">Ulubione</string>
-    <string name="toggle_file_visibility">Przełącz widoczność pliku</string>
+    <string name="toggle_file_visibility">Zmień widoczność pliku</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Własne</string>
     <string name="pesdk_transform_button_resetCrop">Resetuj</string>
