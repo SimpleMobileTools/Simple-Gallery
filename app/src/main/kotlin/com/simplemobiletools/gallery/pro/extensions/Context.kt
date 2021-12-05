@@ -2,14 +2,12 @@ package com.simplemobiletools.gallery.pro.extensions
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
-import android.content.ContentUris
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
-import android.net.Uri
 import android.os.Process
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
@@ -29,7 +27,6 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
@@ -403,7 +400,7 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>, noMediaFolders: ArrayList<String>): String {
     val dirName = getFolderNameFromPath(path)
-    val folderNoMediaStatuses = java.util.HashMap<String, Boolean>()
+    val folderNoMediaStatuses = HashMap<String, Boolean>()
     noMediaFolders.forEach { folder ->
         folderNoMediaStatuses["$folder/$NOMEDIA"] = true
     }
@@ -646,7 +643,7 @@ fun Context.getCachedDirectories(
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
-            ArrayList<Directory>()
+            ArrayList()
         }
 
         if (!config.showRecycleBinAtFolders) {

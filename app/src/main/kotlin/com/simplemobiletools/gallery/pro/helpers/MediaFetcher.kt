@@ -46,7 +46,7 @@ class MediaFetcher(val context: Context) {
             if (isRPlus() && curPath != FAVORITES && curPath != RECYCLE_BIN) {
                 if (android11Files?.containsKey(curPath.toLowerCase()) == true) {
                     curMedia.addAll(android11Files[curPath.toLowerCase()]!!)
-                } else {
+                } else if (android11Files == null) {
                     val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths)
                     if (files.containsKey(curPath.toLowerCase())) {
                         curMedia.addAll(files[curPath.toLowerCase()]!!)
