@@ -400,7 +400,7 @@ class MediaFetcher(val context: Context) {
                 }
 
                 val isFavorite = favoritePaths.contains(path)
-                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
+                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L, 0L)
                 media.add(medium)
             }
         }
@@ -421,6 +421,7 @@ class MediaFetcher(val context: Context) {
         val showHidden = context.config.shouldShowHidden
 
         val projection = arrayOf(
+            Images.Media._ID,
             Images.Media.DISPLAY_NAME,
             Images.Media.DATA,
             Images.Media.DATE_MODIFIED,
@@ -437,6 +438,7 @@ class MediaFetcher(val context: Context) {
             }
 
             try {
+                val mediaStoreId = cursor.getLongValue(Images.Media._ID)
                 val filename = cursor.getStringValue(Images.Media.DISPLAY_NAME)
                 val path = cursor.getStringValue(Images.Media.DATA)
                 val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
@@ -487,7 +489,8 @@ class MediaFetcher(val context: Context) {
                 }
 
                 val isFavorite = favoritePaths.contains(path)
-                val medium = Medium(null, filename, path, path.getParentPath(), lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
+                val medium =
+                    Medium(null, filename, path, path.getParentPath(), lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L, mediaStoreId)
                 val parent = medium.parentPath.lowercase(Locale.getDefault())
                 val currentFolderMedia = media[parent]
                 if (currentFolderMedia == null) {
@@ -565,7 +568,7 @@ class MediaFetcher(val context: Context) {
             )
             val videoDuration = if (getVideoDurations) context.getDuration(path) ?: 0 else 0
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L, 0L)
             media.add(medium)
         }
 
