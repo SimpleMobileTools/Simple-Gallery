@@ -850,7 +850,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
-        bottom_toggle_file_visibility.setOnLongClickListener { toast(R.string.toggle_file_visibility); true }
+        bottom_toggle_file_visibility.setOnLongClickListener {
+            toast(if (currentMedium?.isHidden() == true) R.string.unhide else R.string.hide); true
+        }
         bottom_toggle_file_visibility.setOnClickListener {
             currentMedium?.apply {
                 toggleFileVisibility(!isHidden()) {
