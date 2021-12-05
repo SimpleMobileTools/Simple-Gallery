@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.22.2 *(2021-12-05)*
+----------------------------
+
+ * Improved the performance of file fetching
+ * Some stability, translation and UX improvements
+ * This version won't be on Google Play
+
 Version 6.22.1 *(2021-12-02)*
 ----------------------------
 

@@ -1,0 +1,3 @@
+ * Improved the performance of file fetching
+ * Some stability, translation and UX improvements
+ * This version won't be on Google Play
