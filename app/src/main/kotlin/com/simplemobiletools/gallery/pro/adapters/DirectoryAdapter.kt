@@ -157,7 +157,7 @@ class DirectoryAdapter(
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
-            R.id.cab_create_shortcut -> if (isOreoPlus()) tryCreateShortcut()
+            R.id.cab_create_shortcut -> tryCreateShortcut()
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> tryChangeAlbumCover(false)
             R.id.cab_use_default -> tryChangeAlbumCover(true)
@@ -540,7 +540,6 @@ class DirectoryAdapter(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun tryCreateShortcut() {
         activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") { success ->
             if (success) {
@@ -549,8 +548,8 @@ class DirectoryAdapter(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun createShortcut() {
+        if (!isOreoPlus()) return
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {
             val dir = getFirstSelectedItem() ?: return
