@@ -541,6 +541,10 @@ class DirectoryAdapter(
     }
 
     private fun tryCreateShortcut() {
+        if (!isOreoPlus()) {
+            return
+        }
+
         activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") { success ->
             if (success) {
                 createShortcut()
@@ -549,9 +553,6 @@ class DirectoryAdapter(
     }
 
     private fun createShortcut() {
-        if (!isOreoPlus()) {
-            return
-        }
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {
             val dir = getFirstSelectedItem() ?: return
