@@ -716,7 +716,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun createShortcut() {
-        if (!isOreoPlus()) return
+        if (!isOreoPlus()) {
+            return
+        }
         val manager = getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {
             val medium = getCurrentMedium() ?: return

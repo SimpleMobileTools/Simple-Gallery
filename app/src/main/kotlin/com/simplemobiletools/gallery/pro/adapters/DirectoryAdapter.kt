@@ -549,7 +549,9 @@ class DirectoryAdapter(
     }
 
     private fun createShortcut() {
-        if (!isOreoPlus()) return
+        if (!isOreoPlus()) {
+            return
+        }
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {
             val dir = getFirstSelectedItem() ?: return
