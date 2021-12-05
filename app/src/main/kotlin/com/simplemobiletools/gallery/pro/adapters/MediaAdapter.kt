@@ -389,6 +389,7 @@ class MediaAdapter(
         if (!isOreoPlus()) {
             return
         }
+
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {
             val path = getSelectedPaths().first()
