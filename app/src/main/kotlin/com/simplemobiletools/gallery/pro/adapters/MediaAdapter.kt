@@ -1,16 +1,17 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.Icon
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -34,8 +35,8 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import kotlinx.android.synthetic.main.video_item_grid.view.*
-import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.favorite
+import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
@@ -174,7 +175,7 @@ class MediaAdapter(
             R.id.cab_rotate_one_eighty -> rotateSelection(180)
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
-            R.id.cab_create_shortcut -> createShortcut()
+            R.id.cab_create_shortcut -> if (isOreoPlus()) createShortcut()
             R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
@@ -386,7 +387,7 @@ class MediaAdapter(
         }
     }
 
-    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createShortcut() {
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {

@@ -27,6 +27,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.exifinterface.media.ExifInterface
 import androidx.print.PrintHelper
 import androidx.viewpager.widget.ViewPager
@@ -238,7 +239,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_force_landscape -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
             R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             R.id.menu_save_as -> saveImageAs()
-            R.id.menu_create_shortcut -> createShortcut()
+            R.id.menu_create_shortcut -> if (isOreoPlus()) createShortcut()
             R.id.menu_resize -> resizeImage()
             R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
@@ -333,7 +334,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    @SuppressLint("NewApi")
     private fun initContinue() {
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
@@ -716,7 +716,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createShortcut() {
         val manager = getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {

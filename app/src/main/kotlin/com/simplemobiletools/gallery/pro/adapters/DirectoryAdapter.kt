@@ -1,17 +1,18 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
+import android.os.Build
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -156,7 +157,7 @@ class DirectoryAdapter(
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
-            R.id.cab_create_shortcut -> tryCreateShortcut()
+            R.id.cab_create_shortcut -> if (isOreoPlus()) tryCreateShortcut()
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> tryChangeAlbumCover(false)
             R.id.cab_use_default -> tryChangeAlbumCover(true)
@@ -539,6 +540,7 @@ class DirectoryAdapter(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun tryCreateShortcut() {
         activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") { success ->
             if (success) {
@@ -547,7 +549,7 @@ class DirectoryAdapter(
         }
     }
 
-    @SuppressLint("NewApi")
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createShortcut() {
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {

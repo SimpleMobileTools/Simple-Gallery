@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.activities
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
@@ -100,7 +99,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         setupAspectRatio()
     }
 
-    @SuppressLint("InlinedApi")
     private fun confirmWallpaper() {
         if (isNougatPlus()) {
             val items = arrayListOf(
@@ -118,7 +116,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
     }
 
-    @SuppressLint("NewApi")
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
         if (isDestroyed)
             return

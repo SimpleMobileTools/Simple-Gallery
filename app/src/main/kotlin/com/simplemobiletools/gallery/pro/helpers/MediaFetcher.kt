@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.helpers
 
-import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.content.Context
 import android.database.Cursor
@@ -119,7 +118,6 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    @SuppressLint("NewApi")
     private fun getLatestFileFolders(): LinkedHashSet<String> {
         val uri = Files.getContentUri("external")
         val projection = arrayOf(Images.ImageColumns.DATA)
@@ -408,7 +406,6 @@ class MediaFetcher(val context: Context) {
         return media
     }
 
-    @SuppressLint("InlinedApi")
     fun getAndroid11FolderMedia(
         isPickImage: Boolean, isPickVideo: Boolean, favoritePaths: ArrayList<String>
     ): HashMap<String, ArrayList<Medium>> {
