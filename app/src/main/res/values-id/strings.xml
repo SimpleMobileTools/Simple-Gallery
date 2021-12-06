@@ -145,6 +145,7 @@
     <string name="by_date_taken_monthly">Tanggal diambil (bulanan)</string>
     <string name="by_file_type">Tipe berkas</string>
     <string name="by_extension">Ekstensi</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Harap dicatat bahwa mengelompokkan dan mengurutkan adalah 2 hal yang berbeda</string>
 
     <!-- Widgets -->

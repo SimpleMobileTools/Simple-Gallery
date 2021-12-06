@@ -145,6 +145,7 @@
     <string name="by_date_taken_monthly">তোলার তারিখ (মাসিক)</string>
     <string name="by_file_type">ফাইল টাইপ</string>
     <string name="by_extension">এক্সটেনশন</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->

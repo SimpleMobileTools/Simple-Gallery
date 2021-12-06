@@ -145,6 +145,7 @@
     <string name="by_date_taken_monthly">Data realizării (lunar)</string>
     <string name="by_file_type">Tipul de fișier</string>
     <string name="by_extension">Extensie</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Vă rugăm să rețineți că gruparea și sortarea sunt două câmpuri independente.</string>
 
     <!-- Widgets -->

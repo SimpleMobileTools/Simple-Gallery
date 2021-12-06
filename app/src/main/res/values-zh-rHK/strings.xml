@@ -145,6 +145,7 @@
     <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">請注意，歸類和排序是兩者是獨立的</string>
 
     <!-- Widgets -->
