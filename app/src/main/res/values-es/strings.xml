@@ -32,7 +32,7 @@
     <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
     <string name="set_as_default_folder">Poner como carpeta predeterminada</string>
     <string name="unset_as_default_folder">Quitar como carpeta predeterminada</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging">Reordenar carpetas arrastrándolas</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">Permitir hacer zoom en videos con doble toque</string>
     <string name="folder_thumbnail_style">Estilo de las miniaturas de las carpetas</string>
     <string name="file_thumbnail_style">Estilo de las miniaturas de los archivos</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Marcar elementos favoritos</string>
     <string name="thumbnail_spacing">Espaciado de las miniaturas</string>
     <string name="show_file_count_line">Mostrar el recuento de archivos en una línea separada</string>
     <string name="show_file_count_brackets">Mostrar el recuento de archivos entre paréntesis</string>
@@ -202,7 +202,7 @@
     <string name="limit_folder_title">Limitar los títulos largos de las carpetas a 1 línea</string>
     <string name="square">Cuadrado</string>
     <string name="rounded_corners">Esquinas redondeadas</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">Exportar rutas de archivos favoritos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
