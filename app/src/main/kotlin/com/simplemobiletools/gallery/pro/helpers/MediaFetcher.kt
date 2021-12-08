@@ -439,7 +439,7 @@ class MediaFetcher(val context: Context) {
                 val filename = cursor.getStringValue(Images.Media.DISPLAY_NAME)
                 val path = cursor.getStringValue(Images.Media.DATA)
                 val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
-                val dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+                var dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
                 val size = cursor.getLongValue(Images.Media.SIZE)
                 val videoDuration = Math.round(cursor.getIntValue(MediaStore.MediaColumns.DURATION) / 1000.toDouble()).toInt()
 
@@ -483,6 +483,10 @@ class MediaFetcher(val context: Context) {
                     isSvg -> TYPE_SVGS
                     isPortrait -> TYPE_PORTRAITS
                     else -> TYPE_IMAGES
+                }
+
+                if (dateTaken == 0L) {
+                    dateTaken = lastModified
                 }
 
                 val isFavorite = favoritePaths.contains(path)
