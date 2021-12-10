@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Lihtne galerii</string>
+    <string name="app_launcher_name">Galerii</string>
+    <string name="edit">Muuda</string>
+    <string name="open_camera">Ava kaamera</string>
+    <string name="hidden">(peidetud)</string>
+</resources>
