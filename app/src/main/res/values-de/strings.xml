@@ -268,8 +268,8 @@
     <string name="pesdk_editor_cancel">Abbrechen</string>
     <string name="pesdk_editor_accept">Akzeptieren</string>
     <string name="pesdk_editor_save">Speichern</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Exportiere…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exportiere %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Wird exportiert …</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Wird exportiert %s.</string>
     <string name="pesdk_sticker_title_name">Aufkleber</string>
     <string name="pesdk_sticker_title_color">Sticker Farbe</string>
     <string name="pesdk_sticker_title_options">Sticker Optionen</string>
