@@ -33,10 +33,9 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtruoti mediją</string>
-    <string name="images">Atvaizdai</string>
+    <string name="images">Paveikslai</string>
     <string name="videos">Vaizdo įrašai</string>
     <string name="gifs">GIF\'ai</string>
     <string name="raw_images">RAW images</string>
@@ -44,7 +43,6 @@
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Su pasirinktais filtrais nerasta medijos bylų.</string>
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \'. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį "Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti?</string>
     <string name="exclude">Išskirti</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Paslėpti aplankai</string>
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
     <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Įtraukti aplankai</string>
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>
     <string name="add_folder">Įtraukti aplanką</string>
     <string name="included_activity_placeholder">Jei turite tam tikrų aplankų, kuriuose yra medijos , bet kurių neneatpažįsta programėlė, galite juos pridėti rankiniu būdu. \ N \ nPridedant kai kuriuos elementus, neišskirsite jokio kito aplanko.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">Keisti dydį</string>
     <string name="resize_and_save">Pakeisti pasirinkto dydį ir išsaugoti</string>
@@ -73,7 +69,6 @@
     <string name="height">Aukštis</string>
     <string name="keep_aspect_ratio">Išlaikyti proporcijas</string>
     <string name="invalid_values">Prašome įvesti tinkamą raišką</string>
-
     <!-- Editor -->
     <string name="editor">Redaktorius</string>
     <string name="rotate">Sukti</string>
@@ -98,22 +93,22 @@
     <string name="flip">Apversti</string>
     <string name="flip_horizontally">Apversti horizontaliai</string>
     <string name="flip_vertically">Apversti vertikaliai</string>
-    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Free</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Paprastas darbalaukio fonas</string>
     <string name="set_as_wallpaper">Nustatyti kaip darbalaukio foną</string>
     <string name="set_as_wallpaper_failed">Nustatyti darbalaukio fono nepavyko</string>
     <string name="set_as_wallpaper_with">Nustatyti kaip darbalaukio paveikslėlį su:</string>
-    <string name="setting_wallpaper">Nustatomas darbalaukio paveikslėlis&#8230;</string>
+    <string name="setting_wallpaper">Nustatomas darbalaukio paveikslėlis…</string>
     <string name="wallpaper_set_successfully">Darbalaukio foną nustatyti pavyko</string>
     <string name="portrait_aspect_ratio">Portreto formato santykis</string>
     <string name="landscape_aspect_ratio">Peizažo formato santykis</string>
     <string name="home_screen">Pagrindinis ekranas</string>
     <string name="lock_screen">Užrakto ekranas</string>
     <string name="home_and_lock_screen">Pagrindinis ir užrakto ekranas</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Skaidrių demonstracija</string>
     <string name="interval">Intervalas (sekundėmis):</string>
@@ -129,10 +124,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Skaidrių demonstracija pasibaigė</string>
     <string name="no_media_for_slideshow">Nerasta medijos skaidrių demonstracijai</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Group direct subfolders</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>
     <string name="do_not_group_files">Do not group files</string>
@@ -146,11 +139,9 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Folder shown on the widget:</string>
     <string name="show_folder_name">Show folder name</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
     <string name="remember_last_video_position">Remember last video playback position</string>
@@ -203,18 +194,15 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>
     <string name="fullscreen_media">Viso ekrano medija</string>
     <string name="extended_details">Išsami informacija</string>
     <string name="bottom_actions">Bottom actions</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -328,7 +316,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Kaip galiu padaryti paprastą galeriją kaip numatytąją įrenginio galeriją?</string>
     <string name="faq_1_text">Pirmiausia turite rasti numatytąją galeriją savo prietaiso nustatymų skyriuje "Programėlės", ieškoti mygtuko panašaus į \ "Atidaryti pagal numatytuosius \", spustelėkite jį, tada pasirinkite \ "Išvalyti numatytuosius \". 
@@ -344,9 +331,9 @@
     <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>
     <string name="faq_6_text">Gali atsitikti taip, kad pamatysite keletą neįprastų albumų. Galite lengvai juos pašalinti, ilgai paspaudę juos ir pasirinkdami "Išskirti". Kitame dialoge galite pasirinkti tėvinį aplanką, greičiausiai bus išvengta kitų panašių albumų.</string>
     <string name="faq_7_title">Aplankas su nuotraukomis nerodomas, ką aš galiu padaryti?</string>
-    <string name="faq_7_text">Tai gali būti dėl keletos priežasčių, tačiau sprendimas yra lengvas. Tiesiog eikite į Nustatymai -> Tvarkyti įtrauktus aplankus, pasirinkite "Plius" ir eikite į reikiamą aplanką.</string>
+    <string name="faq_7_text">Tai gali būti dėl keletos priežasčių, tačiau sprendimas yra lengvas. Tiesiog eikite į Nustatymai -&gt; Tvarkyti įtrauktus aplankus, pasirinkite "Plius" ir eikite į reikiamą aplanką.</string>
     <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų?</string>
-    <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -> Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -> Tvarkyti įtrauktas aplankas.
+    <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -&gt; Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -&gt; Tvarkyti įtrauktas aplankas.
          Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas.</string>
     <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę?</string>
     <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę "Redaguoti" arba iš viso ekrano rodinio pasirinkę "Redaguoti".</string>
@@ -360,7 +347,6 @@
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
@@ -422,7 +408,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
