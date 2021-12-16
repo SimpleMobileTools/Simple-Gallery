@@ -28,23 +28,27 @@
     <string name="dates_fixed_successfully">Data fixada correctament</string>
     <string name="no_date_takens_found">No s\’han trobat valors presos per data</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
-    <string name="upgraded_from_free">Hola,\n\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó "Actualitza a Pro" a la part superior de la configuració de l’aplicació.\nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablirla configuració de la vostra aplicació.\n\nGràcies!</string>
+    <string name="upgraded_from_free">Hola,
+\n
+\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó Actualitza a Pro a la part superior de la configuració de l’aplicació.
+\n
+\nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablir la configuració de la vostra aplicació.
+\n
+\nGràcies!</string>
     <string name="switch_to_file_search">Canvia a la cerca de fitxers a totes les carpetes visibles</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
+    <string name="set_as_default_folder">Estableix com a carpeta predeterminada</string>
+    <string name="unset_as_default_folder">Desactiva com a carpeta predeterminada</string>
     <string name="reorder_by_dragging">Reordeneu les carpetes arrossegant-les</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtre d’arxius</string>
     <string name="images">Imatges</string>
     <string name="videos">Vídeos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">GIF</string>
     <string name="raw_images">Imatges RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Retrats</string>
     <string name="no_media_with_filters">No s’han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Aquesta funció oculta les carpetes agregant un arxiu ’.nomedia’ dins d’ella. També ocultarà les subcarpetes. Pots mostrar-les canviant la opció ’Mostrar carpetes ocultes’ als ajustaments. Continuar?</string>
     <string name="exclude">Excloure</string>
@@ -58,14 +62,14 @@
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestionar carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no tens cap carpeta amb l’arxiu \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
     <string name="manage_included_folders">Gestionar carpetes incloses</string>
     <string name="add_folder">Agregar carpeta</string>
-    <string name="included_activity_placeholder">Si tens alguna carpeta que contingui multimèdia però no ha estat reconeguda per la aplicació, pots agregar-les manualment aquí.</string>
+    <string name="included_activity_placeholder">Si tens alguna carpeta que contingui multimèdia però no ha estat reconeguda per la aplicació, pots agregar-les manualment aquí.
+\n
+\nSi s\'afegeixen alguns elements aquí, no s\'exclourà cap altra carpeta.</string>
     <string name="no_media_add_included">No s’ha trobat cap fitxer multimèdia. Podeu resoldre-ho afegint manualment les carpetes que contenen fitxers multimèdia.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar la selecció i desar</string>
@@ -73,23 +77,22 @@
     <string name="height">Alt</string>
     <string name="keep_aspect_ratio">Mantenir proporcions</string>
     <string name="invalid_values">Si us plau, introdueix una resolució vàlida</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotar</string>
     <string name="invalid_image_path">Ruta de imatge no vàlida</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">El camí del vídeo no és vàlid</string>
     <string name="image_editing_failed">Ha fallat la edició de la imatge</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="video_editing_failed">Ha fallat l\'edició de vídeo</string>
     <string name="image_editing_cancelled">S\'ha cancel·lat l\'edició de la imatge</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_cancelled">S\'ha cancel·lat l\'edició del vídeo</string>
     <string name="file_edited_successfully">Fitxer editar satisfactoriament</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">La imatge s\'ha editat correctament</string>
+    <string name="video_edited_successfully">El vídeo s\'ha editat correctament</string>
     <string name="edit_image_with">Editar imatge utilitzant:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Edita el vídeo amb:</string>
     <string name="no_image_editor_found">No s’ha trobat cap editor d’imatges</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">No s\'ha trobat cap editor de vídeo</string>
     <string name="unknown_file_location">Ubicació de l’arxiu desconeguda</string>
     <string name="error_saving_file">No s’ha pogut sobreescriure l’arxiu d’origen</string>
     <string name="rotate_left">Rotar a l’esquerra</string>
@@ -98,22 +101,22 @@
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalment</string>
     <string name="flip_vertically">Verticalment</string>
-    <string name="free_aspect_ratio">Lliure</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Altres</string>              <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Lliure</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Altres</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fons de pantalla de Simple Gallery</string>
     <string name="set_as_wallpaper">Establir com a fons de pantalla</string>
     <string name="set_as_wallpaper_failed">Error a l’establir com fons de pantalla</string>
     <string name="set_as_wallpaper_with">Establir com fons de pantalla amb:</string>
-    <string name="setting_wallpaper">Establint fons de pantalla&#8230;</string>
+    <string name="setting_wallpaper">Establint fons de pantalla…</string>
     <string name="wallpaper_set_successfully">Fons de pantalla establert correctament</string>
     <string name="portrait_aspect_ratio">Relació d’aspecte tipus retrat</string>
     <string name="landscape_aspect_ratio">Relació d’aspecte tipus paisatge</string>
     <string name="home_screen">Pantalla principal</string>
     <string name="lock_screen">Pantalla de bloqueig</string>
     <string name="home_and_lock_screen">Pantalla principal i de bloqueig</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Presentació de diapositives</string>
     <string name="interval">Interval (segons):</string>
@@ -129,10 +132,8 @@
     <string name="slide">Lliscar</string>
     <string name="slideshow_ended">S’ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupar carpetes directes</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar per</string>
     <string name="do_not_group_files">No agrupar fitxers</string>
@@ -146,11 +147,9 @@
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
     <string name="grouping_and_sorting">Tingueu en compte que l’agrupació i la classificació són 2 camps independents</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta que es mostra a l’estri:</string>
     <string name="show_folder_name">Mostra el nom de la carpeta</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
@@ -203,18 +202,15 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Cantonades arrodonides</string>
     <string name="export_favorite_paths">Exportar camins de fitxers preferits</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Mitjans a pantalla completa</string>
     <string name="extended_details">Detalls estesos</string>
     <string name="bottom_actions">Accions de la part inferior</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Administra les accions de la part inferior</string>
     <string name="toggle_favorite">Activa favorits</string>
     <string name="toggle_file_visibility">Activa la visibilitat del fitxer</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalitzat</string>
     <string name="pesdk_transform_button_resetCrop">Reiniciar</string>
@@ -266,7 +262,7 @@
     <string name="pesdk_brush_title_brushColor"> de pinzellColor</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Tancar Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Realment voleu descartar els canvis\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel·lar</string>
@@ -327,8 +323,7 @@
     <string name="pesdk_common_title_greenColor">Verd</string>
     <string name="pesdk_common_title_aquamarinColor">Aiguamarina</string>
     <string name="pesdk_common_title_pipettableColor">Pipetejat de color</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
-
+    <string name="vesdk_video_trim_title_name">Retallar</string>
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>
     <string name="faq_1_text">Primer heu de trobar la galeria actualment predeterminada a la secció Aplicacions de la configuració del vostre dispositiu, cerqueu un botó que digui alguna cosa semblant a \"Obrir per defecte \", feu-hi clic i seleccioneu \"Esborra valors predeterminats \".
@@ -344,9 +339,9 @@
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
     <string name="faq_6_text">Pot passar que veuràs que apareixen alguns àlbums inusuals. Podeu excloure’ls fàcilment prement-los i seleccionant Excloure. Al següent diàleg, podeu seleccionar la carpeta principal, és probable que impedeixi que apareguin altres àlbums relacionats.</string>
     <string name="faq_7_title">Una carpeta amb imatges no apareix, què puc fer?</string>
-    <string name="faq_7_text">Això pot tenir diversos motius, però resoldre-ho és fàcil. Accediu a Configuració -> Gestiona les carpetes incloses, seleccioneu Més i navegueu fins a la carpeta necessària.</string>
+    <string name="faq_7_text">Això pot tenir diversos motius, però resoldre-ho és fàcil. Accediu a Configuració -&gt; Gestiona les carpetes incloses, seleccioneu Més i navegueu fins a la carpeta necessària.</string>
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
-    <string name="faq_8_text">L’addició d’una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
+    <string name="faq_8_text">L’addició d’una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -&gt; Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -&gt; Gestionar carpetes incloses.
         Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
     <string name="faq_10_title">Puc retallar imatges amb aquesta aplicació?</string>
     <string name="faq_10_text">Sí, pots retallar imatges a l’editor, arrossegant les cantonades de la imatge. Pots accedir a l’editor prement una miniatura d’imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
@@ -360,10 +355,9 @@
     <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Per què l’aplicació ocupa molt d’espai?</string>
     <string name="faq_15_text">La memòria cau d’aplicacions pot ocupar fins a 250 MB, garanteix una càrrega de les imatges més ràpida. Si l’aplicació ocupa més espai, probablement sigui per tenir elements a la Paperera de reciclatge. Aquests fitxers compten a la mida de l’aplicació. Podeu esborrar la paperera de reciclatge obrint-la i suprimint tots els fitxers o des de la configuració de l’aplicació. Els fitxers de la paperera s’eliminen automàticament després de 30 dies.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro: Gestor i editor de fotos</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
@@ -422,7 +416,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
