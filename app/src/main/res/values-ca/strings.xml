@@ -30,7 +30,7 @@
     <string name="share_resized">Comparteix una versió redimensionada</string>
     <string name="upgraded_from_free">Hola,
 \n
-\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó Actualitza a Pro a la part superior de la configuració de l’aplicació.
+\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó «Actualitza a Pro» a la part superior de la configuració de l’aplicació.
 \n
 \nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablir la configuració de la vostra aplicació.
 \n
@@ -146,7 +146,7 @@
     <string name="by_date_taken_monthly">Data de presa (mensual)</string>
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Mostra el recompte de fitxers a les capçaleres de secció</string>
     <string name="grouping_and_sorting">Tingueu en compte que l’agrupació i la classificació són 2 camps independents</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta que es mostra a l’estri:</string>
