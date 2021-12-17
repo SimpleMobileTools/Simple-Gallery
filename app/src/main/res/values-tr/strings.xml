@@ -144,6 +144,7 @@
     <string name="by_date_taken_monthly">Çekildiği tarih (aylık)</string>
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Lütfen gruplandırmanın ve sıralamanın 2 bağımsız alan olduğunu unutmayın</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Widget\'ta gösterilen klasör:</string>

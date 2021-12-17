@@ -34,6 +34,7 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
         currGrouping = config.getFolderGrouping(pathToUse)
         setupGroupRadio()
         setupOrderRadio()
+        view.grouping_dialog_show_file_count.isChecked = currGrouping and GROUP_SHOW_FILE_COUNT != 0
     }
 
     private fun setupGroupRadio() {
@@ -77,6 +78,10 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
 
         if (view.grouping_dialog_radio_order.checkedRadioButtonId == R.id.grouping_dialog_radio_descending) {
             grouping = grouping or GROUP_DESCENDING
+        }
+
+        if (view.grouping_dialog_show_file_count.isChecked) {
+            grouping = grouping or GROUP_SHOW_FILE_COUNT
         }
 
         if (view.grouping_dialog_use_for_this_folder.isChecked) {

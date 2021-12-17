@@ -145,6 +145,7 @@
     <string name="by_date_taken_monthly">찍은 날짜 (월간)</string>
     <string name="by_file_type">파일 종류</string>
     <string name="by_extension">파일 확장자</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">그룹 방식과 정렬 방식은 다른 항목입니다.</string>
 
     <!-- Widgets -->

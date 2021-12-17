@@ -144,6 +144,7 @@
     <string name="by_date_taken_monthly">Data wykonania (miesięcznie)</string>
     <string name="by_file_type">Typ pliku</string>
     <string name="by_extension">Rozszerzenie</string>
+    <string name="show_file_count_section_header">Pokazuj liczbę plików w nagłówkach sekcji</string>
     <string name="grouping_and_sorting">Uwaga: Grupowanie i sortowanie to dwa niezależne pola</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Folder wyświetlany w widżecie:</string>

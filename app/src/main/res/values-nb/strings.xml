@@ -138,6 +138,7 @@
     <string name="by_date_taken_monthly">Dato tatt (månedlig)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Endelse</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Vær oppmerksom på at gruppering og sortering er to uavhengige områder</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på modulen:</string>

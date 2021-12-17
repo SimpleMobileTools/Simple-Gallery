@@ -146,6 +146,7 @@
     <string name="by_date_taken_monthly">Felvétel dátuma (havonta)</string>
     <string name="by_file_type">Fájltípus</string>
     <string name="by_extension">Kiterjesztés</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa megjelenítése a modulon:</string>

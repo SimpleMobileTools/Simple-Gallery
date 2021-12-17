@@ -148,6 +148,7 @@
     <string name="by_date_taken_monthly">拍摄时间（按月）</string>
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展名</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">请注意，分组和排序是两种独立的组织方式</string>
     <!-- Widgets -->
     <string name="folder_on_widget">在小工具上显示的文件夹：</string>
