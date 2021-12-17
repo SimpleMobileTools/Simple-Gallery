@@ -144,6 +144,7 @@
     <string name="by_date_taken_monthly">آخر تعديل (شهرياً)</string>
     <string name="by_file_type">نوع الملف</string>
     <string name="by_extension">الإمتداد</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">يرجى ملاحظة أن التجميع والفرز هما حقلان مستقلان</string>
     <!-- Widgets -->
     <string name="folder_on_widget">المجلد الظاهر فى الويدجت:</string>

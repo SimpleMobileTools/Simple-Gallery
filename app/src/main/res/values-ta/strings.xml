@@ -138,6 +138,7 @@
     <string name="by_date_taken_monthly">எடுக்கப்பட்ட தேதி (மாதாந்திர)</string>
     <string name="by_file_type">கோப்பு வகை</string>
     <string name="by_extension">நீட்டிப்பு</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">ஒன்றிணைத்தல் மற்றும் வரிசைப்படுத்தல் 2 சுயாதீன புலங்கள் என்பதை நினைவில்கொள்க</string>
     <!-- Widgets -->
     <string name="folder_on_widget">விட்ஜெட்டில் கோப்புறை காட்டப்பட்டுள்ளது:</string>

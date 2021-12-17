@@ -138,6 +138,7 @@
     <string name="by_date_taken_monthly">Data pořízení (měsíčně)</string>
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
+    <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Mějte prosím na paměti, že seskupování a řazení jsou 2 nezávislé hodnoty</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Složka zobrazená na widgetu:</string>
