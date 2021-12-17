@@ -223,7 +223,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
-        mMedia.clear()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -840,8 +839,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 media_empty_text_placeholder.text = getString(R.string.no_media_with_filters)
             }
             media_fastscroller.beVisibleIf(media_empty_text_placeholder.isGone())
-
-            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
             setupAdapter()
         }
 
