@@ -138,7 +138,7 @@
     <string name="by_date_taken_monthly">Date de prise de vue (par mois)</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="show_file_count_section_header">Afficher le nombre d'éléments dans les entêtes</string>
+    <string name="show_file_count_section_header">Afficher le nombre d\'éléments dans les entêtes</string>
     <string name="grouping_and_sorting">\'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
