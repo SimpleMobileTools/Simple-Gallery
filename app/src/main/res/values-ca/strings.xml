@@ -50,11 +50,11 @@
     <string name="no_media_with_filters">No s’han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Aquesta funció oculta les carpetes agregant un arxiu ’.nomedia’ dins d’ella. També ocultarà les subcarpetes. Pots mostrar-les canviant la opció ’Mostrar carpetes ocultes’ als ajustaments. Continuar?</string>
+    <string name="hide_folder_description">Aquesta funció oculta les carpetes agregant un arxiu ’.nomedia’ dins d’ella. També ocultarà les subcarpetes. Pots mostrar-les canviant la opció ’Mostrar carpetes ocultes’ a la configuració. Continuo\?</string>
     <string name="exclude">Excloure</string>
     <string name="excluded_folders">Carpetes excloses</string>
     <string name="manage_excluded_folders">Gestionar carpetes excloses</string>
-    <string name="exclude_folder_description">Això exclou la selecció juntament amb les carpetes, només de Simple Gallery. Pots gestionar les carpetes excloses en els Ajustaments.</string>
+    <string name="exclude_folder_description">Això exclou la selecció juntament amb les carpetes, només de Simple Gallery. Pots gestionar les carpetes excloses a la Configuració.</string>
     <string name="exclude_folder_parent">Excloure millor la carpeta superior?</string>
     <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\n\nSi vols ocultar-les d’altres aplicacions fes servir la opció Ocultar.</string>
     <string name="remove_all">Eliminar tot</string>
