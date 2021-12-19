@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.22.3 *(2021-12-19)*
+----------------------------
+
+ * Fixed some file operation related glitches
+ * Fixed sorting by date taken in some cases
+ * Allow showing file count at section headers, at using Group by at thumbnails
+ * Some stability, translation and UX improvements
+ * This version won't be on Google Play
+
 Version 6.22.2 *(2021-12-05)*
 ----------------------------
 
