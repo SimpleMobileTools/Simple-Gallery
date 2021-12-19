@@ -74,7 +74,7 @@
     <string name="width">Szerokość</string>
     <string name="height">Wysokość</string>
     <string name="keep_aspect_ratio">Zachowaj proporcje</string>
-    <string name="invalid_values">Podaj poprawną rozdzielczość</string>
+    <string name="invalid_values">Podaj prawidłową rozdzielczość</string>
     <!-- Editor -->
     <string name="editor">Edytor</string>
     <string name="rotate">Obróć</string>
