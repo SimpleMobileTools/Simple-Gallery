@@ -195,7 +195,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
+    <string name="thumbnails">Pisipildid</string>
     <string name="fullscreen_media">Fullscreen media</string>
     <string name="extended_details">Extended details</string>
     <string name="bottom_actions">Bottom actions</string>
