@@ -42,11 +42,11 @@ class MediaFetcher(val context: Context) {
                 curMedia.addAll(newMedia)
             }
         } else {
-            if (isRPlus() && curPath != FAVORITES && curPath != RECYCLE_BIN) {
+            if (curPath != FAVORITES && curPath != RECYCLE_BIN && isRPlus()) {
                 if (android11Files?.containsKey(curPath.toLowerCase()) == true) {
                     curMedia.addAll(android11Files[curPath.toLowerCase()]!!)
                 } else if (android11Files == null) {
-                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths)
+                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, false)
                     if (files.containsKey(curPath.toLowerCase())) {
                         curMedia.addAll(files[curPath.toLowerCase()]!!)
                     }
@@ -58,6 +58,19 @@ class MediaFetcher(val context: Context) {
                     curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperLastModified, getProperFileSize,
                     favoritePaths, getVideoDurations, lastModifieds.clone() as HashMap<String, Long>, dateTakens.clone() as HashMap<String, Long>
                 )
+
+                if (curPath == FAVORITES && isRPlus()) {
+                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, true)
+                    newMedia.forEach { newMedium ->
+                        for ((folder, media) in files) {
+                            media.forEach { medium ->
+                                if (medium.path == newMedium.path) {
+                                    newMedium.size = medium.size
+                                }
+                            }
+                        }
+                    }
+                }
                 curMedia.addAll(newMedia)
             }
         }
@@ -407,7 +420,10 @@ class MediaFetcher(val context: Context) {
     }
 
     fun getAndroid11FolderMedia(
-        isPickImage: Boolean, isPickVideo: Boolean, favoritePaths: ArrayList<String>
+        isPickImage: Boolean,
+        isPickVideo: Boolean,
+        favoritePaths: ArrayList<String>,
+        getFavoritePathsOnly: Boolean
     ): HashMap<String, ArrayList<Medium>> {
         val media = HashMap<String, ArrayList<Medium>>()
         if (!isRPlus()) {
@@ -438,6 +454,10 @@ class MediaFetcher(val context: Context) {
                 val mediaStoreId = cursor.getLongValue(Images.Media._ID)
                 val filename = cursor.getStringValue(Images.Media.DISPLAY_NAME)
                 val path = cursor.getStringValue(Images.Media.DATA)
+                if (getFavoritePathsOnly && !favoritePaths.contains(path)) {
+                    return@queryCursor
+                }
+
                 val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
                 var dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
                 val size = cursor.getLongValue(Images.Media.SIZE)
