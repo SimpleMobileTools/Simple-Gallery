@@ -146,7 +146,7 @@
     <string name="by_date_taken_monthly">Aufnahmedatum (monatlich)</string>
     <string name="by_file_type">Dateityp (Bilder/Videos)</string>
     <string name="by_extension">Dateierweiterung</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Anzahl der Dateien in den Abschnittsüberschriften anzeigen</string>
     <string name="grouping_and_sorting">Bitte beachte, dass Gruppieren und Sortieren zwei unabhängige Felder sind</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
