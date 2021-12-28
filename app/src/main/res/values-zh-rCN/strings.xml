@@ -56,7 +56,7 @@
     <string name="manage_excluded_folders">管理排除的文件夹</string>
     <string name="exclude_folder_description">该操作仅会在“简易图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
     <string name="exclude_folder_parent">是否排除父文件夹？</string>
-    <string name="excluded_activity_placeholder">排除此文件夹将使它们与其子文件夹在 Simple Gallery 中隐身，但它们仍将在其他应用程序中可见。
+    <string name="excluded_activity_placeholder">排除此文件夹将使它们与其子文件夹在简易图库中隐身，但它们仍将在其他应用程序中可见。
 \n
 \n如果您想对其他应用程序隐藏它们，请使用隐藏功能。</string>
     <string name="remove_all">全部移除</string>
@@ -241,7 +241,7 @@
     <string name="pesdk_focus_button_linear">线性</string>
     <string name="pesdk_focus_button_mirrored">镜像</string>
     <string name="pesdk_focus_button_gaussian">高斯</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">添加文字</string>
     <string name="pesdk_text_title_name">文字</string>
     <string name="pesdk_text_title_options">文字选项</string>
     <string name="pesdk_text_title_textColor">文字颜色</string>
@@ -288,16 +288,16 @@
     <string name="pesdk_sticker_button_brightness">亮度</string>
     <string name="pesdk_sticker_category_name_custom">上传</string>
     <string name="pesdk_overlay_title_name">叠加层</string>
-    <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
+    <string name="pesdk_overlay_button_blendModeNormal">正常</string>
     <string name="pesdk_overlay_button_blendModeDarken">变暗</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeScreen">遮蔽</string>
     <string name="pesdk_overlay_button_blendModeOverlay">遮罩</string>
     <string name="pesdk_overlay_button_blendModeLighten">变亮</string>
     <string name="pesdk_overlay_button_blendModeMultiply">正片叠底</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">颜色加深</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">柔光</string>
     <string name="pesdk_overlay_button_blendModeHardLight">强光</string>
-    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_none">无</string>
     <string name="pesdk_overlay_asset_golden">变金色</string>
     <string name="pesdk_overlay_asset_lightleak1">漏光 1</string>
     <string name="pesdk_overlay_asset_mosaic">马赛克</string>
