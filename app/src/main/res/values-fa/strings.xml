@@ -35,7 +35,6 @@
     <string name="reorder_by_dragging">مرتب‌سازی مجدد شاخه‌ها با کشیدن</string>
     <string name="reorder_by_dragging_pro">مرتب‌سازی مجدد شاخه‌ها با کشیدن (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">پالایش رسانه</string>
     <string name="images">تصاویر</string>
