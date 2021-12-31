@@ -1,55 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
-    <string name="edit">Edit</string>
-    <string name="open_camera">Open camera</string>
-    <string name="hidden">(hidden)</string>
-    <string name="excluded">(excluded)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="pin_to_the_top">Pin to the top</string>
-    <string name="show_all">Show all folders content</string>
-    <string name="all_folders">All folders</string>
-    <string name="folder_view">Switch to folder view</string>
-    <string name="other_folder">Other folder</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="app_name">گالری ساده</string>
+    <string name="app_launcher_name">گالری</string>
+    <string name="edit">ویرایش</string>
+    <string name="open_camera">گشودن دوربین</string>
+    <string name="hidden">(پنهان)</string>
+    <string name="excluded">(مستثنی)</string>
+    <string name="pin_folder">سنجاق کردن شاخه</string>
+    <string name="unpin_folder">برداشتن سنجاق شاخه</string>
+    <string name="pin_to_the_top">سنجاق کردن به بالا</string>
+    <string name="show_all">نمایش همهٔ محتویات شاخه‌ها</string>
+    <string name="all_folders">همهٔ شاخه‌ها</string>
+    <string name="folder_view">تعویض به نمای شاخه</string>
+    <string name="other_folder">دیگر شاخه‌ها</string>
+    <string name="show_on_map">نمایش در نقشه</string>
+    <string name="unknown_location">مکان ناشناخته</string>
+    <string name="volume">حجم صدا</string>
+    <string name="brightness">روشنایی</string>
+    <string name="lock_orientation">قفل کردن جهت</string>
+    <string name="unlock_orientation">برداشتن قفل جهت</string>
+    <string name="change_orientation">تغییر جهت</string>
+    <string name="force_portrait">اجبار به عمودی</string>
+    <string name="force_landscape">اجبار به افقی</string>
+    <string name="use_default_orientation">استفاده از جهت پیش‌گزیده</string>
+    <string name="fix_date_taken">اصلاح کردن مقدار تاریخ گرفتن</string>
+    <string name="fixing">در حال اصلاح کردن…</string>
+    <string name="dates_fixed_successfully">تاریخ‌ها با موفّقیت اصلاح شدند</string>
+    <string name="no_date_takens_found">هیچ تاریخ گرفتنی یافت نشد</string>
+    <string name="share_resized">هم‌رسانی نسخهٔ تغییر اندازه داده شده</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-
+    <string name="switch_to_file_search">تعویض به جست‌وجوی پرونده در میان همهٔ شاخه‌های نمایان</string>
+    <string name="set_as_default_folder">تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
+    <string name="unset_as_default_folder">برداشتن تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
+    <string name="reorder_by_dragging">مرتب‌سازی مجدد شاخه‌ها با کشیدن</string>
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="raw_images">RAW images</string>
-    <string name="svgs">SVGs</string>
-    <string name="portraits">Portraits</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
-
+    <string name="filter_media">پالایش رسانه</string>
+    <string name="images">تصاویر</string>
+    <string name="videos">ویدیوها</string>
+    <string name="gifs">گیف‌ها</string>
+    <string name="raw_images">تصاویر خام</string>
+    <string name="svgs">اس‌وی‌جی ها</string>
+    <string name="portraits">پرتره‌ها</string>
+    <string name="no_media_with_filters">هیچ پروندهٔ رسانه‌ای با پالایه‌های گزیده شده، یافت نشد.</string>
+    <string name="change_filters_underlined"><u>تغییر پالایه‌ها</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="hide_folder_description">این تابع شاخه را با افزودن پروندهٔ «‎.nomedia» در آن پنهان می‌کند، این باعث پنهان شدن تمام زیرشاخه‌ها نیز خواهد شد. شما می‌توانید با تغییر حالت «نمایش موارد پنهان» در تنظیمات آن‌ها را ببینید. ادامه می‌دهید؟</string>
+    <string name="exclude">مستثنی</string>
+    <string name="excluded_folders">شاخه‌های مستثنی شده</string>
+    <string name="manage_excluded_folders">مدیریت شاخه‌های مستثنی</string>
     <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
     <string name="exclude_folder_parent">Exclude a parent instead?</string>
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
     <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">Resize</string>
     <string name="resize_and_save">Resize selection and save</string>
@@ -73,7 +69,6 @@
     <string name="height">Height</string>
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="invalid_values">Please enter a valid resolution</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotate</string>
@@ -98,22 +93,22 @@
     <string name="flip">Flip</string>
     <string name="flip_horizontally">Flip horizontally</string>
     <string name="flip_vertically">Flip vertically</string>
-    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Free</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
+    <string name="setting_wallpaper">Setting wallpaper…</string>
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
     <string name="home_screen">Home screen</string>
     <string name="lock_screen">Lock screen</string>
     <string name="home_and_lock_screen">Home and lock screen</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (seconds):</string>
@@ -129,10 +124,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Group direct subfolders</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>
     <string name="do_not_group_files">Do not group files</string>
@@ -146,11 +139,9 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Folder shown on the widget:</string>
     <string name="show_folder_name">Show folder name</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="remember_last_video_position">Remember last video playback position</string>
@@ -203,18 +194,15 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Fullscreen media</string>
     <string name="extended_details">Extended details</string>
     <string name="bottom_actions">Bottom actions</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -328,7 +316,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
@@ -344,9 +331,9 @@
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
     <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items.  What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
@@ -360,7 +347,6 @@
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
@@ -422,7 +408,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
