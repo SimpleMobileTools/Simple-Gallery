@@ -231,7 +231,7 @@
     <string name="pesdk_focus_button_linear">Lineær</string>
     <string name="pesdk_focus_button_mirrored">Speilet</string>
     <string name="pesdk_focus_button_gaussian">Gaussisk</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Legg til tekst</string>
     <string name="pesdk_text_title_name">Tekst</string>
     <string name="pesdk_text_title_options">Tekstvalg</string>
     <string name="pesdk_text_title_textColor">Tekstfarge</string>
