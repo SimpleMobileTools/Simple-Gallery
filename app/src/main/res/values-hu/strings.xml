@@ -41,8 +41,8 @@
     <string name="reorder_by_dragging">Mappák átrendezése húzással</string>
     <!-- Filter -->
     <string name="filter_media">Médiafájlok szűrése</string>
-    <string name="images">Kép</string>
-    <string name="videos">Videó</string>
+    <string name="images">Képek</string>
+    <string name="videos">Videók</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW-kép</string>
     <string name="svgs">SVG</string>
