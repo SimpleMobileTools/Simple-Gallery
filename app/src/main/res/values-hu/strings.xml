@@ -41,7 +41,6 @@
     <string name="reorder_by_dragging">Mappák átrendezése húzással</string>
     <string name="reorder_by_dragging_pro">Mappák átrendezése húzással (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Médiafájlok szűrése</string>
     <string name="images">Képek</string>
