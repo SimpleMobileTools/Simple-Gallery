@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Egyszerű galéria</string>
     <string name="app_launcher_name">Galéria</string>
     <string name="edit">Szerkesztés</string>
     <string name="open_camera">Kamera megnyitása</string>
     <string name="hidden">(rejtett)</string>
-    <string name="excluded">(kizárva)</string>
+    <string name="excluded">(kizárt)</string>
     <string name="pin_folder">Mappa kitűzése</string>
     <string name="unpin_folder">Mappa kitűzésének megszüntetése</string>
     <string name="pin_to_the_top">Kitűzés felülre</string>
     <string name="show_all">Összes mappa tartalmának megjelenítése</string>
     <string name="all_folders">Összes mappa</string>
-    <string name="folder_view">Váltás mappa nézetre</string>
+    <string name="folder_view">Váltás mappanézetre</string>
     <string name="other_folder">Egyéb mappa</string>
     <string name="show_on_map">Megjelenítése a térképen</string>
     <string name="unknown_location">Ismeretlen helyszín</string>
@@ -26,7 +26,7 @@
     <string name="fix_date_taken">Dátum javítása</string>
     <string name="fixing">Javítás…</string>
     <string name="dates_fixed_successfully">Dátumok sikeresen javítva</string>
-    <string name="no_date_takens_found">Nem találhatók Dátum értékek</string>
+    <string name="no_date_takens_found">Nem találhatók elkészítési dátumok</string>
     <string name="share_resized">Átméretezett verzió megosztása</string>
     <string name="upgraded_from_free">Üdv,
 \n
@@ -44,7 +44,7 @@
     <string name="images">Képek</string>
     <string name="videos">Videók</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">RAW-kép</string>
+    <string name="raw_images">Nyers kép</string>
     <string name="svgs">SVG</string>
     <string name="portraits">Portré</string>
     <string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
@@ -55,7 +55,7 @@
     <string name="excluded_folders">Kizárt mappák</string>
     <string name="manage_excluded_folders">Kizárt mappák kezelése</string>
     <string name="exclude_folder_description">Ez kizárja a kijelölést és az alkönyvtárakat a Simple Gallery alkalmazásból. A kizárt mappákat a Beállításokban kezelheti.</string>
-    <string name="exclude_folder_parent">Kizárja a szülő mappát?</string>
+    <string name="exclude_folder_parent">Kizárja a szülőmappát\?</string>
     <string name="excluded_activity_placeholder">A mappák kizárásával az almappákkal együtt elrejti a Simple Gallery alkalmazásban, de továbbra is láthatóak maradnak más alkalmazásokban.\n\nHa el szeretné rejteni őket más alkalmazásokban is, használja az Elrejtés funkciót.</string>
     <string name="remove_all">Összes eltávolítása</string>
     <string name="remove_all_description">Összes mappa eltávolítása a Kizárás listából. Ez nem törli a mappákat.</string>
@@ -146,7 +146,7 @@
     <string name="by_date_taken_monthly">Felvétel dátuma (havonta)</string>
     <string name="by_file_type">Fájltípus</string>
     <string name="by_extension">Kiterjesztés</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Fájlok számának megjelenítése a szakaszfejlécekben</string>
     <string name="grouping_and_sorting">Vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa megjelenítése a modulon:</string>
@@ -194,7 +194,7 @@
     <string name="allow_zooming_videos">Videók dupla koppintással történő nagyításának engedélyezése</string>
     <string name="folder_thumbnail_style">Mappák bélyegképének stílusa</string>
     <string name="file_thumbnail_style">Fájlok bélyegképének stílusa</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Kedvenc elemek megjelölése</string>
     <string name="thumbnail_spacing">Bélyegképek térköze</string>
     <string name="show_file_count_line">Fájlok számának megjelenítése külön sorban</string>
     <string name="show_file_count_brackets">Fájlok számának megjelenítése zárójelben</string>
@@ -334,7 +334,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen?</string>
     <string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">Ezt a képernyő oldalán történő dupla koppintással teheti meg, vagy a keresősáv melletti jelenlegi és leghosszabb időtartam szövegekre koppintva. Ha engedélyezi a videók külön képernyőn történő megnyitását az alkalmazásbeállításokban, vízszintes gesztusokat is használhat.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
