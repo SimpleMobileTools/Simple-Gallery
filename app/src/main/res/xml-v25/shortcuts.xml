@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="Favorites"
+        android:enabled="true"
+        android:icon="@drawable/ic_primary_color_star_vector"
+        android:shortcutShortLabel="@string/favorites"
+        android:shortcutLongLabel="@string/favorites" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.simplemobiletools.gallery.pro"
+            android:targetClass="com.simplemobiletools.gallery.pro.activities.MainActivity" />
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.simplemobiletools.gallery.pro"
+            android:targetClass="com.simplemobiletools.gallery.pro.activities.MediaActivity" >
+            <extra
+                android:name="directory"
+                android:value="favorites" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="Recycle Bin"
+        android:enabled="true"
+        android:icon="@drawable/ic_primary_color_delete_vector"
+        android:shortcutShortLabel="@string/recycle_bin"
+        android:shortcutLongLabel="@string/recycle_bin" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.simplemobiletools.gallery.pro"
+            android:targetClass="com.simplemobiletools.gallery.pro.activities.MainActivity" />
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.simplemobiletools.gallery.pro"
+            android:targetClass="com.simplemobiletools.gallery.pro.activities.MediaActivity" >
+            <extra
+                android:name="directory"
+                android:value="recycle_bin" />
+        </intent>
+    </shortcut>
+
+
+</shortcuts>
