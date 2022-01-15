@@ -329,7 +329,7 @@
     <string name="vesdk_video_trim_title_name">Retalla</string>
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria predeterminada del dispositiu\?</string>
-    <string name="faq_1_text">Primer heu de trobar la galeria actualment predeterminada a la secció Aplicacions de la configuració del dispositiu, cerqueu un botó que digui alguna cosa semblant a «Obre per defecte», feu-hi clic i seleccioneu «Neteja els valors predeterminats». La propera vegada que proveu d\'obrir una imatge o un vídeo, haureu de veure un selector d\'aplicació, on podeu seleccionar Simple Gallery i convertir-la en l\'aplicació predeterminada.</string>
+    <string name="faq_1_text">Primer heu de trobar la galeria actualment predeterminada a la secció Aplicacions de la configuració del dispositiu, cerqueu un botó que digui alguna cosa semblant a «Obre per defecte», feu-hi clic i seleccioneu «Neteja els valors predeterminats». La pròxima vegada que proveu d\'obrir una imatge o un vídeo, haureu de veure un selector d\'aplicació, on podeu seleccionar Simple Gallery i convertir-la en l\'aplicació predeterminada.</string>
     <string name="faq_2_title">Vaig bloquejar l\'aplicació amb una contrasenya, però l\'he oblidat. Què puc fer\?</string>
     <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l\'aplicació o trobar l\'aplicació a la configuració del dispositiu i seleccionar «Neteja les dades». Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
