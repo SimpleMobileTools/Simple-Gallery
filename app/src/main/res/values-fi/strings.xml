@@ -30,7 +30,7 @@
     <string name="share_resized">Jaa versio, jonka kokoa on muutettu</string>
     <string name="upgraded_from_free">Hei,
 \n
-\nNäyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.
+\nnäyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.
 \n
 \nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. Sinun täytyy myös nollata sovellusasetukset.
 \n
@@ -67,6 +67,7 @@
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
     <string name="add_folder">Lisää kansio</string>
     <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediatiedostoja, mutta sovellus ei tunnistanut niitä, voit lisätä ne manuaalisesti tähän.
+\n
 \nLisääminen ei poissulje muita kansioita.</string>
     <string name="no_media_add_included">Mediatiedostoja ei löytynyt. Lisää mediatiedostoja sisältävät kansiot manuaalisesti.</string>
     <!-- Resizing -->
@@ -75,7 +76,7 @@
     <string name="width">Leveys</string>
     <string name="height">Korkeus</string>
     <string name="keep_aspect_ratio">Säilytä kuvasuhde</string>
-    <string name="invalid_values">Aseta oikea resoluutio.</string>
+    <string name="invalid_values">Aseta oikea resoluutio</string>
     <!-- Editor -->
     <string name="editor">Editori</string>
     <string name="rotate">Käännä</string>
@@ -145,7 +146,7 @@
     <string name="by_date_taken_monthly">Kuvanottopäivämäärä (kuukausittainen)</string>
     <string name="by_file_type">Tiedoston tyyppi</string>
     <string name="by_extension">Tiedoston pääte</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Näytä tiedostojen lukumäärä otsakkeissa</string>
     <string name="grouping_and_sorting">Huomoi, että ryhmitys ja lajittelu ovat kaksi eri toimintoa</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Pienoissovelluksessa näytettävä kansio:</string>
