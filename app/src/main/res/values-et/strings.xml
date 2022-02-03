@@ -23,10 +23,10 @@
     <string name="force_portrait">Force portrait</string>
     <string name="force_landscape">Force landscape</string>
     <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="fix_date_taken">Paranda pildistamise ajatempel</string>
+    <string name="fixing">Parandame…</string>
+    <string name="dates_fixed_successfully">Kuupäevade parandamine õnnestus</string>
+    <string name="no_date_takens_found">Pildistamise kuupäevi ei leidu</string>
     <string name="share_resized">Share a resized version</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
@@ -36,31 +36,35 @@
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
     <string name="images">Pildid</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="raw_images">RAW images</string>
-    <string name="svgs">SVGs</string>
+    <string name="videos">Videod</string>
+    <string name="gifs">GIF\'id</string>
+    <string name="raw_images">RAW-failid</string>
+    <string name="svgs">SVG\'d</string>
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="change_filters_underlined"><u>Muuda filtreid</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="exclude">Välista</string>
+    <string name="excluded_folders">Välistatud kaustad</string>
+    <string name="manage_excluded_folders">Halda välistatud kaustu</string>
     <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
     <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="excluded_activity_placeholder">Kaustade välistamine peidab kaustad koos nende alamkaustadega vaid Lihtsast galeriist ning nad jäävad nähtavaks muudele rakendustele.
+\n
+\nKui sa tahad neid varjata ka muude rakenduste eest, siis kasuta peitmise funktsionaalsust.</string>
+    <string name="remove_all">Eemalda kõik</string>
+    <string name="remove_all_description">Kas eemaldame kõik kaustad välistatud kaustade loendist\? See tegevus ei kustuta kaustu.</string>
+    <string name="hidden_folders">Peidetud kaustad</string>
+    <string name="manage_hidden_folders">Halda peidetud kaustu</string>
+    <string name="hidden_folders_placeholder">Tundub, et sa pole „.nomedia“ faili abil ühtegi kausta märkinud peidetuks.</string>
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
+    <string name="include_folders">Kaasatud kaustad</string>
+    <string name="manage_included_folders">Halda kaasatud kaustu</string>
+    <string name="add_folder">Lisa kaust</string>
+    <string name="included_activity_placeholder">Kui sinu teda on olemas meediakaustu, mida rakendus pole tuvastanud, siis saad need käsitsi siin lisada.
+\n
+\nSiia kaustade lisamine ei välista muude kaustade tuvastamist ja kasutamist.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
     <!-- Resizing -->
     <string name="resize">Resize</string>

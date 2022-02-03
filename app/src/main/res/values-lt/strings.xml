@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Paprasta Galerija</string>
+    <string name="app_name">Paprasta galerija</string>
     <string name="app_launcher_name">Galerija</string>
     <string name="edit">Redaguoti</string>
     <string name="open_camera">Atidaryti fotoaparatą</string>

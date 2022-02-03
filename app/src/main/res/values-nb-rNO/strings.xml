@@ -186,7 +186,7 @@
     <string name="allow_zooming_videos">Tillat zooming av videoer ved å dobbelttrykke dem</string>
     <string name="folder_thumbnail_style">Minibildestil for mapper</string>
     <string name="file_thumbnail_style">Minibildestil for filer</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Marker favorittelementer</string>
     <string name="thumbnail_spacing">Minibildemellomrom</string>
     <string name="show_file_count_line">Vis antall filer på en separat linje</string>
     <string name="show_file_count_brackets">Vis antall filer i parentes</string>
@@ -231,7 +231,7 @@
     <string name="pesdk_focus_button_linear">Lineær</string>
     <string name="pesdk_focus_button_mirrored">Speilet</string>
     <string name="pesdk_focus_button_gaussian">Gaussisk</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Legg til tekst</string>
     <string name="pesdk_text_title_name">Tekst</string>
     <string name="pesdk_text_title_options">Tekstvalg</string>
     <string name="pesdk_text_title_textColor">Tekstfarge</string>
@@ -350,7 +350,7 @@
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro - Fotobehandling &amp; redigering</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
     <string name="app_long_description">
