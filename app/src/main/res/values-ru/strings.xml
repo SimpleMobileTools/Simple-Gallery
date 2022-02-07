@@ -204,7 +204,7 @@
     <string name="bottom_actions">Нижние кнопки действий</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Настройка нижних кнопок действий</string>
-    <string name="toggle_favorite">Переключение избранного</string>
+    <string name="toggle_favorite">Переключить избранное</string>
     <string name="toggle_file_visibility">Переключение видимости файлов</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Свободная</string>
