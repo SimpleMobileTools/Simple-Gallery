@@ -6,8 +6,8 @@
     <string name="open_camera">Abrir câmara</string>
     <string name="hidden">(oculta)</string>
     <string name="excluded">(excluída)</string>
-    <string name="pin_folder">Fixar pasta</string>
-    <string name="unpin_folder">Desafixar pasta</string>
+    <string name="pin_folder">Marcar pasta</string>
+    <string name="unpin_folder">Desmarcar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
@@ -30,7 +30,7 @@
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,
 \n
-\nParece ter sido feita uma actualização a partir a antiga versão grátis. Agora já pode desinstalar a versão anterior.
+\nParece ter sido feita uma actualização para a versão Pro a partir a antiga versão grátis. Agora já pode desinstalar a versão anterior.
 \n
 \nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados, e bastará repor as suas definições na aplicação.
 \n
@@ -50,7 +50,7 @@
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' e irá ocultar todas as sub-pastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
+    <string name="hide_folder_description">Esta função oculta a pasta adicionando-lhe um ficheiro \'.nomedia\' e ocultará também todas as subpastas nela existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar\?</string>
     <string name="exclude">Exclusão</string>
     <string name="excluded_folders">Pastas excluídas</string>
     <string name="manage_excluded_folders">Gerir pastas excluídas</string>
@@ -58,12 +58,12 @@
     <string name="exclude_folder_parent">Excluir antes a pasta superior?</string>
     <string name="excluded_activity_placeholder">Excluir pastas – e implicitamente, as suas subpastas também – faz com que deixem de ser apresentadas apenas e só na Simple Gallery. Continuarão visíveis noutras aplicações.
 \n
-\nSe quiser ocultar também noutras aplicações, utilize a função Ocultar.</string>
+\nSe as quiser ocultar também noutras aplicações, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões\? Esta acção não apaga as pastas.</string>
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerir pastas ocultas</string>
-    <string name="hidden_folders_placeholder">Parece que não existem pastas ocultadas com ficheiros \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Parece que não existem pastas ocultas com ficheiros \".nomedia\".</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
     <string name="manage_included_folders">Gerir pastas incluídas</string>
@@ -121,7 +121,7 @@
     <string name="home_and_lock_screen">Ecrã principal e ecrã de bloqueio</string>
     <!-- Slideshow -->
     <string name="slideshow">Apresentação</string>
-    <string name="interval">Intervalo (segundos):</string>
+    <string name="interval">Intervalo (em segundos):</string>
     <string name="include_photos">Incluir fotos</string>
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIF</string>
@@ -135,17 +135,17 @@
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
     <!-- View types -->
-    <string name="group_direct_subfolders">Agrupar sub-pastas</string>
+    <string name="group_direct_subfolders">Agrupar subpastas</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
     <string name="do_not_group_files">Não agrupar ficheiros</string>
     <string name="by_folder">Pasta</string>
     <string name="by_last_modified">Última modificação</string>
-    <string name="by_last_modified_daily">Última modificação (diária)</string>
-    <string name="by_last_modified_monthly">Última modificação (mensal)</string>
-    <string name="by_date_taken">Data de obtenção</string>
-    <string name="by_date_taken_daily">Data de obtenção (diária)</string>
-    <string name="by_date_taken_monthly">Data de obtenção (mensal)</string>
+    <string name="by_last_modified_daily">Última modificação (por dia)</string>
+    <string name="by_last_modified_monthly">Última modificação (por mês)</string>
+    <string name="by_date_taken">Tirada em</string>
+    <string name="by_date_taken_daily">Tirada em (por dia)</string>
+    <string name="by_date_taken_monthly">Tirada em (por mês)</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
     <string name="show_file_count_section_header">Mostrar contagem no cabeçalho</string>
@@ -170,7 +170,7 @@
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
-    <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
+    <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos com gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
@@ -179,7 +179,7 @@
     <string name="allow_deep_zooming_images">Permitir ampliação profunda de imagens</string>
     <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
     <string name="show_at_bottom">Mostrar alguns botões de acção na base do ecrã</string>
-    <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
+    <string name="show_recycle_bin">Mostrar reciclagem no ecrã de vista de pastas</string>
     <string name="deep_zoomable_images">Ampliação de imagens</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar reciclagem como o último item do ecrã principal</string>
@@ -265,7 +265,7 @@
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Fechar editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Tem a certeza de que deseja descartar as alterações?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Tem a certeza de que pretende descartar as alterações\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -308,7 +308,7 @@
     <string name="pesdk_common_button_flipV">Inversão vertical</string>
     <string name="pesdk_common_button_undo">Desfazer</string>
     <string name="pesdk_common_button_redo">Refazer</string>
-    <string name="pesdk_common_title_colorPicker">Seletor de cores</string>
+    <string name="pesdk_common_title_colorPicker">Selector de cores</string>
     <string name="pesdk_common_title_transparentColor">Transparente</string>
     <string name="pesdk_common_title_whiteColor">Branco</string>
     <string name="pesdk_common_title_grayColor">Cinzento</string>
@@ -319,7 +319,7 @@
     <string name="pesdk_common_title_orchidColor">Orquídea</string>
     <string name="pesdk_common_title_pinkColor">Cor de rosa</string>
     <string name="pesdk_common_title_redColor">Vermelho</string>
-    <string name="pesdk_common_title_orangeColor">Cor de laranja</string>
+    <string name="pesdk_common_title_orangeColor">Laranja</string>
     <string name="pesdk_common_title_goldColor">Dourado</string>
     <string name="pesdk_common_title_yellowColor">Amarelo</string>
     <string name="pesdk_common_title_oliveColor">Oliva</string>
@@ -328,40 +328,40 @@
     <string name="pesdk_common_title_pipettableColor">Pipeta de cores</string>
     <string name="vesdk_video_trim_title_name">Recortar</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Como tornar a Simple Gallery a minha galeria por pré-definição\?</string>
-    <string name="faq_1_text">Primeiro identifique a galeria pré-definida pelo sistema do seu dispositivo em Definições –&gt; Gerir aplicações. Na Informação da aplicação (dessa mesma galeria) seleccione Limpar pré-definições. Da próxima vez que tentar abrir um ficheiro de imagem ou de video, irá deparar-se com diversas alternativas. Escolha então a Simple Gallery e marque-a para abrir sempre por pré-definição.</string>
+    <string name="faq_1_title">Como tornar a Simple Gallery a minha galeria por padrão\?</string>
+    <string name="faq_1_text">Primeiro identifique a galeria pré-definida pelo sistema do seu dispositivo em Definições -&gt; Gerir aplicações. Na Informação da aplicação dessa mesma galeria, seleccione Limpar pré-definições. Da próxima vez que tentar abrir um ficheiro de imagem ou de video, irá deparar-se com diversas alternativas. Escolha então a Simple Gallery e escolha-a para abrir sempre por padrão.</string>
     <string name="faq_2_title">Bloquei a aplicação com uma palavra-chave mas agora esqueci-me dela. O que posso fazer\?</string>
-    <string name="faq_2_text">Exitem duas soluções. Ou reinstala a aplicação, ou em Definições do sistema –&gt; Gerir aplicações –&gt; Informações da aplicação seleccione Limpar dados. Reiniciará assim todas as suas definições na aplicação mas não apagará os seus ficheiros multimedia.</string>
-    <string name="faq_3_title">Como posso fazer para que um album seja sempre apresentado no topo\?</string>
-    <string name="faq_3_text">Prima longamente o album, seleccione o ícone Pin a partir do menu e fixá-lo-á ao topo. Pode também fixar diversas pastas em simultâneo. A ordem de apresentação é a da ordenação padrão.</string>
+    <string name="faq_2_text">Exitem duas soluções. Ou reinstala a aplicação, ou, nas Definições do sistema –&gt; Gerir aplicações –&gt; Informações da aplicação, seleccione Limpar dados. Reiniciará assim todas as suas definições na aplicação mas não apagará os seus ficheiros multimedia.</string>
+    <string name="faq_3_title">Como posso fazer para que um álbum seja sempre apresentado no topo\?</string>
+    <string name="faq_3_text">Prima longamente o álbum, seleccione Fixar no topo a partir do menu e será apresentado no topo. Pode também fixar diversas pastas em simultâneo. A ordem de apresentação é a da ordenação padrão.</string>
     <string name="faq_4_title">Como posso fazer avançar rápido os videos\?</string>
-    <string name="faq_4_text">Dando dois toques nos lados ecrã ou então dando um toque em cima da indicação de duração junto à barra de pesquisa. Se a opção de abrir videos noutro ecrã estiver habilitada, pode também fazê-lo com gestos.</string>
+    <string name="faq_4_text">Dando dois toques nas margens ecrã ou então dando um toque em cima da indicação de duração junto à barra de pesquisa. E, se a opção de abrir videos noutro ecrã estiver habilitada, pode também fazê-lo por gestos.</string>
     <string name="faq_5_title">Qual a diferença entre ocultar e excluir uma pasta\?</string>
-    <string name="faq_5_text">Excluir impede que a pasta seja apresentada unicamente na Simple Gallery, enquanto Ocultar é adoptado por todo o sistema e esconde a pasta noutras galerias também. Funciona criando um ficheiro \".nomedia\" vazio dentro de uma pasta, que pode ser simplesmente removido através de um qualquer gestor de ficheiros. Tenha em atenção de que alguns dispositivos não permitem Ocultar pastas como a da Camera, a da Captura de ecrã e a das Transferências.</string>
+    <string name="faq_5_text">Excluir impede que a pasta seja apresentada unicamente na Simple Gallery, enquanto Ocultar é adoptado por todo o sistema e esconde a pasta noutras galerias também. Funciona criando um ficheiro \".nomedia\" vazio dentro de uma pasta, que pode ser simplesmente removido através de um gestor de ficheiros. Tenha em atenção que alguns dispositivos não permitem Ocultar pastas tais como a da Câmera, a da Captura de ecrã e a das Transferências.</string>
     <string name="faq_6_title">Porque são apresentadas capas de albuns ou stickers\?</string>
     <string name="faq_6_text">Pode dar-se o caso de alguns items invulgares aparecerem. Consegue exclui-los premindo longamente e seleccionando Excluir. Na caixa de diálogo seguinte, escolha a pasta superior na hierarquia. Provavelmente, isso irá impedir que outros itens semelhantes sejam apresentados também.</string>
     <string name="faq_7_title">Uma pasta com imagens não é apresentada ou não mostra todos os itens lá contidos. O que posso fazer\?</string>
-    <string name="faq_7_text">Pode haver vários motivos mas a solução é simples. Em Definições–&gt; Gerir Pastas Incluídas, seleccione Mais e siga até à pasta pretendida.</string>
+    <string name="faq_7_text">Pode haver diversos motivos mas a solução é simples. Em Definições–&gt; Gerir Pastas Incluídas, seleccione \'+\' e siga até à pasta pretendida.</string>
     <string name="faq_8_title">E se quiser que só algumas das pastas fiquem visíveis\?</string>
     <string name="faq_8_text">Adicionar uma pasta ás \"Pastas Incluídas\" não exclui mais nada automaticamente. Em Definições–&gt; Gerir Pastas Excluídas, exclua a directoria root \"/\" e de seguida, adicione as pastas que pretende em Definições–&gt; Gerir Pastas Incluídas. Isto fará com que apenas as pastas seleccionadas sejam visíveis, uma vez que, quer a acção de incluir, quer a de excluir são recursivas. Isto faz com que uma pasta que é simultânemente excluída e incluída, acabe por ficar visível.</string>
     <string name="faq_10_title">Posso recortar imagens com esta aplicação\?</string>
     <string name="faq_10_text">Sim, é possível recortar imagens com o editor arrastando simplesmente os cantos. Aceda ao editor premindo longamente a imagem ou seleccionando Editar na vista de ecrã completo.</string>
     <string name="faq_11_title">Como posso agrupar as miniaturas dos ficheiros multimedia\?</string>
-    <string name="faq_11_text">Claro, a partir da vista de miniaturas, escolha \"Agrupar por\" do menu. Pode agrupar ficheiros por critérios como Tirada em. Ao seleccionar a opção \"Mostrar o conteúdo de todas as pastas\", pode também agrupá-los por pastas.</string>
-    <string name="faq_12_title">Ordenar por Tirada em não está a funcionar bem, o que fazer\?</string>
+    <string name="faq_11_text">A partir da vista de miniaturas, escolha \"Agrupar por\" do menu. Pode agrupar ficheiros por critérios como Tirada em. Ao seleccionar a opção \"Mostrar o conteúdo de todas as pastas\", pode também agrupá-los por pastas.</string>
+    <string name="faq_12_title">Ordenar por Tirada em não está a funcionar correctamente, o que fazer\?</string>
     <string name="faq_12_text">Deve-se provalmente ao facto dos ficheiros terem sido copiados de algum sítio. Para resolver, seleccione as miniaturas dos ficheiros e tente a opção \"Corrigir valores de Tirada em\".</string>
     <string name="faq_13_title">As imagens têm faixas de cor. Como melhorar a sua qualidade\?</string>
-    <string name="faq_13_text">A resolução pré-estabelecida das imagens costuma ser a suficiente para a sua correcta visualisação. Mas caso pretenda uma melhor qualidade ainda, habilite \"Mostrar imagens com a máxima qualidade possível\" na secção \"Ampliação profunda de imagens\" das Definições.</string>
+    <string name="faq_13_text">A resolução padrão das imagens costuma ser a suficiente para a sua correcta visualisação. Mas caso pretenda uma qualidade melhor ainda, habilite \"Mostrar fotos com a melhor qualidade possível\" na secção \"Ampliação de imagens\" das Definições.</string>
     <string name="faq_14_title">Ocultei um ficheiro/uma pasta. Como posso torná-lo de novo visível\?</string>
-    <string name="faq_14_text">Pode seleccionar \"Mostrar temporariamente itens ocultos\" do menu, ou então habilite \"Mostrar itens ocultos\" nas Definições. Para voltar a tornar vísivel, prima longamente e escolha \"Tornar visível\". As pastas ficam ocultas quando se lhes introduz um ficheiro \".nomedia\", também ele oculto. É possível apagar esse ficheiro com um gestor de ficheiros. No entanto, tome em atenção que a acção de ocultar é recursiva, e todas as subpastas ficarão ocultas também. E é por isso que para tornar visíveis as subpastas deve fazê-lo a montante, a partir da pasta superior na hierarquia.</string>
+    <string name="faq_14_text">Pode seleccionar \"Mostrar ocultos temporariamente \" do menu, ou então habilite \"Mostrar itens ocultos\" nas Definições. As pastas ficam ocultas quando se lhes introduz um ficheiro \".nomedia\", também ele oculto. É possível apagar esse ficheiro com um gestor de ficheiros. No entanto, tome em atenção que a acção de ocultar é recursiva, e todas as subpastas ficarão ocultas também. E é por isso que para tornar visíveis as subpastas deve fazê-lo a montante, a partir da pasta superior na hierarquia.</string>
     <string name="faq_15_title">Porque é que a aplicação ocupa tanto espaço\?</string>
     <string name="faq_15_text">O armazenamento em cache da aplicação comporta até 250MB para assegurar que a imagem é carregada rapidamente. Caso esteja a ocupar mais espaço, o mais certo é que a Reciclagem esteja cheia, e isso também conta para o tamanho total da aplicação. Esvazie a Reciclagem abrindo-a e removendo todos os ficheiros lá contidos, ou faça-o pelas Definições. Todos os ficheiros na Reciclagem são automaticamente apagados após 30 dias.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Editor e gestor de fotos</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Explore as suas memórias sem interrupções com esta aplicação</string>
-    <string name="app_long_description"> ⋅ Simple Gallery Pro é uma aplicação local para gerir fotos &amp; videos. Pode organizar &amp; editar as suas fotos, recuperar ficheiros através da reciclagem, proteger &amp; ocultar ficheiros &amp; ver imagens &amp; vídeos disponíveis em vários formatos tais como RAW, SVG &amp; mais. A aplicação não tem anúncios nem permissões desnecessárias. Uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos. ------------------------------------------------- <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b> ------------------------------------------------- • Galeria local sem quaisquer anúncios <b>• Editor de fotos – recorte, rotação, redimensionamento, filtros &amp; mais</b> • Não requer acesso à Internet, garantindo a sua privacidade &amp; segurança • Não requer permissões desnecessárias • Pesquisa rápida de imagens, vídeos &amp; ficheiros <b>• Com suporte a diversos tipos de ficheiros (JPEG, PNG, MP4, MKV, RAW, SVG, Panorâmicas de fotos &amp; videos, &amp; etc.)</b> • Pode utilizar gestos para editar &amp; organizar ficheiros • Diversas opções para filtrar, agrupar &amp; ordenar ficheiros <b>• Personalização da aparência da aplicação</b> • Disponível em 32 idiomas • Marcar ficheiros como favoritos para acesso rápido • Proteção de fotos &amp; vídeos com recurso a padrões, PIN ou impressão digital • Também pode utilizar padrões PIN &amp; impressão digital para impedir a abertura da aplicação ou para restringir acções <b>• Recuperação de fotos &amp; vídeos apagados através da reciclagem</b> • Alternar visibilidade dos ficheiros para ocultar/mostrar fotos &amp; vídeos • Criação de apresentações personalizadas • Ver informações detalhadas dos ficheiros (resolução, dados EXIF, &amp; etc.) • Simple Gallery Pro é open source … &amp; muito mais! <b>Consulte todas as aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Sítio web de Simple Gallery Pro:</b> https://www.simplemobiletools.com/gallery <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="app_short_description">Explore as suas memórias sem interrupções com esta galeria</string>
+    <string name="app_long_description"> Uma galeria para gerir imagens, fotos &amp; videos. Pode organizar &amp; editar as suas fotos, recuperar ficheiros graças à reciclagem, proteger &amp; ocultar ficheiros &amp; ver imagens &amp; vídeos disponíveis em vários formatos. Não tem anúncios nem permissões desnecessárias. E uma vez que também não requer acesso à internet, os seus ficheiros estão protegidos. ------------------------------------------------- <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b> ------------------------------------------------- • Galeria local • Sem quaisquer anúncios • Não requer acesso à internet, garantindo a sua privacidade &amp; segurança • Sem permissões desnecessárias <b>• Edição de fotos – recorte, rotação, redimensionamento, filtros &amp; desenho</b>• Pesquisa rápida de imagens, vídeos &amp; ficheiros <b>• Suporta diversos tipos de ficheiros (JPEG, PNG, MP4, MKV, RAW, SVG, Panorâmicas de fotos &amp; videos, &amp; etc.)</b> • Uso de gestos para editar &amp; organizar ficheiros • Opções para filtrar, agrupar &amp; ordenar ficheiros &amp; pastas <b>• Personalização do aspecto</b> • Marcar ficheiros favoritos para acesso rápido <b>• Protecção &amp; ocultação de fotos &amp; vídeos</b> e bloqueio de abertura da aplicação ou restrição de acções com recurso a padrão, pin ou impressão digital<b>• Recuperação de fotos &amp; vídeos apagados através da reciclagem</b> • Criação de apresentações personalizadas • Ver as propriedades dos ficheiros (resolução, dados EXIF, &amp; etc.) • Disponível em 32 idiomas • Simple Gallery Pro é open source &amp; muito mais! <b>Consulte a gama completa de aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Site da aplicação Simple Gallery Pro:</b> https://www.simplemobiletools.com/gallery <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -28,12 +28,17 @@
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="no_date_takens_found">Geen opnamedatums gevonden</string>
     <string name="share_resized">Verkleinde versie delen</string>
-    <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \"Upgraden naar Pro\" bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
+    <string name="upgraded_from_free">Hallo,
+\n
+\nHet lijkt erop dat je een upgrade hebt gedaan vanaf de oude gratis app. Je kunt nu de oude versie verwijderen, die heeft een \'Upgrade naar Pro\' knop boven in de app-instellingen.
+\n
+\nAlleen de Prullenbak items zullen zijn verwijderd, favoriete items ongemarkeerd en je zult ook je app instellingen moeten resetten.
+\n
+\nBedankt!</string>
     <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
     <string name="reorder_by_dragging">Volgorde mappen bepalen met sleepgebaren</string>
-
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
     <string name="images">Afbeeldingen</string>
@@ -44,7 +49,6 @@
     <string name="portraits">Portretten</string>
     <string name="no_media_with_filters">Er zijn geen bestanden gevonden met de huidige filters.</string>
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Deze functie verbergt de map door het bestand ’.nomedia’ toe te voegen. Alle submappen zullen ook worden verborgen. Kies ’Verborgen mappen tonen’ in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan?</string>
     <string name="exclude">Uitsluiten</string>
@@ -58,14 +62,12 @@
     <string name="hidden_folders">Verborgen mappen</string>
     <string name="manage_hidden_folders">Verborgen mappen beheren</string>
     <string name="hidden_folders_placeholder">Er zijn geen mappen gevonden die zijn verborgen door bestand \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>
     <string name="add_folder">Map toevoegen</string>
     <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet door de galerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
     <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit kan worden opgelost door de mappen met mediabestanden handmatig toe te voegen.</string>
-
     <!-- Resizing -->
     <string name="resize">Grootte aanpassen</string>
     <string name="resize_and_save">Grootte aanpassen en opslaan</string>
@@ -73,7 +75,6 @@
     <string name="height">Hoogte</string>
     <string name="keep_aspect_ratio">Beeldverhouding vergrendelen</string>
     <string name="invalid_values">Voer geldige afmetingen in</string>
-
     <!-- Editor -->
     <string name="editor">Bewerken</string>
     <string name="rotate">Draaien</string>
@@ -98,22 +99,22 @@
     <string name="flip">Kantelen</string>
     <string name="flip_horizontally">Horizontaal kantelen</string>
     <string name="flip_vertically">Verticaal kantelen</string>
-    <string name="free_aspect_ratio">Vrij</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Anders</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Vrij</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Anders</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Achtergrond</string>
     <string name="set_as_wallpaper">Als achtergrond instellen</string>
     <string name="set_as_wallpaper_failed">Achtergrond instellen mislukt</string>
     <string name="set_as_wallpaper_with">Achtergrond instellen met:</string>
-    <string name="setting_wallpaper">Achtergrond instellen&#8230;</string>
+    <string name="setting_wallpaper">Achtergrond instellen…</string>
     <string name="wallpaper_set_successfully">Achtergrond is ingesteld</string>
     <string name="portrait_aspect_ratio">Verhouding in portretmodus</string>
     <string name="landscape_aspect_ratio">Verhouding in landschapsmodus</string>
     <string name="home_screen">Startscherm</string>
     <string name="lock_screen">Vergrendelscherm</string>
     <string name="home_and_lock_screen">Start- en vergrendelingsscherm</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
@@ -129,10 +130,8 @@
     <string name="slide">Verschuiven</string>
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Directe submappen groeperen</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Groeperen op</string>
     <string name="do_not_group_files">Bestanden niet groeperen</string>
@@ -147,11 +146,9 @@
     <string name="by_extension">Extensie</string>
     <string name="show_file_count_section_header">Bij de sectiekoppen het aantal bestanden tonen</string>
     <string name="grouping_and_sorting">Groeperen en sorteren zijn twee aparte opties</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Map tonen in de widget:</string>
     <string name="show_folder_name">Mapnaam tonen</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="remember_last_video_position">Laatste positie in video’s onthouden</string>
@@ -204,18 +201,15 @@
     <string name="square">Vierkant</string>
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Voorbeelden</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
     <string name="bottom_actions">Acties onder aan het scherm</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
     <string name="toggle_favorite">Als favoriet instellen</string>
     <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Aangepast</string>
     <string name="pesdk_transform_button_resetCrop">Beginwaarden</string>
@@ -266,7 +260,7 @@
     <string name="pesdk_brush_button_delete">Verwijderen</string>
     <string name="pesdk_brush_title_brushColor">Penseelkleur</string>
     <string name="pesdk_editor_title_name">Bewerken</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Afsluiten</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Bewerken sluiten\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Veranderingen niet opslaan?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nee</string>
@@ -329,13 +323,11 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarijn</string>
     <string name="pesdk_common_title_pipettableColor">Met pipet kiezen</string>
     <string name="vesdk_video_trim_title_name">Titel afkappen</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
-    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of "\Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\").
-        Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
+    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of pps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
     <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
-    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -> \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
+    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -&gt; \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
@@ -345,9 +337,9 @@
     <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>
     <string name="faq_6_text">Soms worden er wat ongebruikelijke afbeeldingen van andere apps getoond. Deze zijn gemakkelijk uit het overzicht te halen door lang te drukken op de map en vervolgens te kiezen voor \"Uitsluiten\". In het daaropvolgende venster is ook de bovenliggende map te kiezen; dit zou het tonen van soortgelijke ongewenste items kunnen voorkomen.</string>
     <string name="faq_7_title">Een bepaalde map met afbeeldingen wordt niet getoond. Wat kan ik doen?</string>
-    <string name="faq_7_text">Dit kan verschillende redenen hebben, maar is eenvoudig op te lossen. Ga naar \"Instellingen\" -> \"Toegevoegde mappen beheren\", klik vervolgens op het plus-symbool en navigeer naar de gewenste map.</string>
+    <string name="faq_7_text">Dit kan verschillende redenen hebben, maar is eenvoudig op te lossen. Ga naar \"Instellingen\" -&gt; \"Toegevoegde mappen beheren\", klik vervolgens op het plus-symbool en navigeer naar de gewenste map.</string>
     <string name="faq_8_title">Wat als ik slechts een beperkt aantal mappen wil laten zien?</string>
-    <string name="faq_8_text">Het toevoegen van mappen aan de lijst bij \"Toegevoegde mappen beheren\" sluit niet automatisch alle andere mappen uit. Sluit daarom de hoofdmap \"/\" uit via \"Instellingen\" -> \"Uitgesloten mappen beheren\" en voeg vervolgens de te tonen mappen toe bij \"Instellingen\" -> \"Toegevoegde mappen beheren\".
+    <string name="faq_8_text">Het toevoegen van mappen aan de lijst bij \"Toegevoegde mappen beheren\" sluit niet automatisch alle andere mappen uit. Sluit daarom de hoofdmap \"/\" uit via \"Instellingen\" -&gt; \"Uitgesloten mappen beheren\" en voeg vervolgens de te tonen mappen toe bij \"Instellingen\" -&gt; \"Toegevoegde mappen beheren\".
         Dit zal ervoor zorgen dat alleen de toegevoegde mappen worden getoond (mappen toevoegen of uitsluiten gebeurt recursief, maar een toegevoegde map zal altijd worden getoond).</string>
     <string name="faq_10_title">Kan ik afbeeldingen bijsnijden met deze app?</string>
     <string name="faq_10_text">Ja, dat kan bij \"Bewerken\" door de hoeken te verslepen. Druk lang op een afbeelding in het overzicht of ga naar het volledig scherm en klik vervolgens op \"Bewerken\".</string>
@@ -361,7 +353,6 @@
     <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd. Het verbergen van mappen werkt recursief: alle submappen binnen een verborgen map zullen óók verborgen worden. Om zo\'n submap wél te kunnen zien, mag de map die deze submap bevat dus ook niet verborgen zijn.</string>
     <string name="faq_15_title">Waarom neemt de app zoveel ruimte in beslag?</string>
     <string name="faq_15_text">De cache voor de app kan oplopen tot 250MB; dit garandeert snellere laadtijden van afbeeldingen. Indien de app nog meer ruimte inneemt, komt dat hoogstwaarschijnlijk door de items in de prullenbak. Ook deze bestanden worden meegerekend met de ingenomen ruimte. Verwijder deze items zelf vanuit de prullenbak of vanuit de instellingen van de app. Ieder item in de prullenbak zal na 30 dagen automatisch verwijderd worden.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>
@@ -423,7 +414,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
