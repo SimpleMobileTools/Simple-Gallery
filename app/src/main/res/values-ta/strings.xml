@@ -47,8 +47,8 @@
     <string name="raw_images">RAW படங்கள்</string>
     <string name="svgs">SVGகள்</string>
     <string name="portraits">உருவப்படங்கள்</string>
-    <string name="no_media_with_filters">தேர்ந்தெடுத்த வடிப்பான்களுடன் ஊடக கோப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை.</string>
-    <string name="change_filters_underlined"><u>வடிப்பான்களை மாற்று</u></string>
+    <string name="no_media_with_filters">தேர்ந்தெடுத்த வடிகட்டிகளுடன் ஊடக கோப்புகள் ஏதுமில்லை.</string>
+    <string name="change_filters_underlined"><u>வடிகட்டிகளை மாற்று</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">இச்செயல்பாடு ஒரு \'.nomedia\' கோப்பைச் சேர்த்து அடைவை மறைக்கிறது, இது எல்லா துணையடைவுகளையும் மறைக்கும். அமைப்புகளில் \'மறைந்த உருப்படிகளைக் காட்டு\' விருப்பத்தை மாற்றிஅவற்றைக் காணலாம். தொடரவா\?</string>
     <string name="exclude">விலக்கு</string>
