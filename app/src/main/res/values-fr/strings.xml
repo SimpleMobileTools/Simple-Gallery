@@ -202,7 +202,7 @@
     <string name="bottom_actions">Barre d\'actions</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
-    <string name="toggle_favorite">Ajouter aux favoris</string>
+    <string name="toggle_favorite">Basculer les favoris</string>
     <string name="toggle_file_visibility">Visibilité du fichier</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libre</string>
