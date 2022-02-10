@@ -210,7 +210,7 @@
     <string name="bottom_actions">Funktionen am unteren Bildschirmrand</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Funktionen auswählen</string>
-    <string name="toggle_favorite">Favoriten umschalten</string>
+    <string name="toggle_favorite">Favorit umschalten</string>
     <string name="toggle_file_visibility">Schaltet die Sichtbarkeit von Dateien um</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Benutzerdefiniert</string>
@@ -334,7 +334,7 @@
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen?</string>
     <string name="faq_4_text">Das geht, indem du doppelt auf die Seite des Bildschirms drückst, oder indem du auf den Text nahe der Seekbar drückst, der die aktuelle bzw. maximale Zeit anzeigt. Wenn du in den App Einstellungen die Funktion aktivierst hast, dass Videos in einem seperaten Fenster geöffnet werden können, kannst du zudem horizontale Gesten verwenden.</string>
-    <string name="faq_5_title">Was ist der Unterschied zwischen \'Verstecken\' und \'Ausschließen\' eines Ordners?</string>
+    <string name="faq_5_title">Was ist der Unterschied zwischen dem Ausblenden und dem Ausschließen eines Ordners\?</string>
     <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während Hide systembedingt funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die Sie dann auch mit einem beliebigen Dateimanager entfernen können. Beachte, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschließen durch gedrückt halten und Auswählen von Ausschließen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
