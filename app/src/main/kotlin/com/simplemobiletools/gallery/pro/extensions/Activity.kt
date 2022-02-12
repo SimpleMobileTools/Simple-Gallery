@@ -113,6 +113,7 @@ fun SimpleActivity.launchAbout() {
 
     if (isRPlus()) {
         faqItems.add(0, FAQItem(R.string.faq_16_title, R.string.faq_16_text))
+        faqItems.add(1, FAQItem(R.string.faq_17_title, R.string.faq_17_text))
         faqItems.removeIf { it.text == R.string.faq_7_text }
         faqItems.removeIf { it.text == R.string.faq_14_text }
     }

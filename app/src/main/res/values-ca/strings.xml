@@ -359,6 +359,8 @@
     <string name="faq_15_text">La memòria cau de l\'aplicació pot ocupar fins a 250 MB, i garanteix una càrrega més ràpida de les imatges. Si l\'aplicació ocupa més espai, probablement serà perquè hi ha elements a la paperera de reciclatge. Aquests fitxers compten en la mida de l\'aplicació. Podeu netejar la paperera de reciclatge obrint-la i suprimint tots els fitxers, o des de la configuració de l\'aplicació. Els fitxers de la paperera s\'eliminen automàticament després de 30 dies.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro: Gestor i editor de fotos</string>

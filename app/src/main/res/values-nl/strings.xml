@@ -352,6 +352,8 @@
     <string name="faq_15_text">De cache voor de app kan oplopen tot 250MB; dit garandeert snellere laadtijden van afbeeldingen. Indien de app nog meer ruimte inneemt, komt dat hoogstwaarschijnlijk door de items in de prullenbak. Ook deze bestanden worden meegerekend met de ingenomen ruimte. Verwijder deze items zelf vanuit de prullenbak of vanuit de instellingen van de app. Ieder item in de prullenbak zal na 30 dagen automatisch verwijderd worden.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>

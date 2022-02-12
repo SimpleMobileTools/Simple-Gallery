@@ -351,6 +351,8 @@
     <string name="faq_15_text">Vyrovnávací paměť aplikace může zabírat až 250MB, zabezpečuje to rychlejší nahrávání obrázků. Pokud aplikace zabírá místa více, bude to pravděpodobně způsobeno soubory v odpadkovém koši. Dané soubory se započítávajé do velikosti aplikace. Koš můžete vyprázdnit buď jeho otevřením a smazáním všech souborů, nebo z nastavení aplikace. Položky v koši jsou automaticky mazány po 30 dnech.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchá galerie Pro - Organizér fotografií</string>

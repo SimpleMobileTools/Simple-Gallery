@@ -359,6 +359,8 @@
     <string name="faq_15_text">O armazenamento em cache da aplicação comporta até 250MB para assegurar que a imagem é carregada rapidamente. Caso esteja a ocupar mais espaço, o mais certo é que a Reciclagem esteja cheia, e isso também conta para o tamanho total da aplicação. Esvazie a Reciclagem abrindo-a e removendo todos os ficheiros lá contidos, ou faça-o pelas Definições. Todos os ficheiros na Reciclagem são automaticamente apagados após 30 dias.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Editor e gestor de fotos</string>
