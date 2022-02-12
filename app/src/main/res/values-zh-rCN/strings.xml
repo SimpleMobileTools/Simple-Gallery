@@ -336,7 +336,7 @@
     <string name="faq_3_text">您可以长按该相册并在操作栏中点击图钉图标，这样就可以将其固定在顶部了。您也可以固定多个文件夹，已固定的项目会按照默认排序方法进行排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
     <string name="faq_4_text">您可以双击屏幕边缘或点击搜索栏附近的当前时间或总时长的文本。如果您在应用设置中启用了“在单独的页面播放视频”，就可以使用水平手势来快进/快退视频。</string>
-    <string name="faq_5_title">文件夹隐藏和排除有什么区别？</string>
+    <string name="faq_5_title">隐藏和排除文件夹有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简易图库中显示，而隐藏功能则使用的是系统提供的方法，这样的话在其他的图库应用中也会隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，您可以使用任何文件管理器来删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
     <string name="faq_6_text">您可能会看到一些不寻常的相册出现。可以通过长按并选择“排除”来排除它们。在之后的对话框中，您可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>

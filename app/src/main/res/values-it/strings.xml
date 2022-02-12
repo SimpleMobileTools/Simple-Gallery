@@ -204,7 +204,7 @@
     <string name="bottom_actions">Azioni inferiori</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gestisci la visibilità delle azioni</string>
-    <string name="toggle_favorite">Attiva / disattiva preferito</string>
+    <string name="toggle_favorite">Attiva/disattiva preferito</string>
     <string name="toggle_file_visibility">Attiva / disattiva la visibilità dei file</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libera</string>

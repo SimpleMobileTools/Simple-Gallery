@@ -202,7 +202,7 @@
     <string name="bottom_actions">Barre d\'actions</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
-    <string name="toggle_favorite">Basculer les favoris</string>
+    <string name="toggle_favorite">Activer/désactiver le favori</string>
     <string name="toggle_file_visibility">Visibilité du fichier</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Libre</string>
@@ -326,7 +326,7 @@
     <string name="faq_3_text">Vous devez simplement effectuer un appui prolongé sur le dossier en question et choisir \"Épingler en haut\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
     <string name="faq_4_text">Appuyez deux fois sur le côté de l\'écran, ou appuyez sur la valeur de durée actuelle ou maximale près de la barre de recherche. Si vous activez l\'ouverture des vidéos sur un écran séparé dans les paramètres de l\'application, vous pouvez également utiliser des gestes horizontaux.</string>
-    <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier ?</string>
+    <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier \?</string>
     <string name="faq_5_text">Exclure un dossier permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que cacher un dossier rend le dossier invisible sur l\'ensemble de l\'appareil, y compris pour les autres applications de galerie. Dans le dernier cas, un fichier .nomedia est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers. Notez que certains appareils ne permettent pas de masquer certains dossiers tels qu\'Appareil photo, Captures d\'écran et Téléchargements.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
     <string name="faq_6_text">Il est possible que des dossiers qui ne devraient pas être affichés le soient. Vous pouvez les exclure facilement en les sélectionnant par un appui prolongé, puis en choisissant l\'option \"Exclure le dossier\", après quoi vous pouvez aussi sélectionner le dossier parent, ce qui devrait éviter l\'apparition de dossiers similaires.</string>

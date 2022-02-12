@@ -28,13 +28,9 @@
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="no_date_takens_found">Geen opnamedatums gevonden</string>
     <string name="share_resized">Verkleinde versie delen</string>
-    <string name="upgraded_from_free">Hallo,
+    <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \"Upgraden naar Pro\" bovenaan de instellingen, kan nu gedeïnstalleerd worden.
 \n
-\nHet lijkt erop dat je een upgrade hebt gedaan vanaf de oude gratis app. Je kunt nu de oude versie verwijderen, die heeft een \'Upgrade naar Pro\' knop boven in de app-instellingen.
-\n
-\nAlleen de Prullenbak items zullen zijn verwijderd, favoriete items ongemarkeerd en je zult ook je app instellingen moeten resetten.
-\n
-\nBedankt!</string>
+\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd!</string>
     <string name="switch_to_file_search">Zoeken in alle zichtbare mappen</string>
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
