@@ -707,27 +707,11 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/settings_hidden_item_password_protection_holder"
-                style="@style/SettingsHolderCheckboxStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple_top_corners">
-
-                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-                    android:id="@+id/settings_hidden_item_password_protection"
-                    style="@style/SettingsCheckboxStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/password_protect_hidden_items" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/settings_app_password_protection_holder"
                 style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ripple_background">
+                android:background="@drawable/ripple_top_corners">
 
                 <com.simplemobiletools.commons.views.MyAppCompatCheckbox
                     android:id="@+id/settings_app_password_protection"
@@ -735,6 +719,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/password_protect_whole_app" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_hidden_item_password_protection_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_hidden_item_password_protection"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_protect_hidden_items" />
 
             </RelativeLayout>
 
