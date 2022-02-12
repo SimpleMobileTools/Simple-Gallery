@@ -56,6 +56,7 @@
     <string name="hidden_folders">Skryté složky</string>
     <string name="manage_hidden_folders">Spravovat skryté složky</string>
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>
     <string name="manage_included_folders">Spravovat přidané složky</string>
@@ -348,6 +349,8 @@
     <string name="faq_14_text">Můžete buď použít menu tlačítko \"Dočasně zobrazit skryté položky\" na hlavní obrazovce, nebo v nastavení aplikace zapnout možnost \"Zobrazit skryté položky\", tím se skryté položky zobrazí. Pokud je chcete odkrýt trvale, stačí je dlouho podržet a zvolit možnost \"Odkrýt\". Složky jsou skrývané přidáním souboru \".nomedia\", ten můžete vymazat i libovolným správcem souborů. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Proč aplikace zabírá tolik místa?</string>
     <string name="faq_15_text">Vyrovnávací paměť aplikace může zabírat až 250MB, zabezpečuje to rychlejší nahrávání obrázků. Pokud aplikace zabírá místa více, bude to pravděpodobně způsobeno soubory v odpadkovém koši. Dané soubory se započítávajé do velikosti aplikace. Koš můžete vyprázdnit buď jeho otevřením a smazáním všech souborů, nebo z nastavení aplikace. Položky v koši jsou automaticky mazány po 30 dnech.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchá galerie Pro - Organizér fotografií</string>

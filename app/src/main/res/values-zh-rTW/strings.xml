@@ -58,6 +58,7 @@
     <string name="hidden_folders">隱藏資料夾</string>
     <string name="manage_hidden_folders">管理隱藏資料夾</string>
     <string name="hidden_folders_placeholder">您似乎沒有用\".nomedia\"檔案來隱藏的資料夾</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>
@@ -362,6 +363,8 @@
     <string name="faq_14_text">按主畫面選單中的「暫時顯示隱藏的檔案」或設定中的「顯示隱藏的項目」就能看到隱藏的項目。若要取消隱藏，長按並選擇「取消隱藏」即可。資料夾隱藏的原理是在其內新增一個「.nomedia」檔案，因此可用任意檔案管理器將其刪除。檔案／資料夾是以遞迴的方式被隱藏的，因此若某資料夾被隱藏，其子資料夾也會被隱藏。若要取消隱藏子資料夾，其上層資料夾需先被取消隱藏。</string>
     <string name="faq_15_title">這個 APP 怎麼佔用了這麼多空間？</string>
     <string name="faq_15_text">APP 快取最高會佔用 250MB，來讓圖片載入得更快。如果本 APP 佔用了超過 250MB 的空間，很有可能是因為有檔案在回收桶裡，這些檔案也會算在 APP 佔用的空間上。您可以開啟回收桶並刪除所有檔案，或是從設定中清空它。檔案被丟入回收桶 30 天後將會自動被刪除。</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

@@ -58,6 +58,7 @@
     <string name="hidden_folders">Dosare ascunse</string>
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dosare incluse</string>
@@ -361,6 +362,8 @@
     <string name="faq_14_text">Puteți fie să apăsați elementul de meniu \"Afișaţi temporar elementele ascunse\" din ecranul principal, fie să comutați \"Afișaţi elementele ascunse\" din setările aplicației pentru a vedea elementul ascuns. Dacă doriți să îl dezascundeți, trebuie doar să apăsați lung pe el și să selectați \"Dezvăluiți\". Dosarele sunt ascunse prin adăugarea unui fișier ascuns \".nomedia\" în ele, puteți șterge fișierul și cu orice manager de fișiere. Rețineți că ascunderea funcționează totuși recursiv, astfel încât, dacă ascundeți un dosar, toate subdosarele vor fi și ele ascunse. Așadar, pentru a dezascunde subdosarele, trebuie să dezascundeți și dosarul părinte.</string>
     <string name="faq_15_title">De ce ocupă aplicația atât de mult spațiu?</string>
     <string name="faq_15_text">Memoria cache a aplicației poate ocupa până la 250 MB, asigurând o încărcare mai rapidă a imaginilor. Dacă aplicația ocupă și mai mult spațiu, cel mai probabil este cauzată de faptul că aveți elemente în coșul de reciclare. Acele fișiere contează la dimensiunea aplicației. Puteți goli coșul de reciclare deschizându-l și ștergând toate fișierele sau din setările aplicației. Fiecare fișier din coșul de gunoi este șters automat după 30 de zile.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

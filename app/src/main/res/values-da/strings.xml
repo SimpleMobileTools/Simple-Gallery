@@ -56,6 +56,7 @@
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Administrer skjulte mapper</string>
     <string name="hidden_folders_placeholder">Det ser ikke ud til at du har nogen skjulte mapper med en \".nomedia\"-fil.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderede mapper</string>
     <string name="manage_included_folders">Administrer inkluderede mapper</string>
@@ -347,6 +348,8 @@
     <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i appens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\"-fil i dem, som du også kan slette med enhver filhåndterings-app. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Hvorfor fylder appen så meget?</string>
     <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Billedhåndtering</string>

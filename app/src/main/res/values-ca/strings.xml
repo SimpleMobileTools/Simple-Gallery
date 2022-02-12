@@ -64,6 +64,7 @@
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestiona les carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no teniu cap carpeta oculta amb el fitxer «.nomedia».</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
     <string name="manage_included_folders">Gestiona les carpetes incloses</string>
@@ -356,6 +357,8 @@
     <string name="faq_14_text">Podeu prémer l\'element de menú «Mostra temporalment els elements ocults» a la pantalla principal o canviar «Mostra els elements ocults» a la configuració de l\'aplicació per veure l\'element ocult. Si el voleu mostrar, premeu-lo i seleccioneu «Mostra». Les carpetes s\'oculten afegint un fitxer «.nomedia» ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Tingueu en compte que l\'ocultació funciona recursivament, així que si oculteu una carpeta, totes les subcarpetes també es faran ocultes. Per tant, per a fer visibles les subcarpetes cal mostrar la carpeta superior.</string>
     <string name="faq_15_title">Per què l\'aplicació ocupa tant espai\?</string>
     <string name="faq_15_text">La memòria cau de l\'aplicació pot ocupar fins a 250 MB, i garanteix una càrrega més ràpida de les imatges. Si l\'aplicació ocupa més espai, probablement serà perquè hi ha elements a la paperera de reciclatge. Aquests fitxers compten en la mida de l\'aplicació. Podeu netejar la paperera de reciclatge obrint-la i suprimint tots els fitxers, o des de la configuració de l\'aplicació. Els fitxers de la paperera s\'eliminen automàticament després de 30 dies.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro: Gestor i editor de fotos</string>

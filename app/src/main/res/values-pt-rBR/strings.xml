@@ -62,6 +62,7 @@
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>
@@ -356,6 +357,8 @@
     <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser. Note que esconder funciona recursivamente, então se você esconder uma pasta, todas as subpastas ficaram escondidas também. Então, para re exibir as subpastas, você precisa re exibir a pasta principal.</string>
     <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Galeria Pro - Gerenciador &amp; Editor de Imagens</string>

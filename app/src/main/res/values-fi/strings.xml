@@ -62,6 +62,7 @@
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
@@ -355,6 +356,8 @@
     <string name="faq_14_text">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Huomaa, että piilottaminen toimii kuitenkin rekursiivisesti, joten jos piilotat kansion, myös kaikki alikansiot piilotetaan. Joten alikansioiden piilottamiseksi sinun on otettava yläkansion piilotus pois käytöstä.</string>
     <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
     <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Valokuvien selaus ja muokkaus</string>

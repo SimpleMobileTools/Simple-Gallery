@@ -62,6 +62,7 @@
     <string name="hidden_folders">Rejtett mappák</string>
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>
@@ -356,6 +357,8 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
     <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a „Rejtett elemek ideiglenes megjelenítése” elemet a főképernyőn, vagy válassza a „Rejtett elemek megjelenítése” lehetőséget az alkalmazásbeállításokban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza az „Elrejtés megszüntetése” lehetőséget. A mappák elrejtése egy rejtett „.nomedia” fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel törölheti. Vegye figyelembe, hogy az elrejtés rekurzív módon működik, ha elrejt egy mappát, akkor az összes almappája is rejtett lesz. Így az almappák elrejtésének megszüntetéséhez láthatóvá kell tennie a szülőmappát is.</string>
     <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet?</string>
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro – Fényképkezelő és -szerkesztő</string>

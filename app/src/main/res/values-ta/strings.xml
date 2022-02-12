@@ -64,6 +64,7 @@
     <string name="hidden_folders">மறைத்த அடைவுகள்</string>
     <string name="manage_hidden_folders">மறைத்த அடைவுகளை நிர்வகி</string>
     <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எவ்வடைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">உள்ளடக்கிய அடைவுகள்</string>
     <string name="manage_included_folders">உள்ளடக்கிய அடைவுகளை நிர்வகி</string>
@@ -356,6 +357,8 @@
     <string name="faq_14_text">பிரதான திரையில் \"தற்காலிகமாக மறைந்த உருப்படிகளைக் காண்பி\" சிறுபட்டி உருப்படியை அழுத்தவும் அ மறைந்த உருப்படியைக் காண செயலி அமைப்புகளில் \"மறைந்த உருப்படிகளைக் காட்டு\" என்பதை மாற்று. நீங்கள் அதை மறைக்க விரும்பினால், அதை நீண்டழுத்தி \"மறை\" என்பதைத் தேர்ந்தெடு. அடைவுகள் ஒரு மறைக்கப்பட்ட \".nomedia\" கோப்பைச் சேர்ப்பதால் மறைக்கப்படுகின்றன, நீங்கள் எந்த கோப்பு நிர்வாகியிடமும் கோப்பை அழிக்கலாம். மறைப்பது மீண்டும் மீண்டும் செயல்படுகிறது என்பதை நினைவில் கொள்க, எனவே நீங்கள் ஒரு அடைவை மறைத்தால், எல்லா துணையடைவுகளும் மறைக்கப்படும். எனவே துணையடைவுகளை மறைக்க நீங்கள் பெற்றோர் அடைவை மறைக்க வேண்டும்.</string>
     <string name="faq_15_title">செயலி ஏன் அதிக இடத்தை எடுத்துக்கொள்கிறது\?</string>
     <string name="faq_15_text">செயலி பதுக்ககம் 250MB வரை எடுக்கலாம், இது படத்தை விரைவாக ஏற்றுவதை உறுதி செய்கிறது. செயலி இன்னும் அதிக இடத்தை எடுத்துக்கொண்டால், மீள்சுழற்சி தொட்டியில் நீங்கள் உருப்படிகளை வைத்திருப்பதால் இது பெரும்பாலும் ஏற்படலாம். அந்த கோப்புகள் செயலி அளவிற்கு எண்ணப்படுகின்றன. மீள்சுழற்சி தொட்டியை அதனைத் திறந்து எல்லா கோப்புகளையும் அழித்தோ செயலி அமைவுகளிலிருந்து அழித்தோ துடைக்கலாம். தொட்டியில் உள்ள ஒவ்வொரு கோப்பும் 30 நாட்களுக்குப் பிறகு தானாகவே அழிக்கப்படும்.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">எளிய காட்சியகம் ப்ரோ - பட நிர்வாகி &amp; திருத்தி</string>

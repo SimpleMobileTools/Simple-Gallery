@@ -58,6 +58,7 @@
     <string name="hidden_folders">Skrivene mape</string>
     <string name="manage_hidden_folders">Upravljanje skrivenim mapama</string>
     <string name="hidden_folders_placeholder">Čini se da nemate skrivenih mapa s \".nomedia\" datotekom.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">Uključene mape</string>
@@ -361,6 +362,8 @@
     <string name="faq_14_text">Možete pritisnuti stavku izbornika "Privremeno prikazati skrivene stavke" na glavnom zaslonu ili uključiti "Prikaži skrivene stavke" u postavkama aplikacije da biste vidjeli skrivenu stavku. Ako je želite otkriti, samo ju dugo pritisnite i odaberite "Otkrij". Mape su skrivene dodavanjem skrivene datoteke ".Nomedia", možete i izbrisati navedenu datoteku. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

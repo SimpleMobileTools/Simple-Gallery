@@ -62,6 +62,7 @@
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
@@ -352,6 +353,8 @@
     <string name="faq_14_text">Możesz wybrać „Tymczasowo pokaż ukryte elementy” w menu na ekranie głównym albo włączyć opcję „Pokazuj ukryte elementy” w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, po prostu naciśnij go dłużej i wybierz „Odkryj folder”. Foldery są ukrywane przez dodanie do nich ukrytego pliku „.nomedia”, który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
     <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250 MB, aby zapewnić szybsze ładowanie obrazów. Jeśli aplikacja zajmuje więcej miejsca, jest to najprawdopodobniej spowodowane tym, że masz elementy w koszu. Pliki te liczą się do rozmiaru aplikacji. Możesz wyczyścić kosz przez otwarcie go i usunięcie wszystkich plików albo z poziomu ustawień aplikacji. Każdy plik w koszu jest usuwany automatycznie po 30 dniach.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Prosta galeria Pro - Menedżer i edytor zdjęć</string>

@@ -58,6 +58,7 @@
     <string name="hidden_folders">Κρυφοί φάκελοι</string>
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>
@@ -361,6 +362,8 @@
     <string name="faq_14_text">Μπορείτε είτε να επιλέξετε στο μενού \"Εμφάνιση προσωρινά κρυφών στοιχείων\" στην κύρια οθόνη, είτε να αλλάξετε σε \"Εμφάνιση κρυφών στοιχείων\" στις ρυθμίσεις της εφαρμογής για να δείτε το κρυφό στοιχείο. Αν θέλετε να το αποκρύψετε, πατήστε παρατεταμένα και επιλέξτε \"Απόκρυψη\". Οι φάκελοι αποκρύπτονται προσθέτοντας ένα κρυφό αρχείο \".nomedia\" , μπορείτε επίσης να διαγράψετε το αρχείο με οποιονδήποτε διαχειριστή αρχείων. Σημειώστε ότι η απόκρυψη λειτουργεί αναδρομικά, έτσι εάν αποκρύψετε ένα φάκελο, όλοι οι υποφάκελοι θα αποκρυφθούν επίσης. Για την επανεμφάνιση των υποφακέλων, πρέπει να επανεμφανίσετε το γονικό φάκελο.</string>
     <string name="faq_15_title">Γιατί η εφαρμογή καταλαμβάνει τόσο μεγάλο χώρο;</string>
     <string name="faq_15_text">Η προσωρινή μνήμη της εφαρμογής μπορεί να δεσμεύσει έως και 250MB, διασφαλίζοντας την ταχύτερη προφόρτωση των εικόνων. Αν η εφαρμογή χρησιμοποιεί ακόμα περισσότερο χώρο, πιθανότατα οφείλεται στην κατοχή αντικειμένων στον Κάδο. Αυτά τα αρχεία υπολογίζονται στο μέγεθος της εφαρμογής. Μπορείτε να αδειάσετε τον Κάδο Ανακύκλωσης ανοίγοντάς τον και διαγράφοντας όλα τα αρχεία ή από τις ρυθμίσεις της εφαρμογής. Κάθε αρχείο στον Κάδο διαγράφεται αυτόματα μετά από 30 ημέρες.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

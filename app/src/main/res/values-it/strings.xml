@@ -56,6 +56,7 @@
     <string name="hidden_folders">Cartelle nascoste</string>
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
     <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file .nomedia.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>
@@ -348,6 +349,8 @@
     <string name="faq_14_text">Puoi premere la voce di menu «Mostra temporaneamente gli elementi nascosti» nella schermata principale, o attivare «Mostra gli elementi nascosti» nelle impostazioni dell\'app per vedere l\'elemento nascosto. Se vuoi nasconderlo, basta premere a lungo su di esso e selezionare «Mostra». Le cartelle vengono nascoste aggiungendo un file nascosto .nomedia in esse, puoi anche cancellare il file con qualsiasi file manager. Nota però che nascondere funziona in modo ricorsivo, quindi se nascondi una cartella, anche tutte le sottocartelle diventeranno nascoste. Quindi per nascondere le sottocartelle devi nascondere la cartella madre.</string>
     <string name="faq_15_title">Perchè l\'app occupa così tanto spazio?</string>
     <string name="faq_15_text">La cache dell\'app può occupare massimo 250MB, serve per veloccizare il caricamento delle immagini. Se l\'app sta prendendo sempre più spazio, molto probabilmente è causato dagli elementi nel Cestino. Questi file contano nella dimensione dell\'app. Puoi svuotare il Cestino aprendolo ed eliminando tutti i file, oppure andando nelle impostazioni dell\'app. Ogni file nel Cestino viene eliminato automaticamente dopo 30 giorni.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Semplice Galleria Pro - gestore di foto &amp; editor</string>

@@ -64,6 +64,7 @@
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerir pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que não existem pastas ocultas com ficheiros \".nomedia\".</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
     <string name="manage_included_folders">Gerir pastas incluídas</string>
@@ -356,6 +357,8 @@
     <string name="faq_14_text">Pode seleccionar \"Mostrar ocultos temporariamente \" do menu, ou então habilite \"Mostrar itens ocultos\" nas Definições. As pastas ficam ocultas quando se lhes introduz um ficheiro \".nomedia\", também ele oculto. É possível apagar esse ficheiro com um gestor de ficheiros. No entanto, tome em atenção que a acção de ocultar é recursiva, e todas as subpastas ficarão ocultas também. E é por isso que para tornar visíveis as subpastas deve fazê-lo a montante, a partir da pasta superior na hierarquia.</string>
     <string name="faq_15_title">Porque é que a aplicação ocupa tanto espaço\?</string>
     <string name="faq_15_text">O armazenamento em cache da aplicação comporta até 250MB para assegurar que a imagem é carregada rapidamente. Caso esteja a ocupar mais espaço, o mais certo é que a Reciclagem esteja cheia, e isso também conta para o tamanho total da aplicação. Esvazie a Reciclagem abrindo-a e removendo todos os ficheiros lá contidos, ou faça-o pelas Definições. Todos os ficheiros na Reciclagem são automaticamente apagados após 30 dias.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Editor e gestor de fotos</string>

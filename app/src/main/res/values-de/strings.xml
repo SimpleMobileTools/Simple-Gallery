@@ -62,6 +62,7 @@
     <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
     <string name="hidden_folders_placeholder">Keinen mit einer .nomedia-Datei versteckten Ordner gefunden.</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
@@ -354,6 +355,8 @@
     <string name="faq_14_text">Du kannst entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Ausgeblendete Elemente anzeigen“ in den Anwendungseinstellungen umschalten, um das ausgeblendete Element zu sehen. Wenn du es wieder einblenden möchtest, drücke einfach lange darauf und wähle „Ausblenden“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; du kannst die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Beachte, dass das Verstecken rekursiv funktioniert, d. h. wenn du einen Ordner versteckest, werden auch alle Unterordner versteckt. Um die Unterordner wieder auszublenden, musst du also den übergeordneten Ordner ausblenden.</string>
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz?</string>
     <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Diese Dateien zählen zum Speicherplatz der App dazu. Du kannst den Papierkorb leeren, indem du ihn öffnest und alle Dateien darin löschst, oder den entsprechenden Button in den Einstellungen betätigst. All 30 Tage wird der Papierkorb automatisch geleert.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Schlichte Galerie – Fotoverwaltung und -bearbeitung</string>

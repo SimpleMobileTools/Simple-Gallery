@@ -58,6 +58,7 @@
     <string name="hidden_folders">Skryté priečinky</string>
     <string name="manage_hidden_folders">Spravovať skryté priečinky</string>
     <string name="hidden_folders_placeholder">Zdá sa, že nemáte žiadne priečinky skryté pomocou súboru \".nomedia\".</string>
+    <string name="cannot_hide_files">Od Android verzie 11 už nie je možné takýmto spôsobom skrývať súbory a priečinky</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>
@@ -361,6 +362,8 @@
     <string name="faq_14_text">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov. Poznamenávame, že ukrývanie priečinkov funguje rekurzívne, čiže ak jeden ukryjete, ukryté budú aj jeho podpriečinky. Čiže ak chcete odkryť nejaký podpriečinok, musíte odkryť jeho nadradené priečinky.</string>
     <string name="faq_15_title">Prečo apka zaberá toľko miesta?</string>
     <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
+    <string name="faq_16_title">Čo sa stalo s ukrývaním súborov a priečinkov a prečo nevidím žiadne ukryté položky?</string>
+    <string name="faq_16_text">Od Android verzie 11 galérie ako je táto nemôžu ani skryť, ani odokryť žiadne súbory, ani priečinky. Budete na to musieť použiť správcov súborov.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
