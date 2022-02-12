@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.internalStoragePath
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
@@ -42,7 +43,6 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_add_folder, menu)
-        menu.findItem(R.id.add_folder).isVisible = !isRPlus()
         updateMenuItemColors(menu)
         return true
     }
@@ -60,7 +60,7 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true, true) {
+        FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true, true) {
             config.lastFilepickerPath = it
             config.addExcludedFolder(it)
             updateFolders()

@@ -287,6 +287,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
+                findItem(R.id.create_new_folder).isVisible = !isRPlus()
                 setupSearch(this)
             }
         }
