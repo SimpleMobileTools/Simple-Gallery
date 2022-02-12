@@ -291,8 +291,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
-        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !isRPlus() && !config.shouldShowHidden
+        menu.findItem(R.id.stop_showing_hidden).isVisible = !isRPlus() && config.temporarilyShowHidden
 
         updateMenuItemColors(menu)
         return true
