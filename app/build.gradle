@@ -10,13 +10,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdk 21
+        targetSdk 30
         versionCode 358
         versionName "6.22.3"
         setProperty("archivesBaseName", "gallery-$versionCode")
