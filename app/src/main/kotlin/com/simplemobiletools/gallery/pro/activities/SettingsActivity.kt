@@ -93,7 +93,6 @@ class SettingsActivity : SimpleActivity() {
         arrayOf(
             settings_color_customization_label,
             settings_general_settings_label,
-            settings_visibility_label,
             settings_videos_label,
             settings_thumbnails_label,
             settings_scrolling_label,
@@ -112,7 +111,6 @@ class SettingsActivity : SimpleActivity() {
         arrayOf(
             settings_color_customization_holder,
             settings_general_settings_holder,
-            settings_visibility_holder,
             settings_videos_holder,
             settings_thumbnails_holder,
             settings_scrolling_holder,

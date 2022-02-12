@@ -95,7 +95,7 @@
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ripple_bottom_corners">
+                android:background="@drawable/ripple_background">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/settings_file_loading_priority_label"
@@ -113,29 +113,13 @@
                     tools:text="@string/compromise" />
 
             </RelativeLayout>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/settings_visibility_label"
-            style="@style/SettingsSectionLabelStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/visibility" />
-
-        <LinearLayout
-            android:id="@+id/settings_visibility_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
-            android:background="@drawable/section_holder_stroke"
-            android:orientation="vertical">
 
             <RelativeLayout
                 android:id="@+id/settings_manage_included_folders_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ripple_top_corners">
+                android:background="@drawable/ripple_background">
 
                 <com.simplemobiletools.commons.views.MyTextView
                     android:id="@+id/settings_manage_included_folders"
