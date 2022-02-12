@@ -58,7 +58,6 @@
     <string name="hidden_folders">Κρυφοί φάκελοι</string>
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
-    <string name="cannot_hide_files">Ξεκινώντας από το Android 11 δεν μπορείτε πλέον να αποκρύπτετε αρχεία και φακέλους με αυτόν τον τρόπο</string>
 
     <!-- Include folders -->
     <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>

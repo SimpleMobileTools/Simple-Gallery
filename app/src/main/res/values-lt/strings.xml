@@ -56,7 +56,6 @@
     <string name="hidden_folders">Paslėpti aplankai</string>
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
     <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
-    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Įtraukti aplankai</string>
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>

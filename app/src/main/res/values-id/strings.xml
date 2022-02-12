@@ -58,7 +58,6 @@
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
-    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">Folder yang disertakan</string>

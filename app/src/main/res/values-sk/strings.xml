@@ -58,7 +58,6 @@
     <string name="hidden_folders">Skryté priečinky</string>
     <string name="manage_hidden_folders">Spravovať skryté priečinky</string>
     <string name="hidden_folders_placeholder">Zdá sa, že nemáte žiadne priečinky skryté pomocou súboru \".nomedia\".</string>
-    <string name="cannot_hide_files">Od Android verzie 11 už nie je možné takýmto spôsobom skrývať súbory a priečinky</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>

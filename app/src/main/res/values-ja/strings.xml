@@ -58,7 +58,6 @@
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
-    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>

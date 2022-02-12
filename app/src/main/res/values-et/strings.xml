@@ -58,7 +58,6 @@
     <string name="hidden_folders">Peidetud kaustad</string>
     <string name="manage_hidden_folders">Halda peidetud kaustu</string>
     <string name="hidden_folders_placeholder">Tundub, et sa pole „.nomedia“ faili abil ühtegi kausta märkinud peidetuks.</string>
-    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
     <!-- Include folders -->
     <string name="include_folders">Kaasatud kaustad</string>
     <string name="manage_included_folders">Halda kaasatud kaustu</string>

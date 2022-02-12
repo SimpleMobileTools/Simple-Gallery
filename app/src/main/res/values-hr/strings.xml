@@ -58,7 +58,6 @@
     <string name="hidden_folders">Skrivene mape</string>
     <string name="manage_hidden_folders">Upravljanje skrivenim mapama</string>
     <string name="hidden_folders_placeholder">Čini se da nemate skrivenih mapa s \".nomedia\" datotekom.</string>
-    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
 
     <!-- Include folders -->
     <string name="include_folders">Uključene mape</string>
