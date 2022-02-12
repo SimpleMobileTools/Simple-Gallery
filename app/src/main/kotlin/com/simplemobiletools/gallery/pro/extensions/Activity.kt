@@ -116,6 +116,7 @@ fun SimpleActivity.launchAbout() {
         faqItems.add(1, FAQItem(R.string.faq_17_title, R.string.faq_17_text))
         faqItems.removeIf { it.text == R.string.faq_7_text }
         faqItems.removeIf { it.text == R.string.faq_14_text }
+        faqItems.removeIf { it.text == R.string.faq_8_text }
     }
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
