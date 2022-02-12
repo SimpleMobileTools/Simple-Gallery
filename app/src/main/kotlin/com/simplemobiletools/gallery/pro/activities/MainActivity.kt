@@ -485,6 +485,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun launchSearchActivity() {
+        hideKeyboard()
         Intent(this, SearchActivity::class.java).apply {
             startActivity(this)
         }
@@ -522,6 +523,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (mIsThirdPartyIntent) {
                 handleMediaIntent(this)
             } else {
+                hideKeyboard()
                 startActivity(this)
                 finish()
             }
@@ -835,6 +837,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun handleMediaIntent(intent: Intent) {
+        hideKeyboard()
         intent.apply {
             if (mIsSetWallpaperIntent) {
                 putExtra(SET_WALLPAPER_INTENT, true)

@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
@@ -53,10 +54,6 @@ val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as Audi
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
     return humanized.substring(humanized.lastIndexOf("/") + 1)
-}
-
-fun Context.launchSettings() {
-    startActivity(Intent(applicationContext, SettingsActivity::class.java))
 }
 
 val Context.config: Config get() = Config.newInstance(applicationContext)

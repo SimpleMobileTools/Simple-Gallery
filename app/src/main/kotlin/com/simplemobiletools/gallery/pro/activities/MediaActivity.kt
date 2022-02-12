@@ -288,6 +288,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun startSlideshow() {
         if (mMedia.isNotEmpty()) {
+            hideKeyboard()
             Intent(this, ViewPagerActivity::class.java).apply {
                 val item = mMedia.firstOrNull { it is Medium } as? Medium ?: return
                 putExtra(SKIP_AUTHENTICATION, shouldSkipAuthentication())
@@ -514,6 +515,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun switchToFolderView() {
+        hideKeyboard()
         config.showAll = false
         startActivity(Intent(this, MainActivity::class.java))
         finish()
@@ -770,6 +772,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun itemClicked(path: String) {
+        hideKeyboard()
         if (isSetWallpaperIntent()) {
             toast(R.string.setting_wallpaper)
 

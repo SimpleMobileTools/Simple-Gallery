@@ -72,6 +72,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         if (intent.data == null && intent.action == Intent.ACTION_VIEW) {
+            hideKeyboard()
             startActivity(Intent(this, MainActivity::class.java))
             finish()
             return
@@ -198,6 +199,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         } catch (ignored: OutOfMemoryError) {
         }
 
+        hideKeyboard()
         if (isPanorama) {
             Intent(applicationContext, PanoramaVideoActivity::class.java).apply {
                 putExtra(PATH, realPath)
@@ -224,6 +226,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun sendViewPagerIntent(path: String) {
+        hideKeyboard()
         Intent(this, ViewPagerActivity::class.java).apply {
             putExtra(SKIP_AUTHENTICATION, intent.getBooleanExtra(SKIP_AUTHENTICATION, false))
             putExtra(SHOW_FAVORITES, intent.getBooleanExtra(SHOW_FAVORITES, false))
