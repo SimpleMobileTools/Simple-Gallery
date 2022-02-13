@@ -1324,7 +1324,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             Handler().postDelayed({
                 ensureBackgroundThread {
                     try {
-                        mediaDB.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                        val filesToDelete = mediaDB.getOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                        filesToDelete.forEach {
+                            if (File(it.path.replaceFirst(RECYCLE_BIN, recycleBinPath)).delete()) {
+                                mediaDB.deleteMediumPath(it.path)
+                            }
+                        }
                     } catch (e: Exception) {
                     }
                 }

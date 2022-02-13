@@ -24,6 +24,9 @@ interface MediumDao {
     @Query("SELECT COUNT(filename) FROM media WHERE deleted_ts != 0")
     fun getDeletedMediaCount(): Long
 
+    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, video_duration, is_favorite, deleted_ts, media_store_id FROM media WHERE deleted_ts < :timestmap AND deleted_ts != 0")
+    fun getOldRecycleBinItems(timestmap: Long): List<Medium>
+
     @Insert(onConflict = REPLACE)
     fun insert(medium: Medium)
 
@@ -35,9 +38,6 @@ interface MediumDao {
 
     @Query("DELETE FROM media WHERE full_path = :path COLLATE NOCASE")
     fun deleteMediumPath(path: String)
-
-    @Query("DELETE FROM media WHERE deleted_ts < :timestmap AND deleted_ts != 0")
-    fun deleteOldRecycleBinItems(timestmap: Long)
 
     @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateMedium(newFilename: String, newFullPath: String, newParentPath: String, oldPath: String)
