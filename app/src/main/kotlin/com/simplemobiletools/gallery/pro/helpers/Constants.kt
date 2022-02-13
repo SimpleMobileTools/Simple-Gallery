@@ -112,6 +112,7 @@ const val SLIDESHOW_ANIMATION_FADE = 2
 const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
 const val SHOW_RECYCLE_BIN = "show_recycle_bin"
+const val IS_IN_RECYCLE_BIN = "is_in_recycle_bin"
 const val SHOW_NEXT_ITEM = "show_next_item"
 const val SHOW_PREV_ITEM = "show_prev_item"
 const val GO_TO_NEXT_ITEM = "go_to_next_item"

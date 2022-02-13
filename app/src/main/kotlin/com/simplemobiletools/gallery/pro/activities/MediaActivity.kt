@@ -810,6 +810,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             if (isVideo) {
                 val extras = HashMap<String, Boolean>()
                 extras[SHOW_FAVORITES] = mPath == FAVORITES
+                if (path.startsWith(recycleBinPath)) {
+                    extras[IS_IN_RECYCLE_BIN] = true
+                }
 
                 if (shouldSkipAuthentication()) {
                     extras[SKIP_AUTHENTICATION] = true

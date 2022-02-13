@@ -11,10 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
-import com.simplemobiletools.commons.helpers.isRPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -81,7 +78,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         mUri = intent.data ?: return
         val uri = mUri.toString()
-        if (uri.startsWith("content:/") && uri.contains("/storage/")) {
+        if (uri.startsWith("content:/") && uri.contains("/storage/") && !intent.getBooleanExtra(IS_IN_RECYCLE_BIN, false)) {
             val guessedPath = uri.substring(uri.indexOf("/storage/"))
             if (getDoesFilePathExist(guessedPath)) {
                 val extras = intent.extras ?: Bundle()
