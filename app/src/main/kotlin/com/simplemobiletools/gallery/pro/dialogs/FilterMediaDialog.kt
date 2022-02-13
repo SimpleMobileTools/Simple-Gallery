@@ -23,11 +23,11 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
         }
 
         AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.filter_media)
-                }
+            .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
+            .setNegativeButton(R.string.cancel, null)
+            .create().apply {
+                activity.setupDialogStuff(view, this, R.string.filter_media)
+            }
     }
 
     private fun dialogConfirmed() {
@@ -49,7 +49,9 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             result = getDefaultFileFilter()
         }
 
-        activity.config.filterMedia = result
-        callback(result)
+        if (activity.config.filterMedia != result) {
+            activity.config.filterMedia = result
+            callback(result)
+        }
     }
 }

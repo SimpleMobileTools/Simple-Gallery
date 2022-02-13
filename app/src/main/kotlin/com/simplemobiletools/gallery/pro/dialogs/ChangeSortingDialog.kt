@@ -113,6 +113,9 @@ class ChangeSortingDialog(
                 config.sorting = sorting
             }
         }
-        callback()
+
+        if (currSorting != sorting) {
+            callback()
+        }
     }
 }

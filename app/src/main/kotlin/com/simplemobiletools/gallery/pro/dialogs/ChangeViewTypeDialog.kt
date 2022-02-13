@@ -47,15 +47,20 @@ class ChangeViewTypeDialog(val activity: BaseSimpleActivity, val fromFoldersView
         }
 
         AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this)
-                }
+            .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
+            .setNegativeButton(R.string.cancel, null)
+            .create().apply {
+                activity.setupDialogStuff(view, this)
+            }
     }
 
     private fun dialogConfirmed() {
-        val viewType = if (view.change_view_type_dialog_radio.checkedRadioButtonId == view.change_view_type_dialog_radio_grid.id) VIEW_TYPE_GRID else VIEW_TYPE_LIST
+        val viewType = if (view.change_view_type_dialog_radio.checkedRadioButtonId == view.change_view_type_dialog_radio_grid.id) {
+            VIEW_TYPE_GRID
+        } else {
+            VIEW_TYPE_LIST
+        }
+
         if (fromFoldersView) {
             config.viewTypeFolders = viewType
             config.groupDirectSubfolders = view.change_view_type_dialog_group_direct_subfolders.isChecked
@@ -67,6 +72,7 @@ class ChangeViewTypeDialog(val activity: BaseSimpleActivity, val fromFoldersView
                 config.viewTypeFiles = viewType
             }
         }
+
 
         callback()
     }
