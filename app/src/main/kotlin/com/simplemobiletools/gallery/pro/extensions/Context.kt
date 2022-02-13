@@ -130,6 +130,14 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
 
         var result = when {
             sorting and SORT_BY_NAME != 0 -> {
+                if (o1.sortValue.isEmpty()) {
+                    o1.sortValue = o1.name.toLowerCase()
+                }
+
+                if (o2.sortValue.isEmpty()) {
+                    o2.sortValue = o2.name.toLowerCase()
+                }
+
                 if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
                     AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
                 } else {
@@ -137,6 +145,14 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
                 }
             }
             sorting and SORT_BY_PATH != 0 -> {
+                if (o1.sortValue.isEmpty()) {
+                    o1.sortValue = o1.path.toLowerCase()
+                }
+
+                if (o2.sortValue.isEmpty()) {
+                    o2.sortValue = o2.path.toLowerCase()
+                }
+
                 if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
                     AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
                 } else {
