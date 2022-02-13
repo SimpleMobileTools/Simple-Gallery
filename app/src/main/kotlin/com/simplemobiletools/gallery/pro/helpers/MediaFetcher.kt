@@ -761,9 +761,9 @@ class MediaFetcher(val context: Context) {
             var result = when {
                 sorting and SORT_BY_NAME != 0 -> {
                     if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
-                        AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+                        AlphanumericComparator().compare(o1.name.normalizeString().toLowerCase(), o2.name.normalizeString().toLowerCase())
                     } else {
-                        o1.name.toLowerCase().compareTo(o2.name.toLowerCase())
+                        o1.name.normalizeString().toLowerCase().compareTo(o2.name.normalizeString().toLowerCase())
                     }
                 }
                 sorting and SORT_BY_PATH != 0 -> {

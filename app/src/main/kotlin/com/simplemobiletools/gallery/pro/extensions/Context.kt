@@ -139,9 +139,9 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
                 }
 
                 if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
-                    AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
+                    AlphanumericComparator().compare(o1.sortValue.normalizeString().toLowerCase(), o2.sortValue.normalizeString().toLowerCase())
                 } else {
-                    o1.sortValue.toLowerCase().compareTo(o2.sortValue.toLowerCase())
+                    o1.sortValue.normalizeString().toLowerCase().compareTo(o2.sortValue.normalizeString().toLowerCase())
                 }
             }
             sorting and SORT_BY_PATH != 0 -> {
