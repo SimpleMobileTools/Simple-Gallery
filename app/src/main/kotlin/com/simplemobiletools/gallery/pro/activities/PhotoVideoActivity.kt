@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -101,15 +102,18 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null && getDoesFilePathExist(realPath)) {
-                if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
-                    if (isFileTypeVisible(realPath)) {
-                        bottom_actions.beGone()
-                        sendViewPagerIntent(realPath)
-                        finish()
-                        return
+                val avoidShowingHiddenFiles = isRPlus() && File(realPath).isHidden
+                if (!avoidShowingHiddenFiles) {
+                    if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
+                        if (isFileTypeVisible(realPath)) {
+                            bottom_actions.beGone()
+                            sendViewPagerIntent(realPath)
+                            finish()
+                            return
+                        }
+                    } else {
+                        filename = realPath.getFilenameFromPath()
                     }
-                } else {
-                    filename = realPath.getFilenameFromPath()
                 }
             }
         }
@@ -124,13 +128,16 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
-                if (isFileTypeVisible(path)) {
-                    bottom_actions.beGone()
-                    rescanPaths(arrayListOf(mUri!!.path!!))
-                    sendViewPagerIntent(path)
-                    finish()
-                    return
+            val avoidShowingHiddenFiles = isRPlus() && File(path).isHidden
+            if (!avoidShowingHiddenFiles) {
+                if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && getDoesFilePathExist(path)) {
+                    if (isFileTypeVisible(path)) {
+                        bottom_actions.beGone()
+                        rescanPaths(arrayListOf(mUri!!.path!!))
+                        sendViewPagerIntent(path)
+                        finish()
+                        return
+                    }
                 }
             }
         }

@@ -41,6 +41,7 @@ import com.github.penfeizhou.animation.webp.WebPDrawable
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
@@ -165,6 +166,9 @@ class PhotoFragment : ViewPagerFragment() {
 
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
             mMedium.path = context!!.getRealPathFromURI(Uri.parse(mOriginalPath)) ?: mMedium.path
+            if (isRPlus() && mMedium.path.startsWith("/storage/") && mMedium.isHidden()) {
+                mMedium.path = mOriginalPath
+            }
 
             if (mMedium.path.isEmpty()) {
                 var out: FileOutputStream? = null
