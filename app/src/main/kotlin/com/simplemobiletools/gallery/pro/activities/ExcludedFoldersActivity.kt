@@ -6,13 +6,11 @@ import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.internalStoragePath
-import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageFoldersAdapter
 import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.helpers.MAX_COLUMN_COUNT
 import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
