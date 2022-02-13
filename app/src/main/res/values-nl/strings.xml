@@ -349,10 +349,10 @@
     <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd. Het verbergen van mappen werkt recursief: alle submappen binnen een verborgen map zullen óók verborgen worden. Om zo\'n submap wél te kunnen zien, mag de map die deze submap bevat dus ook niet verborgen zijn.</string>
     <string name="faq_15_title">Waarom neemt de app zoveel ruimte in beslag?</string>
     <string name="faq_15_text">De cache voor de app kan oplopen tot 250MB; dit garandeert snellere laadtijden van afbeeldingen. Indien de app nog meer ruimte inneemt, komt dat hoogstwaarschijnlijk door de items in de prullenbak. Ook deze bestanden worden meegerekend met de ingenomen ruimte. Verwijder deze items zelf vanuit de prullenbak of vanuit de instellingen van de app. Ieder item in de prullenbak zal na 30 dagen automatisch verwijderd worden.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_title">Wat is er gebeurd met de functie om bestanden en mappen te verbergen\? Waarom kan ik geen verborgen items meer bekijken\?</string>
+    <string name="faq_16_text">Vanaf Android 11 kunnen bestanden en mappen niet meer verborgen (of weer getoond) worden via deze app. Verborgen items kunnen ook niet meer in galerij-apps worden weergegeven. Alleen bestandsbeheer-apps kunnen deze functionaliteit nog bieden.</string>
+    <string name="faq_17_title">Waarom kan ik ontbrekende mappen niet meer handmatig toevoegen\?</string>
+    <string name="faq_17_text">Dit werkt ook niet meer sinds de aanpassingen in Android 11: deze app mag niet meer door de mappen op het apparaat navigeren, maar is voortaan afhankelijk van de MediaStore van Android bij het ophalen van bestandsgegevens.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>
