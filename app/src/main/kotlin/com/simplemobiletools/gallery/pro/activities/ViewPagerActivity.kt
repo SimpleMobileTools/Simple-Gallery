@@ -129,6 +129,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.attributes = attributes
         }
 
+        // show the selected image asap, while loading the rest in the background to allow swiping between them. Needed at third party intents
+        if (mMediaFiles.isEmpty() && mPath.isNotEmpty()) {
+            getCachedMedia(mPath.getParentPath(), false, false) { thumbnailItems ->
+                // if we have nothing cached from the given folder, at least show the selected image asap
+                if (thumbnailItems.isEmpty()) {
+                    val filename = mPath.getFilenameFromPath()
+                    val folder = mPath.getParentPath()
+                    val type = getTypeFromPath(mPath)
+                    val medium = Medium(null, filename, mPath, folder, 0, 0, 0, type, 0, false, 0L, 0L)
+                    thumbnailItems.add(medium)
+                }
+
+                runOnUiThread {
+                    gotMedia(thumbnailItems)
+                }
+            }
+        }
+
         setupOrientation()
         invalidateOptionsMenu()
 
@@ -393,23 +411,27 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (intent.action == "com.android.camera.action.REVIEW") {
             ensureBackgroundThread {
                 if (mediaDB.getMediaFromPath(mPath).isEmpty()) {
-                    val type = when {
-                        mPath.isVideoFast() -> TYPE_VIDEOS
-                        mPath.isGif() -> TYPE_GIFS
-                        mPath.isSvg() -> TYPE_SVGS
-                        mPath.isRawFast() -> TYPE_RAWS
-                        mPath.isPortrait() -> TYPE_PORTRAITS
-                        else -> TYPE_IMAGES
-                    }
-
+                    val filename = mPath.getFilenameFromPath()
+                    val parent = mPath.getParentPath()
+                    val type = getTypeFromPath(mPath)
                     val isFavorite = favoritesDB.isFavorite(mPath)
                     val duration = if (type == TYPE_VIDEOS) getDuration(mPath) ?: 0 else 0
                     val ts = System.currentTimeMillis()
-                    val medium =
-                        Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0, 0L)
+                    val medium = Medium(null, filename, mPath, parent, ts, ts, File(mPath).length(), type, duration, isFavorite, 0, 0L)
                     mediaDB.insert(medium)
                 }
             }
+        }
+    }
+
+    private fun getTypeFromPath(path: String): Int {
+        return when {
+            path.isVideoFast() -> TYPE_VIDEOS
+            path.isGif() -> TYPE_GIFS
+            path.isSvg() -> TYPE_SVGS
+            path.isRawFast() -> TYPE_RAWS
+            path.isPortrait() -> TYPE_PORTRAITS
+            else -> TYPE_IMAGES
         }
     }
 
@@ -652,6 +674,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 path = it
                 getCurrentMedia()[mPos] = this
             }
+
             invalidateOptionsMenu()
             callback?.invoke()
         }
@@ -1154,8 +1177,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>, ignorePlayingVideos: Boolean = false) {
-        val media =
-            thumbnailItems.asSequence().filter { it is Medium && !mIgnoredPaths.contains(it.path) }.map { it as Medium }.toMutableList() as ArrayList<Medium>
+        val media = thumbnailItems.asSequence().filter {
+            it is Medium && !mIgnoredPaths.contains(it.path)
+        }.map { it as Medium }.toMutableList() as ArrayList<Medium>
+
         if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }
@@ -1166,9 +1191,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPrevHashcode = media.hashCode()
         mMediaFiles = media
-        mPos = if (mPos == -1) {
-            getPositionInList(media)
-        } else {
+        mPos = getPositionInList(media)
+        if (mPos == -1) {
             Math.min(mPos, mMediaFiles.size - 1)
         }
 
