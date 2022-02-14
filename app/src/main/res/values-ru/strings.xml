@@ -350,10 +350,10 @@
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером. Обратите внимание, что скрытие работает рекурсивно, поэтому, если вы скроете папку, все вложенные папки также станут скрытыми. Соответственно, для того, чтобы были видны вложенные папки, нужно сделать видимой родительскую.</string>
     <string name="faq_15_title">Почему приложение занимает так много места?</string>
     <string name="faq_15_text">Кеш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые элементы. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_title">Что случилось со скрытием файлов и папок и почему я больше не вижу скрытые элементы\?</string>
+    <string name="faq_16_text">Начиная с Android 11, вы больше не можете скрывать или отображать файлы или папки, вы также не можете видеть скрытые в приложениях галереи. Для этого вам придётся использовать файловый менеджер.</string>
+    <string name="faq_17_title">Почему я больше не могу включать отсутствующие папки\?</string>
+    <string name="faq_17_text">Это перестало работать из-за системных изменений, которые пришли с Android 11: приложение больше не может просматривать реальные папки, оно полагается на так называемый MediaStore при получении данных.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Галерея Pro - управление изображениями</string>
