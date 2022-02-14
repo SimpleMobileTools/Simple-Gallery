@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -66,6 +67,39 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (config.blackBackground) {
             updateStatusbarColor(Color.BLACK)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.photo_video_menu, menu)
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
+
+        menu.apply {
+            findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true && visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
+            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_EDIT == 0
+            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
+            findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
+            findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
+        }
+
+        updateMenuItemColors(menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (mMedium == null || mUri == null) {
+            return true
+        }
+
+        when (item.itemId) {
+            R.id.menu_set_as -> setAs(mUri!!.toString())
+            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
+            R.id.menu_share -> sharePath(mUri!!.toString())
+            R.id.menu_edit -> openEditor(mUri!!.toString())
+            R.id.menu_properties -> showProperties()
+            R.id.menu_show_on_map -> showFileOnMap(mUri!!.toString())
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
     }
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
@@ -230,49 +264,46 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun sendViewPagerIntent(path: String) {
+        ensureBackgroundThread {
+            if (isPathPresentInMediaStore(path)) {
+                openViewPager(path)
+            } else {
+                rescanPath(path) {
+                    openViewPager(path)
+                }
+            }
+        }
+    }
+
+    private fun openViewPager(path: String) {
         MediaActivity.mMedia.clear()
-        hideKeyboard()
-        Intent(this, ViewPagerActivity::class.java).apply {
-            putExtra(SKIP_AUTHENTICATION, intent.getBooleanExtra(SKIP_AUTHENTICATION, false))
-            putExtra(SHOW_FAVORITES, intent.getBooleanExtra(SHOW_FAVORITES, false))
-            putExtra(IS_VIEW_INTENT, true)
-            putExtra(IS_FROM_GALLERY, mIsFromGallery)
-            putExtra(PATH, path)
-            startActivity(this)
+        runOnUiThread {
+            hideKeyboard()
+            Intent(this, ViewPagerActivity::class.java).apply {
+                putExtra(SKIP_AUTHENTICATION, intent.getBooleanExtra(SKIP_AUTHENTICATION, false))
+                putExtra(SHOW_FAVORITES, intent.getBooleanExtra(SHOW_FAVORITES, false))
+                putExtra(IS_VIEW_INTENT, true)
+                putExtra(IS_FROM_GALLERY, mIsFromGallery)
+                putExtra(PATH, path)
+                startActivity(this)
+            }
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.photo_video_menu, menu)
-        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
+    private fun isPathPresentInMediaStore(path: String): Boolean {
+        val uri = MediaStore.Files.getContentUri("external")
+        val selection = "${MediaStore.Images.Media.DATA} = ?"
+        val selectionArgs = arrayOf(path)
 
-        menu.apply {
-            findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true && visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
-            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_EDIT == 0
-            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
-            findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
-            findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
+        try {
+            val cursor = contentResolver.query(uri, null, selection, selectionArgs, null)
+            cursor?.use {
+                return cursor.moveToFirst()
+            }
+        } catch (e: Exception) {
         }
 
-        updateMenuItemColors(menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (mMedium == null || mUri == null) {
-            return true
-        }
-
-        when (item.itemId) {
-            R.id.menu_set_as -> setAs(mUri!!.toString())
-            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
-            R.id.menu_share -> sharePath(mUri!!.toString())
-            R.id.menu_edit -> openEditor(mUri!!.toString())
-            R.id.menu_properties -> showProperties()
-            R.id.menu_show_on_map -> showFileOnMap(mUri!!.toString())
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
+        return false
     }
 
     private fun showProperties() {
