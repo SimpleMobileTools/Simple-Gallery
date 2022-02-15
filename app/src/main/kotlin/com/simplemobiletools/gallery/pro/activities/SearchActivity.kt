@@ -25,7 +25,6 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_search.*
 import java.io.File
 
@@ -252,7 +251,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         startAsyncTask(true)
     }
 
-    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>, onDelete: () -> Unit) {
         val filtered = fileDirItems.filter { File(it.path).isFile && it.path.isMediaFile() } as ArrayList
         if (filtered.isEmpty()) {
             return
@@ -264,7 +263,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
-                    deleteFilteredFiles(filtered)
+                    deleteFilteredFiles(filtered, onDelete)
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
@@ -272,13 +271,15 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
             toast(deletingItems)
-            deleteFilteredFiles(filtered)
+            deleteFilteredFiles(filtered, onDelete)
         }
     }
 
-    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
-        deleteFiles(filtered) {
-            if (!it) {
+    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>, onDelete: () -> Unit) {
+        deleteFiles(filtered) { deleteSuccess ->
+            if (deleteSuccess) {
+                onDelete.invoke()
+            } else {
                 toast(R.string.unknown_error_occurred)
                 return@deleteFiles
             }

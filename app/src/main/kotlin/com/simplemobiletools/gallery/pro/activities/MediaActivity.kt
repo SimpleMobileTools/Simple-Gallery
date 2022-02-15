@@ -855,7 +855,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>, onDelete: () -> Unit) {
         val filtered = fileDirItems.filter { !getIsPathDirectory(it.path) && it.path.isMediaFile() } as ArrayList
         if (filtered.isEmpty()) {
             return
@@ -867,7 +867,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
-                    deleteFilteredFiles(filtered)
+                    deleteFilteredFiles(filtered, onDelete)
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
@@ -875,15 +875,17 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
             toast(deletingItems)
-            deleteFilteredFiles(filtered)
+            deleteFilteredFiles(filtered, onDelete)
         }
     }
 
     private fun shouldSkipAuthentication() = intent.getBooleanExtra(SKIP_AUTHENTICATION, false)
 
-    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
-        deleteFiles(filtered) {
-            if (!it) {
+    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>, onDelete: () -> Unit) {
+        deleteFiles(filtered) { deleteSuccess ->
+            if (deleteSuccess) {
+                onDelete.invoke()
+            } else {
                 toast(R.string.unknown_error_occurred)
                 return@deleteFiles
             }

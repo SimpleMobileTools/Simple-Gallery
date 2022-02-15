@@ -475,10 +475,11 @@ class MediaAdapter(
             }
 
             media.removeAll(removeMedia)
-            listener?.tryDeleteFiles(fileDirItems)
+            listener?.tryDeleteFiles(fileDirItems){
+                removeSelectedItems(positions)
+                currentMediaHash = media.hashCode()
+            }
             listener?.updateMediaGridDecoration(media)
-            removeSelectedItems(positions)
-            currentMediaHash = media.hashCode()
         }
     }
 
