@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
     <string name="images">Gambar</string>
@@ -44,7 +43,6 @@
     <string name="portraits">Potret</string>
     <string name="no_media_with_filters">Tidak ditemukan berkas media yang sesuai dengan filter ini.</string>
     <string name="change_filters_underlined"><u>Ubah filter</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Fungsi ini menyembunyikan folder dengan menambahkan berkas \'.nomedia\' ke dalamnya, juga akan menyembunyikan semua subfoldernya. Anda bisa melihatnya dengan mengaktifkan opsi \'Tampilkan berkas tersembunyi\' di Pengaturan. Lanjutkan?</string>
     <string name="exclude">Kecualikan</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Folder yang disertakan</string>
     <string name="manage_included_folders">Kelola folder yang disertakan</string>
     <string name="add_folder">Tambah folder</string>
     <string name="included_activity_placeholder">Jika ada folder yang berisi berkas media namun tidak dikenali oleh aplikasi ini, anda bisa menambahkannya secara manual.\n\nMenambahkan beberapa item di sini tidak akan mengecualikan folder yang lain.</string>
     <string name="no_media_add_included">Tidak ada berkas media yang ditemukan. Anda bisa memperbaikinya dengan menambahkan folder yang berisi berkas media secara manual.</string>
-
     <!-- Resizing -->
     <string name="resize">Ubah ukuran</string>
     <string name="resize_and_save">Ubah ukuran dan simpan</string>
@@ -73,7 +69,6 @@
     <string name="height">Tinggi</string>
     <string name="keep_aspect_ratio">Jaga aspek rasio</string>
     <string name="invalid_values">Silakan masukkan resolusi yang valid</string>
-
     <!-- Editor -->
     <string name="editor">Penyunting</string>
     <string name="rotate">Rotasi</string>
@@ -98,22 +93,22 @@
     <string name="flip">Balik</string>
     <string name="flip_horizontally">Balik horizontal</string>
     <string name="flip_vertically">Balik vertikal</string>
-    <string name="free_aspect_ratio">Bebas</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Lainnya</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Bebas</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Lainnya</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Setel sebagai Wallpaper</string>
     <string name="set_as_wallpaper_failed">Gagal menyetel sebagai Wallpaper</string>
     <string name="set_as_wallpaper_with">Setel sebagai Wallpaper dengan:</string>
-    <string name="setting_wallpaper">Menyetel wallpaper&#8230;</string>
+    <string name="setting_wallpaper">Menyetel wallpaper…</string>
     <string name="wallpaper_set_successfully">Wallpaper berhasil disetel</string>
     <string name="portrait_aspect_ratio">Aspek rasio potret</string>
     <string name="landscape_aspect_ratio">Aspek rasio lanskap</string>
     <string name="home_screen">Layar beranda</string>
     <string name="lock_screen">Layar kunci</string>
     <string name="home_and_lock_screen">Beranda dan layar kunci</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (detik):</string>
@@ -129,10 +124,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Slideshow berakhir</string>
     <string name="no_media_for_slideshow">Tidak ditemukan media untuk slideshow</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Kelompokkan subfolder langsung</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Kelompokkan menurut</string>
     <string name="do_not_group_files">Jangan kelompokkan berkas</string>
@@ -147,11 +140,9 @@
     <string name="by_extension">Ekstensi</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Harap dicatat bahwa mengelompokkan dan mengurutkan adalah 2 hal yang berbeda</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Folder yang ditampilkan pada widget:</string>
     <string name="show_folder_name">Tampilkan nama folder</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Putar video secara otomatis</string>
     <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>
@@ -204,18 +195,15 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>
     <string name="fullscreen_media">Media layar penuh</string>
     <string name="extended_details">Detail tambahan</string>
     <string name="bottom_actions">Tindakan bawah</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Kelola tombol tindakan bawah</string>
-    <string name="toggle_favorite">Favorit</string>
+    <string name="toggle_favorite">Alih favorit</string>
     <string name="toggle_file_visibility">Ubah visibilitas berkas</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Bebas</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -329,7 +317,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Warna pipet</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Bagaimana cara menjadikan Simple Gallery sebagai aplikasi galeri default?</string>
     <string name="faq_1_text">Pertama anda harus menemukan galeri default saat ini di bagian Aplikasi di Pengaturan perangkat, cari tombol dengan label seperti \"Buka secara default\", klik, lalu pilih \"Hapus default\".
@@ -345,9 +332,9 @@
     <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>
     <string name="faq_6_text">Kadang anda melihat beberapa album yang tidak biasa muncul. Anda bisa dengan mudah menyembunyikannya dengan menekan lama dan pilih Kecualikan. Pada dialog berikutnya, anda lalu bisa memilih folder induk, yang akan mencegah album terkait muncul kembali.</string>
     <string name="faq_7_title">Ada folder berisi gambar namun tidak muncul, apa yang harus dilakukan?</string>
-    <string name="faq_7_text">Itu bisa disebabkan berbagai alasan, namun solusinya mudah. Pergi ke Pengaturan -> Atur folder yang disertakan, pilih Tambah dan cari folder yang diinginkan.</string>
+    <string name="faq_7_text">Itu bisa disebabkan berbagai alasan, namun solusinya mudah. Pergi ke Pengaturan -&gt; Atur folder yang disertakan, pilih Tambah dan cari folder yang diinginkan.</string>
     <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat?</string>
-    <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa anda lakukan adalah pergi ke Pengaturan -> Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Pengaturan -> Atur Folder yang Disertakan.
+    <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa anda lakukan adalah pergi ke Pengaturan -&gt; Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Pengaturan -&gt; Atur Folder yang Disertakan.
         Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
     <string name="faq_10_title">Bisakah saya memangkas gambar dengan aplikasi ini?</string>
     <string name="faq_10_text">Ya, anda bisa melakukannya di Penyunting, dengan menyeret sudut gambar. Anda bisa masuk ke penyunting dengan menekan lama thumbnail gambar dan memilih Sunting, atau pilih Sunting dari tampilan layar penuh.</string>
@@ -365,7 +352,6 @@
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Pengelola &amp; Penyunting Foto</string>
@@ -427,7 +413,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
