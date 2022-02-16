@@ -198,7 +198,7 @@
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Voorbeelden</string>
+    <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
     <string name="bottom_actions">Acties onder aan het scherm</string>
@@ -321,7 +321,7 @@
     <string name="vesdk_video_trim_title_name">Titel afkappen</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
-    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of pps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
+    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
     <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
     <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -&gt; \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
