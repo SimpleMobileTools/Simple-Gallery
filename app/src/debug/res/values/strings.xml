@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Gallery_debug</string>
+    <string name="app_launcher_name" translatable="false">Gallery_debug</string>
 </resources>
