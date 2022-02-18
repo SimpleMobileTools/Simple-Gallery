@@ -50,7 +50,7 @@
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
-    <string name="exclude_folder_description">Hierdoor wordt de weergave van de selectie met de submappen alleen uitgesloten in Eenvoudige Galerij. Het uitsluiten van de mappen gebeurt in de Instellingen.</string>
+    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de Instellingen.</string>
     <string name="exclude_folder_parent">In plaats hiervan de bovenliggende map uitsluiten\?</string>
     <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus submappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
 \n
@@ -120,15 +120,15 @@
     <string name="interval">Interval (seconden):</string>
     <string name="include_photos">Afbeeldingen toevoegen</string>
     <string name="include_videos">Video\'s toevoegen</string>
-    <string name="include_gifs">GIF-bestanden toevoegen</string>
+    <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
     <string name="animation">Overgangseffect</string>
     <string name="no_animation">Geen</string>
-    <string name="fade">Vervagen</string>
-    <string name="slide">Schuiven</string>
-    <string name="slideshow_ended">De diavoorstelling is afgelopen</string>
+    <string name="fade">Overvloeien</string>
+    <string name="slide">Verschuiven</string>
+    <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Directe submappen groeperen</string>
@@ -147,13 +147,13 @@
     <string name="show_file_count_section_header">Bij de sectiekoppen het aantal bestanden tonen</string>
     <string name="grouping_and_sorting">Groeperen en sorteren zijn twee aparte opties</string>
     <!-- Widgets -->
-    <string name="folder_on_widget">Map getoond op de widget:</string>
+    <string name="folder_on_widget">Map tonen in de widget:</string>
     <string name="show_folder_name">Mapnaam tonen</string>
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="remember_last_video_position">Laatste positie in video’s onthouden</string>
     <string name="loop_videos">Video\'s herhalen</string>
-    <string name="animate_gifs">GIF\'s animeren bij miniaturen</string>
+    <string name="animate_gifs">GIF-miniaturen afspelen</string>
     <string name="max_brightness">Maximale helderheid bij weergave in volledig scherm</string>
     <string name="crop_thumbnails">Miniaturen bijsnijden tot vierkanten</string>
     <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
