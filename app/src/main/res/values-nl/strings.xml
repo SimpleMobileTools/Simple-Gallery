@@ -165,7 +165,7 @@
     <string name="scroll_thumbnails_horizontally">Miniaturen horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Gebruikersinterface van het systeem automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
-    <string name="allow_photo_gestures">Helderheid van foto\'s regelen met verticale veeggebaren</string>
+    <string name="allow_photo_gestures">Helderheid van afbeeldingen regelen met verticale veeggebaren</string>
     <string name="allow_video_gestures">Volume en helderheid van video’s regelen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
@@ -220,7 +220,7 @@
     <string name="pesdk_adjustments_title_name">Aanpassen</string>
     <string name="pesdk_adjustments_button_shadowTool">Schaduwen</string>
     <string name="pesdk_adjustments_button_exposureTool">Belichting</string>
-    <string name="pesdk_adjustments_button_highlightTool">Hoogtepunten</string>
+    <string name="pesdk_adjustments_button_highlightTool">Accenten</string>
     <string name="pesdk_adjustments_button_brightnessTool">Helderheid</string>
     <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
     <string name="pesdk_adjustments_button_saturationTool">Verzadiging</string>
@@ -327,7 +327,7 @@
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
     <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
     <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
-    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen via \"Apps\" of Apps en meldingen\" -&gt; \"App-info\" en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
+    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen via \"Apps (en meldingen)\" -&gt; \"App-info\" en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
