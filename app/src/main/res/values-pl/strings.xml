@@ -326,7 +326,7 @@
     <!-- FAQ -->
     <string name="faq_1_title">Jak mogę ustawić Prostą galerię jako domyślną galerię urządzenia?</string>
     <string name="faq_1_text">Najpierw znajdź aktualnie domyślną galerię urządzenia w ustawieniach urządzenia (sekcja „Aplikacje”). Na ekranie z informacjami o niej wybierz „Otwórz domyślnie”, a następnie „Wyczyść domyślne”. Gdy podczas następnej próby otwarcia obrazu czy wideo system zapyta Cię, którą aplikacją to zrobić, wybierz Prostą galerię i opcję zapamiętania tego wyboru.</string>
-    <string name="faq_2_title">Zablokowałem aplikację hasłem i zapomniałem je. Co mogę zrobić?</string>
+    <string name="faq_2_title">Zablokowałem aplikację hasłem i je zapomniałem. Co mogę zrobić\?</string>
     <string name="faq_2_text">Możesz rozwiązać to na 2 sposoby. Możesz zarówno przeinstalować aplikację, jak i znaleźć ją w ustawieniach swojego urządzenia i wybrać „Wyczyść dane”. Przywróci to oryginalne ustawienia aplikacji, nie usuwając żadnych plików multimedialnych.</string>
     <string name="faq_3_title">Jak sprawić, aby album zawsze pojawiał się na górze?</string>
     <string name="faq_3_text">Możesz przytrzymać dłużej palcem na albumie i wybrać ikonę pinezki z menu akcji, która przypnie go na górze. Możesz przypinać także wiele folderów. Przypięte elementy będą posortowane domyślną metodą sortowania.</string>
