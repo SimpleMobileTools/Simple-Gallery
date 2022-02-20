@@ -354,10 +354,10 @@
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli öğeleri göster\" menü öğesine veya gizli öğeyi görmek için uygulama ayarlarında \"Gizli öğeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\"i seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusu\'nda öğe bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusu\'nu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_title">Dosya ve klasör gizlemeye ne oldu ve neden artık gizli ögeleri göremiyorum\?</string>
+    <string name="faq_16_text">Android 11\'den itibaren artık dosya veya klasörleri gizleyemez veya gizliliğini kaldıramazsınız, galeri uygulamalarında da gizli olanları göremezsiniz. Bunun için bir dosya yöneticisi kullanmanız gerekecektir.</string>
+    <string name="faq_17_title">Neden artık eksik klasörleri dahil edemiyorum\?</string>
+    <string name="faq_17_text">Bu, Android 11 ile birlikte gelen sistem değişiklikleri nedeniyle çalışmayı durdurdu, uygulama artık gerçek klasörlere göz atamıyor, verileri almak için MediaStore kullanıyor.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Basit Galeri Pro - Fotoğraf Yönetici, Düzenleyici</string>

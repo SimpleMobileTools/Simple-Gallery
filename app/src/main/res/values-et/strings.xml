@@ -205,7 +205,7 @@
     <string name="bottom_actions">Bottom actions</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_favorite">Vaheta olekut lemmikuna</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>

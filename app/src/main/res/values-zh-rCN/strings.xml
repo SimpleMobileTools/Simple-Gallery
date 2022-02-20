@@ -356,10 +356,10 @@
     <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果您想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">为什么应用占用了这么多的空间？</string>
     <string name="faq_15_text">应用缓存最多可达250MB，这样可以使图像加载更快。如果应用占用了更多空间，则很可能是因为回收站中有项目。这些文件被计入应用程序大小。您可以打开回收站并删除所有文件，或从应用设置中清除回收站。回收站中的内容会在30天后自动删除。</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_title">文件和文件夹隐藏发生了什么，为什么我再不能看到隐藏项目了？</string>
+    <string name="faq_16_text">从 Android 11 开始，你再也不能隐藏或取消隐藏文件或文件夹了，你也不能在图库应用中看到隐藏的文件或文件夹。你必须使用文件管理器来进行此类操作。</string>
+    <string name="faq_17_title">为什么我再不能包含缺失的文件夹？</string>
+    <string name="faq_17_text">由于 Android 11 的系统变化，这一功能也停止了工作，本应用不能再浏览真实的文件夹了，它依赖于所谓的 MediaStore 来获取数据。</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">简易图库 Pro - 图片管理 &amp; 编辑</string>

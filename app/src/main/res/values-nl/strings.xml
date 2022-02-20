@@ -23,7 +23,7 @@
     <string name="force_portrait">Portretmodus forceren</string>
     <string name="force_landscape">Landschapsmodus forceren</string>
     <string name="use_default_orientation">Standaardmodus gebruiken</string>
-    <string name="fix_date_taken">Datum opname corrigeren</string>
+    <string name="fix_date_taken">Opnamedatum corrigeren</string>
     <string name="fixing">Corrigeren…</string>
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="no_date_takens_found">Geen opnamedatums gevonden</string>
@@ -50,11 +50,13 @@
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
-    <string name="exclude_folder_description">De selectie en submappen uitsluiten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
-    <string name="exclude_folder_parent">De map met dit item uitsluiten?</string>
-    <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze galerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
+    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de Instellingen.</string>
+    <string name="exclude_folder_parent">In plaats hiervan de bovenliggende map uitsluiten\?</string>
+    <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus submappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
+\n
+\nGebruik de functie Verbergen om ze ook in andere apps te verbergen.</string>
     <string name="remove_all">Alles verwijderen</string>
-    <string name="remove_all_description">De lijst van uitgesloten mappen leegmaken. Dit zal de mappen zelf niet verwijderen.</string>
+    <string name="remove_all_description">De lijst van uitgesloten mappen wissen. Dit zal de mappen zelf niet verwijderen.</string>
     <string name="hidden_folders">Verborgen mappen</string>
     <string name="manage_hidden_folders">Verborgen mappen beheren</string>
     <string name="hidden_folders_placeholder">Er zijn geen mappen gevonden die zijn verborgen door bestand \".nomedia\".</string>
@@ -62,8 +64,10 @@
     <string name="include_folders">Toegevoegde mappen</string>
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>
     <string name="add_folder">Map toevoegen</string>
-    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet door de galerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
-    <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit kan worden opgelost door de mappen met mediabestanden handmatig toe te voegen.</string>
+    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet door Eenvoudige Galerij worden herkend, voeg ze dan hier handmatig toe.
+\n
+\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
+    <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit is op te lossen door de mappen met mediabestanden handmatig toe te voegen.</string>
     <!-- Resizing -->
     <string name="resize">Grootte aanpassen</string>
     <string name="resize_and_save">Grootte aanpassen en opslaan</string>
@@ -74,9 +78,9 @@
     <!-- Editor -->
     <string name="editor">Bewerken</string>
     <string name="rotate">Draaien</string>
-    <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
-    <string name="invalid_video_path">Ongeldig pad naar video</string>
-    <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
+    <string name="invalid_image_path">Ongeldig afbeeldingspad</string>
+    <string name="invalid_video_path">Ongeldig videopad</string>
+    <string name="image_editing_failed">Beeldbewerking mislukt</string>
     <string name="video_editing_failed">Videobewerking mislukt</string>
     <string name="image_editing_cancelled">Afbeelding bewerken is geannuleerd</string>
     <string name="video_editing_cancelled">Videobewerking is geannuleerd</string>
@@ -92,9 +96,9 @@
     <string name="rotate_left">Linksom draaien</string>
     <string name="rotate_right">Rechtsom draaien</string>
     <string name="rotate_one_eighty">180º draaien</string>
-    <string name="flip">Kantelen</string>
-    <string name="flip_horizontally">Horizontaal kantelen</string>
-    <string name="flip_vertically">Verticaal kantelen</string>
+    <string name="flip">Omdraaien</string>
+    <string name="flip_horizontally">Horizontaal spiegelen</string>
+    <string name="flip_vertically">Verticaal spiegelen</string>
     <string name="free_aspect_ratio">Vrij</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Anders</string>
@@ -106,16 +110,16 @@
     <string name="set_as_wallpaper_with">Achtergrond instellen met:</string>
     <string name="setting_wallpaper">Achtergrond instellen…</string>
     <string name="wallpaper_set_successfully">Achtergrond is ingesteld</string>
-    <string name="portrait_aspect_ratio">Verhouding in portretmodus</string>
-    <string name="landscape_aspect_ratio">Verhouding in landschapsmodus</string>
+    <string name="portrait_aspect_ratio">Beeldverhouding staand</string>
+    <string name="landscape_aspect_ratio">Beeldverhouding liggend</string>
     <string name="home_screen">Startscherm</string>
     <string name="lock_screen">Vergrendelscherm</string>
-    <string name="home_and_lock_screen">Start- en vergrendelingsscherm</string>
+    <string name="home_and_lock_screen">Start- en vergrendelscherm</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
-    <string name="include_photos">Afbeeldingen weergeven</string>
-    <string name="include_videos">Video\'s weergeven</string>
+    <string name="include_photos">Afbeeldingen toevoegen</string>
+    <string name="include_videos">Video\'s toevoegen</string>
     <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
@@ -135,9 +139,9 @@
     <string name="by_last_modified">Laatst gewijzigd</string>
     <string name="by_last_modified_daily">Laatst gewijzigd (per dag)</string>
     <string name="by_last_modified_monthly">Laatst gewijzigd (per maand)</string>
-    <string name="by_date_taken">Datum opname</string>
-    <string name="by_date_taken_daily">Datum opname (per dag)</string>
-    <string name="by_date_taken_monthly">Datum opname (per maand)</string>
+    <string name="by_date_taken">Opnamedatum</string>
+    <string name="by_date_taken_daily">Opnamedatum (per dag)</string>
+    <string name="by_date_taken_monthly">Opnamedatum (per maand)</string>
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
     <string name="show_file_count_section_header">Bij de sectiekoppen het aantal bestanden tonen</string>
@@ -149,20 +153,20 @@
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="remember_last_video_position">Laatste positie in video’s onthouden</string>
     <string name="loop_videos">Video\'s herhalen</string>
-    <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
-    <string name="max_brightness">Maximale helderheid in volledig scherm</string>
-    <string name="crop_thumbnails">Voorbeelden bijsnijden</string>
+    <string name="animate_gifs">GIF-miniaturen afspelen</string>
+    <string name="max_brightness">Maximale helderheid bij weergave in volledig scherm</string>
+    <string name="crop_thumbnails">Miniaturen bijsnijden tot vierkanten</string>
     <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
-    <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
-    <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
+    <string name="screen_rotation_device_rotation">Oriëntatie van het toestel</string>
+    <string name="screen_rotation_aspect_ratio">Beeldverhouding</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
-    <string name="scroll_thumbnails_horizontally">Voorbeelden horizontaal scrollen</string>
-    <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
+    <string name="scroll_thumbnails_horizontally">Miniaturen horizontaal scrollen</string>
+    <string name="hide_system_ui_at_fullscreen">Gebruikersinterface van het systeem automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
-    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
-    <string name="allow_video_gestures">Volume en helderheid voor video’s aanpassen met verticale veeggebaren</string>
+    <string name="allow_photo_gestures">Helderheid van afbeeldingen regelen met verticale veeggebaren</string>
+    <string name="allow_video_gestures">Volume en helderheid van video’s regelen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
@@ -193,18 +197,18 @@
     <string name="show_file_count_line">Aantal bestanden op aparte regel tonen</string>
     <string name="show_file_count_brackets">Aantal bestanden tussen rechte haken tonen</string>
     <string name="show_file_count_none">Aantal bestanden niet tonen</string>
-    <string name="limit_folder_title">Lange mapnamen tot 1 regel limiteren</string>
+    <string name="limit_folder_title">Lange mapnamen tot 1 regel beperken</string>
     <string name="square">Vierkant</string>
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Voorbeelden</string>
+    <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
     <string name="bottom_actions">Acties onder aan het scherm</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
-    <string name="toggle_favorite">Als favoriet instellen</string>
+    <string name="toggle_favorite">Favoriet in-/uitschakelen</string>
     <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Aangepast</string>
@@ -216,7 +220,7 @@
     <string name="pesdk_adjustments_title_name">Aanpassen</string>
     <string name="pesdk_adjustments_button_shadowTool">Schaduwen</string>
     <string name="pesdk_adjustments_button_exposureTool">Belichting</string>
-    <string name="pesdk_adjustments_button_highlightTool">Hooglichten</string>
+    <string name="pesdk_adjustments_button_highlightTool">Accenten</string>
     <string name="pesdk_adjustments_button_brightnessTool">Helderheid</string>
     <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
     <string name="pesdk_adjustments_button_saturationTool">Verzadiging</string>
@@ -274,7 +278,7 @@
     <string name="pesdk_sticker_button_bringToFront">Naar voorgrond</string>
     <string name="pesdk_sticker_button_straighten">Rechttrekken</string>
     <string name="pesdk_sticker_button_replace">Vervangen</string>
-    <string name="pesdk_sticker_button_opacity">Ondoorzichtigheid</string>
+    <string name="pesdk_sticker_button_opacity">Dekking</string>
     <string name="pesdk_sticker_button_contrast">Contrast</string>
     <string name="pesdk_sticker_button_saturation">Verzadiging</string>
     <string name="pesdk_sticker_button_brightness">Helderheid</string>
@@ -321,15 +325,15 @@
     <string name="vesdk_video_trim_title_name">Titel afkappen</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
-    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of pps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
+    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\"). Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
     <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
-    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -&gt; \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
+    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen via \"Apps (en meldingen)\" -&gt; \"App-info\" en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
     <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
     <string name="faq_4_text">Dubbelklik op de zijkant van het scherm, of tik op de cijfers die de voortgang of de lengte van de video weergeven om resp. terug of vooruit te springen. Als de instelling om video\'s in een apart scherm te openen is ingeschakeld, dan kunnen ook horizontale veeggebaren worden gebruikt.</string>
     <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
-    <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan). Op sommige apparaten is het echter niet mogelijk om specifieke mappen, zoals Camera, Screenshots en Downloads, te verbergen.</string>
+    <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen Eenvoudige Galerij voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan). Op sommige apparaten is het echter niet mogelijk om specifieke mappen, zoals Camera, Screenshots en Downloads, te verbergen.</string>
     <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>
     <string name="faq_6_text">Soms worden er wat ongebruikelijke afbeeldingen van andere apps getoond. Deze zijn gemakkelijk uit het overzicht te halen door lang te drukken op de map en vervolgens te kiezen voor \"Uitsluiten\". In het daaropvolgende venster is ook de bovenliggende map te kiezen; dit zou het tonen van soortgelijke ongewenste items kunnen voorkomen.</string>
     <string name="faq_7_title">Een bepaalde map met afbeeldingen wordt niet getoond. Wat kan ik doen?</string>
@@ -341,8 +345,8 @@
     <string name="faq_10_text">Ja, dat kan bij \"Bewerken\" door de hoeken te verslepen. Druk lang op een afbeelding in het overzicht of ga naar het volledig scherm en klik vervolgens op \"Bewerken\".</string>
     <string name="faq_11_title">Hoe kan ik mediabestanden groeperen?</string>
     <string name="faq_11_text">Kies het menu-item \"Groeperen op\" om op basis van verschillende criteria te groeperen. Dit kan ook ongeacht de mappenstructuur als voor de functie \"Alles weergeven\" is gekozen.</string>
-    <string name="faq_12_title">Sorteren op Datum opname lijkt niet te werken. Hoe kan ik dit oplossen?</string>
-    <string name="faq_12_text">Waarschijnlijk zijn de bestanden gekopieerd vanaf een andere locatie. Selecteer de bestanden en kies \"Datum opname corrigeren\".</string>
+    <string name="faq_12_title">Sorteren op Opnamedatum lijkt niet te werken. Hoe kan ik dit oplossen\?</string>
+    <string name="faq_12_text">Waarschijnlijk zijn de bestanden gekopieerd vanaf een andere locatie. Selecteer de bestanden en kies \"Opnamedatum corrigeren\".</string>
     <string name="faq_13_title">Ik zie \"color banding\" op de afbeeldingen. Hoe kan ik de kwaliteit verbeteren?</string>
     <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>
     <string name="faq_14_title">Ik heb een bestand of map verborgen. Hoe kan ik dit ongedaan maken?</string>
