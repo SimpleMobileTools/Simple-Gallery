@@ -50,7 +50,7 @@
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
-    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de Instellingen.</string>
+    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
     <string name="exclude_folder_parent">In plaats hiervan de bovenliggende map uitsluiten\?</string>
     <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus submappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
 \n
@@ -118,9 +118,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
-    <string name="include_photos">Afbeeldingen toevoegen</string>
-    <string name="include_videos">Video\'s toevoegen</string>
-    <string name="include_gifs">GIF-bestanden weergeven</string>
+    <string name="include_photos">Afbeeldingen tonen</string>
+    <string name="include_videos">Video\'s tonen</string>
+    <string name="include_gifs">GIF-bestanden tonen</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
@@ -159,7 +159,7 @@
     <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
-    <string name="screen_rotation_device_rotation">Oriëntatie van het toestel</string>
+    <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Beeldverhouding</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
     <string name="scroll_thumbnails_horizontally">Miniaturen horizontaal scrollen</string>
