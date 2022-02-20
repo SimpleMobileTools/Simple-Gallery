@@ -138,7 +138,7 @@
     <string name="by_date_taken_monthly">Dato for optagelse (månedlig)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filendelse</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Vis antal filer ved sektionsoverskrifter</string>
     <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to uafhængige felter</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på widget:</string>
@@ -186,7 +186,7 @@
     <string name="allow_zooming_videos">Tillad zoom på videoer ved dobbelttryk</string>
     <string name="folder_thumbnail_style">Miniaturestil på mapper</string>
     <string name="file_thumbnail_style">Miniaturestil på filer</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Markere foretrukne elementer</string>
     <string name="thumbnail_spacing">Afstand mellem miniaturer</string>
     <string name="show_file_count_line">Vis antal filer på separat linje</string>
     <string name="show_file_count_brackets">Vis antal filer i parentes</string>
@@ -196,7 +196,7 @@
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Miniaturer</string>
+    <string name="thumbnails">Miniaturebilleder</string>
     <string name="fullscreen_media">Fuldskærmsmedier</string>
     <string name="extended_details">Flere oplysninger</string>
     <string name="bottom_actions">Handlingsknapper</string>
@@ -299,7 +299,7 @@
     <string name="pesdk_common_button_undo">Fortryd</string>
     <string name="pesdk_common_button_redo">Omgør</string>
     <string name="pesdk_common_title_colorPicker">Farvevælger</string>
-    <string name="pesdk_common_title_transparentColor">Transparent</string>
+    <string name="pesdk_common_title_transparentColor">Gennemsigtig</string>
     <string name="pesdk_common_title_whiteColor">Hvid</string>
     <string name="pesdk_common_title_grayColor">Grå</string>
     <string name="pesdk_common_title_blackColor">Sort</string>
@@ -347,10 +347,10 @@
     <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i appens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\"-fil i dem, som du også kan slette med enhver filhåndterings-app. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Hvorfor fylder appen så meget?</string>
     <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_title">Hvad skete der med \'Skjul filer og mapper\', og hvorfor kan jeg ikke se skjulte elementer længere\?</string>
+    <string name="faq_16_text">Fra og med Android 11 kan du ikke længere skjule eller vise filer eller mapper, du kan heller ikke se de skjulte i galleriapps. Du bliver nødt til at bruge en filhåndtering til det.</string>
+    <string name="faq_17_title">Hvorfor kan jeg ikke længere inkludere manglende mapper\?</string>
+    <string name="faq_17_text">Det holdt op med at virke på grund af systemændringerne, der fulgte med Android 11, appen kan ikke længere gennemse rigtige mapper, den er afhængig af den såkaldte MediaStore til at hente data.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Billedhåndtering</string>
