@@ -131,7 +131,7 @@
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
     <!-- View types -->
-    <string name="group_direct_subfolders">Directe onderliggende mappen groeperen</string>
+    <string name="group_direct_subfolders">Direct onderliggende mappen groeperen</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Groeperen op</string>
     <string name="do_not_group_files">Bestanden niet groeperen</string>
