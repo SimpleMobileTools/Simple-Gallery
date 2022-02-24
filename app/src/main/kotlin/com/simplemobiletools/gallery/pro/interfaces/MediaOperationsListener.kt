@@ -6,7 +6,7 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 interface MediaOperationsListener {
     fun refreshItems()
 
-    fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>, onDelete: () -> Unit)
+    fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>)
 
     fun selectedPaths(paths: ArrayList<String>)
 
