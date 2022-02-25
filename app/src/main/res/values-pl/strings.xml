@@ -118,9 +118,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
     <string name="interval">Czas trwania (sekundy):</string>
-    <string name="include_photos">Dołącz zdjęcia</string>
-    <string name="include_videos">Dołącz wideo</string>
-    <string name="include_gifs">Dołącz GIF-y</string>
+    <string name="include_photos">Uwzględnij obrazy</string>
+    <string name="include_videos">Uwzględnij wideo</string>
+    <string name="include_gifs">Uwzględnij GIF-y</string>
     <string name="random_order">Losowa kolejność</string>
     <string name="move_backwards">Odwrotna kolejność</string>
     <string name="loop_slideshow">Zapętlaj</string>
