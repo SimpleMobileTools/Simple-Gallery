@@ -259,7 +259,7 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(
     fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, deleteFromDatabase: Boolean,
     callback: ((wasSuccess: Boolean) -> Unit)? = null
 ) {
-    deleteFile(fileDirItem, allowDeleteFolder) {
+    deleteFile(fileDirItem, allowDeleteFolder, isDeletingMultipleFiles = false) {
         if (deleteFromDatabase) {
             ensureBackgroundThread {
                 deleteDBPath(fileDirItem.path)
