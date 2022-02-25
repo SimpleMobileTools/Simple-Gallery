@@ -46,13 +46,13 @@
     <string name="no_media_with_filters">Er zijn geen bestanden gevonden met de huidige filters.</string>
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Deze functie verbergt de map door het bestand ’.nomedia’ toe te voegen. Alle submappen zullen ook worden verborgen. Kies ’Verborgen mappen tonen’ in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan?</string>
+    <string name="hide_folder_description">Deze functie verbergt de map door het bestand ’.nomedia’ toe te voegen. Alle onderliggende mappen zullen ook worden verborgen. Kies ’Verborgen mappen tonen’ in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan\?</string>
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
-    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de Instellingen.</string>
+    <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
     <string name="exclude_folder_parent">In plaats hiervan de bovenliggende map uitsluiten\?</string>
-    <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus submappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
+    <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus onderliggende mappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
 \n
 \nGebruik de functie Verbergen om ze ook in andere apps te verbergen.</string>
     <string name="remove_all">Alles verwijderen</string>
@@ -118,9 +118,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
-    <string name="include_photos">Afbeeldingen toevoegen</string>
-    <string name="include_videos">Video\'s toevoegen</string>
-    <string name="include_gifs">GIF-bestanden weergeven</string>
+    <string name="include_photos">Afbeeldingen tonen</string>
+    <string name="include_videos">Video\'s tonen</string>
+    <string name="include_gifs">GIF-bestanden tonen</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
@@ -131,7 +131,7 @@
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
     <!-- View types -->
-    <string name="group_direct_subfolders">Directe submappen groeperen</string>
+    <string name="group_direct_subfolders">Direct onderliggende mappen groeperen</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Groeperen op</string>
     <string name="do_not_group_files">Bestanden niet groeperen</string>
@@ -159,7 +159,7 @@
     <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
-    <string name="screen_rotation_device_rotation">Oriëntatie van het toestel</string>
+    <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Beeldverhouding</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
     <string name="scroll_thumbnails_horizontally">Miniaturen horizontaal scrollen</string>
@@ -350,7 +350,7 @@
     <string name="faq_13_title">Ik zie \"color banding\" op de afbeeldingen. Hoe kan ik de kwaliteit verbeteren?</string>
     <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>
     <string name="faq_14_title">Ik heb een bestand of map verborgen. Hoe kan ik dit ongedaan maken?</string>
-    <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd. Het verbergen van mappen werkt recursief: alle submappen binnen een verborgen map zullen óók verborgen worden. Om zo\'n submap wél te kunnen zien, mag de map die deze submap bevat dus ook niet verborgen zijn.</string>
+    <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd. Het verbergen van mappen werkt recursief: alle onderliggende mappen binnen een verborgen map zullen óók verborgen worden. Om zo\'n onderliggende map wél te kunnen zien, mag de map die deze onderliggende map bevat dus ook niet verborgen zijn.</string>
     <string name="faq_15_title">Waarom neemt de app zoveel ruimte in beslag?</string>
     <string name="faq_15_text">De cache voor de app kan oplopen tot 250MB; dit garandeert snellere laadtijden van afbeeldingen. Indien de app nog meer ruimte inneemt, komt dat hoogstwaarschijnlijk door de items in de prullenbak. Ook deze bestanden worden meegerekend met de ingenomen ruimte. Verwijder deze items zelf vanuit de prullenbak of vanuit de instellingen van de app. Ieder item in de prullenbak zal na 30 dagen automatisch verwijderd worden.</string>
     <string name="faq_16_title">Wat is er gebeurd met de functie om bestanden en mappen te verbergen\? Waarom kan ik geen verborgen items meer bekijken\?</string>
