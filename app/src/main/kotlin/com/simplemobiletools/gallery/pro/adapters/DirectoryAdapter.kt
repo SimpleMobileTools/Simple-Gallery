@@ -626,36 +626,42 @@ class DirectoryAdapter(
                 return@handleSAFDialog
             }
 
-            var foldersToDelete = ArrayList<File>(selectedKeys.size)
-            selectedDirs.forEach {
-                if (it.areFavorites() || it.isRecycleBin()) {
-                    if (it.isRecycleBin()) {
-                        tryEmptyRecycleBin(false)
+            activity.handleSAFDeleteSdk30Dialog(SAFPath){
+                if (!it) {
+                    return@handleSAFDeleteSdk30Dialog
+                }
+
+                var foldersToDelete = ArrayList<File>(selectedKeys.size)
+                selectedDirs.forEach {
+                    if (it.areFavorites() || it.isRecycleBin()) {
+                        if (it.isRecycleBin()) {
+                            tryEmptyRecycleBin(false)
+                        } else {
+                            ensureBackgroundThread {
+                                activity.mediaDB.clearFavorites()
+                                activity.favoritesDB.clearFavorites()
+                                listener?.refreshItems()
+                            }
+                        }
+
+                        if (selectedKeys.size == 1) {
+                            finishActMode()
+                        }
                     } else {
-                        ensureBackgroundThread {
-                            activity.mediaDB.clearFavorites()
-                            activity.favoritesDB.clearFavorites()
-                            listener?.refreshItems()
+                        foldersToDelete.add(File(it.path))
+                    }
+                }
+
+                if (foldersToDelete.size == 1) {
+                    activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) { success ->
+                        if (success) {
+                            listener?.deleteFolders(foldersToDelete)
                         }
                     }
-
-                    if (selectedKeys.size == 1) {
-                        finishActMode()
-                    }
                 } else {
-                    foldersToDelete.add(File(it.path))
+                    foldersToDelete = foldersToDelete.filter { !config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
+                    listener?.deleteFolders(foldersToDelete)
                 }
-            }
-
-            if (foldersToDelete.size == 1) {
-                activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) { success ->
-                    if (success) {
-                        listener?.deleteFolders(foldersToDelete)
-                    }
-                }
-            } else {
-                foldersToDelete = foldersToDelete.filter { !config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
-                listener?.deleteFolders(foldersToDelete)
             }
         }
     }
