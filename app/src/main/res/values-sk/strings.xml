@@ -366,7 +366,7 @@
     <string name="faq_17_title">Prečo sa už nedá manuálne pridať chýbajúce priečinky?</string>
     <string name="faq_17_text">Je to taktiež spôsobené zmenami súvisiacimi s Android 11, kedy apka už nevie prehliadať reálne priečinky. V získavaní súborov sa môže iba spoliehať na takzvaný MediaStore.</string>
     <string name="faq_18_title">Prečo sa mi počas prehrávania videí zobrazujú reklamy?</string>
-    <string name="faq_18_text">Naše apky nemajú vôbec žiadne reklamy. Ak sa vám zobrazujú počas prehrávania videí, používate prehrávač inej apky. Skúste v nastaveniach zariadenia nájsť predvolený prehrávač a použiť "Odstrániť predvolené". Pri ďalšom spustení videa uvidíte zoznam apiek, ktoré môžete na prehrávanie použiť.</string>
+    <string name="faq_18_text">Naše apky nemajú vôbec žiadne reklamy. Ak sa vám zobrazujú počas prehrávania videí, používate prehrávač inej apky. Skúste v nastaveniach zariadenia nájsť predvolený prehrávač a použiť \"Odstrániť predvolené\". Pri ďalšom spustení videa uvidíte zoznam apiek, ktoré môžete na prehrávanie použiť.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
