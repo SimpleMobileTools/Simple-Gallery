@@ -374,7 +374,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         view_pager.onGlobalLayout {
             if (!isDestroyed) {
                 if (mMediaFiles.isNotEmpty()) {
-                    gotMedia(mMediaFiles as ArrayList<ThumbnailItem>)
+                    gotMedia(mMediaFiles as ArrayList<ThumbnailItem>, refetchViewPagerPosition = true)
                     checkSlideshowOnEnter()
                 }
             }
@@ -1112,7 +1112,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             mIgnoredPaths.add(fileDirItem.path)
             val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
             runOnUiThread {
-                gotMedia(media, true)
+                gotMedia(media, true, false)
             }
 
             movePathsInRecycleBin(arrayListOf(path)) {
@@ -1134,7 +1134,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mIgnoredPaths.add(fileDirItem.path)
         val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
         runOnUiThread {
-            gotMedia(media, true)
+            gotMedia(media, true, false)
         }
 
         tryDeleteFileDirItem(fileDirItem, false, true) {
@@ -1171,12 +1171,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun refreshViewPager() {
         if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
             GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-                gotMedia(it)
+                gotMedia(it, refetchViewPagerPosition = true)
             }.execute()
         }
     }
 
-    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>, ignorePlayingVideos: Boolean = false) {
+    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>, ignorePlayingVideos: Boolean = false, refetchViewPagerPosition: Boolean = false) {
         val media = thumbnailItems.asSequence().filter {
             it is Medium && !mIgnoredPaths.contains(it.path)
         }.map { it as Medium }.toMutableList() as ArrayList<Medium>
@@ -1191,9 +1191,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPrevHashcode = media.hashCode()
         mMediaFiles = media
-        mPos = getPositionInList(media)
-        if (mPos == -1) {
-            Math.min(mPos, mMediaFiles.size - 1)
+
+        if (refetchViewPagerPosition) {
+            mPos = getPositionInList(media)
+            if (mPos == -1) {
+                Math.min(mPos, mMediaFiles.size - 1)
+            }
         }
 
         updateActionbarTitle()
