@@ -351,6 +351,8 @@
     <string name="faq_16_text">Fra og med Android 11 kan du ikke længere skjule eller vise filer eller mapper, du kan heller ikke se de skjulte i galleriapps. Du bliver nødt til at bruge en filhåndtering til det.</string>
     <string name="faq_17_title">Hvorfor kan jeg ikke længere inkludere manglende mapper\?</string>
     <string name="faq_17_text">Det holdt op med at virke på grund af systemændringerne, der fulgte med Android 11, appen kan ikke længere gennemse rigtige mapper, den er afhængig af den såkaldte MediaStore til at hente data.</string>
+    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a "Clear defaults" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Billedhåndtering</string>

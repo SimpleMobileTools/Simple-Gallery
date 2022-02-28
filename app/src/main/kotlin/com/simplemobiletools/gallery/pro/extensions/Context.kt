@@ -70,8 +70,6 @@ val Context.dateTakensDB: DateTakensDao get() = GalleryDatabase.getInstance(appl
 
 val Context.recycleBin: File get() = filesDir
 
-val Context.recycleBinPath: String get() = filesDir.absolutePath
-
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
     val pinnedFolders = config.pinnedFolders
