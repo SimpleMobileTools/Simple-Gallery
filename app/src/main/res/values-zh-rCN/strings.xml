@@ -360,8 +360,8 @@
     <string name="faq_16_text">从 Android 11 开始，你再也不能隐藏或取消隐藏文件或文件夹了，你也不能在图库应用中看到隐藏的文件或文件夹。你必须使用文件管理器来进行此类操作。</string>
     <string name="faq_17_title">为什么我再不能包含缺失的文件夹？</string>
     <string name="faq_17_text">由于 Android 11 的系统变化，这一功能也停止了工作，本应用不能再浏览真实的文件夹了，它依赖于所谓的 MediaStore 来获取数据。</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">为何我在视频播放期间看到广告？</string>
+    <string name="faq_18_text">我们的应用没有任何广告。如果您在视频播放期间看到它们，那么您一定是在使用其他视频播放器。尝试在设备设置中找到默认的视频播放器，然后在其上执行“清除默认设置”。下次你调用视频意图，你会看到一个应用选择提示，在那里你可以选择你想使用的播放器。</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">简易图库 Pro - 图片管理 &amp; 编辑</string>
