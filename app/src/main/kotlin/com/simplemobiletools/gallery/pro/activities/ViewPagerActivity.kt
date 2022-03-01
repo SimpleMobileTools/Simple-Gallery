@@ -1192,7 +1192,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mPrevHashcode = media.hashCode()
         mMediaFiles = media
 
-        if (refetchViewPagerPosition) {
+        if (refetchViewPagerPosition || mPos == -1) {
             mPos = getPositionInList(media)
             if (mPos == -1) {
                 Math.min(mPos, mMediaFiles.size - 1)
