@@ -354,8 +354,8 @@
     <string name="faq_16_text">Начиная с Android 11, вы больше не можете скрывать или отображать файлы или папки, вы также не можете видеть скрытые в приложениях галереи. Для этого вам придётся использовать файловый менеджер.</string>
     <string name="faq_17_title">Почему я больше не могу включать отсутствующие папки\?</string>
     <string name="faq_17_text">Это перестало работать из-за системных изменений, которые пришли с Android 11: приложение больше не может просматривать реальные папки, оно полагается на так называемый MediaStore при получении данных.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">Почему я вижу рекламу во время воспроизведения видео\?</string>
+    <string name="faq_18_text">В наших приложениях вообще нет рекламы. Если вы видите её во время воспроизведения видео, то, должно быть, используете сторонний видеопроигрыватель. Попробуйте найти видеопроигрыватель по умолчанию в настройках устройства, а затем выполните для данной настройки \"Очистить настройки по умолчанию\". В следующий раз, когда вы откроете воспроизведение видео, будет предложено выбрать приложение, которое вы хотите использовать.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Галерея Pro - управление изображениями</string>
