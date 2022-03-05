@@ -356,8 +356,8 @@
     <string name="faq_16_text">Począwszy od Androida 11 nie można już ukrywać ani odkrywać plików lub folderów, nie możesz też zobaczyć ukrytych elementów w aplikacjach galerii. W tym celu będziesz musiał(a) użyć jakiegoś menedżera plików.</string>
     <string name="faq_17_title">Dlaczego nie mogę już dołączyć brakujących folderów\?</string>
     <string name="faq_17_text">To również przestało działać z powodu zmian systemowych, które pojawiły się w Androidzie 11. Aplikacja nie może już przeglądać prawdziwych folderów i polega na tak zwanym MediaStore przy pobieraniu danych.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">Dlaczego widzę reklamy podczas odtwarzania wideo\?</string>
+    <string name="faq_18_text">Nasze aplikacje nie mają żadnych reklam. Jeśli widzisz je podczas odtwarzania wideo, musisz używać odtwarzacza wideo innej aplikacji. Spróbuj znaleźć domyślny odtwarzacz wideo w ustawieniach urządzenia, a następnie wykonaj na nim „Wyczyść domyślne”. Następnym razem, gdy spróbujesz odtworzyć wideo, zobaczysz ekran wyboru aplikacji, gdzie możesz wybrać, którą chcesz użyć.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Prosta galeria Pro - Menedżer i edytor zdjęć</string>
