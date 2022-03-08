@@ -357,8 +357,8 @@
     <string name="faq_16_text">Vanaf Android 11 kunnen bestanden en mappen niet meer verborgen (of weer getoond) worden via deze app. Verborgen items kunnen ook niet meer in galerij-apps worden weergegeven. Alleen bestandsbeheer-apps kunnen deze functionaliteit nog bieden.</string>
     <string name="faq_17_title">Waarom kan ik ontbrekende mappen niet meer handmatig toevoegen\?</string>
     <string name="faq_17_text">Dit werkt ook niet meer sinds de aanpassingen in Android 11: deze app mag niet meer door de mappen op het apparaat navigeren, maar is voortaan afhankelijk van de MediaStore van Android bij het ophalen van bestandsgegevens.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">Waarom zie ik advertenties bij het afspelen van video\'s\?</string>
+    <string name="faq_18_text">Onze apps bevatten geen advertenties. Indien er wél advertenties verschijnen bij video\'s, dan kan dat alleen vanuit een andere app zijn. Probeer uit te vinden welke app als standaard-videospeler is ingesteld, zoek de app in de systeeminstellingen op en klik op \"Standaardwaarden wissen\". Kies de volgende keer bij het afspelen van een video welke app er gebruikt moet worden.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>
