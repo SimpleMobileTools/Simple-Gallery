@@ -33,18 +33,16 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtriranje medija</string>
     <string name="images">Slike</string>
-    <string name="videos">Video</string>
+    <string name="videos">Videozapisi</string>
     <string name="gifs">GIF-ovi</string>
     <string name="raw_images">RAW slike</string>
     <string name="svgs">SVG-ovi</string>
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Nije pronađena nijedna datoteka s odabranim filtrom.</string>
     <string name="change_filters_underlined"><u>Promijeni filter</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ova funkcija skriva mapu dodavanjem \'.nomedia\' datoteke u njega. Također će sakriti i sve podmape. Možete ih vidjeti uključivanjem opcije \'Prikaži skrivene mape\' u Postavkama. Nastaviti?</string>
     <string name="exclude">Izuzmi</string>
@@ -58,14 +56,12 @@
     <string name="hidden_folders">Skrivene mape</string>
     <string name="manage_hidden_folders">Upravljanje skrivenim mapama</string>
     <string name="hidden_folders_placeholder">Čini se da nemate skrivenih mapa s \".nomedia\" datotekom.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Uključene mape</string>
     <string name="manage_included_folders">Upravljajte uključenim mapama</string>
     <string name="add_folder">Dodaj mapu</string>
     <string name="included_activity_placeholder">Ako imate neke mape koje sadrže medije, ali ih aplikacija nije prepoznala, ručno ih možete dodati ovdje.\n\nDodavanjem nekih stavki ovdje nećete izuzeti bilo koju drugu mapu.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">Promjeni veličinu</string>
     <string name="resize_and_save">Promjeni veličinu odabranog i spremi</string>
@@ -73,7 +69,6 @@
     <string name="height">Visina</string>
     <string name="keep_aspect_ratio">Zadrži omjer slike</string>
     <string name="invalid_values">Molim unesite valjanu rezoluciju</string>
-
     <!-- Editor -->
     <string name="editor">Uređivač</string>
     <string name="rotate">Rotiraj</string>
@@ -98,22 +93,22 @@
     <string name="flip">Okreni</string>
     <string name="flip_horizontally">Okreni horizontalno</string>
     <string name="flip_vertically">Okreni vertikalno</string>
-    <string name="free_aspect_ratio">Slobodan odabir</string>           <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Ostalo</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Slobodan odabir</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Ostalo</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>
     <string name="set_as_wallpaper">Postavi kao pozadinu</string>
     <string name="set_as_wallpaper_failed">Postavljanje pozadine nije uspjelo</string>
     <string name="set_as_wallpaper_with">Postavi kao pozadinu pomoću:</string>
-    <string name="setting_wallpaper">Postavljanje pozadine&#8230;</string>
+    <string name="setting_wallpaper">Postavljanje pozadine…</string>
     <string name="wallpaper_set_successfully">Postavljanje pozadine uspješno</string>
     <string name="portrait_aspect_ratio">Portretni omjer slike</string>
     <string name="landscape_aspect_ratio">Pejzažni omjer slike</string>
     <string name="home_screen">Početni zaslon</string>
     <string name="lock_screen">Zaključani zaslon</string>
     <string name="home_and_lock_screen">Početni i zaključani zaslon</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Dijaprojekcija</string>
     <string name="interval">Interval (sekunde):</string>
@@ -129,10 +124,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Kraj dijaprojekcije</string>
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Group direct subfolders</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupiraj po</string>
     <string name="do_not_group_files">Nemoj grupirati ove datoteke</string>
@@ -147,11 +140,9 @@
     <string name="by_extension">Vrsta datoteke</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa prikazana na widgetu:</string>
     <string name="show_folder_name">Prikaži naziv mape</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="remember_last_video_position">Zapamti poziciju zadnjeg reproduciranog videozapisa</string>
@@ -204,18 +195,15 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji na cijelom zaslonu</string>
     <string name="extended_details">Proširene pojedinosti</string>
     <string name="bottom_actions">Radnju pri dnu zaslona</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upravljaj radnjama pri dnu zaslona</string>
     <string name="toggle_favorite">Uključi/isključi favorite</string>
     <string name="toggle_file_visibility">Uključi/isključi vidljivost datoteka</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -329,7 +317,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>
     <string name="faq_1_text">Prvo morate pronaći trenutačno zadanu galeriju u odjeljku Aplikacije, u Postavkama uređaja, potražite gumb koji kaže nešto poput opcije \"Otvori prema zadanim postavkama\", kliknite na tu opciju, a zatim odaberite \"Izbriši zadane postavke\".
@@ -345,7 +332,7 @@
     <string name="faq_6_title">Zašto se prikazuju mape s naslovnicama albuma i minijaturama slika?</string>
     <string name="faq_6_text">Može se dogoditi da vidite neke neobične albume. Možete ih jednostavno izuzeti tako da ih dugo pritisnete i odaberete Izuzmi. U sljedećem dijaloškom okviru možete odabrati glavnu mapu, čime će te spriječiti prikazivanje ostalih povezanih albuma.</string>
     <string name="faq_7_title">Mapa s fotografijama se ne prikazuje, što mogu učiniti?</string>
-    <string name="faq_7_text">To može imati više razloga, ali rješenje je jednostavno. Samo idite u Postavke -> Upravljanje uključenim mapama, odaberite ikonu Plus i prijeđite na traženu mapu.</string>
+    <string name="faq_7_text">To može imati više razloga, ali rješenje je jednostavno. Samo idite u Postavke -&gt; Upravljanje uključenim mapama, odaberite ikonu Plus i prijeđite na traženu mapu.</string>
     <string name="faq_8_title">Što ako želim vidjeti samo nekoliko određenih mapa?</string>
     <string name="faq_8_text">Dodavanje direktorija u uključene mape ne izuzima ništa automatski. Da biste to učinili, idite na "Postavke", a zatim "Upravljanje izuzetim mapama", izuzmite korijenski direktorij \"/\", a zatim dodajte željene direktorije u "Postavke" i "Upravljanje uključenim mapama".
         Samo će odabrane mape biti vidljive, jer su izuzimanja i uključivanja rekurzivni, a ako je mapa isključena i uključena, bit će prikazana.</string>
@@ -367,7 +354,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
@@ -429,7 +415,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
