@@ -39,6 +39,8 @@
     <string name="set_as_default_folder">Aseta oletushakemistoksi</string>
     <string name="unset_as_default_folder">Älä käytä oletushakemistona</string>
     <string name="reorder_by_dragging">Järjestä kansiot uudelleen vetämällä</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>
     <string name="images">Kuvat</string>

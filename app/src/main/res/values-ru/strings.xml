@@ -33,6 +33,8 @@
     <string name="set_as_default_folder">Установить как папку по умолчанию</string>
     <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
     <string name="reorder_by_dragging">Менять порядок папок перетаскиванием</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
     <string name="images">Изображения</string>

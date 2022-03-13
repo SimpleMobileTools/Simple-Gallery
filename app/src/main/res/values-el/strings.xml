@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Ορισμός ως προεπιλεγμένου φακέλου</string>
     <string name="unset_as_default_folder">Κατάργηση ως προεπιλεγμένου φακέλου</string>
     <string name="reorder_by_dragging">Αναδιάταξη φακέλων με μεταφορά</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>

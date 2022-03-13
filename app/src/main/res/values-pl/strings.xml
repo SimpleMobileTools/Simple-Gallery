@@ -39,6 +39,8 @@
     <string name="set_as_default_folder">Ustaw jako folder domyślny</string>
     <string name="unset_as_default_folder">Anuluj ustawienie folderu domyślnego</string>
     <string name="reorder_by_dragging">Przeorganizuj foldery przeciągając</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
     <string name="images">Obrazy</string>

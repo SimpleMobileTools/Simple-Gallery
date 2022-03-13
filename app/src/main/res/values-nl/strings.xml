@@ -35,6 +35,8 @@
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
     <string name="reorder_by_dragging">Volgorde mappen bepalen met sleepgebaren</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
     <string name="images">Afbeeldingen</string>

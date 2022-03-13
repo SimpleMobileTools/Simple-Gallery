@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>

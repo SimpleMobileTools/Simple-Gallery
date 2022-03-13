@@ -468,9 +468,9 @@ class MediaAdapter(
             }
 
             val sdk30SafPath = selectedPaths.firstOrNull { activity.isAccessibleWithSAFSdk30(it) } ?: getFirstSelectedItemPath() ?: return@handleSAFDialog
-            activity.handleSAFDeleteSdk30Dialog(sdk30SafPath){
+            activity.handleSAFDialogSdk30(sdk30SafPath){
                 if (!it) {
-                    return@handleSAFDeleteSdk30Dialog
+                    return@handleSAFDialogSdk30
                 }
 
                 val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
