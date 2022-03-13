@@ -39,6 +39,8 @@
     <string name="set_as_default_folder">Öntanımlı klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Öntanımlı klasör ayarını kaldır</string>
     <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
+    <string name="copy_to_restricted_folder_message">Unable to use this folder.\nThe system does not allow us to copy/move to this folder</string>
+
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
     <string name="images">Resimler</string>

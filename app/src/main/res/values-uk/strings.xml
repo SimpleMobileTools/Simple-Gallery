@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Встановити теку за замовчуванням</string>
     <string name="unset_as_default_folder">Відмінити встановлення теки за замовчуванням</string>
     <string name="reorder_by_dragging">Сортувати папки шляхом переміщення</string>
+    <string name="copy_to_restricted_folder_message">Unable to use this folder.\nThe system does not allow us to copy/move to this folder</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
