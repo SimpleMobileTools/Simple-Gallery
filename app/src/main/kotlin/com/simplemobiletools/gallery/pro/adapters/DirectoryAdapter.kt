@@ -626,9 +626,9 @@ class DirectoryAdapter(
                 return@handleSAFDialog
             }
 
-            activity.handleSAFDeleteSdk30Dialog(SAFPath){
+            activity.handleSAFDialogSdk30(SAFPath){
                 if (!it) {
-                    return@handleSAFDeleteSdk30Dialog
+                    return@handleSAFDialogSdk30
                 }
 
                 var foldersToDelete = ArrayList<File>(selectedKeys.size)
