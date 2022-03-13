@@ -33,7 +33,7 @@
     <string name="set_as_default_folder">設為預設資料夾</string>
     <string name="unset_as_default_folder">取消設為預設資料夾</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="copy_to_restricted_folder_message">Unable to use this folder.\nThe system does not allow us to copy/move to this folder</string>
+    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
