@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/folder_picker_holder">
 
-        <com.simplemobiletools.gallery.pro.views.MySquareImageView
+        <com.simplemobiletools.commons.views.MySquareImageView
             android:id="@+id/config_image"
             android:layout_width="@dimen/widget_initial_size"
             android:layout_height="@dimen/widget_initial_size"

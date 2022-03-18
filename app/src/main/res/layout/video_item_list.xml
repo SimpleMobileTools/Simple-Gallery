@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/small_margin"
     android:paddingBottom="@dimen/small_margin">
 
-    <com.simplemobiletools.gallery.pro.views.MySquareImageView
+    <com.simplemobiletools.commons.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="@dimen/list_view_folder_thumbnail_size"
         android:layout_height="@dimen/list_view_folder_thumbnail_size" />
