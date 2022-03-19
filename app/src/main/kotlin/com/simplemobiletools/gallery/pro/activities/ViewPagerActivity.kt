@@ -1109,20 +1109,26 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
-            mIgnoredPaths.add(fileDirItem.path)
-            val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
-            runOnUiThread {
-                gotMedia(media, true, false)
-            }
+            handleSAFDialogSdk30(fileDirItem.path) {
+                if (!it) {
+                    return@handleSAFDialogSdk30
+                }
 
-            movePathsInRecycleBin(arrayListOf(path)) {
-                if (it) {
-                    tryDeleteFileDirItem(fileDirItem, false, false) {
-                        mIgnoredPaths.remove(fileDirItem.path)
-                        deleteDirectoryIfEmpty()
+                mIgnoredPaths.add(fileDirItem.path)
+                val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
+                runOnUiThread {
+                    gotMedia(media, true, false)
+                }
+
+                movePathsInRecycleBin(arrayListOf(path)) {
+                    if (it) {
+                        tryDeleteFileDirItem(fileDirItem, false, false) {
+                            mIgnoredPaths.remove(fileDirItem.path)
+                            deleteDirectoryIfEmpty()
+                        }
+                    } else {
+                        toast(R.string.unknown_error_occurred)
                     }
-                } else {
-                    toast(R.string.unknown_error_occurred)
                 }
             }
         } else {
@@ -1131,15 +1137,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun handleDeletion(fileDirItem: FileDirItem) {
-        mIgnoredPaths.add(fileDirItem.path)
-        val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
-        runOnUiThread {
-            gotMedia(media, true, false)
-        }
+        handleSAFDialogSdk30(fileDirItem.path) {
+            if (!it) {
+                return@handleSAFDialogSdk30
+            }
 
-        tryDeleteFileDirItem(fileDirItem, false, true) {
-            mIgnoredPaths.remove(fileDirItem.path)
-            deleteDirectoryIfEmpty()
+            mIgnoredPaths.add(fileDirItem.path)
+            val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
+            runOnUiThread {
+                gotMedia(media, true, false)
+            }
+
+            tryDeleteFileDirItem(fileDirItem, false, true) {
+                mIgnoredPaths.remove(fileDirItem.path)
+                deleteDirectoryIfEmpty()
+            }
         }
     }
 
