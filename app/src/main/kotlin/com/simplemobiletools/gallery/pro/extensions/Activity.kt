@@ -250,11 +250,7 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
         val destination = it
         handleSAFDialog(source) {
             if (it) {
-                handleSAFDialogSdk30(fileDirItems[0].path){
-                    if (it) {
-                        copyMoveFilesTo(fileDirItems, source.trimEnd('/'), destination, isCopyOperation, true, config.shouldShowHidden, callback)
-                    }
-                }
+                copyMoveFilesTo(fileDirItems, source.trimEnd('/'), destination, isCopyOperation, true, config.shouldShowHidden, callback)
             }
         }
     }
