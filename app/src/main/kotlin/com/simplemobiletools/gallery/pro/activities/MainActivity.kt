@@ -1149,8 +1149,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             directories_empty_placeholder.text = getString(R.string.no_items_found)
             directories_empty_placeholder_2.beGone()
         } else if (dirs.isEmpty() && config.filterMedia == getDefaultFileFilter()) {
-            directories_empty_placeholder.text = getString(R.string.no_media_add_included)
-            directories_empty_placeholder_2.text = getString(R.string.add_folder)
+            if (isRPlus()) {
+                directories_empty_placeholder.text = getString(R.string.no_items_found)
+                directories_empty_placeholder_2.beGone()
+            } else {
+                directories_empty_placeholder.text = getString(R.string.no_media_add_included)
+                directories_empty_placeholder_2.text = getString(R.string.add_folder)
+            }
 
             directories_empty_placeholder_2.setOnClickListener {
                 showAddIncludedFolderDialog {
