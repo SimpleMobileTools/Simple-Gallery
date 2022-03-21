@@ -135,7 +135,13 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".activities.PhotoVideoActivity"
