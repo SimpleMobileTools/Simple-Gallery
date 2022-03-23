@@ -521,6 +521,21 @@
                     android:text="@string/show_notch" />
 
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/settings_dont_sleep_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_dont_sleep"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/do_not_sleep" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/settings_screen_rotation_holder"

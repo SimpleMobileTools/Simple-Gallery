@@ -52,6 +52,7 @@ class SettingsActivity : SimpleActivity() {
         setupLoopVideos()
         setupOpenVideosOnSeparateScreen()
         setupMaxBrightness()
+        setupDontSleep()
         setupCropThumbnails()
         setupDarkBackground()
         setupScrollHorizontally()
@@ -274,6 +275,14 @@ class SettingsActivity : SimpleActivity() {
         settings_max_brightness_holder.setOnClickListener {
             settings_max_brightness.toggle()
             config.maxBrightness = settings_max_brightness.isChecked
+        }
+    }
+
+    private fun setupDontSleep() {
+        settings_dont_sleep.isChecked = config.dontSleep
+        settings_dont_sleep_holder.setOnClickListener {
+            settings_dont_sleep.toggle()
+            config.dontSleep = settings_dont_sleep.isChecked
         }
     }
 
@@ -741,6 +750,7 @@ class SettingsActivity : SimpleActivity() {
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
+                put(DO_NOT_SLEEP, config.dontSleep)
                 put(BLACK_BACKGROUND, config.blackBackground)
                 put(HIDE_SYSTEM_UI, config.hideSystemUI)
                 put(ALLOW_INSTANT_CHANGE, config.allowInstantChange)
@@ -883,6 +893,7 @@ class SettingsActivity : SimpleActivity() {
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
+                DO_NOT_SLEEP -> config.dontSleep = value.toBoolean()
                 BLACK_BACKGROUND -> config.blackBackground = value.toBoolean()
                 HIDE_SYSTEM_UI -> config.hideSystemUI = value.toBoolean()
                 ALLOW_INSTANT_CHANGE -> config.allowInstantChange = value.toBoolean()

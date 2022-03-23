@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -207,6 +208,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val attributes = window.attributes
             attributes.screenBrightness = 1f
             window.attributes = attributes
+        }
+
+        if (config.dontSleep) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->

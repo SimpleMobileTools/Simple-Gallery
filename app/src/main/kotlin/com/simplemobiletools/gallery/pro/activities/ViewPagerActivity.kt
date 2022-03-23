@@ -128,6 +128,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             attributes.screenBrightness = 1f
             window.attributes = attributes
         }
+        if (config.dontSleep) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         // show the selected image asap, while loading the rest in the background to allow swiping between them. Needed at third party intents
         if (mMediaFiles.isEmpty() && mPath.isNotEmpty()) {
