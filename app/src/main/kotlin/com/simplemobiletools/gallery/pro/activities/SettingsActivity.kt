@@ -280,7 +280,7 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupKeepDisplayOn() {
         settings_keep_display_on.isChecked = config.keepDisplayOn
-        settings_keep_display_on.setOnClickListener {
+        settings_keep_display_on_holder.setOnClickListener {
             settings_keep_display_on.toggle()
             config.keepDisplayOn = settings_keep_display_on.isChecked
         }
