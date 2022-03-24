@@ -425,6 +425,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="keep_display_on">முழுத்திரை பயன்முறையில் இருக்கும் போது காட்சியை இயக்கவும்</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

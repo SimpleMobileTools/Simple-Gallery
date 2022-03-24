@@ -425,4 +425,5 @@
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
     <string name="show_file_count_section_header">Näita vahepealkirjades failide arvu</string>
+    <string name="keep_display_on">Hoidke ekraan täisekraanrežiimis sisselülitatuna</string>
 </resources>

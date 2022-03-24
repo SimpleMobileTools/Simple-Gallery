@@ -425,6 +425,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="keep_display_on">Tartsa bekapcsolva a kijelzőt teljes képernyős módban</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
