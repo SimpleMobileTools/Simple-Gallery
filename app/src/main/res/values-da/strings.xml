@@ -197,6 +197,7 @@
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>
     <string name="fullscreen_media">Fuldskærmsmedier</string>
@@ -416,7 +417,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Hold skærmen tændt, når du er i fuldskærmstilstand</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

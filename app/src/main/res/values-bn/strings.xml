@@ -205,6 +205,7 @@
     <string name="square">বর্গ</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">থাম্বনেল</string>
@@ -417,7 +418,6 @@
         <b>রেডিট:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">পূর্ণ স্ক্রীন মোডে থাকলে প্রদর্শন চালু রাখুন</string>
 
     <!--
         Haven't found some strings? There's more at

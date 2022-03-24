@@ -205,6 +205,7 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>
@@ -430,7 +431,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">전체 화면 모드에서 디스플레이를 계속 켜십시오.</string>
 
     <!--
         Haven't found some strings? There's more at

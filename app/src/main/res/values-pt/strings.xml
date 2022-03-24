@@ -207,6 +207,7 @@
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos ficheiros favoritos</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Multimédia em ecrã completo</string>
@@ -370,7 +371,6 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Explore as suas memórias sem interrupções com esta galeria</string>
     <string name="app_long_description"> Uma galeria para gerir imagens, fotos &amp; videos. Pode organizar &amp; editar as suas fotos, recuperar ficheiros graças à reciclagem, proteger &amp; ocultar ficheiros &amp; ver imagens &amp; vídeos disponíveis em vários formatos. Não tem anúncios nem permissões desnecessárias. E uma vez que também não requer acesso à internet, os seus ficheiros estão protegidos. ------------------------------------------------- <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b> ------------------------------------------------- • Galeria local • Sem quaisquer anúncios • Não requer acesso à internet, garantindo a sua privacidade &amp; segurança • Sem permissões desnecessárias <b>• Edição de fotos – recorte, rotação, redimensionamento, filtros &amp; desenho</b>• Pesquisa rápida de imagens, vídeos &amp; ficheiros <b>• Suporta diversos tipos de ficheiros (JPEG, PNG, MP4, MKV, RAW, SVG, Panorâmicas de fotos &amp; videos, &amp; etc.)</b> • Uso de gestos para editar &amp; organizar ficheiros • Opções para filtrar, agrupar &amp; ordenar ficheiros &amp; pastas <b>• Personalização do aspecto</b> • Marcar ficheiros favoritos para acesso rápido <b>• Protecção &amp; ocultação de fotos &amp; vídeos</b> e bloqueio de abertura da aplicação ou restrição de acções com recurso a padrão, pin ou impressão digital<b>• Recuperação de fotos &amp; vídeos apagados através da reciclagem</b> • Criação de apresentações personalizadas • Ver as propriedades dos ficheiros (resolução, dados EXIF, &amp; etc.) • Disponível em 32 idiomas • Simple Gallery Pro é open source &amp; muito mais! <b>Consulte a gama completa de aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Site da aplicação Simple Gallery Pro:</b> https://www.simplemobiletools.com/gallery <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
-    <string name="keep_display_on">Mantenha a tela ligada quando estiver no modo de tela cheia</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

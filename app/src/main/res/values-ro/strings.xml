@@ -205,6 +205,7 @@
     <string name="square">Pătrat</string>
     <string name="rounded_corners">Colțuri rotunjite</string>
     <string name="export_favorite_paths">Exportă căile de acces ale fișierelor favorite</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturi</string>
@@ -430,7 +431,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Păstrați afișajul aprins când vă aflați în modul ecran complet</string>
 
     <!--
         Haven't found some strings? There's more at

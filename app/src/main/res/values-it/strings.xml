@@ -198,6 +198,7 @@
     <string name="square">Quadrato</string>
     <string name="rounded_corners">Angoli arrotondati</string>
     <string name="export_favorite_paths">Esporta i percorsi dei file preferiti</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
@@ -416,7 +417,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Mantieni lo schermo acceso quando sei in modalità a schermo intero</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

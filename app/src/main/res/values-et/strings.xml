@@ -200,6 +200,7 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
     <string name="fullscreen_media">Fullscreen media</string>
@@ -425,5 +426,4 @@
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
     <string name="show_file_count_section_header">Näita vahepealkirjades failide arvu</string>
-    <string name="keep_display_on">Hoidke ekraan täisekraanrežiimis sisselülitatuna</string>
 </resources>

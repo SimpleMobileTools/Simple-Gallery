@@ -198,6 +198,7 @@
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>
@@ -418,7 +419,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Держите дисплей включенным в полноэкранном режиме</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

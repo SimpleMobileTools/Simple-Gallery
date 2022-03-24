@@ -205,6 +205,7 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>
@@ -430,7 +431,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Тримайте дисплей увімкненим у повноекранному режимі</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -205,6 +205,7 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Hình thu nhỏ</string>
@@ -447,7 +448,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="keep_display_on">Tiếp tục bật màn hình khi ở chế độ toàn màn hình</string>
 
     <!--
         Haven't found some strings? There's more at
