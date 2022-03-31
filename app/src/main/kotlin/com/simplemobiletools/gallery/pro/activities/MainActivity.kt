@@ -83,7 +83,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredTextColor = 0
-    private var mStoredAdjustedPrimaryColor = 0
+    private var mStoredPrimaryColor = 0
     private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -184,8 +184,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getRecyclerAdapter()?.updateTextColor(config.textColor)
         }
 
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
+        val primaryColor = getProperPrimaryColor()
+        if (mStoredPrimaryColor != primaryColor) {
             getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
         }
 
@@ -194,7 +194,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(mDirs, forceRecreate = true)
         }
 
-        directories_fastscroller.updateColors(adjustedPrimaryColor)
+        directories_fastscroller.updateColors(primaryColor)
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
         getRecyclerAdapter()?.apply {
             dateFormat = config.dateFormat
@@ -202,8 +202,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         directories_empty_placeholder.setTextColor(config.textColor)
-        directories_empty_placeholder_2.setTextColor(adjustedPrimaryColor)
-        directories_switch_searching.setTextColor(adjustedPrimaryColor)
+        directories_empty_placeholder_2.setTextColor(primaryColor)
+        directories_switch_searching.setTextColor(primaryColor)
         directories_switch_searching.underlineText()
 
         if (!mIsSearchOpen) {
@@ -341,7 +341,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredTextColor = textColor
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
-        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

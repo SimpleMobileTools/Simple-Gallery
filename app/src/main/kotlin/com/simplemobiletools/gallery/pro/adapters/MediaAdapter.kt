@@ -585,7 +585,7 @@ class MediaAdapter(
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                medium_check?.background?.applyColorFilter(adjustedPrimaryColor)
+                medium_check?.background?.applyColorFilter(properPrimaryColor)
                 medium_check.applyColorFilter(contrastColor)
             }
 

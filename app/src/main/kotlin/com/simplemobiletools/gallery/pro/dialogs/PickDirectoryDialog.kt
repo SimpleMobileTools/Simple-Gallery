@@ -34,7 +34,7 @@ class PickDirectoryDialog(
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
-        view.directories_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
+        view.directories_fastscroller.updateColors(activity.getProperPrimaryColor())
 
         val builder = AlertDialog.Builder(activity)
             .setPositiveButton(R.string.ok, null)

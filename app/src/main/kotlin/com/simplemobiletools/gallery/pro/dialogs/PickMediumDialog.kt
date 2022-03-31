@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.pro.dialogs
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
+import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -33,7 +33,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             spanCount = if (isGridViewType) config.mediaColumnCnt else 1
         }
 
-        view.media_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
+        view.media_fastscroller.updateColors(activity.getProperPrimaryColor())
 
         dialog = AlertDialog.Builder(activity)
             .setPositiveButton(R.string.ok, null)
