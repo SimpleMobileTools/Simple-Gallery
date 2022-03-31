@@ -761,7 +761,7 @@ class DirectoryAdapter(
 
             dir_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                dir_check.background?.applyColorFilter(adjustedPrimaryColor)
+                dir_check.background?.applyColorFilter(properPrimaryColor)
                 dir_check.applyColorFilter(contrastColor)
             }
 

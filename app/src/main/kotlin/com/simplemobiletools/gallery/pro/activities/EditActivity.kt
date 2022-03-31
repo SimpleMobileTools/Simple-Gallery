@@ -107,7 +107,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onResume() {
         super.onResume()
         isEditingWithThirdParty = false
-        bottom_draw_width.setColors(config.textColor, getAdjustedPrimaryColor(), config.backgroundColor)
+        bottom_draw_width.setColors(config.textColor, getProperPrimaryColor(), config.backgroundColor)
     }
 
     override fun onStop() {
@@ -592,7 +592,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> null
         }
 
-        currentPrimaryActionButton?.applyColorFilter(getAdjustedPrimaryColor())
+        currentPrimaryActionButton?.applyColorFilter(getProperPrimaryColor())
         bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
         bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
         bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
@@ -708,7 +708,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> bottom_aspect_ratio_other
         }
 
-        currentAspectRatioButton.setTextColor(getAdjustedPrimaryColor())
+        currentAspectRatioButton.setTextColor(getProperPrimaryColor())
     }
 
     private fun updateCropRotateActionButtons() {
@@ -721,7 +721,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> null
         }
 
-        primaryActionView?.applyColorFilter(getAdjustedPrimaryColor())
+        primaryActionView?.applyColorFilter(getProperPrimaryColor())
     }
 
     private fun updateDrawColor(color: Int) {

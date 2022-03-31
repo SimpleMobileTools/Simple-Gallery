@@ -75,7 +75,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredRoundedCorners = false
     private var mStoredMarkFavoriteItems = true
     private var mStoredTextColor = 0
-    private var mStoredAdjustedPrimaryColor = 0
+    private var mStoredPrimaryColor = 0
     private var mStoredThumbnailSpacing = 0
 
     companion object {
@@ -145,8 +145,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
+        val primaryColor = getProperPrimaryColor()
+        if (mStoredPrimaryColor != primaryColor) {
             getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
         }
 
@@ -159,7 +159,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
-        media_fastscroller.updateColors(adjustedPrimaryColor)
+        media_fastscroller.updateColors(primaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         getMediaAdapter()?.apply {
             dateFormat = config.dateFormat
@@ -167,7 +167,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         media_empty_text_placeholder.setTextColor(config.textColor)
-        media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
+        media_empty_text_placeholder_2.setTextColor(getProperPrimaryColor())
 
         if (!mIsSearchOpen) {
             invalidateOptionsMenu()
@@ -312,7 +312,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
-        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

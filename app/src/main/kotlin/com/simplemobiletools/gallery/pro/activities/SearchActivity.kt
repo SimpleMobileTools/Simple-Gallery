@@ -42,7 +42,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         setContentView(R.layout.activity_search)
         media_empty_text_placeholder.setTextColor(config.textColor)
         getAllMedia()
-        media_fastscroller.updateColors(getAdjustedPrimaryColor())
+        media_fastscroller.updateColors(getProperPrimaryColor())
     }
 
     override fun onDestroy() {
