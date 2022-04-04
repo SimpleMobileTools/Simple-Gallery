@@ -53,38 +53,47 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_copy_to"
+        android:showAsAction="never"
         android:title="@string/copy_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_move_to"
+        android:showAsAction="never"
         android:title="@string/move_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_create_shortcut"
+        android:showAsAction="never"
         android:title="@string/create_shortcut"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_empty_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/empty_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_empty_disable_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/empty_and_disable_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_exclude"
+        android:showAsAction="never"
         android:title="@string/exclude"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_lock"
+        android:showAsAction="never"
         android:title="@string/lock_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_unlock"
+        android:showAsAction="never"
         android:title="@string/unlock_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_change_cover_image"
+        android:showAsAction="never"
         android:title="@string/change_cover_image"
         app:showAsAction="never">
         <menu>

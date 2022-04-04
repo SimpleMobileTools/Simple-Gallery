@@ -13,6 +13,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_open_with"
+        android:showAsAction="never"
         android:title="@string/open_with"
         app:showAsAction="never" />
 </menu>

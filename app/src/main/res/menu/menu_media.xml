@@ -24,30 +24,37 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/change_view_type"
+        android:showAsAction="never"
         android:title="@string/change_view_type"
         app:showAsAction="never" />
     <item
         android:id="@+id/temporarily_show_hidden"
+        android:showAsAction="never"
         android:title="@string/temporarily_show_hidden"
         app:showAsAction="never" />
     <item
         android:id="@+id/stop_showing_hidden"
+        android:showAsAction="never"
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never" />
     <item
         android:id="@+id/empty_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/empty_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/empty_disable_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/empty_and_disable_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/restore_all_files"
+        android:showAsAction="never"
         android:title="@string/restore_all_files"
         app:showAsAction="never" />
     <item
         android:id="@+id/folder_view"
+        android:showAsAction="never"
         android:title="@string/folder_view"
         app:showAsAction="never" />
     <item
@@ -57,30 +64,37 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/group"
+        android:showAsAction="never"
         android:title="@string/group_by"
         app:showAsAction="never" />
     <item
         android:id="@+id/set_as_default_folder"
+        android:showAsAction="never"
         android:title="@string/set_as_default_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/unset_as_default_folder"
+        android:showAsAction="never"
         android:title="@string/unset_as_default_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/create_new_folder"
+        android:showAsAction="never"
         android:title="@string/create_new_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/increase_column_count"
+        android:showAsAction="never"
         android:title="@string/increase_column_count"
         app:showAsAction="never" />
     <item
         android:id="@+id/reduce_column_count"
+        android:showAsAction="never"
         android:title="@string/reduce_column_count"
         app:showAsAction="never" />
     <item
         android:id="@+id/slideshow"
+        android:showAsAction="never"
         android:title="@string/slideshow"
         app:showAsAction="never" />
     <item

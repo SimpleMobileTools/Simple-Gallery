@@ -56,18 +56,22 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_copy_to"
+        android:showAsAction="never"
         android:title="@string/copy_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_move_to"
+        android:showAsAction="never"
         android:title="@string/move_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_create_shortcut"
+        android:showAsAction="never"
         android:title="@string/create_shortcut"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_open_with"
+        android:showAsAction="never"
         android:title="@string/open_with"
         app:showAsAction="never" />
     <item
@@ -92,6 +96,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_restore_file"
+        android:showAsAction="never"
         android:title="@string/restore_this_file"
         app:showAsAction="never" />
     <item
@@ -113,14 +118,17 @@
     </item>
     <item
         android:id="@+id/menu_print"
+        android:showAsAction="never"
         android:title="@string/print"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_resize"
+        android:showAsAction="never"
         android:title="@string/resize"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_show_on_map"
+        android:showAsAction="never"
         android:title="@string/show_on_map"
         app:showAsAction="never" />
     <item

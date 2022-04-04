@@ -24,42 +24,52 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/change_view_type"
+        android:showAsAction="never"
         android:title="@string/change_view_type"
         app:showAsAction="never" />
     <item
         android:id="@+id/temporarily_show_hidden"
+        android:showAsAction="never"
         android:title="@string/temporarily_show_hidden"
         app:showAsAction="never" />
     <item
         android:id="@+id/stop_showing_hidden"
+        android:showAsAction="never"
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never" />
     <item
         android:id="@+id/show_all"
+        android:showAsAction="never"
         android:title="@string/show_all"
         app:showAsAction="never" />
     <item
         android:id="@+id/show_the_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/show_the_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/hide_the_recycle_bin"
+        android:showAsAction="never"
         android:title="@string/hide_the_recycle_bin"
         app:showAsAction="never" />
     <item
         android:id="@+id/set_as_default_folder"
+        android:showAsAction="never"
         android:title="@string/set_as_default_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/create_new_folder"
+        android:showAsAction="never"
         android:title="@string/create_new_folder"
         app:showAsAction="never" />
     <item
         android:id="@+id/increase_column_count"
+        android:showAsAction="never"
         android:title="@string/increase_column_count"
         app:showAsAction="never" />
     <item
         android:id="@+id/reduce_column_count"
+        android:showAsAction="never"
         android:title="@string/reduce_column_count"
         app:showAsAction="never" />
     <item
