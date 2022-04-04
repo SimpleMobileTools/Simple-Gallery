@@ -44,8 +44,6 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -141,13 +139,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updateShowFileTypes(config.showThumbnailFileTypes)
         }
 
-        if (mStoredTextColor != config.textColor) {
-            getMediaAdapter()?.updateTextColor(config.textColor)
+        if (mStoredTextColor != getProperTextColor()) {
+            getMediaAdapter()?.updateTextColor(getProperTextColor())
         }
 
         val primaryColor = getProperPrimaryColor()
         if (mStoredPrimaryColor != primaryColor) {
-            getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
+            getMediaAdapter()?.updatePrimaryColor(primaryColor)
         }
 
         if (
@@ -166,7 +164,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             timeFormat = getTimeFormat()
         }
 
-        media_empty_text_placeholder.setTextColor(config.textColor)
+        media_empty_text_placeholder.setTextColor(getProperTextColor())
         media_empty_text_placeholder_2.setTextColor(getProperPrimaryColor())
 
         if (!mIsSearchOpen) {
@@ -301,18 +299,18 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun storeStateVariables() {
+        mStoredTextColor = getProperTextColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
         config.apply {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredMarkFavoriteItems = markFavoriteItems
-            mStoredTextColor = textColor
             mStoredThumbnailSpacing = thumbnailSpacing
             mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
-        mStoredPrimaryColor = getProperPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

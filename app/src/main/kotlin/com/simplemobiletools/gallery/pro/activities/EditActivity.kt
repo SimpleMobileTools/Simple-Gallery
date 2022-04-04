@@ -107,7 +107,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onResume() {
         super.onResume()
         isEditingWithThirdParty = false
-        bottom_draw_width.setColors(config.textColor, getProperPrimaryColor(), config.backgroundColor)
+        bottom_draw_width.setColors(getProperTextColor(), getProperPrimaryColor(), getProperBackgroundColor())
     }
 
     override fun onStop() {

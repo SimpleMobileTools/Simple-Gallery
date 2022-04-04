@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageFoldersAdapter
@@ -23,7 +24,7 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         manage_folders_placeholder.apply {
             text = getString(R.string.included_activity_placeholder)
             beVisibleIf(folders.isEmpty())
-            setTextColor(config.textColor)
+            setTextColor(getProperTextColor())
         }
 
         val adapter = ManageFoldersAdapter(this, folders, false, this, manage_folders_list) {}

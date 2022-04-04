@@ -43,8 +43,6 @@ import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
@@ -180,13 +178,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getDirectories()
         }
 
-        if (mStoredTextColor != config.textColor) {
-            getRecyclerAdapter()?.updateTextColor(config.textColor)
+        if (mStoredTextColor != getProperTextColor()) {
+            getRecyclerAdapter()?.updateTextColor(getProperTextColor())
         }
 
         val primaryColor = getProperPrimaryColor()
         if (mStoredPrimaryColor != primaryColor) {
-            getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
+            getRecyclerAdapter()?.updatePrimaryColor(primaryColor)
         }
 
         val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
@@ -201,7 +199,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             timeFormat = getTimeFormat()
         }
 
-        directories_empty_placeholder.setTextColor(config.textColor)
+        directories_empty_placeholder.setTextColor(getProperTextColor())
         directories_empty_placeholder_2.setTextColor(primaryColor)
         directories_switch_searching.setTextColor(primaryColor)
         directories_switch_searching.underlineText()
@@ -334,14 +332,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
+        mStoredTextColor = getProperTextColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
         config.apply {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredTextColor = textColor
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
-        mStoredPrimaryColor = getProperPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

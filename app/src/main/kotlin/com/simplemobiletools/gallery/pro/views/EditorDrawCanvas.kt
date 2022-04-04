@@ -5,10 +5,9 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.models.PaintOptions
-import java.util.*
 
 class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private var mCurX = 0f
@@ -26,7 +25,7 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
     private var backgroundBitmap: Bitmap? = null
 
     init {
-        mColor = context.config.primaryColor
+        mColor = context.getProperPrimaryColor()
         mPaint.apply {
             color = mColor
             style = Paint.Style.STROKE

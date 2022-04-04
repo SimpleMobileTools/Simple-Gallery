@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.extensions.isPathOnSD
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -66,7 +67,7 @@ class ManageHiddenFoldersAdapter(
             manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
             manage_folder_title.apply {
                 text = folder
-                setTextColor(config.textColor)
+                setTextColor(context.getProperTextColor())
             }
         }
     }

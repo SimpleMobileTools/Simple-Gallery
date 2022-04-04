@@ -19,7 +19,10 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.exifinterface.media.ExifInterface.*
+import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_180
+import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_270
+import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_90
+import androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -61,7 +64,6 @@ import org.apache.sanselan.formats.jpeg.JpegImageParser
 import pl.droidsonroids.gif.InputSource
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
 import kotlin.math.ceil
 
 class PhotoFragment : ViewPagerFragment() {
@@ -673,7 +675,14 @@ class PhotoFragment : ViewPagerFragment() {
 
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
-                    background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
+                    background = ColorDrawable(
+                        if (config.blackBackground) {
+                            Color.BLACK
+                        } else {
+                            context.getProperBackgroundColor()
+                        }
+                    )
+
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
