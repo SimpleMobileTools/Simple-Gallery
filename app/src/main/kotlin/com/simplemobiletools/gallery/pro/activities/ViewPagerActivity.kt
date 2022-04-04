@@ -222,7 +222,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updateBottomActionIcons(currentMedium)
         }
 
-        updateMenuItemColors(menu, baseColor = Color.BLACK)
+        updateMenuItemColors(menu, forceWhiteIcons = true)
         return true
     }
 
