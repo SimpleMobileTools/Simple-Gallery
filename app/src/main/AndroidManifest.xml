@@ -295,6 +295,7 @@
 
         <receiver
             android:name=".helpers.MyWidgetProvider"
+            android:exported="true"
             android:icon="@drawable/img_widget_preview">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
