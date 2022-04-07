@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galerie</string>
-    <string name="edit">Editează</string>
+    <string name="edit">Editaţi</string>
     <string name="open_camera">Deschide camera</string>
     <string name="hidden">(ascuns)</string>
     <string name="excluded">(exclus)</string>
