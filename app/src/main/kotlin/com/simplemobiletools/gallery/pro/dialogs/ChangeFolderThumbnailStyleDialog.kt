@@ -11,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -106,8 +107,8 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
             if (useRoundedCornersLayout) {
                 val cornerRadius = resources.getDimension(R.dimen.rounded_corner_radius_big).toInt()
                 builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
-                dir_name.setTextColor(activity.config.textColor)
-                photo_cnt.setTextColor(activity.config.textColor)
+                dir_name.setTextColor(activity.getProperTextColor())
+                photo_cnt.setTextColor(activity.getProperTextColor())
             }
 
             builder.into(dir_thumbnail)

@@ -38,7 +38,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
-
         if (checkAppSideloading()) {
             return
         }
@@ -173,6 +172,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         }
 
+        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         showSystemUI(true)
         val bundle = Bundle()

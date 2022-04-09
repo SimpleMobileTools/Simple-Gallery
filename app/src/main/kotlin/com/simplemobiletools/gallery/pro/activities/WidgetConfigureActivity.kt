@@ -56,7 +56,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
 
         updateTextColors(folder_picker_holder)
-        folder_picker_holder.background = ColorDrawable(config.backgroundColor)
+        folder_picker_holder.background = ColorDrawable(getProperBackgroundColor())
 
         getCachedDirectories(false, false) {
             mDirectories = it
