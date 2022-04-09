@@ -28,6 +28,7 @@ import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
@@ -101,7 +102,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        initEditActivity()
+        handlePermission(PERMISSION_WRITE_STORAGE){
+            if (!it) {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
+            initEditActivity()
+        }
     }
 
     override fun onResume() {

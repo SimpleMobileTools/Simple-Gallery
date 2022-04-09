@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
@@ -198,7 +199,7 @@ class NewVideoEditActivity : SimpleActivity() {
 
     // In case the user wants to overwrite the original file and it is on an SD card, delete it manually first. Else the system just appends (1)
     private fun handleFileOverwriting(path: String, callback: () -> Unit) {
-        if (getDoesFilePathExist(path) && isPathOnSD(path)) {
+        if (!isRPlus() && getDoesFilePathExist(path) && isPathOnSD(path)) {
             val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
             tryDeleteFileDirItem(fileDirItem, false, true) { success ->
                 if (success) {

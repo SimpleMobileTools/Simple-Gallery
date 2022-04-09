@@ -112,7 +112,7 @@ class PickDirectoryDialog(
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
                 } else if (isRPlus() && path.isBasePath(activity)) {
-                    activity.toast(R.string.copy_to_restricted_folder_message)
+                    activity.toast(R.string.system_folder_restriction)
                     return@DirectoryAdapter
                 } else {
                     activity.handleLockedFolderOpening(path) { success ->
