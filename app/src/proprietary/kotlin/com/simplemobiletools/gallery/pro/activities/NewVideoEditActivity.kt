@@ -226,10 +226,12 @@ class NewVideoEditActivity : SimpleActivity() {
         VideoEditorBuilder(this)
             .setSettingsList(settingsList)
             .startActivityForResult(this, VESDK_EDIT_VIDEO)
+
+        settingsList.release()
     }
 
     private fun createVesdkSettingsList(): VideoEditorSettingsList {
-        val settingsList = VideoEditorSettingsList().apply {
+        val settingsList = VideoEditorSettingsList(false).apply {
             configure<UiConfigFilter> {
                 it.setFilterList(FilterPackBasic.getFilterPack())
             }
@@ -278,7 +280,13 @@ class NewVideoEditActivity : SimpleActivity() {
                 )
             }
 
-            getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
+            val theme = if (isUsingSystemDarkTheme()) {
+                R.style.Theme_Imgly_NoFullscreen
+            } else {
+                R.style.Theme_Imgly_Light_NoFullscreen
+            }
+
+            getSettingsModel(UiConfigTheme::class.java).theme = theme
 
             configure<VideoEditorSaveSettings> {
                 it.allowFastTrim = true

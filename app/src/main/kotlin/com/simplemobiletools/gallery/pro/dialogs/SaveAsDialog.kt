@@ -7,8 +7,8 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.R
-import java.io.File
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
+import java.io.File
 
 class SaveAsDialog(
     val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val cancelCallback: (() -> Unit)? = null,

@@ -235,10 +235,12 @@ class NewPhotoEditActivity : SimpleActivity() {
         PhotoEditorBuilder(this)
             .setSettingsList(settingsList)
             .startActivityForResult(this, PESDK_EDIT_IMAGE)
+
+        settingsList.release()
     }
 
     private fun createPesdkSettingsList(): PhotoEditorSettingsList {
-        val settingsList = PhotoEditorSettingsList().apply {
+        val settingsList = PhotoEditorSettingsList(false).apply {
             configure<UiConfigFilter> {
                 it.setFilterList(FilterPackBasic.getFilterPack())
             }
@@ -293,7 +295,13 @@ class NewPhotoEditActivity : SimpleActivity() {
                 )
             }
 
-            getSettingsModel(UiConfigTheme::class.java).theme = R.style.Imgly_Theme_NoFullscreen
+            val theme = if (isUsingSystemDarkTheme()) {
+                R.style.Theme_Imgly_NoFullscreen
+            } else {
+                R.style.Theme_Imgly_Light_NoFullscreen
+            }
+
+            getSettingsModel(UiConfigTheme::class.java).theme = theme
 
             configure<PhotoEditorSaveSettings> {
                 it.setExportFormat(ImageExportFormat.AUTO)
