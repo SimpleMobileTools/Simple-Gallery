@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
     <string name="unset_as_default_folder">برداشتن تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
     <string name="reorder_by_dragging">مرتب‌سازی مجدد شاخه‌ها با کشیدن</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
 
     <!-- Filter -->
     <string name="filter_media">پالایش رسانه</string>
