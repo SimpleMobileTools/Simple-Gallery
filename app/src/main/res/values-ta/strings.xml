@@ -23,7 +23,7 @@
     <string name="force_portrait">உருவப்படத்தை வற்புறுத்து</string>
     <string name="force_landscape">அகலவாக்கை வற்புறுத்து</string>
     <string name="use_default_orientation">இயல்புநிலை நோக்குநிலையைப் பயன்படுத்து</string>
-    <string name="fix_date_taken">தேதி எடுத்த மதிப்பைச் சரிசெய்</string>
+    <string name="fix_date_taken">எடுத்த தேதி மதிப்பைச் சரிசெய்</string>
     <string name="fixing">சரிசெய்தல்…</string>
     <string name="dates_fixed_successfully">தேதிகள் சரிசெய்தல் வெற்றி</string>
     <string name="no_date_takens_found">தேதி எடுத்த மதிப்புகள் எதுவும் கண்டுபிடிக்கப்படவில்லை</string>
@@ -39,7 +39,6 @@
     <string name="set_as_default_folder">இயல்புநிலை அடைவாக அமை</string>
     <string name="unset_as_default_folder">இயல்புநிலை அடைவாக அமைக்காதே</string>
     <string name="reorder_by_dragging">பிடித்திழுத்து அடைவுகளை மறுசீரமை</string>
-
     <!-- Filter -->
     <string name="filter_media">ஊடகத்தை வடிகட்டு</string>
     <string name="images">படங்கள்</string>

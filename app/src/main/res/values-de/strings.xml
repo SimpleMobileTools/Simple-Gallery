@@ -39,9 +39,8 @@
     <string name="set_as_default_folder">Als Standardordner festlegen</string>
     <string name="unset_as_default_folder">Nicht mehr als Standardordner festlegen</string>
     <string name="reorder_by_dragging">Neuordnung von Ordnern durch Ziehen</string>
-
     <!-- Filter -->
-    <string name="filter_media">Filter</string>
+    <string name="filter_media">Medien filtern</string>
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
