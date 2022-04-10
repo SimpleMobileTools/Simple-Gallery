@@ -7,9 +7,11 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowInsetsController
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -36,6 +38,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     var mIsVideo = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
+        if (config.isUsingSystemTheme) {
+            setTheme(R.style.AppTheme_Material)
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
         if (checkAppSideloading()) {
@@ -49,6 +55,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 toast(R.string.no_storage_permissions)
                 finish()
             }
+        }
+
+        if (isRPlus()) {
+            window.insetsController?.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
         }
     }
 
@@ -80,7 +90,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
         }
 
-        updateMenuItemColors(menu)
+        updateMenuItemColors(menu, forceWhiteIcons = true)
         return true
     }
 
@@ -189,7 +199,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         mIsVideo = type == TYPE_VIDEOS
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L, 0)
-        supportActionBar?.title = mMedium!!.name
+        supportActionBar?.title = Html.fromHtml("<font color='${Color.WHITE.toHex()}'>${mMedium!!.name}</font>")
         bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
