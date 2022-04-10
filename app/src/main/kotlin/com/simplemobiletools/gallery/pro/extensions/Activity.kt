@@ -450,7 +450,7 @@ fun AppCompatActivity.fixDateTaken(
     callback: (() -> Unit)? = null
 ) {
     val BATCH_SIZE = 50
-    if (showToasts) {
+    if (showToasts && !hasRescanned) {
         toast(R.string.fixing)
     }
 
