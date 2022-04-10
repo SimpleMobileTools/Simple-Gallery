@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdk 21
-        targetSdk 30
+        targetSdk 31
         versionCode 358
         versionName "6.22.3"
         setProperty("archivesBaseName", "gallery-$versionCode")
