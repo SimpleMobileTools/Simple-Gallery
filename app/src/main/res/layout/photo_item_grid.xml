@@ -10,7 +10,8 @@
     <com.simplemobiletools.commons.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:padding="2dp" />
 
     <TextView
         android:id="@+id/file_type"

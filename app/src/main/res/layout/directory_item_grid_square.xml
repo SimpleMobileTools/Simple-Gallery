@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:padding="1px">
+    android:padding="2dp">
 
     <com.simplemobiletools.commons.views.MySquareImageView
         android:id="@+id/dir_thumbnail"
