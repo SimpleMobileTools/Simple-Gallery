@@ -234,11 +234,19 @@ class MediaAdapter(
     }
 
     private fun renameFile() {
+        val firstPath = getFirstSelectedItemPath() ?: return
+
+        val isSDOrOtgRootFolder = activity.isAStorageRootFolder(firstPath.getParentPath()) && !firstPath.startsWith(activity.internalStoragePath)
+        if (isRPlus() && isSDOrOtgRootFolder) {
+            activity.toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
+            finishActMode()
+            return
+        }
+
         if (selectedKeys.size == 1) {
-            val oldPath = getFirstSelectedItemPath() ?: return
-            RenameItemDialog(activity, oldPath) {
+            RenameItemDialog(activity, firstPath) {
                 ensureBackgroundThread {
-                    activity.updateDBMediaPath(oldPath, it)
+                    activity.updateDBMediaPath(firstPath, it)
 
                     activity.runOnUiThread {
                         enableInstantLoad()
