@@ -84,6 +84,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
+        if (config.isUsingSystemTheme) {
+            setTheme(R.style.AppTheme_Material)
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
