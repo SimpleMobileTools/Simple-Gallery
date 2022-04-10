@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Simpelt galleri</string>
     <string name="app_launcher_name">Galleri</string>
     <string name="edit">Redigera</string>
     <string name="open_camera">Öppna kameran</string>
@@ -34,18 +34,16 @@
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtrera media</string>
     <string name="images">Bilder</string>
-    <string name="videos">Videor</string>
+    <string name="videos">Videos</string>
     <string name="gifs">GIF-bilder</string>
     <string name="raw_images">RAW-bilder</string>
     <string name="svgs">SVG-bilder</string>
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Inga mediefiler hittades med valda filter.</string>
     <string name="change_filters_underlined"><u>Ändra filter</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda objekt\'-alternativet i Inställningar. Vill du fortsätta?</string>
     <string name="exclude">Uteslut</string>
@@ -59,14 +57,12 @@
     <string name="hidden_folders">Dolda mappar</string>
     <string name="manage_hidden_folders">Hantera dolda mappar</string>
     <string name="hidden_folders_placeholder">Det verkar som att inga mappar har dolts med \".nomedia\"-filer.</string>
-
     <!-- Include folders -->
     <string name="include_folders">Inkluderade mappar</string>
     <string name="manage_included_folders">Hantera inkluderade mappar</string>
     <string name="add_folder">Lägg till mapp</string>
     <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen, kan du lägga till dem manuellt här.</string>
     <string name="no_media_add_included">Inga mediefiler hittades. Du kan lägga till de mappar som innehåller mediefiler manuellt.</string>
-
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>
     <string name="resize_and_save">Ändra storlek och spara</string>
@@ -74,7 +70,6 @@
     <string name="height">Höjd</string>
     <string name="keep_aspect_ratio">Behåll bildförhållande</string>
     <string name="invalid_values">Ange en giltig bildupplösning</string>
-
     <!-- Editor -->
     <string name="editor">Redigerare</string>
     <string name="rotate">Rotera</string>
@@ -99,22 +94,22 @@
     <string name="flip">Vänd</string>
     <string name="flip_horizontally">Vänd horisontellt</string>
     <string name="flip_vertically">Vänd vertikalt</string>
-    <string name="free_aspect_ratio">Fritt</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Annat</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Fritt</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Annat</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrund</string>
     <string name="set_as_wallpaper">Använd som bakgrund</string>
     <string name="set_as_wallpaper_failed">Det gick inte att ställa in bakgrunden</string>
     <string name="set_as_wallpaper_with">Ställ in som bakgrund med:</string>
-    <string name="setting_wallpaper">Ställer in bakgrunden&#8230;</string>
+    <string name="setting_wallpaper">Ställer in bakgrunden…</string>
     <string name="wallpaper_set_successfully">Bakgrunden har ställts in</string>
     <string name="portrait_aspect_ratio">Stående bildförhållande</string>
     <string name="landscape_aspect_ratio">Liggande bildförhållande</string>
     <string name="home_screen">Startskärm</string>
     <string name="lock_screen">Låsskärm</string>
     <string name="home_and_lock_screen">Startskärm och låsskärm</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Bildspel</string>
     <string name="interval">Intervall (sekunder):</string>
@@ -130,10 +125,8 @@
     <string name="slide">Glid</string>
     <string name="slideshow_ended">Bildspelet har avslutats</string>
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Gruppera direkta undermappar</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Gruppera efter</string>
     <string name="do_not_group_files">Gruppera inte filer</string>
@@ -148,11 +141,9 @@
     <string name="by_extension">Filnamnstillägg</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Observera att gruppering och sortering är två oberoende funktioner</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Mapp som visas i widgeten:</string>
     <string name="show_folder_name">Visa mappnamnet</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Spela upp videor automatiskt</string>
     <string name="remember_last_video_position">Kom ihåg senaste videouppspelningsposition</string>
@@ -205,18 +196,15 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniatyrer</string>
     <string name="fullscreen_media">Visning av media i helskärmsläge</string>
     <string name="extended_details">Utökad information</string>
     <string name="bottom_actions">Åtgärder längst ned på skärmen</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Hantera synliga åtgärder längst ned på skärmen</string>
     <string name="toggle_favorite">Lägg till/ta bort från favoriter</string>
     <string name="toggle_file_visibility">Visa/dölj fil</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -330,7 +318,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
@@ -346,9 +333,9 @@
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
     <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
@@ -368,7 +355,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Photo Manager &amp; Editor</string>
@@ -430,7 +416,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
