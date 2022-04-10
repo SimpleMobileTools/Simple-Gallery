@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
-import java.util.*
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -143,6 +142,8 @@ class MediaAdapter(
             findItem(R.id.cab_fix_date_taken).isVisible = !isInRecycleBin
             findItem(R.id.cab_move_to).isVisible = !isInRecycleBin
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
+            findItem(R.id.cab_edit).isVisible = isOneItemSelected
+            findItem(R.id.cab_set_as).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
             findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
@@ -476,7 +477,7 @@ class MediaAdapter(
             }
 
             val sdk30SafPath = selectedPaths.firstOrNull { activity.isAccessibleWithSAFSdk30(it) } ?: getFirstSelectedItemPath() ?: return@handleSAFDialog
-            activity.handleSAFDialogSdk30(sdk30SafPath){
+            activity.handleSAFDialogSdk30(sdk30SafPath) {
                 if (!it) {
                     return@handleSAFDialogSdk30
                 }
