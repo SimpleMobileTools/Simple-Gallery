@@ -8,11 +8,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.WindowInsetsController
 import android.widget.RelativeLayout
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.hideSystemUI
@@ -48,6 +50,10 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         }
 
         checkIntent()
+
+        if (isRPlus()) {
+            window.insetsController?.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+        }
     }
 
     override fun onResume() {
