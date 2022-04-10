@@ -1169,7 +1169,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val isSDOrOtgRootFolder = isAStorageRootFolder(oldPath.getParentPath()) && !oldPath.startsWith(internalStoragePath)
         if (isRPlus() && isSDOrOtgRootFolder) {
-            toast(R.string.rename_in_sd_card_system_restriction)
+            toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
             return
         }
 

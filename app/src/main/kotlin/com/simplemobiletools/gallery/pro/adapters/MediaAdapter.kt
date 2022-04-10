@@ -238,7 +238,7 @@ class MediaAdapter(
 
         val isSDOrOtgRootFolder = activity.isAStorageRootFolder(firstPath.getParentPath()) && !firstPath.startsWith(activity.internalStoragePath)
         if (isRPlus() && isSDOrOtgRootFolder) {
-            activity.toast(R.string.rename_in_sd_card_system_restriction)
+            activity.toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
             finishActMode()
             return
         }
