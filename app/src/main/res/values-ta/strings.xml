@@ -39,7 +39,6 @@
     <string name="set_as_default_folder">இயல்புநிலை அடைவாக அமை</string>
     <string name="unset_as_default_folder">இயல்புநிலை அடைவாக அமைக்காதே</string>
     <string name="reorder_by_dragging">பிடித்திழுத்து அடைவுகளை மறுசீரமை</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
 
     <!-- Filter -->
     <string name="filter_media">ஊடகத்தை வடிகட்டு</string>
