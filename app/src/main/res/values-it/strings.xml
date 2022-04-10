@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
     <string name="reorder_by_dragging">Riordina cartelle trascinandole</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
     <string name="images">Immagini</string>
