@@ -33,7 +33,6 @@
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
     <string name="reorder_by_dragging">Réordonner par glisser</string>
-    <string name="copy_to_restricted_folder_message">Le système ne permet pas de copier dans ce dossier.</string>
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
     <string name="images">Images</string>
