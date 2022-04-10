@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/video_time_holder"
     android:layout_width="wrap_content"
@@ -17,7 +16,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_prev_outline_vector"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/video_toggle_play_pause"
@@ -28,7 +27,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/small_margin"
         android:src="@drawable/ic_pause_outline_vector"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/video_next_file"
@@ -40,7 +39,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_next_outline_vector"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/video_curr_time"
@@ -54,8 +53,10 @@
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"
+        android:shadowColor="@color/default_background_color"
+        android:shadowRadius="2"
         android:textColor="@android:color/white"
-        tools:text="00:00"/>
+        tools:text="00:00" />
 
     <com.simplemobiletools.commons.views.MySeekBar
         android:id="@+id/video_seekbar"
@@ -65,7 +66,7 @@
         android:layout_toStartOf="@+id/video_duration"
         android:layout_toEndOf="@+id/video_curr_time"
         android:paddingTop="@dimen/activity_margin"
-        android:paddingBottom="@dimen/activity_margin"/>
+        android:paddingBottom="@dimen/activity_margin" />
 
     <TextView
         android:id="@+id/video_duration"
@@ -79,7 +80,9 @@
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"
+        android:shadowColor="@color/default_background_color"
+        android:shadowRadius="2"
         android:textColor="@android:color/white"
-        tools:text="00:00"/>
+        tools:text="00:00" />
 
 </RelativeLayout>
