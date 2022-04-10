@@ -145,7 +145,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         val primaryColor = getProperPrimaryColor()
         if (mStoredPrimaryColor != primaryColor) {
-            getMediaAdapter()?.updatePrimaryColor(primaryColor)
+            getMediaAdapter()?.updatePrimaryColor()
         }
 
         if (

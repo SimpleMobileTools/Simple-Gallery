@@ -184,7 +184,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         val primaryColor = getProperPrimaryColor()
         if (mStoredPrimaryColor != primaryColor) {
-            getRecyclerAdapter()?.updatePrimaryColor(primaryColor)
+            getRecyclerAdapter()?.updatePrimaryColor()
         }
 
         val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
