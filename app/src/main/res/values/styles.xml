@@ -3,6 +3,9 @@
     <style name="AppTheme" parent="AppTheme.Base"/>
 
     <style name="AppTheme.Material" parent="AppTheme">
+        <item name="colorPrimary">@color/you_primary_color</item>
+        <item name="colorPrimaryDark">@color/you_primary_dark_color</item>
+        <item name="colorAccent">@color/you_primary_color</item>
         <item name="actionOverflowMenuStyle">@style/TopPopupMenuYou</item>
         <item name="actionBarPopupTheme">@style/TopPopupMenuTextYou</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
