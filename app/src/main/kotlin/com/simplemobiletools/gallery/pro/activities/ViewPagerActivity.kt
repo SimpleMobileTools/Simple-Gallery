@@ -1166,6 +1166,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun renameFile() {
         val oldPath = getCurrentPath()
+
+        val isSDOrOtgRootFolder = isAStorageRootFolder(oldPath.getParentPath()) && !oldPath.startsWith(internalStoragePath)
+        if (isRPlus() && isSDOrOtgRootFolder) {
+            toast(R.string.rename_in_sd_card_system_restriction)
+            return
+        }
+
         RenameItemDialog(this, oldPath) {
             getCurrentMedia()[mPos].apply {
                 path = it

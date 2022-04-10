@@ -111,7 +111,7 @@ class PickDirectoryDialog(
                 if (path.trimEnd('/') == sourcePath) {
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
-                } else if (isRPlus() && path.isBasePath(activity)) {
+                } else if (isRPlus() && activity.isAStorageRootFolder(path)) {
                     activity.toast(R.string.copy_to_restricted_folder_message)
                     return@DirectoryAdapter
                 } else {
