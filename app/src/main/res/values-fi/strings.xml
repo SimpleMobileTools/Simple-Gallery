@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">Aseta oletushakemistoksi</string>
     <string name="unset_as_default_folder">Älä käytä oletushakemistona</string>
     <string name="reorder_by_dragging">Järjestä kansiot uudelleen vetämällä</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>

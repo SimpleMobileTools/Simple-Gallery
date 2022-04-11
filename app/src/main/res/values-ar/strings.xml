@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">تعيين كمجلد افتراضي</string>
     <string name="unset_as_default_folder">إلغاء التعيين كمجلد افتراضي</string>
     <string name="reorder_by_dragging">إعادة ترتيب المجلدات عن طريق السحب</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>

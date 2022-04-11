@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Vælg som standardmappe</string>
     <string name="unset_as_default_folder">Fravælg som standardmappe</string>
     <string name="reorder_by_dragging">Omorganiser mapper ved at trække</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer medier</string>

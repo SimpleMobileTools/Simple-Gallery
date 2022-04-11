@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
     <string name="reorder_by_dragging">Riordina cartelle trascinandole</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
     <string name="images">Immagini</string>
