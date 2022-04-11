@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Poner como carpeta predeterminada</string>
     <string name="unset_as_default_folder">Quitar como carpeta predeterminada</string>
     <string name="reorder_by_dragging">Reordenar carpetas arrastrándolas</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>

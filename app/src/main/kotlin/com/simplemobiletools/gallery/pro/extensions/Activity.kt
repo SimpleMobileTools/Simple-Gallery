@@ -341,13 +341,38 @@ fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit)
 fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
     ensureBackgroundThread {
         val newPaths = ArrayList<String>()
+        var shownRestoringToPictures = false
         for (source in paths) {
-            val destination = source.removePrefix(recycleBinPath)
+            var destination = source.removePrefix(recycleBinPath)
+
+            val destinationParent = destination.getParentPath()
+            val isAStorageRootFolder = isAStorageRootFolder(destinationParent)
+            if (isRPlus() && isAStorageRootFolder) {
+                // if the file is on the root of Internal Storage or SD Card, change it to Pictures
+                // we cannot write there on 30+
+                val picturesDirectory = getPicturesDirectoryPath(destination)
+                destination = File(picturesDirectory, destination.getFilenameFromPath()).path
+                if (!shownRestoringToPictures) {
+                    toast(getString(R.string.restore_to_path, humanizePath(picturesDirectory)))
+                    shownRestoringToPictures = true
+                }
+            }
+
             val lastModified = File(source).lastModified()
 
             val isShowingSAF = handleSAFDialog(destination) {}
             if (isShowingSAF) {
                 return@ensureBackgroundThread
+            }
+
+            val isShowingSAFSdk30 = handleSAFDialogSdk30(destination) {}
+            if (isShowingSAFSdk30) {
+                return@ensureBackgroundThread
+            }
+
+            if (getDoesFilePathExist(destination)) {
+                val newFile = getAlternativeFile(File(destination))
+                destination = newFile.path
             }
 
             var inputStream: InputStream? = null
@@ -368,7 +393,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
                 out?.flush()
 
                 if (File(source).length() == copiedSize) {
-                    mediaDB.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
+                    mediaDB.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN${source.removePrefix(recycleBinPath)}")
                 }
                 newPaths.add(destination)
 
