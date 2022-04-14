@@ -145,10 +145,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         // just request the permission, tryLoadGallery will then trigger in onResume
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handleMediaPermissions {
             if (!it) {
                 toast(R.string.no_storage_permissions)
                 finish()
+            }
+        }
+    }
+
+    private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
+        handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
+            callback(granted)
+            if (granted && isSPlus()) {
+                handlePermission(PERMISSION_MEDIA_LOCATION) {}
             }
         }
     }
@@ -435,9 +444,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         // avoid calling anything right after granting the permission, it will be called from onResume()
         val wasMissingPermission = config.appRunCount == 1 && !hasPermission(PERMISSION_WRITE_STORAGE)
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handleMediaPermissions {
             if (wasMissingPermission) {
-                return@handlePermission
+                return@handleMediaPermissions
             }
 
             if (it) {
