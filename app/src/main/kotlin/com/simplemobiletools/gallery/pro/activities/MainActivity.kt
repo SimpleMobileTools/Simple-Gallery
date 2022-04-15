@@ -156,7 +156,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
         handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
             callback(granted)
-            if (granted && isSPlus()) {
+            if (granted && isRPlus()) {
                 handlePermission(PERMISSION_MEDIA_LOCATION) {}
             }
         }
