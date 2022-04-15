@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.23.0 *(2022-04-15)*
+----------------------------
+
+ * Mark favorited file thumbnails
+ * Added an Auto and Material You theme on Android 12+
+ * Changed some file operations to comply with the latest Google permissions policy, apps like this can no longer show hidden items on Android 11+
+ * Properly delete items in the recycle bin after 30 days
+ * Added many other stability, translation, performance, UX and UI improvements
+
 Version 6.22.3 *(2021-12-19)*
 ----------------------------
 
