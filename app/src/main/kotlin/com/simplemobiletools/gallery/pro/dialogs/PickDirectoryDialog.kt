@@ -16,7 +16,12 @@ import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
 class PickDirectoryDialog(
-    val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
+    val activity: BaseSimpleActivity,
+    val sourcePath: String,
+    showOtherFolderButton: Boolean,
+    val showFavoritesBin: Boolean,
+    val isPickingCopyMoveDestination: Boolean,
+    val isPickingFolderForWidget: Boolean,
     val callback: (path: String) -> Unit
 ) {
     private var dialog: AlertDialog
@@ -81,7 +86,7 @@ class PickDirectoryDialog(
     }
 
     private fun showOtherFolder() {
-        FilePickerDialog(activity, sourcePath, false, showHidden, true, true) {
+        FilePickerDialog(activity, sourcePath, !isPickingCopyMoveDestination && !isPickingFolderForWidget, showHidden, true, true) {
             activity.handleLockedFolderOpening(it) { success ->
                 if (success) {
                     callback(it)
@@ -108,10 +113,10 @@ class PickDirectoryDialog(
             val clickedDir = it as Directory
             val path = clickedDir.path
             if (clickedDir.subfoldersCount == 1 || !activity.config.groupDirectSubfolders) {
-                if (path.trimEnd('/') == sourcePath) {
+                if (isPickingCopyMoveDestination && path.trimEnd('/') == sourcePath) {
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
-                } else if (activity.isRestrictedWithSAFSdk30(path) && !activity.isInDownloadDir(path)) {
+                } else if (isPickingCopyMoveDestination && activity.isRestrictedWithSAFSdk30(path) && !activity.isInDownloadDir(path)) {
                     activity.toast(R.string.system_folder_restriction, Toast.LENGTH_LONG)
                     return@DirectoryAdapter
                 } else {

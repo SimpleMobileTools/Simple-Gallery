@@ -152,7 +152,7 @@ class WidgetConfigureActivity : SimpleActivity() {
     }
 
     private fun changeSelectedFolder() {
-        PickDirectoryDialog(this, "", false, true) {
+        PickDirectoryDialog(this, "", false, true, false, true) {
             updateFolderImage(it)
         }
     }

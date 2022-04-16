@@ -246,7 +246,7 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     }
 
     val source = fileDirItems[0].getParentPath()
-    PickDirectoryDialog(this, source, true, false) {
+    PickDirectoryDialog(this, source, true, false, true, false) {
         val destination = it
         handleSAFDialog(source) {
             if (it) {
