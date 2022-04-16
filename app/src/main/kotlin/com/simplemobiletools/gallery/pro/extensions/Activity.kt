@@ -346,10 +346,8 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
             var destination = source.removePrefix(recycleBinPath)
 
             val destinationParent = destination.getParentPath()
-            val isAStorageRootFolder = isAStorageRootFolder(destinationParent)
-            if (isRPlus() && isAStorageRootFolder) {
-                // if the file is on the root of Internal Storage or SD Card, change it to Pictures
-                // we cannot write there on 30+
+            if (isRestrictedWithSAFSdk30(destinationParent) && !isInDownloadDir(destinationParent)) {
+                // if the file is not writeable on SDK30+, change it to Pictures
                 val picturesDirectory = getPicturesDirectoryPath(destination)
                 destination = File(picturesDirectory, destination.getFilenameFromPath()).path
                 if (!shownRestoringToPictures) {
