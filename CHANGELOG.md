@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.23.1 *(2022-04-16)*
+----------------------------
+
+ * Fixed some file operations on Android 10 and 11
+ * Restore Recycle bin files in Pictures, if the original folder is inaccessible
+
 Version 6.23.0 *(2022-04-15)*
 ----------------------------
 
