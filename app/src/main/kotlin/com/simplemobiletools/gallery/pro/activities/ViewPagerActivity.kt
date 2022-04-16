@@ -1179,7 +1179,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         RenameItemDialog(this, oldPath) {
-            getCurrentMedia()[mPos].apply {
+            getCurrentMedia().getOrNull(mPos)?.apply {
                 path = it
                 name = it.getFilenameFromPath()
             }
