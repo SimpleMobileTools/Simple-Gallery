@@ -8,7 +8,6 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
-import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
@@ -112,7 +111,7 @@ class PickDirectoryDialog(
                 if (path.trimEnd('/') == sourcePath) {
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
-                } else if (isRPlus() && activity.isAStorageRootFolder(path)) {
+                } else if (activity.isRestrictedWithSAFSdk30(path) && !activity.isInDownloadDir(path)) {
                     activity.toast(R.string.system_folder_restriction, Toast.LENGTH_LONG)
                     return@DirectoryAdapter
                 } else {
