@@ -117,7 +117,7 @@ class PickDirectoryDialog(
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
                 } else if (isPickingCopyMoveDestination && activity.isRestrictedWithSAFSdk30(path) && !activity.isInDownloadDir(path)) {
-                    activity.toast(R.string.system_folder_restriction, Toast.LENGTH_LONG)
+                    activity.toast(R.string.system_folder_copy_restriction, Toast.LENGTH_LONG)
                     return@DirectoryAdapter
                 } else {
                     activity.handleLockedFolderOpening(path) { success ->
