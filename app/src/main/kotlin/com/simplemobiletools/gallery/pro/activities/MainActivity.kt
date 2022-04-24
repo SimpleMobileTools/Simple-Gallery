@@ -64,6 +64,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mShouldStopFetching = false
     private var mIsSearchOpen = false
     private var mWasDefaultFolderChecked = false
+    private var mWasMediaManagementPromptShown = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
@@ -158,6 +159,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             callback(granted)
             if (granted && isRPlus()) {
                 handlePermission(PERMISSION_MEDIA_LOCATION) {}
+                if (!mWasMediaManagementPromptShown && (config.appRunCount == 1 || config.appRunCount % 5 == 0)) {
+                    mWasMediaManagementPromptShown = true
+                    handleMediaManagementPrompt { }
+                }
             }
         }
     }
