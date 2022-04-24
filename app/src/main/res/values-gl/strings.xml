@@ -196,6 +196,7 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>

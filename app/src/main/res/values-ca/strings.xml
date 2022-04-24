@@ -206,6 +206,7 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Cantonades arrodonides</string>
     <string name="export_favorite_paths">Exporta els camins dels fitxers preferits</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>

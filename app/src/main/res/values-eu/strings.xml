@@ -205,6 +205,7 @@
     <string name="square">Karratua</string>
     <string name="rounded_corners">Ertz biribilduak</string>
     <string name="export_favorite_paths">Esportatu gogoko fitxategi-bideak</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Iruditxoak</string>

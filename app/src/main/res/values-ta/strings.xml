@@ -206,6 +206,7 @@
     <string name="square">சதுரம்</string>
     <string name="rounded_corners">மழுங்கையான மூலைகள்</string>
     <string name="export_favorite_paths">பிடித்த கோப்பு பாதைகளை ஏற்றுமதி செய்</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <!-- Setting sections -->
     <string name="thumbnails">சிறுபடங்கள்</string>
     <string name="fullscreen_media">முழுத்திரை ஊடகம்</string>
