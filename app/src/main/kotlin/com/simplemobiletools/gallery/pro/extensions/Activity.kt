@@ -126,14 +126,14 @@ fun SimpleActivity.launchAbout() {
 }
 
 @RequiresApi(Build.VERSION_CODES.S)
-fun SimpleActivity.launchMediaManagementIntent() {
+fun AppCompatActivity.launchMediaManagementIntent() {
     Intent(Settings.ACTION_REQUEST_MANAGE_MEDIA).apply {
         data = Uri.parse("package:$packageName")
         startActivity(this)
     }
 }
 
-fun SimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
+fun AppCompatActivity.handleMediaManagementPrompt(callback: () -> Unit) {
     if (isSPlus() && !MediaStore.canManageMedia(this)) {
         ConfirmationDialog(this, "", R.string.media_management_prompt, R.string.ok, 0) {
             launchMediaManagementIntent()

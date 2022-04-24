@@ -238,7 +238,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         when (item.itemId) {
             R.id.menu_set_as -> setAs(getCurrentPath())
             R.id.menu_slideshow -> initSlideshow()
-            R.id.menu_copy_to -> copyMoveTo(true)
+            R.id.menu_copy_to -> checkMediaManagementAndCopy(true)
             R.id.menu_move_to -> moveFileTo()
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
@@ -642,7 +642,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun moveFileTo() {
         handleDeletePasswordProtection {
-            copyMoveTo(false)
+            checkMediaManagementAndCopy(false)
+        }
+    }
+
+    private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
+        handleMediaManagementPrompt {
+            copyMoveTo(isCopyOperation)
         }
     }
 
@@ -882,6 +888,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_toggle_file_visibility.setOnLongClickListener {
             toast(if (currentMedium?.isHidden() == true) R.string.unhide else R.string.hide); true
         }
+
         bottom_toggle_file_visibility.setOnClickListener {
             currentMedium?.apply {
                 toggleFileVisibility(!isHidden()) {
@@ -905,7 +912,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_copy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
         bottom_copy.setOnLongClickListener { toast(R.string.copy); true }
         bottom_copy.setOnClickListener {
-            copyMoveTo(true)
+            checkMediaManagementAndCopy(true)
         }
 
         bottom_move.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
@@ -1078,14 +1085,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (config.isDeletePasswordProtectionOn) {
-            handleDeletePasswordProtection {
+        handleMediaManagementPrompt {
+            if (config.isDeletePasswordProtectionOn) {
+                handleDeletePasswordProtection {
+                    deleteConfirmed()
+                }
+            } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
                 deleteConfirmed()
+            } else {
+                askConfirmDelete()
             }
-        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-            deleteConfirmed()
-        } else {
-            askConfirmDelete()
         }
     }
 

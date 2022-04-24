@@ -172,7 +172,7 @@ class MediaAdapter(
             R.id.cab_rotate_right -> rotateSelection(90)
             R.id.cab_rotate_left -> rotateSelection(270)
             R.id.cab_rotate_one_eighty -> rotateSelection(180)
-            R.id.cab_copy_to -> copyMoveTo(true)
+            R.id.cab_copy_to -> checkMediaManagementAndCopy(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_create_shortcut -> createShortcut()
             R.id.cab_select_all -> selectAll()
@@ -356,7 +356,13 @@ class MediaAdapter(
 
     private fun moveFilesTo() {
         activity.handleDeletePasswordProtection {
-            copyMoveTo(false)
+            checkMediaManagementAndCopy(false)
+        }
+    }
+
+    private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
+        activity.handleMediaManagementPrompt {
+            copyMoveTo(isCopyOperation)
         }
     }
 
@@ -434,14 +440,16 @@ class MediaAdapter(
     }
 
     private fun checkDeleteConfirmation() {
-        if (config.isDeletePasswordProtectionOn) {
-            activity.handleDeletePasswordProtection {
+        activity.handleMediaManagementPrompt {
+            if (config.isDeletePasswordProtectionOn) {
+                activity.handleDeletePasswordProtection {
+                    deleteFiles()
+                }
+            } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
                 deleteFiles()
+            } else {
+                askConfirmDelete()
             }
-        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-            deleteFiles()
-        } else {
-            askConfirmDelete()
         }
     }
 
