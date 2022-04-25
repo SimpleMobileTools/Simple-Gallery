@@ -301,7 +301,8 @@
         <receiver
             android:name=".helpers.MyWidgetProvider"
             android:exported="true"
-            android:icon="@drawable/img_widget_preview">
+            android:icon="@drawable/img_widget_preview"
+            android:label="@string/folder">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
