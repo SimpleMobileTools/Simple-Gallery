@@ -204,7 +204,7 @@
     <string name="bottom_actions">Åtgärder längst ned på skärmen</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Hantera synliga åtgärder längst ned på skärmen</string>
-    <string name="toggle_favorite">Lägg till/ta bort från favoriter</string>
+    <string name="toggle_favorite">Växla favorit</string>
     <string name="toggle_file_visibility">Visa/dölj fil</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
