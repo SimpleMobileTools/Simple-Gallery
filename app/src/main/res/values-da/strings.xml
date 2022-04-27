@@ -205,7 +205,7 @@
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>
