@@ -125,18 +125,11 @@ fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
 
-@RequiresApi(Build.VERSION_CODES.S)
-fun AppCompatActivity.launchMediaManagementIntent() {
-    Intent(Settings.ACTION_REQUEST_MANAGE_MEDIA).apply {
-        data = Uri.parse("package:$packageName")
-        startActivity(this)
-    }
-}
 
-fun AppCompatActivity.handleMediaManagementPrompt(callback: () -> Unit) {
+fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
     if (isSPlus() && !MediaStore.canManageMedia(this)) {
         ConfirmationDialog(this, "", R.string.media_management_prompt, R.string.ok, 0) {
-            launchMediaManagementIntent()
+            launchMediaManagementIntent(callback)
         }
     } else {
         callback()
