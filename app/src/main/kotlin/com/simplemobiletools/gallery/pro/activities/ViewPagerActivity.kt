@@ -1122,9 +1122,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
-            handleSAFDialogSdk30(fileDirItem.path) {
+            checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
                 if (!it) {
-                    return@handleSAFDialogSdk30
+                    return@checkManageMediaOrHandleSAFDialogSdk30
                 }
 
                 mIgnoredPaths.add(fileDirItem.path)
@@ -1150,9 +1150,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun handleDeletion(fileDirItem: FileDirItem) {
-        handleSAFDialogSdk30(fileDirItem.path) {
+        checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
             if (!it) {
-                return@handleSAFDialogSdk30
+                return@checkManageMediaOrHandleSAFDialogSdk30
             }
 
             mIgnoredPaths.add(fileDirItem.path)
