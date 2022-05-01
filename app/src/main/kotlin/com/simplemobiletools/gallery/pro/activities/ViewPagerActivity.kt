@@ -245,7 +245,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share -> shareMediumPath(getCurrentPath())
             R.id.menu_delete -> checkDeleteConfirmation()
-            R.id.menu_rename -> renameFile()
+            R.id.menu_rename -> checkMediaManagementAndRename()
             R.id.menu_print -> printFile()
             R.id.menu_edit -> openEditor(getCurrentPath())
             R.id.menu_properties -> showProperties()
@@ -900,7 +900,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && currentMedium?.getIsInRecycleBin() == false)
         bottom_rename.setOnLongClickListener { toast(R.string.rename); true }
         bottom_rename.setOnClickListener {
-            renameFile()
+            checkMediaManagementAndRename()
         }
 
         bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
@@ -1122,9 +1122,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
-            handleSAFDialogSdk30(fileDirItem.path) {
+            checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
                 if (!it) {
-                    return@handleSAFDialogSdk30
+                    return@checkManageMediaOrHandleSAFDialogSdk30
                 }
 
                 mIgnoredPaths.add(fileDirItem.path)
@@ -1150,9 +1150,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun handleDeletion(fileDirItem: FileDirItem) {
-        handleSAFDialogSdk30(fileDirItem.path) {
+        checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
             if (!it) {
-                return@handleSAFDialogSdk30
+                return@checkManageMediaOrHandleSAFDialogSdk30
             }
 
             mIgnoredPaths.add(fileDirItem.path)
@@ -1175,6 +1175,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             true
         } else {
             false
+        }
+    }
+
+    private fun checkMediaManagementAndRename() {
+        handleMediaManagementPrompt {
+            renameFile()
         }
     }
 

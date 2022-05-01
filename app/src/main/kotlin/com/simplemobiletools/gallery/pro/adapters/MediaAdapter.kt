@@ -161,7 +161,7 @@ class MediaAdapter(
         when (id) {
             R.id.cab_confirm_selection -> confirmSelection()
             R.id.cab_properties -> showProperties()
-            R.id.cab_rename -> renameFile()
+            R.id.cab_rename -> checkMediaManagementAndRename()
             R.id.cab_edit -> editFile()
             R.id.cab_hide -> toggleFileVisibility(true)
             R.id.cab_unhide -> toggleFileVisibility(false)
@@ -231,6 +231,12 @@ class MediaAdapter(
         } else {
             val paths = getSelectedPaths()
             PropertiesDialog(activity, paths, config.shouldShowHidden)
+        }
+    }
+
+    private fun checkMediaManagementAndRename() {
+        activity.handleMediaManagementPrompt {
+            renameFile()
         }
     }
 
@@ -485,9 +491,9 @@ class MediaAdapter(
             }
 
             val sdk30SafPath = selectedPaths.firstOrNull { activity.isAccessibleWithSAFSdk30(it) } ?: getFirstSelectedItemPath() ?: return@handleSAFDialog
-            activity.handleSAFDialogSdk30(sdk30SafPath) {
+            activity.checkManageMediaOrHandleSAFDialogSdk30(sdk30SafPath) {
                 if (!it) {
-                    return@handleSAFDialogSdk30
+                    return@checkManageMediaOrHandleSAFDialogSdk30
                 }
 
                 val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
