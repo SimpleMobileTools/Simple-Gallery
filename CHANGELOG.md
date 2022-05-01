@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.23.2 *(2022-05-01)*
+----------------------------
+
+ * Simplify some file operations on Android 12+, if the gallery is set as a Media Management app
+ * Added .avif support on Android 12
+ * Allow setting both landscape and portrait wallpapers
+ * Added some translation, stability and UX improvements
+
 Version 6.23.1 *(2022-04-16)*
 ----------------------------
 
