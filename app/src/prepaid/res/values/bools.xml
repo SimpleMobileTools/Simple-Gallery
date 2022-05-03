@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="show_donate_in_about">false</bool>
+    <bool name="hide_google_relations">true</bool>
+    <bool name="hide_all_external_links">true</bool>
+</resources>

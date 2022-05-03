@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.23.3 *(2022-05-03)*
+----------------------------
+
+ * Show proper Last Modified value after file moving
+ * Fix some wallpaper setting related glitches
+ * Make sure Fix Date Taken values works on Android 11+
+ * Added some stability and translation improvements
+
 Version 6.23.2 *(2022-05-01)*
 ----------------------------
 
