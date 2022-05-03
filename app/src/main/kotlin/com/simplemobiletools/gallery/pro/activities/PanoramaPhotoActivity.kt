@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.widget.RelativeLayout
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
