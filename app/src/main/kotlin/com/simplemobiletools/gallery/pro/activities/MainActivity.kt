@@ -906,14 +906,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val dateTakens = mLastMediaFetcher!!.getDateTakens()
 
         if (config.showRecycleBinAtFolders && !config.showRecycleBinLast && !dirs.map { it.path }.contains(RECYCLE_BIN)) {
-            if (mediaDB.getDeletedMediaCount() > 0) {
-                val recycleBin = Directory().apply {
-                    path = RECYCLE_BIN
-                    name = getString(R.string.recycle_bin)
-                    location = LOCATION_INTERNAL
-                }
+            try {
+                if (mediaDB.getDeletedMediaCount() > 0) {
+                    val recycleBin = Directory().apply {
+                        path = RECYCLE_BIN
+                        name = getString(R.string.recycle_bin)
+                        location = LOCATION_INTERNAL
+                    }
 
-                dirs.add(0, recycleBin)
+                    dirs.add(0, recycleBin)
+                }
+            } catch (ignored: Exception) {
             }
         }
 
