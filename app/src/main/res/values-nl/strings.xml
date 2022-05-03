@@ -203,6 +203,7 @@
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
     <string name="media_management_prompt">Maak van deze app in de systeeminstellingen een mediabeheer-app om er zeker van te zijn dat alle bestandsoperaties betrouwbaar werken.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>

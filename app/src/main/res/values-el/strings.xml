@@ -206,6 +206,7 @@
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
     <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

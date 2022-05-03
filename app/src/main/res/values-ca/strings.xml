@@ -207,6 +207,7 @@
     <string name="rounded_corners">Cantonades arrodonides</string>
     <string name="export_favorite_paths">Exporta els camins dels fitxers preferits</string>
     <string name="media_management_prompt">Per assegurar que totes les operacions de fitxers funcionin de manera fiable, feu que aquesta aplicació sigui una aplicació de gestió multimedia a la configuració del dispositiu.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>

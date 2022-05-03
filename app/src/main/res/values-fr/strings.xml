@@ -198,6 +198,7 @@
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les emplacements favoris</string>
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>

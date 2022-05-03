@@ -206,6 +206,7 @@
     <string name="rounded_corners">Zaoblené rohy</string>
     <string name="export_favorite_paths">Exportovať cesty obľúbených položiek</string>
     <string name="media_management_prompt">Aby súborové operácie fungovali správne, prosím povoľte túto apku ako Správca médií v nastaveniach zariadenia.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

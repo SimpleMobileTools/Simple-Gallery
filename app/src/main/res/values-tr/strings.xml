@@ -205,6 +205,7 @@
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
     <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
     <string name="media_management_prompt">Tüm dosya işlemlerinin güvenilir bir şekilde çalıştığından emin olmak için lütfen bu uygulamayı aygıt ayarlarınızda bir medya yönetimi uygulaması yapın.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>

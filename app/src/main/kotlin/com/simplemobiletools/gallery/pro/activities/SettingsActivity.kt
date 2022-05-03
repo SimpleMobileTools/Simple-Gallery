@@ -52,6 +52,7 @@ class SettingsActivity : SimpleActivity() {
         setupLoopVideos()
         setupOpenVideosOnSeparateScreen()
         setupMaxBrightness()
+        setupKeepDisplayOn()
         setupCropThumbnails()
         setupDarkBackground()
         setupScrollHorizontally()

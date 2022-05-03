@@ -218,6 +218,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             attributes.screenBrightness = 1f
             window.attributes = attributes
         }
+        if (config.keepDisplayOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0

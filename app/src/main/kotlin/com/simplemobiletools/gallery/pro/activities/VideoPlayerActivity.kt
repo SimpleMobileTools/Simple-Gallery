@@ -80,6 +80,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             attributes.screenBrightness = 1f
             window.attributes = attributes
         }
+        if (config.keepDisplayOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         updateTextColors(video_player_holder)
     }

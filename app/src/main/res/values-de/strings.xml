@@ -207,6 +207,7 @@
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
     <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollten Sie diese App in den Einstellungen Ihres Geräts als Medienverwaltungs-App festlegen.</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
