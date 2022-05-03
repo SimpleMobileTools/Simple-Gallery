@@ -34,6 +34,7 @@
     <string name="unset_as_default_folder">取消設為預設資料夾</string>
     <string name="reorder_by_dragging">透過拖曳來重新排序資料夾</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="replace_original_file">Replace Original File</string>
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
     <string name="images">圖片</string>

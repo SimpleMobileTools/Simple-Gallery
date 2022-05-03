@@ -40,6 +40,7 @@
     <string name="unset_as_default_folder">Anuluj ustawienie folderu domyślnego</string>
     <string name="reorder_by_dragging">Przeorganizuj foldery przeciągając</string>
     <string name="restore_to_path">Przywracanie do „%s”</string>
+    <string name="replace_original_file">Replace Original File</string>
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
     <string name="images">Obrazy</string>

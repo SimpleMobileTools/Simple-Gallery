@@ -34,6 +34,7 @@
     <string name="unset_as_default_folder">Ikke lenger sett som standardmappe</string>
     <string name="reorder_by_dragging">Endre mapperekkefølge ved å dra</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="replace_original_file">Replace Original File</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
