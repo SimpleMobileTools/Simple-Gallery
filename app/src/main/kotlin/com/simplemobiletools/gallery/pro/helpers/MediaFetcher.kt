@@ -46,7 +46,7 @@ class MediaFetcher(val context: Context) {
                 if (android11Files?.containsKey(curPath.toLowerCase()) == true) {
                     curMedia.addAll(android11Files[curPath.toLowerCase()]!!)
                 } else if (android11Files == null) {
-                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, false)
+                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, false, getProperDateTaken, dateTakens)
                     if (files.containsKey(curPath.toLowerCase())) {
                         curMedia.addAll(files[curPath.toLowerCase()]!!)
                     }
@@ -60,7 +60,8 @@ class MediaFetcher(val context: Context) {
                 )
 
                 if (curPath == FAVORITES && isRPlus()) {
-                    val files = getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, true)
+                    val files =
+                        getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, true, getProperDateTaken, dateTakens.clone() as HashMap<String, Long>)
                     newMedia.forEach { newMedium ->
                         for ((folder, media) in files) {
                             media.forEach { medium ->
@@ -423,7 +424,9 @@ class MediaFetcher(val context: Context) {
         isPickImage: Boolean,
         isPickVideo: Boolean,
         favoritePaths: ArrayList<String>,
-        getFavoritePathsOnly: Boolean
+        getFavoritePathsOnly: Boolean,
+        getProperDateTaken: Boolean,
+        dateTakens: HashMap<String, Long>
     ): HashMap<String, ArrayList<Medium>> {
         val media = HashMap<String, ArrayList<Medium>>()
         if (!isRPlus()) {
@@ -458,11 +461,6 @@ class MediaFetcher(val context: Context) {
                     return@queryCursor
                 }
 
-                val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
-                var dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
-                val size = cursor.getLongValue(Images.Media.SIZE)
-                val videoDuration = Math.round(cursor.getIntValue(MediaStore.MediaColumns.DURATION) / 1000.toDouble()).toInt()
-
                 val isPortrait = false
                 val isImage = path.isImageFast()
                 val isVideo = if (isImage) false else path.isVideoFast()
@@ -492,6 +490,7 @@ class MediaFetcher(val context: Context) {
                 if (!showHidden && filename.startsWith('.'))
                     return@queryCursor
 
+                val size = cursor.getLongValue(Images.Media.SIZE)
                 if (size <= 0L) {
                     return@queryCursor
                 }
@@ -505,10 +504,18 @@ class MediaFetcher(val context: Context) {
                     else -> TYPE_IMAGES
                 }
 
+                val lastModified = cursor.getLongValue(Images.Media.DATE_MODIFIED) * 1000
+                var dateTaken = cursor.getLongValue(Images.Media.DATE_TAKEN)
+
+                if (getProperDateTaken) {
+                    dateTaken = dateTakens.remove(path) ?: lastModified
+                }
+
                 if (dateTaken == 0L) {
                     dateTaken = lastModified
                 }
 
+                val videoDuration = Math.round(cursor.getIntValue(MediaStore.MediaColumns.DURATION) / 1000.toDouble()).toInt()
                 val isFavorite = favoritePaths.contains(path)
                 val medium =
                     Medium(null, filename, path, path.getParentPath(), lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L, mediaStoreId)
