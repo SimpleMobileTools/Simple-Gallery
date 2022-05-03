@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.simplemobiletools.gallery.pro"
     android:installLocation="auto">
@@ -11,129 +10,142 @@
         android:maxSdkVersion="40"
         tools:replace="android:maxSdkVersion" />
 
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission
+        android:name="android.permission.MANAGE_MEDIA"
+        tools:ignore="ProtectedPermissions" />
+
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"
-        tools:node="remove"/>
+        tools:node="remove" />
     <uses-permission
         android:name="android.permission.CAMERA"
-        tools:node="remove"/>
+        tools:node="remove" />
 
-    <uses-sdk
-        tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano"/>
+    <uses-sdk tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano" />
 
     <uses-feature
         android:name="android.hardware.faketouch"
-        android:required="false"/>
+        android:required="false" />
 
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:appCategory="image"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_launcher_name"
-        android:roundIcon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
 
         <activity
             android:name=".activities.SplashActivity"
-            android:theme="@style/SplashTheme"/>
+            android:exported="false"
+            android:theme="@style/SplashTheme" />
 
         <activity
             android:name=".activities.MainActivity"
+            android:exported="true"
             android:resizeableActivity="true">
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:resource="@xml/searchable"/>
+                android:resource="@xml/searchable" />
 
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
             <intent-filter>
-                <action android:name="android.intent.action.PICK"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
-                <data android:mimeType="video/*"/>
-                <data android:mimeType="vnd.android.cursor.dir/image"/>
-                <data android:mimeType="vnd.android.cursor.dir/video"/>
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="vnd.android.cursor.dir/image" />
+                <data android:mimeType="vnd.android.cursor.dir/video" />
             </intent-filter>
 
             <intent-filter>
-                <action android:name="android.intent.action.GET_CONTENT"/>
+                <action android:name="android.intent.action.GET_CONTENT" />
 
-                <category android:name="android.intent.category.OPENABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
-                <data android:mimeType="video/*"/>
-                <data android:mimeType="vnd.android.cursor.dir/image"/>
-                <data android:mimeType="vnd.android.cursor.dir/video"/>
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="vnd.android.cursor.dir/image" />
+                <data android:mimeType="vnd.android.cursor.dir/video" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.MediaActivity"
+            android:exported="false"
             android:parentActivityName=".activities.MainActivity">
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:resource="@xml/searchable"/>
+                android:resource="@xml/searchable" />
 
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
 
         </activity>
 
         <activity
             android:name=".activities.SearchActivity"
+            android:exported="false"
             android:label="@string/search"
             android:parentActivityName=".activities.MainActivity"
             android:resizeableActivity="true">
 
             <meta-data
                 android:name="android.app.default_searchable"
-                android:resource="@xml/searchable"/>
+                android:resource="@xml/searchable" />
 
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH"/>
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.ViewPagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
             android:parentActivityName=".activities.MediaActivity">
 
             <intent-filter>
-                <action android:name="com.android.camera.action.REVIEW"/>
+                <action android:name="com.android.camera.action.REVIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
-                <data android:mimeType="video/*"/>
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
             </intent-filter>
         </activity>
 
         <activity
             android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:exported="false"
             android:label="@string/about"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:exported="false"
             android:label="@string/customize_colors"
-            android:parentActivityName=".activities.SettingsActivity"/>
+            android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.SettingsActivity"
+            android:exported="true"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity">
 
@@ -145,115 +157,126 @@
 
         <activity
             android:name=".activities.PhotoVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false" />
 
         <activity
             android:name=".activities.VideoPlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:parentActivityName=".activities.MediaActivity"/>
+            android:exported="false"
+            android:parentActivityName=".activities.MediaActivity" />
 
         <activity
             android:name=".activities.PanoramaPhotoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullScreenTheme"/>
+            android:exported="false"
+            android:theme="@style/FullScreenTheme" />
 
         <activity
             android:name=".activities.PanoramaVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullScreenTheme"/>
+            android:exported="false"
+            android:theme="@style/FullScreenTheme" />
 
         <activity
             android:name=".activities.IncludedFoldersActivity"
+            android:exported="false"
             android:label="@string/include_folders"
-            android:parentActivityName=".activities.SettingsActivity"/>
+            android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ExcludedFoldersActivity"
+            android:exported="false"
             android:label="@string/excluded_folders"
-            android:parentActivityName=".activities.SettingsActivity"/>
+            android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.HiddenFoldersActivity"
+            android:exported="false"
             android:label="@string/hidden_folders"
-            android:parentActivityName=".activities.SettingsActivity"/>
+            android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.PhotoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
+                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.VideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="video/*"/>
+                <data android:mimeType="video/*" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.EditActivity"
+            android:exported="true"
             android:label="@string/editor">
 
-            <intent-filter
-                android:name="foss-editor">
+            <intent-filter android:name="foss-editor">
 
-                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
+                <data android:mimeType="image/*" />
             </intent-filter>
 
             <intent-filter>
-                <action android:name="com.android.camera.action.CROP"/>
+                <action android:name="com.android.camera.action.CROP" />
 
-                <data android:scheme="content"/>
-                <data android:scheme="file"/>
-                <data android:mimeType="image/*"/>
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="image/*" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.ALTERNATIVE"/>
-                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.SetWallpaperActivity"
+            android:exported="true"
             android:label="@string/simple_wallpaper">
             <intent-filter>
-                <action android:name="android.intent.action.ATTACH_DATA"/>
+                <action android:name="android.intent.action.ATTACH_DATA" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="image/*"/>
+                <data android:mimeType="image/*" />
             </intent-filter>
 
             <intent-filter>
-                <action android:name="android.intent.action.SET_WALLPAPER"/>
+                <action android:name="android.intent.action.SET_WALLPAPER" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
             android:name=".activities.WidgetConfigureActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/MyWidgetConfigTheme">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
 
@@ -264,286 +287,308 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
         <receiver
             android:name=".receivers.RefreshMediaReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.simplemobiletools.REFRESH_MEDIA"/>
+                <action android:name="com.simplemobiletools.REFRESH_MEDIA" />
             </intent-filter>
         </receiver>
 
         <receiver
             android:name=".helpers.MyWidgetProvider"
-            android:icon="@drawable/img_widget_preview">
+            android:exported="true"
+            android:icon="@drawable/img_widget_preview"
+            android:label="@string/folder">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_info"/>
+                android:resource="@xml/widget_info" />
         </receiver>
 
-        <receiver android:name=".receivers.BootCompletedReceiver"
-            android:exported="true"
-            android:enabled="true">
+        <receiver
+            android:name=".receivers.BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
 
         <service
             android:name=".jobs.NewPhotoFetcher"
             android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity-alias
             android:name=".activities.SplashActivity.Red"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_red"
             android:roundIcon="@mipmap/ic_launcher_red"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Pink"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_pink"
             android:roundIcon="@mipmap/ic_launcher_pink"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Purple"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_purple"
             android:roundIcon="@mipmap/ic_launcher_purple"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Deep_purple"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_deep_purple"
             android:roundIcon="@mipmap/ic_launcher_deep_purple"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Indigo"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_indigo"
             android:roundIcon="@mipmap/ic_launcher_indigo"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Blue"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_blue"
             android:roundIcon="@mipmap/ic_launcher_blue"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Light_blue"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_light_blue"
             android:roundIcon="@mipmap/ic_launcher_light_blue"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Cyan"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_cyan"
             android:roundIcon="@mipmap/ic_launcher_cyan"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Teal"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_teal"
             android:roundIcon="@mipmap/ic_launcher_teal"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Green"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_green"
             android:roundIcon="@mipmap/ic_launcher_green"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Light_green"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_light_green"
             android:roundIcon="@mipmap/ic_launcher_light_green"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Lime"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_lime"
             android:roundIcon="@mipmap/ic_launcher_lime"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Yellow"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_yellow"
             android:roundIcon="@mipmap/ic_launcher_yellow"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Amber"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_amber"
             android:roundIcon="@mipmap/ic_launcher_amber"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Orange"
             android:enabled="true"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:roundIcon="@mipmap/ic_launcher"
             android:targetActivity=".activities.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Deep_orange"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_deep_orange"
             android:roundIcon="@mipmap/ic_launcher_deep_orange"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Brown"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_brown"
             android:roundIcon="@mipmap/ic_launcher_brown"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Blue_grey"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_blue_grey"
             android:roundIcon="@mipmap/ic_launcher_blue_grey"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
         <activity-alias
             android:name=".activities.SplashActivity.Grey_black"
             android:enabled="false"
+            android:exported="true"
             android:icon="@mipmap/ic_launcher_grey_black"
             android:roundIcon="@mipmap/ic_launcher_grey_black"
             android:targetActivity=".activities.SplashActivity">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
     </application>

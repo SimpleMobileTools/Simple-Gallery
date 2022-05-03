@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galerie</string>
-    <string name="edit">Editează</string>
+    <string name="edit">Editaţi</string>
     <string name="open_camera">Deschide camera</string>
     <string name="hidden">(ascuns)</string>
     <string name="excluded">(exclus)</string>
@@ -33,8 +33,7 @@
     <string name="set_as_default_folder">Setază ca dosar implicit</string>
     <string name="unset_as_default_folder">Dezactivează ca dosar implicit</string>
     <string name="reorder_by_dragging">Reordonează dosarele prin tragere</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
-
+    <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtrează elementele media</string>
     <string name="images">Imagini</string>
@@ -45,7 +44,6 @@
     <string name="portraits">Portrete</string>
     <string name="no_media_with_filters">Nu a fost găsit niciun fișier media cu filtrele selectate.</string>
     <string name="change_filters_underlined"><u>Schimbă filtrele</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Această funcție ascunde dosarul prin adăugarea unui fișier \'.nomedia\' în el, ascunzând și toate subdosarele. Le poţi vedea prin activarea opțiunii \'Afișați elementele ascunse\' din Setări. Continuați?</string>
     <string name="exclude">Exclude</string>
@@ -59,14 +57,12 @@
     <string name="hidden_folders">Dosare ascunse</string>
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Dosare incluse</string>
     <string name="manage_included_folders">Gestionează dosarele incluse</string>
     <string name="add_folder">Adăugă un dosar</string>
     <string name="included_activity_placeholder">Dacă ai unele dosare care conțin conținut media, dar care nu au fost recunoscute de aplicație, le poţi adăuga manual aici.\n\nAdăugarea unor elemente aici nu va exclude niciun alt dosar.</string>
     <string name="no_media_add_included">Nu a fost găsit niciun fișier media. Poţi rezolva această problemă adăugând manual dosarele care conțin fișiere media.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionați</string>
     <string name="resize_and_save">Redimensionează selecția și salvează</string>
@@ -74,7 +70,6 @@
     <string name="height">Înălțime</string>
     <string name="keep_aspect_ratio">Păstrează raportul de aspect</string>
     <string name="invalid_values">Vă rugăm să introduceți o rezoluție validă</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotire</string>
@@ -99,22 +94,22 @@
     <string name="flip">Flip</string>
     <string name="flip_horizontally">Flip orizontal</string>
     <string name="flip_vertically">Flip vertical</string>
-    <string name="free_aspect_ratio">Liber</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Altele</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Liber</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Altele</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Imagine de fundal simplă</string>
     <string name="set_as_wallpaper">Setează ca imagine de fundal</string>
     <string name="set_as_wallpaper_failed">Setarea ca imagine de fundal a eşuat</string>
     <string name="set_as_wallpaper_with">Setează ca imagine de fundal cu:</string>
-    <string name="setting_wallpaper">Setarea imaginii de fundal&#8230;</string>
+    <string name="setting_wallpaper">Setarea imaginii de fundal…</string>
     <string name="wallpaper_set_successfully">Imagine de fundal setată cu succes</string>
     <string name="portrait_aspect_ratio">Raport de aspect portret</string>
     <string name="landscape_aspect_ratio">Raport de aspect peisaj</string>
     <string name="home_screen">Ecranul de pornire</string>
     <string name="lock_screen">Ecranul de blocare</string>
     <string name="home_and_lock_screen">Ecranul de pornire și de blocare</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (în secunde):</string>
@@ -130,10 +125,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Slideshow-ul s-a încheiat</string>
     <string name="no_media_for_slideshow">Nu a fost găsit niciun media pentru slideshow</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Grupează subdosarele directe</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupează după</string>
     <string name="do_not_group_files">Nu grupați fișierele</string>
@@ -146,13 +139,11 @@
     <string name="by_date_taken_monthly">Data realizării (lunar)</string>
     <string name="by_file_type">Tipul de fișier</string>
     <string name="by_extension">Extensie</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Afișați numărul de fișiere la capetele de secțiune</string>
     <string name="grouping_and_sorting">Vă rugăm să rețineți că gruparea și sortarea sunt două câmpuri independente.</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Dosar afișat pe widget:</string>
     <string name="show_folder_name">Afișează numele dosarului</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Redă videoclipurile automat</string>
     <string name="remember_last_video_position">Reține ultima poziție de redare video</string>
@@ -173,7 +164,7 @@
     <string name="allow_video_gestures">Permite controlul volumului video și al luminozității cu ajutorul gesturilor verticale</string>
     <string name="show_media_count">Afișează numărul de elemente media al dosarelor în vizualizarea principală</string>
     <string name="show_extended_details">Afișați detalii extinse peste elementele mediile pe ecran complet</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="manage_extended_details">Gestionați detaliile extinse</string>
     <string name="one_finger_zoom">Permite zoom-ul cu un singur deget la media pe ecran complet</string>
     <string name="allow_instant_change">Permite schimbarea instantanee a suportului media prin apăsarea pe părțile laterale ale ecranului</string>
     <string name="allow_deep_zooming_images">Permite mărirea profundă a imaginilor</string>
@@ -205,19 +196,17 @@
     <string name="square">Pătrat</string>
     <string name="rounded_corners">Colțuri rotunjite</string>
     <string name="export_favorite_paths">Exportă căile de acces ale fișierelor favorite</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturi</string>
     <string name="fullscreen_media">Elemente media pe ecran complet</string>
     <string name="extended_details">Detalii extinse</string>
     <string name="bottom_actions">Acţiunile disponibile în partea de jos a ecranului</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gestionează acțiunile vizibile în partea de jos a ecranului</string>
-    <string name="toggle_favorite">Schimbă favoritele</string>
+    <string name="toggle_favorite">Comutați favoritele</string>
     <string name="toggle_file_visibility">Schimbă vizibilitatea fișierului</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalizat</string>
     <string name="pesdk_transform_button_resetCrop">Resetare</string>
@@ -331,7 +320,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Culoare pipetabilă</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Cum pot face ca Simple Gallery să fie galeria implicită a dispozitivului?</string>
     <string name="faq_1_text">Mai întâi trebuie să găsiți galeria implicită curentă în secțiunea Aplicații din setările dispozitivului, căutați un buton pe care scrie ceva de genul a \"Setare ca implicită\", apăsaţi pe acesta, apoi selectați \"Ştergeţi valorile implicite\".
@@ -347,9 +335,9 @@
     <string name="faq_6_title">De ce apar dosarele cu coperte de muzică sau autocolante?</string>
     <string name="faq_6_text">Se poate întâmpla să apară albume neobișnuite. Le puteți exclude cu ușurință apăsând lung pe ele și selectând Excludere. În următoarea fereastră de dialog, puteți selecta dosarul părinte, ceea ce va împiedica apariția celorlalte albume aferente.</string>
     <string name="faq_7_title">Un dosar cu imagini nu apare sau nu afișează toate elementele. Ce pot să fac?</string>
-    <string name="faq_7_text">Această problemă poate avea mai multe motive, dar rezolvarea ei este ușoară. Trebuie doar să accesați Setări -> Gestionați dosarele incluse, selectați Plus și navigați până la dosarul necesar.</string>
+    <string name="faq_7_text">Această problemă poate avea mai multe motive, dar rezolvarea ei este ușoară. Trebuie doar să accesați Setări -&gt; Gestionați dosarele incluse, selectați Plus și navigați până la dosarul necesar.</string>
     <string name="faq_8_title">Ce se întâmplă dacă vreau ca doar câteva dosare anume să fie vizibile?</string>
-    <string name="faq_8_text">Adăugarea unui dosar la Dosarele incluse nu exclude automat nimic. Ceea ce puteți face este să accesați Setări -> Gestionați dosarele excluse, să excludeți dosarul rădăcină \"/\", apoi să adăugați dosarele dorite la Setări -> Gestionați dosarele incluse.
+    <string name="faq_8_text">Adăugarea unui dosar la Dosarele incluse nu exclude automat nimic. Ceea ce puteți face este să accesați Setări -&gt; Gestionați dosarele excluse, să excludeți dosarul rădăcină \"/\", apoi să adăugați dosarele dorite la Setări -&gt; Gestionați dosarele incluse.
         Astfel, vor fi vizibile numai dosarele selectate, deoarece atât excluderea, cât și includerea sunt recursive, iar dacă un dosar este atât exclus, cât și inclus, va fi afișat.</string>
     <string name="faq_10_title">Pot să decupez imagini cu această aplicație?</string>
     <string name="faq_10_text">Da, puteți decupa imaginile în editor, trăgând colțurile imaginii. Puteți ajunge la editor fie prin apăsarea lungă a unei miniaturi de imagine și selectarea opţiunii Editare, fie prin selectarea opţiunii Editare din vizualizarea pe ecran complet.</string>
@@ -363,13 +351,12 @@
     <string name="faq_14_text">Puteți fie să apăsați elementul de meniu \"Afișaţi temporar elementele ascunse\" din ecranul principal, fie să comutați \"Afișaţi elementele ascunse\" din setările aplicației pentru a vedea elementul ascuns. Dacă doriți să îl dezascundeți, trebuie doar să apăsați lung pe el și să selectați \"Dezvăluiți\". Dosarele sunt ascunse prin adăugarea unui fișier ascuns \".nomedia\" în ele, puteți șterge fișierul și cu orice manager de fișiere. Rețineți că ascunderea funcționează totuși recursiv, astfel încât, dacă ascundeți un dosar, toate subdosarele vor fi și ele ascunse. Așadar, pentru a dezascunde subdosarele, trebuie să dezascundeți și dosarul părinte.</string>
     <string name="faq_15_title">De ce ocupă aplicația atât de mult spațiu?</string>
     <string name="faq_15_text">Memoria cache a aplicației poate ocupa până la 250 MB, asigurând o încărcare mai rapidă a imaginilor. Dacă aplicația ocupă și mai mult spațiu, cel mai probabil este cauzată de faptul că aveți elemente în coșul de reciclare. Acele fișiere contează la dimensiunea aplicației. Puteți goli coșul de reciclare deschizându-l și ștergând toate fișierele sau din setările aplicației. Fiecare fișier din coșul de gunoi este șters automat după 30 de zile.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
+    <string name="faq_16_title">Ce s-a întâmplat cu ascunderea fișierelor și a dosarelor și de ce nu mai pot vedea elementele ascunse\?</string>
+    <string name="faq_16_text">Începând cu Android 11, nu mai puteți ascunde sau dezascunde fișiere sau dosarele, nu le puteți vedea pe cele ascunse nici în aplicațiile din galerie. Va trebui să folosiți un manager de fișiere pentru asta.</string>
+    <string name="faq_17_title">De ce nu mai pot include dosarele lipsă\?</string>
+    <string name="faq_17_text">Aceasta a încetat să mai funcționeze din cauza schimbărilor de sistem care au venit odată cu Android 11. Aplicația nu mai poate răsfoi dosare reale, ci se bazează pe așa-numitul MediaStore pentru a prelua informaţiile.</string>
+    <string name="faq_18_title">De ce văd reclame în timpul redării video\?</string>
+    <string name="faq_18_text">Aplicațiile noastre nu au niciun fel de reclame. Dacă le vedeți în timpul redării video, înseamnă că utilizați un alt player video. Încercați să găsiți playerul video implicit în setările dispozitivului, apoi efectuați o operațiune de \"Curăţare a valorilor implicite\" pentru acesta. Data viitoare când veți apela la o intenție video, veți vedea o fereastră de selectare a aplicației, unde puteți selecta aplicația pe care doriți să o utilizați.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Manager de fotografii</string>
@@ -431,7 +418,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

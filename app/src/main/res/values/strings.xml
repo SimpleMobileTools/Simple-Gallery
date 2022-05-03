@@ -33,7 +33,7 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>

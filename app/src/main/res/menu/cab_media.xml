@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AppCompatResource">
     <item
         android:id="@+id/cab_confirm_selection"
         android:icon="@drawable/ic_check_vector"
@@ -55,22 +57,27 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_copy_to"
+        android:showAsAction="never"
         android:title="@string/copy_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_move_to"
+        android:showAsAction="never"
         android:title="@string/move_to"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_create_shortcut"
+        android:showAsAction="never"
         android:title="@string/create_shortcut"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_open_with"
+        android:showAsAction="never"
         android:title="@string/open_with"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_set_as"
+        android:showAsAction="never"
         android:title="@string/set_as"
         app:showAsAction="never" />
     <item
@@ -90,10 +97,12 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_restore_recycle_bin_files"
+        android:showAsAction="never"
         android:title="@string/restore_selected_files"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_fix_date_taken"
+        android:showAsAction="never"
         android:title="@string/fix_date_taken"
         app:showAsAction="never" />
     <item

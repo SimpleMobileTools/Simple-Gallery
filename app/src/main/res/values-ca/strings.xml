@@ -39,7 +39,7 @@
     <string name="set_as_default_folder">Estableix com a carpeta predeterminada</string>
     <string name="unset_as_default_folder">Desactiva com a carpeta predeterminada</string>
     <string name="reorder_by_dragging">Reordeneu les carpetes arrossegant-les</string>
-    <string name="copy_to_restricted_folder_message">El sistema no permet copiar a aquesta carpeta.</string>
+    <string name="restore_to_path">S\'està restaurant a «%s»</string>
     <!-- Filter -->
     <string name="filter_media">Filtre multimèdia</string>
     <string name="images">Imatges</string>
@@ -206,6 +206,7 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Cantonades arrodonides</string>
     <string name="export_favorite_paths">Exporta els camins dels fitxers preferits</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

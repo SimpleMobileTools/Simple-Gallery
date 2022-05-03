@@ -14,7 +14,7 @@
     <string name="folder_view">Ansicht: Als Ordner</string>
     <string name="other_folder">Ordner wählen</string>
     <string name="show_on_map">Auf Karte zeigen</string>
-    <string name="unknown_location">Unbekannter Pfad</string>
+    <string name="unknown_location">Adresse nicht bekannt</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
     <string name="lock_orientation">Bildausrichtung sperren</string>
@@ -39,10 +39,9 @@
     <string name="set_as_default_folder">Als Standardordner festlegen</string>
     <string name="unset_as_default_folder">Nicht mehr als Standardordner festlegen</string>
     <string name="reorder_by_dragging">Neuordnung von Ordnern durch Ziehen</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
-
+    <string name="restore_to_path">Wiederherstellung nach „%s“</string>
     <!-- Filter -->
-    <string name="filter_media">Filter</string>
+    <string name="filter_media">Medien filtern</string>
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
@@ -57,8 +56,10 @@
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
     <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
-    <string name="exclude_folder_parent">Möchtest du stattdessen einen höherliegenden Ordner ausschließen?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\n\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="exclude_folder_parent">Stattdessen einen Elternteil ausschließen\?</string>
+    <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.
+\n
+\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion „Ordner verstecken“.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Liste ausgeblendeter Ordner entfernen? Die Ordner selbst werden nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
@@ -205,6 +206,7 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
+    <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollten Sie diese App in den Einstellungen Ihres Geräts als Medienverwaltungs-App festlegen.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>

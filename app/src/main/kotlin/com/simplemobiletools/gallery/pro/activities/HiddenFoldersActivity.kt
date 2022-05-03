@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
@@ -27,7 +28,7 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
                 manage_folders_placeholder.apply {
                     text = getString(R.string.hidden_folders_placeholder)
                     beVisibleIf(it.isEmpty())
-                    setTextColor(config.textColor)
+                    setTextColor(getProperTextColor())
                 }
 
                 val adapter = ManageHiddenFoldersAdapter(this, it, this, manage_folders_list) {}

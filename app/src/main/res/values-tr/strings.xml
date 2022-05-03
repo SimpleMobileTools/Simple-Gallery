@@ -39,7 +39,7 @@
     <string name="set_as_default_folder">Öntanımlı klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Öntanımlı klasör ayarını kaldır</string>
     <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
-    <string name="copy_to_restricted_folder_message">Sistem bu klasöre kopyalamaya izin vermiyor.</string>
+    <string name="restore_to_path">\'%s\' konumuna geri yükle</string>
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
     <string name="images">Resimler</string>
@@ -204,6 +204,7 @@
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
     <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
+    <string name="media_management_prompt">Tüm dosya işlemlerinin güvenilir bir şekilde çalıştığından emin olmak için lütfen bu uygulamayı aygıt ayarlarınızda bir medya yönetimi uygulaması yapın.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>

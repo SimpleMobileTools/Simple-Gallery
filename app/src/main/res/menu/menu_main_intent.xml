@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AppCompatResource">
     <item
         android:id="@+id/temporarily_show_hidden"
+        android:showAsAction="never"
         android:title="@string/temporarily_show_hidden"
         app:showAsAction="never" />
     <item
         android:id="@+id/stop_showing_hidden"
+        android:showAsAction="never"
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never" />
 </menu>

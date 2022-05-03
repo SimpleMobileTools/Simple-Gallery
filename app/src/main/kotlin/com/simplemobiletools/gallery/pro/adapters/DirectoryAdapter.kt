@@ -5,14 +5,12 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
-import android.os.Build
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -52,8 +50,6 @@ import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
 import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -626,7 +622,7 @@ class DirectoryAdapter(
                 return@handleSAFDialog
             }
 
-            activity.handleSAFDialogSdk30(SAFPath){
+            activity.handleSAFDialogSdk30(SAFPath) {
                 if (!it) {
                     return@handleSAFDialogSdk30
                 }
@@ -761,7 +757,7 @@ class DirectoryAdapter(
 
             dir_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                dir_check.background?.applyColorFilter(adjustedPrimaryColor)
+                dir_check.background?.applyColorFilter(properPrimaryColor)
                 dir_check.applyColorFilter(contrastColor)
             }
 
@@ -789,8 +785,8 @@ class DirectoryAdapter(
 
             if (lockedFolderPaths.contains(directory.path)) {
                 dir_lock.beVisible()
-                dir_lock.background = ColorDrawable(config.backgroundColor)
-                dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
+                dir_lock.background = ColorDrawable(context.getProperBackgroundColor())
+                dir_lock.applyColorFilter(context.getProperBackgroundColor().getContrastColor())
             } else {
                 dir_lock.beGone()
                 val roundedCorners = when {

@@ -106,7 +106,7 @@ class SettingsActivity : SimpleActivity() {
             settings_recycle_bin_label,
             settings_migrating_label
         ).forEach {
-            it.setTextColor(getAdjustedPrimaryColor())
+            it.setTextColor(getProperPrimaryColor())
         }
 
         arrayOf(
@@ -124,7 +124,7 @@ class SettingsActivity : SimpleActivity() {
             settings_recycle_bin_holder,
             settings_migrating_holder
         ).forEach {
-            it.background.applyColorFilter(baseConfig.backgroundColor.getContrastColor())
+            it.background.applyColorFilter(getProperBackgroundColor().getContrastColor())
         }
     }
 
@@ -463,8 +463,10 @@ class SettingsActivity : SimpleActivity() {
     private fun setupKeepLastModified() {
         settings_keep_last_modified.isChecked = config.keepLastModified
         settings_keep_last_modified_holder.setOnClickListener {
-            settings_keep_last_modified.toggle()
-            config.keepLastModified = settings_keep_last_modified.isChecked
+            handleMediaManagementPrompt {
+                settings_keep_last_modified.toggle()
+                config.keepLastModified = settings_keep_last_modified.isChecked
+            }
         }
     }
 

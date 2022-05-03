@@ -44,8 +44,6 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -75,7 +73,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredRoundedCorners = false
     private var mStoredMarkFavoriteItems = true
     private var mStoredTextColor = 0
-    private var mStoredAdjustedPrimaryColor = 0
+    private var mStoredPrimaryColor = 0
     private var mStoredThumbnailSpacing = 0
 
     companion object {
@@ -141,13 +139,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             getMediaAdapter()?.updateShowFileTypes(config.showThumbnailFileTypes)
         }
 
-        if (mStoredTextColor != config.textColor) {
-            getMediaAdapter()?.updateTextColor(config.textColor)
+        if (mStoredTextColor != getProperTextColor()) {
+            getMediaAdapter()?.updateTextColor(getProperTextColor())
         }
 
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
-            getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
+        val primaryColor = getProperPrimaryColor()
+        if (mStoredPrimaryColor != primaryColor) {
+            getMediaAdapter()?.updatePrimaryColor()
         }
 
         if (
@@ -159,15 +157,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
-        media_fastscroller.updateColors(adjustedPrimaryColor)
+        media_fastscroller.updateColors(primaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         getMediaAdapter()?.apply {
             dateFormat = config.dateFormat
             timeFormat = getTimeFormat()
         }
 
-        media_empty_text_placeholder.setTextColor(config.textColor)
-        media_empty_text_placeholder_2.setTextColor(getAdjustedPrimaryColor())
+        media_empty_text_placeholder.setTextColor(getProperTextColor())
+        media_empty_text_placeholder_2.setTextColor(getProperPrimaryColor())
 
         if (!mIsSearchOpen) {
             invalidateOptionsMenu()
@@ -301,18 +299,18 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun storeStateVariables() {
+        mStoredTextColor = getProperTextColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
         config.apply {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowFileTypes = showThumbnailFileTypes
             mStoredMarkFavoriteItems = markFavoriteItems
-            mStoredTextColor = textColor
             mStoredThumbnailSpacing = thumbnailSpacing
             mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
-        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {

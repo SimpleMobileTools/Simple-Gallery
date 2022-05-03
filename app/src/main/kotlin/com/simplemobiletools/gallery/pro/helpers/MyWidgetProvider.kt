@@ -29,7 +29,7 @@ class MyWidgetProvider : AppWidgetProvider() {
             putExtra(DIRECTORY, widget.folderPath)
         }
 
-        val pendingIntent = PendingIntent.getActivity(context, widget.widgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(context, widget.widgetId, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         views.setOnClickPendingIntent(id, pendingIntent)
     }
 

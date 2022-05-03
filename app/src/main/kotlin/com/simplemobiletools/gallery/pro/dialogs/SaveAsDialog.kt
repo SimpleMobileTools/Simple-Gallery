@@ -5,8 +5,10 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
+import java.io.File
 
 class SaveAsDialog(
     val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val cancelCallback: (() -> Unit)? = null,
@@ -15,6 +17,9 @@ class SaveAsDialog(
 
     init {
         var realPath = path.getParentPath()
+        if (activity.isRestrictedWithSAFSdk30(realPath) && !activity.isInDownloadDir(realPath)) {
+            realPath = activity.getPicturesDirectoryPath(realPath)
+        }
 
         val view = activity.layoutInflater.inflate(R.layout.dialog_save_as, null).apply {
             save_as_path.text = "${activity.humanizePath(realPath).trimEnd('/')}/"
@@ -74,15 +79,36 @@ class SaveAsDialog(
                         if (activity.getDoesFilePathExist(newPath)) {
                             val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
                             ConfirmationDialog(activity, title) {
-                                callback(newPath)
-                                dismiss()
+                                val newFile = File(newPath)
+                                val isInDownloadDir = activity.isInDownloadDir(newPath)
+                                val isInSubFolderInDownloadDir = activity.isInSubFolderInDownloadDir(newPath)
+                                if (isRPlus() && isInDownloadDir && !isInSubFolderInDownloadDir && !newFile.canWrite()) {
+                                    val fileDirItem = arrayListOf(File(newPath).toFileDirItem(activity))
+                                    val fileUris = activity.getFileUrisFromFileDirItems(fileDirItem).second
+                                    activity.updateSDK30Uris(fileUris) { success ->
+                                        if (success) {
+                                            selectPath(this, newPath)
+                                        }
+                                    }
+                                } else {
+                                    selectPath(this, newPath)
+                                }
                             }
                         } else {
-                            callback(newPath)
-                            dismiss()
+                            selectPath(this, newPath)
                         }
                     }
                 }
             }
+    }
+
+    private fun selectPath(alertDialog: AlertDialog, newPath: String) {
+        activity.handleSAFDialogSdk30(newPath) {
+            if (!it) {
+                return@handleSAFDialogSdk30
+            }
+            callback(newPath)
+            alertDialog.dismiss()
+        }
     }
 }

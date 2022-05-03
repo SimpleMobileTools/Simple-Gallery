@@ -35,7 +35,7 @@
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
     <string name="reorder_by_dragging">Volgorde mappen bepalen met sleepgebaren</string>
-    <string name="copy_to_restricted_folder_message">Het systeem staat het kopiëren naar deze map niet toe.</string>
+    <string name="restore_to_path">Herstellen naar \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
     <string name="images">Afbeeldingen</string>
@@ -202,6 +202,7 @@
     <string name="square">Vierkant</string>
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
+    <string name="media_management_prompt">Maak van deze app in de systeeminstellingen een mediabeheer-app om er zeker van te zijn dat alle bestandsoperaties betrouwbaar werken.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>

@@ -84,7 +84,8 @@
         android:id="@+id/config_bg_color"
         android:layout_width="@dimen/widget_colorpicker_size"
         android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_above="@+id/config_save" />
+        android:layout_above="@+id/config_text_color"
+        android:layout_margin="@dimen/tiny_margin" />
 
     <RelativeLayout
         android:id="@+id/config_bg_seekbar_holder"
@@ -92,35 +93,40 @@
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/config_bg_color"
         android:layout_alignBottom="@+id/config_bg_color"
+        android:layout_marginStart="@dimen/medium_margin"
         android:layout_toEndOf="@+id/config_bg_color"
-        android:background="@android:color/white">
+        android:background="@drawable/widget_config_seekbar_background">
 
-        <SeekBar
+        <com.simplemobiletools.commons.views.MySeekBar
             android:id="@+id/config_bg_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/activity_margin"
             android:paddingRight="@dimen/activity_margin" />
+
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/config_text_color"
         android:layout_width="@dimen/widget_colorpicker_size"
         android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/tiny_margin" />
 
     <Button
         android:id="@+id/config_save"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/widget_colorpicker_size"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/widget_config_seekbar_background"
         android:fontFamily="sans-serif-light"
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"
         android:text="@string/ok"
         android:textColor="@android:color/white"
+        android:textFontWeight="400"
         android:textSize="@dimen/big_text_size" />
 
 </RelativeLayout>

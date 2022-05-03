@@ -1,13 +1,13 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
 import android.view.KeyEvent
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
-import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
@@ -16,7 +16,12 @@ import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
 class PickDirectoryDialog(
-    val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val showFavoritesBin: Boolean,
+    val activity: BaseSimpleActivity,
+    val sourcePath: String,
+    showOtherFolderButton: Boolean,
+    val showFavoritesBin: Boolean,
+    val isPickingCopyMoveDestination: Boolean,
+    val isPickingFolderForWidget: Boolean,
     val callback: (path: String) -> Unit
 ) {
     private var dialog: AlertDialog
@@ -34,7 +39,7 @@ class PickDirectoryDialog(
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
-        view.directories_fastscroller.updateColors(activity.getAdjustedPrimaryColor())
+        view.directories_fastscroller.updateColors(activity.getProperPrimaryColor())
 
         val builder = AlertDialog.Builder(activity)
             .setPositiveButton(R.string.ok, null)
@@ -81,7 +86,7 @@ class PickDirectoryDialog(
     }
 
     private fun showOtherFolder() {
-        FilePickerDialog(activity, sourcePath, false, showHidden, true, true) {
+        FilePickerDialog(activity, sourcePath, !isPickingCopyMoveDestination && !isPickingFolderForWidget, showHidden, true, true) {
             activity.handleLockedFolderOpening(it) { success ->
                 if (success) {
                     callback(it)
@@ -108,11 +113,11 @@ class PickDirectoryDialog(
             val clickedDir = it as Directory
             val path = clickedDir.path
             if (clickedDir.subfoldersCount == 1 || !activity.config.groupDirectSubfolders) {
-                if (path.trimEnd('/') == sourcePath) {
+                if (isPickingCopyMoveDestination && path.trimEnd('/') == sourcePath) {
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
-                } else if (isRPlus() && path.isBasePath(activity)) {
-                    activity.toast(R.string.copy_to_restricted_folder_message)
+                } else if (isPickingCopyMoveDestination && activity.isRestrictedWithSAFSdk30(path) && !activity.isInDownloadDir(path)) {
+                    activity.toast(R.string.system_folder_copy_restriction, Toast.LENGTH_LONG)
                     return@DirectoryAdapter
                 } else {
                     activity.handleLockedFolderOpening(path) { success ->

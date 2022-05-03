@@ -33,7 +33,7 @@
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
     <string name="reorder_by_dragging">Riordina cartelle trascinandole</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+    <string name="restore_to_path">Ripristino a «%s»</string>
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
     <string name="images">Immagini</string>
@@ -198,6 +198,7 @@
     <string name="square">Quadrato</string>
     <string name="rounded_corners">Angoli arrotondati</string>
     <string name="export_favorite_paths">Esporta i percorsi dei file preferiti</string>
+    <string name="media_management_prompt">Per assicurarsi che tutte le operazioni sui file funzionino in modo affidabile, si prega di rendere questa app un\'app di gestione dei media nelle impostazioni del dispositivo.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>

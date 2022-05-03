@@ -33,7 +33,7 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
+    <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -205,6 +205,7 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
 
     <!-- Setting sections -->

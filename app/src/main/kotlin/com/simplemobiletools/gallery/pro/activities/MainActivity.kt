@@ -43,8 +43,6 @@ import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
@@ -66,6 +64,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mShouldStopFetching = false
     private var mIsSearchOpen = false
     private var mWasDefaultFolderChecked = false
+    private var mWasMediaManagementPromptShown = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
@@ -83,7 +82,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredTextColor = 0
-    private var mStoredAdjustedPrimaryColor = 0
+    private var mStoredPrimaryColor = 0
     private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -147,10 +146,23 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         // just request the permission, tryLoadGallery will then trigger in onResume
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handleMediaPermissions {
             if (!it) {
                 toast(R.string.no_storage_permissions)
                 finish()
+            }
+        }
+    }
+
+    private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
+        handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
+            callback(granted)
+            if (granted && isRPlus()) {
+                handlePermission(PERMISSION_MEDIA_LOCATION) {}
+                if (!mWasMediaManagementPromptShown && (config.appRunCount == 1 || config.appRunCount % 5 == 0)) {
+                    mWasMediaManagementPromptShown = true
+                    handleMediaManagementPrompt { }
+                }
             }
         }
     }
@@ -180,13 +192,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             getDirectories()
         }
 
-        if (mStoredTextColor != config.textColor) {
-            getRecyclerAdapter()?.updateTextColor(config.textColor)
+        if (mStoredTextColor != getProperTextColor()) {
+            getRecyclerAdapter()?.updateTextColor(getProperTextColor())
         }
 
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        if (mStoredAdjustedPrimaryColor != adjustedPrimaryColor) {
-            getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
+        val primaryColor = getProperPrimaryColor()
+        if (mStoredPrimaryColor != primaryColor) {
+            getRecyclerAdapter()?.updatePrimaryColor()
         }
 
         val styleString = "${config.folderStyle}${config.showFolderMediaCount}${config.limitFolderTitle}"
@@ -194,16 +206,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(mDirs, forceRecreate = true)
         }
 
-        directories_fastscroller.updateColors(adjustedPrimaryColor)
+        directories_fastscroller.updateColors(primaryColor)
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
         getRecyclerAdapter()?.apply {
             dateFormat = config.dateFormat
             timeFormat = getTimeFormat()
         }
 
-        directories_empty_placeholder.setTextColor(config.textColor)
-        directories_empty_placeholder_2.setTextColor(adjustedPrimaryColor)
-        directories_switch_searching.setTextColor(adjustedPrimaryColor)
+        directories_empty_placeholder.setTextColor(getProperTextColor())
+        directories_empty_placeholder_2.setTextColor(primaryColor)
+        directories_switch_searching.setTextColor(primaryColor)
         directories_switch_searching.underlineText()
 
         if (!mIsSearchOpen) {
@@ -334,14 +346,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
+        mStoredTextColor = getProperTextColor()
+        mStoredPrimaryColor = getProperPrimaryColor()
         config.apply {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
-            mStoredTextColor = textColor
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
-        mStoredAdjustedPrimaryColor = getAdjustedPrimaryColor()
     }
 
     private fun setupSearch(menu: Menu) {
@@ -437,9 +449,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         // avoid calling anything right after granting the permission, it will be called from onResume()
         val wasMissingPermission = config.appRunCount == 1 && !hasPermission(PERMISSION_WRITE_STORAGE)
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handleMediaPermissions {
             if (wasMissingPermission) {
-                return@handlePermission
+                return@handleMediaPermissions
             }
 
             if (it) {
@@ -1436,6 +1448,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
             add(Release(327, R.string.release_327))
+            add(Release(359, R.string.faq_16_text))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

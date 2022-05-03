@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import kotlinx.android.synthetic.main.item_manage_folder.view.*
-import java.util.*
 
 class ManageFoldersAdapter(
     activity: BaseSimpleActivity, var folders: ArrayList<String>, val isShowingExcludedFolders: Boolean, val listener: RefreshRecyclerViewListener?,
@@ -64,7 +64,7 @@ class ManageFoldersAdapter(
             manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
             manage_folder_title.apply {
                 text = folder
-                setTextColor(config.textColor)
+                setTextColor(context.getProperTextColor())
             }
         }
     }

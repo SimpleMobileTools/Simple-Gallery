@@ -20,8 +20,12 @@ import kotlinx.android.synthetic.main.activity_set_wallpaper.*
 import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
+    private val RATIO_PORTRAIT = 0
+    private val RATIO_LANDSCAPE = 1
+    private val RATIO_SQUARE = 2
+
     private val PICK_IMAGE = 1
-    private var isLandscapeRatio = true
+    private var aspectRatio = RATIO_PORTRAIT
     private var wallpaperFlag = -1
 
     lateinit var uri: Uri
@@ -80,7 +84,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     private fun setupBottomActions() {
         bottom_set_wallpaper_aspect_ratio.setOnClickListener {
-            changeAspectRatio(!isLandscapeRatio)
+            changeAspectRatio()
         }
 
         bottom_set_wallpaper_rotate.setOnClickListener {
@@ -89,13 +93,15 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     private fun setupAspectRatio() {
-        val wallpaperWidth = if (isLandscapeRatio) wallpaperManager.desiredMinimumWidth else wallpaperManager.desiredMinimumWidth / 2
-        crop_image_view.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
-        bottom_set_wallpaper_aspect_ratio.setImageResource(if (isLandscapeRatio) R.drawable.ic_minimize_vector else R.drawable.ic_maximize_vector)
+        when (aspectRatio) {
+            RATIO_LANDSCAPE -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth, wallpaperManager.desiredMinimumHeight / 2)
+            RATIO_PORTRAIT -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth / 2, wallpaperManager.desiredMinimumHeight)
+            else -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth, wallpaperManager.desiredMinimumWidth)
+        }
     }
 
-    private fun changeAspectRatio(isLandscape: Boolean) {
-        isLandscapeRatio = isLandscape
+    private fun changeAspectRatio() {
+        aspectRatio = ++aspectRatio % (RATIO_SQUARE + 1)
         setupAspectRatio()
     }
 

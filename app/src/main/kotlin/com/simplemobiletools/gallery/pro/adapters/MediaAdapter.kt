@@ -38,7 +38,6 @@ import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
-import java.util.*
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -143,6 +142,8 @@ class MediaAdapter(
             findItem(R.id.cab_fix_date_taken).isVisible = !isInRecycleBin
             findItem(R.id.cab_move_to).isVisible = !isInRecycleBin
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
+            findItem(R.id.cab_edit).isVisible = isOneItemSelected
+            findItem(R.id.cab_set_as).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
             findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
@@ -160,7 +161,7 @@ class MediaAdapter(
         when (id) {
             R.id.cab_confirm_selection -> confirmSelection()
             R.id.cab_properties -> showProperties()
-            R.id.cab_rename -> renameFile()
+            R.id.cab_rename -> checkMediaManagementAndRename()
             R.id.cab_edit -> editFile()
             R.id.cab_hide -> toggleFileVisibility(true)
             R.id.cab_unhide -> toggleFileVisibility(false)
@@ -171,7 +172,7 @@ class MediaAdapter(
             R.id.cab_rotate_right -> rotateSelection(90)
             R.id.cab_rotate_left -> rotateSelection(270)
             R.id.cab_rotate_one_eighty -> rotateSelection(180)
-            R.id.cab_copy_to -> copyMoveTo(true)
+            R.id.cab_copy_to -> checkMediaManagementAndCopy(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_create_shortcut -> createShortcut()
             R.id.cab_select_all -> selectAll()
@@ -233,12 +234,26 @@ class MediaAdapter(
         }
     }
 
+    private fun checkMediaManagementAndRename() {
+        activity.handleMediaManagementPrompt {
+            renameFile()
+        }
+    }
+
     private fun renameFile() {
+        val firstPath = getFirstSelectedItemPath() ?: return
+
+        val isSDOrOtgRootFolder = activity.isAStorageRootFolder(firstPath.getParentPath()) && !firstPath.startsWith(activity.internalStoragePath)
+        if (isRPlus() && isSDOrOtgRootFolder) {
+            activity.toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
+            finishActMode()
+            return
+        }
+
         if (selectedKeys.size == 1) {
-            val oldPath = getFirstSelectedItemPath() ?: return
-            RenameItemDialog(activity, oldPath) {
+            RenameItemDialog(activity, firstPath) {
                 ensureBackgroundThread {
-                    activity.updateDBMediaPath(oldPath, it)
+                    activity.updateDBMediaPath(firstPath, it)
 
                     activity.runOnUiThread {
                         enableInstantLoad()
@@ -347,7 +362,13 @@ class MediaAdapter(
 
     private fun moveFilesTo() {
         activity.handleDeletePasswordProtection {
-            copyMoveTo(false)
+            checkMediaManagementAndCopy(false)
+        }
+    }
+
+    private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
+        activity.handleMediaManagementPrompt {
+            copyMoveTo(isCopyOperation)
         }
     }
 
@@ -425,14 +446,16 @@ class MediaAdapter(
     }
 
     private fun checkDeleteConfirmation() {
-        if (config.isDeletePasswordProtectionOn) {
-            activity.handleDeletePasswordProtection {
+        activity.handleMediaManagementPrompt {
+            if (config.isDeletePasswordProtectionOn) {
+                activity.handleDeletePasswordProtection {
+                    deleteFiles()
+                }
+            } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
                 deleteFiles()
+            } else {
+                askConfirmDelete()
             }
-        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-            deleteFiles()
-        } else {
-            askConfirmDelete()
         }
     }
 
@@ -468,9 +491,9 @@ class MediaAdapter(
             }
 
             val sdk30SafPath = selectedPaths.firstOrNull { activity.isAccessibleWithSAFSdk30(it) } ?: getFirstSelectedItemPath() ?: return@handleSAFDialog
-            activity.handleSAFDialogSdk30(sdk30SafPath){
+            activity.checkManageMediaOrHandleSAFDialogSdk30(sdk30SafPath) {
                 if (!it) {
-                    return@handleSAFDialogSdk30
+                    return@checkManageMediaOrHandleSAFDialogSdk30
                 }
 
                 val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
@@ -585,7 +608,7 @@ class MediaAdapter(
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
-                medium_check?.background?.applyColorFilter(adjustedPrimaryColor)
+                medium_check?.background?.applyColorFilter(properPrimaryColor)
                 medium_check.applyColorFilter(contrastColor)
             }
 

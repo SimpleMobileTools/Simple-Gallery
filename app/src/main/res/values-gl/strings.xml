@@ -33,8 +33,7 @@
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="copy_to_restricted_folder_message">The system does not allow copying to this folder.</string>
-
+    <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtrar medios</string>
     <string name="images">Imaxes</string>
@@ -45,7 +44,6 @@
     <string name="portraits">Retratos</string>
     <string name="no_media_with_filters">Non se atopou multimedia do tipo indicado polo filtro.</string>
     <string name="change_filters_underlined"><u>Cambiar filtro</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta o cartafol engadíndolle ficheiro \'.nomedia\', tamén ocultará os subcartafoles. Podes velos pulsando a opción \'Mostrar elementos ocultos\' nos Axustes. Continuar?</string>
     <string name="exclude">Excluír</string>
@@ -59,14 +57,12 @@
     <string name="hidden_folders">Cartafoles ocultos</string>
     <string name="manage_hidden_folders">Xestionar cartafoles ocultos</string>
     <string name="hidden_folders_placeholder">Semella que non tes ningún cartafol oculto cun ficheiro \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
     <string name="manage_included_folders">Xestionar cartafoles incluídos</string>
     <string name="add_folder">Engadir cartafol</string>
     <string name="included_activity_placeholder">Se tes algún cartafol con medios, mais non foi recoñecido polo aplicativo, pódelo engadir manualmente.\n\nEngadindo aquí elementos non eliminarás outros.</string>
     <string name="no_media_add_included">Non se atopou ningún ficheiro multimedia. Podes solucionalo engadindo manualmente algúns cartafoles con eses ficheiros.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Selección da redimensión e gardar</string>
@@ -74,7 +70,6 @@
     <string name="height">Alto</string>
     <string name="keep_aspect_ratio">Manter proporcións</string>
     <string name="invalid_values">Por favor escribe unha resolución válida</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotar</string>
@@ -99,22 +94,22 @@
     <string name="flip">Voltear</string>
     <string name="flip_horizontally">Voltear horizontalmente</string>
     <string name="flip_vertically">Voltear verticalmente</string>
-    <string name="free_aspect_ratio">Libre</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Libre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Outro</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondo de pantalla</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Fallou establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer fondo de pantalla con:</string>
-    <string name="setting_wallpaper">Establecendo fondo de pantalla&#8230;</string>
+    <string name="setting_wallpaper">Establecendo fondo de pantalla…</string>
     <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
     <string name="portrait_aspect_ratio">Proporción de Retrato</string>
     <string name="landscape_aspect_ratio">Proporción de Paisaxe</string>
     <string name="home_screen">Pantalla de incio</string>
     <string name="lock_screen">Pantalla de bloqueo</string>
     <string name="home_and_lock_screen">Pantallas de inicio e bloqueo</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Presentación</string>
     <string name="interval">Intervalo (segundos):</string>
@@ -130,10 +125,8 @@
     <string name="slide">Deslizamento</string>
     <string name="slideshow_ended">Rematou a presentación</string>
     <string name="no_media_for_slideshow">Non se atopou multimedia para a presentación</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupar subcartafoles directos</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
     <string name="do_not_group_files">Non agrupar ficheiros</string>
@@ -148,11 +141,9 @@
     <string name="by_extension">Extensión</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Por favor, ten en conta que agrupar e ordenar son dous campos diferentes</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Cartafol a mostrar no widget:</string>
     <string name="show_folder_name">Mostrar nome de cartafol</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="remember_last_video_position">Lembrar a posición do vídeo na última vez</string>
@@ -205,19 +196,17 @@
     <string name="square">Square</string>
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="keep_display_on">Keep display on when in full screen mode</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
     <string name="extended_details">Detalles ampliados</string>
     <string name="bottom_actions">Accións do fondo</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Xestionar accións visibles do fondo</string>
-    <string name="toggle_favorite">Alternar favorito</string>
+    <string name="toggle_favorite">Marcar como favorito</string>
     <string name="toggle_file_visibility">Alternar visibilidade do ficheiro</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalizado</string>
     <string name="pesdk_transform_button_resetCrop">Reiniciar</string>
@@ -331,7 +320,6 @@
     <string name="pesdk_common_title_aquamarinColor">Augamariña</string>
     <string name="pesdk_common_title_pipettableColor">Escoller coa pipeta</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Como podo facer que Simple Gallery sexa a galería por defecto no meu dispositivo?</string>
     <string name="faq_1_text">Primeiro debes atopar a galería por omisión actual na sección de App nos axustes do dispositivo, buscar un botón que diga algo como \"Abrir por omisión\", pulsalo e despois seleccionar \"Limpar por omisión\".
@@ -347,9 +335,9 @@
     <string name="faq_6_title">Por que aparecen cartafoles de música con portadas ou pegatinas?</string>
     <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
     <string name="faq_7_title">Un cartafol con imaxes non aparece, que podo facer? </string>
-    <string name="faq_7_text">Isto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -> xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
+    <string name="faq_7_text">Isto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -&gt; xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
     <string name="faq_8_title">E que pasa se só quero que sexan visibles certos cartafoles</string>
-    <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -> Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despois engadir os cartafoles desexados con Axustes -> Xestionar Cartafoles Incluídos.
+    <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -&gt; Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despois engadir os cartafoles desexados con Axustes -&gt; Xestionar Cartafoles Incluídos.
         Isto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
     <string name="faq_10_title">Podo recortar imaxes con este aplciativo?</string>
     <string name="faq_10_text">Si, pode recortar imaxes no editor, arrastrando as esquinas das imaxes. Pode chegar ao editor tanto presionando na imaxe durante un anaco e seleccionando Editar, ou seleccionando Editar dende a vista de pantalla completa.</string>
@@ -369,7 +357,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Xestor e Editor de fotos</string>
@@ -431,7 +418,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

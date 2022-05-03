@@ -21,10 +21,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.exifinterface.media.ExifInterface
@@ -61,7 +58,6 @@ import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
-import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private val REQUEST_VIEW_VIDEO = 1
@@ -88,10 +84,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
+        if (config.isUsingSystemTheme) {
+            setTheme(R.style.AppTheme_Material)
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
-        window.decorView.setBackgroundColor(config.backgroundColor)
+        window.decorView.setBackgroundColor(getProperBackgroundColor())
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
@@ -106,6 +106,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         initFavorites()
+
+        if (isRPlus()) {
+            window.insetsController?.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
+        }
     }
 
     override fun onResume() {
@@ -226,7 +230,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updateBottomActionIcons(currentMedium)
         }
 
-        updateMenuItemColors(menu, baseColor = Color.BLACK)
+        updateMenuItemColors(menu, forceWhiteIcons = true)
         return true
     }
 
@@ -237,14 +241,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         when (item.itemId) {
             R.id.menu_set_as -> setAs(getCurrentPath())
             R.id.menu_slideshow -> initSlideshow()
-            R.id.menu_copy_to -> copyMoveTo(true)
+            R.id.menu_copy_to -> checkMediaManagementAndCopy(true)
             R.id.menu_move_to -> moveFileTo()
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share -> shareMediumPath(getCurrentPath())
             R.id.menu_delete -> checkDeleteConfirmation()
-            R.id.menu_rename -> renameFile()
+            R.id.menu_rename -> checkMediaManagementAndRename()
             R.id.menu_print -> printFile()
             R.id.menu_edit -> openEditor(getCurrentPath())
             R.id.menu_properties -> showProperties()
@@ -641,7 +645,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun moveFileTo() {
         handleDeletePasswordProtection {
-            copyMoveTo(false)
+            checkMediaManagementAndCopy(false)
+        }
+    }
+
+    private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
+        handleMediaManagementPrompt {
+            copyMoveTo(isCopyOperation)
         }
     }
 
@@ -881,6 +891,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_toggle_file_visibility.setOnLongClickListener {
             toast(if (currentMedium?.isHidden() == true) R.string.unhide else R.string.hide); true
         }
+
         bottom_toggle_file_visibility.setOnClickListener {
             currentMedium?.apply {
                 toggleFileVisibility(!isHidden()) {
@@ -892,7 +903,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && currentMedium?.getIsInRecycleBin() == false)
         bottom_rename.setOnLongClickListener { toast(R.string.rename); true }
         bottom_rename.setOnClickListener {
-            renameFile()
+            checkMediaManagementAndRename()
         }
 
         bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
@@ -904,7 +915,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_copy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
         bottom_copy.setOnLongClickListener { toast(R.string.copy); true }
         bottom_copy.setOnClickListener {
-            copyMoveTo(true)
+            checkMediaManagementAndCopy(true)
         }
 
         bottom_move.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
@@ -1077,14 +1088,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (config.isDeletePasswordProtectionOn) {
-            handleDeletePasswordProtection {
+        handleMediaManagementPrompt {
+            if (config.isDeletePasswordProtectionOn) {
+                handleDeletePasswordProtection {
+                    deleteConfirmed()
+                }
+            } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
                 deleteConfirmed()
+            } else {
+                askConfirmDelete()
             }
-        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-            deleteConfirmed()
-        } else {
-            askConfirmDelete()
         }
     }
 
@@ -1112,9 +1125,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
-            handleSAFDialogSdk30(fileDirItem.path) {
+            checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
                 if (!it) {
-                    return@handleSAFDialogSdk30
+                    return@checkManageMediaOrHandleSAFDialogSdk30
                 }
 
                 mIgnoredPaths.add(fileDirItem.path)
@@ -1140,9 +1153,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun handleDeletion(fileDirItem: FileDirItem) {
-        handleSAFDialogSdk30(fileDirItem.path) {
+        checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
             if (!it) {
-                return@handleSAFDialogSdk30
+                return@checkManageMediaOrHandleSAFDialogSdk30
             }
 
             mIgnoredPaths.add(fileDirItem.path)
@@ -1168,10 +1181,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    private fun checkMediaManagementAndRename() {
+        handleMediaManagementPrompt {
+            renameFile()
+        }
+    }
+
     private fun renameFile() {
         val oldPath = getCurrentPath()
+
+        val isSDOrOtgRootFolder = isAStorageRootFolder(oldPath.getParentPath()) && !oldPath.startsWith(internalStoragePath)
+        if (isRPlus() && isSDOrOtgRootFolder) {
+            toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
+            return
+        }
+
         RenameItemDialog(this, oldPath) {
-            getCurrentMedia()[mPos].apply {
+            getCurrentMedia().getOrNull(mPos)?.apply {
                 path = it
                 name = it.getFilenameFromPath()
             }
