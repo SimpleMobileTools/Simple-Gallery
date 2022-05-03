@@ -34,7 +34,6 @@
     <string name="unset_as_default_folder">Відмінити встановлення теки за замовчуванням</string>
     <string name="reorder_by_dragging">Сортувати папки шляхом переміщення</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
     <string name="images">Зображення</string>
@@ -45,7 +44,6 @@
     <string name="portraits">Портрети</string>
     <string name="no_media_with_filters">З вибраними фільтрами мультимедійні файли не знайдено.</string>
     <string name="change_filters_underlined"><u>Змінити фільтри</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ця функція приховує теку шляхом додавання в неї файлу \".nomedia\"; це також приховає і підтеки. Ви можете побачити приховані теки, обравши опцію \'Показати приховані елементи\' в \"Налаштуваннях\". Продовжити?</string>
     <string name="exclude">Виключити</string>
@@ -59,14 +57,12 @@
     <string name="hidden_folders">Приховані теки</string>
     <string name="manage_hidden_folders">Керування прихованими теками</string>
     <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
-
     <!-- Include folders -->
     <string name="include_folders">Включені теки</string>
     <string name="manage_included_folders">Керування включеними теками</string>
     <string name="add_folder">Додати теку</string>
     <string name="included_activity_placeholder">Якщо у вас є теки з медіафайлами, але вони не були розпізнані додатком, ви можете додати їх тут вручну.\n\nДодавання елементів сюди не виключить будь-яку іншу теку.</string>
     <string name="no_media_add_included">Жоден медіафайл не знайдено. Ви можете додати теки з медіафайлами вручну, щоб вирішити цю проблему.</string>
-
     <!-- Resizing -->
     <string name="resize">Змінити розмір</string>
     <string name="resize_and_save">Змінити розмір вибраного і зберегти</string>
@@ -74,7 +70,6 @@
     <string name="height">Висота</string>
     <string name="keep_aspect_ratio">Зберігати співвідношення сторін</string>
     <string name="invalid_values">Введіть допустиму роздільну здатність</string>
-
     <!-- Editor -->
     <string name="editor">Редактор</string>
     <string name="rotate">Обернути</string>
@@ -99,9 +94,10 @@
     <string name="flip">Віддзеркалити</string>
     <string name="flip_horizontally">Віддзеркалити горизонтально</string>
     <string name="flip_vertically">Віддзеркалити вертикально</string>
-    <string name="free_aspect_ratio">Вільне</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Інше</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Вільне</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Інше</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Просто Шпалери</string>
     <string name="set_as_wallpaper">Встановити як шпалери</string>
@@ -114,7 +110,6 @@
     <string name="home_screen">Домашній екран</string>
     <string name="lock_screen">Екран блокування</string>
     <string name="home_and_lock_screen">Домашній екран і екран блокування</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
     <string name="interval">Інтервал (секунди):</string>
@@ -130,10 +125,8 @@
     <string name="slide">Зміщення</string>
     <string name="slideshow_ended">Слайдшоу закінчено</string>
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Групувати за…</string>
     <string name="do_not_group_files">Не групувати файли</string>
@@ -148,11 +141,9 @@
     <string name="by_extension">розширенням</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Зверніть увагу, що групування і сортування - це два окремих поля</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Тека, що відображається на віджеті:</string>
     <string name="show_folder_name">Показувати ім\'я теки</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Відтворювати відео автоматично</string>
     <string name="remember_last_video_position">Запам\'ятовувати місце зупинки перегляду</string>
@@ -206,18 +197,15 @@
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-
     <!-- Setting sections -->
-    <string name="thumbnails">Ескізи</string>
+    <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>
     <string name="extended_details">Розширені подробиці</string>
     <string name="bottom_actions">Кнопки дій внизу екрана</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Керування видимими кнопками дій внизу екрана</string>
     <string name="toggle_favorite">Перемкнути улюблене</string>
     <string name="toggle_file_visibility">Перемкнути видимість файлу</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Довільний</string>
     <string name="pesdk_transform_button_resetCrop">Відміна</string>
@@ -331,7 +319,6 @@
     <string name="pesdk_common_title_aquamarinColor">Аквамариновий</string>
     <string name="pesdk_common_title_pipettableColor">Колір заливки</string>
     <string name="vesdk_video_trim_title_name">Обрізка</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Як зробити Simple Gallery галереєю за-замовчуванням?</string>
     <string name="faq_1_text">Спочатку необхідно знайти поточну галерею за-замовчуванням в розділі \"Додатки\" налаштувань вашого пристрою. Знайдіть і натисніть на кнопку \"Використовувати за-замовчуванням\" абощо, потім оберіть \"Очистити замовчування\".
@@ -347,9 +334,9 @@
     <string name="faq_6_title">Чому відображаються теки з музичними обкладинками або стікерами?</string>
     <string name="faq_6_text">Може так трапитися, що з\'являться деякі незвичні альбоми. Їх можна легко виключити довгим натисканням і вибором \"Виключити\". В наступному діалозі у вас буде можливість обрати бітьківську теку. Швидше за все, це дозволить також запобігти появі інших пов\'язаних альбомів.</string>
     <string name="faq_7_title">Тека з зображеннями не відображається, що мені робити?</string>
-    <string name="faq_7_text">У цього може бути кілька причин, проте вирішення доволі просте. Перейдіть в \"Налаштування\" -> \"Керування виключеними теками\", оберіть \"Плюс\" та перейдіть до потрібної теки.</string>
+    <string name="faq_7_text">У цього може бути кілька причин, проте вирішення доволі просте. Перейдіть в \"Налаштування\" -&gt; \"Керування виключеними теками\", оберіть \"Плюс\" та перейдіть до потрібної теки.</string>
     <string name="faq_8_title">Що робити, якщо я хочу, щоб лише кілька окремих тек були видимими?</string>
-    <string name="faq_8_text">Додавання теки до \"Включених тек\" автоматично не виключає нічого. Що ви можете зробити, то це перейти в \"Налаштування\" -> \"Керування виключеними теками\", виключити кореневу теку \"/\", потім додати бажані теки через \"Налаштування\" -> \"Керування включеними теками\".
+    <string name="faq_8_text">Додавання теки до \"Включених тек\" автоматично не виключає нічого. Що ви можете зробити, то це перейти в \"Налаштування\" -&gt; \"Керування виключеними теками\", виключити кореневу теку \"/\", потім додати бажані теки через \"Налаштування\" -&gt; \"Керування включеними теками\".
         Це зробить видимими лише обрані теки. Якщо тека є одночасно і виключеною, і включеною, вона відобразиться, оскільки і виключення, і включення є рекурсивним.</string>
     <string name="faq_10_title">Чи можу я обрізати зображення у цьому додатку?</string>
     <string name="faq_10_text">Так, обрізати зображення можна у редакторі шляхом перетягування кутів зображення. Відкрити редактор можна або довгим натисканням на ескіз зображення і наступним вибором \"Редагувати\", або вибором \"Редагувати\" при повноекранному перегляді.</string>
@@ -369,7 +356,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - фотоменеджер і редактор</string>
@@ -431,7 +417,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
