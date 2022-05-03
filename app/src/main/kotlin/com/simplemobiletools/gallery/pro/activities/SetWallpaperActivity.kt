@@ -34,6 +34,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_set_wallpaper)
+        setupBottomActions()
 
         if (checkAppSideloading()) {
             return
@@ -48,7 +49,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
 
         handleImage(intent)
-        setupBottomActions()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,10 +93,16 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     private fun setupAspectRatio() {
+        var widthToUse = wallpaperManager.desiredMinimumWidth
+        val heightToUse = wallpaperManager.desiredMinimumHeight
+        if (widthToUse == heightToUse) {
+            widthToUse /= 2
+        }
+
         when (aspectRatio) {
-            RATIO_LANDSCAPE -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth, wallpaperManager.desiredMinimumHeight / 2)
-            RATIO_PORTRAIT -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth / 2, wallpaperManager.desiredMinimumHeight)
-            else -> crop_image_view.setAspectRatio(wallpaperManager.desiredMinimumWidth, wallpaperManager.desiredMinimumWidth)
+            RATIO_PORTRAIT -> crop_image_view.setAspectRatio(heightToUse, widthToUse)
+            RATIO_LANDSCAPE -> crop_image_view.setAspectRatio(widthToUse, heightToUse)
+            else -> crop_image_view.setAspectRatio(widthToUse, widthToUse)
         }
     }
 
