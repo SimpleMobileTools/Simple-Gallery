@@ -59,6 +59,7 @@ android {
     productFlavors {
         proprietary {}
         foss {}
+        prepaid {}
     }
 
     lintOptions {
