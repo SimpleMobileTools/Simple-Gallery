@@ -278,6 +278,13 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupKeepDisplayOn() {
+        settings_keep_display_on.isChecked = config.keepDisplayOn
+        settings_keep_display_on_holder.setOnClickListener {
+            settings_keep_display_on.toggle()
+            config.keepDisplayOn = settings_keep_display_on.isChecked
+        }
+    }
     private fun setupCropThumbnails() {
         settings_crop_thumbnails.isChecked = config.cropThumbnails
         settings_crop_thumbnails_holder.setOnClickListener {
@@ -744,6 +751,7 @@ class SettingsActivity : SimpleActivity() {
                 put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
                 put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
                 put(MAX_BRIGHTNESS, config.maxBrightness)
+                put(KEEP_DISPLAY_ON, config.keepDisplayOn)
                 put(BLACK_BACKGROUND, config.blackBackground)
                 put(HIDE_SYSTEM_UI, config.hideSystemUI)
                 put(ALLOW_INSTANT_CHANGE, config.allowInstantChange)
@@ -886,6 +894,7 @@ class SettingsActivity : SimpleActivity() {
                 SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
                 ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
                 MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
+                KEEP_DISPLAY_ON -> config.keepDisplayOn = value.toBoolean()
                 BLACK_BACKGROUND -> config.blackBackground = value.toBoolean()
                 HIDE_SYSTEM_UI -> config.hideSystemUI = value.toBoolean()
                 ALLOW_INSTANT_CHANGE -> config.allowInstantChange = value.toBoolean()
