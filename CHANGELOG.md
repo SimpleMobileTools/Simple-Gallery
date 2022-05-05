@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.23.4 *(2022-05-04)*
+----------------------------
+
+ * Fixed a copying related glitch on Android 12
+ * Added some stability and translation improvements
+
 Version 6.23.3 *(2022-05-03)*
 ----------------------------
 
