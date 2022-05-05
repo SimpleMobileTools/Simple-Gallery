@@ -102,7 +102,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        handlePermission(PERMISSION_WRITE_STORAGE){
+        handlePermission(PERMISSION_WRITE_STORAGE) {
             if (!it) {
                 toast(R.string.no_storage_permissions)
                 finish()
@@ -169,7 +169,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         saveUri = when {
-            intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+            intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true && intent.extras!!.get(MediaStore.EXTRA_OUTPUT) is Uri -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
             else -> uri!!
         }
 
