@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.23.5 *(2022-05-05)*
+----------------------------
+
+ * Fixed renaming SD card files on Android 12
+
 Version 6.23.4 *(2022-05-04)*
 ----------------------------
 
