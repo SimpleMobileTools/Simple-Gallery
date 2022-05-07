@@ -142,7 +142,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null && getDoesFilePathExist(realPath)) {
-                val avoidShowingHiddenFiles = isRPlus() && (File(realPath).isHidden || File(realPath.getParentPath(), NOMEDIA).exists())
+                val avoidShowingHiddenFiles =
+                    isRPlus() && (File(realPath).isHidden || File(realPath.getParentPath(), NOMEDIA).exists() || realPath.contains("/."))
                 if (!avoidShowingHiddenFiles) {
                     if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                         if (isFileTypeVisible(realPath)) {
