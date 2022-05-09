@@ -1,10 +1,10 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.PopupMenu
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.getPopupMenuTheme
 import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -66,7 +66,44 @@ class ManageFoldersAdapter(
                 text = folder
                 setTextColor(context.getProperTextColor())
             }
+
+            overflow_menu_icon.drawable.apply {
+                mutate()
+                setTint(activity.getProperTextColor())
+            }
+
+            overflow_menu_icon.setOnClickListener {
+                showPopupMenu(overflow_menu_anchor, folder)
+            }
         }
+    }
+
+    private fun showPopupMenu(view: View, folder: String) {
+        finishActMode()
+        val theme = activity.getPopupMenuTheme()
+        val contextTheme = ContextThemeWrapper(activity, theme)
+
+        PopupMenu(contextTheme, view, Gravity.END).apply {
+            inflate(getActionMenuId())
+            setOnMenuItemClickListener { item ->
+                val eventTypeId = folder.hashCode()
+                when (item.itemId) {
+                    R.id.cab_remove -> {
+                        executeItemMenuOperation(eventTypeId) {
+                            removeSelection()
+                        }
+                    }
+                }
+                true
+            }
+            show()
+        }
+    }
+
+    private fun executeItemMenuOperation(eventTypeId: Int, callback: () -> Unit) {
+        selectedKeys.clear()
+        selectedKeys.add(eventTypeId)
+        callback()
     }
 
     private fun removeSelection() {

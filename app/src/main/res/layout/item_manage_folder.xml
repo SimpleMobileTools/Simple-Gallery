@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/manage_folder_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,13 +8,32 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="@drawable/selector"
-    android:padding="@dimen/activity_margin">
+    android:paddingStart="@dimen/activity_margin">
 
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/manage_folder_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginTop="@dimen/medium_margin"/>
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_toStartOf="@+id/overflow_menu_icon"
+        tools:text="/Internal/DCIM" />
+
+    <ImageView
+        android:id="@+id/overflow_menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
+        android:src="@drawable/ic_three_dots_vector" />
+
+    <View
+        android:id="@+id/overflow_menu_anchor"
+        style="@style/OverflowMenuAnchorStyle"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>
