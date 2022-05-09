@@ -208,7 +208,7 @@ class NewPhotoEditActivity : SimpleActivity() {
 
     // In case the user wants to overwrite the original file and it is on an SD card, delete it manually first. Else the system just appends (1)
     private fun handleFileOverwriting(path: String, callback: () -> Unit) {
-        if (!isRPlus() && getDoesFilePathExist(path) && isPathOnSD(path)) {
+        if ((!isRPlus() || isExternalStorageManager()) && getDoesFilePathExist(path) && isPathOnSD(path)) {
             val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
             tryDeleteFileDirItem(fileDirItem, false, true) { success ->
                 if (success) {

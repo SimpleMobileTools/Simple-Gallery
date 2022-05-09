@@ -42,7 +42,7 @@ class MediaFetcher(val context: Context) {
                 curMedia.addAll(newMedia)
             }
         } else {
-            if (curPath != FAVORITES && curPath != RECYCLE_BIN && isRPlus()) {
+            if (curPath != FAVORITES && curPath != RECYCLE_BIN && isRPlus() && !isExternalStorageManager()) {
                 if (android11Files?.containsKey(curPath.toLowerCase()) == true) {
                     curMedia.addAll(android11Files[curPath.toLowerCase()]!!)
                 } else if (android11Files == null) {
@@ -59,7 +59,7 @@ class MediaFetcher(val context: Context) {
                     favoritePaths, getVideoDurations, lastModifieds.clone() as HashMap<String, Long>, dateTakens.clone() as HashMap<String, Long>
                 )
 
-                if (curPath == FAVORITES && isRPlus()) {
+                if (curPath == FAVORITES && isRPlus() && !isExternalStorageManager()) {
                     val files =
                         getAndroid11FolderMedia(isPickImage, isPickVideo, favoritePaths, true, getProperDateTaken, dateTakens.clone() as HashMap<String, Long>)
                     newMedia.forEach { newMedium ->
@@ -429,7 +429,7 @@ class MediaFetcher(val context: Context) {
         dateTakens: HashMap<String, Long>
     ): HashMap<String, ArrayList<Medium>> {
         val media = HashMap<String, ArrayList<Medium>>()
-        if (!isRPlus()) {
+        if (!isRPlus() || Environment.isExternalStorageManager()) {
             return media
         }
 

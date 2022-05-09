@@ -211,8 +211,8 @@ class MediaAdapter(
 
     private fun checkHideBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
         val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
-        menu.findItem(R.id.cab_hide).isVisible = !isRPlus() && !isInRecycleBin && selectedItems.any { !it.isHidden() }
-        menu.findItem(R.id.cab_unhide).isVisible = !isRPlus() && !isInRecycleBin && selectedItems.any { it.isHidden() }
+        menu.findItem(R.id.cab_hide).isVisible = (!isRPlus() || isExternalStorageManager()) && !isInRecycleBin && selectedItems.any { !it.isHidden() }
+        menu.findItem(R.id.cab_unhide).isVisible = (!isRPlus() || isExternalStorageManager()) && !isInRecycleBin && selectedItems.any { it.isHidden() }
     }
 
     private fun checkFavoriteBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {

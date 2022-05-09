@@ -5,12 +5,14 @@ import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
+import android.os.Build
 import android.text.TextUtils
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -190,8 +192,11 @@ class DirectoryAdapter(
     }
 
     private fun checkHideBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
-        menu.findItem(R.id.cab_hide).isVisible = !isRPlus() && selectedPaths.any { !it.doesThisOrParentHaveNoMedia(HashMap(), null) }
-        menu.findItem(R.id.cab_unhide).isVisible = !isRPlus() && selectedPaths.any { it.doesThisOrParentHaveNoMedia(HashMap(), null) }
+        menu.findItem(R.id.cab_hide).isVisible =
+            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { !it.doesThisOrParentHaveNoMedia(HashMap(), null) }
+
+        menu.findItem(R.id.cab_unhide).isVisible =
+            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { it.doesThisOrParentHaveNoMedia(HashMap(), null) }
     }
 
     private fun checkPinBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
@@ -548,6 +553,7 @@ class DirectoryAdapter(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createShortcut() {
         val manager = activity.getSystemService(ShortcutManager::class.java)
         if (manager.isRequestPinShortcutSupported) {

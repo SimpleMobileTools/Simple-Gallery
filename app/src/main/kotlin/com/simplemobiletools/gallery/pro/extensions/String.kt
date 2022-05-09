@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.os.Environment
+import com.simplemobiletools.commons.extensions.isExternalStorageManager
 import com.simplemobiletools.commons.helpers.NOMEDIA
 import com.simplemobiletools.commons.helpers.isRPlus
 import java.io.File
@@ -41,7 +42,7 @@ fun String.shouldFolderBeVisible(
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        folderNoMediaStatuses.getOrElse("$this/$NOMEDIA", { false }) || (!isRPlus() && File(this, NOMEDIA).exists())
+        folderNoMediaStatuses.getOrElse("$this/$NOMEDIA") { false } || ((!isRPlus() || isExternalStorageManager()) && File(this, NOMEDIA).exists())
     }
 
     return if (!showHidden && containsNoMedia) {
