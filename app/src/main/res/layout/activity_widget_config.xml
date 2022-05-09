@@ -55,7 +55,9 @@
         android:id="@+id/config_image_holder"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/folder_picker_holder">
+        android:layout_below="@+id/folder_picker_holder"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:background="@drawable/widget_round_background">
 
         <com.simplemobiletools.commons.views.MySquareImageView
             android:id="@+id/config_image"
@@ -125,7 +127,7 @@
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"
         android:text="@string/ok"
-        android:textColor="@android:color/white"
+        android:textColor="@color/dark_grey"
         android:textFontWeight="400"
         android:textSize="@dimen/big_text_size" />
 

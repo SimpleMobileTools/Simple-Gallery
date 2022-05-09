@@ -52,7 +52,6 @@ class WidgetConfigureActivity : SimpleActivity() {
         updateTextColors(folder_picker_holder)
         val primaryColor = getProperPrimaryColor()
         config_bg_seekbar.setColors(mTextColor, primaryColor, primaryColor)
-        config_save.setTextColor(mTextColor)
         folder_picker_holder.background = ColorDrawable(getProperBackgroundColor())
 
         folder_picker_show_folder_name.isChecked = config.showWidgetFolderName
@@ -126,7 +125,7 @@ class WidgetConfigureActivity : SimpleActivity() {
 
     private fun updateBackgroundColor() {
         mBgColor = mBgColorWithoutTransparency.adjustAlpha(mBgAlpha)
-        config_image_holder.setBackgroundColor(mBgColor)
+        config_image_holder.background.applyColorFilter(mBgColor)
         config_bg_color.setFillWithStroke(mBgColor, mBgColor)
     }
 
