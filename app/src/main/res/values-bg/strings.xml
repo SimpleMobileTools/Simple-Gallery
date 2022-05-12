@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="excluded">(изключено)</string>
+    <string name="app_launcher_name">Галерия</string>
+    <string name="edit">Редактиране</string>
+    <string name="open_camera">Камера</string>
+    <string name="pin_folder">Закачете папката</string>
+    <string name="unpin_folder">Откачете папката</string>
+    <string name="show_all">Покажете съдържанието на всички папки</string>
+    <string name="all_folders">Всички папки</string>
+    <string name="folder_view">Папки</string>
+    <string name="other_folder">Избор на папка</string>
+    <string name="show_on_map">Показване на картата</string>
+    <string name="volume">Сила на звука</string>
+    <string name="app_name">Simple Gallery</string>
+    <string name="pin_to_the_top">Закачете отгоре</string>
+    <string name="unknown_location">Неизвестно местоположение</string>
+    <string name="hidden">(скрито)</string>
+</resources>
