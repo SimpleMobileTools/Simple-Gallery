@@ -1,17 +1,23 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.os.Environment
+import com.simplemobiletools.commons.extensions.isExternalStorageManager
 import com.simplemobiletools.commons.helpers.NOMEDIA
+import com.simplemobiletools.commons.helpers.isRPlus
 import java.io.File
 import java.io.IOException
 
-fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { equals(it, true) } || includedPaths.any { "$this/".startsWith("$it/", true) }
+fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) =
+    includedPaths.any { equals(it, true) } || includedPaths.any { "$this/".startsWith("$it/", true) }
 
-fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
+fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) =
+    excludedPaths.any { equals(it, true) } || excludedPaths.any { "$this/".startsWith("$it/", true) }
 
 // cache which folders contain .nomedia files to avoid checking them over and over again
-fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean,
-                                 folderNoMediaStatuses: HashMap<String, Boolean>, callback: (path: String, hasNoMedia: Boolean) -> Unit): Boolean {
+fun String.shouldFolderBeVisible(
+    excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean,
+    folderNoMediaStatuses: HashMap<String, Boolean>, callback: (path: String, hasNoMedia: Boolean) -> Unit
+): Boolean {
     if (isEmpty()) {
         return false
     }
@@ -36,7 +42,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val containsNoMedia = if (showHidden) {
         false
     } else {
-        folderNoMediaStatuses.getOrElse("$this/$NOMEDIA", { false }) || File(this, NOMEDIA).exists()
+        folderNoMediaStatuses.getOrElse("$this/$NOMEDIA") { false } || ((!isRPlus() || isExternalStorageManager()) && File(this, NOMEDIA).exists())
     }
 
     return if (!showHidden && containsNoMedia) {

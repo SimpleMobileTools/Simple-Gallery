@@ -167,31 +167,31 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
-            mMedium.path = context!!.getRealPathFromURI(Uri.parse(mOriginalPath)) ?: mMedium.path
-            if (isRPlus() && mMedium.path.startsWith("/storage/") && mMedium.isHidden()) {
+            mMedium.path = requireContext().getRealPathFromURI(Uri.parse(mOriginalPath)) ?: mMedium.path
+            if (isRPlus() && !isExternalStorageManager() && mMedium.path.startsWith("/storage/") && mMedium.isHidden()) {
                 mMedium.path = mOriginalPath
             }
 
             if (mMedium.path.isEmpty()) {
                 var out: FileOutputStream? = null
                 try {
-                    var inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
+                    var inputStream = requireContext().contentResolver.openInputStream(Uri.parse(mOriginalPath))
                     val exif = ExifInterface()
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-                    inputStream = context!!.contentResolver.openInputStream(Uri.parse(mOriginalPath))
+                    inputStream = requireContext().contentResolver.openInputStream(Uri.parse(mOriginalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
                     exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
                     exif.removeCompressedThumbnail()
 
-                    val file = File(context!!.externalCacheDir, Uri.parse(mOriginalPath).lastPathSegment)
+                    val file = File(requireContext().externalCacheDir, Uri.parse(mOriginalPath).lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
                     mMedium.path = file.absolutePath
                 } catch (e: Exception) {
-                    activity!!.toast(R.string.unknown_error_occurred)
+                    requireActivity().toast(R.string.unknown_error_occurred)
                     return mView
                 } finally {
                     out?.close()
@@ -199,7 +199,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
+        mIsFullscreen = requireActivity().window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         loadImage()
         initExtendedDetails()
         mWasInit = true

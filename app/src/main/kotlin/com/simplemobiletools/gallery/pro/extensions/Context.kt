@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.extensions
 
-import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
@@ -30,7 +29,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.MySquareImageView
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -43,10 +41,6 @@ import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
-import java.util.*
-import kotlin.Comparator
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 import kotlin.collections.set
 
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
