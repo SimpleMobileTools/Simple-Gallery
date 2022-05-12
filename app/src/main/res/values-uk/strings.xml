@@ -33,7 +33,7 @@
     <string name="set_as_default_folder">Встановити теку за замовчуванням</string>
     <string name="unset_as_default_folder">Відмінити встановлення теки за замовчуванням</string>
     <string name="reorder_by_dragging">Сортувати папки шляхом переміщення</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="restore_to_path">Відновлення в \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
     <string name="images">Зображення</string>
@@ -128,7 +128,7 @@
     <!-- View types -->
     <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Групувати за…</string>
+    <string name="group_by">Групувати за</string>
     <string name="do_not_group_files">Не групувати файли</string>
     <string name="by_folder">текою</string>
     <string name="by_last_modified">останньою зміною</string>
@@ -139,7 +139,7 @@
     <string name="by_date_taken_monthly">датою зйомки (по місяцях)</string>
     <string name="by_file_type">типом файлу</string>
     <string name="by_extension">розширенням</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Показувати кількість файлів у заголовках розділів</string>
     <string name="grouping_and_sorting">Зверніть увагу, що групування і сортування - це два окремих поля</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Тека, що відображається на віджеті:</string>
@@ -152,7 +152,7 @@
     <string name="max_brightness">Максимальна яскравість екрана при повноекранному перегляді медіафайлу</string>
     <string name="crop_thumbnails">Обрізати ескізи у квадрат</string>
     <string name="show_thumbnail_video_duration">Показувати тривалість відео</string>
-    <string name="screen_rotation_by">При повноекранному перегляді обертати за…</string>
+    <string name="screen_rotation_by">При повноекранному перегляді обертати за</string>
     <string name="screen_rotation_system_setting">системними налаштуваннями</string>
     <string name="screen_rotation_device_rotation">поворотом пристрою</string>
     <string name="screen_rotation_aspect_ratio">співвідношенням сторін</string>
@@ -187,7 +187,7 @@
     <string name="allow_zooming_videos">Масштабувати відео подвійним натисканням по ньому</string>
     <string name="folder_thumbnail_style">Вид мініатюр тек</string>
     <string name="file_thumbnail_style">Вид мініатюр файлів</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Позначати улюблені елементи</string>
     <string name="thumbnail_spacing">Проміжок між мініатюрами</string>
     <string name="show_file_count_line">Показувати кількість файлів в окремому рядку</string>
     <string name="show_file_count_brackets">Показувати кількість файлів у дужках</string>
@@ -196,7 +196,7 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>
@@ -350,11 +350,11 @@
     <string name="faq_14_text">Щоб побачити приховані елементи, ви можете або натиснути пункт меню \"Тимчасово показати приховані елементи\" на головному екрані, або перемкнути опцію \"Показати приховані елементи\" в налаштуваннях додатка. Якщо ви більше не хочете приховувати елемент, довго натисніть на нього і оберіть \"Не приховувати\". Теки приховуються шляхом створення прихованого файлу \".nomedia\" в них, тож ви також можете видалити цей файл будь-яким файловим менеджером. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">Чому додаток займає так багато місця?</string>
     <string name="faq_15_text">Кеш додатка може займати до 500 МБ, він забезпечує швидше завантаження зображень. Якщо додаток займає ще більше місця, найбільш вірогідно, це спричинено видаленими елементами у Кошику. Вони враховуються у загальному розмірі додатка. Ви можете очистити Кошик, відкривши його та видаливши всі файли, або через налаштування додатка. Кожен файл у Кошику автоматично видаляється через 30 днів.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_16_title">Що трапилося з приховуванням файлів і тек та чому я більше не можу бачити приховані елементи\?</string>
+    <string name="faq_16_text">Починаючи з Android 11, ви більше не можете приховувати чи показувати файли та теки, ви також не можете бачити приховані в додатках галереї. Для цього вам доведеться використовувати якийсь файловий менеджер.</string>
+    <string name="faq_17_title">Чому я більше не можу включити відсутні теки\?</string>
+    <string name="faq_17_text">Це перестало працювати через системні зміни, які прийшли з Android 11. Додаток більше не може переглядати реальні теки, при отриманні даних він покладається на так званий MediaStore.</string>
+    <string name="faq_18_title">Чому я бачу рекламу під час відтворення відео\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
