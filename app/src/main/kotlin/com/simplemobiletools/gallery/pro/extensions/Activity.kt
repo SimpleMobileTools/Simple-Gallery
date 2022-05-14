@@ -12,9 +12,11 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
 import android.provider.MediaStore
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
+import android.provider.Settings
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +26,7 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.ConfirmationAdvancedDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -127,7 +130,29 @@ fun SimpleActivity.launchAbout() {
 }
 
 fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
-    if (isSPlus() && !MediaStore.canManageMedia(this) && !isExternalStorageManager()) {
+    if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access)) {
+        if (Environment.isExternalStorageManager()) {
+            callback()
+        } else {
+            ConfirmationAdvancedDialog(this, "", R.string.access_storage_prompt, R.string.ok, 0) { success ->
+                if (success) {
+                    try {
+                        val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+                        intent.addCategory("android.intent.category.DEFAULT")
+                        intent.data = Uri.parse("package:$packageName")
+                        startActivity(intent)
+                    } catch (e: Exception) {
+                        showErrorToast(e)
+                        val intent = Intent()
+                        intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
+                        startActivity(intent)
+                    }
+                } else {
+                    finish()
+                }
+            }
+        }
+    } else if (isSPlus() && !MediaStore.canManageMedia(this) && !isExternalStorageManager()) {
         ConfirmationDialog(this, "", R.string.media_management_prompt, R.string.ok, 0) {
             launchMediaManagementIntent(callback)
         }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="show_donate_in_about">true</bool>
+    <bool name="require_all_files_access">true</bool>
 </resources>
