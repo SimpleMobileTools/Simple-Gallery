@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.widget.RelativeLayout
 import android.widget.RemoteViews
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
@@ -179,7 +178,5 @@ class WidgetConfigureActivity : SimpleActivity() {
     private fun handleFolderNameDisplay() {
         val showFolderName = folder_picker_show_folder_name.isChecked
         config_folder_name.beVisibleIf(showFolderName)
-        (config_image.layoutParams as RelativeLayout.LayoutParams).bottomMargin =
-            if (showFolderName) 0 else resources.getDimension(R.dimen.normal_margin).toInt()
     }
 }

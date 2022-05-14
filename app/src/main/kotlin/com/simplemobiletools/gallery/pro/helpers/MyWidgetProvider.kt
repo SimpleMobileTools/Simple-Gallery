@@ -10,8 +10,8 @@ import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.getFileSignature
-import com.simplemobiletools.commons.extensions.setBackgroundColor
 import com.simplemobiletools.commons.extensions.setText
 import com.simplemobiletools.commons.extensions.setVisibleIf
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -39,7 +39,7 @@ class MyWidgetProvider : AppWidgetProvider() {
             val config = context.config
             context.widgetsDB.getWidgets().filter { appWidgetIds.contains(it.widgetId) }.forEach {
                 val views = RemoteViews(context.packageName, R.layout.widget).apply {
-                    setBackgroundColor(R.id.widget_holder, config.widgetBgColor)
+                    applyColorFilter(R.id.widget_background, config.widgetBgColor)
                     setVisibleIf(R.id.widget_folder_name, config.showWidgetFolderName)
                     setTextColor(R.id.widget_folder_name, config.widgetTextColor)
                     setText(R.id.widget_folder_name, context.getFolderNameFromPath(it.folderPath))
@@ -47,8 +47,8 @@ class MyWidgetProvider : AppWidgetProvider() {
 
                 val path = context.directoryDao.getDirectoryThumbnail(it.folderPath) ?: return@forEach
                 val options = RequestOptions()
-                        .signature(path.getFileSignature())
-                        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .signature(path.getFileSignature())
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
                 if (context.config.cropThumbnails) {
                     options.centerCrop()
@@ -64,11 +64,11 @@ class MyWidgetProvider : AppWidgetProvider() {
                 val widgetSize = (Math.max(width, height) * density).toInt()
                 try {
                     val image = Glide.with(context)
-                            .asBitmap()
-                            .load(path)
-                            .apply(options)
-                            .submit(widgetSize, widgetSize)
-                            .get()
+                        .asBitmap()
+                        .load(path)
+                        .apply(options)
+                        .submit(widgetSize, widgetSize)
+                        .get()
                     views.setImageViewBitmap(R.id.widget_imageview, image)
                 } catch (e: Exception) {
                 }

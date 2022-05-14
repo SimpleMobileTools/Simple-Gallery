@@ -64,9 +64,10 @@
             android:layout_width="@dimen/widget_initial_size"
             android:layout_height="@dimen/widget_initial_size"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="@dimen/normal_margin"
-            android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginRight="@dimen/normal_margin" />
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_marginBottom="@dimen/small_margin" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/config_folder_name"
@@ -75,8 +76,9 @@
             android:layout_below="@+id/config_image"
             android:ellipsize="end"
             android:gravity="center"
+            android:includeFontPadding="false"
             android:lines="1"
-            android:padding="@dimen/tiny_margin"
+            android:paddingBottom="@dimen/small_margin"
             android:textSize="@dimen/bigger_text_size"
             tools:text="@string/internal" />
 
