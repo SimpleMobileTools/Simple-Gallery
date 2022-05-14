@@ -130,7 +130,9 @@ fun SimpleActivity.launchAbout() {
 }
 
 fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
-    if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access)) {
+    if (canManageMedia() || isExternalStorageManager()) {
+        callback()
+    } else if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access)) {
         if (Environment.isExternalStorageManager()) {
             callback()
         } else {
