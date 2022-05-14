@@ -2,4 +2,6 @@
 <resources>
     <bool name="show_donate_in_about">true</bool>
     <bool name="require_all_files_access">true</bool>
+    <bool name="avoid_showing_rating_prompt">true</bool>
+    <bool name="hide_google_relations">true</bool>
 </resources>

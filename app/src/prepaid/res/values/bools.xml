@@ -4,4 +4,5 @@
     <bool name="hide_google_relations">true</bool>
     <bool name="hide_all_external_links">true</bool>
     <bool name="require_all_files_access">true</bool>
+    <bool name="avoid_showing_rating_prompt">true</bool>
 </resources>
