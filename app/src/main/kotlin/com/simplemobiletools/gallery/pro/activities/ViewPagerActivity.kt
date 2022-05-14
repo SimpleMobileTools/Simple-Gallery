@@ -591,6 +591,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            mAreSlideShowMediaVisible = false
         }
     }
 
@@ -1128,16 +1129,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 mIgnoredPaths.add(fileDirItem.path)
-                val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
-                runOnUiThread {
-                    gotMedia(media, true, false)
+                val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<Medium>
+                if (media.isNotEmpty()) {
+                    runOnUiThread {
+                        refreshUI(media, true)
+                    }
                 }
 
                 movePathsInRecycleBin(arrayListOf(path)) {
                     if (it) {
                         tryDeleteFileDirItem(fileDirItem, false, false) {
                             mIgnoredPaths.remove(fileDirItem.path)
-                            deleteDirectoryIfEmpty()
+                            if (media.isEmpty()) {
+                                deleteDirectoryIfEmpty()
+                                finish()
+                            }
                         }
                     } else {
                         toast(R.string.unknown_error_occurred)
@@ -1156,14 +1162,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
 
             mIgnoredPaths.add(fileDirItem.path)
-            val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
-            runOnUiThread {
-                gotMedia(media, true, false)
+            val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<Medium>
+            if (media.isNotEmpty()) {
+                runOnUiThread {
+                    refreshUI(media, true)
+                }
             }
 
             tryDeleteFileDirItem(fileDirItem, false, true) {
                 mIgnoredPaths.remove(fileDirItem.path)
-                deleteDirectoryIfEmpty()
+                if (media.isEmpty()) {
+                    deleteDirectoryIfEmpty()
+                    finish()
+                }
             }
         }
     }
@@ -1227,6 +1238,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        refreshUI(media, refetchViewPagerPosition)
+    }
+
+    private fun refreshUI(media: ArrayList<Medium>, refetchViewPagerPosition: Boolean) {
         mPrevHashcode = media.hashCode()
         mMediaFiles = media
 
