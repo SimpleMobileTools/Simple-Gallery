@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.23.6 *(2022-05-14)*
+----------------------------
+
+ * Fix a glitch with device freezing at deleting multiple files at once
+ * Properly handle deleting the last file in a folder
+ * Restore previous way of handling hidden and included folders on FOSS app version, not Google Play
+ * Added some stability, translation and UX improvements
+
 Version 6.23.5 *(2022-05-05)*
 ----------------------------
 
