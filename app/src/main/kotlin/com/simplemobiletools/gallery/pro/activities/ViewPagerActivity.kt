@@ -1136,7 +1136,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<Medium>
                 if (media.isNotEmpty()) {
                     runOnUiThread {
-                        refreshUI(media, true)
+                        refreshUI(media, false)
                     }
                 }
 
@@ -1169,7 +1169,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<Medium>
             if (media.isNotEmpty()) {
                 runOnUiThread {
-                    refreshUI(media, true)
+                    refreshUI(media, false)
                 }
             }
 
@@ -1413,7 +1413,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getCurrentPath() = getCurrentMedium()?.path ?: ""
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+        if (position == 0) {
+            onPageSelected(0)
+        }
+    }
 
     override fun onPageSelected(position: Int) {
         if (mPos != position) {
