@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:d8272bf1d9'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:18b7775e55'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
@@ -100,7 +100,7 @@ dependencies {
     }
     compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
 
-    kapt 'com.github.bumptech.glide:compiler:4.13.1'
+    kapt 'com.github.bumptech.glide:compiler:4.13.2'
 
     kapt 'androidx.room:room-compiler:2.3.0'
     implementation 'androidx.room:room-runtime:2.3.0'
