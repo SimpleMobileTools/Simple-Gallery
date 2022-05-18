@@ -462,15 +462,24 @@ class MediaAdapter(
     private fun askConfirmDelete() {
         val itemsCnt = selectedKeys.size
         val firstPath = getSelectedPaths().first()
-        val items = if (itemsCnt == 1) {
-            "\"${firstPath.getFilenameFromPath()}\""
+        val fileDirItem = FileDirItem(firstPath, firstPath.getFilenameFromPath(), activity.getIsPathDirectory(firstPath))
+        val size = fileDirItem.getProperSize(activity, countHidden = true).formatSize()
+        val itemsAndSize = if (itemsCnt == 1) {
+            "\"${firstPath.getFilenameFromPath()}\" ($size)"
         } else {
-            resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            val paths = getSelectedPaths()
+            val fileDirItems = java.util.ArrayList<FileDirItem>(paths.size)
+            paths.forEach {
+                val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
+                fileDirItems.add(fileDirItem)
+            }
+            val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
+            "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
         }
 
         val isRecycleBin = firstPath.startsWith(activity.recycleBinPath)
         val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
-        val question = String.format(resources.getString(baseString), items)
+        val question = String.format(resources.getString(baseString), itemsAndSize)
         DeleteWithRememberDialog(activity, question) {
             config.tempSkipDeleteConfirmation = it
             deleteFiles()

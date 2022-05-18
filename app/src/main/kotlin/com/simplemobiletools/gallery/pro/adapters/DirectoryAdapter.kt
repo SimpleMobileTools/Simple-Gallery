@@ -593,11 +593,21 @@ class DirectoryAdapter(
                     return
                 }
 
-                val items = if (itemsCnt == 1) {
+                val itemsAndSize = if (itemsCnt == 1) {
+                    val path = getSelectedPaths().first()
+                    val fileDirItem = FileDirItem(path, path.getFilenameFromPath(), activity.getIsPathDirectory(path))
+                    val size = fileDirItem.getProperSize(activity, countHidden = true).formatSize()
                     val folder = getSelectedPaths().first().getFilenameFromPath()
-                    "\"$folder\""
+                    "\"$folder\" ($size)"
                 } else {
-                    resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                    val paths = getSelectedPaths()
+                    val fileDirItems = ArrayList<FileDirItem>(paths.size)
+                    paths.forEach {
+                        val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
+                        fileDirItems.add(fileDirItem)
+                    }
+                    val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
+                    "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
@@ -607,7 +617,7 @@ class DirectoryAdapter(
                     R.string.move_to_recycle_bin_confirmation
                 }
 
-                val question = String.format(resources.getString(baseString), items)
+                val question = String.format(resources.getString(baseString), itemsAndSize)
                 val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
                 ConfirmDeleteFolderDialog(activity, question, warning) {
                     deleteFolders()

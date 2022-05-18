@@ -1104,7 +1104,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        val filename = "\"${getCurrentPath().getFilenameFromPath()}\""
+        val path = getCurrentPath()
+        val fileDirItem = FileDirItem(path, path.getFilenameFromPath(), getIsPathDirectory(path))
+        val size = fileDirItem.getProperSize(this, countHidden = true).formatSize()
+        val filename = "\"${path.getFilenameFromPath()}\""
+        val filenameAndSize = "$filename ($size)"
 
         val baseString = if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             R.string.move_to_recycle_bin_confirmation
@@ -1112,7 +1116,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.string.deletion_confirmation
         }
 
-        val message = String.format(resources.getString(baseString), filename)
+        val message = String.format(resources.getString(baseString), filenameAndSize)
         DeleteWithRememberDialog(this, message) {
             config.tempSkipDeleteConfirmation = it
             deleteConfirmed()
