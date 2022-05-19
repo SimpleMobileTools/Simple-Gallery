@@ -471,7 +471,7 @@ class MediaAdapter(
             val paths = getSelectedPaths()
             val fileDirItems = ArrayList<FileDirItem>(paths.size)
             paths.forEach {
-                val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
+                val fileDirItem = File(it).toFileDirItem(activity)
                 fileDirItems.add(fileDirItem)
             }
             val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
