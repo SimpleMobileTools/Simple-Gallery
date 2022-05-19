@@ -602,7 +602,10 @@ class DirectoryAdapter(
                 } else {
                     val paths = getSelectedPaths()
                     val fileDirItems = ArrayList<FileDirItem>(paths.size)
-                    paths.forEach { fileDirItems.add(File(it).toFileDirItem(activity)) }
+                    paths.forEach {
+                        val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
+                        fileDirItems.add(fileDirItem)
+                    }
                     val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
                     "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
                 }
