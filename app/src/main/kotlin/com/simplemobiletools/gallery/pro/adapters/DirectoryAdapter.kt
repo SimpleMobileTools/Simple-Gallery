@@ -607,7 +607,8 @@ class DirectoryAdapter(
                         fileDirItems.add(fileDirItem)
                     }
                     val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
-                    "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
+                    val deleteItemsString = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                    "$deleteItemsString ($size)"
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
