@@ -38,6 +38,7 @@ import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
+import java.io.File
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -462,17 +463,14 @@ class MediaAdapter(
     private fun askConfirmDelete() {
         val itemsCnt = selectedKeys.size
         val firstPath = getSelectedPaths().first()
-        val fileDirItem = FileDirItem(firstPath, firstPath.getFilenameFromPath(), activity.getIsPathDirectory(firstPath))
+        val fileDirItem = File(firstPath).toFileDirItem(activity)
         val size = fileDirItem.getProperSize(activity, countHidden = true).formatSize()
         val itemsAndSize = if (itemsCnt == 1) {
             "\"${firstPath.getFilenameFromPath()}\" ($size)"
         } else {
             val paths = getSelectedPaths()
-            val fileDirItems = java.util.ArrayList<FileDirItem>(paths.size)
-            paths.forEach {
-                val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
-                fileDirItems.add(fileDirItem)
-            }
+            val fileDirItems = ArrayList<FileDirItem>(paths.size)
+            paths.forEach { fileDirItems.add(File(it).toFileDirItem(activity)) }
             val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
             "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
         }

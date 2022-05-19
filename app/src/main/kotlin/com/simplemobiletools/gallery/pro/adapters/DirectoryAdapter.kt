@@ -595,17 +595,14 @@ class DirectoryAdapter(
 
                 val itemsAndSize = if (itemsCnt == 1) {
                     val path = getSelectedPaths().first()
-                    val fileDirItem = FileDirItem(path, path.getFilenameFromPath(), activity.getIsPathDirectory(path))
+                    val fileDirItem = File(path).toFileDirItem(activity)
                     val size = fileDirItem.getProperSize(activity, countHidden = true).formatSize()
-                    val folder = getSelectedPaths().first().getFilenameFromPath()
+                    val folder = path.getFilenameFromPath()
                     "\"$folder\" ($size)"
                 } else {
                     val paths = getSelectedPaths()
                     val fileDirItems = ArrayList<FileDirItem>(paths.size)
-                    paths.forEach {
-                        val fileDirItem = FileDirItem(it, it.getFilenameFromPath(), activity.getIsPathDirectory(it))
-                        fileDirItems.add(fileDirItem)
-                    }
+                    paths.forEach { fileDirItems.add(File(it).toFileDirItem(activity)) }
                     val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
                     "${resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)} ($size)"
                 }
