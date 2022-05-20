@@ -1140,6 +1140,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
                 }
 
+                if (media.size == 1) {
+                    onPageSelected(0)
+                }
+
                 movePathsInRecycleBin(arrayListOf(path)) {
                     if (it) {
                         tryDeleteFileDirItem(fileDirItem, false, false) {
@@ -1171,6 +1175,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 runOnUiThread {
                     refreshUI(media, false)
                 }
+            }
+
+            if (media.size == 1) {
+                onPageSelected(0)
             }
 
             tryDeleteFileDirItem(fileDirItem, false, true) {
@@ -1413,11 +1421,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getCurrentPath() = getCurrentMedium()?.path ?: ""
 
-    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-        if (position == 0) {
-            onPageSelected(0)
-        }
-    }
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
     override fun onPageSelected(position: Int) {
         if (mPos != position) {
