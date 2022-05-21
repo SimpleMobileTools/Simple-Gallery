@@ -1077,7 +1077,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         rescanPaths(paths) {
             fixDateTaken(paths, false)
 
-            if (config.keepLastModified) {
+            if (config.keepLastModified && lastModified != 0L) {
                 File(file.absolutePath).setLastModified(lastModified)
                 updateLastModified(file.absolutePath, lastModified)
             }

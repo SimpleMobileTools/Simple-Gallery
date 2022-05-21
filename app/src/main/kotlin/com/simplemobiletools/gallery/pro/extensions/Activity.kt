@@ -360,7 +360,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
                         mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
 
-                        if (config.keepLastModified) {
+                        if (config.keepLastModified && lastModified != 0L) {
                             internalFile.setLastModified(lastModified)
                         }
                     }
@@ -435,7 +435,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
                 }
                 newPaths.add(destination)
 
-                if (config.keepLastModified) {
+                if (config.keepLastModified && lastModified != 0L) {
                     File(destination).setLastModified(lastModified)
                 }
             } catch (e: Exception) {
@@ -692,7 +692,7 @@ fun Activity.tryRotateByExif(path: String, degrees: Int, showToasts: Boolean, ca
 }
 
 fun Activity.fileRotatedSuccessfully(path: String, lastModified: Long) {
-    if (config.keepLastModified) {
+    if (config.keepLastModified && lastModified != 0L) {
         File(path).setLastModified(lastModified)
         updateLastModified(path, lastModified)
     }
