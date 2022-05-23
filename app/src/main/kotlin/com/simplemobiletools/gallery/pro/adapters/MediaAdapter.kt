@@ -38,6 +38,7 @@ import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
 import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
+import java.io.File
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -462,15 +463,25 @@ class MediaAdapter(
     private fun askConfirmDelete() {
         val itemsCnt = selectedKeys.size
         val firstPath = getSelectedPaths().first()
-        val items = if (itemsCnt == 1) {
-            "\"${firstPath.getFilenameFromPath()}\""
+        val fileDirItem = File(firstPath).toFileDirItem(activity)
+        val size = fileDirItem.getProperSize(activity, countHidden = true).formatSize()
+        val itemsAndSize = if (itemsCnt == 1) {
+            "\"${firstPath.getFilenameFromPath()}\" ($size)"
         } else {
-            resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            val paths = getSelectedPaths()
+            val fileDirItems = ArrayList<FileDirItem>(paths.size)
+            paths.forEach {
+                val fileDirItem = File(it).toFileDirItem(activity)
+                fileDirItems.add(fileDirItem)
+            }
+            val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
+            val deleteItemsString = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            "$deleteItemsString ($size)"
         }
 
         val isRecycleBin = firstPath.startsWith(activity.recycleBinPath)
         val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
-        val question = String.format(resources.getString(baseString), items)
+        val question = String.format(resources.getString(baseString), itemsAndSize)
         DeleteWithRememberDialog(activity, question) {
             config.tempSkipDeleteConfirmation = it
             deleteFiles()
