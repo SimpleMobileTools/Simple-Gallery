@@ -592,6 +592,7 @@ class DirectoryAdapter(
                     }
                     return
                 }
+
                 val items = if (itemsCnt == 1) {
                     val folder = getSelectedPaths().first().getFilenameFromPath()
                     "\"$folder\""
