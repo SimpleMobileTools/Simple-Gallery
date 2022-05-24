@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:795a4ae3e3'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:5add391a37'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
@@ -105,6 +105,8 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.3.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
+
+    //implementation project(':commons')
 }
 
 // Apply the PESDKPlugin
