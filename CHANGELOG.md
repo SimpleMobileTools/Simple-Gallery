@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.23.8 *(2022-05-25)*
+----------------------------
+
+ * Allow creating new folders from the main screen too
+ * Fixed some file operation related issues
+ * Show the size of items that are going to be deleted at confirmation
+ * Reverted the photo/video editor to fix video editing
+ * Fixed Indonesian translation
+ * Added some translation and stability improvements
+
 Version 6.23.7 *(2022-05-16)*
 ----------------------------
 
