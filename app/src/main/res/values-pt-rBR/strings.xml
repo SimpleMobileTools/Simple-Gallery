@@ -30,7 +30,7 @@
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
     <string name="upgraded_from_free">Olá,
 \n
-\nparece que você está atualizando do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de \"Atualizar para a versão Pro\" no topo da página de configurações.
+\nparece que você está vindo do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de \"Atualizar para a versão Pro\" no topo da página de configurações.
 \n
 \nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.
 \n
@@ -39,8 +39,7 @@
     <string name="set_as_default_folder">Definir como pasta padrão</string>
     <string name="unset_as_default_folder">Indefinir como pasta padrão</string>
     <string name="reorder_by_dragging">Reordenar as pastas ao arrastar</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
-
+    <string name="restore_to_path">Restaurando para \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtrar mídia</string>
     <string name="images">Imagens</string>
@@ -205,7 +204,7 @@
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos favoritos</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">Para você se certificar que todas as operações de arquivos funcionam corretamente, por favor, permita o gerenciamento de mídias nas configurações do seu dispositivo.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Mídia em tela cheia</string>
@@ -213,7 +212,7 @@
     <string name="bottom_actions">Barra inferior</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gerenciar botões visíveis</string>
-    <string name="toggle_favorite">Favoritar/desfavoritar</string>
+    <string name="toggle_favorite">Habilitar favoritos</string>
     <string name="toggle_file_visibility">Exibir/ocultar arquivo</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalizar</string>
@@ -359,12 +358,12 @@
     <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser. Note que esconder funciona recursivamente, então se você esconder uma pasta, todas as subpastas ficaram escondidas também. Então, para re exibir as subpastas, você precisa re exibir a pasta principal.</string>
     <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_16_title">O que aconteceu com o arquivo e a pasta escondidos e por que não posso mais ver arquivos escondidos\?</string>
+    <string name="faq_16_text">A partir do Android 11, não é mais possível esconder ou exibir arquivos e pastas, e não é possível visualizar os escondidos em sua galeria. Você precisará de outro gerenciador de arquivos para isso.</string>
+    <string name="faq_17_title">Por que não posso incluir pastas ausentes\?</string>
+    <string name="faq_17_text">Isso parou de funcionar devido a mudanças de sistema do Android 11, pois o aplicativo não pode mais gerenciar pastas verdadeiras, precisa utilizar algo chamado MediaStore para obter os dados.</string>
+    <string name="faq_18_title">Por que estou vendo anúncios durante o playback do vídeo\?</string>
+    <string name="faq_18_text">Nossos aplicativos não mostram anúncios, nunca. Se você encontrar algum durante um playback de vídeo, deve estar utilizando o reprodutor de vídeo de outro aplicativo. Tente encontrar o seu reprodutor de vídeo padrão nas configurações de dispositivo e clique em \"Limpar padrões\". Na próxima vez que tentar assistir a um vídeo, poderá escolhar o reprodutor que desejar.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Galeria Pro - Gerenciador &amp; Editor de Imagens</string>
