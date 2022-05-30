@@ -159,7 +159,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             callback(granted)
             if (granted && isRPlus()) {
                 handlePermission(PERMISSION_MEDIA_LOCATION) {}
-                if (!mWasMediaManagementPromptShown && (config.appRunCount == 1 || config.appRunCount % 5 == 0)) {
+                if (!mWasMediaManagementPromptShown) {
                     mWasMediaManagementPromptShown = true
                     handleMediaManagementPrompt { }
                 }
