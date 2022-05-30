@@ -268,11 +268,11 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Esportazione…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Esportazione %s.</string>
     <string name="pesdk_sticker_title_name">Adesivo</string>
-    <string name="pesdk_sticker_title_color">Colore Sticker</string>
-    <string name="pesdk_sticker_title_options">Opzioni Sticker Options</string>
+    <string name="pesdk_sticker_title_color">Colore dell\'adesivo</string>
+    <string name="pesdk_sticker_title_options">Opzioni degli adesivi</string>
     <string name="pesdk_sticker_button_add">Aggiungi</string>
     <string name="pesdk_sticker_button_color">Colore</string>
-    <string name="pesdk_sticker_button_delete">Cancella</string>
+    <string name="pesdk_sticker_button_delete">Elimina</string>
     <string name="pesdk_sticker_button_bringToFront">Sposta davanti</string>
     <string name="pesdk_sticker_button_straighten">Raddrizza</string>
     <string name="pesdk_sticker_button_replace">Sostituisci</string>

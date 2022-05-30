@@ -24,7 +24,7 @@
     <string name="force_landscape">Bildausrichtung im Querformat</string>
     <string name="use_default_orientation">Automatische Bildausrichtung</string>
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
-    <string name="fixing">Korrigiere…</string>
+    <string name="fixing">Korrigiere …</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
     <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
@@ -243,7 +243,7 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Gespiegelt</string>
     <string name="pesdk_focus_button_gaussian">Gaußsch</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Text hinzufügen</string>
     <string name="pesdk_text_title_name">Text</string>
     <string name="pesdk_text_title_options">Textoptionen</string>
     <string name="pesdk_text_title_textColor">Textfarbe</string>
@@ -253,7 +253,7 @@
     <string name="pesdk_text_button_straighten">Begradigen</string>
     <string name="pesdk_text_button_font">Schrift</string>
     <string name="pesdk_text_button_color">Farbe</string>
-    <string name="pesdk_text_button_backgroundColor">Hintergrund</string>
+    <string name="pesdk_text_button_backgroundColor">Hintergrundfarbe</string>
     <string name="pesdk_text_button_alignment">Ausrichtung</string>
     <string name="pesdk_text_button_bringToFront">Nach Vorne</string>
     <string name="pesdk_text_button_delete">Löschen</string>
@@ -262,7 +262,7 @@
     <string name="pesdk_brush_button_color">Farbe</string>
     <string name="pesdk_brush_button_size">Größe</string>
     <string name="pesdk_brush_button_hardness">Stärke</string>
-    <string name="pesdk_brush_button_bringToFront">Nach Vorne</string>
+    <string name="pesdk_brush_button_bringToFront">Nach vorne</string>
     <string name="pesdk_brush_button_delete">Löschen</string>
     <string name="pesdk_brush_title_brushColor">Pinselfarbe</string>
     <string name="pesdk_editor_title_name">Editor</string>
@@ -276,8 +276,8 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Wird exportiert …</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Wird exportiert %s.</string>
     <string name="pesdk_sticker_title_name">Aufkleber</string>
-    <string name="pesdk_sticker_title_color">Sticker Farbe</string>
-    <string name="pesdk_sticker_title_options">Sticker Optionen</string>
+    <string name="pesdk_sticker_title_color">Aufkleberfarbe</string>
+    <string name="pesdk_sticker_title_options">Aufkleber-Optionen</string>
     <string name="pesdk_sticker_button_add">Hinzufügen</string>
     <string name="pesdk_sticker_button_color">Farbe</string>
     <string name="pesdk_sticker_button_delete">Löschen</string>
@@ -294,7 +294,7 @@
     <string name="pesdk_overlay_button_blendModeDarken">Abdunkeln</string>
     <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Überlagerung</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Erhellen</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Aufhellen</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Multiplizieren</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Farbbrennen</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">Weiches Licht</string>
@@ -323,12 +323,12 @@
     <string name="pesdk_common_title_redColor">Rot</string>
     <string name="pesdk_common_title_orangeColor">Orange</string>
     <string name="pesdk_common_title_goldColor">Gold</string>
-    <string name="pesdk_common_title_yellowColor">Geld</string>
+    <string name="pesdk_common_title_yellowColor">Gelb</string>
     <string name="pesdk_common_title_oliveColor">Olive</string>
     <string name="pesdk_common_title_greenColor">Grün</string>
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettierbare Farbe</string>
-    <string name="vesdk_video_trim_title_name">Schneiden</string>
+    <string name="vesdk_video_trim_title_name">Zuschneiden</string>
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>
     <string name="faq_1_text">Zunächst musst du unter „Apps“ in den Geräteeinstellungen die aktuelle Standardgalerie finden. Suche nach einer Bedienfläche wie „Standardmäßig öffnen“, betätige diese und wähle „Standardeinstellungen löschen“. Das nächste Mal, wenn du ein Bild oder ein Video öffnest, sollte ein Auswahlfenster erscheinen und es möglich sein, Schlichte Galerie als Standard-Anwendung auszuwählen.</string>
