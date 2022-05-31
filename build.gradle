@@ -8,7 +8,6 @@ buildscript {
         propTargetSdkVersion = propCompileSdkVersion
         propVersionCode = 1
         propVersionName = '5.34.26'
-        kotlin_version = '1.6.21'
     }*/
 
     ext.kotlin_version = '1.6.21'
