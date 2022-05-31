@@ -57,6 +57,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
+    private var mWasFullscreenViewOpen = false
     private var mLastSearchedText = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
@@ -171,7 +172,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             invalidateOptionsMenu()
         }
 
-        if (mMedia.isEmpty() || config.getFolderSorting(mPath) and SORT_BY_RANDOM == 0) {
+        // do not refresh Random sorted files after opening a fullscreen image and going Back
+        val isRandomSorting = config.getFolderSorting(mPath) and SORT_BY_RANDOM != 0
+        if (mMedia.isEmpty() || !isRandomSorting || (isRandomSorting && !mWasFullscreenViewOpen)) {
             if (shouldSkipAuthentication()) {
                 tryLoadGallery()
             } else {
@@ -804,6 +807,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
             finish()
         } else {
+            mWasFullscreenViewOpen = true
             val isVideo = path.isVideoFast()
             if (isVideo) {
                 val extras = HashMap<String, Boolean>()
