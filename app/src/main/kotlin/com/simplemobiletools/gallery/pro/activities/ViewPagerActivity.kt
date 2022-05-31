@@ -134,7 +134,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         // show the selected image asap, while loading the rest in the background to allow swiping between them. Needed at third party intents
-        if (mMediaFiles.isEmpty() && mPath.isNotEmpty()) {
+        if (mMediaFiles.isEmpty() && mPath.isNotEmpty() && mDirectory != FAVORITES) {
             getCachedMedia(mPath.getParentPath(), false, false) { thumbnailItems ->
                 // if we have nothing cached from the given folder, at least show the selected image asap
                 if (thumbnailItems.isEmpty()) {
@@ -1263,7 +1263,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (refetchViewPagerPosition || mPos == -1) {
             mPos = getPositionInList(media)
             if (mPos == -1) {
-                Math.min(mPos, mMediaFiles.size - 1)
+                Math.min(mPos, media.size - 1)
             }
         }
 
