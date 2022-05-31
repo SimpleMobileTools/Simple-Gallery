@@ -6,7 +6,7 @@
     <string name="open_camera">Buka kamera</string>
     <string name="hidden">(tersembunyi)</string>
     <string name="excluded">(dikecualikan)</string>
-    <string name="pin_folder">Pin folder</string>
+    <string name="pin_folder">Sematkan folder</string>
     <string name="unpin_folder">Lepas pin folder</string>
     <string name="pin_to_the_top">Pin ke atas</string>
     <string name="show_all">Tampilkan semua isi folder</string>
@@ -26,18 +26,17 @@
     <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
     <string name="fixing">Memperbaiki…</string>
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Tidak ada nilai Tanggal Diambil yang ditemukan</string>
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
     <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
     <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
-
+    <string name="set_as_default_folder">Tetapkan sebagai folder default</string>
+    <string name="unset_as_default_folder">Hapus sebagai folder default</string>
+    <string name="reorder_by_dragging">Susun ulang folder dengan menyeret</string>
+    <string name="restore_to_path">Memulihkan ke \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
-    <string name="images">Gambar</string>
+    <string name="images">Images</string>
     <string name="videos">Video</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Gambar RAW</string>
@@ -75,16 +74,16 @@
     <string name="editor">Penyunting</string>
     <string name="rotate">Rotasi</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Jalur video tidak valid</string>
     <string name="image_editing_failed">Gagal menyunting gambar</string>
-    <string name="video_editing_failed">Video editing failed</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="video_editing_failed">Pengeditan video gagal</string>
+    <string name="image_editing_cancelled">Pengeditan gambar dibatalkan</string>
+    <string name="video_editing_cancelled">Pengeditan video dibatalkan</string>
+    <string name="file_edited_successfully">File berhasil diedit</string>
+    <string name="image_edited_successfully">Gambar berhasil diedit</string>
+    <string name="video_edited_successfully">Video berhasil diedit</string>
     <string name="edit_image_with">Sunting gambar dengan:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Edit video dengan:</string>
     <string name="no_image_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
     <string name="no_video_editor_found">No video editor found</string>
     <string name="unknown_file_location">Lokasi berkas tidak diketahui</string>
@@ -352,7 +351,7 @@
     <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong?</string>
     <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_16_text">Dimulai dengan Android 11, Anda tidak dapat menyembunyikan atau memunculkan file atau folder lagi, Anda juga tidak dapat melihat file atau folder yang tersembunyi di aplikasi galeri karena pembatasan sistem. Anda harus menggunakan beberapa manajer file untuk itu.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
