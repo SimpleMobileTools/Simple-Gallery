@@ -358,7 +358,7 @@
     <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusunda öge bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusunu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
     <string name="faq_16_title">Dosya ve klasör gizlemeye ne oldu ve neden artık gizli ögeleri göremiyorum\?</string>
-    <string name="faq_16_text">Android 11\'den itibaren artık dosya veya klasörleri gizleyemez veya gizliliğini kaldıramazsınız, galeri uygulamalarında da gizli olanları göremezsiniz. Bunun için bir dosya yöneticisi kullanmanız gerekecektir.</string>
+    <string name="faq_16_text">Android 11\'den itibaren artık dosya veya klasörleri gizleyemez veya gizliliğini kaldıramazsınız, sistem kısıtlamaları nedeniyle galeri uygulamalarında da gizli olanları göremezsiniz. Bunun için bir dosya yöneticisi kullanmanız gerekecektir.</string>
     <string name="faq_17_title">Neden artık eksik klasörleri dahil edemiyorum\?</string>
     <string name="faq_17_text">Bu, Android 11 ile birlikte gelen sistem değişiklikleri nedeniyle çalışmayı durdurdu, uygulama artık gerçek klasörlere göz atamıyor, verileri almak için MediaStore kullanıyor.</string>
     <string name="faq_18_title">Video oynatılırken neden reklam görüyorum\?</string>
