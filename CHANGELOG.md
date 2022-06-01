@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.23.9 *(2022-06-01)*
+----------------------------
+
+ * Fixed some sorting by Date Taken related issues
+ * Fixed some file operation related glitches
+ * Added some stability, translation and UX improvements
+
 Version 6.23.8 *(2022-05-25)*
 ----------------------------
 
