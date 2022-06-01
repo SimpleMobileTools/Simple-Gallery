@@ -39,8 +39,7 @@
     <string name="set_as_default_folder">تعيين كمجلد افتراضي</string>
     <string name="unset_as_default_folder">إلغاء التعيين كمجلد افتراضي</string>
     <string name="reorder_by_dragging">إعادة ترتيب المجلدات عن طريق السحب</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
-
+    <string name="restore_to_path">الاستعادة إلى \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>
     <string name="images">الصور</string>
@@ -150,7 +149,7 @@
     <string name="by_date_taken_monthly">آخر تعديل (شهرياً)</string>
     <string name="by_file_type">نوع الملف</string>
     <string name="by_extension">الإمتداد</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">إظهار عدد الملفات في رؤوس الأقسام</string>
     <string name="grouping_and_sorting">يرجى ملاحظة أن التجميع والفرز هما حقلان مستقلان</string>
     <!-- Widgets -->
     <string name="folder_on_widget">المجلد الظاهر فى الويدجت:</string>
@@ -207,7 +206,7 @@
     <string name="square">مربع</string>
     <string name="rounded_corners">زوايا مستديرة</string>
     <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">للتأكد من أن جميع عمليات الملفات تعمل بشكل موثوق ، يرجى جعل هذا التطبيق تطبيقا لإدارة الوسائط في إعدادات جهازك.</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
@@ -360,11 +359,11 @@
     <string name="faq_15_title">لماذا يشغل التطبيق مساحة كبيرة؟</string>
     <string name="faq_15_text">يمكن لذاكرة التخزين المؤقت للتطبيق أن تصل سعتها إلى 250 ميجابايت، مما يضمن سرعة تحميل الصور. إذا كان التطبيق يشغل مساحة أكبر، فمن المحتمل أن يكون ذلك بسبب وجود عناصر في سلة المحذوفات. يتم حساب هذه الملفات إلى حجم التطبيق. يمكنك مسح سلة المحذوفات عن طريق فتحها وحذف جميع الملفات، أو من إعدادات التطبيق. يتم حذف كل ملف في سلة المحذوفات تلقائياً بعد 30 يوماً.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_16_text">بدءا من Android 11 ، لا يمكنك إخفاء أو إظهار الملفات أو المجلدات بعد الآن ، ولا يمكنك رؤية الملفات أو المجلدات المخفية في تطبيقات المعرض بسبب قيود النظام أيضا. سيكون عليك استخدام بعض مدير الملفات لذلك.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">لماذا أشاهد الإعلانات أثناء تشغيل الفيديو؟</string>
+    <string name="faq_18_text">لا تحتوي تطبيقاتنا على أي إعلانات على الإطلاق. إذا رأيتها أثناء تشغيل الفيديو، فيجب أن تستخدم مشغل فيديو بعض التطبيقات الأخرى. حاول العثور على مشغل الفيديو الافتراضي في إعدادات الجهاز، ثم قم بإجراء \"مسح الإعدادات الافتراضية\" عليه. في المرة التالية التي تستدعي فيها بعض نوايا الفيديو ، سترى مطالبة منتقي التطبيقات ، حيث يمكنك تحديد التطبيق الذي تريد استخدامه.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">المعرض البسيط (Pro) - محرر ومدير الصور</string>
