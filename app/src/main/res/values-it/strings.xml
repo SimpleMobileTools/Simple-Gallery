@@ -351,7 +351,7 @@
     <string name="faq_15_title">Perchè l\'app occupa così tanto spazio?</string>
     <string name="faq_15_text">La cache dell\'app può occupare massimo 250MB, serve per veloccizare il caricamento delle immagini. Se l\'app sta prendendo sempre più spazio, molto probabilmente è causato dagli elementi nel Cestino. Questi file contano nella dimensione dell\'app. Puoi svuotare il Cestino aprendolo ed eliminando tutti i file, oppure andando nelle impostazioni dell\'app. Ogni file nel Cestino viene eliminato automaticamente dopo 30 giorni.</string>
     <string name="faq_16_title">Cos\'è successo al nascondere file e cartelle e perché non posso più vedere gli elementi nascosti\?</string>
-    <string name="faq_16_text">A partire da Android 11 non è più possibile nascondere o togliere i file o le cartelle, non è possibile vedere quelli nascosti neanche nelle app della galleria. Dovrai usare qualche gestore file per questo.</string>
+    <string name="faq_16_text">A partire da Android 11 non è più possibile nascondere o mostrare i file o le cartelle nascoste, non è possibile vedere quelli nascosti neanche nelle app della galleria a causa di restrizioni di sistema. Dovrai usare qualche gestore file per questo.</string>
     <string name="faq_17_title">Perché non posso più includere le cartelle mancanti\?</string>
     <string name="faq_17_text">Ciò ha smesso di funzionare a causa delle modifiche al sistema fornite anche con Android 11, l\'app non può più sfogliare le cartelle reali, si basa sul cosiddetto MediaStore per recuperare i dati.</string>
     <string name="faq_18_title">Perché vedo delle pubblicità durante la riproduzione del video\?</string>
