@@ -66,7 +66,7 @@
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
     <string name="hidden_folders_placeholder">Keinen mit einer .nomedia-Datei versteckten Ordner gefunden.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="stop_showing_excluded">Ausgeschlossene nicht mehr anzeigen</string>
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
@@ -209,7 +209,7 @@
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
     <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollten Sie diese App in den Einstellungen Ihres Geräts als Medienverwaltungs-App festlegen.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
@@ -362,7 +362,7 @@
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz?</string>
     <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Diese Dateien zählen zum Speicherplatz der App dazu. Du kannst den Papierkorb leeren, indem du ihn öffnest und alle Dateien darin löschst, oder den entsprechenden Button in den Einstellungen betätigst. All 30 Tage wird der Papierkorb automatisch geleert.</string>
     <string name="faq_16_title">Was ist mit dem Ausblenden von Dateien und Ordnern passiert und warum kann ich versteckte Elemente nicht mehr sehen\?</string>
-    <string name="faq_16_text">Ab Android 11 können Sie keine Dateien oder Ordner mehr ein- oder ausblenden, auch in Galerie-Anwendungen können Sie die versteckten Dateien nicht mehr sehen. Dafür müssen Sie ein Dateiverwaltungsprogramm verwenden.</string>
+    <string name="faq_16_text">Ab Android 11 kann man keine Dateien oder Ordner mehr ein- oder ausblenden, auch in anderen Galerie-Anwendungen kann man die versteckten Dateien nicht mehr sehen. Dafür muss man jetzt ein Dateiverwaltungsprogramm verwenden.</string>
     <string name="faq_17_title">Warum kann ich fehlende Ordner nicht mehr einbinden\?</string>
     <string name="faq_17_text">Das funktioniert seit den Systemänderungen mit Android 11 nicht mehr, die Anwendung kann keine echten Ordner mehr durchsuchen, sondern verlässt sich beim Abrufen von Daten auf den so genannten MediaStore.</string>
     <string name="faq_18_title">Warum sehe ich während der Videowiedergabe Werbung\?</string>
