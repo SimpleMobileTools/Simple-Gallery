@@ -59,6 +59,7 @@
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que no tiene carpetas ocultas con archivos \".nomedia\".</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
@@ -206,6 +207,7 @@
     <string name="rounded_corners">Esquinas redondeadas</string>
     <string name="export_favorite_paths">Exportar rutas de archivos favoritos</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

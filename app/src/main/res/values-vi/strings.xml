@@ -59,6 +59,7 @@
     <string name="hidden_folders">Các thư mục ẩn</string>
     <string name="manage_hidden_folders">Quản lý thư mục ẩn</string>
     <string name="hidden_folders_placeholder">Có vẻ như bạn không có bất kỳ thư mục nào bị ẩn với tệp \".nomedia\".</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">Bao gồm các thư mục</string>
@@ -206,6 +207,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Hình thu nhỏ</string>

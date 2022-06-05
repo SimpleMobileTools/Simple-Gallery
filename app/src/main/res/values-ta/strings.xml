@@ -65,6 +65,7 @@
     <string name="hidden_folders">மறைத்த அடைவுகள்</string>
     <string name="manage_hidden_folders">மறைத்த அடைவுகளை நிர்வகி</string>
     <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எவ்வடைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <!-- Include folders -->
     <string name="include_folders">உள்ளடக்கிய அடைவுகள்</string>
     <string name="manage_included_folders">உள்ளடக்கிய அடைவுகளை நிர்வகி</string>
@@ -207,6 +208,7 @@
     <string name="rounded_corners">மழுங்கையான மூலைகள்</string>
     <string name="export_favorite_paths">பிடித்த கோப்பு பாதைகளை ஏற்றுமதி செய்</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">சிறுபடங்கள்</string>
     <string name="fullscreen_media">முழுத்திரை ஊடகம்</string>

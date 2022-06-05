@@ -59,6 +59,7 @@
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Administrer skjulte mapper</string>
     <string name="hidden_folders_placeholder">Det ser ikke ud til at du har nogen skjulte mapper med en \".nomedia\"-fil.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderede mapper</string>
@@ -206,6 +207,7 @@
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>

@@ -59,6 +59,7 @@
     <string name="hidden_folders">숨겨진 폴더</string>
     <string name="manage_hidden_folders">숨겨진 폴더 관리</string>
     <string name="hidden_folders_placeholder">\".nomedia\"파일로 숨겨진 폴더가 존재하지 않습니다.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">포함된 폴더</string>
@@ -206,6 +207,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>

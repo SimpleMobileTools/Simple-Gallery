@@ -57,6 +57,7 @@
     <string name="hidden_folders">Skrivene mape</string>
     <string name="manage_hidden_folders">Upravljanje skrivenim mapama</string>
     <string name="hidden_folders_placeholder">Čini se da nemate skrivenih mapa s \".nomedia\" datotekom.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Uključene mape</string>
     <string name="manage_included_folders">Upravljajte uključenim mapama</string>
@@ -197,6 +198,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji na cijelom zaslonu</string>

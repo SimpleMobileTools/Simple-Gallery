@@ -57,6 +57,7 @@
     <string name="hidden_folders">Dosare ascunse</string>
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Dosare incluse</string>
     <string name="manage_included_folders">Gestionează dosarele incluse</string>
@@ -197,6 +198,7 @@
     <string name="rounded_corners">Colțuri rotunjite</string>
     <string name="export_favorite_paths">Exportă căile de acces ale fișierelor favorite</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturi</string>
     <string name="fullscreen_media">Elemente media pe ecran complet</string>

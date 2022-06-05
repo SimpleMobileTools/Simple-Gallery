@@ -65,6 +65,7 @@
     <string name="hidden_folders">المجلدات المخفية</string>
     <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
     <string name="hidden_folders_placeholder">يبدو أنه لا توجد لديك أي مجلدات مخفية بملف \".nomedia\".</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
@@ -207,6 +208,7 @@
     <string name="rounded_corners">زوايا مستديرة</string>
     <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
     <string name="media_management_prompt">للتأكد من أن جميع عمليات الملفات تعمل بشكل موثوق ، يرجى جعل هذا التطبيق تطبيقا لإدارة الوسائط في إعدادات جهازك.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>

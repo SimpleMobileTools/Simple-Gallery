@@ -60,6 +60,7 @@
     <string name="hidden_folders">Peidetud kaustad</string>
     <string name="manage_hidden_folders">Halda peidetud kaustu</string>
     <string name="hidden_folders_placeholder">Tundub, et sa pole „.nomedia“ faili abil ühtegi kausta märkinud peidetuks.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Kaasatud kaustad</string>
     <string name="manage_included_folders">Halda kaasatud kaustu</string>
@@ -201,6 +202,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
     <string name="fullscreen_media">Fullscreen media</string>

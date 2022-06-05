@@ -59,6 +59,7 @@
     <string name="hidden_folders">লুকানো ফোল্ডারগুলো</string>
     <string name="manage_hidden_folders">লুকানো ফোল্ডারগুলি পরিচালনা করুন</string>
     <string name="hidden_folders_placeholder">দেখে মনে হচ্ছে আপনার সাথে কোনও ফোল্ডার লুকানো নেই \".nomedia\" ফাইল।</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">অন্তর্ভুক্ত ফোল্ডার</string>
@@ -206,6 +207,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">থাম্বনেল</string>
