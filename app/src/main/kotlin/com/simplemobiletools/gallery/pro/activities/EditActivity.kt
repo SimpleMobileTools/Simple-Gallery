@@ -794,6 +794,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         inputStream = ByteArrayInputStream(stream.toByteArray())
                         outputStream = contentResolver.openOutputStream(saveUri)
                         inputStream.copyTo(outputStream!!)
+                    } catch (e: Exception) {
+                        showErrorToast(e)
+                        return
                     } finally {
                         inputStream?.close()
                         outputStream?.close()
