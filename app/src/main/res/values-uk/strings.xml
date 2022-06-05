@@ -200,7 +200,7 @@
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
     <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>

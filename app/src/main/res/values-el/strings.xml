@@ -207,7 +207,7 @@
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
     <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

@@ -206,7 +206,7 @@
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
     <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
     <string name="media_management_prompt">Tüm dosya işlemlerinin güvenilir bir şekilde çalıştığından emin olmak için lütfen bu uygulamayı aygıt ayarlarınızda bir medya yönetimi uygulaması yapın.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>

@@ -198,7 +198,7 @@
     <string name="rounded_corners">Заоблени ъгли</string>
     <string name="export_favorite_paths">Експортиране на пътищата на любимите файлове</string>
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюрни изображения</string>
     <string name="fullscreen_media">Медия на цял екран</string>

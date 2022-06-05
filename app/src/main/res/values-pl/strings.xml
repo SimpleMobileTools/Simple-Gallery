@@ -204,7 +204,7 @@
     <string name="rounded_corners">Zaokrąglone rogi</string>
     <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
     <string name="media_management_prompt">Aby mieć pewność, że wszystkie operacje na plikach działają niezawodnie, ustaw tę aplikację jako aplikację do zarządzania multimediami w ustawieniach urządzenia.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturki</string>
     <string name="fullscreen_media">Multimedia na pełnym ekranie</string>

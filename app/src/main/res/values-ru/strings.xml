@@ -200,7 +200,7 @@
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
     <string name="media_management_prompt">Чтобы быть уверенным в надёжной работе операций с файлами, сделайте это приложение основным менеджером медиафайлов в настройках устройства.</string>
-    <string name="password_protect_excluded">Password protect excluded folders visibility</string>
+    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>
