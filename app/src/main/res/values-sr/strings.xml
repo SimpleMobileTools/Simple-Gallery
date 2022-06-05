@@ -60,6 +60,7 @@
     <string name="manage_hidden_folders">Управљај скривеним фасциклама</string>
     <string name="hidden_folders_placeholder">Изгледа да немате ни једну фасциклу скривену са \".nomedia\" датотеком.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">Укључене фасцикле</string>

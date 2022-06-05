@@ -60,6 +60,7 @@
     <string name="manage_hidden_folders">Administrer skjulte mapper</string>
     <string name="hidden_folders_placeholder">Det ser ikke ud til at du har nogen skjulte mapper med en \".nomedia\"-fil.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderede mapper</string>

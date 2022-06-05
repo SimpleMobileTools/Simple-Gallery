@@ -60,6 +60,7 @@
     <string name="manage_hidden_folders">Spravovať skryté priečinky</string>
     <string name="hidden_folders_placeholder">Zdá sa, že nemáte žiadne priečinky skryté pomocou súboru \".nomedia\".</string>
     <string name="temporarily_show_excluded">Dočasne zobraziť vylúčené</string>
+    <string name="stop_showing_excluded">Ukončiť zobrazovanie vylúčených</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>

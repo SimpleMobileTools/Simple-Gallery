@@ -65,6 +65,7 @@
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>

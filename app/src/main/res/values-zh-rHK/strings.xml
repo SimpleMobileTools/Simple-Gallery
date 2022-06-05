@@ -60,6 +60,7 @@
     <string name="manage_hidden_folders">管理隱藏資料夾</string>
     <string name="hidden_folders_placeholder">您似乎沒有用\".nomedia\"檔案來隱藏的資料夾</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>

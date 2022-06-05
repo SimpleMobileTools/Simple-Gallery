@@ -58,6 +58,7 @@
     <string name="manage_hidden_folders">Управление на скритите папки</string>
     <string name="hidden_folders_placeholder">Изглежда нямате папки скрити чрез \'.nomedia\' файл.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Включени папки</string>
     <string name="manage_included_folders">Управление на включените папки</string>

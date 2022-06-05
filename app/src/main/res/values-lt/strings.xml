@@ -59,6 +59,7 @@
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
     <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Įtraukti aplankai</string>
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>
