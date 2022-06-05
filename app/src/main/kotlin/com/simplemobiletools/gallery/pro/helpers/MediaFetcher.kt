@@ -101,7 +101,12 @@ class MediaFetcher(val context: Context) {
 
             val config = context.config
             val shouldShowHidden = config.shouldShowHidden
-            val excludedPaths = config.excludedFolders
+            val excludedPaths = if (config.temporarilyShowExcluded) {
+                HashSet()
+            } else {
+                config.excludedFolders
+            }
+
             val includedPaths = config.includedFolders
 
             val folderNoMediaStatuses = HashMap<String, Boolean>()

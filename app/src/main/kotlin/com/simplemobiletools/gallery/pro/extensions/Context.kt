@@ -656,7 +656,12 @@ fun Context.getCachedDirectories(
         }
 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
-        val excludedPaths = config.excludedFolders
+        val excludedPaths = if (config.temporarilyShowExcluded) {
+            HashSet()
+        } else {
+            config.excludedFolders
+        }
+
         val includedPaths = config.includedFolders
 
         val folderNoMediaStatuses = HashMap<String, Boolean>()

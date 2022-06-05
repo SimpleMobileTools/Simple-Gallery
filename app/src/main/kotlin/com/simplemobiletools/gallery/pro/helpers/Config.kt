@@ -74,6 +74,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(TEMPORARILY_SHOW_HIDDEN, false)
         set(temporarilyShowHidden) = prefs.edit().putBoolean(TEMPORARILY_SHOW_HIDDEN, temporarilyShowHidden).apply()
 
+    var temporarilyShowExcluded: Boolean
+        get() = prefs.getBoolean(TEMPORARILY_SHOW_EXCLUDED, false)
+        set(temporarilyShowExcluded) = prefs.edit().putBoolean(TEMPORARILY_SHOW_EXCLUDED, temporarilyShowExcluded).apply()
+
     var isThirdPartyIntent: Boolean
         get() = prefs.getBoolean(IS_THIRD_PARTY_INTENT, false)
         set(isThirdPartyIntent) = prefs.edit().putBoolean(IS_THIRD_PARTY_INTENT, isThirdPartyIntent).apply()

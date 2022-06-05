@@ -92,6 +92,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (savedInstanceState == null) {
             config.temporarilyShowHidden = false
+            config.temporarilyShowExcluded = false
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
             checkRecycleBinItems()
@@ -247,9 +248,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     override fun onStop() {
         super.onStop()
 
-        if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
+        if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation || config.temporarilyShowExcluded) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
+                config.temporarilyShowExcluded = false
                 config.tempSkipDeleteConfirmation = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
@@ -261,6 +263,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         super.onDestroy()
         if (!isChangingConfigurations) {
             config.temporarilyShowHidden = false
+            config.temporarilyShowExcluded = false
             config.tempSkipDeleteConfirmation = false
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
             removeTempFolder()
@@ -306,6 +309,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         menu.findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
+        menu.findItem(R.id.temporarily_show_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
+        menu.findItem(R.id.stop_showing_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
+
         updateMenuItemColors(menu)
         return true
     }
@@ -319,6 +325,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.id.change_view_type -> changeViewType()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.temporarily_show_excluded -> toggleTemporarilyShowExcluded(true)
+            R.id.stop_showing_excluded -> toggleTemporarilyShowExcluded(false)
             R.id.create_new_folder -> createNewFolder()
             R.id.show_the_recycle_bin -> toggleRecycleBin(true)
             R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
@@ -564,6 +572,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun toggleTemporarilyShowHidden(show: Boolean) {
         mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
+        directories_grid.adapter = null
+        getDirectories()
+        invalidateOptionsMenu()
+    }
+
+    private fun toggleTemporarilyShowExcluded(show: Boolean) {
+        mLoadedInitialPhotos = false
+        config.temporarilyShowExcluded = show
         directories_grid.adapter = null
         getDirectories()
         invalidateOptionsMenu()
