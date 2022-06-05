@@ -61,8 +61,8 @@
     <string name="hidden_folders">Verborgen mappen</string>
     <string name="manage_hidden_folders">Verborgen mappen beheren</string>
     <string name="hidden_folders_placeholder">Er zijn geen mappen gevonden die zijn verborgen door bestand \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Uitgesloten mappen tijdelijk tonen</string>
+    <string name="stop_showing_excluded">Uitgesloten mappen verbergen</string>
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>
@@ -205,7 +205,7 @@
     <string name="rounded_corners">Afgeronde hoeken</string>
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
     <string name="media_management_prompt">Maak van deze app in de systeeminstellingen een mediabeheer-app om er zeker van te zijn dat alle bestandsoperaties betrouwbaar werken.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Zichtbaarheid van uitgesloten mappen met wachtwoord beveiligen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>
