@@ -739,6 +739,22 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_excluded_item_password_protection_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_excluded_item_password_protection"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_protect_excluded" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_file_deletion_password_protection_holder"
                 style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"

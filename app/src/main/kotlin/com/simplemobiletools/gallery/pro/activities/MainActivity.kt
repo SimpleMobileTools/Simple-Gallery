@@ -325,8 +325,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.id.change_view_type -> changeViewType()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.temporarily_show_excluded -> toggleTemporarilyShowExcluded(true)
-            R.id.stop_showing_excluded -> toggleTemporarilyShowExcluded(false)
+            R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
+            R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
             R.id.create_new_folder -> createNewFolder()
             R.id.show_the_recycle_bin -> toggleRecycleBin(true)
             R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
@@ -575,6 +575,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_grid.adapter = null
         getDirectories()
         invalidateOptionsMenu()
+    }
+
+    private fun tryToggleTemporarilyShowExcluded() {
+        if (config.temporarilyShowExcluded) {
+            toggleTemporarilyShowExcluded(false)
+        } else {
+            handleExcludedFolderPasswordProtection {
+                toggleTemporarilyShowExcluded(true)
+            }
+        }
     }
 
     private fun toggleTemporarilyShowExcluded(show: Boolean) {

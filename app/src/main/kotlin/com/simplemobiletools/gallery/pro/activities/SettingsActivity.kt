@@ -58,6 +58,7 @@ class SettingsActivity : SimpleActivity() {
         setupScreenRotation()
         setupHideSystemUI()
         setupHiddenItemPasswordProtection()
+        setupExcludedItemPasswordProtection()
         setupAppPasswordProtection()
         setupFileDeletionPasswordProtection()
         setupDeleteEmptyFolders()
@@ -201,7 +202,9 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupManageExcludedFolders() {
         settings_manage_excluded_folders_holder.setOnClickListener {
-            startActivity(Intent(this, ExcludedFoldersActivity::class.java))
+            handleExcludedFolderPasswordProtection {
+                startActivity(Intent(this, ExcludedFoldersActivity::class.java))
+            }
         }
     }
 
@@ -329,6 +332,29 @@ class SettingsActivity : SimpleActivity() {
 
                     if (config.isHiddenPasswordProtectionOn) {
                         val confirmationTextId = if (config.hiddenProtectionType == PROTECTION_FINGERPRINT)
+                            R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                        ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupExcludedItemPasswordProtection() {
+        settings_excluded_item_password_protection_holder.beGoneIf(settings_hidden_item_password_protection_holder.isVisible())
+        settings_excluded_item_password_protection.isChecked = config.isExcludedPasswordProtectionOn
+        settings_excluded_item_password_protection_holder.setOnClickListener {
+            val tabToShow = if (config.isExcludedPasswordProtectionOn) config.excludedProtectionType else SHOW_ALL_TABS
+            SecurityDialog(this, config.excludedPasswordHash, tabToShow) { hash, type, success ->
+                if (success) {
+                    val hasPasswordProtection = config.isExcludedPasswordProtectionOn
+                    settings_excluded_item_password_protection.isChecked = !hasPasswordProtection
+                    config.isExcludedPasswordProtectionOn = !hasPasswordProtection
+                    config.excludedPasswordHash = if (hasPasswordProtection) "" else hash
+                    config.excludedProtectionType = type
+
+                    if (config.isExcludedPasswordProtectionOn) {
+                        val confirmationTextId = if (config.excludedProtectionType == PROTECTION_FINGERPRINT)
                             R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
                         ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
                     }

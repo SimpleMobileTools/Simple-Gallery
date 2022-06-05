@@ -28,6 +28,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationAdvancedDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
@@ -773,5 +774,17 @@ fun Activity.showFileOnMap(path: String) {
         showLocationOnMap("${latLon[0]}, ${latLon[1]}")
     } else {
         toast(R.string.unknown_location)
+    }
+}
+
+fun Activity.handleExcludedFolderPasswordProtection(callback: () -> Unit) {
+    if (config.isExcludedPasswordProtectionOn) {
+        SecurityDialog(this, config.excludedPasswordHash, config.excludedProtectionType) { _, _, success ->
+            if (success) {
+                callback()
+            }
+        }
+    } else {
+        callback()
     }
 }
