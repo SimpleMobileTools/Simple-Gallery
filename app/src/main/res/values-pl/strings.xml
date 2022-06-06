@@ -63,8 +63,8 @@
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Tymczasowo pokaż wykluczone foldery</string>
+    <string name="stop_showing_excluded">Przestań pokazywać wykluczone foldery</string>
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
@@ -205,7 +205,7 @@
     <string name="rounded_corners">Zaokrąglone rogi</string>
     <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
     <string name="media_management_prompt">Aby mieć pewność, że wszystkie operacje na plikach działają niezawodnie, ustaw tę aplikację jako aplikację do zarządzania multimediami w ustawieniach urządzenia.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Chroń hasłem widoczność wykluczonych folderów</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturki</string>
     <string name="fullscreen_media">Multimedia na pełnym ekranie</string>
