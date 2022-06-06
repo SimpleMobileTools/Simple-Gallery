@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.23.10 *(2022-06-06)*
+----------------------------
+
+ * Allow temporarily showing excluded folders on Android 11+, if hiding is unavailable
+ * Fixed the Indonesian translation
+ * Fixed the performance of copy/move onto SD cards
+ * Added some translation and stability improvements
+
 Version 6.23.9 *(2022-06-01)*
 ----------------------------
 

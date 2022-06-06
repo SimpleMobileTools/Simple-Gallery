@@ -1,0 +1,4 @@
+ * Allow temporarily showing excluded folders on Android 11+, if hiding is unavailable
+ * Fixed the Indonesian translation
+ * Fixed the performance of copy/move onto SD cards
+ * Added some translation and stability improvements
