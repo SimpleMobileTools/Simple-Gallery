@@ -309,8 +309,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         menu.findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
-        menu.findItem(R.id.temporarily_show_excluded).isVisible =
-            !menu.findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded && config.excludedFolders.isNotEmpty()
+        menu.findItem(R.id.temporarily_show_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
         menu.findItem(R.id.stop_showing_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
 
         updateMenuItemColors(menu)
