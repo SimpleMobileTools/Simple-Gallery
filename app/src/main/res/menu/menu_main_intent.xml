@@ -13,4 +13,14 @@
         android:showAsAction="never"
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/temporarily_show_excluded"
+        android:showAsAction="never"
+        android:title="@string/temporarily_show_excluded"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/stop_showing_excluded"
+        android:showAsAction="never"
+        android:title="@string/stop_showing_excluded"
+        app:showAsAction="never" />
 </menu>
