@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.23.11 *(2022-06-07)*
+----------------------------
+
+ * Fixed a crash at third party intent file picker
+
 Version 6.23.10 *(2022-06-06)*
 ----------------------------
 
