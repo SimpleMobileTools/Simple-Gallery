@@ -59,8 +59,8 @@
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Временно показать исключённые</string>
+    <string name="stop_showing_excluded">Не показывать исключённые</string>
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
@@ -201,7 +201,7 @@
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
     <string name="media_management_prompt">Чтобы быть уверенным в надёжной работе операций с файлами, сделайте это приложение основным менеджером медиафайлов в настройках устройства.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Защита паролем отображения исключённых папок</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>
