@@ -36,7 +36,7 @@
     <string name="restore_to_path">Memulihkan ke \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
+    <string name="images">Gambar</string>
     <string name="videos">Video</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Gambar RAW</string>
@@ -57,8 +57,8 @@
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Tampilkan sementara yang tidak termasuk</string>
+    <string name="stop_showing_excluded">Berhenti menampilkan yang tidak termasuk</string>
     <!-- Include folders -->
     <string name="include_folders">Folder yang disertakan</string>
     <string name="manage_included_folders">Kelola folder yang disertakan</string>
@@ -87,7 +87,7 @@
     <string name="edit_image_with">Sunting gambar dengan:</string>
     <string name="edit_video_with">Edit video dengan:</string>
     <string name="no_image_editor_found">Tidak ditemukan aplikasi penyunting gambar</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Tidak ada editor video yang ditemukan</string>
     <string name="unknown_file_location">Lokasi berkas tidak diketahui</string>
     <string name="error_saving_file">Tidak bisa mengganti berkas sumber</string>
     <string name="rotate_left">Putar ke kiri</string>
@@ -141,7 +141,7 @@
     <string name="by_date_taken_monthly">Tanggal diambil (bulanan)</string>
     <string name="by_file_type">Tipe berkas</string>
     <string name="by_extension">Ekstensi</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Tampilkan jumlah file di bagian tajuk</string>
     <string name="grouping_and_sorting">Harap dicatat bahwa mengelompokkan dan mengurutkan adalah 2 hal yang berbeda</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Folder yang ditampilkan pada widget:</string>
@@ -186,18 +186,18 @@
     <string name="compromise">Kompromi</string>
     <string name="avoid_showing_invalid_files">Hindari menampilkan berkas yang tidak valid</string>
     <string name="show_image_file_types">Tampilkan tipe berkas gambar</string>
-    <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
-    <string name="folder_thumbnail_style">Folder thumbnail style</string>
-    <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
-    <string name="thumbnail_spacing">Thumbnail spacing</string>
-    <string name="show_file_count_line">Show file count on a separate line</string>
-    <string name="show_file_count_brackets">Show file count in brackets</string>
-    <string name="show_file_count_none">Do not show file count</string>
-    <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="allow_zooming_videos">Perbolehkan perbesaran video dengan menekan dua kali</string>
+    <string name="folder_thumbnail_style">Gaya thumbnail folder</string>
+    <string name="file_thumbnail_style">Gaya thumbnail file</string>
+    <string name="mark_favorite_items">Tandai item favorit</string>
+    <string name="thumbnail_spacing">Spasi thumbnail</string>
+    <string name="show_file_count_line">Tampilkan jumlah file di baris terpisah</string>
+    <string name="show_file_count_brackets">Tampilkah jumlah file di kotak</string>
+    <string name="show_file_count_none">Jangan tampilkan jumlah file</string>
+    <string name="limit_folder_title">Batasi judul folder panjang ke 1 baris</string>
+    <string name="square">Kotak</string>
+    <string name="rounded_corners">Sudut bulat</string>
+    <string name="export_favorite_paths">Ekspor jalur file favorit</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="password_protect_excluded">Lindungi visibiltas folder yang tidak disertakan dengan kata sandi</string>
     <!-- Setting sections -->
