@@ -57,8 +57,8 @@
     <string name="hidden_folders">Dossiers cachés</string>
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
     <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché par un fichier .nomedia.</string>
-    <string name="temporarily_show_excluded">Afficher temporairement les exclusions</string>
-    <string name="stop_showing_excluded">Arrêter d\'afficher les exclus</string>
+    <string name="temporarily_show_excluded">Afficher temporairement les exclus</string>
+    <string name="stop_showing_excluded">Arrêter l\'affichage des exclus</string>
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
