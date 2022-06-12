@@ -167,6 +167,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         media_empty_text_placeholder.setTextColor(getProperTextColor())
         media_empty_text_placeholder_2.setTextColor(getProperPrimaryColor())
+        media_empty_text_placeholder_2.bringToFront()
 
         if (!mIsSearchOpen) {
             invalidateOptionsMenu()
