@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">设置为默认文件夹</string>
     <string name="unset_as_default_folder">取消设置为默认文件夹</string>
     <string name="reorder_by_dragging">通过拖动重新排序文件夹</string>
+    <string name="reorder_by_dragging_pro">通过拖动重新排序文件夹 (Pro)</string>
     <string name="restore_to_path">还原到 \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">筛选媒体文件</string>

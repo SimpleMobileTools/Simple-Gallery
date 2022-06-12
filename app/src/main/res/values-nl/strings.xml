@@ -35,6 +35,7 @@
     <string name="set_as_default_folder">Als standaardmap instellen</string>
     <string name="unset_as_default_folder">Standaardmap herstellen</string>
     <string name="reorder_by_dragging">Volgorde mappen bepalen met sleepgebaren</string>
+    <string name="reorder_by_dragging_pro">Volgorde mappen bepalen met sleepgebaren (Pro)</string>
     <string name="restore_to_path">Herstellen naar \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>

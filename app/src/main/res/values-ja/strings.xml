@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
+    <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->

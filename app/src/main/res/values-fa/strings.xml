@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
     <string name="unset_as_default_folder">برداشتن تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
     <string name="reorder_by_dragging">مرتب‌سازی مجدد شاخه‌ها با کشیدن</string>
+    <string name="reorder_by_dragging_pro">مرتب‌سازی مجدد شاخه‌ها با کشیدن (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->

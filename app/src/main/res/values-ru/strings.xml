@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Установить как папку по умолчанию</string>
     <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
     <string name="reorder_by_dragging">Менять порядок папок перетаскиванием</string>
+    <string name="reorder_by_dragging_pro">Менять порядок папок перетаскиванием (Pro)</string>
     <string name="restore_to_path">Восстановление в \"%s\"</string>
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>

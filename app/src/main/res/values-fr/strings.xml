@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
     <string name="reorder_by_dragging">Réordonner par glisser</string>
+    <string name="reorder_by_dragging_pro">Réordonner par glisser (Pro)</string>
     <string name="restore_to_path">Restauration vers \"%s\"</string>
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>

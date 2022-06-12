@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Nastaviť ako predvolený priečinok</string>
     <string name="unset_as_default_folder">Odobrať predvolený priečinok</string>
     <string name="reorder_by_dragging">Zmeniť poradie priečinkov presunutím</string>
+    <string name="reorder_by_dragging_pro">Zmeniť poradie priečinkov presunutím (Pro)</string>
     <string name="restore_to_path">Obnovuje sa do \'%s\'</string>
 
     <!-- Filter -->

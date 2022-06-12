@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">הגדר כתיקיית ברירת מחדל</string>
     <string name="unset_as_default_folder">בטל את ההגדרה כתיקיית ברירת המחדל</string>
     <string name="reorder_by_dragging">סדר מחדש את התיקיות על ידי גרירה</string>
+    <string name="reorder_by_dragging_pro">סדר מחדש את התיקיות על ידי גרירה (Pro)</string>
     <string name="restore_to_path">משחזר ל\'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">סינון מדיה</string>

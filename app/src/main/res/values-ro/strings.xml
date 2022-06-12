@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Setază ca dosar implicit</string>
     <string name="unset_as_default_folder">Dezactivează ca dosar implicit</string>
     <string name="reorder_by_dragging">Reordonează dosarele prin tragere</string>
+    <string name="reorder_by_dragging_pro">Reordonează dosarele prin tragere (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtrează elementele media</string>

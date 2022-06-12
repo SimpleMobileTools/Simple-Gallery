@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Задаване като основна папка</string>
     <string name="unset_as_default_folder">Отхвърляне като основна папка</string>
     <string name="reorder_by_dragging">Пренаредете папките с влачене</string>
+    <string name="reorder_by_dragging_pro">Пренаредете папките с влачене (Pro)</string>
     <string name="restore_to_path">Възстановяване в \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Филтър на медия</string>

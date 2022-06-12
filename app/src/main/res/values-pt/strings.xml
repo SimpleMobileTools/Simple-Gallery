@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">Utilizar como pasta padrão</string>
     <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
     <string name="reorder_by_dragging">Organizar pasta por arrasto</string>
+    <string name="reorder_by_dragging_pro">Organizar pasta por arrasto (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->

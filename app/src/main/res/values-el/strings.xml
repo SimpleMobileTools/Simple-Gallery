@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Ορισμός ως προεπιλεγμένου φακέλου</string>
     <string name="unset_as_default_folder">Κατάργηση ως προεπιλεγμένου φακέλου</string>
     <string name="reorder_by_dragging">Αναδιάταξη φακέλων με μεταφορά</string>
+    <string name="reorder_by_dragging_pro">Αναδιάταξη φακέλων με μεταφορά (Pro)</string>
     <string name="restore_to_path">Επαναφορά σε \'%s\'</string>
 
     <!-- Filter -->

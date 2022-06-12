@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Ezarri lehenetsitako karpeta gisa</string>
     <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>
     <string name="reorder_by_dragging">Berrordenatu karpetak arrastatuz</string>
+    <string name="reorder_by_dragging_pro">Berrordenatu karpetak arrastatuz (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->

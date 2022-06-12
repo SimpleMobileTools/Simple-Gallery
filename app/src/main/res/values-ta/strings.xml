@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">இயல்புநிலை அடைவாக அமை</string>
     <string name="unset_as_default_folder">இயல்புநிலை அடைவாக அமைக்காதே</string>
     <string name="reorder_by_dragging">பிடித்திழுத்து அடைவுகளை மறுசீரமை</string>
+    <string name="reorder_by_dragging_pro">பிடித்திழுத்து அடைவுகளை மறுசீரமை (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">ஊடகத்தை வடிகட்டு</string>

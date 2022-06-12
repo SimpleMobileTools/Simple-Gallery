@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">Öntanımlı klasör olarak ayarla</string>
     <string name="unset_as_default_folder">Öntanımlı klasör ayarını kaldır</string>
     <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
+    <string name="reorder_by_dragging_pro">Sürükleyerek klasörleri yeniden sırala (Pro)</string>
     <string name="restore_to_path">\'%s\' konumuna geri yükle</string>
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>

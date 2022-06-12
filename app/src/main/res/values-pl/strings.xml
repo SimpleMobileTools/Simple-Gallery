@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">Ustaw jako folder domyślny</string>
     <string name="unset_as_default_folder">Anuluj ustawienie folderu domyślnego</string>
     <string name="reorder_by_dragging">Przeorganizuj foldery przeciągając</string>
+    <string name="reorder_by_dragging_pro">Przeorganizuj foldery przeciągając (Pro)</string>
     <string name="restore_to_path">Przywracanie do „%s”</string>
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>

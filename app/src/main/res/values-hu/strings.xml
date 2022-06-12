@@ -39,6 +39,7 @@
     <string name="set_as_default_folder">Beállítás alapértelmezett mappaként</string>
     <string name="unset_as_default_folder">Eltávolítás mint alapértelmezett mappa</string>
     <string name="reorder_by_dragging">Mappák átrendezése húzással</string>
+    <string name="reorder_by_dragging_pro">Mappák átrendezése húzással (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
 
     <!-- Filter -->

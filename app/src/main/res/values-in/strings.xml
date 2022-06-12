@@ -33,6 +33,7 @@
     <string name="set_as_default_folder">Tetapkan sebagai folder default</string>
     <string name="unset_as_default_folder">Hapus sebagai folder default</string>
     <string name="reorder_by_dragging">Susun ulang folder dengan menyeret</string>
+    <string name="reorder_by_dragging_pro">Susun ulang folder dengan menyeret (Pro)</string>
     <string name="restore_to_path">Memulihkan ke \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
