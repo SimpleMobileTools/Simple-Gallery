@@ -218,6 +218,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_placeholder_2.setTextColor(primaryColor)
         directories_switch_searching.setTextColor(primaryColor)
         directories_switch_searching.underlineText()
+        directories_empty_placeholder_2.bringToFront()
 
         if (!mIsSearchOpen) {
             invalidateOptionsMenu()
