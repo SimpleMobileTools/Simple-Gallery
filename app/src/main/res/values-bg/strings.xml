@@ -15,7 +15,7 @@
     <string name="other_folder">Избор на папка</string>
     <string name="show_on_map">Показване на картата</string>
     <string name="unknown_location">Неизвестно местоположение</string>
-    <string name="volume">Сила на звука</string>
+    <string name="volume">Volume</string>
     <string name="brightness">Осветеност</string>
     <string name="lock_orientation">Блокиране на ориентацията</string>
     <string name="unlock_orientation">Разблокиране на ориентацията</string>
