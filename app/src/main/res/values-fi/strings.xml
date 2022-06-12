@@ -63,8 +63,8 @@
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Näytä tilapäisesti poissuljetut</string>
+    <string name="stop_showing_excluded">Lopeta poissuljettujen näyttäminen</string>
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
@@ -206,8 +206,8 @@
     <string name="square">Suorakulmio</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
     <string name="export_favorite_paths">Vie suosikkitiedostojen polut</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="media_management_prompt">Varmistaaksesi, että kaikki tiedostotoiminnot toimivat luotettavasti, tee tästä sovelluksesta medianhallintasovellus laitteen asetuksissa.</string>
+    <string name="password_protect_excluded">Suojaa salasanalla pois suljettujen kansioiden näkyvyys</string>
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
@@ -361,11 +361,11 @@
     <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
     <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
     <string name="faq_16_title">Mitä taphtui tiedostojen ja kansioiden piilotukselle ja miksi en nää enää piilotettuja kohteita\?</string>
-    <string name="faq_16_text">Android 11 ja uudemmat eivät enää salli tiedostojen ja kansioiden piilotusta etkä myöskään enää näe piilotettuja kohteita galleriasovelluksissa. Sinun tulee käyttää jotain tiedostohallintasovellusta tätä varten.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_16_text">Android 11:stä alkaen ei voi enää piilottaa tai poistaa piilotettuja tiedostoja tai kansioita, eikä näe piilotettuja tiedostoja tai kansioita galleriasovelluksissa järjestelmän rajoitusten vuoksi. On käytettävä jotain tiedostonhallintaohjelmaa siihen.</string>
+    <string name="faq_17_title">Miksi en voi enää sisällyttää puuttuvia kansioita\?</string>
+    <string name="faq_17_text">Se lakkasi toimimasta Android 11:n mukana tulleiden järjestelmämuutosten vuoksi, sovellus ei voi enää selata oikeita kansioita, vaan se luottaa niin sanottuun MediaStoreen tietojen hakemisessa.</string>
+    <string name="faq_18_title">Miksi näen mainoksia videon toiston aikana\?</string>
+    <string name="faq_18_text">Sovelluksissamme ei ole lainkaan mainoksia. Jos näet niitä videon toiston aikana, sinun täytyy käyttää jotain muuta sovellusta videosoittimena. Yritä etsiä oletusarvoinen videosoittimesi laitteen asetuksista ja tee sitten ”Tyhjenä oletusasetukset” sille. Seuraavan kerran, kun kutsut jonkin videon aikomuksen, näet sovelluksen valintakehotuksen, jossa voit valita, mitä sovellusta haluat käyttää.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Valokuvien selaus ja muokkaus</string>
