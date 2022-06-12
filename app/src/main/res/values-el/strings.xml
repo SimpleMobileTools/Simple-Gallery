@@ -59,8 +59,8 @@
     <string name="hidden_folders">Κρυφοί φάκελοι</string>
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Προσωρινή εμφάνιση αποκλεισμένων</string>
+    <string name="stop_showing_excluded">Διακοπή εμφάνισης αποκλεισμένων</string>
 
     <!-- Include folders -->
     <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>
@@ -208,7 +208,7 @@
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
     <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
