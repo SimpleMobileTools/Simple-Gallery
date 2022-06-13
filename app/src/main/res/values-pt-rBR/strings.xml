@@ -64,8 +64,8 @@
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Exibir excluído temporariamente</string>
+    <string name="stop_showing_excluded">Parar de exibir excluído</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>
@@ -208,7 +208,7 @@
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos favoritos</string>
     <string name="media_management_prompt">Para você se certificar que todas as operações de arquivos funcionam corretamente, por favor, permita o gerenciamento de mídias nas configurações do seu dispositivo.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Proteger com senha a visibilidade da pasta excluída</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Mídia em tela cheia</string>
@@ -363,7 +363,7 @@
     <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
     <string name="faq_16_title">O que aconteceu com o arquivo e a pasta escondidos e por que não posso mais ver arquivos escondidos\?</string>
-    <string name="faq_16_text">A partir do Android 11, não é mais possível esconder ou exibir arquivos e pastas, e não é possível visualizar os escondidos em sua galeria. Você precisará de outro gerenciador de arquivos para isso.</string>
+    <string name="faq_16_text">A partir do Android 11, você não pode mais ocultar ou exibir arquivos ou pastas, também não pode ver os ocultos nos aplicativos da galeria devido a restrições do sistema. Você terá que usar algum gerenciador de arquivos para isso.</string>
     <string name="faq_17_title">Por que não posso incluir pastas ausentes\?</string>
     <string name="faq_17_text">Isso parou de funcionar devido a mudanças de sistema do Android 11, pois o aplicativo não pode mais gerenciar pastas verdadeiras, precisa utilizar algo chamado MediaStore para obter os dados.</string>
     <string name="faq_18_title">Por que estou vendo anúncios durante o playback do vídeo\?</string>
