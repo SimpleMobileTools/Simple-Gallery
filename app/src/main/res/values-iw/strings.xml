@@ -28,7 +28,11 @@
     <string name="dates_fixed_successfully">תאריכים תוקנה בהצלחה</string>
     <string name="no_date_takens_found">לא נמצאו ערכי תאריך נטילתם</string>
     <string name="share_resized">שתף גרסה ששונתה</string>
-    <string name="upgraded_from_free">היי,\n נראה כאילו שדרגת מהאפליקציה הישנה החינמית. כעת תוכל להסיר את ההתקנה של הגרסה הישנה, בעלת כפתור \'שדרג למקצוען\' בחלק העליון של הגדרות האפליקציה.\n\nרק פריטי סל המיחזור יימחקו, פריטים מועדפים לא יהיו מסומנים ותצטרך גם לאפס את הגדרות האפליקציה שלך.\nתודה!</string>
+    <string name="upgraded_from_free">היי,
+\n נראה כאילו שדרגת מהאפליקציה הישנה החינמית. כעת תוכל להסיר את ההתקנה של הגרסה הישנה, בעלת כפתור \'שדרג למקצוען\' בחלק העליון של הגדרות האפליקציה.
+\n
+\nרק פריטי סל המיחזור יימחקו, פריטים מועדפים לא יהיו מסומנים ותצטרך גם לאפס את הגדרות האפליקציה שלך.
+\nתודה!</string>
     <string name="switch_to_file_search">עבור לחיפוש קבצים בכל התיקיות הגלויות</string>
     <string name="set_as_default_folder">הגדר כתיקיית ברירת מחדל</string>
     <string name="unset_as_default_folder">בטל את ההגדרה כתיקיית ברירת המחדל</string>
@@ -52,7 +56,9 @@
     <string name="manage_excluded_folders">נהל תיקיות שלא נכללו</string>
     <string name="exclude_folder_description">פעולה זו לא תכלול את הבחירה יחד עם תיקיות המשנה שלה מ-Simple Gallery בלבד. אתה יכול לנהל תיקיות שלא נכללות בהגדרות.</string>
     <string name="exclude_folder_parent">לא לכלול הורה במקום זאת\?</string>
-    <string name="excluded_activity_placeholder">אי הכללת תיקיות תגרום לכך שהן יחד עם תיקיות המשנה שלהן יהיו מוסתרות רק בגלריה הפשוטה, הן עדיין יהיו גלויות ביישומים אחרים.\n\nאם אתה רוצה להסתיר אותם גם מאפליקציות אחרות, השתמש בפונקציה הסתר.</string>
+    <string name="excluded_activity_placeholder">אי הכללת תיקיות תגרום לכך שהן יחד עם תיקיות המשנה שלהן יהיו מוסתרות רק בגלריה הפשוטה, הן עדיין יהיו גלויות ביישומים אחרים.
+\n
+\nאם אתה רוצה להסתיר אותם גם מאפליקציות אחרות, השתמש בפונקציה הסתר.</string>
     <string name="remove_all">להסיר הכל</string>
     <string name="remove_all_description">להסיר את כל התיקיות מרשימת החרגות\? פעולה זו לא תמחק את התיקיות.</string>
     <string name="hidden_folders">תיקיות נסתרות–‐‐</string>
@@ -64,7 +70,9 @@
     <string name="include_folders">תיקיות כלולות</string>
     <string name="manage_included_folders">נהל תיקיות כלולות</string>
     <string name="add_folder">הוסף תיקיה</string>
-    <string name="included_activity_placeholder">אם יש לך כמה תיקיות המכילות מדיה, אך לא זוהו על ידי האפליקציה, תוכל להוסיף אותן ידנית כאן.\n\n הוספת כמה פריטים כאן לא תכלול שום תיקייה אחרת.</string>
+    <string name="included_activity_placeholder">אם יש לך כמה תיקיות המכילות מדיה, אך לא זוהו על ידי האפליקציה, תוכל להוסיף אותן ידנית כאן.
+\n
+\n הוספת כמה פריטים כאן לא תכלול שום תיקייה אחרת.</string>
     <string name="no_media_add_included">לא נמצאו קבצי מדיה. אתה יכול לפתור את זה על ידי הוספת התיקיות המכילות קבצי מדיה באופן ידני.</string>
     <!-- Resizing -->
     <string name="resize">שנה גודל</string>
