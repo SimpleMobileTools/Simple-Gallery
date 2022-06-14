@@ -35,7 +35,7 @@
 \nسيكون لديك فقط سلة المحذوفات العناصر المحذوفة، والعناصر المفضلة غير ملحوظ وسيكون لديك أيضا لإعادة تعيين إعدادات التطبيق الخاص بك.
 \n
 \nشكرا!</string>
-    <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
+    <string name="switch_to_file_search">التبديل إلى البحث فى الملفات عبر كافة المجلدات المرئية</string>
     <string name="set_as_default_folder">تعيين كمجلد افتراضي</string>
     <string name="unset_as_default_folder">إلغاء التعيين كمجلد افتراضي</string>
     <string name="reorder_by_dragging">إعادة ترتيب المجلدات عن طريق السحب</string>
@@ -259,14 +259,14 @@
     <string name="pesdk_text_button_color">اللون</string>
     <string name="pesdk_text_button_backgroundColor">لون الخلفية</string>
     <string name="pesdk_text_button_alignment">محاذاة</string>
-    <string name="pesdk_text_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_text_button_bringToFront">إلى الأمام</string>
     <string name="pesdk_text_button_delete">حذف</string>
     <string name="pesdk_text_text_editTextPlaceholder">النص الخاص بك</string>
     <string name="pesdk_brush_title_name">الفرشاة</string>
     <string name="pesdk_brush_button_color">اللون</string>
     <string name="pesdk_brush_button_size">الحجم</string>
     <string name="pesdk_brush_button_hardness">الصلابة</string>
-    <string name="pesdk_brush_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_brush_button_bringToFront">إلى الأمام</string>
     <string name="pesdk_brush_button_delete">حذف</string>
     <string name="pesdk_brush_title_brushColor">لون الفرشاة</string>
     <string name="pesdk_editor_title_name">المحرر</string>
@@ -359,7 +359,7 @@
     <string name="faq_13_title">أرى بعض التباين اللونى على الصور. كيف يمكنني تحسين الجودة؟</string>
     <string name="faq_13_text">الحل الحالي لعرض الصور يعمل بشكل جيد في الأغلبية العظمى للحالات، ولكن إذا كنت تريد تحسين جودة الصور، يمكنك تمكين خيار \"عرض الصور بأعلي جودة ممكنة\" من إعدادات التطبيق، من قسم \"الصور العميقة القابلة للتكبير\".</string>
     <string name="faq_14_title">لقد قمت بإخفاء ملف/مجلد. كيف يمكنني إظهاره؟</string>
-    <string name="faq_14_text">Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.يمكنك أما أن تضغط علي عنصر القائمة إظهار العناصر المخفية مؤقتاً علي الشاشه الرئيسية أو تفعيل خيار \"إظهار العناصر المخفية في إعدادات التطبيق لرؤية العنصر المخفي. إذا كنت تريد إظهاره ، فقط أضغط مطولاً عليه وأختر \" إظهار\". يتم إخفاء المجلدات عن طريق إضافة ملف مخفي . nomedia/ إليهم، يمكنك حذف الملف بواسطة أي مدير ملفات أيضاً.</string>
+    <string name="faq_14_text">Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.يمكنك إما أن تضغط على عنصر القائمة إظهار العناصر المخفية مؤقتًا على الشاشه الرئيسية أو تفعيل خيار \"إظهار العناصر المخفية في إعدادات التطبيق لرؤية العنصر المخفي. إذا كنت تريد إظهاره، فقط اضغط مطولًا عليه واختر \"إظهار\". يتم إخفاء المجلدات عن طريق إضافة ملف مخفي . nomedia/ إليهم، يمكنك حذف الملف بواسطة أي مدير ملفات أيضًا.</string>
     <string name="faq_15_title">لماذا يشغل التطبيق مساحة كبيرة؟</string>
     <string name="faq_15_text">يمكن لذاكرة التخزين المؤقت للتطبيق أن تصل سعتها إلى 250 ميجابايت، مما يضمن سرعة تحميل الصور. إذا كان التطبيق يشغل مساحة أكبر، فمن المحتمل أن يكون ذلك بسبب وجود عناصر في سلة المحذوفات. يتم حساب هذه الملفات إلى حجم التطبيق. يمكنك مسح سلة المحذوفات عن طريق فتحها وحذف جميع الملفات، أو من إعدادات التطبيق. يتم حذف كل ملف في سلة المحذوفات تلقائياً بعد 30 يوماً.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
