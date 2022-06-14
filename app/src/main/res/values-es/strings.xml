@@ -34,19 +34,17 @@
     <string name="unset_as_default_folder">Quitar como carpeta predeterminada</string>
     <string name="reorder_by_dragging">Reordenar carpetas arrastrándolas</string>
     <string name="reorder_by_dragging_pro">Reordenar carpetas arrastrándolas (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
-
+    <string name="restore_to_path">Restaurando a \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
     <string name="images">Imágenes</string>
-    <string name="videos">Videos</string>
+    <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">Imágenes RAW</string>
     <string name="svgs">SVGs</string>
     <string name="portraits">Retratos</string>
     <string name="no_media_with_filters">No se han encontrado ficheros con los filtros seleccionados.</string>
     <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y también ocultará las subcarpetas. Puede mostrarlas modificando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
     <string name="exclude">Excluir</string>
@@ -60,16 +58,16 @@
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que no tiene carpetas ocultas con archivos \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
-
+    <string name="temporarily_show_excluded">Mostrar excluidos temporalmente</string>
+    <string name="stop_showing_excluded">Dejar de mostrar excluidos</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
     <string name="manage_included_folders">Gestionar carpetas incluidas</string>
     <string name="add_folder">Agregar carpeta</string>
-    <string name="included_activity_placeholder">Si tiene algunas carpetas que contengan multimedia, pero que no fueron reconocidas por la aplicación, puede agregarlas manualmente aquí.</string>
+    <string name="included_activity_placeholder">Si tiene algunas carpetas que contengan multimedia, pero que no fueron reconocidas por la aplicación, puede añadirlas manualmente aquí.
+\n
+\nAñadir elementos aquí no excluirá ninguna otra carpeta.</string>
     <string name="no_media_add_included">Ningún archivo multimedia ha sido encontrado. Puede resolverlo añadiendo las carpetas que contengan archivos multimedia manualmente.</string>
-
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar la selección y guardar</string>
@@ -77,7 +75,6 @@
     <string name="height">Alto</string>
     <string name="keep_aspect_ratio">Mantener proporciones</string>
     <string name="invalid_values">Por favor, introduzca una resolución válida</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Rotar</string>
@@ -102,22 +99,22 @@
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Otro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Libre</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Otro</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondos de pantalla Simple Gallery</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer el fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer como fondo de pantalla con:</string>
-    <string name="setting_wallpaper">Estableciendo fondo de pantalla...</string>
+    <string name="setting_wallpaper">Estableciendo fondo de pantalla…</string>
     <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
     <string name="portrait_aspect_ratio">Relación de aspecto tipo retrato</string>
     <string name="landscape_aspect_ratio">Relación de aspecto tipo paisaje</string>
     <string name="home_screen">Pantalla de inicio</string>
     <string name="lock_screen">Pantalla de bloqueo</string>
     <string name="home_and_lock_screen">Pantalla de inicio y de bloqueo</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Presentación de diapositivas</string>
     <string name="interval">Intervalo (segundos):</string>
@@ -133,10 +130,8 @@
     <string name="slide">Desplazamiento</string>
     <string name="slideshow_ended">La presentación de diapositivas terminó</string>
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupar subcarpetas directas</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
     <string name="do_not_group_files">No agrupar</string>
@@ -149,13 +144,11 @@
     <string name="by_date_taken_monthly">Fecha de creación (mes)</string>
     <string name="by_file_type">Tipo de arhivo</string>
     <string name="by_extension">Extensión</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Mostrar recuento de archivos en los encabezados de sección</string>
     <string name="grouping_and_sorting">Tenga en cuenta que la agrupación y la clasificación son 2 campos independientes</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta mostrada en el widget:</string>
     <string name="show_folder_name">Mostrar nombre de carpeta</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir videos automáticamente</string>
     <string name="remember_last_video_position">Recordar la última posición de avance en la reproducción de video</string>
@@ -186,7 +179,7 @@
     <string name="deep_zoomable_images">Imágenes ampliables con zoom</string>
     <string name="show_highest_quality">Mostrar imágenes con la mayor calidad posible</string>
     <string name="show_recycle_bin_last">Mostrar la papelera de reciclaje como el último elemento en la pantalla principal</string>
-    <string name="allow_down_gesture">Permitir cerrar la vista de pantalla completa con un gesto hacia abajo.</string>
+    <string name="allow_down_gesture">Permitir cerrar la vista de pantalla completa con un gesto hacia abajo</string>
     <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con un toque doble</string>
     <string name="open_videos_on_separate_screen">Abrir videos en una pantalla separada con nuevos gestos horizontales</string>
     <string name="show_notch">Mostrar una muesca si está disponible</string>
@@ -208,20 +201,17 @@
     <string name="square">Cuadrado</string>
     <string name="rounded_corners">Esquinas redondeadas</string>
     <string name="export_favorite_paths">Exportar rutas de archivos favoritos</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-
+    <string name="media_management_prompt">Para asegurarse de que todas las operaciones en ficheros funcionan de forma segura, por favor haga esta aplicación una aplicación de manejo de medios en los ajustes de su dispositivo.</string>
+    <string name="password_protect_excluded">Proteger con contraseña la visibilidad de las carpetas excluidas</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
     <string name="extended_details">Detalles ampliados</string>
     <string name="bottom_actions">Acciones en la parte inferior</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Administrar los botones de la parte inferior</string>
-    <string name="toggle_favorite">Agregar a favoritos</string>
+    <string name="toggle_favorite">Alternar favorito</string>
     <string name="toggle_file_visibility">Alternar visibilidad del archivo</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalizado</string>
     <string name="pesdk_transform_button_resetCrop">Reiniciar</string>
@@ -335,7 +325,6 @@
     <string name="pesdk_common_title_aquamarinColor">Aguamarina</string>
     <string name="pesdk_common_title_pipettableColor">Color pipetable</string>
     <string name="vesdk_video_trim_title_name">Recortar</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">¿Cómo puedo hacer que Simple Gallery sea la galería de dispositivos predeterminada?</string>
     <string name="faq_1_text">Primero tiene que encontrar la galería predeterminada actualmente en la sección Aplicaciones de la configuración de su dispositivo, busque un botón que diga algo como \"Abrir por defecto \", haga clic en él, luego seleccione \"Borrar valores predeterminados \".
@@ -351,9 +340,9 @@
     <string name="faq_6_title">¿Por qué aparecen las carpetas con la portada de la música o las pegatinas?</string>
     <string name="faq_6_text">Puede suceder que vea aparecer algunos álbumes inusuales. Puede excluirlos fácilmente presionándolos durante mucho tiempo y seleccionando Excluir. En el siguiente cuadro de diálogo, puede seleccionar la carpeta principal, lo más probable es que evite que aparezcan otros álbumes relacionados.</string>
     <string name="faq_7_title">Una carpeta con imágenes no aparece, ¿qué puedo hacer?</string>
-    <string name="faq_7_text">Eso puede tener múltiples razones, pero resolverlo es fácil. Simplemente vaya a Configuración -> Administrar carpetas incluidas, seleccione Más y vaya a la carpeta requerida.</string>
+    <string name="faq_7_text">Eso puede tener múltiples razones, pero resolverlo es fácil. Simplemente vaya a Configuración -&gt; Administrar carpetas incluidas, seleccione Más y vaya a la carpeta requerida.</string>
     <string name="faq_8_title">¿Qué pasa si quiero solo algunas carpetas concretas visibles?</string>
-    <string name="faq_8_text">Agregar una carpeta a Carpetas incluidas no excluye automáticamente nada. Lo que puede hacer es ir a Ajustes -> Administrar carpetas excluidas, excluir la carpeta raíz \"/\", luego agregar las carpetas deseadas en Configuración -> Administrar carpetas incluidas.
+    <string name="faq_8_text">Agregar una carpeta a Carpetas incluidas no excluye automáticamente nada. Lo que puede hacer es ir a Ajustes -&gt; Administrar carpetas excluidas, excluir la carpeta raíz \"/\", luego agregar las carpetas deseadas en Configuración -&gt; Administrar carpetas incluidas.
         Esto hará que solo las carpetas seleccionadas sean visibles, ya que tanto la exclusión como la inclusión son recursivas y si una carpeta está excluida e incluida, aparecerá.</string>
     <string name="faq_10_title">¿Puedo recortar imágenes con esta aplicación?</string>
     <string name="faq_10_text">Sí, puede recortar imágenes en el editor arrastrando las esquinas de la imagen. Puede acceder al editor pulsando prolongadamente una imagen en miniatura y seleccionando Editar, o seleccionando Editar en la vista de pantalla completa.</string>
@@ -367,13 +356,12 @@
     <string name="faq_14_text">Puede presionar el elemento del menú \"Mostrar temporalmente elementos ocultos\" en la pantalla principal o alternar \"Mostrar elementos ocultos\" en la configuración de la aplicación para ver el elemento oculto. Si desea mostrarlo, solo manténgalo presionado y seleccione \"Mostrar\". Las carpetas se ocultan agregando un archivo oculto \".nomedia\" en ellas, también puede eliminar el archivo con cualquier administrador de archivos. Sin embargo, tenga en cuenta que la ocultación funciona de forma recursiva, por lo que si oculta una carpeta, todas las subcarpetas también se ocultarán. Entonces, para mostrar las subcarpetas, debe mostrar la carpeta principal.</string>
     <string name="faq_15_title">¿Por qué la aplicación ocupa tanto espacio?</string>
     <string name="faq_15_text">El caché de aplicaciones puede ocupar hasta 250 MB, asegura una carga de imagen más rápida. Si la aplicación ocupa aún más espacio, lo más probable es que tenga elementos en la Papelera de reciclaje. Esos archivos cuentan para el tamaño de la aplicación. Puede borrar la Papelera de reciclaje abriéndola y eliminando todos los archivos, o desde la configuración de la aplicación. Todos los archivos de la Papelera se eliminan automáticamente después de 30 días.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
+    <string name="faq_16_title">¿Qué le pasó a los archivos y carpetas ocultas y por qué no puedo volver a ver elementos ocultos\?</string>
+    <string name="faq_16_text">A partir de Android 11 ya no puede ocultar o mostrar archivos o carpetas, tampoco puede ver las ocultas en aplicaciones de galería debido a restricciones del sistema. Tendrá que usar algún gestor de archivos para ello.</string>
+    <string name="faq_17_title">¿Por qué ya no puedo incluir carpetas ausentes\?</string>
+    <string name="faq_17_text">Eso dejó de funcionar debido a los cambios del sistema que aparecieron junto a Adroid 11, la aplicación ya no puede navegar carpetas reales, sino que depende del llamado MediaStore (Almacén de Medios) para obtener datos.</string>
+    <string name="faq_18_title">¿Por qué veo anuncios durante la reproducción de vídeo\?</string>
+    <string name="faq_18_text">Nuestras aplicaciones no tienen anuncios de ninguna clase. Si los ve durante la reproducción de video, entonces debe estar usando el reproductor de vídeo de otra aplicación. Pruebe encontrando su reproductor de video por defecto en los ajustes del dispositivo, luego realice un \"Borrar predeterminados\" en él. La siguiente vez que vaya a ver un vídeo verá un selector de aplicaciones, en el cual puede seleccionar que aplicación quiere usar para reproducirlo.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro - Gestor y editor de fotos</string>
@@ -435,7 +423,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
