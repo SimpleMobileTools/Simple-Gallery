@@ -200,7 +200,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Visibilidade do cartafol protexida con contrasinal</string>
     <!-- Setting sections -->
     <string name="thumbnails">Iconas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
@@ -355,7 +355,7 @@
     <string name="faq_15_title">Por que consume tanto espacio este aplicativo?</string>
     <string name="faq_15_text">Os ficheiros temporais poden chegar aos 250MB e server para cargar máis rápido. Se o aplicativo está a a consumir máis espazo, o máis probable é que teña ficheiros na Papeleira de Reciclaxe.Estes ficheiros contan no tamaño da aplicación.Podes baleirala abríndoa e borrando os ficheiros, ou desde a configuración.Cada ficheiro da Papeleira bórrase automáticamente tras 30 días.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_16_text">Desde Android 11 xa non podes agochar ou mostrar cartafoles, non podes ver os agochados nas apps galería debido a restricións dos sistema. Terás que usar algún xestor de ficheiros para isto.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
