@@ -184,7 +184,7 @@
     <string name="hide_extended_details">Oculta els detalls ampliats quan la barra d\'estat està oculta</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
-    <string name="deep_zoomable_images">Imatges ampliables a fons</string>
+    <string name="deep_zoomable_images">Imatges ampliables profundament</string>
     <string name="show_highest_quality">Mostra les imatges amb la màxima qualitat possible</string>
     <string name="show_recycle_bin_last">Mostra la paperera de reciclatge com a últim element a la pantalla principal</string>
     <string name="allow_down_gesture">Permet tancar la vista de pantalla completa amb un gest cap avall</string>
@@ -358,7 +358,7 @@
     <string name="faq_12_title">L\'ordenació per la data de presa no sembla funcionar correctament, com puc solucionar-ho\?</string>
     <string name="faq_12_text">Probablement, els fitxers s\'han copiat des de qualsevol lloc. Podeu arreglar-ho seleccionant les miniatures de fitxer i seleccionant «Corregeix el valor de la data de presa».</string>
     <string name="faq_13_title">Veig algunes bandes de colors a les imatges. Com puc millorar la qualitat?</string>
-    <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una qualitat d\'imatge millor, podeu activar «Mostra les imatges amb la màxima qualitat possible» a la configuració de l\'aplicació, a la secció «Imatges ampliables a fons».</string>
+    <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una qualitat d\'imatge millor, podeu activar «Mostra les imatges amb la màxima qualitat possible» a la configuració de l\'aplicació, a la secció «Imatges ampliables profundament».</string>
     <string name="faq_14_title">He ocultat un fitxer/carpeta. Com puc mostrar-ho\?</string>
     <string name="faq_14_text">Podeu prémer l\'element de menú «Mostra temporalment els elements ocults» a la pantalla principal o canviar «Mostra els elements ocults» a la configuració de l\'aplicació per veure l\'element ocult. Si el voleu mostrar, premeu-lo i seleccioneu «Mostra». Les carpetes s\'oculten afegint un fitxer «.nomedia» ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Tingueu en compte que l\'ocultació funciona recursivament, així que si oculteu una carpeta, totes les subcarpetes també es faran ocultes. Per tant, per a fer visibles les subcarpetes cal mostrar la carpeta superior.</string>
     <string name="faq_15_title">Per què l\'aplicació ocupa tant espai\?</string>

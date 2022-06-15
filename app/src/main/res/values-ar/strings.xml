@@ -15,7 +15,7 @@
     <string name="other_folder">مجلد آخر</string>
     <string name="show_on_map">عرض على الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
-    <string name="volume">Volume</string>
+    <string name="volume">مستوى الصوت</string>
     <string name="brightness">السطوع</string>
     <string name="lock_orientation">قفل الاتجاه</string>
     <string name="unlock_orientation">فتح الاتجاه</string>
@@ -35,7 +35,7 @@
 \nسيكون لديك فقط سلة المحذوفات العناصر المحذوفة، والعناصر المفضلة غير ملحوظ وسيكون لديك أيضا لإعادة تعيين إعدادات التطبيق الخاص بك.
 \n
 \nشكرا!</string>
-    <string name="switch_to_file_search">التبديل إلي البحث فى الملفات عبر كافة المجلدات المرئية</string>
+    <string name="switch_to_file_search">التبديل إلى البحث فى الملفات عبر كافة المجلدات المرئية</string>
     <string name="set_as_default_folder">تعيين كمجلد افتراضي</string>
     <string name="unset_as_default_folder">إلغاء التعيين كمجلد افتراضي</string>
     <string name="reorder_by_dragging">إعادة ترتيب المجلدات عن طريق السحب</string>
@@ -66,8 +66,8 @@
     <string name="hidden_folders">المجلدات المخفية</string>
     <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
     <string name="hidden_folders_placeholder">يبدو أنه لا توجد لديك أي مجلدات مخفية بملف \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">إظهار الملفات المستبعدة مؤقتا</string>
+    <string name="stop_showing_excluded">إيقاف عرض الملفات المستبعدة</string>
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
@@ -260,14 +260,14 @@
     <string name="pesdk_text_button_color">اللون</string>
     <string name="pesdk_text_button_backgroundColor">لون الخلفية</string>
     <string name="pesdk_text_button_alignment">محاذاة</string>
-    <string name="pesdk_text_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_text_button_bringToFront">إلى الأمام</string>
     <string name="pesdk_text_button_delete">حذف</string>
     <string name="pesdk_text_text_editTextPlaceholder">النص الخاص بك</string>
     <string name="pesdk_brush_title_name">الفرشاة</string>
     <string name="pesdk_brush_button_color">اللون</string>
     <string name="pesdk_brush_button_size">الحجم</string>
     <string name="pesdk_brush_button_hardness">الصلابة</string>
-    <string name="pesdk_brush_button_bringToFront">إلي الأمام</string>
+    <string name="pesdk_brush_button_bringToFront">إلى الأمام</string>
     <string name="pesdk_brush_button_delete">حذف</string>
     <string name="pesdk_brush_title_brushColor">لون الفرشاة</string>
     <string name="pesdk_editor_title_name">المحرر</string>
@@ -360,13 +360,13 @@
     <string name="faq_13_title">أرى بعض التباين اللونى على الصور. كيف يمكنني تحسين الجودة؟</string>
     <string name="faq_13_text">الحل الحالي لعرض الصور يعمل بشكل جيد في الأغلبية العظمى للحالات، ولكن إذا كنت تريد تحسين جودة الصور، يمكنك تمكين خيار \"عرض الصور بأعلي جودة ممكنة\" من إعدادات التطبيق، من قسم \"الصور العميقة القابلة للتكبير\".</string>
     <string name="faq_14_title">لقد قمت بإخفاء ملف/مجلد. كيف يمكنني إظهاره؟</string>
-    <string name="faq_14_text">Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.يمكنك أما أن تضغط علي عنصر القائمة إظهار العناصر المخفية مؤقتاً علي الشاشه الرئيسية أو تفعيل خيار \"إظهار العناصر المخفية في إعدادات التطبيق لرؤية العنصر المخفي. إذا كنت تريد إظهاره ، فقط أضغط مطولاً عليه وأختر \" إظهار\". يتم إخفاء المجلدات عن طريق إضافة ملف مخفي . nomedia/ إليهم، يمكنك حذف الملف بواسطة أي مدير ملفات أيضاً.</string>
+    <string name="faq_14_text">يمكنك إما الضغط على عنصر القائمة \"إظهار العناصر المخفية مؤقتا\" في الشاشة الرئيسية ، أو تبديل \"إظهار العناصر المخفية\" في إعدادات التطبيق لرؤية العنصر المخفي. إذا كنت ترغب في إظهاره ، فما عليك سوى الضغط عليه لفترة طويلة وتحديد \"إظهار\". يتم إخفاء المجلدات عن طريق إضافة ملف \".nomedia\" مخفي إليها ، يمكنك حذف الملف مع أي مدير ملفات أيضا. لاحظ أن الإخفاء يعمل بشكل متكرر ، لذلك إذا قمت بإخفاء مجلد ، فستصبح جميع المجلدات الفرعية مخفية أيضا. لذلك لإلغاء إخفاء المجلدات الفرعية ، يجب عليك إظهار المجلد الأصل.</string>
     <string name="faq_15_title">لماذا يشغل التطبيق مساحة كبيرة؟</string>
     <string name="faq_15_text">يمكن لذاكرة التخزين المؤقت للتطبيق أن تصل سعتها إلى 250 ميجابايت، مما يضمن سرعة تحميل الصور. إذا كان التطبيق يشغل مساحة أكبر، فمن المحتمل أن يكون ذلك بسبب وجود عناصر في سلة المحذوفات. يتم حساب هذه الملفات إلى حجم التطبيق. يمكنك مسح سلة المحذوفات عن طريق فتحها وحذف جميع الملفات، أو من إعدادات التطبيق. يتم حذف كل ملف في سلة المحذوفات تلقائياً بعد 30 يوماً.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">ماذا حدث لإخفاء الملفات والمجلدات ولماذا لا يمكنني رؤية العناصر المخفية بعد الآن؟</string>
     <string name="faq_16_text">بدءا من Android 11 ، لا يمكنك إخفاء أو إظهار الملفات أو المجلدات بعد الآن ، ولا يمكنك رؤية الملفات أو المجلدات المخفية في تطبيقات المعرض بسبب قيود النظام أيضا. سيكون عليك استخدام بعض مدير الملفات لذلك.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_17_title">لماذا لا يمكنني تضمين المجلدات المفقودة بعد الآن؟</string>
+    <string name="faq_17_text">توقف ذلك عن العمل بسبب تغييرات النظام التي جاءت مع Android 11 أيضا ، ولم يعد بإمكان التطبيق تصفح المجلدات الحقيقية بعد الآن ، فهو يعتمد على ما يسمى MediaStore في جلب البيانات.</string>
     <string name="faq_18_title">لماذا أشاهد الإعلانات أثناء تشغيل الفيديو؟</string>
     <string name="faq_18_text">لا تحتوي تطبيقاتنا على أي إعلانات على الإطلاق. إذا رأيتها أثناء تشغيل الفيديو، فيجب أن تستخدم مشغل فيديو بعض التطبيقات الأخرى. حاول العثور على مشغل الفيديو الافتراضي في إعدادات الجهاز، ثم قم بإجراء \"مسح الإعدادات الافتراضية\" عليه. في المرة التالية التي تستدعي فيها بعض نوايا الفيديو ، سترى مطالبة منتقي التطبيقات ، حيث يمكنك تحديد التطبيق الذي تريد استخدامه.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->

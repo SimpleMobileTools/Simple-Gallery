@@ -34,7 +34,7 @@
     <string name="unset_as_default_folder">Oublier le dossier</string>
     <string name="reorder_by_dragging">Réordonner par glisser</string>
     <string name="reorder_by_dragging_pro">Réordonner par glisser (Pro)</string>
-    <string name="restore_to_path">Restauration vers \"%s\"</string>
+    <string name="restore_to_path">Restauration vers « %s »</string>
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
     <string name="images">Images</string>
@@ -143,7 +143,7 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="show_file_count_section_header">Afficher le nombre d\'éléments dans les entêtes</string>
-    <string name="grouping_and_sorting">\"Grouper par\" et \"Trier par\" sont deux modes indépendants</string>
+    <string name="grouping_and_sorting">« Grouper par » et « Trier par » sont deux modes indépendants</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
