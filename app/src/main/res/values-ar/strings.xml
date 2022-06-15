@@ -15,7 +15,7 @@
     <string name="other_folder">مجلد آخر</string>
     <string name="show_on_map">عرض على الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
-    <string name="volume">Volume</string>
+    <string name="volume">مستوى الصوت</string>
     <string name="brightness">السطوع</string>
     <string name="lock_orientation">قفل الاتجاه</string>
     <string name="unlock_orientation">فتح الاتجاه</string>
