@@ -210,6 +210,7 @@
     <string name="export_favorite_paths">Exportovať cesty obľúbených položiek</string>
     <string name="media_management_prompt">Aby súborové operácie fungovali správne, prosím povoľte túto apku ako Správca médií v nastaveniach zariadenia.</string>
     <string name="password_protect_excluded">Uzamknúť viditeľnosť vylúčených priečinkov heslom</string>
+    <string name="media_management_manual">Niečo sa pokazilo, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
