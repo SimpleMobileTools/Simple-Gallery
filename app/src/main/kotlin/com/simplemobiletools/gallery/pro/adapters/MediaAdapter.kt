@@ -471,12 +471,12 @@ class MediaAdapter(
             val paths = getSelectedPaths()
             val fileDirItems = ArrayList<FileDirItem>(paths.size)
             paths.forEach {
-                val fileDirItem = File(it).toFileDirItem(activity)
-                fileDirItems.add(fileDirItem)
+                val curFileDirItem = File(it).toFileDirItem(activity)
+                fileDirItems.add(curFileDirItem)
             }
-            val size = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
+            val fileSize = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
             val deleteItemsString = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
-            "$deleteItemsString ($size)"
+            "$deleteItemsString ($fileSize)"
         }
 
         val isRecycleBin = firstPath.startsWith(activity.recycleBinPath)
