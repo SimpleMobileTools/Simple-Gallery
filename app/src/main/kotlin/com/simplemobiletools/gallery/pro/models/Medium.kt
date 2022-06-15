@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.helpers.*
 import java.io.File
 import java.io.Serializable
@@ -107,4 +108,6 @@ data class Medium(
     }
 
     fun getKey() = ObjectKey(getSignature())
+
+    fun toFileDirItem() = FileDirItem(path, name, false, 0, size, modified, mediaStoreId)
 }

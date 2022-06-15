@@ -1104,7 +1104,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        val fileDirItem = File(getCurrentPath()).toFileDirItem(this)
+        val fileDirItem = getCurrentMedium()?.toFileDirItem() ?: return
         val size = fileDirItem.getProperSize(this, countHidden = true).formatSize()
         val filename = "\"${getCurrentPath().getFilenameFromPath()}\""
         val filenameAndSize = "$filename ($size)"
@@ -1123,12 +1123,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteConfirmed() {
-        val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
+        val currentMedium = getCurrentMedium()
+        val path = currentMedium?.path ?: return
         if (getIsPathDirectory(path) || !path.isMediaFile()) {
             return
         }
 
-        val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+        val fileDirItem = currentMedium.toFileDirItem()
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
                 if (!it) {
