@@ -203,7 +203,7 @@
     <string name="export_favorite_paths">Esporta i percorsi dei file preferiti</string>
     <string name="media_management_prompt">Per assicurarsi che tutte le operazioni sui file funzionino in modo affidabile, si prega di rendere questa app un\'app di gestione dei media nelle impostazioni del dispositivo.</string>
     <string name="password_protect_excluded">Proteggi con password la visibilità della cartella esclusa</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app managing media.</string>
+    <string name="media_management_manual">Qualcosa è andato storto, si prega di andare nelle Impostazioni del vostro dispositivo - Apps - Accesso speciale app - Apps di gestione dei media e consentire a questa app di gestire i media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
