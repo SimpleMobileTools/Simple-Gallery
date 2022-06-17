@@ -199,7 +199,7 @@
     <string name="export_favorite_paths">ייצא נתיבי קבצים מועדפים</string>
     <string name="media_management_prompt">כדי לוודא שכל פעולות הקבצים פועלות בצורה מהימנה, אנא הפוך את האפליקציה הזו לאפליקציית ניהול מדיה בהגדרות המכשיר שלך.</string>
     <string name="password_protect_excluded">הגנה באמצעות סיסמה על נראות התיקייה שלא נכללה</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app managing media.</string>
+    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">תמונות ממוזערות</string>
     <string name="fullscreen_media">מדיה במסך מלא</string>
