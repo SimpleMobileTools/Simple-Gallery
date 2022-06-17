@@ -211,7 +211,7 @@
     <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
     <string name="media_management_prompt">للتأكد من أن جميع عمليات الملفات تعمل بشكل موثوق ، يرجى جعل هذا التطبيق تطبيقا لإدارة الوسائط في إعدادات جهازك.</string>
     <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app managing media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>

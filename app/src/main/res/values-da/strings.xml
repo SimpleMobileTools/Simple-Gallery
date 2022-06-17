@@ -210,7 +210,7 @@
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
     <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app managing media.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>

@@ -210,7 +210,7 @@
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app managing media.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">থাম্বনেল</string>
