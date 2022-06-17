@@ -228,6 +228,10 @@ class PhotoFragment : ViewPagerFragment() {
                 loadImage()
             } else if (mMedium.isGIF()) {
                 loadGif()
+            } else if (mIsSubsamplingVisible) {
+                mView.subsampling_view.onGlobalLayout {
+                    mView.subsampling_view.resetView()
+                }
             }
         }
 
