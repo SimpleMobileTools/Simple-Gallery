@@ -373,18 +373,16 @@ fun Context.rescanFolderMedia(path: String) {
 }
 
 fun Context.rescanFolderMediaSync(path: String) {
-    getCachedMedia(path) {
-        val cached = it
-        GetMediaAsynctask(applicationContext, path, false, false, false) {
+    getCachedMedia(path) { cached ->
+        GetMediaAsynctask(applicationContext, path, isPickImage = false, isPickVideo = false, showAll = false) { newMedia ->
             ensureBackgroundThread {
-                val newMedia = it
-                val media = newMedia.filter { it is Medium } as ArrayList<Medium>
+                val media = newMedia.filterIsInstance<Medium>() as ArrayList<Medium>
                 try {
                     mediaDB.insertAll(media)
 
-                    cached.forEach {
-                        if (!newMedia.contains(it)) {
-                            val mediumPath = (it as? Medium)?.path
+                    cached.forEach { thumbnailItem ->
+                        if (!newMedia.contains(thumbnailItem)) {
+                            val mediumPath = (thumbnailItem as? Medium)?.path
                             if (mediumPath != null) {
                                 deleteDBPath(mediumPath)
                             }
