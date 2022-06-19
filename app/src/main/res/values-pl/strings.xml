@@ -119,6 +119,7 @@
     <string name="home_screen">Ekran główny</string>
     <string name="lock_screen">Ekran blokady</string>
     <string name="home_and_lock_screen">Ekran główny i blokady</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
     <string name="interval">Czas trwania (sekundy):</string>

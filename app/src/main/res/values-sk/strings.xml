@@ -117,6 +117,7 @@
     <string name="home_screen">Plocha</string>
     <string name="lock_screen">Obrazovka uzamknutia</string>
     <string name="home_and_lock_screen">Plocha a obrazovka uzamknutia</string>
+    <string name="allow_changing_aspect_ratio">Povoliť zmenu pomeru strán</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>

@@ -123,6 +123,7 @@
     <string name="home_screen">الشاشة الرئيسية</string>
     <string name="lock_screen">شاشة القفل</string>
     <string name="home_and_lock_screen">الشاشة الرئيسية وشاشة القفل</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">عرض الشرائح</string>
     <string name="interval">الفاصل الزمني (بالثواني):</string>

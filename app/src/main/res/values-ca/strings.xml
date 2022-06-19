@@ -123,6 +123,7 @@
     <string name="home_screen">Pantalla d\'inici</string>
     <string name="lock_screen">Pantalla de bloqueig</string>
     <string name="home_and_lock_screen">Pantalla d\'inici i de bloqueig</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentació de diapositives</string>
     <string name="interval">Interval (segons):</string>

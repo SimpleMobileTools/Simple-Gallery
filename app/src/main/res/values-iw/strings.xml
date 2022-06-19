@@ -111,6 +111,7 @@
     <string name="home_screen">מסך הבית</string>
     <string name="lock_screen">מסך נעילה</string>
     <string name="home_and_lock_screen">בית ומסך נעילה</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">מצגת</string>
     <string name="interval">מרווח (שניות):</string>

@@ -121,6 +121,7 @@
     <string name="home_screen">Tela inicial</string>
     <string name="lock_screen">Tela de bloqueio</string>
     <string name="home_and_lock_screen">Tela inicial e de bloqueio</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Apresentação</string>
     <string name="interval">Intervalo (segundos):</string>

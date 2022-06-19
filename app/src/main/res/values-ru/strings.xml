@@ -115,6 +115,7 @@
     <string name="home_screen">Домашний экран</string>
     <string name="lock_screen">Экран блокировки</string>
     <string name="home_and_lock_screen">Домашний экран и экран блокировки</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
     <string name="interval">Интервал (в секундах):</string>

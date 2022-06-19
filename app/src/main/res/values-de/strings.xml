@@ -123,6 +123,7 @@
     <string name="home_screen">Startbildschirm</string>
     <string name="lock_screen">Sperrbildschirm</string>
     <string name="home_and_lock_screen">Start- und Sperrbildschirm</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
     <string name="interval">Intervall (Sekunden):</string>

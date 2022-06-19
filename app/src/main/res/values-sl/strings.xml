@@ -117,6 +117,7 @@
     <string name="home_screen">Domači zaslon</string>
     <string name="lock_screen">Zaklenjeni zaslon</string>
     <string name="home_and_lock_screen">Domači in zaklenjeni zaslon</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaprojekcija</string>

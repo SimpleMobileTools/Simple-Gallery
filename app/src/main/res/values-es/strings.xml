@@ -115,6 +115,7 @@
     <string name="home_screen">Pantalla de inicio</string>
     <string name="lock_screen">Pantalla de bloqueo</string>
     <string name="home_and_lock_screen">Pantalla de inicio y de bloqueo</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentación de diapositivas</string>
     <string name="interval">Intervalo (segundos):</string>

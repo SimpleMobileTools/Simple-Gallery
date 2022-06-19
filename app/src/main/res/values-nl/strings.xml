@@ -119,6 +119,7 @@
     <string name="home_screen">Startscherm</string>
     <string name="lock_screen">Vergrendelscherm</string>
     <string name="home_and_lock_screen">Start- en vergrendelscherm</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>

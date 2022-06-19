@@ -113,6 +113,7 @@
     <string name="home_screen">Layar beranda</string>
     <string name="lock_screen">Layar kunci</string>
     <string name="home_and_lock_screen">Beranda dan layar kunci</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (detik):</string>

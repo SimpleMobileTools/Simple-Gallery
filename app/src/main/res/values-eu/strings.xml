@@ -117,6 +117,7 @@
     <string name="home_screen">Hasierako pantaila</string>
     <string name="lock_screen">Blokeatutako pantaila</string>
     <string name="home_and_lock_screen">Hasierako eta blokeatutako pantaila</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>

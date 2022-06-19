@@ -122,6 +122,7 @@
     <string name="home_screen">Kezdőképernyő</string>
     <string name="lock_screen">Zárolási képernyő</string>
     <string name="home_and_lock_screen">Kezdő- és zárolási képernyő</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavetítés</string>
     <string name="interval">Időköz (másodperc):</string>

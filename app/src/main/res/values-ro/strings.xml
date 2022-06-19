@@ -113,6 +113,7 @@
     <string name="home_screen">Ecranul de pornire</string>
     <string name="lock_screen">Ecranul de blocare</string>
     <string name="home_and_lock_screen">Ecranul de pornire și de blocare</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (în secunde):</string>

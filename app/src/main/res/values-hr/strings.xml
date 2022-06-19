@@ -113,6 +113,7 @@
     <string name="home_screen">Početni zaslon</string>
     <string name="lock_screen">Zaključani zaslon</string>
     <string name="home_and_lock_screen">Početni i zaključani zaslon</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Dijaprojekcija</string>
     <string name="interval">Interval (sekunde):</string>

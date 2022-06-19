@@ -117,6 +117,7 @@
     <string name="home_screen">ホーム画面</string>
     <string name="lock_screen">ロック画面</string>
     <string name="home_and_lock_screen">ホーム画面とロック画面</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>

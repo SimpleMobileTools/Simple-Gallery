@@ -118,6 +118,7 @@
     <string name="home_screen">Home screen</string>
     <string name="lock_screen">Lock screen</string>
     <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (seconds):</string>

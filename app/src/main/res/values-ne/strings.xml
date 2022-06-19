@@ -117,6 +117,7 @@
     <string name="home_screen">होम स्क्रिन</string>
     <string name="lock_screen">लक स्क्रिन</string>
     <string name="home_and_lock_screen">होम र लक स्क्रिन</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">स्लाईडसो</string>

@@ -114,6 +114,7 @@
     <string name="home_screen">Domovská obrazovka</string>
     <string name="lock_screen">Zamykací obrazovka</string>
     <string name="home_and_lock_screen">Domovská a zamykací obrazovka</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Prezentace</string>
     <string name="interval">Interval (sekund):</string>

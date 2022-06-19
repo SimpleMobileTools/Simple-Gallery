@@ -113,6 +113,7 @@
     <string name="home_screen">Startskärm</string>
     <string name="lock_screen">Låsskärm</string>
     <string name="home_and_lock_screen">Startskärm och låsskärm</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Bildspel</string>
     <string name="interval">Intervall (sekunder):</string>

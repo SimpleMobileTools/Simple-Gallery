@@ -123,6 +123,7 @@
     <string name="home_screen">முகப்புத் திரை</string>
     <string name="lock_screen">பூட்டுத் திரை</string>
     <string name="home_and_lock_screen">முகப்பு மற்றும் பூட்டுத் திரை</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">வில்லைக்காட்சி</string>
     <string name="interval">இடைவெளி (நொடிகள்):</string>

@@ -114,6 +114,7 @@
     <string name="home_screen">Pagrindinis ekranas</string>
     <string name="lock_screen">Užrakto ekranas</string>
     <string name="home_and_lock_screen">Pagrindinis ir užrakto ekranas</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Skaidrių demonstracija</string>
     <string name="interval">Intervalas (sekundėmis):</string>

@@ -117,6 +117,7 @@
     <string name="home_screen">Hjemmeskærm</string>
     <string name="lock_screen">Låseskærm</string>
     <string name="home_and_lock_screen">Hjemme- og låseskærm</string>
+    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Lysbilledshow</string>
