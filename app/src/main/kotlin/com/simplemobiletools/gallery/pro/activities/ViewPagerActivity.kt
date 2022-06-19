@@ -462,11 +462,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (!isDestroyed) {
             pagerAdapter.shouldInitFragment = mPos < 5
             view_pager.apply {
+                // must remove the listener before changing adapter, otherwise it might cause `mPos` to be set to 0
+                removeOnPageChangeListener(this@ViewPagerActivity)
                 adapter = pagerAdapter
                 pagerAdapter.shouldInitFragment = true
-                currentItem = mPos
-                removeOnPageChangeListener(this@ViewPagerActivity)
                 addOnPageChangeListener(this@ViewPagerActivity)
+                currentItem = mPos
             }
         }
     }
