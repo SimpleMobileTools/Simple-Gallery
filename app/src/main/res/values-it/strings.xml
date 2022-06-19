@@ -115,7 +115,7 @@
     <string name="home_screen">Schermata principale</string>
     <string name="lock_screen">Schermata di blocco</string>
     <string name="home_and_lock_screen">Entrambe le schermate</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Consenti di modificare le proporzioni</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentazione</string>
     <string name="interval">Intervallo (secondi):</string>
