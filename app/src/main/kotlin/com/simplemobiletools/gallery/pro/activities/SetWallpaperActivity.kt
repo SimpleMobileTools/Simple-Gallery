@@ -60,6 +60,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save -> confirmWallpaper()
+            R.id.allow_changing_aspect_ratio -> crop_image_view.clearAspectRatio()
             else -> return super.onOptionsItemSelected(item)
         }
         return true

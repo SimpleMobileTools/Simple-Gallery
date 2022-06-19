@@ -6,4 +6,8 @@
         android:icon="@drawable/ic_check_vector"
         android:title="@string/save"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/allow_changing_aspect_ratio"
+        android:title="@string/allow_changing_aspect_ratio"
+        app:showAsAction="never" />
 </menu>
