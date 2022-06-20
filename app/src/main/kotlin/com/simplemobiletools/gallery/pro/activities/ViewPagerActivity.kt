@@ -59,6 +59,7 @@ import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
 
+@Suppress("UNCHECKED_CAST")
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private val REQUEST_VIEW_VIDEO = 1
 
@@ -131,24 +132,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val attributes = window.attributes
             attributes.screenBrightness = 1f
             window.attributes = attributes
-        }
-
-        // show the selected image asap, while loading the rest in the background to allow swiping between them. Needed at third party intents
-        if (mMediaFiles.isEmpty() && mPath.isNotEmpty() && mDirectory != FAVORITES) {
-            getCachedMedia(mPath.getParentPath(), false, false) { thumbnailItems ->
-                // if we have nothing cached from the given folder, at least show the selected image asap
-                if (thumbnailItems.isEmpty()) {
-                    val filename = mPath.getFilenameFromPath()
-                    val folder = mPath.getParentPath()
-                    val type = getTypeFromPath(mPath)
-                    val medium = Medium(null, filename, mPath, folder, 0, 0, 0, type, 0, false, 0L, 0L)
-                    thumbnailItems.add(medium)
-                }
-
-                runOnUiThread {
-                    gotMedia(thumbnailItems)
-                }
-            }
         }
 
         setupOrientation()
@@ -388,7 +371,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        refreshViewPager()
+        // show the selected image asap, while loading the rest in the background to allow swiping between them. Might be needed at third party intents
+        if (mMediaFiles.isEmpty() && mPath.isNotEmpty() && mDirectory != FAVORITES) {
+            val filename = mPath.getFilenameFromPath()
+            val folder = mPath.getParentPath()
+            val type = getTypeFromPath(mPath)
+            val medium = Medium(null, filename, mPath, folder, 0, 0, 0, type, 0, false, 0L, 0L)
+            mMediaFiles.add(medium)
+            gotMedia(mMediaFiles as ArrayList<ThumbnailItem>, refetchViewPagerPosition = true)
+        }
+
+        refreshViewPager(true)
         view_pager.offscreenPageLimit = 2
 
         if (config.blackBackground) {
@@ -469,11 +462,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (!isDestroyed) {
             pagerAdapter.shouldInitFragment = mPos < 5
             view_pager.apply {
+                // must remove the listener before changing adapter, otherwise it might cause `mPos` to be set to 0
+                removeOnPageChangeListener(this@ViewPagerActivity)
                 adapter = pagerAdapter
                 pagerAdapter.shouldInitFragment = true
-                currentItem = mPos
-                removeOnPageChangeListener(this@ViewPagerActivity)
                 addOnPageChangeListener(this@ViewPagerActivity)
+                currentItem = mPos
             }
         }
     }
@@ -1233,10 +1227,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun refreshViewPager() {
+    private fun refreshViewPager(refetchPosition: Boolean = false) {
         if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
-            GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-                gotMedia(it)
+            GetMediaAsynctask(applicationContext, mDirectory, isPickImage = false, isPickVideo = false, showAll = mShowAll) {
+                gotMedia(it, refetchViewPagerPosition = refetchPosition)
             }.execute()
         }
     }
@@ -1270,6 +1264,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         updateActionbarTitle()
         updatePagerItems(mMediaFiles.toMutableList())
+
         invalidateOptionsMenu()
         checkOrientation()
         initBottomActions()
