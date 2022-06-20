@@ -123,7 +123,7 @@
     <string name="home_screen">主屏幕</string>
     <string name="lock_screen">锁定屏幕</string>
     <string name="home_and_lock_screen">主屏幕和锁定屏幕</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">允许更改纵横比</string>
     <!-- Slideshow -->
     <string name="slideshow">幻灯片</string>
     <string name="interval">间隔（秒）:</string>
