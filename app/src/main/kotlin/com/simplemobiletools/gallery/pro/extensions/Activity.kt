@@ -145,13 +145,12 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
                         intent.data = Uri.parse("package:$packageName")
                         startActivity(intent)
                     } catch (e: Exception) {
-                        showErrorToast(e)
                         val intent = Intent()
                         intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
                         try {
                             startActivity(intent)
                         } catch (e: Exception) {
-                            ConfirmationDialog(this, "", R.string.media_management_manual, R.string.ok, 0, false) {}
+                            showErrorToast(e)
                         }
                     }
                 } else {
