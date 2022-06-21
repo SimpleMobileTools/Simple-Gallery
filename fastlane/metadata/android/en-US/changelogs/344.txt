@@ -1,3 +1,0 @@
- * Fixed a glitch with some PNG thumbnails not showing up well
- * Fixed an issue with edited exported videos being too low resolution
- * Adding some stability and translation improvements

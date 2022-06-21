@@ -1,3 +1,0 @@
- * Fixed some sorting by Date Taken related issues
- * Fixed some file operation related glitches
- * Added some stability, translation and UX improvements

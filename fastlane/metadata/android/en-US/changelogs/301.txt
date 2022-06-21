@@ -1,3 +1,0 @@
- * Fixed some SD card file related glitches
- * Improved some third party intent handling
- * Added some translation and stability improvements

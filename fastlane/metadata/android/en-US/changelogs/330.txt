@@ -1,3 +1,0 @@
- * Added a Video Editor (not on F-droid)
- * Added Stickers and Overlays to the Photo Editor (not on F-droid)
- * Some translation, stability and UI improvements

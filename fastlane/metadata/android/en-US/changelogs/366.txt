@@ -1,2 +1,0 @@
- * Fixed a glitch with deleting files from fullscreen view
- * Added some stability and translation improvements

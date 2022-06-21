@@ -1,2 +1,0 @@
- * Reverting to the previous UI of the main screen, but keep rounded corners at list view
- * Some UI and stability improvements

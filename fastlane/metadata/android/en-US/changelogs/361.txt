@@ -1,4 +1,0 @@
- * Simplify some file operations on Android 12+, if the gallery is set as a Media Management app
- * Added .avif support on Android 12
- * Allow setting both landscape and portrait wallpapers
- * Added some translation, stability and UX improvements

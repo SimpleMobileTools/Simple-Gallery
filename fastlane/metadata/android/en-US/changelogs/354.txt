@@ -1,2 +1,0 @@
- * Fixed a glitch with videos being corrupt after editing
- * Some stability and translation improvements

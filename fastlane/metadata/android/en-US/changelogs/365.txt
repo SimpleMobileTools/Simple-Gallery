@@ -1,4 +1,0 @@
- * Fixed a glitch with device freezing at deleting multiple files at once
- * Properly handle deleting the last file in a folder
- * Restore previous way of handling hidden and included folders in FOSS app version, not Google Play
- * Added some stability, translation and UX improvements

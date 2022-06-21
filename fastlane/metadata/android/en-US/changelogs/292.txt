@@ -1,2 +1,0 @@
- * Fixed image disappearing at using the Editor
- * Properly copy over EXIF values after editing an image

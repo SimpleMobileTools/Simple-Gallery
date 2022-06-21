@@ -1,3 +1,0 @@
- * Fixed some file operations on Android 11+
- * Fixed files not being recognized by some apps after edit/copy
- * Added some stability, translation and UX improvements

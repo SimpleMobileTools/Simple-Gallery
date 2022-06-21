@@ -1,1 +1,0 @@
- * Properly update the folder thumbnail text colors

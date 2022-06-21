@@ -1,2 +1,0 @@
- * Fixed some file operations on Android 10 and 11
- * Restore Recycle bin files in Pictures, if the original folder is inaccessible

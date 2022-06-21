@@ -1,2 +1,0 @@
- * Fixed a copying related glitch on Android 12
- * Added some stability and translation improvements

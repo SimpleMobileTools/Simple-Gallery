@@ -1,2 +1,0 @@
- * Fixed various editor related glitches
- * Some translation and other UX improvements

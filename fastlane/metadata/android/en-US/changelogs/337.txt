@@ -1,3 +1,0 @@
- * Fixed some Android 11 related glitches
- * Added a White theme with special handling
- * Many stability, translation and performance improvements

@@ -1,3 +1,0 @@
- * Adding support for animated WebP files
- * Fixed a permissions glitch after upgrading to Android 11
- * Added many performance related improvements

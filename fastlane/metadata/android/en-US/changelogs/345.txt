@@ -1,4 +1,0 @@
- * Disable fullscreen image rotation during a zooming gesture
- * Fixed a glitch with fullscreen bottom action buttons being misplaced
- * Allow long pressing the bottom actions for a tooltip
- * Added some stability and translation improvements

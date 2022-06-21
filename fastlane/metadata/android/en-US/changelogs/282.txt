@@ -1,3 +1,0 @@
- * Added a few more aspect ratios in the editor
- * Remember the last used editor brush settings
- * Properly refresh the cache of edited images

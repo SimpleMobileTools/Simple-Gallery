@@ -1,5 +1,0 @@
- * Added a Contributors section
- * Fixed a bug with folders not being sorted properly in some cases
- * Refresh Favorites and Recycle bin with higher priority than the rest
- * Added 20:9 crop ratio at the image editor
- * Some other stability, UX and translation improvements

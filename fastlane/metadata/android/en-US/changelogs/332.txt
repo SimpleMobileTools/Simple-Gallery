@@ -1,3 +1,0 @@
- * Improve the performance at scrolling media thumbnails
- * Speed up cached folder fetching
- * Some stability and translation improvements

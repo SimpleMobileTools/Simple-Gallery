@@ -1,3 +1,0 @@
- * Changed the default file loading priority to Speed
- * Apply the max brightness option to panoramas too
- * Some smaller stability and translation improvements
