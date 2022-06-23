@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.23.12 *(2022-06-23)*
+----------------------------
+
+ * Fixed some renaming and moving issues
+ * Allow using custom aspect ratio at wallpaper setter
+ * Fix a glitch with wrong file being shown at fullscreen view
+ * Added some stability, translation and UX improvements
+
 Version 6.23.11 *(2022-06-07)*
 ----------------------------
 
