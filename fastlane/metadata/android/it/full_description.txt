@@ -1,51 +1,28 @@
-Semplice Galleria Pro è una galleria offline altamente personalizzabile. Organizza, modifica le tue foto, recupera file con il cestino, progetti e nascondi file e visualizza una grande varietà di formati foto e video, inclusi RAW, SVG e molti altri.
+Semplice Galleria Pro ti offre tutte le funzionalità di visualizzazione e modifica delle foto che ti mancavano sul tuo Android in un'app elegante e facile da usare. Sfoglia, gestisci e modifica più velocemente che mai, recupera file eliminati accidentalmente o crea gallerie nascoste per le tue immagini e video più preziosi. E con il supporto avanzato dei file e la personalizzazione completa, infine, la tua galleria funziona proprio come desideri.
 
-L'app non contiene pubblicità o permessi non necessari. L'app non richiede l'accesso a Internet, la tua privacy è protetta.
+<b>EDITOR FOTOGRAFICO AVANZATO</b>
+Trasforma il fotoritocco in un gioco da ragazzi con l'organizzatore di file e l'album fotografico migliorato di Semplice Galleria Pro. I gesti intuitivi rendono super facile modificare le tue immagini al volo. Ritaglia, capovolgi, ruota e ridimensiona le immagini o applica filtri eleganti per farle risaltare in un istante.
 
--------------------------------------------------
-<b>SEMPLICE GALLERIA PRO – FUNZIONALITÀ </b>
--------------------------------------------------
+<b>TUTTI I FILE DI CUI HAI BISOGNO</b>
+Semplice Galleria Pro supporta un'enorme varietà di diversi tipi di file tra cui JPEG, PNG, MP4, MKV, RAW, SVG, GIF, foto panoramiche, video e molto altro, così puoi godere della massima flessibilità nella scelta del formato. Ti sei mai chiesto "Posso usare questo formato sul mio Android"? Ora la risposta è sì.
 
-• Galleria offline senza pubblicità o popup
-• Semplice editor - ritaglia, ruota, ridimensiona, disegna, filtri e altro
-• Non è necessario alcun accesso Internet, per la tua privacy e sicurezza
-• Non sono necessari permessi
-• Cerca velocemente immagini, video e file
-• Apri e visualizza diversi tipi di foto e video (RAW, SVG, panoramica etc.)
-• Una varietà di gesti intuitivi per modificare e organizzare i file
-• Diversi modi per filtrare, raggruppare e ordinare i file
-• Personalizza l'aspetto di Semplice Galleria Pro
-• Disponibile in 32 lingue
-• Segna file come preferiti per un accesso veloce
-• Proteggi le tue foto e video con una sequenza, pin o impronta digitale
-• Utilizza un pin, una sequenza o un'impronta digitale per proteggere l'app o specifiche funzioni
-• Recupera foto e video eliminati dal cestino
-• Alterna la visibilità dei file per nascondere foto e video
-• Crea una presentazione personalizzabile dei propri file
-• Visualizza informazioni dettagliate dei tuoi file (risoluzione, valori EXIF)
-• Semplice Galleria Pro è open source
-… e molto molto altro!
-
-<b>EDITOR DI FOTO</b>
-Semplice Galleria Pro permette di modificare facilmente le proprie foto al volo. Ritaglia, rovescia e ridimensiona le tue foto. Se ti senti più creativo puoi aggiungere filtri o disegnare sulle tue foto!
-
-<b>SUPPORTO PER MOLTI TIPI DI FILE</b>
-A differenza di altre gallerie e organizzatori di foto, Semplice Galleria Pro supporta una grande gamma di tipi di file differenti: JPEG, PNG, MP4, MKV, RAW, SVG, foto e video panoramici e molto altri.
-
-<b>GESTORE DELLA GALLERIA ALTAMENTE MODIFICABILE</b>
-Semplice Galleria Pro è altamente personalizzabile e funziona come vuoi te, dall'interfaccia ai pulsanti di funzione sulla barra degli strumenti. Nessun altro gestore della galleria ha questa tipologia di flessibilità! Grazie all'essere open source, siamo disponibili in 32 linguaggi!
+<b>FALLA TUA</b>
+Il design altamente personalizzabile di Semplice Galleria Pro ti consente di far apparire, sentire e funzionare l'app proprio come desideri. Dall'interfaccia utente ai pulsanti funzione nella barra degli strumenti inferiore, Semplice Galleria Pro ti offre la libertà creativa di cui hai bisogno in un'app galleria.
 
 <b>RECUPERA FOTO E VIDEO ELIMINATI</b>
-Hai accidentalmente eliminato foto o video preziosi? Non preoccuparti! Semplice Galleria Pro fornisce un comodo cestino dove puoi recuperare foto e video eliminati.
+Non preoccuparti di eliminare accidentalmente quella preziosa foto o video che non puoi sostituire. Semplice Galleria Pro ti consente di recuperare rapidamente tutti i file eliminati, il che significa che oltre ad essere la migliore galleria multimediale per Android, Semplice Galleria Pro funge anche da straordinaria app di archivio fotografico.
 
-<b>PROTEGGI E NASCONDI FOTO VIDEO E FILE</b>
-Utilizzando un pin, una sequenza o la propria impronta digitale puoi proteggere e nascondere foto, video e interi album. Puoi proteggere l'intera app o bloccare specifiche funzionalità dell'app. Per esempio, non puoi eliminare un file senza una scansione dell'impronta, aiuta a proteggere i tuoi file da rimozioni accidentali.
+<b>PROTEGGI LE TUE FOTO, VIDEO E FILE PRIVATI</b>
+Stai certo che il tuo album fotografico è al sicuro. Con le funzionalità di sicurezza migliori di Semplice Galleria Pro puoi utilizzare un pin, una sequenza o lo scanner di impronte digitali del tuo dispositivo per limitare chi può visualizzare o modificare foto e video selezionati o accedere a file importanti.
 
-<b>Controlla le altre applicazioni qui:</b>
+<b>Dai un'occhiata alla suite completa di Simple Tools qui:</b>
 https://www.simplemobiletools.com
 
-<b>Facebook:</b>
+<b>Sito web di Semplice Galleria Pro:</b>
+https://www.simplemobiletools.com/gallery
+
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools

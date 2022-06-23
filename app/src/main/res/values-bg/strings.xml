@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Обикновена галерия</string>
     <string name="app_launcher_name">Галерия</string>
-    <string name="edit">Редактиране</string>
+    <string name="edit">Редакция</string>
     <string name="open_camera">Камера</string>
     <string name="hidden">(скрито)</string>
     <string name="excluded">(изключено)</string>
@@ -15,7 +15,7 @@
     <string name="other_folder">Избор на папка</string>
     <string name="show_on_map">Показване на картата</string>
     <string name="unknown_location">Неизвестно местоположение</string>
-    <string name="volume">Volume</string>
+    <string name="volume">Сила на звука</string>
     <string name="brightness">Осветеност</string>
     <string name="lock_orientation">Блокиране на ориентацията</string>
     <string name="unlock_orientation">Разблокиране на ориентацията</string>
@@ -38,7 +38,7 @@
     <!-- Filter -->
     <string name="filter_media">Филтър на медия</string>
     <string name="images">Изображения</string>
-    <string name="videos">Видео</string>
+    <string name="videos">Видеа</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
     <string name="svgs">SVG</string>
@@ -50,16 +50,18 @@
     <string name="exclude">Изключение</string>
     <string name="excluded_folders">Изключени папки</string>
     <string name="manage_excluded_folders">Управление на изключените папки</string>
-    <string name="exclude_folder_description">Това ще изключи селекцията заедно с вътрешните й папки само от Simple Gallery. Можете да управлявате изключването на папките в настройките.</string>
+    <string name="exclude_folder_description">Това ще изключи селекцията заедно с вътрешните ѝ папки само от Обикновена галерия. Можете да управлявате изключените папки в Настройки.</string>
     <string name="exclude_folder_parent">Вместо това, изключване на папката от горното ниво\?</string>
-    <string name="excluded_activity_placeholder">Изключването на папките ще ги скрие, заедно с вътрешните им папки, само в Simple Gallery; те ще бъдат видими в други приложения.\n\nАко искате да ги скриете също и от други приложения, използвайте функцията Скриване.</string>
+    <string name="excluded_activity_placeholder">Изключването на папките ще ги скрие, заедно с вътрешните им папки, само в Обикновена галерия; те ще бъдат видими в други приложения.
+\n
+\nАко искате да ги скриете също и от други приложения, използвайте функцията Скриване.</string>
     <string name="remove_all">Премахване на всички</string>
     <string name="remove_all_description">Премахване на всички папки от списъка с изключените\? Това няма да изтрие папките.</string>
     <string name="hidden_folders">Скрити папки</string>
     <string name="manage_hidden_folders">Управление на скритите папки</string>
     <string name="hidden_folders_placeholder">Изглежда нямате папки скрити чрез \'.nomedia\' файл.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Временно показване на изключени</string>
+    <string name="stop_showing_excluded">Стоп показване на изключени</string>
     <!-- Include folders -->
     <string name="include_folders">Включени папки</string>
     <string name="manage_included_folders">Управление на включените папки</string>
@@ -102,7 +104,7 @@
     <string name="other_aspect_ratio">Друго</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Просто тапет</string>
+    <string name="simple_wallpaper">Обикновен тапет</string>
     <string name="set_as_wallpaper">Задаване като тапет</string>
     <string name="set_as_wallpaper_failed">Неуспешно задаване като тапет</string>
     <string name="set_as_wallpaper_with">Задаване като тапет с:</string>
@@ -201,7 +203,7 @@
     <string name="rounded_corners">Заоблени ъгли</string>
     <string name="export_favorite_paths">Експортиране на пътищата на любимите файлове</string>
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Защита на изключена папка с парола</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюрни изображения</string>
@@ -325,43 +327,43 @@
     <string name="pesdk_common_title_aquamarinColor">Аквамарин</string>
     <string name="pesdk_common_title_pipettableColor">Цвят от пипетиране</string>
     <string name="vesdk_video_trim_title_name">Изрязване</string>
-    <string name="faq_1_title">Как мога да задам Simple Gallery да бъде основната галерия на устройството\?</string>
+    <string name="faq_1_title">Как мога да задам Обикновена галерия да бъде основната галерия на устройството\?</string>
     <string name="faq_2_title">Заключих програмата с парола, но я забравих. Какво мога да направя\?</string>
     <string name="faq_2_text">Можете да разрешите проблема по два начина. Можете или да преинсталирате програмата, или да намерите програмата в настройките на вашето устройство и да изберете \"Изчистване на данните\". Това ще нулира всички ваши настройки, няма да изтрие никакви медийни файлове.</string>
     <string name="faq_4_title">Как мога да превъртя напред видео\?</string>
     <string name="faq_5_title">Каква е разликата между скриване и изключване на папка\?</string>
-    <string name="faq_1_text">Първо трябва да намерите сегашната основна за устройството галерия в часта с Приложения в настройките на вашето устройство. Търсете бутон който е означен например \"Отваряне по подразбиране\". Натиснете го, след това изберете \"Изчистете приложенията по подразбиране\". Следващият път когато се опитате да отворите изображение или видео трябва да ви се покаже избор на програма, където можете да изберете Simple Gallery да бъде основната галерийна програма.</string>
+    <string name="faq_1_text">Първо трябва да намерите сегашната основна за устройството галерия в часта с Приложения в настройките на вашето устройство. Търсете бутон който е означен например \"Отваряне по подразбиране\". Натиснете го, след това изберете \"Изчистете приложенията по подразбиране\". Следващият път когато се опитате да отворите изображение или видео трябва да ви се покаже избор на програма, където можете да изберете Обикновена галерия да бъде основната галерийна програма.</string>
     <string name="faq_3_title">Как мога да накарам някой албум да се показва винаги отгоре\?</string>
     <string name="faq_4_text">Можете да тупнете отстрани на екрана или да тупнете върху текстовете за текуща или максимална продължителност близо до полето за търсене. Ако включите отварянето на видео на отделен екран в настройките на приложението, можете също да използвате хоризонтални жестове.</string>
     <string name="faq_3_text">Можете да натиснете дълго избрания албум и да изберете \"Закачване\" в менюто с действията, това ще го закачи отгоре. Можете да закачите множество папки, като закачените папки ще бъдат сортирани с основния начин за сортиране.</string>
-    <string name="faq_5_text">Изключването не показва папката само в Галерия, докато скриването работи на системно ниво и скрива папката и от други галерии. Това става чрез създаването на празен файл \".nomedia\" в дадена папка, който после това можете да премахнете със всяка програма за управление на файлове. Отбелязваме, че някои устройства не позволяват скриването на папки като Camera, Screenshots и Downloads.</string>
+    <string name="faq_5_text">Изключването не показва папката само в Обикновена галерия, докато скриването работи на системно ниво и скрива папката и от други галерии. Това става чрез създаването на празен файл \".nomedia\" в дадена папка, който после това можете да премахнете със всяка програма за управление на файлове. Отбелязваме, че някои устройства не позволяват скриването на папки като Camera, Screenshots и Downloads.</string>
     <string name="faq_6_title">Защо се показват папки с музикални албуми или стикери\?</string>
     <string name="faq_6_text">Може да видите да се показват някои необичайни албуми. Можете да ги изключите като ги натиснете продължително и после изберете Изключване. В следващия диалог можете да изберете папката от по-горно ниво, като има вероятност това да скрие и други свързани албуми.</string>
     <string name="faq_7_title">Папка с изображения не се показва, или не показва всички елементи. Какво мога да направя\?</string>
     <string name="faq_7_text">Може да има множество причини за това, но решението е лесно. Просто идете в Настройки -&gt; Управление на Включените Папки, изберете Плюс и навигирайте до исканата папка.</string>
     <string name="faq_8_title">Ами ако искам да са видими само няколко специфични папки\?</string>
     <string name="faq_8_text">Добавянето на папка към Включените Папки не изключва нищо автоматично. Това което можете да направите е, да идете в Настройки -&gt; Управление на Изключени Папки, да изключите коренната папка \"/\", а след това да добавите желаните папки чрез Настройки -&gt; Управление на Включените Папки. Това ще направи видими само избраните папки, тъй като и изключването и включването са рекурсивни, а ако има папка което е и изключена и включена, тя ще се покаже.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_10_title">Мога ли да изрязвам изображения с това приложение\?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_title">Мога ли да групирам миниатюри на медийни файлове\?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
     <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_title">Скрих файл/папка. Как мога да го/я разкрия\?</string>
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_title">Защо приложението заема толкова много място\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Защо виждам реклами по време на възпроизвеждане на видео\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Управление на снимки</string>
+    <string name="app_title">Обикновена галерия Pro - Управление и редакция</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Програма без реклами за управление и редакция на снимки, видео, GIF</string>
     <string name="app_long_description">

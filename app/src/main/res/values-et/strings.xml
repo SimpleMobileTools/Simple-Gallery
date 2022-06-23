@@ -18,24 +18,23 @@
     <string name="volume">Helitugevus</string>
     <string name="brightness">Eredus</string>
     <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="unlock_orientation">Eemalda ekraani pööramise lukustus</string>
+    <string name="change_orientation">Muuda ekraani paigutust</string>
+    <string name="force_portrait">Kasuta püstkuva</string>
+    <string name="force_landscape">Kasuta rõhtkuva</string>
+    <string name="use_default_orientation">Kasuta ekraani paigutuse vaikimisi seadistust</string>
     <string name="fix_date_taken">Paranda pildistamise ajatempel</string>
     <string name="fixing">Parandame…</string>
     <string name="dates_fixed_successfully">Kuupäevade parandamine õnnestus</string>
     <string name="no_date_takens_found">Pildistamise kuupäevi ei leidu</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Jaga versiooni, mille suurust sa oled muutnud</string>
     <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
-
+    <string name="set_as_default_folder">Määra vaikimisi kaustaks</string>
+    <string name="unset_as_default_folder">Eemalda määramine vaikimisi kaustaks</string>
+    <string name="reorder_by_dragging">Muuda kaustade järjekorda lohistades</string>
+    <string name="reorder_by_dragging_pro">Muuda kaustade järjekorda lohistades (Pro)</string>
+    <string name="restore_to_path">Taastame kausta „%s“</string>
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
     <string name="images">Pildid</string>
@@ -44,7 +43,7 @@
     <string name="raw_images">RAW-failid</string>
     <string name="svgs">SVG\'d</string>
     <string name="portraits">Portraits</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="no_media_with_filters">Valitud päringu alusel ei leidu meediafaile.</string>
     <string name="change_filters_underlined"><u>Muuda filtreid</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
@@ -72,24 +71,24 @@
 \nSiia kaustade lisamine ei välista muude kaustade tuvastamist ja kasutamist.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+    <string name="resize">Muuda suurust</string>
+    <string name="resize_and_save">Muuda suurust ja salvesta</string>
+    <string name="width">Laius</string>
+    <string name="height">Kõrgus</string>
+    <string name="keep_aspect_ratio">Jäta proportsioon samaks</string>
     <string name="invalid_values">Please enter a valid resolution</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="rotate">Rotate</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="invalid_video_path">Invalid video path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="video_editing_failed">Video editing failed</string>
+    <string name="rotate">Pööra</string>
+    <string name="invalid_image_path">Vale pildi asukoht</string>
+    <string name="invalid_video_path">Vale video asukoht</string>
+    <string name="image_editing_failed">Pildi muutmine ei õnnestunud</string>
+    <string name="video_editing_failed">Video muutmine ei õnnestunud</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="video_editing_cancelled">Video editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="file_edited_successfully">Faili muutmine õnnestus</string>
+    <string name="image_edited_successfully">Pildi muutmine õnnestus</string>
+    <string name="video_edited_successfully">Video muutmine õnnestus</string>
     <string name="edit_image_with">Edit image with:</string>
     <string name="edit_video_with">Edit video with:</string>
     <string name="no_image_editor_found">No image editor found</string>
@@ -205,7 +204,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Kaitse salasõna abil varjatud kaustade nähtavust</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
@@ -361,7 +360,7 @@
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_16_text">Alates Android 11\'st sa enam ei saa rakendusest kaustu peita või teha nähtavaks. Lisaks ei saa süsteemsete piirangute tõttu enam galeriist kasutada peidetud kaustu. Kirjeldatud eesmärgi saavutamiseks palun kasuta failihaldurit.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
