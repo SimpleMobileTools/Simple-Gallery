@@ -213,7 +213,7 @@
     <string name="bottom_actions">Действия от долния край на екрана</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Управление на видимите действия в долния край на екрана</string>
-    <string name="toggle_favorite">Превключване на любимите</string>
+    <string name="toggle_favorite">Превключване на избрано</string>
     <string name="toggle_file_visibility">Превключване на видимост на файл</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Персонализирани</string>
@@ -269,7 +269,7 @@
     <string name="pesdk_editor_text_closeEditorAlert">Наистина ли искате да се откажете от промените\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Да</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Не</string>
-    <string name="pesdk_editor_cancel">Прекрати</string>
+    <string name="pesdk_editor_cancel">Отказ</string>
     <string name="pesdk_editor_accept">Приеми</string>
     <string name="pesdk_editor_save">Запазване</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Експортиране…</string>
