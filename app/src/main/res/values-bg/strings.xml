@@ -205,6 +205,7 @@
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
     <string name="password_protect_excluded">Защита на изключена папка с парола</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюрни изображения</string>
     <string name="fullscreen_media">Медия на цял екран</string>

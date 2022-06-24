@@ -203,6 +203,7 @@
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
     <string name="media_management_manual">Quelque chose s\'est mal passé, veuillez aller dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
+    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>

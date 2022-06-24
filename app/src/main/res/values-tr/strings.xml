@@ -211,6 +211,7 @@
     <string name="media_management_prompt">Tüm dosya işlemlerinin güvenilir bir şekilde çalıştığından emin olmak için lütfen bu uygulamayı aygıt ayarlarınızda bir medya yönetimi uygulaması yapın.</string>
     <string name="password_protect_excluded">Hariç tutulan klasör görünürlüğünü parola ile koru</string>
     <string name="media_management_manual">Bir şeyler ters gitti, lütfen aygıtınızın Ayarlar - Uygulamalar - Özel uygulama erişimi - Medya yönetimi uygulamaları bölümüne gidin ve bu uygulamanın medyayı yönetmesine izin verin.</string>
+    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>
