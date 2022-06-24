@@ -208,8 +208,8 @@
     <string name="export_favorite_paths">Locaties favorieten exporteren</string>
     <string name="media_management_prompt">Maak van deze app in de systeeminstellingen een mediabeheer-app om er zeker van te zijn dat alle bestandsoperaties betrouwbaar werken.</string>
     <string name="password_protect_excluded">Zichtbaarheid van uitgesloten mappen met wachtwoord beveiligen</string>
-    <string name="media_management_manual">Er is een fout opgetreden. Ga naar de systeeminstellingen - Apps - Geavanceerd - Speciale app-toegang - Mediabeheer-apps en geef deze app toegang tot mediabestanden.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Er is een fout opgetreden. Ga naar de systeeminstellingen - Apps - Geavanceerd - Speciale app-toegang - Mediabeheer en geef deze app toegang tot mediabestanden.</string>
+    <string name="media_management_note">Ga als de doorverwijzing niet werkt naar de systeeminstellingen - Apps - Geavanceerd - Speciale app-toegang - Mediabeheer en geef deze app toegang tot mediabestanden.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>
