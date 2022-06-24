@@ -159,7 +159,8 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
             }
         }
     } else if (isSPlus() && !MediaStore.canManageMedia(this) && !isExternalStorageManager()) {
-        ConfirmationDialog(this, "", R.string.media_management_prompt, R.string.ok, 0) {
+        val message = "${getString(R.string.media_management_prompt)}\n\n${getString(R.string.media_management_note)}"
+        ConfirmationDialog(this, message, 0, R.string.ok, 0) {
             launchMediaManagementIntent(callback)
         }
     } else {
