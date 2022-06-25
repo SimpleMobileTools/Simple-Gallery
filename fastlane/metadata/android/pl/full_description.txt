@@ -15,6 +15,10 @@ Nigdy się nie martw o przypadkowe usunięcie tego jednego cennego zdjęcia lub 
 <b>CHROŃ SWOJE PRYWATNE ZDJĘCIA, WIDEO I PLIKI</b>
 Bądź spokojny(-a) o bezpieczeństwo swojego albumu ze zdjęciami. Dzięki doskonałym funkcjom zabezpieczeń Prostej galerii Pro możesz użyć pinezki, wzoru lub skanera linii papilarnych swojego urządzenia, aby ograniczyć, kto może wyświetlać lub edytować wybrane zdjęcia i wideo bądź uzyskiwać dostęp do ważnych plików. Możesz nawet chronić całą aplikację lub blokować określone funkcje organizera plików.
 
+Domyślnie jest wyposażona w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
+
+Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowa, zapewnia konfigurowalną kolorystykę.
+
 <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
 https://www.simplemobiletools.com
 
