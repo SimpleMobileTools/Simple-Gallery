@@ -123,7 +123,7 @@
     <string name="home_screen">主屏幕</string>
     <string name="lock_screen">锁定屏幕</string>
     <string name="home_and_lock_screen">主屏幕和锁定屏幕</string>
-    <string name="allow_changing_aspect_ratio">允许更改纵横比</string>
+    <string name="allow_changing_aspect_ratio">允许更改长宽比</string>
     <!-- Slideshow -->
     <string name="slideshow">幻灯片</string>
     <string name="interval">间隔（秒）:</string>
@@ -213,7 +213,7 @@
     <string name="media_management_prompt">为了确保所有文件操作可靠地工作，请在你的设备设置中使此应用成为媒体管理应用。</string>
     <string name="password_protect_excluded">密码保护已排除文件夹的可见性</string>
     <string name="media_management_manual">出错了，请转到设备的“设置” - “应用” -“特殊应用权限” - “媒体管理应用” 并允许本应用管理媒体文件。</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">如果重定向无法正常工作，请转到设备的“设置” - “应用” - “特殊应用权限” - “媒体管理应用” 并允许此应用管理媒体文件。</string>
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
