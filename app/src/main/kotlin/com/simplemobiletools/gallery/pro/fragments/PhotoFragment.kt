@@ -83,6 +83,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var mWasInit = false
     private var mIsPanorama = false
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
+    private var mShouldResetImage = false
     private var mCurrentPortraitPhotoPath = ""
     private var mOriginalPath = ""
     private var mImageOrientation = -1
@@ -228,11 +229,12 @@ class PhotoFragment : ViewPagerFragment() {
                 loadImage()
             } else if (mMedium.isGIF()) {
                 loadGif()
-            } else if (mIsSubsamplingVisible) {
+            } else if (mIsSubsamplingVisible && mShouldResetImage) {
                 mView.subsampling_view.onGlobalLayout {
                     mView.subsampling_view.resetView()
                 }
             }
+            mShouldResetImage = false
         }
 
         val allowPhotoGestures = config.allowPhotoGestures
@@ -294,6 +296,7 @@ class PhotoFragment : ViewPagerFragment() {
         measureScreen()
         initExtendedDetails()
         updateInstantSwitchWidths()
+        mShouldResetImage = true
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -707,6 +710,10 @@ class PhotoFragment : ViewPagerFragment() {
                     mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
                     loadBitmap(false)
                     activity?.invalidateOptionsMenu()
+                }
+
+                override fun onUpEvent() {
+                    mShouldResetImage = false
                 }
             }
         }
