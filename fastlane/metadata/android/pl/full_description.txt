@@ -4,7 +4,7 @@ Prosta galeria Pro oferuje Ci wszystkie funkcje przeglądania i edycji zdjęć, 
 Zmień edycję zdjęć w dziecinnie prostą dzięki ulepszonemu organizerowi plików i albumowi ze zdjęciami w Prostej galerii Pro. Intuicyjne gesty bardzo ułatwiają edytowanie zdjęć w locie. Przycinaj, odbijaj, obracaj i zmieniaj rozmiar zdjęć lub stosuj stylowe filtry, aby w jednej chwili nadać im niepowtarzalny wygląd.
 
 <b>WSZYSTKIE PLIKI, KTÓRYCH POTRZEBUJESZ</b>
-Prosta galeria Pro obsługuje szeroką gamę różnych formatów plików, w tym JPEG, PNG, MP4, MKV, RAW, SVG, GIF, zdjęcia panoramiczne, wideo, oraz wiele innych, dzięki czemu możesz cieszyć się pełną elastycznością przy wyborze formatu. Czy kiedykolwiek zastanawiałeś(-aś) się „Czy mogę używać tego formatu w moim Androidzie”? Teraz odpowiedź brzmi „Tak”.
+Prosta galeria Pro obsługuje szeroką gamę różnych formatów plików, w tym JPEG, PNG, MP4, MKV, RAW, SVG, GIF, zdjęcia panoramiczne, wideo oraz wiele innych, dzięki czemu możesz cieszyć się pełną elastycznością przy wyborze formatu. Czy kiedykolwiek zastanawiałeś(-aś) się: „Czy mogę używać tego formatu w moim Androidzie”? Teraz odpowiedź brzmi: „Tak”.
 
 <b>DOSTOSUJ JĄ DO SWOICH POTRZEB</b>
 Wysoce konfigurowalna Prosta galeria Pro pozwala Ci dostosować swój wygląd i działanie wedle własnego uznania. Od interfejsu do przycisków funkcyjnych na dolnym pasku, aplikacja zapewnia Ci swobodę twórczą, której potrzebujesz w aplikacji galerii.
