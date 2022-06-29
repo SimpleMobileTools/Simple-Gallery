@@ -28,7 +28,13 @@
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="no_date_takens_found">Aucune date de prise de vue trouvée</string>
     <string name="share_resized">Partager une version redimensionnée</string>
-    <string name="upgraded_from_free">Hé,\n\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.\n\nLes éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.\n\nMerci !</string>
+    <string name="upgraded_from_free">Hé,
+\n
+\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.
+\n
+\nLes éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.
+\n
+\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>
@@ -52,7 +58,9 @@
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">La sélection sera exclue ainsi que ses sous-dossiers dans Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
     <string name="exclude_folder_parent">Exclure un dossier parent \?</string>
-    <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.\n\nSi vous voulez aussi les cacher ailleurs, utilisez la fonction Cacher.</string>
+    <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.
+\n
+\nSi vous voulez aussi les cacher ailleurs, utilisez la fonction Cacher.</string>
     <string name="remove_all">Tout supprimer</string>
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions \? Ceci ne supprimera pas les dossiers.</string>
     <string name="hidden_folders">Dossiers cachés</string>
@@ -144,7 +152,7 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="show_file_count_section_header">Afficher le nombre d\'éléments dans les entêtes</string>
-    <string name="grouping_and_sorting">"Grouper par" et "Trier par" sont deux modes indépendants</string>
+    <string name="grouping_and_sorting">Grouper par et Trier par sont deux modes indépendants</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
