@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/media_empty_text_placeholder"
         android:layout_centerHorizontal="true"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/ripple_all_corners"
         android:padding="@dimen/activity_margin"
         android:text="@string/change_filters_underlined"
         android:textSize="@dimen/bigger_text_size"
