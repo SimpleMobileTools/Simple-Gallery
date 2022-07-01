@@ -7,7 +7,7 @@
     <string name="hidden">(caché)</string>
     <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
-    <string name="unpin_folder">Libérer le dossier</string>
+    <string name="unpin_folder">Désépingler le dossier</string>
     <string name="pin_to_the_top">Épingler le dossier</string>
     <string name="show_all">Affichage : Dossiers</string>
     <string name="all_folders">Dossiers</string>
@@ -113,13 +113,13 @@
     <string name="home_screen">Écran d\'accueil</string>
     <string name="lock_screen">Écran de déverrouillage</string>
     <string name="home_and_lock_screen">Écran d\'accueil et écran de déverrouillage</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Autoriser de modifier le rapport d\'aspect</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
     <string name="include_photos">Inclure les images</string>
     <string name="include_videos">Inclure les vidéos</string>
-    <string name="include_gifs">Inclure les GIFs</string>
+    <string name="include_gifs">Inclure les GIF</string>
     <string name="random_order">Ordre aléatoire</string>
     <string name="move_backwards">Défilement inversé</string>
     <string name="loop_slideshow">Diaporama en boucle</string>
@@ -144,7 +144,7 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="show_file_count_section_header">Afficher le nombre d\'éléments dans les entêtes</string>
-    <string name="grouping_and_sorting">« Grouper par » et « Trier par » sont deux modes indépendants</string>
+    <string name="grouping_and_sorting">Veuillez noter que le regroupement et le tri sont deux domaines indépendants</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
@@ -203,7 +203,7 @@
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
     <string name="media_management_manual">Quelque chose s\'est mal passé, veuillez aller dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">Si la redirection ne fonctionne pas, allez dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>

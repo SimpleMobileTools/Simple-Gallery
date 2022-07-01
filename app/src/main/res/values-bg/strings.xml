@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Обикновена галерия</string>
+    <string name="app_name">Обикновена Галерия</string>
     <string name="app_launcher_name">Галерия</string>
     <string name="edit">Редакция</string>
     <string name="open_camera">Камера</string>
@@ -115,7 +115,7 @@
     <string name="home_screen">Начален екран</string>
     <string name="lock_screen">Заключен екран</string>
     <string name="home_and_lock_screen">Начален и заключен екран</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Разрешаване на промяна на съотношението на страните</string>
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
     <string name="interval">Интервал (секунди):</string>
@@ -148,7 +148,7 @@
     <string name="show_file_count_section_header">Показване на броя файлове в хедърите на разделите</string>
     <string name="grouping_and_sorting">Обърнете внимание, че групирането и сортирането са 2 независими полета</string>
     <!-- Widgets -->
-    <string name="folder_on_widget">Папка показвана на widget-a:</string>
+    <string name="folder_on_widget">Папка показана на приспособлението:</string>
     <string name="show_folder_name">Покажи името на папката</string>
     <!-- Settings -->
     <string name="autoplay_videos">Автоматично стартиране на видео</string>
@@ -204,10 +204,10 @@
     <string name="export_favorite_paths">Експортиране на пътищата на любимите файлове</string>
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
     <string name="password_protect_excluded">Защита на изключена папка с парола</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Нещо се обърка, моля, влезте в Настройки на вашето устройство - Приложения - Достъп до специални приложения - Приложения за управление на медии и разрешете на това приложение да управлява медиите.</string>
+    <string name="media_management_note">Ако пренасочването не работи, моля, влезте в Настройки на вашето устройство - Приложения - Достъп до специални приложения - Приложения за управление на медии и разрешете на това приложение да управлява медиите.</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Миниатюрни изображения</string>
+    <string name="thumbnails">Миниатюри</string>
     <string name="fullscreen_media">Медия на цял екран</string>
     <string name="extended_details">Подробности</string>
     <string name="bottom_actions">Действия от долния край на екрана</string>
@@ -333,11 +333,11 @@
     <string name="faq_2_text">Можете да разрешите проблема по два начина. Можете или да преинсталирате програмата, или да намерите програмата в настройките на вашето устройство и да изберете \"Изчистване на данните\". Това ще нулира всички ваши настройки, няма да изтрие никакви медийни файлове.</string>
     <string name="faq_4_title">Как мога да превъртя напред видео\?</string>
     <string name="faq_5_title">Каква е разликата между скриване и изключване на папка\?</string>
-    <string name="faq_1_text">Първо трябва да намерите сегашната основна за устройството галерия в часта с Приложения в настройките на вашето устройство. Търсете бутон който е означен например \"Отваряне по подразбиране\". Натиснете го, след това изберете \"Изчистете приложенията по подразбиране\". Следващият път когато се опитате да отворите изображение или видео трябва да ви се покаже избор на програма, където можете да изберете Обикновена галерия да бъде основната галерийна програма.</string>
+    <string name="faq_1_text">Първо трябва да намерите галерията по подразбиране в момента в секцията Приложения на настройките на вашето устройство, потърсете бутон, който казва нещо като „Отваряне по подразбиране“, щракнете върху него, след което изберете „Изчистване на настройките по подразбиране“. Следващия път, когато се опитате да отворите изображение или видеоклип, трябва да видите инструмент за избор на приложение, където можете да изберете Обикновена Галерия и да го направите приложение по подразбиране.</string>
     <string name="faq_3_title">Как мога да накарам някой албум да се показва винаги отгоре\?</string>
     <string name="faq_4_text">Можете да тупнете отстрани на екрана или да тупнете върху текстовете за текуща или максимална продължителност близо до полето за търсене. Ако включите отварянето на видео на отделен екран в настройките на приложението, можете също да използвате хоризонтални жестове.</string>
     <string name="faq_3_text">Можете да натиснете дълго избрания албум и да изберете \"Закачване\" в менюто с действията, това ще го закачи отгоре. Можете да закачите множество папки, като закачените папки ще бъдат сортирани с основния начин за сортиране.</string>
-    <string name="faq_5_text">Изключването не показва папката само в Обикновена галерия, докато скриването работи на системно ниво и скрива папката и от други галерии. Това става чрез създаването на празен файл \".nomedia\" в дадена папка, който после това можете да премахнете със всяка програма за управление на файлове. Отбелязваме, че някои устройства не позволяват скриването на папки като Camera, Screenshots и Downloads.</string>
+    <string name="faq_5_text">Изключването предотвратява показването на папката само в Обикновена Галерия, докато Скриването работи системно и скрива папката и от други галерии. Това работи чрез създаване на празен \".nomedia\" файл в дадената папка, който след това можете да премахнете и с всеки файлов мениджър. Имайте предвид, че някои устройства не позволяват скриване на папки като Камера, Екранни снимки и Изтегляния.</string>
     <string name="faq_6_title">Защо се показват папки с музикални албуми или стикери\?</string>
     <string name="faq_6_text">Може да видите да се показват някои необичайни албуми. Можете да ги изключите като ги натиснете продължително и после изберете Изключване. В следващия диалог можете да изберете папката от по-горно ниво, като има вероятност това да скрие и други свързани албуми.</string>
     <string name="faq_7_title">Папка с изображения не се показва, или не показва всички елементи. Какво мога да направя\?</string>
@@ -345,28 +345,28 @@
     <string name="faq_8_title">Ами ако искам да са видими само няколко специфични папки\?</string>
     <string name="faq_8_text">Добавянето на папка към Включените Папки не изключва нищо автоматично. Това което можете да направите е, да идете в Настройки -&gt; Управление на Изключени Папки, да изключите коренната папка \"/\", а след това да добавите желаните папки чрез Настройки -&gt; Управление на Включените Папки. Това ще направи видими само избраните папки, тъй като и изключването и включването са рекурсивни, а ако има папка което е и изключена и включена, тя ще се покаже.</string>
     <string name="faq_10_title">Мога ли да изрязвам изображения с това приложение\?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_text">Да, можете да изрежете изображения в редактора, като плъзкате ъглите на изображението. Можете да стигнете до редактора като натиснете продължително миниатюра на изображение и изберете Редактиране, или изберете Редактиране от изгледа на цял екран.</string>
     <string name="faq_11_title">Мога ли да групирам миниатюри на медийни файлове\?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_11_text">Разбира се, просто използвайте елемента от менюто „Групиране по“, докато сте в изгледа с миниатюри. Можете да групирате файлове по множество критерии, включително Дата на заснемане. Ако използвате функцията „Показване на съдържанието на всички папки“, можете да ги групирате и по папки.</string>
+    <string name="faq_12_title">Сортирането по дата на заснемане изглежда не работи правилно, как мога да го поправя\?</string>
+    <string name="faq_12_text">Най-вероятно е причинено от копирането на файлове от някъде. Можете да го поправите, като изберете миниатюрите на файла и изберете \"Поправяне стойност на датата на заснемане\".</string>
+    <string name="faq_13_title">Виждам някои цветни ленти на изображенията. Как мога да подобря качеството\?</string>
+    <string name="faq_13_text">Настоящото решение за показване на изображения работи добре в по-голямата част от случаите, но ако искате още по-добро качество на изображението, можете да активирате „Показване на изображения с възможно най-високо качество“ в настройките на приложението, в секцията „Изображения с дълбоко мащабиране“ .</string>
     <string name="faq_14_title">Скрих файл/папка. Как мога да го/я разкрия\?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text">Можете или да натиснете елемента от менюто „Временно показване на скрити елементи“ на главния екран, или да превключите „Показване на скрити елементи“ в настройките на приложението, за да видите скрития елемент. Ако искате да го покажете, просто го натиснете дълго и изберете „Показване“. Папките се скриват чрез добавяне на скрит \".nomedia\" файл в тях, можете да изтриете файла и с всеки файлов мениджър. Имайте предвид, че скриването работи рекурсивно, така че ако скриете папка, всички подпапки също ще станат скрити. Така че, за да разкриете подпапките, трябва да разкриете родителската папка.</string>
     <string name="faq_15_title">Защо приложението заема толкова много място\?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_15_text">Кешът на приложението може да отнеме до 250 MB, което гарантира по-бързо зареждане на изображението. Ако приложението заема още повече място, най-вероятно това е причинено от това, че имате елементи в кошчето. Тези файлове се броят към размера на приложението. Можете да изчистите кошчето, като го отворите и изтриете всички файлове или от настройките на приложението. Всеки файл в кошчето се изтрива автоматично след 30 дни.</string>
+    <string name="faq_16_title">Какво се случи със скриването на файлове и папки и защо вече не мога да виждам скрити елементи\?</string>
+    <string name="faq_16_text">Започвайки с Android 11, вече не можете да скривате или показвате файлове или папки, не можете да виждате скритите в приложения за галерия поради системни ограничения. За това ще трябва да използвате някакъв файлов мениджър.</string>
+    <string name="faq_17_title">Защо вече не мога да добавя липсващи папки\?</string>
+    <string name="faq_17_text">Това спря да работи поради системните промени, които дойдоха и с Android 11, приложението вече не може да преглежда истински папки, разчита на така наречения MediaStore при извличане на данни.</string>
     <string name="faq_18_title">Защо виждам реклами по време на възпроизвеждане на видео\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_text">Нашите приложения нямат никакви реклами. Ако ги видите по време на възпроизвеждане на видео, трябва да използвате видеоплейър от други приложения. Опитайте да намерите вашия видеоплейър по подразбиране в настройките на устройството, след което направете „Изчистване на настройките по подразбиране“ върху него. Следващия път, когато извикате някакъв видеоплейър, ще видите диалог за избор на приложение, където можете да изберете кое приложение искате да използвате.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Обикновена галерия Pro - Управление и редакция</string>
+    <string name="app_title">Обикновена Галерия Про - Управление и редакция</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Програма без реклами за управление и редакция на снимки, видео, GIF</string>
+    <string name="app_short_description">Приложение без реклами за управление и редакция на снимки, видео, GIF</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 

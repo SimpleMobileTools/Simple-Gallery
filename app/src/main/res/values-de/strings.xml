@@ -123,7 +123,7 @@
     <string name="home_screen">Startbildschirm</string>
     <string name="lock_screen">Sperrbildschirm</string>
     <string name="home_and_lock_screen">Start- und Sperrbildschirm</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Änderung des Seitenverhältnisses zulassen</string>
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
     <string name="interval">Intervall (Sekunden):</string>
@@ -154,7 +154,7 @@
     <string name="by_file_type">Dateityp (Bilder/Videos)</string>
     <string name="by_extension">Dateierweiterung</string>
     <string name="show_file_count_section_header">Anzahl der Dateien in den Abschnittsüberschriften anzeigen</string>
-    <string name="grouping_and_sorting">Bitte beachte, dass Gruppieren und Sortieren zwei unabhängige Felder sind</string>
+    <string name="grouping_and_sorting">Bitte beachten, dass Gruppieren und Sortieren zwei unterschiedliche Dinge sind</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
     <string name="show_folder_name">Ordnernamen anzeigen</string>
@@ -170,10 +170,10 @@
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
-    <string name="black_background_at_fullscreen">Schwarzer Hintergrund &amp; schwarze Systemleiste im Vollbild</string>
+    <string name="black_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
-    <string name="delete_empty_folders">Leere Ordner automatisch löschen</string>
+    <string name="delete_empty_folders">Geleerte Ordner automatisch löschen</string>
     <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
@@ -189,7 +189,7 @@
     <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
     <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
-    <string name="allow_one_to_one_zoom">Erlaube 1:1 Zoom mit zweimaligem, doppeltem Antippen</string>
+    <string name="allow_one_to_one_zoom">Erlaube 1:1-Zoom mit zweimaligem doppelten Antippen</string>
     <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten</string>
     <string name="show_notch">Zeige eine Notch, wenn vorhanden</string>
     <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
@@ -213,7 +213,7 @@
     <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollten Sie diese App in den Einstellungen Ihres Geräts als Medienverwaltungs-App festlegen.</string>
     <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
     <string name="media_management_manual">Irgendetwas ist schief gelaufen. Bitte gehen Sie in Ihrem Gerät auf Einstellungen - Anwendungen - Spezieller Anwendungs-Zugriff - Medienverwaltungs-Anwendungs und erlauben Sie dieser Anwendung, Medien zu verwalten.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">Wenn die Umleitung nicht funktioniert, gehen Sie bitte in die Einstellungen Ihres Geräts - Anwendungen - Spezieller App-Zugriff - Medienverwaltungs-Apps und erlauben Sie dieser App die Verwaltung von Medien.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
@@ -344,38 +344,38 @@
     <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen?</string>
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen?</string>
-    <string name="faq_4_text">Das geht, indem du doppelt auf die Seite des Bildschirms drückst, oder indem du auf den Text nahe der Seekbar drückst, der die aktuelle bzw. maximale Zeit anzeigt. Wenn du in den App Einstellungen die Funktion aktivierst hast, dass Videos in einem seperaten Fenster geöffnet werden können, kannst du zudem horizontale Gesten verwenden.</string>
+    <string name="faq_4_text">Das geht, indem du doppelt auf die Seite des Bildschirms drückst, oder indem du auf den Text nahe der Suchleiste drückst, der die aktuelle bzw. maximale Zeit anzeigt. Wenn du in den App-Einstellungen die Funktion aktiviert hast, dass Videos in einem seperaten Fenster geöffnet werden können, kannst Du zudem horizontale Gesten verwenden.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen dem Ausblenden und dem Ausschließen eines Ordners\?</string>
     <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während Hide systembedingt funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die Sie dann auch mit einem beliebigen Dateimanager entfernen können. Beachte, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
-    <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschließen durch gedrückt halten und Auswählen von Ausschließen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
+    <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
     <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt. Was kann ich tun?</string>
     <string name="faq_7_text">Öffne die Galerie-Einstellungen, wähle dort \'Einbezogene Ordner verwalten\', dann das Plus-Zeichen oben rechts und navigiere zum gewünschten Ordner.</string>
     <string name="faq_8_title">Wie kann ich erreichen, dass nur ein paar definierte Ordner sichtbar sind?</string>
-    <string name="faq_8_text">Einen Ordner zu den „einbezogenen Ordnern“ hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen „Ausgeschlossene Ordner verwalten“ zu wählen, den Stammordner / auszuschliessen und dann alle gewünschten Ordner in „Einbezogene Ordner verwalten“ hinzuzufügen.</string>
+    <string name="faq_8_text">Einen Ordner zu den „einbezogenen Ordnern“ hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen „Ausgeschlossene Ordner verwalten“ zu wählen, den Stammordner / auszuschließen und dann alle gewünschten Ordner in „Einbezogene Ordner verwalten“ hinzuzufügen.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
-    <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
+    <string name="faq_10_text">Ja, man kann Bilder über das Ziehen der Bildecken im Editor zuschneiden. Zum Editor gelangt man, indem man lange auf ein Vorschaubild drückt und Bearbeiten auswählt oder durch Auswählen von „Bearbeiten“ in der Vollbildansicht.</string>
     <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
-    <string name="faq_11_text">Verwende dazu den Menüeintrag „Gruppieren nach“ in der Miniaturansicht. Du kannst Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn du die Funktion „Alle Ordnerinhalte anzeigen“ verwendest, kannst du sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_11_text">Verwende dazu den Menüeintrag „Gruppieren nach“ in der Miniaturansicht. Man kann Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn man die Funktion „Alle Ordnerinhalte anzeigen“ verwendet, kann man sie auch nach Ordnern gruppieren.</string>
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren?</string>
-    <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass deine Bilder von woanders kopiert worden sind. In diesem Fall solltest du die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markieren und dann im Menü oben rechts die Funktion \'Aufnahmedatum korrigieren\' ausführen.</string>
+    <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass die Bilder von woanders kopiert worden sind. In diesem Fall sollten die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markiert und dann im Menü oben rechts die Funktion „Aufnahmedatum korrigieren“ ausgeführt werden.</string>
     <string name="faq_13_title">Ich sehe Banding (streifiger Farbverlauf) auf den Bildern. Wie kann ich die Qualität verbessern?</string>
-    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität zeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
+    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert in den allermeisten Fällen gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität zeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen?</string>
-    <string name="faq_14_text">Du kannst entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Ausgeblendete Elemente anzeigen“ in den Anwendungseinstellungen umschalten, um das ausgeblendete Element zu sehen. Wenn du es wieder einblenden möchtest, drücke einfach lange darauf und wähle „Ausblenden“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; du kannst die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Beachte, dass das Verstecken rekursiv funktioniert, d. h. wenn du einen Ordner versteckest, werden auch alle Unterordner versteckt. Um die Unterordner wieder auszublenden, musst du also den übergeordneten Ordner ausblenden.</string>
+    <string name="faq_14_text">Man kann entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Versteckte Elemente anzeigen“ in den Anwendungseinstellungen einschalten, um das ausgeblendete Element zu sehen. Um es dauerhaft wieder einzublenden, drückt man einfach lange darauf und wählt „Nicht verstecken“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; man kann die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Bitte beachten, dass das Verstecken rekursiv funktioniert, d. h. wenn man einen Ordner versteckt, werden auch alle Unterordner versteckt. Um die Unterordner wieder sichtbar zu machen, muss man also den übergeordneten Ordner sichtbar machen.</string>
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz?</string>
-    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Diese Dateien zählen zum Speicherplatz der App dazu. Du kannst den Papierkorb leeren, indem du ihn öffnest und alle Dateien darin löschst, oder den entsprechenden Button in den Einstellungen betätigst. All 30 Tage wird der Papierkorb automatisch geleert.</string>
+    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Die Dateien des Papierkorbs zählen zum Speicherplatz der App dazu. Man kann den Papierkorb leeren, indem man ihn öffnet und alle Dateien darin löscht, oder den entsprechenden Button in den Einstellungen betätigt. Alle 30 Tage wird der Papierkorb automatisch geleert.</string>
     <string name="faq_16_title">Was ist mit dem Ausblenden von Dateien und Ordnern passiert und warum kann ich versteckte Elemente nicht mehr sehen\?</string>
     <string name="faq_16_text">Ab Android 11 kann man keine Dateien oder Ordner mehr ein- oder ausblenden, auch in anderen Galerie-Anwendungen kann man die versteckten Dateien nicht mehr sehen. Dafür muss man jetzt ein Dateiverwaltungsprogramm verwenden.</string>
     <string name="faq_17_title">Warum kann ich fehlende Ordner nicht mehr einbinden\?</string>
-    <string name="faq_17_text">Das funktioniert seit den Systemänderungen mit Android 11 nicht mehr, die Anwendung kann keine echten Ordner mehr durchsuchen, sondern verlässt sich beim Abrufen von Daten auf den so genannten MediaStore.</string>
+    <string name="faq_17_text">Das funktioniert seit den Systemänderungen durch Android 11 nicht mehr, da die Anwendung keine echten Ordner mehr durchsuchen kann, sondern sich beim Abrufen von Daten auf den sogenannten MediaStore verlässt.</string>
     <string name="faq_18_title">Warum sehe ich während der Videowiedergabe Werbung\?</string>
     <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn Sie sie während der Videowiedergabe sehen, müssen Sie einen anderen Anwendungsvideoplayer verwenden. Versuchen Sie, Ihren Standard-Videoplayer in den Geräteeinstellungen zu finden, und führen Sie dann einen „Standardeinstellungen löschen“ aus. Wenn Sie das nächste Mal ein Video aufrufen, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der Sie die gewünschte Anwendung auswählen können.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Schlichte Galerie – Fotoverwaltung und -bearbeitung</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Einfache und übersichtliche Galerie zur Verwaltung von Alben, Fotos, Videos</string>
+    <string name="app_short_description">Eine Premium-App zur Verwaltung und zum Bearbeiten Ihrer Fotos, Videos und GIFs – ohne Werbung</string>
     <string name="app_long_description"> Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne und bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze und verstecke Dateien und zeige eine Vielzahl von Bilder- und Videoformaten an, unter anderem RAW, SVG und viele mehr. Die Anwendung enthält keine Werbung und verlangt keine unnötigen Berechtigungen. Da die Anwendung auch keinen Internetzugang benötigt, ist deine Privatsphäre geschützt. ------------------------------------------------- <b>SCHLICHTE GALERIE PRO – EIGENSCHAFTEN</b> ------------------------------------------------- • Offline Galerie ohne Werbung und Popups • Schlichte Galerie Fotoeditor – Zuschneiden, Drehen, Ändern der Größe, Zeichnen, Filtern und mehr • Kein Internetzugriff benötigt – mehr Privatsphäre und Sicherheit für dich • Keine unnötigen Berechtigungen erforderlich • Suche schnell nach Bildern, Videos und Dateien • Öffne und zeige verschiedene Bild- und Videoformate an (RAW, SVG, Panoramabilder usw.) • Eine Vielzahl von intuitiven Gesten zur einfachen Bearbeitung und Ordnung von Dateien • Viele Möglichkeiten Dateien zu filtern, gruppieren und sortieren • Personalisiere das Erscheinungsbild der Galerie • Verfügbar in 32 Sprachen • Markiere Dateien als Favoriten, um schnell auf diese zuzugreifen • Schütze deine Fotos und Videos mit einem Muster, PIN oder Fingerabdruck • Nutze PIN, Muster und Fingerabdruck zum Schutz der gesamten Anwendung oder auch bestimmter Funktionen • Stelle gelöschte Bilder und Videos aus dem Papierkorb wieder her • Ändere die Sichtbarkeit von Dateien und Ordnern, um Fotos und Videos zu verstecken • Erstelle eine eigene Diashow deiner Dateien • Zeige detaillierte Informationen deiner Dateien an (Auflösung, EXIF Werte usw.) • Schlichte Galerie Pro ist quelloffen … und viele, viele mehr! <b>FOTOEDITOR</b> Schlichte Galerie Pro macht es schnell und einfach deine Bilder zu bearbeiten. Schneide Bilder zu, drehe sie und ändere die Größe. Wenn du dich etwas kreativer fühlst, kannst du Filter hinzufügen und auf deinen Bildern malen! <b>UNTERSTÜTZUNG FÜR VIELE DATEITYPEN</b> Im Gegensatz zu einigen anderen Galerien unterstützt Schlichte Galerie Pro eine Vielzahl verschiedener Dateitypen. Unter anderem JPEG, PNG, MP4, MKV, RAW, SVG, Panoramabilder, Panoramavideos und viele mehr. <b>STARK INDIVIDUALISIERBARE GALERIE</b> Von der Benutzeroberfläche zu den Funktionen in der unteren Symbolleiste, Schlichte Galerie Pro ist stark anpassbar und funktioniert ganz nach deinen Wünschen. Keine andere Galerie verfügt über dieses Maß an Flexibilität. Danke quelloffen sind wir in 32 Sprachen verfügbar! <b>WIEDERHERSTELLUNG GELÖSCHTER FOTOS UND VIDEOS</b> Versehentlich ein wertvolles Foto oder Video gelöscht\? Keine Sorge! Schlichte Galerie Pro verfügt über einen praktischen Papierkorb, aus dem du gelöschte Bilder und Videos leicht wiederherstellen kannst. <b>SCHÜTZE UND VERSTECKE FOTOS, VIDEOS und DATEIEN</b> Mit einem PIN, Muster oder dem Fingerabdrucksensor deines Gerätes kannst du Fotos, Videos und komplette Alben verstecken und schützen. Du kannst auch die Anwendung selber schützen oder bestimmte Funktionen der Anwendung sperren. Beispielsweise kannst du eine Datei nicht ohne Scan des Fingerabdrucks löschen, um deine Dateien vor versehentlichem Löschen zu schützen. <b>Schau dir die vollständige Serie der Schlichten Anwendung hieren an:</b> https://www.simplemobiletools.com <b>Website von Schlichte Galerie Pro:</b> https://www.simplemobiletools.com/gallery <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
