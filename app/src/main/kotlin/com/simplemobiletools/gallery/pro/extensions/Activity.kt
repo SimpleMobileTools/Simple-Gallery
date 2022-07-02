@@ -41,10 +41,7 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -689,7 +686,8 @@ fun Activity.tryRotateByExif(path: String, degrees: Int, showToasts: Boolean, ca
             false
         }
     } catch (e: Exception) {
-        if (showToasts) {
+        // lets not show IOExceptions, rotating is saved just fine even with them
+        if (showToasts && e !is IOException) {
             showErrorToast(e)
         }
         false
