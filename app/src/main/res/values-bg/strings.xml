@@ -213,7 +213,7 @@
     <string name="bottom_actions">Действия от долния край на екрана</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Управление на видимите действия в долния край на екрана</string>
-    <string name="toggle_favorite">Превключване на избрано</string>
+    <string name="toggle_favorite">Превключване на любимите</string>
     <string name="toggle_file_visibility">Превключване на видимост на файл</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Персонализирани</string>
