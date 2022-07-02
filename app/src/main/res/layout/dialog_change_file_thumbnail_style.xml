@@ -29,7 +29,7 @@
                 android:layout_toStartOf="@+id/dialog_file_style_spacing"
                 android:ellipsize="end"
                 android:lines="1"
-                android:paddingStart="@dimen/medium_margin"
+                android:paddingStart="@dimen/small_margin"
                 android:paddingEnd="@dimen/medium_margin"
                 android:text="@string/thumbnail_spacing" />
 
