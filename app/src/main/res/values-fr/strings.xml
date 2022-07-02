@@ -7,11 +7,11 @@
     <string name="hidden">(caché)</string>
     <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
-    <string name="unpin_folder">Désépingler le dossier</string>
+    <string name="unpin_folder">Libérer le dossier</string>
     <string name="pin_to_the_top">Épingler le dossier</string>
-    <string name="show_all">Affichage : Dossiers</string>
+    <string name="show_all">Affichage Dossiers</string>
     <string name="all_folders">Dossiers</string>
-    <string name="folder_view">Affichage : Galerie</string>
+    <string name="folder_view">Affichage Galerie</string>
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
@@ -113,7 +113,7 @@
     <string name="home_screen">Écran d\'accueil</string>
     <string name="lock_screen">Écran de déverrouillage</string>
     <string name="home_and_lock_screen">Écran d\'accueil et écran de déverrouillage</string>
-    <string name="allow_changing_aspect_ratio">Autoriser de modifier le rapport d\'aspect</string>
+    <string name="allow_changing_aspect_ratio">Autoriser la modification du rapport d\'aspect</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
@@ -144,7 +144,7 @@
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
     <string name="show_file_count_section_header">Afficher le nombre d\'éléments dans les entêtes</string>
-    <string name="grouping_and_sorting">Veuillez noter que le regroupement et le tri sont deux domaines indépendants</string>
+    <string name="grouping_and_sorting">"Grouper par" et "Trier par" sont deux modes indépendants</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché dans le widget :</string>
     <string name="show_folder_name">Afficher le nom du dossier</string>
