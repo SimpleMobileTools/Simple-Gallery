@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
-    <string name="edit">Edit</string>
+    <string name="app_launcher_name">Галерэя</string>
+    <string name="edit">Рэдагаваць</string>
     <string name="open_camera">Open camera</string>
     <string name="hidden">(hidden)</string>
     <string name="excluded">(excluded)</string>
@@ -17,9 +17,9 @@
     <string name="portraits">Portraits</string>
     <string name="manage_excluded_folders">Manage excluded folders</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-    <string name="resize">Resize</string>
+    <string name="resize">Змяніць памер</string>
     <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
+    <string name="width">Шырыня</string>
     <string name="file_edited_successfully">File edited successfully</string>
     <string name="image_edited_successfully">Image edited successfully</string>
     <string name="video_edited_successfully">Video edited successfully</string>
@@ -53,10 +53,10 @@
     <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
-    <string name="brightness">Brightness</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
-    <string name="change_orientation">Change orientation</string>
+    <string name="brightness">Яркасць</string>
+    <string name="lock_orientation">Замацаваць арыентацыю</string>
+    <string name="unlock_orientation">Адмацаваць арыентацыю</string>
+    <string name="change_orientation">Змяніць арыентацыю</string>
     <string name="force_portrait">Force portrait</string>
     <string name="force_landscape">Force landscape</string>
     <string name="use_default_orientation">Use default orientation</string>
@@ -75,7 +75,7 @@
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="volume">Volume</string>
+    <string name="volume">Гучнасць</string>
     <string name="unknown_location">Unknown location</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="other_folder">Other folder</string>
@@ -102,12 +102,12 @@
     <string name="stop_showing_excluded">Stop showing excluded</string>
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
+    <string name="add_folder">Дадаць папку</string>
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.
 \n
 \nAdding some items here will not exclude any other folder.</string>
     <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
-    <string name="height">Height</string>
+    <string name="height">Вышыня</string>
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="invalid_values">Please enter a valid resolution</string>
     <string name="rotate">Rotate</string>
