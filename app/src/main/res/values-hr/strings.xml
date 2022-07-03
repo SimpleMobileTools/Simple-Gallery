@@ -38,7 +38,7 @@
     <!-- Filter -->
     <string name="filter_media">Filtriranje medija</string>
     <string name="images">Slike</string>
-    <string name="videos">Videozapisi</string>
+    <string name="videos">Video</string>
     <string name="gifs">GIF-ovi</string>
     <string name="raw_images">RAW slike</string>
     <string name="svgs">SVG-ovi</string>
