@@ -210,10 +210,10 @@
     <string name="square">Kvadrat</string>
     <string name="rounded_corners">Zaobljeni kutovi</string>
     <string name="export_favorite_paths">Izvezi staze omiljenih datoteka</string>
-    <string name="media_management_prompt"></string>
+    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="password_protect_excluded">Lozinkom zaštiti vidljivost isključene mape</string>
-    <string name="media_management_manual"></string>
-    <string name="media_management_note"></string>
+    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji u cjeloekranskom prikazu</string>
@@ -334,7 +334,7 @@
     <string name="pesdk_common_title_oliveColor">Maslinasta</string>
     <string name="pesdk_common_title_greenColor">Zelena</string>
     <string name="pesdk_common_title_aquamarinColor">Morsko plava</string>
-    <string name="pesdk_common_title_pipettableColor"></string>
+    <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Skrati</string>
     <!-- FAQ -->
     <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>
@@ -344,7 +344,7 @@
     <string name="faq_3_title">Kako mogu postaviti album uvijek na vrh\?</string>
     <string name="faq_3_text">Dugo pritisnute željeni album i odaberite ikonu igle na akcijskom izborniku, koji će ga pričvrstiti na vrh. Možete prikvačiti više mapa odjednom, prikvačene stavke će biti razvrstane prema zadanom načinu razvrstavanja.</string>
     <string name="faq_4_title">Kako mogu ubrzati video\?</string>
-    <string name="faq_4_text"></string>
+    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">Koja je razlika između skrivanja i isključivanja mape\?</string>
     <string name="faq_5_text">Isključivanje sprečava prikaz mape samo u aplikaciji „Jednostavna galerija”, a skrivanje radi na razini sustava i skriva mapu u drugim galerijama. Djeluje stvaranjem praznih \".nomedia\" datoteka u zadanoj mapi, koju možeš ukloniti pomoću bilo kojeg upravljača datoteka. Imajte na umu da neki uređaji ne dopuštaju skrivanje mapa kao što su Kamera, Slike ekrana i Preuzimanja.</string>
     <string name="faq_6_title">Zašto se prikazuju mape s naslovnicama albuma i minijaturama slika\?</string>
@@ -364,13 +364,13 @@
     <string name="faq_14_title">Sakrio sam datoteku/mapu. Kako je mogu otkriti\?</string>
     <string name="faq_14_text">Za prikaz skrivenih stavki, pritisni stavku izbornika „Privremeno prikaži skrivene stavke” na glavnom ekranu ili uključi „Prikaži skrivene stavke” u postavkama aplikacije. Ako je želiš prikazati, pritisni je dugo i odaberi „Otkrij”. Mape se skrivaju dodavanjem skrivene datoteke „.nomedia”. Datoteku možeš izbrisati i s bilo kojim upravljačem datoteka. Imajte na umu da skrivanje ipak radi rekurzivno, pa ako sakriješ mapu, sve podmape će se također sakriti. Za otkrivanje podmapa moraš otkriti nadređenu mapu.</string>
     <string name="faq_15_title">Zašto aplikacija koristi toliko memorije\?</string>
-    <string name="faq_15_text"></string>
-    <string name="faq_16_title"></string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title"></string>
-    <string name="faq_17_text"></string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
+    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Zašto vidim oglase tijekom reprodukcije videa\?</string>
-    <string name="faq_18_text"></string>
+    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Gallery Pro – Upravljač u uređivač fotografija</string>
