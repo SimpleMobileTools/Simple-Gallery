@@ -52,7 +52,7 @@
     <string name="exclude">Εξαίρεση</string>
     <string name="excluded_folders">Εξαίρεση φακέλων</string>
     <string name="manage_excluded_folders">Διαχείριση εξαιρεμένων φακέλων</string>
-    <string name="exclude_folder_description">Αυτό θα εξαιρέσει το επιλεγμένο μαζί με τους υποφακέλους από την Απλή Συλλογή μόνο. Μπορείτε να διαχειριστείτε τους φακέλους που εξαιρέθηκαν στις Ρυθμίσεις.</string>
+    <string name="exclude_folder_description">Αυτό θα εξαιρέσει τον επιλεγμένο μαζί με τους υποφακέλους από την Απλή Συλλογή μόνο. Μπορείτε να διαχειριστείτε τους φακέλους που εξαιρέθηκαν στις Ρυθμίσεις.</string>
     <string name="exclude_folder_parent">Να εξαιρεθεί μήπως ο γονικός φάκελος;</string>
     <string name="excluded_activity_placeholder">Εξαιρώντας τους φακέλους, θα τους αποκρύψει μαζί με τους υποφακέλους τους μόνο στην Απλή Συλλογή, θα είναι ορατοί στις υπόλοιπες εφαρμογές.\n\nΑν θέλετε να τους αποκρύψετε και στις υπόλοιπες εφαρμογές, χρησιμοποιήστε την λειτουργία Απόκρυψη.</string>
     <string name="remove_all">Διαγραφή όλων</string>
@@ -61,11 +61,11 @@
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
     <string name="temporarily_show_excluded">Προσωρινή εμφάνιση αποκλεισμένων</string>
-    <string name="stop_showing_excluded">Διακοπή εμφάνισης αποκλεισμένων</string>
+    <string name="stop_showing_excluded">Παύση εμφάνισης αποκλεισμένων</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>
-    <string name="manage_included_folders">Διαχείριση φακέλων που συμπεριλαμβάνονται</string>
+    <string name="include_folders">Συμπεριλαμβανόμενοι Φάκελοι</string>
+    <string name="manage_included_folders">Διαχείριση συμπεριλαμβανόμενων Φακέλων</string>
     <string name="add_folder">Προσθήκη φακέλου</string>
     <string name="included_activity_placeholder">Αν υπάρχουν κάποιοι φάκελοι που περιέχουν πολυμέσα, αλλά δεν αναγνωρίζονται από την εφαρμογή,  μπορείτε να τους προσθέσετε χειροκίνητα εδώ.\n\nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
     <string name="no_media_add_included">Δεν βρέθηκαν αρχεία πολυμέσων. Μπορεί να λυθεί αυτό, προσθέτοντας τους φακέλους που περιέχουν αρχεία πολυμέσων με μη αυτόματο τρόπο.</string>
@@ -92,8 +92,8 @@
     <string name="video_edited_successfully">Επιτυχής επεξεργασία βίντεο</string>
     <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
     <string name="edit_video_with">Επεξεργασία βίντεο με:</string>
-    <string name="no_image_editor_found">Δεν βρέθηκε επεργαστής εικόνων</string>
-    <string name="no_video_editor_found">Δεν βρέθηκε επεργαστής βίντεο</string>
+    <string name="no_image_editor_found">Δεν βρέθηκε επεξεργαστής εικόνων</string>
+    <string name="no_video_editor_found">Δεν βρέθηκε επεξεργαστής βίντεο</string>
     <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
     <string name="error_saving_file">Δεν ήταν δυνατή η αντικατάσταση του αρχείου πηγής</string>
     <string name="rotate_left">Περιστροφή αριστερά</string>
@@ -117,7 +117,7 @@
     <string name="home_screen">Αρχική οθόνη</string>
     <string name="lock_screen">Οθόνη κλειδώματος</string>
     <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Επιτρέπει την αλλαγή Αναλογίας Διαστάσεων</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Παρουσίαση διαφανιών</string>
@@ -205,14 +205,14 @@
     <string name="show_file_count_line">Εμφάνιση πλήθους αρχείων σε ξεχωριστή γραμμή</string>
     <string name="show_file_count_brackets">Εμφάνιση πλήθους αρχείων σε αγκύλες</string>
     <string name="show_file_count_none">Χωρίς εμφάνιση μέτρησης αρχείων</string>
-    <string name="limit_folder_title">Περιορισμό μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
+    <string name="limit_folder_title">Περιορισμός μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
     <string name="square">Τετράγωνο</string>
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
     <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
     <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Κάτι πήγε λάθος, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
+    <string name="media_management_note">Αν η ανακατεύθυνση δεν λειτουργεί, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
