@@ -363,67 +363,6 @@
     <string name="faq_17_text">Itu berhenti bekerja karena perubahan sistem yang datang dengan Android 11 juga, aplikasinya tidak dapat menelusuri folder nyata lagi, itu bergantung pada apa yang disebut MediaStore dalam mengambil data.</string>
     <string name="faq_18_title">Mengapa saya melihat iklan selama pemutaran video\?</string>
     <string name="faq_18_text">Aplikasi kami tidak memiliki iklan apa pun. Jika Anda melihatnya selama pemutaran video, Anda harus menggunakan beberapa pemutar video aplikasi lain. Coba temukan pemutar video default Anda di pengaturan perangkat, lalu lakukan \"Hapus default\" di atasnya. Saat berikutnya Anda memanggil beberapa maksud video, Anda akan melihat permintaan pemilih aplikasi, di mana Anda dapat memilih aplikasi apa yang ingin Anda gunakan.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Pengelola &amp; Penyunting Foto</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Browse your memories without any interruptions with this photo and video gallery</string>
-    <string name="app_long_description">
-        Simple Gallery Pro adalah aplikasi galeri luring yang sangat mudah diubahsuai. Mengelola &amp; menyunting foto anda, memulihkan berkas yang terhapus dari keranjang sampah, melindungi &amp; menyembunyikan berkas, dan menampilkan banyak format foto &amp; video, diantaranya RAW, SVG dan masih banyak lainnya.
-
-        Aplikasi sama sekali tidak berisi iklan dan tidak membutuhkan perizinan yang tidak perlu. Dan karena aplikasi juga tidak membutuhkan akses internet, privasi anda terlindungi.
-
-        -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FITUR</b>
-        -------------------------------------------------
-
-        • Galeri luring tanpa iklan dan popup
-        • Penyunting galeri foto sederhana – pangkas, putar, ubah ukuran, gambar, filter &amp; masih banyak lagi
-        • Tidak membutuhkan akses internet, memberi anda jaminan keamanan dan privasi
-        • Tidak membutuhkan izin yang tidak diperlukan
-        • Cepat mencari gambar, video &amp; berkas
-        • Buka &amp; lihat berbagai macam jenis foto dan video (RAW, SVG, panorama, dll)
-        • Gestur untuk mempermudah penyuntingan &amp; mengelola berkas
-        • Banyak cara untuk menambahkan filter, mengelompokkan &amp; mengurutkan berkas
-        • Sesuaikan tampilan Simple Gallery Pro
-        • Tersedia dalam 32 bahasa
-        • Tandai berkas sebagai favorit untuk akses cepat
-        • Lindungi foto &amp; video anda dengan pola, pin atau sidik jari
-        • Gunakan pin, pattern &amp; sidik jari untuk mencegah aplikasi dibuka
-        • Pulihkan foto &amp; video yang dihapus dari keranjang sampah
-        • Ubah visibilitas berkas untuk menyembunyikan foto &amp; video
-        • Buat slideshow khusus dari berkas anda
-        • Lihat informasi detail berkas (resolusi, EXIF, dll)
-        • Simple Gallery Pro bersumber terbuka
-        … dan masih banyak lagi!
-
-        <b>PENYUNTING GALERI FOTO</b>
-        Simple Gallery Pro mempermudah anda menyunting foto. Pangkas, balik, putar dan ubah ukuran gambar anda. Jika anda merasa kreatif anda bisa menambahkan filter dan menggambar pada foto anda!
-
-        <b>MENDUKUNG BANYAK TIPE BERKAS</b>
-        Tidak seperti penampil galeri &amp; pengelola foto lainnya, Simple Gallery Pro mendukung sangat banyak tipe berkas yang berbeda diantaranya JPEG, PNG, MP4, MKV, RAW, SVG, foto &amp; video Panorama, dan masih banyak lagi.
-
-        <b>PENGELOLA GALERI YANG MUDAH DISESUAIKAN</b>
-        Dari UI sampai tombol tindakan pada bilah perkakas bawah, Simple Gallery Pro sangat mudah disesuaikan dengan keinginan anda. Tidak ada galeri lainnya yang memiliki kemampuan seperti ini! Karena bersumber terbuka, tersedia juga dalam 32 bahasa!
-
-        <b>PULIHKAN FOTO &amp; VIDEO YANG TERHAPUS</b>
-        Secara tidak sengaja menghapus foto atau video? Jangan khawatir! Simple Gallery Pro juga menyertakan fitur Keranjang Sampah yang mempermudah anda memulihkan foto &amp; video yang terhapus.
-
-        <b>MELINDUNGI &amp; MENYEMBUNYIKAN FOTO, VIDEO &amp; BERKAS</b>
-        Menggunakan pin, pola atau pemindai sidik jari perangkat, anda bisa melindungi dan menyembunyikan foto, video &amp; seluruh album. Anda bisa melindungi aplikasinya atau mengunci fungsi-fungsi yang lebih spesifik di dalam aplikasi. Contohnya, anda tidak bisa menghapus berkas tanpa memindai sidik jari, membantu melindungi anda menghapus berkas secara tidak sengaja.
-
-        <b>Lihat semua aplikasi Simple Tools di sini:</b>
-        https://www.simplemobiletools.com
-
-        <b>Standalone website of Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

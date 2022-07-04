@@ -376,69 +376,6 @@
     <string name="faq_17_text">Det holdt op med at virke på grund af systemændringerne, der fulgte med Android 11, appen kan ikke længere gennemse rigtige mapper, den er afhængig af den såkaldte MediaStore til at hente data.</string>
     <string name="faq_18_title">Hvorfor ser jeg reklamer under videoafspilning?</string>
     <string name="faq_18_text">Vores apps har ingen reklamer overhovedet. Hvis du ser dem under videoafspilning, bruger du videoafspilleren fra en anden app. Prøv at finde din standard videoafspiller i enhedens indstillinger, og vælg \"Ryd standarder\" på den. Næste gang du forsøger at åbne en videofil, vil du se en prompt, hvor du kan vælge hvilken app du vil bruge.</string>
-
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Billedhåndtering</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">En premium-app til administration og redigering af dine fotos, videoer og GIF\'er uden reklamer</string>
-    <string name="app_long_description">
-        Simple Gallery Pro er et offline-galleri med mange tilpasningsmuligheder. Organiser og rediger dine billeder, gendan slettede filer via papirkurven, beskyt og skjul filer og se adskillige forskellige billed- og videoformater inklusiv RAW, SVG og mange flere.
-
-        Appen indeholder ingen reklamer og kræver ingen unødvendige tilladelser. Da den heller ikke kræver adgang til internettet, er dit privatliv også beskyttet.
-
-        -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FUNKTIONER</b>
-        -------------------------------------------------
-
-        • Offline galleri uden reklamer eller pop op\'er
-        • Simple gallerys billedbehandler – beskær, roter, tilpas størrelse, tegn, filtrer mm.
-        • Inget krav om internetadgang - en stor fordel for dit privatliv og din sikkerhed
-        • Ingen krav om unødvendige tilladelser
-        • Hurtig søgning efter billeder, videoer &amp; filer
-        • Åbn &amp; se mange forskellige foto- og videoformater (RAW, SVG, panoramic osv.)
-        • En række intuitive bevægelser til nem redigering og organisering af filer
-        • Mange muligheder for filtrering, gruppering og sortering af filer
-        • Tilpas udseendet af Simple Gallery Pro
-        • Tilgængelig på 32 sprog
-        • Marker filer som favoriter for hurtig adgang
-        • Beskyt dine billeder &amp; videoer med et mønster, pinkode eller fingeraftryk
-        • Brug mønster, pinkode eller fingeraftryk til beskyttelse af åbning af appen eller specifikke funktioner
-        • Gendan slettede billeder &amp; videoer via papirkurven
-        • Skift mellem vis/skjul filer for at skjule billeder &amp; videoer
-        • Opret et redigerbart slideshow med dine filer
-        • Se detaljeret information om dine filer (opløsning, EXIF-værdier osv.)
-        • Simple Gallery Pro er open source
-        … og meget mere!
-
-        <b>FOTOGALLERI - EDITOR</b>
-        Simple Gallery Pro gør det nemt at redigere dine billeder i en fart. Beskær, flip, roter og tilpas størrelsen på dine billeder. Føler du dig lidt mere kreativ, kan du tilføje filtre og tegne oveni dine billeder!
-
-        <b>UNDERSTØTTELSE AF MANGE FILTYPER</b>
-        I modsætning til mange andre gallerier supporterer Simple Gallery Pro en masse forskellige filtyper inklusiv JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic-foto, Panoramic-videoer og mange flere.
-
-        <b>GALLERI MED MASSER AF TILPASNINGSMULIGHEDER</b>
-        Simple Gallery Pro kan tilpasses lige fra brugerfladen til funktionsknapper på nederste værktøjslinje og fungere lige efter dit ønske. Inget andet galleri er så fleksibelt! Takket være at det er open sourse, er det også tilgængeligt på 32 sprog!
-
-        <b>GENDAN SLETTEDE BILLEDER &amp; VIDEOER</b>
-        Er du ved en fejl kommet til at slette et billede eller en video? Intet problem! Simple Gallery Pro har en handy papirkurv hvorfra du nemt kan gendanne slettede billeder &amp; videoer.
-
-        <b>BESKYT &amp; SKJUL FOTOS, VIDEOER &amp; FILER</b>
-        Du kan beskytte og skjule billeder, videoer og hele album med en pinkode, et mønster eller din enheds fingeraftryksscanner. Du kan også beskytte selve appen eller låse specifikke funktioner i appen. Du kan for eksempel låse sletning af en fil uden scanning af fingeraftryk og dermed beskytte filer mod at blive slettet ved en fejl.
-
-        <b>Se hele suiten af Simple Tools her:</b>
-        https://www.simplemobiletools.com
-
-        <b>Standalone website of Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

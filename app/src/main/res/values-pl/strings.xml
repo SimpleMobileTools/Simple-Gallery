@@ -367,67 +367,6 @@
     <string name="faq_17_text">To również przestało działać z powodu zmian systemowych, które pojawiły się w Androidzie 11. Aplikacja nie może już przeglądać prawdziwych folderów i polega na tak zwanym MediaStore przy pobieraniu danych.</string>
     <string name="faq_18_title">Dlaczego widzę reklamy podczas odtwarzania wideo\?</string>
     <string name="faq_18_text">Nasze aplikacje nie mają żadnych reklam. Jeśli widzisz je podczas odtwarzania wideo, musisz używać odtwarzacza wideo innej aplikacji. Spróbuj znaleźć domyślny odtwarzacz wideo w ustawieniach urządzenia, a następnie wykonaj na nim „Wyczyść domyślne”. Następnym razem, gdy spróbujesz odtworzyć wideo, zobaczysz ekran wyboru aplikacji, gdzie możesz wybrać, którą chcesz użyć.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Prosta galeria Pro - Menedżer i edytor zdjęć</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Aplikacja premium do zarządzania i edycji zdjęć, wideo i GIF-ów, bez reklam</string>
-    <string name="app_long_description">
-        Prosta galeria Pro to wysoce konfigurowalna galeria bez dostępu do Internetu. Organizuj i edytuj swoje zdjęcia, odzyskuj przypadkowo usunięte pliki dzięki funkcji kosza, chroń je i ukrywaj, a także przeglądaj różne formaty zdjęć i wideo, w tym RAW, SVG i wiele innych.
-
-        Aplikacja nie zawiera reklam i zbędnych uprawnień. Przez to, że nie wymaga połączenia z Internetem, Twoja prywatność jest chroniona.
-
-        -------------------------------------------------
-        <b>PROSTA GALERIA PRO – FUNKCJE</b>
-        -------------------------------------------------
-
-        • Galeria bez dostępu do Internetu - bez reklam i wyskakujących okienek
-        • Prosty edytor zdjęć - przycinaj, obracaj, zmieniaj rozmiar, rysuj, nakładaj filtry, i wiele więcej
-        • Nie jest potrzebny dostęp do Internetu, co zapewnia większą prywatność i bezpieczeństwo
-        • Nie są wymagane żadne niepotrzebne uprawnienia
-        • Szybkie wyszukiwanie obrazów, wideo i plików
-        • Otwieraj i przeglądaj wiele różnych typów zdjęć i wideo (RAW, SVG, panoramiczne itd.)
-        • Różnorodność intuicyjnych gestów dla prostszego edytowania i organizowania plików
-        • Wiele sposobów na filtrowanie, grupowanie i sortowanie plików
-        • Możliwość dostosowania wyglądu Prostej galerii Pro
-        • Dostępna w 32 językach
-        • Oznaczaj pliki jako ulubione dla łatwiejszego dostępu
-        • Chroń swoje zdjęcia i wideo wzorem, PIN-em lub odciskiem palca
-        • Użyj PIN-u, wzoru lub odcisku palca do ochrony całej aplikacji, jak i konkretnych funkcji
-        • Odzyskuj utracone zdjęcia i wideo dzięki funkcji kosza
-        • Zmieniaj widoczność plików, aby ukrywać zdjęcia i wideo
-        • Twórz konfigurowalne pokazy slajdów ze swoich plików
-        • Przeglądaj szczegółowe informacje o plikach (rozdzielczość, dane EXIF itd.)
-        • Prosta galeria Pro jest otwartoźródłowa
-        … i wiele, wiele więcej!
-
-        <b>EDYTOR ZDJĘĆ</b>
-        Prosta galeria Pro ułatwi Ci szybką edycję zdjęć. Kadruj, odbijaj, obracaj, zmniejszaj i powiększaj swoje obrazy. A w napływie kreatywności możesz dodawać filtry i rysować na obrazach!
-
-        <b>WSPARCIE DLA WIELU TYPÓW PLIKÓW</b>
-        W przeciwieństwie do niektórych galerii i organizerów zdjęć, Prosta galeria Pro wspiera szeroką gamę formatów plików, w tym JPEG, PNG, MP4, MKV, RAW, SVG, panoramiczne filmy i zdjęcia, oraz wiele innych.
-
-        <b>WYSOCE KONFIGUROWALNY MENEDŻER GALERII</b>
-        Od interfejsu do przycisków funkcyjnych na dolnym pasku, Prosta galeria Pro jest wysoce konfigurowalna, przez co działa i wygląda tak, jak chcesz. Żadna inna aplikacja galerii nie jest pod tym względem tak wszechstronna. Dzięki temu, że jest otwartoźródłowa, jesteśmy dostępni w 32 językach!
-
-        <b>ODZYSKIWANIE USUNIĘTYCH ZDJĘĆ I WIDEO</b>
-        Niechcący usunąłeś(-aś) ważne zdjęcie lub film? Nie martw się! Prosta galeria Pro posiada przydatną funkcję kosza, z którego możesz łatwo przywrócić usunięte zdjęcia i wideo.
-
-        <b>OCHRONA I UKRYWANIE ZDJĘĆ, WIDEO I PLIKÓW</b>
-        Przez PIN, wzór lub odcisk palca możesz chronić swoje zdjęcia, wideo i całe albumy. Możesz chronić całą aplikację albo blokować tylko specyficzne funkcje. Na przykład, nie możesz usunąć pliku bez zeskanowania odcisku palca, dzięki czemu zapobiegasz przypadkowemu usuwaniu plików.
-
-        <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
-        https://www.simplemobiletools.com
-
-        <b>Strona internetowa Prostej galerii Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -363,67 +363,6 @@
     <string name="faq_17_text">Aceasta a încetat să mai funcționeze din cauza schimbărilor de sistem care au venit odată cu Android 11. Aplicația nu mai poate răsfoi dosare reale, ci se bazează pe așa-numitul MediaStore pentru a prelua informaţiile.</string>
     <string name="faq_18_title">De ce văd reclame în timpul redării video\?</string>
     <string name="faq_18_text">Aplicațiile noastre nu au niciun fel de reclame. Dacă le vedeți în timpul redării video, înseamnă că utilizați un alt player video. Încercați să găsiți playerul video implicit în setările dispozitivului, apoi efectuați o operațiune de \"Curăţare a valorilor implicite\" pentru acesta. Data viitoare când veți apela la o intenție video, veți vedea o fereastră de selectare a aplicației, unde puteți selecta aplicația pe care doriți să o utilizați.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Manager de fotografii</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">O aplicație premium pentru gestionarea și editarea pozelor şi a videoclipurilor</string>
-    <string name="app_long_description">
-        Simple Gallery Pro este o galerie offline foarte personalizabilă. Organizaţi &amp; editaţi fotografiile, recuperaţi fișierele șterse cu ajutorul coșului de reciclare, protejaţi-vă &amp; ascundeţi-vă fișiere și vizualizaţi o mare varietate de formate foto &amp; video diferite cum ar fi RAW, SVG și multe altele.
-
-        Aplicaţia nu conţine reclame sau permisiuni inutile. De asemenea, deoarece aplicația nu necesită acces la internet, confidențialitatea dumneavoastră este protejată.
-
-        -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – CARACTERISTICI</b>
-        -------------------------------------------------
-
-        • Galerie offline, fără reclame sau popup-uri
-        • Editor foto Simple gallery – tăiați, rotiți, redimensionați, desenați, filtraţi &amp; multe altele
-        • Nu este nevoie de acces la internet, ceea ce vă oferă mai multă intimitate și securitate
-        • Nu sunt necesare permisiuni inutile
-        • Căutați rapid imagini, videoclipuri &amp; fișiere
-        • Deschideți &amp; vizualizați multe tipuri diferite de fotografii și clipuri video (RAW, SVG, panoramic etc.)
-        • O varietate de gesturi intuitive pentru a edita cu ușurință &amp; organiza fișiere
-        • O mulțime de modalități de filtrare, grupare &amp; sortare a fișierelor
-        • Personalizați aspectul aplicaţiei Simple Gallery Pro
-        • Disponibilă în 32 de limbi
-        • Marcați fișierele ca favorite pentru acces rapid
-        • Protejați-vă fotografiile &amp; videoclipurile cu un model, pin sau amprentă digitală
-        • Utilizați pin, model &amp; amprentă digitală pentru a proteja lansarea aplicației sau diferite funcții specifice
-        • Recuperaţi fotografiile &amp; videoclipurile șterse din coșul de reciclare
-        • Comutați vizibilitatea fișierelor pentru a ascunde fotografiile &amp; videoclipurile
-        • Creați un slideshow personalizabil al fișierelor dvs.
-        • Vizualizați informații detaliate despre fișierele dvs. (rezoluție, valori EXIF etc.)
-        • Codul sursă al Simple Gallery Pro este open source
-        … și multe altele!
-
-        <b>EDITOR GALERIE FOTO</b>
-        Simple Gallery Pro facilitează editarea rapidă a fotografiilor. Tăiați, întoarceți, rotiți și redimensionați fotografiile. Dacă vă simțiți puțin mai creativ, puteți adăuga filtre și desena pe imagini!
-
-        <b>SUPORT PENTRU MULTE TIPURI DE FIȘIERE</b>
-        Spre deosebire de alte galerii &amp; organizatoare de fotografii, Simple Gallery Pro acceptă o gamă largă de tipuri de fișiere diferite, inclusiv JPEG, PNG, MP4, MKV, RAW, SVG, fotografii panoramice, videoclipuri panoramice și multe altele.
-
-        <b>MANAGER DE GALERIE FOARTE PERSONALIZABIL</b>
-        De la interfața de utilizare până la butoanele funcționale de pe bara de instrumente de jos, Simple Gallery Pro este foarte ușor de personalizat și funcționează așa cum doriți. Niciun alt manager de galerii nu are o asemenea flexibilitate! Datorită faptului că suntem open source, suntem, de asemenea, disponibili în 32 de limbi!
-
-        <b>RECUPERAŢI FOTOGRAFIILE &amp; VIDEOCLIPURILE ȘTERSE</b>
-        Ați șters din greșeală o fotografie sau un videoclip prețios? Nu vă faceți griji! Simple Gallery Pro dispune de un coș de reciclare la îndemână, unde puteți recupera cu ușurință fotografiile și videoclipurile șterse.
-
-        <b>PROTEJAŢI &amp; ASCUNDEŢI FOTOGRAFIILE, VIDEOCLIPURILE ŞI FIŞIERELE</b>
-        Folosind un pin, un model sau scanerul de amprente al dispozitivului, puteți proteja și ascunde fotografii, videoclipuri și albume întregi. Puteți proteja aplicația în sine sau puteți pune încuietori pe anumite funcții specifice ale aplicației. De exemplu, nu puteți șterge un fișier fără o scanare a amprentei digitale, ceea ce vă ajută să vă protejați fișierele de ștergerea accidentală.
-
-        <b>Consultaţi întreaga suită de aplicaţii Simple Tools aici:</b>
-        https://www.simplemobiletools.com
-
-        <b>Pagina web a aplicaţiei Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

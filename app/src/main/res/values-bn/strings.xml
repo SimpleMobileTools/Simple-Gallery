@@ -376,56 +376,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">সিম্পল গ্যালারি প্রো - ছবি ম্যানেজার ও সম্পাদক</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">কোন বিজ্ঞাপন ছাড়া ছবি, ভিডিও ও গিফ সম্পাদনা, ব্যবস্থাপনার একটি প্রিমিয়াম অ্যাপ</string>
-    <string name="app_long_description">
-        সিম্পল গ্যালারি প্রো একটি অত্যন্ত সম্পাদনাযোগ্য অফলাইন গ্যালারি।
-
-        অ্যাপটিতে কোনও বিজ্ঞাপন এবং অপ্রয়োজনীয় অনুমতি নেই। অ্যাপ্লিকেশনটিকে যেহেতু ইন্টারনেট সংযোগের প্রয়োজন নেই, তাই আপনার গোপনীয়তা সুরক্ষিত।
-
-        -------------------------------------------------
-        <b>সহজ গ্যালারি প্রো - বৈশিষ্ট্যসমূহ</b>
-        -------------------------------------------------
-
-        • কোন বিজ্ঞাপন বা পপআপ ছাড়া অফলাইন গ্যালারী
-        • সাধারণ গ্যলারি ফটো সম্পাদক - ক্রপ করুন, ঘোরান, পুনরায় আকার দিন, অঙ্কন করুন, ফিল্টার প্রয়োগ করুন এবং আরও অনেক কিছু।
-        • কোন ইন্টারনেট সংযোগ প্রয়োজন নেই
-        • কোন অপ্রয়োজনীয় অনুমতি চায় না
-        • ছবি, ভিডিও ও অন্যান্য ফাইলসমূহ দ্রুত অনুসন্ধান করুন
-        • সিম্পল গ্যালারি প্রো এর ধরন পরিবর্তন করুন
-        • ৩২টি ভাষায় রয়েছে
-        • সিম্পল গ্যালারি প্রো উন্মুক্ত উৎসের
-        … এবং আরও অনেক অনেক বেশী!
-
-        <b>ছবি গ্যালারি সম্পাদক</b>
-        সিম্পল গ্যালারি প্রো আপনার ছবি যেকোন সময় সম্পাদনা সহজ করে দেয়। আপনার ছবি কাটুন, ফ্লিপ করুন বা আকার পরিবর্তন করুন। আপনি আরেকটু সৃজনশীল হলে, নতুন ফিল্টার যুক্ত করতে পারবেন এবং আপনার ছবির উপর আঁকতেও পারবেন।
-
-        <b>অনেকধরণের ফাইল ঘরানার জন্য সমর্থন রয়েছে</b>
-        জেপিইজি, পিএনজি, এমপি৪, এমকেভি, আরএডাব্লু, এসভিজি, প্যানোরামিক ফটো, প্যানোরামিক ভিডিও এবং আরও অনেক ফাইল টাইপ সিম্পল গ্যালারি প্রো সমর্থন করে।
-
-        <b>মুছে ফেলা ছবি ও ভিডিও পুনরুদ্ধার করুন</b>
-        ভুল করে গুরুত্বপূর্ণ ছবি বা ভিডিও মুছে ফেললেন? চিন্তার কারণ নেই। সিম্পল গ্যালারি প্রোর নিজস্ব রিসাইকেল বিন আপনাকে এ বিপদ থেকে বাঁচাবে।
-
-        <b>ছবি, ভিডিও এবং ফাইল লুকান ও নিরাপদ রাখুন:</b>
-        পিন, প্যাটার্ন, অথবা ফিঙ্গারপ্রিন্ট ব্যবহার করে আপনি আপনার ছবি, ভিডিও এবং পুরো অ্যালবামই নিরাপদে রাখতে পারবেন। আপনি পুরো অ্যাপটাই নিরাপদে রাখতে পারবে, অথবা নির্দিষ্ট কিছু ফাংশনে লক দিতে পারবেন। যেমন ধরুন, ফিঙ্গারপ্রিন্ট ছাড়া কোন ফাইল মুছতে না পারাটা ভুল করে ফাইল হারানো থেকে আপনাকে বাঁচাবে।
-
-        <b>সিম্পল টুলসমূহের পরিপূর্ণ স্যুট:</b>
-        https://www.simplemobiletools.com
-
-        <b>সিম্পল গ্যালারি প্রোর আলাদা ওয়েবসাইট</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>ফেসবুক:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>রেডিট:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -363,67 +363,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro - Xestor e Editor de fotos</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Busca nos recordos sen interrupcións na galería de fotos e vídeo</string>
-    <string name="app_long_description">
-        Simple Gallery Pro unha galería altamente personalizable. Organiza &amp; edita as túas fotos, recupera ficheiros borrados desde a papeleira, protexe &amp; oculta ficheiros e visualiza gran número de formatos de fotos &amp; vídeo incluíndo RAW, SVG e moitos máis.
-
-        O app non ten publicidade nin permisos innesarios. Como tampouco require acceso a internet, a túa privacidade está protexida.
-
-        -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – Características</b>
-        -------------------------------------------------
-
-        • Galería sen conexión a internet, publicidade nin ventás emerxentes
-        • Editor de fotos Simple gallery – recorta, rota, cambia tamaño, debuxa, fitros, e máis
-        • Non precisa acceso a internet, dándoche máis seguridade e privacidade
-        • Non pide permisos innecesarios
-        • Busca rápida de ficheiros de foto e vídeo
-        • Abre e visualiza gran cantidade de formatos (RAW, SVG, panoramic etc)
-        • Xestos intuitivos para editar e organizar os ficheiros
-        • Múltiples filtros, agrupamento e orde dos ficheiros
-        • Personaliza o aspecto de Simple Gallery Pro
-        • Dispoñible en 32 idiomas
-        • Marca ficheiros como favoritos para acceso rápido
-        • Protexe fotos e vídeos cun patrón, PIN ou impresión dixital
-        • Usa PIN, patrón e impresión dixital para protexer a apertura do app ou indicar funcións específicas
-        • Recupera fotos e vídeos borrados desde a papeleira
-        • Cambia a visibilidade dos ficheiros para ocultar fotos e vídeos
-        • Crea presentacións personalizadas cos teus ficheiros
-        • Mira a información detalladas dos ficheiros (resolución, valores EXIF etc)
-        • Simple Gallery Pro é código aberto
-        … e moito máis!
-
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro permite editar as fotos no momento. Recorta, voltea, rota e redimensiona as túas fotos. Se te sintes inspirado tamén pode engadir filtros e debuxar nas imaxes!
-
-        <b>SOPORTA MOITOS TIPOS DE FICHEIROS</b>
-        Simple Gallery Pro soporta gran variedade de formatos como JPEG, PNG, MP4, MKV, RAW, SVG, Panoramicas, Vídeos panorámicos e moito máis. Non como outros.
-
-        <b>XESTOR DE FOTOS MOI PERSONALIZABLE</b>
-        Desde a interface ata a función dos botóns da barra de ferramentas, Simply Gallery Pro é moi personalizable e funciona do xeito que ti queres. Ningún outro xestor de galerías ten esta flexibilidade! Ao ser código aberto, está dipoñible en 32 idiomas!
-
-        <b>RECUPERA FOTOS &amp; VIDEOS ELIMINADOS</b>
-        Borraches sen querer unha foto ou vídeo? Non te apenes! Simple Gallery Pro ten unha función para recuperar facilmente vídeos e fotos borrados.
-
-        <b>PROTEXE &amp; OCULTA FOTOS, VIDEOS &amp; FICHEIROS</b>
-        Usando un prendedor, patrón ou a impresión dixital no escáner do dispositivo podes protexer e agochar fotos, vídeos e álbumes enteiros. Podes protexer a app ou establecer funcións específicas no app. Por exemplo, que non poidas eliminar un ficheiro sen o escáner da impresión dixital, axudándoche a protexer o borrado accidental.
-
-        <b>Aquí tes todas as Simple Tools:</b>
-        https://www.simplemobiletools.com
-
-        <b>Sitio web de Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
