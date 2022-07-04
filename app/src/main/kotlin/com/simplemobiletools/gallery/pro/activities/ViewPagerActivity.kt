@@ -1229,8 +1229,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun refreshViewPager(refetchPosition: Boolean = false) {
         val isSortingRandom = config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0
-        val isExternalIntent = !intent.getBooleanExtra(IS_FROM_GALLERY, false)
-        if (!isSortingRandom || isExternalIntent) {
+        if (!isSortingRandom || isExternalIntent()) {
             GetMediaAsynctask(applicationContext, mDirectory, isPickImage = false, isPickVideo = false, showAll = mShowAll) {
                 gotMedia(it, refetchViewPagerPosition = refetchPosition)
             }.execute()
@@ -1246,7 +1245,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (!ignorePlayingVideos && (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true) {
+        val isPlaying = (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true
+        if (!ignorePlayingVideos && isPlaying && !isExternalIntent()) {
             return
         }
 
@@ -1437,5 +1437,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (state == ViewPager.SCROLL_STATE_IDLE && getCurrentMedium() != null) {
             checkOrientation()
         }
+    }
+
+    private fun isExternalIntent(): Boolean {
+        return !intent.getBooleanExtra(IS_FROM_GALLERY, false)
     }
 }
