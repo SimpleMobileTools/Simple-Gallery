@@ -1,28 +1,31 @@
 Semplice Galleria Pro ti offre tutte le funzionalità di visualizzazione e modifica delle foto che ti mancavano sul tuo Android in un'app elegante e facile da usare. Sfoglia, gestisci e modifica più velocemente che mai, recupera file eliminati accidentalmente o crea gallerie nascoste per le tue immagini e video più preziosi. E con il supporto avanzato dei file e la personalizzazione completa, infine, la tua galleria funziona proprio come desideri.
 
-<b>EDITOR FOTOGRAFICO AVANZATO</b>
+EDITOR FOTOGRAFICO AVANZATO
 Trasforma il fotoritocco in un gioco da ragazzi con l'organizzatore di file e l'album fotografico migliorato di Semplice Galleria Pro. I gesti intuitivi rendono super facile modificare le tue immagini al volo. Ritaglia, capovolgi, ruota e ridimensiona le immagini o applica filtri eleganti per farle risaltare in un istante.
 
-<b>TUTTI I FILE DI CUI HAI BISOGNO</b>
+TUTTI I FILE DI CUI HAI BISOGNO
 Semplice Galleria Pro supporta un'enorme varietà di diversi tipi di file tra cui JPEG, PNG, MP4, MKV, RAW, SVG, GIF, foto panoramiche, video e molto altro, così puoi godere della massima flessibilità nella scelta del formato. Ti sei mai chiesto "Posso usare questo formato sul mio Android"? Ora la risposta è sì.
 
-<b>FALLA TUA</b>
+FALLA TUA
 Il design altamente personalizzabile di Semplice Galleria Pro ti consente di far apparire, sentire e funzionare l'app proprio come desideri. Dall'interfaccia utente ai pulsanti funzione nella barra degli strumenti inferiore, Semplice Galleria Pro ti offre la libertà creativa di cui hai bisogno in un'app galleria.
 
-<b>RECUPERA FOTO E VIDEO ELIMINATI</b>
+RECUPERA FOTO E VIDEO ELIMINATI
 Non preoccuparti di eliminare accidentalmente quella preziosa foto o video che non puoi sostituire. Semplice Galleria Pro ti consente di recuperare rapidamente tutti i file eliminati, il che significa che oltre ad essere la migliore galleria multimediale per Android, Semplice Galleria Pro funge anche da straordinaria app di archivio fotografico.
 
-<b>PROTEGGI LE TUE FOTO, VIDEO E FILE PRIVATI</b>
+PROTEGGI LE TUE FOTO, VIDEO E FILE PRIVATI
 Stai certo che il tuo album fotografico è al sicuro. Con le funzionalità di sicurezza migliori di Semplice Galleria Pro puoi utilizzare un pin, una sequenza o lo scanner di impronte digitali del tuo dispositivo per limitare chi può visualizzare o modificare foto e video selezionati o accedere a file importanti.
 
-<b>Dai un'occhiata alla suite completa di Simple Tools qui:</b>
+Dai un'occhiata alla suite completa di Simple Tools qui:
 https://www.simplemobiletools.com
-
-<b>Sito web di Semplice Galleria Pro:</b>
-https://www.simplemobiletools.com/gallery
 
 Facebook:
 https://www.facebook.com/simplemobiletools
 
 Reddit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
+
+Sito indipendente di Semplice Galleria Pro:
+https://www.simplemobiletools.com/gallery
