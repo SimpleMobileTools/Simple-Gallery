@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">두번 탭하여 1:1 크기로 보기</string>
     <string name="open_videos_on_separate_screen">동영상을 따로 열어 새 수평 제스처 사용</string>
     <string name="show_notch">가능한 경우 노치 표시</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">제스처로 사진 회전</string>
     <string name="file_loading_priority">파일 로딩 우선권</string>
     <string name="speed">속도</string>

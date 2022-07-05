@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Az 1:1 nagyítás engedélyezése két dupla érintéssel</string>
     <string name="open_videos_on_separate_screen">Az új vízszintes gesztusokkal mindig külön képernyőn nyitja meg a videókat</string>
     <string name="show_notch">Notch megjelenítése, ha elérhető</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Képek gesztusokkal történő forgatásának engedélyezése</string>
     <string name="file_loading_priority">Fájlbetöltés prioritása</string>
     <string name="speed">Gyors</string>

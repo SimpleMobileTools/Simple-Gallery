@@ -184,6 +184,7 @@
     <string name="allow_one_to_one_zoom">Мащабиране 1:1 с две двойни потупвания</string>
     <string name="open_videos_on_separate_screen">Отваряне на видео на отделен екран с нов хоризонтален жест</string>
     <string name="show_notch">Показване на етикет, ако е наличен</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Завъртане на изображения с жестове</string>
     <string name="file_loading_priority">Приоритет на зареждане на файлове</string>
     <string name="speed">Скорост</string>

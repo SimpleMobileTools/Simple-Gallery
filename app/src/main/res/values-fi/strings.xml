@@ -190,6 +190,7 @@
     <string name="allow_one_to_one_zoom">Lähennä 1:1 kahdella tuplanapautuksella</string>
     <string name="open_videos_on_separate_screen">Avaa videot aina erillisellä ruudulla uusilla vaakasuuntaisilla eleillä</string>
     <string name="show_notch">Näytä lovi, jos käytössä</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Käännä kuvia eleillä</string>
     <string name="file_loading_priority">Tiedostojen latausprioriteetti</string>
     <string name="speed">Nopeus</string>

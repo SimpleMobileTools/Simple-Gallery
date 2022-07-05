@@ -180,6 +180,7 @@
     <string name="allow_one_to_one_zoom">אפשר סגירה של תצוגת המסך המלא בתנועת מטה</string>
     <string name="open_videos_on_separate_screen">פתח תמיד סרטונים במסך נפרד עם מחוות אופקיות חדשות</string>
     <string name="show_notch">הצג חריץ אם זמין</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">אפשר סיבוב תמונות עם מחוות</string>
     <string name="file_loading_priority">עדיפות לטעינת קבצים</string>
     <string name="speed">מהירות</string>

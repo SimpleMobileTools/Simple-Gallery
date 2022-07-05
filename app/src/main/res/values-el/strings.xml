@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Επιτρέπει μεγέθυνση 1:1 με δύο διπλά χτυπήματα</string>
     <string name="open_videos_on_separate_screen">Να ανοίγονται πάντα τα βίντεο σε ξεχωριστή οθόνη με νέες οριζόντιες χειρονομίες</string>
     <string name="show_notch">Εμφάνιση μιας εγκοπής αν διατίθεται</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Επιτρέπει την περιστροφή εικόνων με χειρονομίες</string>
     <string name="file_loading_priority">Προτεραιότητα φόρτωσης αρχείου</string>
     <string name="speed">Ταχύτητα</string>

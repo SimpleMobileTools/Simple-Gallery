@@ -133,6 +133,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             attributes.screenBrightness = 1f
             window.attributes = attributes
         }
+        if (config.keepDisplayOn) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
 
         setupOrientation()
         invalidateOptionsMenu()

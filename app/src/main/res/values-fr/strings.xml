@@ -182,6 +182,7 @@
     <string name="allow_one_to_one_zoom">Permettre un zoom avant 1:1 par double appui</string>
     <string name="open_videos_on_separate_screen">Ouvrir les vidéos dans une application externe</string>
     <string name="show_notch">Afficher une encoche si disponible</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Pivoter les images par gestes</string>
     <string name="file_loading_priority">Priorité de chargement des fichiers</string>
     <string name="speed">Rapide</string>

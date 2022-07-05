@@ -31,6 +31,7 @@
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
     <string name="show_notch">Show a notch if available</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_common_title_yellowColor">Yellow</string>

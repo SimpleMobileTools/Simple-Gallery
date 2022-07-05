@@ -192,6 +192,7 @@
     <string name="allow_one_to_one_zoom">Permet el zoom 1:1 amb dos tocs dobles</string>
     <string name="open_videos_on_separate_screen">Obre sempre els vídeos en una pantalla separada amb gestos horitzontals nous</string>
     <string name="show_notch">Mostra una osca si està disponible</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Permet girar imatges amb gestos</string>
     <string name="file_loading_priority">Prioritat de càrrega de fitxers</string>
     <string name="speed">Velocitat</string>

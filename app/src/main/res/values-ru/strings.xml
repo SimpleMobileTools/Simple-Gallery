@@ -184,6 +184,7 @@
     <string name="allow_one_to_one_zoom">Масштабирование двумя двойными нажатиями</string>
     <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
     <string name="show_notch">Показывать метку при наличии</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Поворачивать изображения жестами</string>
     <string name="file_loading_priority">Приоритет загрузки файла</string>
     <string name="speed">Скорость</string>

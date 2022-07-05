@@ -190,6 +190,7 @@
     <string name="allow_one_to_one_zoom">İki çift dokunuşla 1:1 yakınlaştırmaya izin ver</string>
     <string name="open_videos_on_separate_screen">Videoları yeni yatay hareketlerle daima ayrı bir ekranda aç</string>
     <string name="show_notch">Varsa bir çentik göster</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Hareketlerle resimlerin döndürülmesine izin ver</string>
     <string name="file_loading_priority">Dosya yükleme önceliği</string>
     <string name="speed">Hız</string>

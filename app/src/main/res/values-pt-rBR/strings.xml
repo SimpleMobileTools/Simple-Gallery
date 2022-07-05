@@ -190,6 +190,7 @@
     <string name="allow_one_to_one_zoom">Habilitar zoom 1:1 com dois toques duplos</string>
     <string name="open_videos_on_separate_screen">Sempre abrir vídeos em uma tela separada com novos gestos horizontais</string>
     <string name="show_notch">Exibir o notch, se existente</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Habilitar rotação de imagens com gestos</string>
     <string name="file_loading_priority">Prioridade de carregamento de arquivos</string>
     <string name="speed">Velocidade</string>

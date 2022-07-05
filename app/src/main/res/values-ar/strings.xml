@@ -192,6 +192,7 @@
     <string name="allow_one_to_one_zoom">السماح بالتكبير 1:1 باستخدام النقر مزدوجاّ</string>
     <string name="open_videos_on_separate_screen">فتح مقاطع الفيديو دائماً على شاشة منفصلة مع إيماءات أفقية جديدة</string>
     <string name="show_notch">عرض النوتش إذا كان متوفر</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">السماح بتدوير الصور باستخدام الإيماءات</string>
     <string name="file_loading_priority">أولوية تحميل الملفات</string>
     <string name="speed">بسرعة</string>

@@ -188,6 +188,7 @@
     <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi naciśnięciami</string>
     <string name="open_videos_on_separate_screen">Zawsze otwieraj wideo na osobnym ekranie z innymi poziomymi gestami</string>
     <string name="show_notch">Pokazuj wycięcie ekranu, jeśli jest dostępne</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Zezwalaj na obracanie obrazów gestami</string>
     <string name="file_loading_priority">Priorytet ładowania plików</string>
     <string name="speed">Szybkość</string>

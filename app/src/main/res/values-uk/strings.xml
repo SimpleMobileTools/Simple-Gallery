@@ -184,6 +184,7 @@
     <string name="allow_one_to_one_zoom">Дозволити масштабування до 1:1 подвійним тапом</string>
     <string name="open_videos_on_separate_screen">Завжди відкривати відео на окремому екрані з новими горизонтальними жестами</string>
     <string name="show_notch">Показувати мітку, якщо доступна</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Дозволити обертання зображень жестами</string>
     <string name="file_loading_priority">Пріоритет завантаження файлів</string>
     <string name="speed">Швидкість</string>

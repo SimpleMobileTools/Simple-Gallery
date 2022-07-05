@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">ダブルタップして 1:1 ズームする</string>
     <string name="open_videos_on_separate_screen">常に新しい左右のジェスチャーで動画を開く</string>
     <string name="show_notch">利用可能なノッチを表示</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">ジェスチャーで画像を回転する</string>
     <string name="file_loading_priority">ファイルの優先ローディング</string>
     <string name="speed">スピード</string>

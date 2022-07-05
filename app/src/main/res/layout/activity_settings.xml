@@ -523,6 +523,22 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_keep_display_on_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_background">
+
+            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                android:id="@+id/settings_keep_display_on"
+                style="@style/SettingsCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/keep_display_on" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_screen_rotation_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"

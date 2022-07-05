@@ -184,6 +184,7 @@
     <string name="allow_one_to_one_zoom">Consenti l\'ingrandimento 1:1 con due doppi tocchi</string>
     <string name="open_videos_on_separate_screen">Apri sempre i video su uno schermo separato con i nuovi movimenti orizzontali</string>
     <string name="show_notch">Mostra un notch se disponibile</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Permetti la rotazione delle immagini con i gesti</string>
     <string name="file_loading_priority">Priorità di caricamento file</string>
     <string name="speed">Veloce</string>

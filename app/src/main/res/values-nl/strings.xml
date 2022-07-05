@@ -188,6 +188,7 @@
     <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
     <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
     <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Afbeeldingen met veeggebaren draaien</string>
     <string name="file_loading_priority">Prioriteit bij inladen bestanden</string>
     <string name="speed">Snelheid</string>

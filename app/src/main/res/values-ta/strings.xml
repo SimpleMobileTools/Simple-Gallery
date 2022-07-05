@@ -192,6 +192,7 @@
     <string name="allow_one_to_one_zoom">இரு இரட்டைத் தட்டுகளுடன் 1: 1 பெரிதாக்கத்தை அனுமதி</string>
     <string name="open_videos_on_separate_screen">புதிய கிடைமட்ட சைகைகளுடன் காணொளிகளை எப்போதும் தனித்திரையில் திற</string>
     <string name="show_notch">கிடைத்தால் பிளப்பைக் காட்டு</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">சைகைகளுடன் படங்களை சுழற்ற அனுமதி</string>
     <string name="file_loading_priority">கோப்பு ஏற்றுதல் முன்னுரிமை</string>
     <string name="speed">வேகம்</string>

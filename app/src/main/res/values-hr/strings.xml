@@ -192,6 +192,7 @@
     <string name="allow_one_to_one_zoom">Dozvloi zumiranje 1:1 s dva dvostruka dodira</string>
     <string name="open_videos_on_separate_screen">Uvijek otvaraj videa u zasebnom ekranu s novim vodoravnim pokretima</string>
     <string name="show_notch">Prikaži oznaku ako je dostupna</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Dozvoli okretanje slika pokretima</string>
     <string name="file_loading_priority">Prioritet učitavanja datoteka</string>
     <string name="speed">Brzina</string>

@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
     <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
     <string name="show_notch">Prikaži notch, če je na voljo</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Dovoli obračanje slik z gestami</string>
     <string name="file_loading_priority">Prioriteta pri nalaganju datotek</string>
     <string name="speed">Hitrost</string>

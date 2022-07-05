@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Cho phép phóng to 1:1 với hai lần nháy đúp</string>
     <string name="open_videos_on_separate_screen">Luôn mở video trên một màn hình riêng biệt bằng cử chỉ ngang mới</string>
     <string name="show_notch">Hiển thị màn hình chữ V nếu có</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Cho phép xoay hình ảnh bằng cử chỉ</string>
     <string name="file_loading_priority">Ưu tiên tải tệp</string>
     <string name="speed">Tốc độ</string>

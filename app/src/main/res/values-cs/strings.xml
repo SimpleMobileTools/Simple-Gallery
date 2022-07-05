@@ -183,6 +183,7 @@
     <string name="allow_one_to_one_zoom">Povolit přiblížení 1:1 dvojitým poklepáním</string>
     <string name="open_videos_on_separate_screen">Vždy otevírat videa na vlastní obrazovce s novými vodorovnými gesty</string>
     <string name="show_notch">Zobrazit výřez obrazovky pokud je dostupný</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Povolit otáčení obrázků gesty</string>
     <string name="file_loading_priority">Priorita načítání obrázků</string>
     <string name="speed">Rychlost</string>

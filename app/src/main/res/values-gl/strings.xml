@@ -182,6 +182,7 @@
     <string name="allow_one_to_one_zoom">Permitir ampliar a 1:1 con dous toques</string>
     <string name="open_videos_on_separate_screen">Abrir sempre os vídeos nunha pantalla diferente con novos xestos horizontais</string>
     <string name="show_notch">Mostrar unha marca se a houbese</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Permitir rotar unha imaxe con xestos</string>
     <string name="file_loading_priority">Prioridade de carga de ficheiro</string>
     <string name="speed">Velocidade</string>

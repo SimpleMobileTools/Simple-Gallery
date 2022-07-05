@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
     <string name="open_videos_on_separate_screen">Åbn altid videoer på en separat skærm med nye vandrette bevægelser</string>
     <string name="show_notch">Vis \"notch\" hvis tilgængelig</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Tillad rotering af billeder med bevægelser</string>
     <string name="file_loading_priority">Prioritering af filindlæsning</string>
     <string name="speed">Hastighed</string>

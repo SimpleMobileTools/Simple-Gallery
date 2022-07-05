@@ -182,6 +182,7 @@
     <string name="allow_one_to_one_zoom">Permite o mărire 1:1 cu două atingeri duble ale ecranului</string>
     <string name="open_videos_on_separate_screen">Deschide întotdeauna videoclipurile pe un ecran separat cu ajutorul noilor gesturi orizontale</string>
     <string name="show_notch">Afișează o crestătură, dacă este disponibilă</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Permite rotirea imaginilor cu ajutorul gesturilor</string>
     <string name="file_loading_priority">Prioritatea de încărcare a fișierelor</string>
     <string name="speed">Viteză</string>

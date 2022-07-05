@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Дозволи 1:1 зумирање са два дводупла притиска на екран</string>
     <string name="open_videos_on_separate_screen">Увек отварај видео снимке наз асебном екрану са новим хоризонталним гестикулацијама</string>
     <string name="show_notch">Прикажи исечак уколико је доступан</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Дозволи ротацију слика гестикулацијама</string>
     <string name="file_loading_priority">Приоритет приликом учитавања фајла</string>
     <string name="speed">Брзина</string>

@@ -192,6 +192,7 @@
     <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
     <string name="open_videos_on_separate_screen">在单独的页面播放视频（可以左右滑动屏幕来快进/快退）</string>
     <string name="show_notch">显示留海（如果可用）</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">允许使用手势旋转图像</string>
     <string name="file_loading_priority">文件加载优先级</string>
     <string name="speed">快速</string>

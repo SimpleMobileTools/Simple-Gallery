@@ -182,6 +182,7 @@
     <string name="allow_one_to_one_zoom">Izinkan zum 1:1 dengan dua kali ketuk</string>
     <string name="open_videos_on_separate_screen">Selalu buka video pada layar terpisah dengan gestur horizontal baru</string>
     <string name="show_notch">Tampilkan notch jika tersedia</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Izinkan memutar gambar dengan gestur</string>
     <string name="file_loading_priority">Prioritas pemuatan berkas</string>
     <string name="speed">Kecepatan</string>

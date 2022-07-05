@@ -168,6 +168,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(MAX_BRIGHTNESS, false)
         set(maxBrightness) = prefs.edit().putBoolean(MAX_BRIGHTNESS, maxBrightness).apply()
 
+    var keepDisplayOn: Boolean
+        get() = prefs.getBoolean(KEEP_DISPLAY_ON, false)
+        set(keepDisplayOn) = prefs.edit().putBoolean(KEEP_DISPLAY_ON, keepDisplayOn).apply()
+
     var cropThumbnails: Boolean
         get() = prefs.getBoolean(CROP_THUMBNAILS, true)
         set(cropThumbnails) = prefs.edit().putBoolean(CROP_THUMBNAILS, cropThumbnails).apply()

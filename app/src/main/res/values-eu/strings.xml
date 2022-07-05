@@ -191,6 +191,7 @@
     <string name="allow_one_to_one_zoom">Baimendu 1:1 zooma bi aldiz birritan ukitzean</string>
     <string name="open_videos_on_separate_screen">Ireki bideoak beste pantaila betean keinu horizontalekin</string>
     <string name="show_notch">Erakutsi koska bat erabilgarri badago</string>
+    <string name="keep_display_on">Keep display on when in full screen mode</string>
     <string name="allow_rotating_gestures">Baimendu irudiak keinuekin biratzea</string>
     <string name="file_loading_priority">Fitxategien kargatze-lehentasuna</string>
     <string name="speed">Abiadura</string>
