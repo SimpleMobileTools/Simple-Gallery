@@ -58,6 +58,7 @@ import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
+import kotlin.math.min
 
 @Suppress("UNCHECKED_CAST")
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -157,7 +158,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (config.isThirdPartyIntent) {
             config.isThirdPartyIntent = false
 
-            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+            if (intent.extras == null || isExternalIntent()) {
                 mMediaFiles.clear()
             }
         }
@@ -1260,7 +1261,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (refetchViewPagerPosition || mPos == -1) {
             mPos = getPositionInList(media)
             if (mPos == -1) {
-                Math.min(mPos, media.size - 1)
+                min(mPos, media.size - 1)
             }
         }
 
@@ -1414,7 +1415,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return if (getCurrentMedia().isEmpty() || mPos == -1) {
             null
         } else {
-            getCurrentMedia()[Math.min(mPos, getCurrentMedia().size - 1)]
+            getCurrentMedia()[min(mPos, getCurrentMedia().size - 1)]
         }
     }
 
