@@ -364,67 +364,6 @@
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">簡易相簿 Pro - 相片管理&amp;編輯器</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">用以管理您的相片、影片、GIF 的無廣告優質 APP！</string>
-    <string name="app_long_description">
-        簡易相簿 Pro 是一個高度自訂化的離線相簿。功能包含整理和編輯照片、從回收桶恢復刪除的檔案、保護及隱藏檔案、以及檢視大量的照片&amp;影片格式，包含 RAW、SVG 及更多格式。
-
-        這款應用程式沒有廣告和非必要的權限。並且由於不需要網路連線，您的隱私將受到保護。
-
-        -------------------------------------------------
-        <b>簡易相簿 PRO – 特色</b>
-        -------------------------------------------------
-
-        • 沒有廣告和彈出畫面的離線相簿
-        • 簡易相簿編輯器 – 裁剪、旋轉、縮放、繪畫、濾鏡等更多功能
-        • 不需要網路連線，給您更多隱私及安全
-        • 不會要求非必要的權限
-        • 快速搜尋圖片、影片和檔案
-        • 開啟&amp;檢視多種不同的照片和影片類型（RAW、SVG、全景……）
-        • 多種直觀的手勢，以便於編輯和整理檔案
-        • 大量方法來篩選、歸類和排序檔案
-        • 可自訂簡易相簿 Pro 的外觀
-        • 支援 32 種語言
-        • 可將檔案標記為我的最愛，以快速存取
-        • 以圖形、PIN碼或指紋來保護您的照片&amp;影片
-        • 也能以圖形、PIN碼或指紋來保護應用程式開啟或特定功能
-        • 從回收桶恢復刪除的照片&amp;影片
-        • 切換檔案的可見度來隱藏照片&amp;影片
-        • 用您的檔案建立可自訂的投影片
-        • 檢視檔案的詳細資訊（解析度、EXIF值等）
-        • 簡易相簿 Pro 是開源的
-        ……還有多更多！
-		
-        <b>照片相簿編輯器</b>
-        簡易相簿 Pro 使編輯圖片變得非常輕鬆。輕鬆裁剪、翻轉、旋轉、縮放您的圖片。如果您想更有創意一點，可以直接在圖片上加上濾鏡和繪畫！
-
-        <b>支援多種檔案類型</b>
-        不同於其他相簿瀏覽器和照片整理器，簡易相簿 Pro 支援大量不同的檔案類型，包含 JPEG、PNG、MP4、MKV、RAW、SVG、全景照片、全景影片及更多類型。
-
-        <b>高度自訂化的相簿管理</b>
-        從 UI 到底部工具列的功能按鈕，簡易相簿 Pro 是高度自訂化的，任您隨心所欲的方式操作。沒有其他相簿管理器有這樣的靈活性。歸功於開源，我們也支援 32 種語言！
-
-        <b>恢復刪除的照片&amp;影片</b>
-        不小心刪除掉珍貴的照片或影片？別擔心！簡易相簿 Pro 標榜有便利的回收桶，您可以利用其輕鬆恢復照片&amp;影片。
-
-        <b>保護&amp;隱藏照片、影片和檔案</b>
-        使用 PIN 碼、圖形或裝置的指紋掃描器來保護及隱藏照片、影片及整個相簿。您可以保護應用程式本身或者對程式的特定功能上鎖。例如：您無法未經指紋掃描就刪除檔案，有助於防止檔案遭意外刪除。
-
-        <b>於此查看全套簡易工具系列：</b>
-        https://www.simplemobiletools.com
-
-        <b>簡易相簿 Pro 的獨立網站:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook：</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit：</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

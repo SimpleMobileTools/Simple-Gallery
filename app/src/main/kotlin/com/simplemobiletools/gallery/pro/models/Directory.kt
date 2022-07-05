@@ -34,6 +34,7 @@ data class Directory(
         sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context, dateFormat, timeFormat)
+        sorting and SORT_BY_RANDOM != 0 -> name
         else -> taken.formatDate(context)
     }
 

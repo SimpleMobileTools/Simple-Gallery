@@ -56,9 +56,9 @@ class ChangeSortingDialog(
             view.sorting_dialog_numeric_sorting.beVisibleIf(isSortingByNameOrPath)
             view.use_for_this_folder_divider.beVisibleIf(view.sorting_dialog_numeric_sorting.isVisible() || view.sorting_dialog_use_for_this_folder.isVisible())
 
-            val isCustomSorting = checkedId == sortingRadio.sorting_dialog_radio_custom.id
-            view.sorting_dialog_radio_order.beGoneIf(isCustomSorting)
-            view.sorting_dialog_order_divider.beGoneIf(isCustomSorting)
+            val hideSortOrder = checkedId == sortingRadio.sorting_dialog_radio_custom.id || checkedId == sortingRadio.sorting_dialog_radio_random.id
+            view.sorting_dialog_radio_order.beGoneIf(hideSortOrder)
+            view.sorting_dialog_order_divider.beGoneIf(hideSortOrder)
         }
 
         val sortBtn = when {

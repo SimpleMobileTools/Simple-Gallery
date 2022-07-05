@@ -368,67 +368,6 @@
     <string name="faq_17_text">Dit werkt ook niet meer sinds de aanpassingen in Android 11: deze app mag niet meer door de mappen op het apparaat navigeren, maar is voortaan afhankelijk van de MediaStore van Android bij het ophalen van bestandsgegevens.</string>
     <string name="faq_18_title">Waarom zie ik advertenties bij het afspelen van video\'s\?</string>
     <string name="faq_18_text">Onze apps bevatten geen advertenties. Indien er wél advertenties verschijnen bij video\'s, dan kan dat alleen vanuit een andere app zijn. Probeer uit te vinden welke app als standaard-videospeler is ingesteld, zoek de app in de systeeminstellingen op en klik op \"Standaardwaarden wissen\". Kies de volgende keer bij het afspelen van een video welke app er gebruikt moet worden.</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Navigeer met deze galerij zonder afleidingen door al je herinneringen</string>
-    <string name="app_long_description">
-        Eenvoudige Galerij Pro is een volledig aan te passen offline galerij. Organiseer &amp; bewerk foto’s, herstel verwijderde bestanden met de prullenbakfunctie, beveilig &amp; verberg items en bekijk een enorme hoeveelheid aan foto- &amp; videoformaten, waaronder RAW, SVG en nog veel meer.
-
-        Deze privacyvriendelijke app bevat geen advertenties of onnodige machtigingen (zoals verbinden met het internet).
-
-        -------------------------------------------------
-        <b>EENVOUDIGE GALERIJ PRO – FUNCTIES</b>
-        -------------------------------------------------
-
-        ✔️ Offline galerij zonder advertenties en pop-ups
-        ✔️ Fotobewerking: bijsnijden, spiegelen, roteren, grootte aanpassen, tekenen, filters &amp; meer
-        ✔️ Geen internetverbinding benodigd voor meer privacy &amp; veiligheid
-        ✔️ Geen onnodige machtigingen vereist
-        ✔️ Beschikbaar in 32 talen
-        ✔️ Eenvoudige Galerij Pro is open-source
-        ✔️ Zoek snel naar afbeeldingen, video’s &amp; bestanden
-        ✔️ Open &amp; bekijk vele foto- &amp; videoformaten (RAW, SVG, panorama etc.)
-        ✔️ Gebruik veeggebaren om bestanden snel te bewerken en te organiseren
-        ✔️ Kies uit een verscheidenheid aan manieren om bestanden te filteren, groeperen en sorteren
-        ✔️ Pas het uiterlijk van Eenvoudige Galerij Pro aan
-        ✔️ Markeer bestanden als favoriet om ze snel terug te vinden
-        ✔️ Beveilig items met een patroon, pincode or vingerafdruk
-        ✔️ Gebruik pincode, patroon &amp; vingerafdruk om specifieke functies of het starten van de app te beveiligen
-        ✔️ Herstel verwijderde bestanden uit de prullenbak
-        ✔️ Toon of verberg foto’s &amp; video’s
-        ✔️ Creëer diavoorstellingen
-        ✔️ Bekijk gedetailleerde informatie over de bestanden (resolutie, EXIF-waarden etc.)
-        … en nog veel meer!
-
-        <b>FOTO’S BEWERKEN</b>
-        Eenvoudige Galerij Pro maakt het gemakkelijk om direct afbeeldingen te bewerken. Ga aan de slag met bijsnijden, spiegelen, roteren en de grootte aanpassen, of voeg filters toe en teken over de afbeelding heen!
-
-        <b>ONDERSTEUNING VOOR VEEL VERSCHILLENDE BESTANDSFORMATEN</b>
-        Eenvoudige Galerij Pro ondersteunt, in tegenstelling tot sommige andere galerij-apps, een enorme hoeveelheid aan bestandsformaten, waaronder JPEG, PNG, MP4, MKV, RAW, SVG, Panorama-foto’s &amp; -videos en nog veel meer.
-
-        <b>ALLES IS AAN TE PASSEN</b>
-        Van de interface tot de knoppen op de werkbalk, Eenvoudige Galerij Pro is geheel aan te passen en kan dan ook werken naar ieders voorkeur. Geen enkele andere galerij-app bevat zulke flexibiliteit! Dankzij het open karakter en de community is de app maar liefst in 32 talen beschikbaar!
-
-        <b>HERSTEL VERWIJDERDE FOTO’S &amp; VIDEO’S</b>
-        Per ongeluk een foto of video verwijderd? Geen paniek! Eenvoudige Galerij Pro heeft een handige prullenbak waarmee verwijderde bestanden gemakkelijk zijn terug te halen.
-
-        <b>BEVEILIG &amp; VERBERG FOTO’S, VIDEO’S &amp; BESTANDEN</b>
-        Door middel van een pincode, patroon of een vingerafdruk zijn foto’s, video’s &amp; gehele albums te beveiligen of te verbergen. Ook de gehele app of specifieke functies binnen de galerij zijn zo te beveiligen. Voorbeeld: stel in dat bestanden alleen kunnen worden verwijderd na een vingerafdrukscan.
-
-        <b>Kijk ook eens naar de hele collectie apps van Simple Tools:</b>
-        https://www.simplemobiletools.com
-
-        <b>Website van Simple Gallery Pro:</b>
-        https://www.simplemobiletools.com/gallery
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
