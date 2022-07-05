@@ -1229,8 +1229,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun refreshViewPager(refetchPosition: Boolean = false) {
-        val isSortingRandom = config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0
-        if (!isSortingRandom || isExternalIntent()) {
+        val isNotRandomSorting = config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0
+        if (isNotRandomSorting || isExternalIntent()) {
             GetMediaAsynctask(applicationContext, mDirectory, isPickImage = false, isPickVideo = false, showAll = mShowAll) {
                 gotMedia(it, refetchViewPagerPosition = refetchPosition)
             }.execute()
