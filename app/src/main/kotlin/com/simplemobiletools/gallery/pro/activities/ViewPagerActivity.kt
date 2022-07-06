@@ -58,6 +58,7 @@ import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.OutputStream
+import kotlin.math.min
 
 @Suppress("UNCHECKED_CAST")
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -95,7 +96,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         window.decorView.setBackgroundColor(getProperBackgroundColor())
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         checkNotchSupport()
-        (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
+        (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filterIsInstanceTo(mMediaFiles, Medium::class.java)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -157,7 +158,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (config.isThirdPartyIntent) {
             config.isThirdPartyIntent = false
 
-            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+            if (intent.extras == null || isExternalIntent()) {
                 mMediaFiles.clear()
             }
         }
@@ -1228,7 +1229,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun refreshViewPager(refetchPosition: Boolean = false) {
-        if (config.getFolderSorting(mDirectory) and SORT_BY_RANDOM == 0) {
+        val isRandomSorting = config.getFolderSorting(mDirectory) and SORT_BY_RANDOM != 0
+        if (!isRandomSorting || isExternalIntent()) {
             GetMediaAsynctask(applicationContext, mDirectory, isPickImage = false, isPickVideo = false, showAll = mShowAll) {
                 gotMedia(it, refetchViewPagerPosition = refetchPosition)
             }.execute()
@@ -1244,7 +1246,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (!ignorePlayingVideos && (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true) {
+        val isPlaying = (getCurrentFragment() as? VideoFragment)?.mIsPlaying == true
+        if (!ignorePlayingVideos && isPlaying && !isExternalIntent()) {
             return
         }
 
@@ -1258,7 +1261,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (refetchViewPagerPosition || mPos == -1) {
             mPos = getPositionInList(media)
             if (mPos == -1) {
-                Math.min(mPos, media.size - 1)
+                min(mPos, media.size - 1)
             }
         }
 
@@ -1412,7 +1415,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return if (getCurrentMedia().isEmpty() || mPos == -1) {
             null
         } else {
-            getCurrentMedia()[Math.min(mPos, getCurrentMedia().size - 1)]
+            getCurrentMedia()[min(mPos, getCurrentMedia().size - 1)]
         }
     }
 
@@ -1435,5 +1438,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (state == ViewPager.SCROLL_STATE_IDLE && getCurrentMedium() != null) {
             checkOrientation()
         }
+    }
+
+    private fun isExternalIntent(): Boolean {
+        return !intent.getBooleanExtra(IS_FROM_GALLERY, false)
     }
 }
