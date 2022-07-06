@@ -828,6 +828,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     putExtra(SHOW_ALL, mShowAll)
                     putExtra(SHOW_FAVORITES, mPath == FAVORITES)
                     putExtra(SHOW_RECYCLE_BIN, mPath == RECYCLE_BIN)
+                    putExtra(IS_FROM_GALLERY, true)
                     startActivity(this)
                 }
             }
