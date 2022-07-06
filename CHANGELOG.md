@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.23.13 *(2022-07-06)*
+----------------------------
+
+ * Fixed swiping fullscreen media from videos
+ * Added some stability, translation and UX improvements
+
 Version 6.23.12 *(2022-06-23)*
 ----------------------------
 
