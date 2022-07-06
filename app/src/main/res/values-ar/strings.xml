@@ -41,6 +41,7 @@
     <string name="reorder_by_dragging">إعادة ترتيب المجلدات عن طريق السحب</string>
     <string name="reorder_by_dragging_pro">إعادة ترتيب المجلدات عن طريق السحب (Pro)</string>
     <string name="restore_to_path">الاستعادة إلى \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">فلترة الوسائط</string>
     <string name="images">الصور</string>

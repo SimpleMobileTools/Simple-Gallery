@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>

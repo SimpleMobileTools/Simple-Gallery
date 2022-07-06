@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">Αναδιάταξη φακέλων με μεταφορά</string>
     <string name="reorder_by_dragging_pro">Αναδιάταξη φακέλων με μεταφορά (Pro)</string>
     <string name="restore_to_path">Επαναφορά σε \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>

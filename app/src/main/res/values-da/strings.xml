@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">Omorganiser mapper ved at trække</string>
     <string name="reorder_by_dragging_pro">Omorganiser mapper ved at trække (Pro)</string>
     <string name="restore_to_path">Gendanner til \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer medier</string>

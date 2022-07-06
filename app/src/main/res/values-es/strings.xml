@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">Reordenar carpetas arrastrándolas</string>
     <string name="reorder_by_dragging_pro">Reordenar carpetas arrastrándolas (Pro)</string>
     <string name="restore_to_path">Restaurando a \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
     <string name="images">Imágenes</string>

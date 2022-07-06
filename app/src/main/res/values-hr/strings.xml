@@ -41,6 +41,7 @@
     <string name="reorder_by_dragging">Promijeni redoslijed mapa povlačenjem</string>
     <string name="reorder_by_dragging_pro">Promijeni redoslijed mapa povlačenjem (Pro)</string>
     <string name="restore_to_path">Obnavlja se u „%s”</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Filtar medija</string>
     <string name="images">Slike</string>

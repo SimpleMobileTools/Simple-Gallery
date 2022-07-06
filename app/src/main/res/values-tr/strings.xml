@@ -41,6 +41,7 @@
     <string name="reorder_by_dragging">Sürükleyerek klasörleri yeniden sırala</string>
     <string name="reorder_by_dragging_pro">Sürükleyerek klasörleri yeniden sırala (Pro)</string>
     <string name="restore_to_path">\'%s\' konumuna geri yükle</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
     <string name="images">Resimler</string>

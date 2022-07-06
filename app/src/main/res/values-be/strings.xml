@@ -82,6 +82,7 @@
     <string name="show_on_map">Show on map</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
     <string name="filter_media">Filter media</string>
     <string name="images">Images</string>
     <string name="exclude_folder_parent">Exclude a parent instead\?</string>

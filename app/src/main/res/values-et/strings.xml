@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">Muuda kaustade järjekorda lohistades</string>
     <string name="reorder_by_dragging_pro">Muuda kaustade järjekorda lohistades (Pro)</string>
     <string name="restore_to_path">Taastame kausta „%s“</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
     <string name="images">Pildid</string>

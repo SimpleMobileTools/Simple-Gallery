@@ -41,6 +41,7 @@
     <string name="reorder_by_dragging">Järjestä kansiot uudelleen vetämällä</string>
     <string name="reorder_by_dragging_pro">Järjestä kansiot uudelleen vetämällä (Pro)</string>
     <string name="restore_to_path">Palautetaan kohteeseen \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>
     <string name="images">Kuvat</string>

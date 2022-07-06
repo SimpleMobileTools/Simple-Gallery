@@ -41,6 +41,7 @@
     <string name="reorder_by_dragging">Neuordnung von Ordnern durch Ziehen</string>
     <string name="reorder_by_dragging_pro">Neuordnung von Ordnern durch Ziehen (Pro)</string>
     <string name="restore_to_path">Wiederherstellung nach „%s“</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">Medien filtern</string>
     <string name="images">Bilder</string>

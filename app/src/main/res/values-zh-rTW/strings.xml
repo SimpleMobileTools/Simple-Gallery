@@ -35,6 +35,7 @@
     <string name="reorder_by_dragging">透過拖曳來重新排序資料夾</string>
     <string name="reorder_by_dragging_pro">透過拖曳來重新排序資料夾 (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="replace_original_file">Replace original file</string>
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
     <string name="images">圖片</string>
