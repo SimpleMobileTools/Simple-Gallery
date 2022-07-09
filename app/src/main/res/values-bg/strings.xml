@@ -50,9 +50,9 @@
     <string name="exclude">Изключение</string>
     <string name="excluded_folders">Изключени папки</string>
     <string name="manage_excluded_folders">Управление на изключените папки</string>
-    <string name="exclude_folder_description">Това ще изключи селекцията заедно с вътрешните ѝ папки само от Обикновена галерия. Можете да управлявате изключените папки в Настройки.</string>
+    <string name="exclude_folder_description">Това ще изключи селекцията заедно с вътрешните ѝ папки само от Обикновена Галерия. Можете да управлявате изключените папки в Настройки.</string>
     <string name="exclude_folder_parent">Вместо това, изключване на папката от горното ниво\?</string>
-    <string name="excluded_activity_placeholder">Изключването на папките ще ги скрие, заедно с вътрешните им папки, само в Обикновена галерия; те ще бъдат видими в други приложения.
+    <string name="excluded_activity_placeholder">Изключването на папките ще ги скрие, заедно с вътрешните им папки, само в Обикновена Галерия; те ще бъдат видими в други приложения.
 \n
 \nАко искате да ги скриете също и от други приложения, използвайте функцията Скриване.</string>
     <string name="remove_all">Премахване на всички</string>
@@ -104,7 +104,7 @@
     <string name="other_aspect_ratio">Друго</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Обикновен тапет</string>
+    <string name="simple_wallpaper">Обикновен Тапет</string>
     <string name="set_as_wallpaper">Задаване като тапет</string>
     <string name="set_as_wallpaper_failed">Неуспешно задаване като тапет</string>
     <string name="set_as_wallpaper_with">Задаване като тапет с:</string>
@@ -328,7 +328,7 @@
     <string name="pesdk_common_title_aquamarinColor">Аквамарин</string>
     <string name="pesdk_common_title_pipettableColor">Цвят от пипетиране</string>
     <string name="vesdk_video_trim_title_name">Изрязване</string>
-    <string name="faq_1_title">Как мога да задам Обикновена галерия да бъде основната галерия на устройството\?</string>
+    <string name="faq_1_title">Как мога да задам Обикновена Галерия да бъде основната галерия на устройството\?</string>
     <string name="faq_2_title">Заключих програмата с парола, но я забравих. Какво мога да направя\?</string>
     <string name="faq_2_text">Можете да разрешите проблема по два начина. Можете или да преинсталирате програмата, или да намерите програмата в настройките на вашето устройство и да изберете \"Изчистване на данните\". Това ще нулира всички ваши настройки, няма да изтрие никакви медийни файлове.</string>
     <string name="faq_4_title">Как мога да превъртя напред видео\?</string>
