@@ -163,7 +163,7 @@
     <string name="by_extension">Пашырэнне</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
-    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="folder_on_widget">Папка, якая адлюстроўваецца ў віджэце:</string>
     <string name="show_media_count">Show folder media count on the main view</string>
     <string name="by_last_modified">Last modified</string>
     <string name="by_last_modified_daily">Last modified (daily)</string>
