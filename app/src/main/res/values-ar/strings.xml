@@ -221,7 +221,7 @@
     <string name="bottom_actions"> إجراءات الأزرار السفلية</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">إدارة إجراءات الأزرار المرئية</string>
-    <string name="toggle_favorite">تبديل المفضل</string>
+    <string name="toggle_favorite">تبديل المفضلة</string>
     <string name="toggle_file_visibility">تبديل رؤية الملف</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">مخصص</string>
