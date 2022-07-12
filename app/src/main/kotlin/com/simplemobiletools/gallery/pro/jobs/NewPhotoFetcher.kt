@@ -15,10 +15,13 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.provider.MediaStore.Video
+import androidx.exifinterface.media.ExifInterface
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
+import com.simplemobiletools.commons.extensions.removeValues
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
+import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 
 // based on https://developer.android.com/reference/android/app/job/JobInfo.Builder.html#addTriggerContentUri(android.app.job.JobInfo.TriggerContentUri)
@@ -90,7 +93,14 @@ class NewPhotoFetcher : JobService() {
                         uris.forEach {
                             cursor = contentResolver.query(it, projection, selection.toString(), null, null)
                             while (cursor!!.moveToNext()) {
+
                                 val path = cursor!!.getStringValue(Images.ImageColumns.DATA)
+                                if (applicationContext.config.autoDeleteExif) {
+                                    try {
+                                        ExifInterface(path).removeValues()
+                                    } catch (e: Exception) {
+                                    }
+                                }
                                 affectedFolderPaths.add(path.getParentPath())
                                 addPathToDB(path)
                             }

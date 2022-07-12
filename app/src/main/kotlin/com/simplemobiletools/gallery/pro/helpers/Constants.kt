@@ -94,6 +94,7 @@ const val LIMIT_FOLDER_TITLE = "folder_limit_title"
 const val THUMBNAIL_SPACING = "thumbnail_spacing"
 const val FILE_ROUNDED_CORNERS = "file_rounded_corners"
 const val CUSTOM_FOLDERS_ORDER = "custom_folders_order"
+const val AUTO_DELETE_EXIF = "auto_delete_exif"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

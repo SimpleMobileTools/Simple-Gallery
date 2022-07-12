@@ -536,4 +536,8 @@ class Config(context: Context) : BaseConfig(context) {
     var customFoldersOrder: String
         get() = prefs.getString(CUSTOM_FOLDERS_ORDER, "")!!
         set(customFoldersOrder) = prefs.edit().putString(CUSTOM_FOLDERS_ORDER, customFoldersOrder).apply()
+
+    var autoDeleteExif: Boolean
+        get() = prefs.getBoolean(AUTO_DELETE_EXIF, false)
+        set(autoDeleteExif) = prefs.edit().putBoolean(AUTO_DELETE_EXIF, autoDeleteExif).apply()
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.Menu
+import androidx.appcompat.app.AlertDialog
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.*
@@ -12,6 +13,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.asynctasks.DeleteExifDataAsyncTask
 import com.simplemobiletools.gallery.pro.dialogs.ChangeFileThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
@@ -78,6 +80,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowInstantChange()
         setupShowExtendedDetails()
         setupHideExtendedDetails()
+        setupAutoDeleteExifData()
         setupManageExtendedDetails()
         setupSkipDeleteConfirmation()
         setupManageBottomActions()
@@ -566,6 +569,27 @@ class SettingsActivity : SimpleActivity() {
                 if (config.extendedDetails == 0) {
                     settings_show_extended_details_holder.callOnClick()
                 }
+            }
+        }
+    }
+
+    private fun setupAutoDeleteExifData() {
+        settings_exif_deletion.isChecked = config.autoDeleteExif
+        settings_exif_deletion_holder.setOnClickListener {
+            settings_exif_deletion.toggle()
+
+            if (settings_exif_deletion.isChecked) {
+                AlertDialog.Builder(this)
+                    .setMessage(R.string.exif_deletion_confirm)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        config.autoDeleteExif = true
+                        DeleteExifDataAsyncTask(this).execute()
+                    }
+                    .setNegativeButton(R.string.cancel) { _, _ ->
+                        config.autoDeleteExif = false
+                        settings_exif_deletion.isChecked = false
+                    }
+                    .show()
             }
         }
     }

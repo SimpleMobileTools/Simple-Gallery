@@ -769,6 +769,22 @@
                     android:text="@string/password_protect_file_deletion" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_exif_deletion_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_exif_deletion"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exif_deletion" />
+
+            </RelativeLayout>
         </LinearLayout>
 
         <TextView
