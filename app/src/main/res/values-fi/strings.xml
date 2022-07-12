@@ -367,7 +367,7 @@
     <string name="faq_16_title">Mitä taphtui tiedostojen ja kansioiden piilotukselle ja miksi en nää enää piilotettuja kohteita\?</string>
     <string name="faq_16_text">Android 11:stä alkaen ei voi enää piilottaa tai poistaa piilotettuja tiedostoja tai kansioita, eikä näe piilotettuja tiedostoja tai kansioita galleriasovelluksissa järjestelmän rajoitusten vuoksi. On käytettävä jotain tiedostonhallintaohjelmaa siihen.</string>
     <string name="faq_17_title">Miksi en voi enää sisällyttää puuttuvia kansioita\?</string>
-    <string name="faq_17_text">Se lakkasi toimimasta Android 11:n mukana tulleiden järjestelmämuutosten vuoksi, sovellus ei voi enää selata oikeita kansioita, vaan se luottaa niin sanottuun MediaStoreen tietojen hakemisessa.</string>
+    <string name="faq_17_text">Se lakkasi toimimasta Android 11:n mukana tulleiden järjestelmämuutosten vuoksi. Sovellus ei voi enää selata oikeita kansioita, vaan se luottaa niin sanottuun MediaStoreen tietojen hakemisessa.</string>
     <string name="faq_18_title">Miksi näen mainoksia videon toiston aikana\?</string>
     <string name="faq_18_text">Sovelluksissamme ei ole lainkaan mainoksia. Jos näet niitä videon toiston aikana, sinun täytyy käyttää jotain muuta sovellusta videosoittimena. Yritä etsiä oletusarvoinen videosoittimesi laitteen asetuksista ja tee sitten ”Tyhjenä oletusasetukset” sille. Seuraavan kerran, kun kutsut jonkin videon aikomuksen, näet sovelluksen valintakehotuksen, jossa voit valita, mitä sovellusta haluat käyttää.</string>
     <!--
