@@ -28,25 +28,29 @@
     <string name="dates_fixed_successfully">Η Ημερ. διορθώθηκε με επιτυχία</string>
     <string name="no_date_takens_found">Δεν βρέθηκαν Τιμές Ημερομηνίας όταν ελήφθησαν</string>
     <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
-    <string name="upgraded_from_free">Γειά σας,\n\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, απο το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.\n\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.\n\nΣας ευχαριστώ!</string>
+    <string name="upgraded_from_free">Γεια σας,
+\n
+\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, από το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.
+\n
+\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.
+\n
+\nΣας ευχαριστώ!</string>
     <string name="switch_to_file_search">Εναλλαγή αναζήτησης αρχείων σε όλους τους ορατούς φακέλους</string>
     <string name="set_as_default_folder">Ορισμός ως προεπιλεγμένου φακέλου</string>
     <string name="unset_as_default_folder">Κατάργηση ως προεπιλεγμένου φακέλου</string>
     <string name="reorder_by_dragging">Αναδιάταξη φακέλων με μεταφορά</string>
     <string name="reorder_by_dragging_pro">Αναδιάταξη φακέλων με μεταφορά (Pro)</string>
     <string name="restore_to_path">Επαναφορά σε \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
     <string name="images">Εικόνες</string>
     <string name="videos">Βίντεο</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">GIF</string>
     <string name="raw_images">RAW Εικόνες</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Πορτραίτα</string>
     <string name="no_media_with_filters">Δεν βρέθηκε κανένα αρχείο πολυμέσων με τα επιλεγμένα φίλτρα.</string>
     <string name="change_filters_underlined"><u>Αλλαγή φίλτρων</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Αυτή η λειτουργία κρύβει τον φάκελο προσθέτοντας ένα \".nomedia\" αρχείο μέσα του, θα κρύψει και όλους τους υποφακέλους επίσης. Μπορείτε να τους δείτε με την επιλογή του \'Εμφάνιση κρυφών δεδομένων\' στις Ρυθμίσεις. Συνέχεια?</string>
     <string name="exclude">Εξαίρεση</string>
@@ -62,14 +66,12 @@
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
     <string name="temporarily_show_excluded">Προσωρινή εμφάνιση αποκλεισμένων</string>
     <string name="stop_showing_excluded">Παύση εμφάνισης αποκλεισμένων</string>
-
     <!-- Include folders -->
     <string name="include_folders">Συμπεριλαμβανόμενοι Φάκελοι</string>
     <string name="manage_included_folders">Διαχείριση συμπεριλαμβανόμενων Φακέλων</string>
     <string name="add_folder">Προσθήκη φακέλου</string>
     <string name="included_activity_placeholder">Αν υπάρχουν κάποιοι φάκελοι που περιέχουν πολυμέσα, αλλά δεν αναγνωρίζονται από την εφαρμογή,  μπορείτε να τους προσθέσετε χειροκίνητα εδώ.\n\nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
     <string name="no_media_add_included">Δεν βρέθηκαν αρχεία πολυμέσων. Μπορεί να λυθεί αυτό, προσθέτοντας τους φακέλους που περιέχουν αρχεία πολυμέσων με μη αυτόματο τρόπο.</string>
-
     <!-- Resizing -->
     <string name="resize">Αλλαγή μεγέθους</string>
     <string name="resize_and_save">Αλλαγή μεγέθους και αποθήκευση</string>
@@ -77,7 +79,6 @@
     <string name="height">Ύψος</string>
     <string name="keep_aspect_ratio">Διατήρηση αναλογίας</string>
     <string name="invalid_values">Παρακαλώ εισάγετε σωστή ανάλυση</string>
-
     <!-- Editor -->
     <string name="editor">Επεξεργαστής</string>
     <string name="rotate">Περιστροφή</string>
@@ -102,15 +103,16 @@
     <string name="flip">Περιστροφή</string>
     <string name="flip_horizontally">Οριζόντια περιστροφή</string>
     <string name="flip_vertically">Κατακόρυφη περιστροφή</string>
-    <string name="free_aspect_ratio">Προσαρμογή</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Προσαρμογή</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Άλλο</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Απλή Συλλογή</string>
     <string name="set_as_wallpaper">Εφαρμογή ως ταπετσαρία</string>
     <string name="set_as_wallpaper_failed">Η εφαρμογή ως ταπετσαρία απέτυχε</string>
     <string name="set_as_wallpaper_with">Εφαρμογή ως ταπετσαρία με:</string>
-    <string name="setting_wallpaper">Η ταπετσαρία εφαρμόζεται...</string>
+    <string name="setting_wallpaper">Εφαρμογή ταπετσαρίας…</string>
     <string name="wallpaper_set_successfully">Η ταπετσαρία εφαρμόστηκε</string>
     <string name="portrait_aspect_ratio">Αναλογία κατακόρυφης προβολής</string>
     <string name="landscape_aspect_ratio">Αναλογία οριζόντιας προβολής</string>
@@ -118,7 +120,6 @@
     <string name="lock_screen">Οθόνη κλειδώματος</string>
     <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
     <string name="allow_changing_aspect_ratio">Επιτρέπει την αλλαγή Αναλογίας Διαστάσεων</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Παρουσίαση διαφανιών</string>
     <string name="interval">Χρόνος επανάληψης (δευτ.) :</string>
@@ -134,10 +135,8 @@
     <string name="slide">Ολίσθηση</string>
     <string name="slideshow_ended">Τέλος εμφάνισης διαφανειών</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Ομαδοποίηση υποφακέλων</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Ομαδοποίηση κατά</string>
     <string name="do_not_group_files">Χωρίς</string>
@@ -152,11 +151,9 @@
     <string name="by_extension">Επέκταση</string>
     <string name="show_file_count_section_header">Εμφάνιση αριθμού αρχείων στις επικεφαλίδες τμημάτων</string>
     <string name="grouping_and_sorting">Σημειώστε ότι ομαδοποίηση και ταξινόμηση είναι 2 ανεξάρτητα πεδία</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Εμφάνιση φακέλου στο widget:</string>
     <string name="show_folder_name">Εμφάνιση ονόματος φακέλου</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
     <string name="remember_last_video_position">Απομνημόνευση τελευταίας θέσης αναπαραγωγής βίντεο</string>
@@ -213,18 +210,15 @@
     <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
     <string name="media_management_manual">Κάτι πήγε λάθος, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
     <string name="media_management_note">Αν η ανακατεύθυνση δεν λειτουργεί, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
     <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
     <string name="extended_details">Περισσότερες λεπτομέρειες</string>
     <string name="bottom_actions">Λειτουργίες στο κάτω μέρος</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Διαχείρηση εμφάνισης λειτουργιών</string>
     <string name="toggle_favorite">Εναλλαγή αγαπημένων</string>
     <string name="toggle_file_visibility">Εναλλαγή προβολής αρχείου</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Προσαρμογή</string>
     <string name="pesdk_transform_button_resetCrop">Επαναφορά</string>
@@ -338,7 +332,6 @@
     <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
     <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
     <string name="vesdk_video_trim_title_name">Κόψιμο</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
     <string name="faq_1_text">Αρχικά πρέπει να βρείτε την τρέχουσα προεπιλεγμένη εφαρμογή γκάλερι στις Ρυθμίσεις (τμήμα Εφαρμογών) της συσκευής. Αναζητήστε για ένα κουμπί που αναφέρει κάτι σαν \"Άνοιγμα με προεπιλογή\", πατήστε το, μετά επιλέξτε \"Καθαρισμός προεπιλεγμένων\".
@@ -354,9 +347,9 @@
     <string name="faq_6_title">Γιατί εμφανίζονται φάκελοι με εξώφυλλο μουσικής ή αυτόκολλητα;</string>
     <string name="faq_6_text">Είναι πιθανόν να δείτε κάποια περίεργα άλμπουμ να εμφανίζονται. Μπορείτε να τα εξαιρέσετε εύκολα με παρατεταμένο άγγιγμα και επιλογή του Εξαίρεση. Στον επόμενο διάλογο μπορείτε να επιλέξετε επάνω φάκελο. Είναι πιθανό να μην επιτρέψει την εμφάνιση και άλλων σχετικών άλμπουμ.</string>
     <string name="faq_7_title">Ένας φάκελος με εικόνες δεν εμφανίζεται. Τι μπορώ να κάνω;</string>
-    <string name="faq_7_text">Υπάρχουν διάφοροι λόγοι, αλλά είναι εύκολη η λύση. Επιλέξτε Ρυθμίσεις -> Διαχείριση Συμπεριβαλομένων Φακέλων, επιλέξτε Προσθήκη και πλοηγηθείτε στον ζητούμενο φάκελο.</string>
+    <string name="faq_7_text">Υπάρχουν διάφοροι λόγοι, αλλά είναι εύκολη η λύση. Επιλέξτε Ρυθμίσεις -&gt; Διαχείριση Συμπεριβαλομένων Φακέλων, επιλέξτε Προσθήκη και πλοηγηθείτε στον ζητούμενο φάκελο.</string>
     <string name="faq_8_title">Πώς μπορώ να επιλέξω μόνο κάποιους φακέλους να εμφανίζονται;</string>
-    <string name="faq_8_text">Η προσθήκη ενός φακέλου στους Συμπεριλαμβανόμενους Φακέλους δεν εξαιρεί αυτόματα τίποτα. Μπορείτε να πάτε στις Ρυμίσεις-> Διαχείριση Εξαιρεμένων Φακέλων, εξαιρέστε τον ριζικό φάκελο \"/\", έπειτα προσθέστε τους φακέλους στο Ρυθμίσεις -> Διαχείριση Συμπεριλαμβανομένων Φακέλων.
+    <string name="faq_8_text">Η προσθήκη ενός φακέλου στους Συμπεριλαμβανόμενους Φακέλους δεν εξαιρεί αυτόματα τίποτα. Μπορείτε να πάτε στις Ρυμίσεις-&gt; Διαχείριση Εξαιρεμένων Φακέλων, εξαιρέστε τον ριζικό φάκελο \"/\", έπειτα προσθέστε τους φακέλους στο Ρυθμίσεις -&gt; Διαχείριση Συμπεριλαμβανομένων Φακέλων.
         Αυτό θα κάνει ορατούς μόνο τους επιλεγμένους φακέλους, καθώς η εξαίρεση και η συμπερίληψη λειτουργούν αναδρομικά και αν ενας φάκελος ανήκει και στα δύο, θα εμφανιστεί.</string>
     <string name="faq_10_title">Μπορώ να περικόψω εικόνες με την εφαρμογή;</string>
     <string name="faq_10_text">Ναι, μπορείτε να περικόψετε εικόνες στον επεξεργαστή, σύροντας τις γωνίες εικόνας. Μπορείτε να μεταβείτε στον επεξεργαστή είτε πατώντας παρατεταμένα μια μικρογραφία εικόνας και επιλέγοντας Επεξεργασία, είτε επιλέγοντας Επεξεργασία από την προβολή πλήρους οθόνης.</string>
@@ -371,7 +364,7 @@
     <string name="faq_15_title">Γιατί η εφαρμογή καταλαμβάνει τόσο μεγάλο χώρο;</string>
     <string name="faq_15_text">Η προσωρινή μνήμη της εφαρμογής μπορεί να δεσμεύσει έως και 250MB, διασφαλίζοντας την ταχύτερη προφόρτωση των εικόνων. Αν η εφαρμογή χρησιμοποιεί ακόμα περισσότερο χώρο, πιθανότατα οφείλεται στην κατοχή αντικειμένων στον Κάδο. Αυτά τα αρχεία υπολογίζονται στο μέγεθος της εφαρμογής. Μπορείτε να αδειάσετε τον Κάδο Ανακύκλωσης ανοίγοντάς τον και διαγράφοντας όλα τα αρχεία ή από τις ρυθμίσεις της εφαρμογής. Κάθε αρχείο στον Κάδο διαγράφεται αυτόματα μετά από 30 ημέρες.</string>
     <string name="faq_16_title">Τι συνέβη με την απόκρυψη αρχείων και φακέλων και γιατί δεν μπορώ πλέον να βλέπω τα κρυφά στοιχεία;</string>
-    <string name="faq_16_text">Ξεκινώντας από το Android 11 δεν μπορείτε πλέον να κρύψετε ή να εμφανίσετε αρχεία ή φακέλους, ούτε μπορείτε να δείτε τα κρυφά στις εφαρμογές της Συλλογής. Θα πρέπει να χρησιμοποιήσετε κάποιον διαχειριστή αρχείων για αυτό.</string>
+    <string name="faq_16_text">Ξεκινώντας από το Android 11 δεν μπορείτε πλέον να κρύψετε ή να εμφανίσετε αρχεία ή φακέλους, ούτε να δείτε τα κρυφά στις εφαρμογές της Συλλογής. Θα πρέπει να χρησιμοποιήσετε κάποιον διαχειριστή αρχείων για αυτό.</string>
     <string name="faq_17_title">Γιατί δεν μπορώ πλέον να συμπεριλάβω τους φακέλους που λείπουν;</string>
     <string name="faq_17_text">Αυτό σταμάτησε να λειτουργεί λόγω των αλλαγών στο σύστημα του Android 11. Η εφαρμογή δεν μπορεί πλέον να περιηγηθεί σε πραγματικούς φακέλους, αλλά βασίζεται στο λεγόμενο MediaStore για την απόκτηση δεδομένων.</string>
     <string name="faq_18_title">Γιατί βλέπω διαφημίσεις κατά την αναπαραγωγή βίντεο;</string>
