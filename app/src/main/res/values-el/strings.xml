@@ -121,7 +121,7 @@
     <string name="home_and_lock_screen">Αρχική και Οθόνη Κλειδώματος</string>
     <string name="allow_changing_aspect_ratio">Επιτρέπει την αλλαγή Αναλογίας Διαστάσεων</string>
     <!-- Slideshow -->
-    <string name="slideshow">Παρουσίαση διαφανιών</string>
+    <string name="slideshow">Παρουσίαση διαφανειών</string>
     <string name="interval">Χρόνος επανάληψης (δευτ.) :</string>
     <string name="include_photos">Συμπερίληψη φωτογραφιών</string>
     <string name="include_videos">Συμπερίληψη βίντεο</string>
@@ -160,7 +160,7 @@
     <string name="loop_videos">Επανάληψη βίντεο</string>
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
     <string name="max_brightness">Μέγιστη φωτεινότητα κατά την προβολή πλήρους οθόνης</string>
-    <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
+    <string name="crop_thumbnails">Περικοπή εικονιδίων σε τετράγωνα</string>
     <string name="show_thumbnail_video_duration">Εμφάνιση διάρκειας βίντεο</string>
     <string name="screen_rotation_by">Περιστροφή πλήρους οθόνης σύμφωνα με</string>
     <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
@@ -171,7 +171,7 @@
     <string name="hide_system_ui_at_fullscreen">Αυτόματη απόκρυψη στοιχείων συστήματος σε πλήρη οθόνη</string>
     <string name="delete_empty_folders">Διαγραφή άδειων φακέλων, όταν διαγραφεί το περιεχόμενό τους</string>
     <string name="allow_photo_gestures">Να επιτρέπεται ο έλεγχος φωτεινότητας με κατακόρυφες κινήσεις</string>
-    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες κινήσεις (gestures)</string>
+    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης βίντεο και φωτεινότητας με κατακόρυφες κινήσεις (gestures)</string>
     <string name="show_media_count">Εμφάνιση του αριθμού πολυμέσων στον φάκελο, στην κύρια οθόνη</string>
     <string name="show_extended_details">Εμφάνιση λεπτομερειών στα πολυμέσα σε κατάσταση πλήρους οθόνης</string>
     <string name="manage_extended_details">Διαχείριση εκτεταμένων λεπτομερειών</string>
@@ -210,7 +210,7 @@
     <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
     <string name="media_management_manual">Κάτι πήγε λάθος, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
     <string name="media_management_note">Αν η ανακατεύθυνση δεν λειτουργεί, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Αν δεν θέλετε να το κάνετε, μπορείτε επίσης να μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και να επιτρέψετε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
     <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
@@ -332,7 +332,7 @@
     <string name="pesdk_common_title_greenColor">Πράσινο</string>
     <string name="pesdk_common_title_aquamarinColor">Γαλαζοπράσινο</string>
     <string name="pesdk_common_title_pipettableColor">Χρώμα πίνακα Pipet</string>
-    <string name="vesdk_video_trim_title_name">Κόψιμο</string>
+    <string name="vesdk_video_trim_title_name">Περικοπή</string>
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να κάνω την Απλή Συλλογή προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
     <string name="faq_1_text">Αρχικά πρέπει να βρείτε την τρέχουσα προεπιλεγμένη εφαρμογή γκάλερι στις Ρυθμίσεις (τμήμα Εφαρμογών) της συσκευής. Αναζητήστε για ένα κουμπί που αναφέρει κάτι σαν \"Άνοιγμα με προεπιλογή\", πατήστε το, μετά επιλέξτε \"Καθαρισμός προεπιλεγμένων\".
