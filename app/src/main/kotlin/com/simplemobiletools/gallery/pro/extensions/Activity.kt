@@ -134,7 +134,7 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
         if (Environment.isExternalStorageManager()) {
             callback()
         } else {
-            ConfirmationAdvancedDialog(this, "", R.string.access_storage_prompt, R.string.ok, 0, false) { success ->
+            ConfirmationAdvancedDialog(this, "", R.string.access_storage_prompt, R.string.ok, 0, true) { success ->
                 if (success) {
                     try {
                         val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
