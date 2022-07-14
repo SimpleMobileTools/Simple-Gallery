@@ -206,6 +206,7 @@
     <string name="password_protect_excluded">Защита паролем отображения исключённых папок</string>
     <string name="media_management_manual">Что-то пошло не так. Откройте настройки устройства и перейдите в: \"Приложения\" → \"Специальный доступ\" → \"Приложения для управления медиа\" и разрешите этому приложению управлять медиа.</string>
     <string name="media_management_note">Если перенаправление не работает, откройте настройки устройства и перейдите в: \"Приложения\" → \"Специальный доступ\" → \"Приложения для управления медиа\" и разрешите этому приложению управлять медиа.</string>
+    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>

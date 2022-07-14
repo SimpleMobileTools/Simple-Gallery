@@ -214,6 +214,7 @@
     <string name="password_protect_excluded">密码保护已排除文件夹的可见性</string>
     <string name="media_management_manual">出错了，请转到设备的“设置” - “应用” -“特殊应用权限” - “媒体管理应用” 并允许本应用管理媒体文件。</string>
     <string name="media_management_note">如果重定向无法正常工作，请转到设备的“设置” - “应用” - “特殊应用权限” - “媒体管理应用” 并允许此应用管理媒体文件。</string>
+    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>

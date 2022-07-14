@@ -214,6 +214,7 @@
     <string name="password_protect_excluded">Protegeix amb contrasenya la visibilitat de les carpetes excloses</string>
     <string name="media_management_manual">S\'ha produït un error, aneu a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_note">Si la redirecció no funciona, aneu a la Configuració del dispositiu - Aplicacions - Accés especial d\'aplicacions - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
+    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>

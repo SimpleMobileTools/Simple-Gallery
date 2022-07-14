@@ -204,6 +204,7 @@
     <string name="password_protect_excluded">Lindungi visibiltas folder yang tidak disertakan dengan kata sandi</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>
     <string name="fullscreen_media">Media layar penuh</string>

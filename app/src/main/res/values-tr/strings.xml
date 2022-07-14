@@ -212,6 +212,7 @@
     <string name="password_protect_excluded">Hariç tutulan klasör görünürlüğünü parola ile koru</string>
     <string name="media_management_manual">Bir şeyler ters gitti, lütfen aygıtınızın Ayarlar - Uygulamalar - Özel uygulama erişimi - Medya yönetimi uygulamaları bölümüne gidin ve bu uygulamanın medyayı yönetmesine izin verin.</string>
     <string name="media_management_note">Yeniden yönlendirme çalışmazsa, lütfen aygıtınızın Ayarlar - Uygulamalar - Özel uygulama erişimi - Medya yönetimi uygulamaları bölümüne gidin ve bu uygulamanın medyayı yönetmesine izin verin.</string>
+    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>
