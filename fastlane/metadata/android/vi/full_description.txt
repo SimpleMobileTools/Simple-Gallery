@@ -1,7 +1,7 @@
 Simple Gallery Pro là một bộ sưu tập ngoại tuyến có khả năng tùy biến cao. Tổ chức & chỉnh sửa ảnh của bạn, khôi phục các tệp đã xóa bằng thùng rác, bảo vệ & ẩn các tệp và xem được nhiều định dạng ảnh & video bao gồm RAW, SVG và nhiều hơn nữa. Ứng dụng này không chứa quảng cáo và các quyền không cần thiết. Vì ứng dụng không có yêu cầu truy cập internet, quyền riêng tư của bạn sẽ được bảo vệ.
 
 -------------------------------------------------
-<b>SIMPLE GALLERY PRO – TÍNH NĂNG</b>
+SIMPLE GALLERY PRO – TÍNH NĂNG
 -------------------------------------------------
 
 • Thư viện ngoại tuyến không có quảng cáo hoặc popups
@@ -24,29 +24,32 @@ Simple Gallery Pro là một bộ sưu tập ngoại tuyến có khả năng tù
 • Simple Gallery Pro là mã nguồn mở
   Nhiều và nhiều hơn nữa!
 
-<b>TRÌNH BIÊN TẬP ẢNH</b>
+TRÌNH BIÊN TẬP ẢNH
 Simple Gallery Pro giúp bạn dễ dàng chỉnh sửa ảnh của mình một cách nhanh chóng. Cắt, lật, xoay và thay đổi kích thước hình ảnh của bạn. Nếu bạn cảm thấy sáng tạo hơn một chút, bạn có thể thêm các bộ lọc và vẽ lên hình ảnh của mình!
 
-<b>HỖ TRỢ NHIỀU ĐỊNH DẠNG FILE</b>
+HỖ TRỢ NHIỀU ĐỊNH DẠNG FILE
 Không giống như một số Trình xem thư viện khác & Trình tổ chức ảnh, Simple Gallery Pro hỗ trợ rất nhiều loại tệp khác nhau bao gồm JPEG, PNG, MP4, MKV, RAW, SVG, Ảnh toàn cảnh, Video toàn cảnh và nhiều loại khác.
 
-<b>TRÌNH QUẢN LÝ THƯ VIỆN TÙY BIẾN CAO</b>
+TRÌNH QUẢN LÝ THƯ VIỆN TÙY BIẾN CAO
 Từ giao diện người dùng đến các nút chức năng trên thanh công cụ dưới cùng, Simple Gallery Pro có khả năng tùy biến cao và hoạt động theo cách bạn muốn. Không có trình quản lý thư viện nào khác có sự linh hoạt này! Nhờ nguồn mở, chúng tôi cũng có sẵn trong 32 ngôn ngữ!
 
-<b>PHỤC HỒI ẢNH  & VIDEO ĐÃ BỊ XÓA</b>
+PHỤC HỒI ẢNH  & VIDEO ĐÃ BỊ XÓA
 Vô tình xóa một bức ảnh hoặc video quý giá? Hãy lo lắng! Simple Gallery Pro có thùng rác tiện dụng, nơi bạn có thể khôi phục ảnh & video đã xóa dễ dàng.
 
-<b>BẢO VỆ & ẨN ẢNH ,VIDEO & TỆP</b>
+BẢO VỆ & ẨN ẢNH ,VIDEO & TỆP
 Sử dụng Mã pin, mẫu hình hoặc vân tay của bạn, bạn có thể bảo vệ và ẩn ảnh, video & toàn bộ album. Bạn có thể tự bảo vệ ứng dụng hoặc đặt khóa trên các chức năng cụ thể của ứng dụng. Ví dụ, bạn không thể xóa một tập tin mà chưa quét dấu vân tay, giúp bảo vệ các tập tin của bạn khỏi bị xóa do vô tình.
 
-<b>Kiểm tra bộ công cụ Simple đầy đủ tại đây:</b>
+Kiểm tra bộ công cụ Simple đầy đủ tại đây:
 https://www.simplemobiletools.com
 
-<b>Website của Simple Gallery Pro:</b>
+Website của Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
-<b>Facebook:</b>
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

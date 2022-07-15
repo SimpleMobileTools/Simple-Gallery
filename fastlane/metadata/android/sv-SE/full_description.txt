@@ -1,0 +1,22 @@
+Ett enkelt verktyg för att visa foton och videor. Det kan zooma in på foton och sortera objekt i stigande eller fallande ordning efter datum, storlek eller namn. Mediefiler visas i flera kolumner. Antalet kolumner beror på skärmens storlek och kan ändras med nypgester. Mediefiler kan döpas om, delas, tas bort, kopieras eller flyttas. Bilder kan även beskäras, roteras, vändas eller anges som bakgrundsbilder direkt i appen.
+
+Galleriet kan även användas av tredjepartsappar för att förhandsgranska bilder och videor, lägga till bilagor i e-postklienter etc. Det är perfekt för daglig användning.
+
+Fingeravtrycksbehörigheten behövs för att låsa hela appen eller synligheten för dolda objekt.
+
+Innehåller ingen reklam eller onödiga behörigheter. Det har helt öppen källkod och anpassningsbara färger.
+
+Check out the full suite of Simple Tools here:
+https://www.simplemobiletools.com
+
+Standalone website of Simple Gallery Pro:
+https://www.simplemobiletools.com/gallery
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

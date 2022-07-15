@@ -1,21 +1,21 @@
-Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
+Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG, panorám a mnoho ďalších.
 
 Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá prístup na internet, vaše súkromie je chránené.
 
 -------------------------------------------------
-<b>JEDNODUCHÁ GALÉRIA PRO - FUNKCIE</b>
+JEDNODUCHÁ GALÉRIA PRO - FUNKCIE
 -------------------------------------------------
 
 • Offline galéria bez reklám a vyskakujúcich okien
 • Editor Jednoduchej Galérie - orezávajte, otáčajte, meňte veľkosť, kreslite, používajte filtre a viac
-• Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia a bezpečia
+• Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia, bezpečia a stability
 • Nie sú potrebné žiadne podozrivé oprávnenia
 • Rýchlo prehliadajte obrázky a videá
-• Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, panoramatické atď)
+• Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, GIF, panoramatické atď)
 • Množstvo intuitívnych gest pre jednoduchú úpravu a organizovanie súborov
 • Veľa rôznych spôsobov filtrovania, zoskupovania a radenia súborov
 • Zmeňte si vzhľad Jednoduchej Galérie
-• Dostupná v 32 jazykoch
+• Dostupná vo viac ako 30 jazykoch
 • Označte obľúbené súbory pre rýchly prístup
 • Chráňte vaše obrázky a videá vzorom, PIN kódom alebo odtlačkom prstov
 • Použite PIN kód, vzor, alebo odtlačky prstov na zabezpečenie spúšťania apky, alebo niektorých funkcií
@@ -23,29 +23,43 @@ Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá
 • Prepnite viditeľnosť súborov pre ich ochranu
 • Vytvorte zo súborov prezentáciu
 • Prezrite si detailné informácie o súboroch (rozlíšenie, EXIF hodnoty atď)
+• Priblížte kvalitné fotky, videá alebo GIFy jednoduchými gestami
+• Pohodlne prepnite medzi obrazom na výšku a šírku pre pohodlné pozeranie filmov
+• Rýchle zdieľanie súborov na sociálne siete, emaily, alebo kdekoľvek inde
+• Vytlačte si obrázky, alebo nastavte ako tapetu pár klikmi
+• Vytvortvárajte odkazy súborov a priečinkov na domovskú obrazovku pre rýchli prístup
+• Zobrazte fotky na mape, ak sú dostupné súradnice
+• Samozrejmá prítomnosť štandardných súborových operácií ako mazanie atď
+• Zmeňte jas, alebo hlasitosť jednoduchými vertikálnymi potiahnutiami prsta
 • Jednoduchá Galéria Pro má otvorený zdrojový kód
 … a mnoho mnoho ďalšieho!
 
-<b>EDITOR OBRÁZKOV</b>
+POKROČILÝ EDITOR OBRÁZKOV
 Jednoduchá Galéria Pro umožňuje ľahkú úpravu obrázkov. Orezávajte, preklápajte, alebo meňte ich veľkosť. Ak sa cítite kreatívne, môžete aj aplikovať filtre, alebo na nich kresliť!
 
-<b>PODPORA PRE MNOŽSTVO TYPOV SÚBOROV</b>
+PODPORA PRE MNOŽSTVO TYPOV SÚBOROV
 Na rozdiel od niektorých galérií podporuje Jednoduchá Galéria množstvo rôznych druhov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
 
-<b>VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV</b>
+VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV
 Od vzhľadu po funkcie na spodej lište, Jednoduchá Galéria je upraviteľná a bude fungovať presne tak, ako chcete. Žiadna iná galéria nie je taká flexibilná! Vďaka otvorenému zdrojovému kódu je apka dostupná v 32 jazykoch!
 
-<b>OBNOVTE VYMAZANÉ FOTKY A VIDEÁ</b>
+OBNOVTE VYMAZANÉ FOTKY A VIDEÁ
 Vymazali ste náhodou dôležitú fotku, alebo video? Jednoduchá Galéria Pro obsahuje užitočný odpadkový kôš, vďaka ktorému viete jednoducho obnoviť vymazané súbory.
 
-<b>OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ</b>
+OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ
 Použitím PIN kódu, vzoru, alebo odtlačkov prstov viete vaše súbory ochrániť, alebo ukryť. Taktiež viete ochrániť aj buď spúšťanie apky ako takej, alebo niektoré jej funkcie. Napríklad tým viete zabrániť náhodnému vymazaniu súborov bez vašich odtlačkov prstov.
 
-<b>Pozrite si celú sadu aplikácií na:</b>
+Pozrite si celú sadu aplikácií na:
 https://www.simplemobiletools.com
 
-<b>Facebook:</b>
+Vlastná stránka Jednoduchej Galérie Pro:
+https://www.simplemobiletools.com/gallery
+
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

@@ -1,6 +1,6 @@
 # Simple Gallery
 
-<img alt="Logo" src="fastlane/metadata/android/en-US/images/icon.png" width="120" />
+<img alt="Logo" src="graphics/icon.png" width="120" />
 
 Simple Gallery Pro is a highly customizable lightweight gallery loved by millions of people for its great user experience. Organize and edit your photos, recover deleted files with the recycle bin, protect & hide files and easily view a huge variety of different photo and video formats including RAW, SVG, GIF, panoramic and much more.
 
@@ -69,7 +69,7 @@ https://www.reddit.com/r/SimpleMobileTools
 <a href='https://f-droid.org/packages/com.simplemobiletools.gallery.pro'><img src='https://simplemobiletools.com/images/button-f-droid.png' alt='Get it on F-Droid' height='45' /></a>
 
 <div style="display:flex;">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="30%">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="30%">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="30%">
+<img alt="App image" src="fastlane/metadata/android/en-GB/images/phoneScreenshots/1_en-GB.jpeg" width="30%">
+<img alt="App image" src="fastlane/metadata/android/en-GB/images/phoneScreenshots/2_en-GB.jpeg" width="30%">
+<img alt="App image" src="fastlane/metadata/android/en-GB/images/phoneScreenshots/3_en-GB.jpeg" width="30%">
 </div>

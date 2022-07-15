@@ -1,0 +1,40 @@
+Vrlo prilagodljiva galerija koja može prikazivati različite vrste slika i videozapisa, uključujući SVG-ove, RAW-ove, panoramske fotografije i videozapise.
+
+Otvorenog je koda, ne sadrži oglase ili nepotrebna dopuštenja.
+
+Navedimo neke od značajki koje vrijedi spomenuti:
+1. Pretraživanje
+2. Dijaprojekcija
+3. Podrška za notch
+4. Pričvršćivanje mapa na vrh
+5. Filtriranje medijskih datoteka prema vrsti
+6. Koš za smeće za jednostavan oporavak datoteke
+7. Zaključavanje prikaza na cijelom zaslonu
+8. Označavanje omiljenih datoteka radi lakog pristupa
+9. Brzi mediji na cijelom zaslonu zatvaraju se pokretom prema dolje
+10. Urednik za izmjenu slika i primjenu filtara
+11. Zaštita lozinkom za zaštitu skrivenih stavki ili cijele aplikacije
+12. Promjena broja stupaca minijatura pomoću pokreta ili gumba izbornika
+13. Prilagodljive akcije na dnu cijelog zaslona za brzi pristup
+14. Prikazivanje proširenih detalja preko medija, preko cijelog zaslona sa željenim svojstvima datoteke
+15. Nekoliko različitih načina razvrstavanja ili grupiranja stavki, kako rastućih tako i silaznih
+16. Skrivanje mapa (utječe i na druge aplikacije), izuzimanje mapa (utječe samo na jednostavnu galeriju)
+
+Dopuštenje za otisak prsta potreban je za zaključavanje vidljivosti skrivenih stavki, cijele aplikacije ili za zaštitu datoteka od brisanja.
+
+Ova je aplikacija samo dio većeg broja aplikacija. 
+
+Možete pronaći ostatak na:
+https://www.simplemobiletools.com
+
+Simple Gallery Pro's Website:
+https://www.simplemobiletools.com/gallery
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
