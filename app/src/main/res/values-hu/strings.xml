@@ -58,7 +58,9 @@
     <string name="manage_excluded_folders">Kizárt mappák kezelése</string>
     <string name="exclude_folder_description">Ez kizárja a kijelölést és az alkönyvtárakat a Simple Gallery alkalmazásból. A kizárt mappákat a Beállításokban kezelheti.</string>
     <string name="exclude_folder_parent">Kizárja a szülőmappát\?</string>
-    <string name="excluded_activity_placeholder">A mappák kizárásával az almappákkal együtt elrejti a Simple Gallery alkalmazásban, de továbbra is láthatóak maradnak más alkalmazásokban.\n\nHa el szeretné rejteni őket más alkalmazásokban is, használja az Elrejtés funkciót.</string>
+    <string name="excluded_activity_placeholder">A mappák kizárásával az almappákkal együtt elrejti a Simple Gallery alkalmazásban, de továbbra is láthatóak maradnak más alkalmazásokban.
+\n
+\nHa el szeretné rejteni őket más alkalmazásokban is, használja az Elrejtés funkciót.</string>
     <string name="remove_all">Összes eltávolítása</string>
     <string name="remove_all_description">Összes mappa eltávolítása a Kizárás listából. Ez nem törli a mappákat.</string>
     <string name="hidden_folders">Rejtett mappák</string>
@@ -272,7 +274,7 @@
     <string name="pesdk_brush_button_delete">Törlés</string>
     <string name="pesdk_brush_title_brushColor">Ecset színe</string>
     <string name="pesdk_editor_title_name">Szerkesztő</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Bezárja a szerkesztőt\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Valóban elveti a változtatásokat\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Igen</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nem</string>
@@ -336,41 +338,39 @@
     <string name="pesdk_common_title_pipettableColor">Pipettázható szín</string>
     <string name="vesdk_video_trim_title_name">Levágás</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának?</string>
-    <string name="faq_1_text">Először meg kell találnia az alapértelmezett galériát az eszköz beállításainak Alkalmazások részében. Keressen egy olyan gombot, amely valami olyasmit, mint az \"Legyen alapértelmezett\", kattintson rá, majd válassza a \"Alapértelmezések törlése\" pontot.
-A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, megjelenik egy alkalmazásválasztó, ahol kiválaszthatja a Simple Gallery lehetőséget, és beállíthatja alapértelmezett alkalmazásnak.</string>
-    <string name="faq_2_title">Zároltam az alkalmazást jelszóval, de elfelejtettem. Mit tehetek?</string>
+    <string name="faq_1_title">Hogyan tudom beállítani a Simple Gallery-t alapértelmezett galériának\?</string>
+    <string name="faq_1_text">Először meg kell találnia az alapértelmezett galériát az eszköz beállításainak Alkalmazások részében. Keressen egy olyan gombot, amely valami olyasmit, mint az \"Legyen alapértelmezett\", kattintson rá, majd válassza a \"Alapértelmezések törlése\" pontot. A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, megjelenik egy alkalmazásválasztó, ahol kiválaszthatja a Simple Gallery lehetőséget, és beállíthatja alapértelmezett alkalmazásnak.</string>
+    <string name="faq_2_title">Zároltam az alkalmazást jelszóval, de elfelejtettem. Mit tehetek\?</string>
     <string name="faq_2_text">2 módon is megoldhatja. Újratelepítheti az alkalmazást, vagy megkeresi az alkalmazást az eszköz beállításai között, és válassza az \"Adatok törlése\" lehetőséget. Minden beállítást visszaállít alapértelmezettre. Ez nem távolítja el a média fájlokat.</string>
-    <string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen?</string>
+    <string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen\?</string>
     <string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
-    <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
+    <string name="faq_4_title">Hogyan tudom előre tekerni a videókat\?</string>
     <string name="faq_4_text">Ezt a képernyő oldalán történő dupla koppintással teheti meg, vagy a keresősáv melletti jelenlegi és leghosszabb időtartam szövegekre koppintva. Ha engedélyezi a videók külön képernyőn történő megnyitását az alkalmazásbeállításokban, vízszintes gesztusokat is használhat.</string>
-    <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
+    <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között\?</string>
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
+    <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák\?</string>
     <string name="faq_6_text">Lehet, hogy látni fog néhány szokatlan album megjelenést. Könnyen kizárhatja a hosszú megnyomással és a Kizárás kiválasztásával. A következő párbeszédablakban kiválaszthatja a szülő mappát, és valószínűleg megakadályozza, hogy a többi kapcsolódó album is megjelenjen.</string>
-    <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek?</string>
+    <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek\?</string>
     <string name="faq_7_text">Ennek több oka lehet, de megoldása egyszerű. Menjen a Beállítások -&gt; Belevett mappák kezelése lehetőségre, válassza a plusz jelet, és keresse meg a kívánt mappát.</string>
-    <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni?</string>
-    <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban.
-Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglalás rekurzív. Ha egy mappát hozzáadunk mindkettőhöz, akkor megjelenik.</string>
-    <string name="faq_10_title">Tudom vágni a képeket ezzel az alkalmazással?</string>
+    <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni\?</string>
+    <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban. Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglalás rekurzív. Ha egy mappát hozzáadunk mindkettőhöz, akkor megjelenik.</string>
+    <string name="faq_10_title">Tudom vágni a képeket ezzel az alkalmazással\?</string>
     <string name="faq_10_text">Igen, megvághatja a képeket a szerkesztőben a kép sarkainak húzásával. A szerkesztőhöz eljuthat egy bélyegkép hosszú megnyomásával és a Szerkesztés választásával, vagy a Szerkesztés választásával a teljes képernyős nézetben.</string>
     <string name="faq_11_title">Valamilyen módon tudom csoportosítani a médiafájlok bélyegképeit\?</string>
     <string name="faq_11_text">Persze, a bélyegképes nézetben használja a „Csoportosítás” menüpontot. A fájlokat többféle kritérium alapján is csoportosíthatja, beleértve a dátumot is. Ha az „Összes mappa tartalmának megjelenítése” funkciót választja, akkor mappákba is csoportosíthatja ezeket.</string>
-    <string name="faq_12_title">A dátum szerinti rendezés nem működik megfelelően, hogyan tudom megjavítani?</string>
+    <string name="faq_12_title">A dátum szerinti rendezés nem működik megfelelően, hogyan tudom megjavítani\?</string>
     <string name="faq_12_text">Valószínűleg a fájlok másolásából adódik. Ezt a fájl bélyegképének kiválasztásával és a „Dátum javítása” lehetőség kiválasztásával oldhatja meg.</string>
-    <string name="faq_13_title">Néhány színcsíkot látok a képeken. Hogyan javíthatom a minőséget?</string>
+    <string name="faq_13_title">Néhány színcsíkot látok a képeken. Hogyan javíthatom a minőséget\?</string>
     <string name="faq_13_text">Az esetek többségében a képek megjelenítésének jelenlegi megoldása jól működik, de ha még jobb képminőséget szeretne, akkor engedélyezheti a \"Képek megjelenítése a lehető legjobb minőségben\" lehetőséget az alkalmazásbeállításokban, a „Mély nagyítású képek” szakaszban.</string>
     <string name="faq_14_title">Elrejtettem egy fájlt/mappát. Hogyan tudom újra megjeleníteni\?</string>
     <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a „Rejtett elemek ideiglenes megjelenítése” elemet a főképernyőn, vagy válassza a „Rejtett elemek megjelenítése” lehetőséget az alkalmazásbeállításokban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza az „Elrejtés megszüntetése” lehetőséget. A mappák elrejtése egy rejtett „.nomedia” fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel törölheti. Vegye figyelembe, hogy az elrejtés rekurzív módon működik, ha elrejt egy mappát, akkor az összes almappája is rejtett lesz. Így az almappák elrejtésének megszüntetéséhez láthatóvá kell tennie a szülőmappát is.</string>
-    <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet?</string>
+    <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet\?</string>
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at
