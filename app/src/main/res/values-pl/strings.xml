@@ -210,7 +210,7 @@
     <string name="password_protect_excluded">Chroń hasłem widoczność wykluczonych folderów</string>
     <string name="media_management_manual">Coś poszło nie tak. Przejdź do ustawień swojego urządzenia -&gt; Aplikacje -&gt; Aplikacje ze specjalnym dostępem -&gt; Aplikacje do zarządzania multimediami i zezwól tej aplikacji na zarządzanie multimediami.</string>
     <string name="media_management_note">Jeśli przekierowanie nie działa, przejdź do ustawień swojego urządzenia -&gt; Aplikacje -&gt; Aplikacje ze specjalnym dostępem -&gt; Aplikacje do zarządzania multimediami i zezwól tej aplikacji na zarządzanie multimediami.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Jeśli nie chcesz tego zrobić, możesz przejść do ustawień swojego urządzenia -&gt; Aplikacje -&gt; Aplikacje ze specjalnym dostępem -&gt; Aplikacje do zarządzania multimediami i zezwolić tej aplikacji na zarządzanie multimediami.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturki</string>
     <string name="fullscreen_media">Multimedia na pełnym ekranie</string>
