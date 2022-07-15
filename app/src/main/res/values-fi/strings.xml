@@ -52,15 +52,17 @@
     <string name="no_media_with_filters">Mediaa ei löytynyt valituilla suotimilla.</string>
     <string name="change_filters_underlined"><u>Muuta suotimia</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Jatketaanko?</string>
+    <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Jatketaanko\?</string>
     <string name="exclude">Poissulje</string>
     <string name="excluded_folders">Poissuljetut kansiot</string>
     <string name="manage_excluded_folders">Hallitse poissuljettuja kansioita</string>
     <string name="exclude_folder_description">Tämä poissulkee valitun ja alikansiot vain Simple Gallerysta. Voit hallinnoida poissuljettuja kansioita asetuksista.</string>
-    <string name="exclude_folder_parent">Poissulje yläkansio tämän sijaan?</string>
-    <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-toimintoa.</string>
+    <string name="exclude_folder_parent">Poissulje yläkansio tämän sijaan\?</string>
+    <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.
+\n
+\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-toimintoa.</string>
     <string name="remove_all">Poista kaikki</string>
-    <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
+    <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta\? Tämä ei poista kansioita.</string>
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
@@ -272,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Poista</string>
     <string name="pesdk_brush_title_brushColor">Siveltimen väri</string>
     <string name="pesdk_editor_title_name">Editori</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Suljetaanko editori?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Haluatko varmasti hylätä muutokset?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Suljetaanko editori\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Haluatko varmasti hylätä muutokset\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Kyllä</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Ei</string>
     <string name="pesdk_editor_cancel">Peruuta</string>
@@ -336,34 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Poimi väri</string>
     <string name="vesdk_video_trim_title_name">Leikkaa</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen?</string>
+    <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen\?</string>
     <string name="faq_1_text">Etsi ensin laitteen asetuksista oletusgalleriasovellus, valitse sen asetuksista \"Avaa oletuksena\" ja valitse \"Poista oletukset\". Seuraavalla kerralla kun avaat kuvan tai videon, pyydetään valitsemaan uusi oletussovellus.</string>
-    <string name="faq_2_title">Lukitsin sovelluksen salasanalla, jonka unohdin. Mitä voin tehdä?</string>
+    <string name="faq_2_title">Lukitsin sovelluksen salasanalla, jonka unohdin. Mitä voin tehdä\?</string>
     <string name="faq_2_text">Tähän on kaksi ratkaisua. Voit joko asentaa sovelluksen uudelleen tai etsiä sovelluksen laitteen asetuksista ja tyhjentää sovelluksen tiedot. Sovelluksen asetukset nollautuvat, mutta mediatiedostoja ei poisteta.</string>
-    <string name="faq_3_title">Kuinka saan albumin näkymään aina ylhäällä?</string>
+    <string name="faq_3_title">Kuinka saan albumin näkymään aina ylhäällä\?</string>
     <string name="faq_3_text">Paina pitkään haluamaasi albumia ja valitse Kiinnitä toimintovalikosta. Voit kiinnittää useita kansiota, kiinnitetyt kansiot järjestetään oletuksena olevalla järjestystavalla.</string>
-    <string name="faq_4_title">Kuinka voin kelata videota nopeasti eteenpäin?</string>
+    <string name="faq_4_title">Kuinka voin kelata videota nopeasti eteenpäin\?</string>
     <string name="faq_4_text">Tuplaklikkaa haluamaasi puolta ruudusta. Voit myös napauttaa hakupalkin vierestä kestoa kuvaavaa tekstiä. Jos käytössä on videoiden avaus erillisellä ruudulla, voit käyttää vaakatasoeleitä.</string>
-    <string name="faq_5_title">Mitä eroa on kansion piilotuksella ja poissululla?</string>
+    <string name="faq_5_title">Mitä eroa on kansion piilotuksella ja poissululla\?</string>
     <string name="faq_5_text">Poissulku piilottaa kansion vain Simple Galleryssä, piilotus taas piilottaa järjestelmänlaajuisesti muistakin galleriasovelluksista. Piilotustoiminto luo kansioon tyhjän \".nomedia\"-tiedoston jonka voi tarvittaessa poistaa millä tahansa tiedostonhallintasovelluksella. Huomioi, että jotkin laitteet eivät salli joidenkin kansioden, kuten Camera, Screenshots ja Downloads, piilotusta.</string>
-    <string name="faq_6_title">Miksi galleriassa näkyy kansioita musiikkialbumien kansitaiteella tai tarroilla?</string>
+    <string name="faq_6_title">Miksi galleriassa näkyy kansioita musiikkialbumien kansitaiteella tai tarroilla\?</string>
     <string name="faq_6_text">Voi olla, että joitain epätavallisia albumeita näytetään. Voit poissulkea ne helposti painamalla pitkään albumia ja valitsemalla Poissulje. Avautuvassa valikossa voit valita yläkansion, jonka poissulku mahdollisesti estää myös muiden epätoivottujen albumien näkymisen.</string>
-    <string name="faq_7_title">Kuvan sisältävä kansio ei näy tai siinä ei näy kaikkia kuvia. Mitä voin tehdä?</string>
+    <string name="faq_7_title">Kuvan sisältävä kansio ei näy tai siinä ei näy kaikkia kuvia. Mitä voin tehdä\?</string>
     <string name="faq_7_text">Tämä voi johtua useasta syystä, mutta ratkaisu on helppoa. Mene asetuksiin -&gt; Hallitse sisällytettyjä kansioita -&gt; Plus-painike -&gt; Navigoi haluaamasi kansioon.</string>
-    <string name="faq_8_title">Mitä jos haluan vain muutaman tietyn kansion näkyviin?</string>
-    <string name="faq_8_text">Kansion lisääminen sisällytettyihin kansioihin ei automaattisesti poissulje muita kansioita. Voit mennä asetuksiin -&gt; Hallitse poissuljettuja kansioita -&gt; poissulje juurikansio \"/\", sen jälkeen lisää haluamasi näytettävät kansiot asetuksien Hallitse sisällytettyjä kansioita-toiminnolla.
-        Siten vain valitut kansiot näytetä. Poissulku ja sisällyttäminen ovat rekursiivisia, mutta jos kansio kuuluu molempiin, se näytetään.</string>
-    <string name="faq_10_title">Voinko rajata kuvia tällä sovelluksella?</string>
+    <string name="faq_8_title">Mitä jos haluan vain muutaman tietyn kansion näkyviin\?</string>
+    <string name="faq_8_text">Kansion lisääminen sisällytettyihin kansioihin ei automaattisesti poissulje muita kansioita. Voit mennä asetuksiin -&gt; Hallitse poissuljettuja kansioita -&gt; poissulje juurikansio \"/\", sen jälkeen lisää haluamasi näytettävät kansiot asetuksien Hallitse sisällytettyjä kansioita-toiminnolla. Siten vain valitut kansiot näytetä. Poissulku ja sisällyttäminen ovat rekursiivisia, mutta jos kansio kuuluu molempiin, se näytetään.</string>
+    <string name="faq_10_title">Voinko rajata kuvia tällä sovelluksella\?</string>
     <string name="faq_10_text">Kyllä, voit rajata kuvia editorissa vetämällä kuvan kulmista. Pääset editoriin joko painamalla pitkään pienoiskuvaa ja valitsemalla Muokkaa, tai valitsemalla Muokkaa koko näytön tilassa.</string>
-    <string name="faq_11_title">Voinko ryhmittää mediatieodostojen pienoiskuvia jotenkin?</string>
+    <string name="faq_11_title">Voinko ryhmittää mediatieodostojen pienoiskuvia jotenkin\?</string>
     <string name="faq_11_text">Jep, käytä vain \"Ryhmitä\"-valintaa pienoiskuvanäkymässä. Voit ryhmittää tiedostoja useilla kriteereillä, kuten kuvanottopäivämäärän mukaan. Jos käytät \"Näytä kansion koko sisältö\" -toimintoa, voit ryhmittää myös kansioiden perusteella.</string>
     <string name="faq_12_title">Lajittelu ottopäivämäärän mukaan ei vaikuta toimivan oikein, kuinka voin korjata ongelman\?</string>
     <string name="faq_12_text">Luultavimmin tämä johtuu siitä, että kuvat on kopioitu. Voit korjata tämän valitsemalla pienoiskuvat ja valitsemalla \"Korjaa kuvanottopäivämäärät\".</string>
-    <string name="faq_13_title">Kuvissa näkyy joitain väriraitoja. Miten voin parantaa laatua?</string>
+    <string name="faq_13_title">Kuvissa näkyy joitain väriraitoja. Miten voin parantaa laatua\?</string>
     <string name="faq_13_text">Nykyinen ratkaisu kuvien näyttämiseen toimii valtaosassa tapauksia hyvin, mutta jos haluat vielä paremman laadun, voit ottaa asetuksissa käyttöön \"Näytä kuvat korkeimmalla mahdollisella laadulla\", joka on \"Syväzoomattavat kuvat\" osiossa.</string>
-    <string name="faq_14_title">Olen piilottanut tiedoston/kansion. Miten saan sen näkyviin?</string>
+    <string name="faq_14_title">Olen piilottanut tiedoston/kansion. Miten saan sen näkyviin\?</string>
     <string name="faq_14_text">Voit joko painaa päänäytön valikosta \"Näytä piilotetut kohteet väliaikaisesti\" tai muuttaa \"Näytä piilotetut kohteet\"-asetusta asetuksissa. Paina sitten piilotettua kohdetta pitkään ja valitse \"Poista piilotus\". FKansiot piilotetaan lisäämällä niihin \".nomedia\" tiedosto, jonka voit poistaa millä tahansa tiedostonhallintasovelluksella. Huomaa, että piilottaminen toimii kuitenkin rekursiivisesti, joten jos piilotat kansion, myös kaikki alikansiot piilotetaan. Joten alikansioiden piilottamiseksi sinun on otettava yläkansion piilotus pois käytöstä.</string>
-    <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa?</string>
+    <string name="faq_15_title">Miksi sovellus vie niin paljon tilaa\?</string>
     <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
     <string name="faq_16_title">Mitä taphtui tiedostojen ja kansioiden piilotukselle ja miksi en nää enää piilotettuja kohteita\?</string>
     <string name="faq_16_text">Android 11:stä alkaen ei voi enää piilottaa tai poistaa piilotettuja tiedostoja tai kansioita, eikä näe piilotettuja tiedostoja tai kansioita galleriasovelluksissa järjestelmän rajoitusten vuoksi. On käytettävä jotain tiedostonhallintaohjelmaa siihen.</string>
