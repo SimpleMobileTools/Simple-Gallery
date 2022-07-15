@@ -28,7 +28,13 @@
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="no_date_takens_found">Nessun valore trovato per data creazione</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
-    <string name="upgraded_from_free">Ehi,\n\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.\n\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.\n\nGrazie!</string>
+    <string name="upgraded_from_free">Ehi,
+\n
+\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.
+\n
+\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.
+\n
+\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>
@@ -51,10 +57,12 @@
     <string name="excluded_folders">Cartelle escluse</string>
     <string name="manage_excluded_folders">Gestisci le cartelle escluse</string>
     <string name="exclude_folder_description">Questo escluderà la selezione e le relative sottocartelle solo da Semplice Galleria. Si possono gestire le cartelle escluse nelle impostazioni.</string>
-    <string name="exclude_folder_parent">Vuoi invece escluderne una superiore?</string>
-    <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Semplice Galleria, saranno ancora visibili in altre applicazioni.\n\nSe si desidera nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
+    <string name="exclude_folder_parent">Vuoi invece escluderne una superiore\?</string>
+    <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Semplice Galleria, saranno ancora visibili in altre applicazioni.
+\n
+\nSe si desidera nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
     <string name="remove_all">Rimuovi tutte</string>
-    <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
+    <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni\? Ciò non eliminerà le cartelle.</string>
     <string name="hidden_folders">Cartelle nascoste</string>
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
     <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file .nomedia.</string>
@@ -266,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Elimina</string>
     <string name="pesdk_brush_title_brushColor">Colore pennello</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Chiudere l\'editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Scartare i cambiamenti?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Chiudere l\'editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Scartare i cambiamenti\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sì</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Annulla</string>
@@ -330,33 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Colore pipettabile</string>
     <string name="vesdk_video_trim_title_name">Ritaglia</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Come posso impostare Semplice Galleria come la galleria predefinita del dispositivo?</string>
+    <string name="faq_1_title">Come posso impostare Semplice Galleria come la galleria predefinita del dispositivo\?</string>
     <string name="faq_1_text">Si deve prima trovare l\'attuale galleria predefinita nella sezione App delle impostazioni di sistema, cercare un pulsante che dice qualcosa come «App predefinite», cliccarlo e poi selezionare «Ripristina predefiniti». La prossima volta che proverai ad aprire un\'immagine o video si dovrebbe vedere un selettore di app, dove si può scegliere Semplice Galleria e renderla l\'app predefinita.</string>
-    <string name="faq_2_title">Ho bloccato l\'app con una password, ma l\'ho dimenticata. Cosa posso fare?</string>
+    <string name="faq_2_title">Ho bloccato l\'app con una password, ma l\'ho dimenticata. Cosa posso fare\?</string>
     <string name="faq_2_text">Si può risolvere in due modi: reinstallare l\'app, oppure trovare l\'app nelle impostazioni del dispositivo e seleziona «Cancella dati». Tutte le impostazioni verranno ripristinate, nessun file verrà rimosso.</string>
-    <string name="faq_3_title">Come posso fare apparire un album sempre in cima?</string>
+    <string name="faq_3_title">Come posso fare apparire un album sempre in cima\?</string>
     <string name="faq_3_text">Si può toccare a lungo l\'album desiderato e selezionare l\'icona puntina nel menù azioni, ciò lo fisserà in cima. Si possono anche fissare varie cartelle, gli elementi fissati saranno ordinati dal metodo di ordinamento predefinito.</string>
-    <string name="faq_4_title">Come avanzo velocemente nei video?</string>
+    <string name="faq_4_title">Come avanzo velocemente nei video\?</string>
     <string name="faq_4_text">Puoi farlo con un doppio tocco del lato dello schermo o toccando i testi di durata attuale o massima vicino alla barra. Se attivi l\'apertura di video su uno schermo separato nelle impostazioni, puoi anche usare i gesti orizzontali.</string>
-    <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella?</string>
+    <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella\?</string>
     <string name="faq_5_text">L\'esclusione impedisce la visualizzazione della cartella solo in Simplice Galleria, mentre «Nascondi» funziona a livello di sistema e nasconde la cartella anche da altre gallerie. Funziona creando un file vuoto .nomedia nella cartella data, che puoi poi rimuovere con qualsiasi file manager. Nota che alcuni dispositivi non permettono di nascondere cartelle come Fotocamera, Schermate e Scaricamenti.</string>
-    <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica?</string>
+    <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica\?</string>
     <string name="faq_6_text">Può succedere che si vedano apparire alcuni album insoliti. Si possono escluderli facilmente toccandoli a lungo e selezionando Escludi. Nella finestra successiva si possono quindi selezionare la cartella superiore, con la possibilità di impedire la visualizzazione anche di altri album correlati.</string>
-    <string name="faq_7_title">Una cartella con immagini non viene mostrata, cosa posso fare?</string>
+    <string name="faq_7_title">Una cartella con immagini non viene mostrata, cosa posso fare\?</string>
     <string name="faq_7_text">Può succedere per vari motivi, ma la soluzione è semplice. Vai in Impostazioni -&gt; Gestisci le cartelle incluse, tocca il tasto Più e naviga verso la cartella desiderata.</string>
-    <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle?</string>
+    <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle\?</string>
     <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni → Gestisci le cartelle escluse, escludi la cartella root /, poi aggiungi le cartelle desiderate in Impostazioni → Gestisci le cartelle incluse. Ciò renderà visibili solo le cartelle selezionate, dato che sia l\'esclusione che l\'inclusione sono ricorsive e se una cartella è sia esclusa che inclusa, verrà mostrata.</string>
-    <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
+    <string name="faq_10_title">Posso ritagliare le immagini con questa app\?</string>
     <string name="faq_10_text">Sì, si possono ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Si può accedere all\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, oppure selezionando Modifica mentre si vede una foto a schermo intero.</string>
-    <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>
+    <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file\?</string>
     <string name="faq_11_text">Certo, si può usare il menu «Raggruppa per» mentre si visualizzano le miniature. Il raggruppamento può avvenire per diversi criteri, incluso la data di creazione. Se si utilizza la funzione «Mostra tutti i contenuti» si può anche raggrupparli per cartelle.</string>
-    <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere?</string>
+    <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere\?</string>
     <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Si può risolvere selezionando le miniature dei file e scegliendo «Correggi valore Data acquisizione».</string>
-    <string name="faq_13_title">Vedo curvature di colore nelle immagini. Come posso migliorarne la qualità?</string>
+    <string name="faq_13_title">Vedo curvature di colore nelle immagini. Come posso migliorarne la qualità\?</string>
     <string name="faq_13_text">La soluzione attuale per la visualizzazione delle immagini funziona bene nella stragrande maggioranza dei casi, ma se vuoi una qualità d\'immagine ancora migliore, puoi abilitare la funzione «Mostra le immagini nella massima qualità possibile» nelle impostazioni dell\'app, nella sezione «Immagini con zoom profondo».</string>
-    <string name="faq_14_title">Ho nascosto un file/una cartella. Come posso mostrarlo/a di nuovo?</string>
+    <string name="faq_14_title">Ho nascosto un file/una cartella. Come posso mostrarlo/a di nuovo\?</string>
     <string name="faq_14_text">Puoi premere la voce di menu «Mostra temporaneamente gli elementi nascosti» nella schermata principale, o attivare «Mostra gli elementi nascosti» nelle impostazioni dell\'app per vedere l\'elemento nascosto. Se vuoi nasconderlo, basta premere a lungo su di esso e selezionare «Mostra». Le cartelle vengono nascoste aggiungendo un file nascosto .nomedia in esse, puoi anche cancellare il file con qualsiasi file manager. Nota però che nascondere funziona in modo ricorsivo, quindi se nascondi una cartella, anche tutte le sottocartelle diventeranno nascoste. Quindi per nascondere le sottocartelle devi nascondere la cartella madre.</string>
-    <string name="faq_15_title">Perchè l\'app occupa così tanto spazio?</string>
+    <string name="faq_15_title">Perchè l\'app occupa così tanto spazio\?</string>
     <string name="faq_15_text">La cache dell\'app può occupare massimo 250MB, serve per veloccizare il caricamento delle immagini. Se l\'app sta prendendo sempre più spazio, molto probabilmente è causato dagli elementi nel Cestino. Questi file contano nella dimensione dell\'app. Puoi svuotare il Cestino aprendolo ed eliminando tutti i file, oppure andando nelle impostazioni dell\'app. Ogni file nel Cestino viene eliminato automaticamente dopo 30 giorni.</string>
     <string name="faq_16_title">Cos\'è successo al nascondere file e cartelle e perché non posso più vedere gli elementi nascosti\?</string>
     <string name="faq_16_text">A partire da Android 11 non è più possibile nascondere o mostrare i file o le cartelle nascoste, non è possibile vedere quelli nascosti neanche nelle app della galleria a causa di restrizioni di sistema. Dovrai usare qualche gestore file per questo.</string>
