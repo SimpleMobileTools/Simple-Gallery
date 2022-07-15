@@ -338,7 +338,7 @@
     <string name="pesdk_common_title_pipettableColor">Pipetom odabrana boja</string>
     <string name="vesdk_video_trim_title_name">Skrati</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>
+    <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja\?</string>
     <string name="faq_1_text">Najprije moraš pronaći trenutačno standardnu galeriju u odjeljku „Aplikacije” u postavkama tog uređaja, potraži gumb koji kaže nešto poput opcije „Otvori prema standardnim postavkama”, pritisni tu opciju, a zatim odaberi „Izbriši standardne postavke”. Sljedeći put kad pokušaš otvoriti sliku ili video, trebao bi se pojaviti alat za odabir aplikacija, gdje možeš odabrati aplikaciju „Jednostavna galerija” i je postaviti je kao standardnu aplikaciju.</string>
     <string name="faq_2_title">Zaključao/la sam aplikaciju lozinkom, ali sam je zaboravio/la. Što mogu učiniti\?</string>
     <string name="faq_2_text">Problem možeš riješiti na dva načina. Ponovo instalirati aplikaciju ili pronađi aplikaciju u postavkama uređaja i odaberi opciju „Izbriši podatke”. Navedeno će obnoviti sve postavke, ali neće ukloniti nikoje medijske datoteke.</string>
