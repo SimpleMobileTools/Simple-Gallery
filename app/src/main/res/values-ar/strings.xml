@@ -184,7 +184,7 @@
     <string name="allow_deep_zooming_images">السماح بالتكبير العميق للصور</string>
     <string name="hide_extended_details">إخفاء التفاصيل الموسعة عند إخفاء شريط الحالة</string>
     <string name="show_at_bottom">إظهار بعض أزرار الإجراءات في أسفل الشاشة</string>
-    <string name="show_recycle_bin">إظهار "سلة المحذوفات" في شاشة المجلدات</string>
+    <string name="show_recycle_bin">إظهار سلة المحذوفات في شاشة المجلدات</string>
     <string name="deep_zoomable_images">الصور القابلة للتكبير العميق</string>
     <string name="show_highest_quality">عرض الصور بأعلى جودة ممكنة</string>
     <string name="show_recycle_bin_last">إظهار سلة المحذوفات كعنصر آخر على الشاشة الرئيسية</string>
@@ -219,7 +219,7 @@
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
     <string name="extended_details">التفاصيل الموسعة</string>
-    <string name="bottom_actions"> إجراءات الأزرار السفلية</string>
+    <string name="bottom_actions">إجراءات الأزرار السفلية</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">إدارة إجراءات الأزرار المرئية</string>
     <string name="toggle_favorite">تبديل المفضلة</string>
