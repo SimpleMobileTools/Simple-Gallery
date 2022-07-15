@@ -57,10 +57,12 @@
     <string name="excluded_folders">Hariç tutulan klasörler</string>
     <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
     <string name="exclude_folder_description">Bu, alt klasörleriyle birlikte seçimi yalnızca Basit Galeriden hariç tutacaktır. Hariç tutulan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
-    <string name="exclude_folder_parent">Bunun yerine bir üst dizin hariç tutulsun mu?</string>
-    <string name="excluded_activity_placeholder">Klasörleri hariç tutmak, onları yalnızca Basit Galeri\'de gizlenen alt klasörleriyle bir araya getirecek, diğer uygulamalarda görünmeye devam edecektir.\n\nBunları diğer uygulamalardan gizlemek istiyorsanız, Gizle işlevini kullanın.</string>
+    <string name="exclude_folder_parent">Bunun yerine bir üst dizin hariç tutulsun mu\?</string>
+    <string name="excluded_activity_placeholder">Klasörleri hariç tutmak, onları yalnızca Basit Galeri\'de gizlenen alt klasörleriyle bir araya getirecek, diğer uygulamalarda görünmeye devam edecektir.
+\n
+\nBunları diğer uygulamalardan gizlemek istiyorsanız, Gizle işlevini kullanın.</string>
     <string name="remove_all">Tümünü kaldır</string>
-    <string name="remove_all_description">Tüm klasörler hariç tutulanlar listesinden kaldırılsın mı? Bu klasörleri silmez.</string>
+    <string name="remove_all_description">Tüm klasörler hariç tutulanlar listesinden kaldırılsın mı\? Bu klasörleri silmez.</string>
     <string name="hidden_folders">Gizli klasörler</string>
     <string name="manage_hidden_folders">Gizli klasörleri yönet</string>
     <string name="hidden_folders_placeholder">\".nomedia\" dosyasıyla gizlenmiş herhangi bir klasörünüz yok gibi görünüyor.</string>
@@ -272,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Sil</string>
     <string name="pesdk_brush_title_brushColor">Fırça Rengi</string>
     <string name="pesdk_editor_title_name">Düzenleyici</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Düzenleyici kapatılsın mı?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikleri gerçekten atmak istiyor musunuz?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Düzenleyici kapatılsın mı\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Değişiklikleri gerçekten atmak istiyor musunuz\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Evet</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Hayır</string>
     <string name="pesdk_editor_cancel">İptal</string>
@@ -338,32 +340,31 @@
     <!-- FAQ -->
     <string name="faq_1_title">Basit Galeri\'yi nasıl öntanımlı aygıt galerisi yapabilirim\?</string>
     <string name="faq_1_text">Önce aygıt ayarlarınızın Uygulamalar bölümünde öntanımlı galeriyi bulmanız, \"Öntanımlı olarak aç\" gibi bir şey söyleyen bir düğme aramanız, üzerine tıklamanız ve ardından \"Öntanımlıları Temizle\" seçeneğini seçmeniz gerekir. Gelecek sefer video veya resim açmayı denediğinizde, Basit Galeri\'yi seçip öntanımlı uygulama haline getirebileceğiniz bir uygulama seçicisini görmelisiniz.</string>
-    <string name="faq_2_title">Uygulamayı bir şifre ile kilitledim ama unuttum. Ne yapabilirim?</string>
+    <string name="faq_2_title">Uygulamayı bir şifre ile kilitledim ama unuttum. Ne yapabilirim\?</string>
     <string name="faq_2_text">Bunu 2 şekilde çözebilirsiniz. Uygulamayı yeniden kurabilir veya uygulamayı aygıt ayarlarınızdan bulabilir ve \"Verileri temizle\" seçeneğini seçebilirsiniz. Bu, tüm ayarlarınızı sıfırlayacak, herhangi bir medya dosyasını kaldırmayacaktır.</string>
-    <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim?</string>
+    <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim\?</string>
     <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş ögeler öntanımlı sıralama yöntemine göre sıralanır.</string>
-    <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
+    <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim\?</string>
     <string name="faq_4_text">Ekranın yan tarafına iki kez dokunarak veya arama çubuğunun yanındaki geçerli veya maksimum süre metinlerine dokunarak bunu yapabilirsiniz. Videoları uygulama ayarlarından ayrı bir ekranda açmayı etkinleştirirseniz yatay hareketleri de kullanabilirsiniz.</string>
-    <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
+    <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir\?</string>
     <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz. Bazı aygıtların Kamera, Ekran Görüntüleri ve İndirilenler gibi klasörlerin gizlenmesine izin vermediğini unutmayın.</string>
-    <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
+    <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor\?</string>
     <string name="faq_6_text">Bazı olağandışı albümlerin ortaya çıktığını göreceksiniz. Onları uzun süre basarak ve Hariç tut\'u seçerek kolayca hariç tutabilirsiniz. Bir sonraki iletişim kutusunda, üst klasörü seçebilirsiniz, ancak diğer ilgili albümlerin de gösterilmesini önleyecektir.</string>
-    <string name="faq_7_title">Resimler içeren bir klasör görünmüyor, ne yapabilirim?</string>
+    <string name="faq_7_title">Resimler içeren bir klasör görünmüyor, ne yapabilirim\?</string>
     <string name="faq_7_text">Bunun birden fazla nedeni olabilir, ancak bunu çözmek kolaydır. Sadece Ayarlar -&gt; Dahil Edilen Klasörleri Yönet\'e gidin, Artı\'yı seçin ve gerekli klasöre gidin.</string>
-    <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur?</string>
-    <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -&gt; Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -&gt; Dahil Edilen Klasörleri Yönet.
-        Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
-    <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim?</string>
+    <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur\?</string>
+    <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -&gt; Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -&gt; Dahil Edilen Klasörleri Yönet. Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
+    <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim\?</string>
     <string name="faq_10_text">Evet, görüntü köşelerini sürükleyerek resimleri düzenleyicide kırpabilirsiniz. Düzenleyiciye, bir resim küçük resmine uzun basıp Düzenle\'yi seçerek veya tam ekran görünümünden Düzenle\'yi seçerek ulaşabilirsiniz.</string>
-    <string name="faq_11_title">Medya dosyası küçük resimlerini bir şekilde gruplayabilir miyim?</string>
+    <string name="faq_11_title">Medya dosyası küçük resimlerini bir şekilde gruplayabilir miyim\?</string>
     <string name="faq_11_text">Elbette, küçük resimler görünümünde \"Gruplandırma\" menü ögesini kullanın. Çekildiği Tarih de dahil olmak üzere dosyaları birçok ölçüte göre gruplayabilirsiniz. \"Tüm klasörleri göster\" işlevini kullanırsanız, bunları klasörlere göre de gruplayabilirsiniz.</string>
-    <string name="faq_12_title">Çekildiği Tarihe Göre Sıralama düzgün çalışmıyor gibi görünüyor, nasıl düzeltebilirim?</string>
+    <string name="faq_12_title">Çekildiği Tarihe Göre Sıralama düzgün çalışmıyor gibi görünüyor, nasıl düzeltebilirim\?</string>
     <string name="faq_12_text">Büyük olasılıkla bir yerden kopyalanan dosyalardan kaynaklanır. Dosya küçük resimlerini seçip \"Çekilen tarih değerini düzelt\" seçeneğini seçerek düzeltebilirsiniz.</string>
-    <string name="faq_13_title">Görüntülerde renk şeritleri görüyorum. Kaliteyi nasıl arttırabilirim?</string>
+    <string name="faq_13_title">Görüntülerde renk şeritleri görüyorum. Kaliteyi nasıl arttırabilirim\?</string>
     <string name="faq_13_text">Görüntüleri görüntülemek için geçerli çözüm, vakaların büyük çoğunluğunda iyi çalışır, ama daha iyi görüntü kalitesi istiyorsanız, \"Derin yakınlaştırılabilir resimler\" bölümündeki uygulama ayarlarında \"Resimleri mümkün olan en yüksek kalitede göster\" seçeneğini etkinleştirebilirsiniz.</string>
-    <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim?</string>
+    <string name="faq_14_title">Bir dosya/klasör gizledim. Nasıl gösterebilirim\?</string>
     <string name="faq_14_text">Ana ekranda \"Geçici olarak gizli ögeleri göster\" menü ögesine veya gizli ögeyi görmek için uygulama ayarlarında \"Gizli ögeleri göster\" seçeneğine tıklayabilirsiniz. Göstermek isterseniz, sadece uzun basın ve \"Göster\" seçeneğini seçin. Klasörler gizlenmiş bir \".nomedia\" dosyası ekleyerek gizlenir, dosyayı herhangi bir dosya yöneticisi ile de silebilirsiniz. Gizlemenin yinelemeli olarak çalıştığını unutmayın, bu nedenle bir klasörü gizlerseniz tüm alt klasörler de gizlenir. Bu nedenle, alt klasörleri göstermek için ana klasörü göstermeniz gerekir.</string>
-    <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor?</string>
+    <string name="faq_15_title">Uygulama neden bu kadar yer kaplıyor\?</string>
     <string name="faq_15_text">Uygulama önbelleği 250 MB\'a kadar çıkabilir, daha hızlı resim yüklemesini sağlar. Uygulama daha da fazla yer kaplıyorsa, büyük olasılıkla Geri Dönüşüm Kutusunda öge bulundurmanızdan kaynaklanmaktadır. Bu dosyalar uygulama boyutuna göre sayılır. Geri Dönüşüm Kutusunu açarak ve tüm dosyaları silerek ya da uygulama ayarlarından temizleyebilirsiniz. Geri dönüşümdeki her dosya 30 gün sonra otomatik olarak silinir.</string>
     <string name="faq_16_title">Dosya ve klasör gizlemeye ne oldu ve neden artık gizli ögeleri göremiyorum\?</string>
     <string name="faq_16_text">Android 11\'den itibaren artık dosya veya klasörleri gizleyemez veya gizliliğini kaldıramazsınız, sistem kısıtlamaları nedeniyle galeri uygulamalarında da gizli olanları göremezsiniz. Bunun için bir dosya yöneticisi kullanmanız gerekecektir.</string>
