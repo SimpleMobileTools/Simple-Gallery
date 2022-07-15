@@ -52,15 +52,17 @@
     <string name="no_media_with_filters">Nenhum arquivo de mídia encontrado a partir dos filtros selecionados.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta opção oculta a pasta ao adicionar um arquivo \".nomedia\" dentro dela, o que também ocultará todas as suas subpastas. Você poderá voltar a exibir estas pastas com a opção \"Exibir pastas ocultas\". Continuar?</string>
+    <string name="hide_folder_description">Esta opção oculta a pasta ao adicionar um arquivo \".nomedia\" dentro dela, o que também ocultará todas as suas subpastas. Você poderá voltar a exibir estas pastas com a opção \"Exibir pastas ocultas\". Continuar\?</string>
     <string name="exclude">Ignorar</string>
     <string name="excluded_folders">Pastas ignoradas</string>
     <string name="manage_excluded_folders">Gerenciar pastas ignoradas</string>
     <string name="exclude_folder_description">Esta ação deixará de exibir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas ignoradas nas configurações do aplicativo.</string>
-    <string name="exclude_folder_parent">Ignorar a pasta raiz ao invés desta?</string>
-    <string name="excluded_activity_placeholder">Ignorar uma pasta apenas deixa de exibi-la nesta galeria. Ela continuará visível para outros aplicativos.\n\nSe você quiser ocultar a pasta para todos os aplicativos, utilize a função Ocultar.</string>
+    <string name="exclude_folder_parent">Ignorar a pasta raiz ao invés desta\?</string>
+    <string name="excluded_activity_placeholder">Ignorar uma pasta apenas deixa de exibi-la nesta galeria. Ela continuará visível para outros aplicativos.
+\n
+\nSe você quiser ocultar a pasta para todos os aplicativos, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
-    <string name="remove_all_description">Remover todas as pastas da lista de pastas ignoradas? Esta ação não exclui as pastas.</string>
+    <string name="remove_all_description">Remover todas as pastas da lista de pastas ignoradas\? Esta ação não exclui as pastas.</string>
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
@@ -96,7 +98,7 @@
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="edit_video_with">Editar vídeo com:</string>
     <string name="no_image_editor_found">Nenhum editor de imagem encontrado</string>
-    <string name="no_video_editor_found">Nenhum editor de vídeo encontrado </string>
+    <string name="no_video_editor_found">Nenhum editor de vídeo encontrado</string>
     <string name="unknown_file_location">Localização de arquivo desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o arquivo original</string>
     <string name="rotate_left">Girar para a esquerda</string>
@@ -272,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Deletar</string>
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Fechar Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Você realmente deseja descartar as alterações?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Fechar Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Você realmente deseja descartar as alterações\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
@@ -336,35 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Cor pipetável</string>
     <string name="vesdk_video_trim_title_name">Cortar</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Como posso fazer do Simple Galeria a galeria padrão do dispositivo?</string>
-    <string name="faq_1_text">Primeiro, você deve encontrar o aplicativo padrão atual nas configurações do seu dispositivo, procurar um botão que diga algo como "Abrir por padrão", clicar nele e selecionar \"Limpar padrão\"
-        Na próxima vez que você abrir uma imagem ou vídeo, você deverá ver um seletor do aplicativo, no qual você terá a oportunidade de selecionar a Simple Galeria como o app padrão.</string>
-    <string name="faq_2_title">Eu protegi o app com senha, mas a esqueci. O que posso fazer?</string>
-    <string name="faq_2_text">Você pode resolver isto de duas formas. Você pode reinstalar o aplicativo ou  ir nas configurações do seu dispositivo e selecionar a opção "Limpar armazenamento". Isto irá redefinir todas as suas configurações, não removerá nenhum arquivo de mídia.</string>
-    <string name="faq_3_title">O que posso fazer para que uma pasta sempre apareça no topo da lista?</string>
+    <string name="faq_1_title">Como posso fazer do Simple Galeria a galeria padrão do dispositivo\?</string>
+    <string name="faq_1_text">Primeiro, você deve encontrar o aplicativo padrão atual nas configurações do seu dispositivo, procurar um botão que diga algo como Abrir por padrão, clicar nele e selecionar \"Limpar padrão\" Na próxima vez que você abrir uma imagem ou vídeo, você deverá ver um seletor do aplicativo, no qual você terá a oportunidade de selecionar a Simple Galeria como o app padrão.</string>
+    <string name="faq_2_title">Eu protegi o app com senha, mas a esqueci. O que posso fazer\?</string>
+    <string name="faq_2_text">Você pode resolver isto de duas formas. Você pode reinstalar o aplicativo ou ir nas configurações do seu dispositivo e selecionar a opção Limpar armazenamento. Isto irá redefinir todas as suas configurações, não removerá nenhum arquivo de mídia.</string>
+    <string name="faq_3_title">O que posso fazer para que uma pasta sempre apareça no topo da lista\?</string>
     <string name="faq_3_text">Faça um toque longo na pasta em questão, e depois toque no ícone de alfinete na parte superior da tela, isto irá fixá-la no topo. Você também pode fixar várias pastas; os itens fixados serão classificados pelo método de ordenação padrão.</string>
-    <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast forward)?</string>
+    <string name="faq_4_title">Como faço para avançar rapidamente um vídeo (fast forward)\?</string>
     <string name="faq_4_text">Você pode fazer isso tocando duas vezes na lateral da tela ou tocando nos textos atuais ou de duração máxima próximos à barra de busca. Se você ativar a abertura de vídeos em uma tela separada nas configurações do aplicativo, também poderá usar gestos horizontais.</string>
-    <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta?</string>
+    <string name="faq_5_title">Qual é a diferença entre ocultar e ignorar uma pasta\?</string>
     <string name="faq_5_text">Ignorar deixa de exibir a pasta apenas no Simple Galeria, enquanto Ocultar afeta todo o sistema e pode ocultar pastas de outras galerias também. A função ocultar funciona adicionando um arquivo vazio chamado \".nomedia\" na pasta em questão, arquivo este você também pode excluir com um gerenciador de arquivos, se quiser. Note que alguns dispositivos não permitem esconder algumas pastas como Camera, Screenshots e Downloads.</string>
-    <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista?</string>
+    <string name="faq_6_title">Porque pastas com capas de CD de música ou figurinhas aparecem na lista\?</string>
     <string name="faq_6_text">Pode acontecer de que algumas pastas incomuns apareçam. Você pode utilizar a opção Ignorar nestas pastas, adicionando-as a lista de pastas ignoradas. Uma maneira de fazer isso é realizar um toque longo em uma destas pastas, selecionar a opção Ignorar e, em seguida, selecionar a pasta pai.</string>
-    <string name="faq_7_title">Uma das minhas pastas não aparece, ou nem todos os seus itens são exibidos. O que posso fazer?</string>
+    <string name="faq_7_title">Uma das minhas pastas não aparece, ou nem todos os seus itens são exibidos. O que posso fazer\?</string>
     <string name="faq_7_text">Isso pode ocorrer por diversos motivos, mas resolver o problema é fácil. Entre em Configurações --&gt; Gerenciar pastas incluídas, toque no botão \"+\", e selecione a pasta em questão.</string>
-    <string name="faq_8_title">Como posso fazer para exibir apenas certas pastas?</string>
-    <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -&gt; Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -&gt; Gerenciar pastas incluídas.
-        Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funções recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
-    <string name="faq_10_title">Posso recortar imagens usando este app?</string>
+    <string name="faq_8_title">Como posso fazer para exibir apenas certas pastas\?</string>
+    <string name="faq_8_text">Adicionar uma pasta à lista de Pastas Incluídas não remove outras pastas da exibição. O que você pode fazer é ir em Configurações -&gt; Gerenciar pastas ignoradas, excluir a pasta raiz \"/\", e finalmente incluir somente as pastas desejadas através de Configurações -&gt; Gerenciar pastas incluídas. Isso tornará apenas as pastas selecionadas visíveis, já que ignorar e incluir são funções recursivas e, se uma pasta for ignorada e incluída ao mesmo tempo, ela será exibida.</string>
+    <string name="faq_10_title">Posso recortar imagens usando este app\?</string>
     <string name="faq_10_text">Sim, você pode recortar imagens no editor, arrastando os cantos da imagem. Você pode entrar no editor fazendo um toque longo na imagem e selecionando Editar, ou selecionando Editar a partir da visualização de tela cheia.</string>
-    <string name="faq_11_title">É possível exibir os meus arquivos de mídia em subgrupos ao invés de em uma única grande lista?</string>
+    <string name="faq_11_title">É possível exibir os meus arquivos de mídia em subgrupos ao invés de em uma única grande lista\?</string>
     <string name="faq_11_text">Você pode usar a opção \"Agrupar por\" para agrupar os seus arquivos de mídia por data, formato ou outros critérios. Se a opção \"Exibir conteúdo de todas as pastas\" estiver ativada, você também poderá agrupar por subpasta.</string>
-    <string name="faq_12_title">A ordenação por Data da Foto não funciona corretamente. O que posso fazer?</string>
+    <string name="faq_12_title">A ordenação por Data da Foto não funciona corretamente. O que posso fazer\?</string>
     <string name="faq_12_text">Isto pode ter ocorrer caso as suas fotos tenham sido copiadas de outro local. Para resolver o problema, você pode selecionar a função \"Corrigir data da foto\" no menu deste aplicativo.</string>
-    <string name="faq_13_title">Algumas imagens exibem artefatos de exibição, como bandas de cor. Como posso melhorar a qualidade da exibição?</string>
+    <string name="faq_13_title">Algumas imagens exibem artefatos de exibição, como bandas de cor. Como posso melhorar a qualidade da exibição\?</string>
     <string name="faq_13_text">O nosso método atual para a exibição de imagens funciona bem na grande maioria dos casos, mas caso você queira uma qualidade ainda melhor, ative a opção \"Exibir imagens na maior qualidade possível\" na seção \"Zoom aprofundado para imagens\" das configurações deste aplicativo.</string>
-    <string name="faq_14_title">Eu ocultei um arquivo/pasta. Como posso desfazer isso?</string>
+    <string name="faq_14_title">Eu ocultei um arquivo/pasta. Como posso desfazer isso\?</string>
     <string name="faq_14_text">Você pode pressionar o item de menu \"Exibir ocultos temporariamente\" na tela principal, ou ativar \"Exibir itens ocultos\" nas configurações do aplicativo para ver o item oculto. Se você quiser reexibir-lo, basta pressionar e selecionar \"Exibir\". As pastas são ocultas adicionando um arquivo oculto \".nomedia\" dentro delas, arquivo este que você também pode excluir com um gerenciador de arquivos, se quiser. Note que esconder funciona recursivamente, então se você esconder uma pasta, todas as subpastas ficaram escondidas também. Então, para re exibir as subpastas, você precisa re exibir a pasta principal.</string>
-    <string name="faq_15_title">Porque este app ocupa tanto espaço?</string>
+    <string name="faq_15_title">Porque este app ocupa tanto espaço\?</string>
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
     <string name="faq_16_title">O que aconteceu com o arquivo e a pasta escondidos e por que não posso mais ver arquivos escondidos\?</string>
     <string name="faq_16_text">A partir do Android 11, você não pode mais ocultar ou exibir arquivos ou pastas, também não pode ver os ocultos nos aplicativos da galeria devido a restrições do sistema. Você terá que usar algum gerenciador de arquivos para isso.</string>
