@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
-    <string name="upgraded_from_free">Živjo,\n\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.\n\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.\n\nHvala!</string>
+    <string name="upgraded_from_free">Živjo,
+\n
+\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.
+\n
+\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.
+\n
+\nHvala!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
     <string name="images">Slike</string>
@@ -46,30 +51,31 @@
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Na podlagi izbranih filtrov ne najdem nobenih medijskih datotek.</string>
     <string name="change_filters_underlined"><u>Spremeni filtre</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcija skrije mapo tako, da vanjo doda \'.nomedia\' datoteko, kar skrije tudi vse podmape. Ponovno jih lahko prikažete z uporabo možnosti \'Prikaži skrite elemente\' v Nastavitvah. Nadaljujem?</string>
+    <string name="hide_folder_description">Ta funkcija skrije mapo tako, da vanjo doda \'.nomedia\' datoteko, kar skrije tudi vse podmape. Ponovno jih lahko prikažete z uporabo možnosti \'Prikaži skrite elemente\' v Nastavitvah. Nadaljujem\?</string>
     <string name="exclude">Izključi</string>
     <string name="excluded_folders">Izključene mape</string>
     <string name="manage_excluded_folders">Urejaj izključene mape</string>
     <string name="exclude_folder_description">Izbira bo skupaj s podmapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
-    <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo?</string>
-    <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.\n\nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
+    <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo\?</string>
+    <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.
+\n
+\nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
     <string name="remove_all">Odstrani vse</string>
-    <string name="remove_all_description">Odstranim vse mape iz seznama izključenih? Mape ne bodo izbrisane.</string>
+    <string name="remove_all_description">Odstranim vse mape iz seznama izključenih\? Mape ne bodo izbrisane.</string>
     <string name="hidden_folders">Skrite mape</string>
     <string name="manage_hidden_folders">Urejaj skrite mape</string>
     <string name="hidden_folders_placeholder">Kot kaže skrite mape z \".nomedia\" datoteko ne obstajajo.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-
     <!-- Include folders -->
     <string name="include_folders">Vključene mape</string>
     <string name="manage_included_folders">Urejaj vključene mape</string>
     <string name="add_folder">Dodaj mapo</string>
-    <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.\n\nDodajanje novih elementov ne bo izključilo drugih.</string>
+    <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.
+\n
+\nDodajanje novih elementov ne bo izključilo drugih.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">Spremeni velikost</string>
     <string name="resize_and_save">Spremeni velikost izbora in shrani</string>
@@ -77,7 +83,6 @@
     <string name="height">Višina</string>
     <string name="keep_aspect_ratio">Obdrži razmerje stranic</string>
     <string name="invalid_values">Vnesite veljavno ločljivost</string>
-
     <!-- Editor -->
     <string name="editor">Urejevalnik</string>
     <string name="rotate">Zavrti</string>
@@ -102,15 +107,16 @@
     <string name="flip">Zrcaljenje</string>
     <string name="flip_horizontally">Zrcali horizontalno</string>
     <string name="flip_vertically">Zrcali vertikalno</string>
-    <string name="free_aspect_ratio">Prosto</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Drugo</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Prosto</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Drugo</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple ozadje</string>
     <string name="set_as_wallpaper">Nastavi kot ozadje</string>
     <string name="set_as_wallpaper_failed">Nastavljanje ozadja ni uspelo</string>
     <string name="set_as_wallpaper_with">Nastavi kot ozadje z:</string>
-    <string name="setting_wallpaper">Nastavljam ozadje&#8230;</string>
+    <string name="setting_wallpaper">Nastavljam ozadje…</string>
     <string name="wallpaper_set_successfully">Ozadje uspešno nastavljeno</string>
     <string name="portrait_aspect_ratio">Pokončno razmerje stranic</string>
     <string name="landscape_aspect_ratio">Ležeče razmerje stranic</string>
@@ -118,7 +124,6 @@
     <string name="lock_screen">Zaklenjeni zaslon</string>
     <string name="home_and_lock_screen">Domači in zaklenjeni zaslon</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Diaprojekcija</string>
     <string name="interval">Interval (sekund):</string>
@@ -134,10 +139,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Združi neposredne podmape</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Združi po</string>
     <string name="do_not_group_files">Ne združuj datotek</string>
@@ -152,11 +155,9 @@
     <string name="by_extension">Končnica</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji.</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
     <string name="show_folder_name">Prikaži ime mape</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
     <string name="remember_last_video_position">Zapomni si zadnji položaj predvajanja</string>
@@ -214,18 +215,15 @@
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Celozaslonski prikaz</string>
     <string name="extended_details">Razširjene podrobnosti</string>
     <string name="bottom_actions">Akcije na dnu</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Urejaj vidne akcije na dnu</string>
     <string name="toggle_favorite">Preklopi priljubljene</string>
     <string name="toggle_file_visibility">Preklopi vidljivost datotek</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -276,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
@@ -339,43 +337,40 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
-    <string name="faq_1_title">Kako naredim Simple galerijo za privzeto aplikacijo na napravi?</string>
-    <string name="faq_1_text">Najprej morate najti trenutno privzeto aplikacijo za prikaz slik med aplikacijami v nastavitvah naprave, kjer poiščete gumb v smislu \"Odpri kot privzeto\", kliknite nanj in izberite \"Izbriši privzeto\".
-        Ko boste naslednjič želeli odpreti fotografijo ali videoposnetek, bi se moral pokazati izbirnik, v katerem lahko izberete Simple galerijo in jo določite kot privzeto aplikacijo.</string>
-    <string name="faq_2_title">Aplikacijo sem zaklenil z geslom, ki se ga ne spomnim več. Kaj lahko naredimo?</string>
+    <string name="faq_1_title">Kako naredim Simple galerijo za privzeto aplikacijo na napravi\?</string>
+    <string name="faq_1_text">Najprej morate najti trenutno privzeto aplikacijo za prikaz slik med aplikacijami v nastavitvah naprave, kjer poiščete gumb v smislu \"Odpri kot privzeto\", kliknite nanj in izberite \"Izbriši privzeto\". Ko boste naslednjič želeli odpreti fotografijo ali videoposnetek, bi se moral pokazati izbirnik, v katerem lahko izberete Simple galerijo in jo določite kot privzeto aplikacijo.</string>
+    <string name="faq_2_title">Aplikacijo sem zaklenil z geslom, ki se ga ne spomnim več. Kaj lahko naredimo\?</string>
     <string name="faq_2_text">To lahko rešite na 2 načina. Lahko ali ponovno namestite aplikacijo ali pa jo poiščete v nastavitvah in kliknete \"Počisti podatke\". To bo ponastavilo vaše nastavitve, ne bo pa izbrisalo nobenih datotek.</string>
-    <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
+    <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu\?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
-    <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
+    <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
+    <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape\?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
+    <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk\?</string>
     <string name="faq_6_text">Lahko se zgodi, da se vam prikažejo nepoznani albumi, ki vsebujejo tovrstne datoteke. Lahko jih preprosto skrijete tako, da z dolgim pritiskom na album prikličete meni in tam izberete Izključi. V naslednjem oknu lahko izberete tudi nadrejeno mapo, obstaja pa verjetnost, da bo to preprečilo tudi prikazovanje ostalih povezanih albumov.</string>
-    <string name="faq_7_title">Mapa s slikami se ne prikaže. Kaj naj naredim?</string>
+    <string name="faq_7_title">Mapa s slikami se ne prikaže. Kaj naj naredim\?</string>
     <string name="faq_7_text">Razlogi so lahko različni, rešitev je vseeno preprosta. Pojdite v Nastavitve in izberite Urejaj vključene mape, izberite plus in poiščite željeno mapo.</string>
-    <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map?</string>
-    <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -> Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -> Urejaj vključene mape.
-        To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
-    <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo?</string>
+    <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map\?</string>
+    <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -&gt; Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -&gt; Urejaj vključene mape. To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
+    <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo\?</string>
     <string name="faq_10_text">Da, slike lahko obrezujete z vlečenjem kotov slike. Do urejevalnika lahko pridete z dolgim pritiskom na sličico fotografije in izborom opcije Uredi ali izborom funkcije Uredi iz celozaslonskega načina prikaza.</string>
-    <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek?</string>
+    <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek\?</string>
     <string name="faq_11_text">Seveda, uporabite \"Združi po\" opcijo v meniju, ki je na voljo v pregledu sličic. Datoteke lahko združujete po različnih kriterijih, vključujoč po datumu posnetka. Če uporabite funkcijo \"Prikaži vso vsebino map\" jih lahko združujete tudi po mapah.</string>
-    <string name="faq_12_title">Kot kaže razvrščanje po datumu posnetka ne deluje pravilno. Kako lahko to popravim?</string>
+    <string name="faq_12_title">Kot kaže razvrščanje po datumu posnetka ne deluje pravilno. Kako lahko to popravim\?</string>
     <string name="faq_12_text">To se najverjetneje zgodi po kopiranju datotek iz nekje drugje. To lahko popravite tako, da izberete sličice in uporabite funkcijo \"Popravi datum posnetka\".</string>
-    <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto?</string>
+    <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto\?</string>
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
-    <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
+    <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem\?</string>
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora?</string>
+    <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora\?</string>
     <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se vštevajo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at
