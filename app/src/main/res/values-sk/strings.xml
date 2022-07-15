@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">Dátumy vytvorenia boli úspešne opravené</string>
     <string name="no_date_takens_found">Nenašli sa žiadne dátumy vytvorenia</string>
     <string name="share_resized">Zdieľať verziu so zmenenou veľkosťou</string>
-    <string name="upgraded_from_free">Zdravím,\n\nvyzerá to tak, že ste zo starej bezplatnej apky prešli na novú, platenú. Starú apku, ktorá má na vrchu nastavení tlačidlo \'Stiahnuť Pro verziu\', môžete už odinštalovať.\n\nStratíte tým iba súbory v odpadkovom koši, obľúbené položky budú odznačené a tiež si budete musieť opäť nastaviť položky v nastaveniach aplikácie.\n\nVďaka!</string>
+    <string name="upgraded_from_free">Zdravím,
+\n
+\nvyzerá to tak, že ste zo starej bezplatnej apky prešli na novú, platenú. Starú apku, ktorá má na vrchu nastavení tlačidlo \'Stiahnuť Pro verziu\', môžete už odinštalovať.
+\n
+\nStratíte tým iba súbory v odpadkovom koši, obľúbené položky budú odznačené a tiež si budete musieť opäť nastaviť položky v nastaveniach aplikácie.
+\n
+\nVďaka!</string>
     <string name="switch_to_file_search">Prepnúť na vyhľadávanie súborov vo všetkých viditeľných priečinkoch</string>
     <string name="set_as_default_folder">Nastaviť ako predvolený priečinok</string>
     <string name="unset_as_default_folder">Odobrať predvolený priečinok</string>
     <string name="reorder_by_dragging">Zmeniť poradie priečinkov presunutím</string>
     <string name="reorder_by_dragging_pro">Zmeniť poradie priečinkov presunutím (Pro)</string>
     <string name="restore_to_path">Obnovuje sa do \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
     <string name="images">Obrázky</string>
@@ -46,30 +51,31 @@
     <string name="portraits">Portréty</string>
     <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
     <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
+    <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať\?</string>
     <string name="exclude">Vylúčiť</string>
     <string name="excluded_folders">Vylúčené priečinky</string>
     <string name="manage_excluded_folders">Spravovať vylúčené priečinky</string>
     <string name="exclude_folder_description">Táto funkcia vylúči výber a jeho podpriečinky iba z Jednoduchej galérie. Spravovať vylúčené priečinky je možné v nastaveniach.</string>
-    <string name="exclude_folder_parent">Chcete ukryť rodičovský priečinok?</string>
-    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.\n\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
+    <string name="exclude_folder_parent">Chcete ukryť rodičovský priečinok\?</string>
+    <string name="excluded_activity_placeholder">Vylúčené priečinky budú spolu s podpriečinkami ukryté iba pred Jednoduchou Galériou, ostatné aplikácie ich budú stále vidieť.
+\n
+\nAk ich chcete ukryť aj pred ostatnými aplikáciami, použite funkciu Skryť.</string>
     <string name="remove_all">Odstrániť všetky</string>
-    <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených? Táto operácia neodstráni samotný obsah priečinkov.</string>
+    <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených\? Táto operácia neodstráni samotný obsah priečinkov.</string>
     <string name="hidden_folders">Skryté priečinky</string>
     <string name="manage_hidden_folders">Spravovať skryté priečinky</string>
     <string name="hidden_folders_placeholder">Zdá sa, že nemáte žiadne priečinky skryté pomocou súboru \".nomedia\".</string>
     <string name="temporarily_show_excluded">Dočasne zobraziť vylúčené</string>
     <string name="stop_showing_excluded">Ukončiť zobrazovanie vylúčených</string>
-
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
     <string name="add_folder">Pridať priečinok</string>
-    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.\n\nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
+    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.
+\n
+\nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
     <string name="no_media_add_included">Nenašli sa žiadne súbory s médiami. Viete to napraviť manuálnym pridaním priečinkov, ktoré obsahujú médiá.</string>
-
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
     <string name="resize_and_save">Zmeniť veľkosť a uložiť</string>
@@ -77,7 +83,6 @@
     <string name="height">Výška</string>
     <string name="keep_aspect_ratio">Zachovať pomer strán</string>
     <string name="invalid_values">Prosím zadajte platné rozlíšenie</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="rotate">Otočiť</string>
@@ -102,15 +107,16 @@
     <string name="flip">Preklopiť</string>
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
-    <string name="free_aspect_ratio">Voľný</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Iný</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Voľný</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Iný</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>
     <string name="set_as_wallpaper">Nastaviť ako tapetu</string>
     <string name="set_as_wallpaper_failed">Nastavovanie ako tapeta zlyhalo</string>
     <string name="set_as_wallpaper_with">Nastaviť ako tapetu s:</string>
-    <string name="setting_wallpaper">Nastavuje sa tapeta&#8230;</string>
+    <string name="setting_wallpaper">Nastavuje sa tapeta…</string>
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
@@ -118,7 +124,6 @@
     <string name="lock_screen">Obrazovka uzamknutia</string>
     <string name="home_and_lock_screen">Plocha a obrazovka uzamknutia</string>
     <string name="allow_changing_aspect_ratio">Povoliť zmenu pomeru strán</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>
     <string name="interval">Interval (sekundy):</string>
@@ -134,10 +139,8 @@
     <string name="slide">Posúvanie</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Zoskupiť podľa</string>
     <string name="do_not_group_files">Nezoskupovať súbory</string>
@@ -152,11 +155,9 @@
     <string name="by_extension">Prípony</string>
     <string name="show_file_count_section_header">Zobraziť počet súborov pri hlavičkách skupín</string>
     <string name="grouping_and_sorting">Prosím vedzte, že radenie a zoskupovanie súborov sú 2 nezávislé hodnoty</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Priečinok zobrazený vo widgete:</string>
     <string name="show_folder_name">Zobraziť názov priečinka</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="remember_last_video_position">Zapamätať si pozíciu posledného prehraného videa</string>
@@ -214,18 +215,15 @@
     <string name="media_management_manual">Niečo sa pokazilo, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
     <string name="media_management_note">Ak presmerovanie nefunguje, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
     <string name="media_management_alternative">Ak to nechce spraviť, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšírené vlastnosti</string>
     <string name="bottom_actions">Spodné akčné tlačidlá</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
     <string name="toggle_favorite">Prepnutie obľúbenosti</string>
     <string name="toggle_file_visibility">Prepnutie viditeľnosti súboru</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Vlastný</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -276,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Vymazať</string>
     <string name="pesdk_brush_title_brushColor">Farba štetca</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Zavrieť editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Ozaj chcete zahodiť úpravy?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Zavrieť editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Ozaj chcete zahodiť úpravy\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Áno</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nie</string>
     <string name="pesdk_editor_cancel">Zrušiť</string>
@@ -339,43 +337,40 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipetovateľná farba</string>
     <string name="vesdk_video_trim_title_name">Obrezať</string>
-
     <!-- FAQ -->
-    <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>
-    <string name="faq_1_text">Najprv musíte nájsť v nastaveniach zariadenia,sekcii Aplikácie, súčasnú predvolenú galériu, zvoliť tlačidlo s textom v zmysle \"Nastavenie predvoleného otvárania\" a následne \"Vymazať predvolené nastavenia\".
-        Ak potom skúsite otvoriť obrázok alebo video, zobrazí sa zoznam aplikácií, kde viete zvoliť Jednoduchú Galériu a nastaviť ju ako predvolenú.</string>
-    <string name="faq_2_title">Uzamkol som apku heslom, ale zabudol som ho. Čo môžem spraviť?</string>
+    <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia\?</string>
+    <string name="faq_1_text">Najprv musíte nájsť v nastaveniach zariadenia,sekcii Aplikácie, súčasnú predvolenú galériu, zvoliť tlačidlo s textom v zmysle \"Nastavenie predvoleného otvárania\" a následne \"Vymazať predvolené nastavenia\". Ak potom skúsite otvoriť obrázok alebo video, zobrazí sa zoznam aplikácií, kde viete zvoliť Jednoduchú Galériu a nastaviť ju ako predvolenú.</string>
+    <string name="faq_2_title">Uzamkol som apku heslom, ale zabudol som ho. Čo môžem spraviť\?</string>
     <string name="faq_2_text">Viete to vyriešǐť 2 spôsobmi. Môžete apku buď preinštalovať, alebo ju nájsť v nastaveniach zariadenia a zvoliť \"Vymazať údaje\". Vymaže to iba nastavenia, nie súbory.</string>
-    <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý?</string>
+    <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý\?</string>
     <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
-    <string name="faq_4_title">Ako viem posunúť video rýchlo vpred?</string>
+    <string name="faq_4_title">Ako viem posunúť video rýchlo vpred\?</string>
     <string name="faq_4_text">Viete to dosiahnuť dvojitým kliknutím na boky obrazovky, alebo kliknutím na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. Ak v nastaveniach apky zapnete možnosť spúšťania videí na novej obrazovke, budete môcť použiť aj vodorovné gestá.</string>
-    <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
+    <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka\?</string>
     <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov. Vedzte ale, že na niektorých zariadeniach nie je možné ukryť priečinky ako Kamera, Screenshoty a Stiahnuté.</string>
-    <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
+    <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami\?</string>
     <string name="faq_6_text">Môže sa stať, že sa vám zobrazia aj nezvyčajné priečinky. Viete ich ale jednoducho ukryť pomocou ich zvolenia dlhým podržaním a zvolením Vylúčiť. Ak na nasledovnom dialógu zvolíte vylúčenie rodičovského priečinka, pravdepodobne budú vylúčené aj ostatné, podobné priečinky.</string>
-    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, alebo priečinok nezobrazuje všetky položky. Čo s tým môžem urobiť?</string>
-    <string name="faq_7_text">Môže to mať viacero dôvodov, riešenie je ale jednoduché. Choďte do Nastavenia -> Spravovať pridané priečinky, zvoľte Plus a zvoľte vytúžený priečinok.</string>
-    <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
-    <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
-        To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
-    <string name="faq_10_title">Dá sa s touto aplikáciou orezať obrázky?</string>
+    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, alebo priečinok nezobrazuje všetky položky. Čo s tým môžem urobiť\?</string>
+    <string name="faq_7_text">Môže to mať viacero dôvodov, riešenie je ale jednoduché. Choďte do Nastavenia -&gt; Spravovať pridané priečinky, zvoľte Plus a zvoľte vytúžený priečinok.</string>
+    <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov\?</string>
+    <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -&gt; Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -&gt; Spravovať pridané priečinky. To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
+    <string name="faq_10_title">Dá sa s touto aplikáciou orezať obrázky\?</string>
     <string name="faq_10_text">Áno, orezanie je možné v editore, potiahnutím rohov obrázkov. Do editoru sa môžete dostať buď dlhým podržaním náhľadu obrázku a zvolením menu položky Upraviť, alebo zvolením Upraviť pri celoobrazovkovom režime.</string>
-    <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov?</string>
+    <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov\?</string>
     <string name="faq_11_text">Áno, použitím funkcie \"Zoskupiť podľa\" na menu obrazovky s náhľadmi. Zoskupenie je možné na základe rozličných kritérií vrátane Dátumu vytvorenia. Ak použijete funkciu \"Zobraziť obsah všetkých priečinkov\", viete ich zoskupiť aj podľa priečinkov.</string>
-    <string name="faq_12_title">Radenie podľa dátumu vytvorenia nefunguje správne, ako ho viem opraviť?</string>
+    <string name="faq_12_title">Radenie podľa dátumu vytvorenia nefunguje správne, ako ho viem opraviť\?</string>
     <string name="faq_12_text">Je to pravdepodobne spôsobené kopírovaním súborov. Viete to opraviť označením jednotlivých náhľadov súborov a zvoliť \"Opraviť dátum vytvorenia\".</string>
-    <string name="faq_13_title">Na obrázkoch vidno nejaké farebné pásy. Ako viem zlepšiť kvalitu obrázkov?</string>
+    <string name="faq_13_title">Na obrázkoch vidno nejaké farebné pásy. Ako viem zlepšiť kvalitu obrázkov\?</string>
     <string name="faq_13_text">Súčasné riešenie funguje správne v drvivej väčšine prípadov, ak ale chcete zobraziť obrázky v lepšej kvalite, môžete povoliť možnosť \"Zobraziť obrázky v najlepšej možnej kvalite\" v nastaveniach aplikácie, v sekcií \"Hlboko priblížiteľné obrázky\".</string>
-    <string name="faq_14_title">Skryl som súbor/priečinok, ako ho viem odkryť?</string>
+    <string name="faq_14_title">Skryl som súbor/priečinok, ako ho viem odkryť\?</string>
     <string name="faq_14_text">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov. Poznamenávame, že ukrývanie priečinkov funguje rekurzívne, čiže ak jeden ukryjete, ukryté budú aj jeho podpriečinky. Čiže ak chcete odkryť nejaký podpriečinok, musíte odkryť jeho nadradené priečinky.</string>
-    <string name="faq_15_title">Prečo apka zaberá toľko miesta?</string>
+    <string name="faq_15_title">Prečo apka zaberá toľko miesta\?</string>
     <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
-    <string name="faq_16_title">Čo sa stalo s ukrývaním súborov a priečinkov a prečo nevidím žiadne ukryté položky?</string>
+    <string name="faq_16_title">Čo sa stalo s ukrývaním súborov a priečinkov a prečo nevidím žiadne ukryté položky\?</string>
     <string name="faq_16_text">Od Androidu verzie 11 galérie ako je táto z technických príčin nemôžu ani skryť, ani odokryť žiadne súbory, ani priečinky. Budete na to musieť použiť správcov súborov.</string>
-    <string name="faq_17_title">Prečo sa už nedá manuálne pridať chýbajúce priečinky?</string>
+    <string name="faq_17_title">Prečo sa už nedá manuálne pridať chýbajúce priečinky\?</string>
     <string name="faq_17_text">Je to taktiež spôsobené zmenami súvisiacimi s Android 11, kedy apka už nevie prehliadať reálne priečinky. V získavaní súborov sa môže iba spoliehať na takzvaný MediaStore.</string>
-    <string name="faq_18_title">Prečo sa mi počas prehrávania videí zobrazujú reklamy?</string>
+    <string name="faq_18_title">Prečo sa mi počas prehrávania videí zobrazujú reklamy\?</string>
     <string name="faq_18_text">Naše apky nemajú vôbec žiadne reklamy. Ak sa vám zobrazujú počas prehrávania videí, používate prehrávač inej apky. Skúste v nastaveniach zariadenia nájsť predvolený prehrávač a použiť \"Odstrániť predvolené\". Pri ďalšom spustení videa uvidíte zoznam apiek, ktoré môžete na prehrávanie použiť.</string>
     <!--
         Haven't found some strings? There's more at

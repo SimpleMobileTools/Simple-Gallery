@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Share a resized version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,
+\n
+\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.
+\n
+\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.
+\n
+\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtruoti mediją</string>
     <string name="images">Paveikslai</string>
@@ -47,15 +52,15 @@
     <string name="no_media_with_filters">Su pasirinktais filtrais nerasta medijos bylų.</string>
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \'. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį "Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti?</string>
+    <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \'. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti\?</string>
     <string name="exclude">Išskirti</string>
     <string name="excluded_folders">Išskirti aplankai</string>
     <string name="manage_excluded_folders">Tvarkyti išskirtus aplankus</string>
-    <string name="exclude_folder_description">Tai pašalins pasirinkimą su jo aplankais tik iš "Paprastos galerijos". Galite valdyti išskirtus aplankus skiltyje "Nustatymai".</string>
-    <string name="exclude_folder_parent">Vietoj to išskirti tėvinį?</string>
-    <string name="excluded_activity_placeholder">Išskyrus aplankus, jie bus sujungti su jų aplankais paslėpti tik "Paprastoje galerijoje", jie vis tiek bus matomi kitose programose. \ N \ nJei norite paslėpti juos ir iš kitų programų, naudokite funkciją "Slėpti".</string>
+    <string name="exclude_folder_description">Tai pašalins pasirinkimą su jo aplankais tik iš Paprastos galerijos. Galite valdyti išskirtus aplankus skiltyje Nustatymai.</string>
+    <string name="exclude_folder_parent">Vietoj to išskirti tėvinį\?</string>
+    <string name="excluded_activity_placeholder">"Išskyrus aplankus, jie bus sujungti su jų aplankais paslėpti tik Paprastoje galerijoje, jie vis tiek bus matomi kitose programose.  N  nJei norite paslėpti juos ir iš kitų programų, naudokite funkciją Slėpti."</string>
     <string name="remove_all">Pašalinti visus</string>
-    <string name="remove_all_description">Pašalinti visus aplankus iš išskirtųjų sąrašo? Tai neištrins aplankų.</string>
+    <string name="remove_all_description">Pašalinti visus aplankus iš išskirtųjų sąrašo\? Tai neištrins aplankų.</string>
     <string name="hidden_folders">Paslėpti aplankai</string>
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
     <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
@@ -65,7 +70,7 @@
     <string name="include_folders">Įtraukti aplankai</string>
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>
     <string name="add_folder">Įtraukti aplanką</string>
-    <string name="included_activity_placeholder">Jei turite tam tikrų aplankų, kuriuose yra medijos , bet kurių neneatpažįsta programėlė, galite juos pridėti rankiniu būdu. \ N \ nPridedant kai kuriuos elementus, neišskirsite jokio kito aplanko.</string>
+    <string name="included_activity_placeholder">"Jei turite tam tikrų aplankų, kuriuose yra medijos , bet kurių neneatpažįsta programėlė, galite juos pridėti rankiniu būdu.  N  nPridedant kai kuriuos elementus, neišskirsite jokio kito aplanko."</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
     <!-- Resizing -->
     <string name="resize">Keisti dydį</string>
@@ -265,8 +270,8 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
@@ -329,41 +334,40 @@
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Kaip galiu padaryti paprastą galeriją kaip numatytąją įrenginio galeriją?</string>
-    <string name="faq_1_text">Pirmiausia turite rasti numatytąją galeriją savo prietaiso nustatymų skyriuje "Programėlės", ieškoti mygtuko panašaus į \ "Atidaryti pagal numatytuosius \", spustelėkite jį, tada pasirinkite \ "Išvalyti numatytuosius \". 
-	Kitą kartą, kai bandysite atidaryti atvaizdą ar vaizdo įrašą, turėtumėte pamatyti programos parinkiklį, kuriame galite pasirinkti Paprastą galeriją ir padaryti ją numatytaja.</string>
-    <string name="faq_2_title">Aš užrakinau programėlę su slaptažodžiu, bet pamiršau jį. Ką aš galiu padaryti?</string>
-    <string name="faq_2_text">Tai galite išspręsti dviem būdais. Galite arba iš naujo įdiegti programėlę, arba rasti programėlę savo įrenginio nustatymuose ir pasirinkti \ "Išvalyti duomenis \". Jis iš naujo nustatys visus jūsų nustatymus, bet nepašalins jokių medijos bylų.</string>
-    <string name="faq_3_title">Kaip aš galiu padaryti albumą visada rodomą viršuje?</string>
-    <string name="faq_3_text">Galite ilgai paspausti norimą albumą ir pasirinkti "Prisegti" piktogramą, esančią meniu "Veiksmo meniu", viršuje. Galite prisegti kelis aplankus, prisegti elementai bus rūšiuojami pagal numatytąjį rūšiavimo metodą.</string>
-    <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus?</string>
+    <string name="faq_1_title">Kaip galiu padaryti paprastą galeriją kaip numatytąją įrenginio galeriją\?</string>
+    <string name="faq_1_text">"Pirmiausia turite rasti numatytąją galeriją savo prietaiso nustatymų skyriuje Programėlės, ieškoti mygtuko panašaus į  Atidaryti pagal numatytuosius \", spustelėkite jį, tada pasirinkite  Išvalyti numatytuosius \". Kitą kartą, kai bandysite atidaryti atvaizdą ar vaizdo įrašą, turėtumėte pamatyti programos parinkiklį, kuriame galite pasirinkti Paprastą galeriją ir padaryti ją numatytaja."</string>
+    <string name="faq_2_title">Aš užrakinau programėlę su slaptažodžiu, bet pamiršau jį. Ką aš galiu padaryti\?</string>
+    <string name="faq_2_text">"Tai galite išspręsti dviem būdais. Galite arba iš naujo įdiegti programėlę, arba rasti programėlę savo įrenginio nustatymuose ir pasirinkti  Išvalyti duomenis \". Jis iš naujo nustatys visus jūsų nustatymus, bet nepašalins jokių medijos bylų."</string>
+    <string name="faq_3_title">Kaip aš galiu padaryti albumą visada rodomą viršuje\?</string>
+    <string name="faq_3_text">Galite ilgai paspausti norimą albumą ir pasirinkti Prisegti piktogramą, esančią meniu Veiksmo meniu, viršuje. Galite prisegti kelis aplankus, prisegti elementai bus rūšiuojami pagal numatytąjį rūšiavimo metodą.</string>
+    <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko?</string>
-    <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>
-    <string name="faq_6_text">Gali atsitikti taip, kad pamatysite keletą neįprastų albumų. Galite lengvai juos pašalinti, ilgai paspaudę juos ir pasirinkdami "Išskirti". Kitame dialoge galite pasirinkti tėvinį aplanką, greičiausiai bus išvengta kitų panašių albumų.</string>
-    <string name="faq_7_title">Aplankas su nuotraukomis nerodomas, ką aš galiu padaryti?</string>
-    <string name="faq_7_text">Tai gali būti dėl keletos priežasčių, tačiau sprendimas yra lengvas. Tiesiog eikite į Nustatymai -&gt; Tvarkyti įtrauktus aplankus, pasirinkite "Plius" ir eikite į reikiamą aplanką.</string>
-    <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų?</string>
-    <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -&gt; Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -&gt; Tvarkyti įtrauktas aplankas.
-         Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas.</string>
-    <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę?</string>
-    <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę "Redaguoti" arba iš viso ekrano rodinio pasirinkę "Redaguoti".</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko\?</string>
+    <string name="faq_5_text">"Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią  . Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads."</string>
+    <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais\?</string>
+    <string name="faq_6_text">Gali atsitikti taip, kad pamatysite keletą neįprastų albumų. Galite lengvai juos pašalinti, ilgai paspaudę juos ir pasirinkdami Išskirti. Kitame dialoge galite pasirinkti tėvinį aplanką, greičiausiai bus išvengta kitų panašių albumų.</string>
+    <string name="faq_7_title">Aplankas su nuotraukomis nerodomas, ką aš galiu padaryti\?</string>
+    <string name="faq_7_text">Tai gali būti dėl keletos priežasčių, tačiau sprendimas yra lengvas. Tiesiog eikite į Nustatymai -&gt; Tvarkyti įtrauktus aplankus, pasirinkite Plius ir eikite į reikiamą aplanką.</string>
+    <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų\?</string>
+    <string name="faq_8_text">"Pridėjus aplanką į Įtraukti aplankai, automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -&gt; Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką  / \", tada pridėkite norimus aplankus, esančius Nustatymai -&gt; Tvarkyti įtrauktas aplankas.
+\n         Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas."</string>
+    <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę\?</string>
+    <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę Redaguoti arba iš viso ekrano rodinio pasirinkę Redaguoti.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails\?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

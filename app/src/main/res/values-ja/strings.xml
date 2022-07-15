@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">シンプルギャラリー</string>
     <string name="app_launcher_name">ギャラリー</string>
@@ -28,14 +28,17 @@
     <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
     <string name="no_date_takens_found">撮影日が見つかりません</string>
     <string name="share_resized">リサイズした画像を共有</string>
-    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Pro版にアップグレード\"というボタンが設定の上部にある無料版はアンインストールすることができます。\n\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。\n\nありがとう!</string>
+    <string name="upgraded_from_free">あなたは無料版からアップグレードしたと思われます。\"Pro版にアップグレード\"というボタンが設定の上部にある無料版はアンインストールすることができます。
+\n
+\nごみ箱の中身は削除され、お気に入りもアプリの設定もリセットされることになります。
+\n
+\nありがとう!</string>
     <string name="switch_to_file_search">表示されているすべてのフォルダで検索 に切り替え</string>
     <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
     <string name="images">画像</string>
@@ -46,7 +49,6 @@
     <string name="portraits">ポートレイト</string>
     <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
-
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">対象のフォルダに「.nomedia」ファイルを作成し、フォルダを非表示にします。そのフォルダの中にあるすべてのサブフォルダも非表示となります。非表示のフォルダを見るには、「設定」の中にある「非表示のフォルダを表示」で切り替えてください。このフォルダを非表示にしますか？</string>
     <string name="exclude">除外する</string>
@@ -54,22 +56,22 @@
     <string name="manage_excluded_folders">除外フォルダの管理</string>
     <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、シンプルギャラリーの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
     <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
-    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。\n\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
+    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。
+\n
+\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
-    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
+    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか\? フォルダ自体は削除されません。</string>
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>
     <string name="manage_included_folders">追加フォルダの管理</string>
     <string name="add_folder">フォルダを追加</string>
     <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
     <string name="no_media_add_included">メディアファイルが見つかりません。メディアファイルを手動で追加することにより解決できます。</string>
-
     <!-- Resizing -->
     <string name="resize">リサイズ</string>
     <string name="resize_and_save">選択領域をリサイズして保存</string>
@@ -77,7 +79,6 @@
     <string name="height">高さ</string>
     <string name="keep_aspect_ratio">縦横比を固定</string>
     <string name="invalid_values">解像度を正しく入力してください</string>
-
     <!-- Editor -->
     <string name="editor">画像編集</string>
     <string name="rotate">回転</string>
@@ -102,15 +103,16 @@
     <string name="flip">反転</string>
     <string name="flip_horizontally">水平方向に反転</string>
     <string name="flip_vertically">垂直方向に反転</string>
-    <string name="free_aspect_ratio">任意</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">その他</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">任意</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">その他</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">シンプル壁紙</string>
     <string name="set_as_wallpaper">壁紙に設定</string>
     <string name="set_as_wallpaper_failed">壁紙の設定に失敗しました</string>
     <string name="set_as_wallpaper_with">壁紙に設定:</string>
-    <string name="setting_wallpaper">壁紙に設定中&#8230;</string>
+    <string name="setting_wallpaper">壁紙に設定中…</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">縦向きの縦横比</string>
     <string name="landscape_aspect_ratio">横向きの縦横比</string>
@@ -118,7 +120,6 @@
     <string name="lock_screen">ロック画面</string>
     <string name="home_and_lock_screen">ホーム画面とロック画面</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
-
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>
     <string name="interval">間隔 (秒):</string>
@@ -134,10 +135,8 @@
     <string name="slide">スライド</string>
     <string name="slideshow_ended">スライドショーが終了しました</string>
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">サブフォルダでグループ化</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">グループ分け</string>
     <string name="do_not_group_files">何もしない</string>
@@ -152,11 +151,9 @@
     <string name="by_extension">拡張子</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">グループ化とソートはそれぞれ違ったフィールドであることに注意してください</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">ウィジェットに表示するフォルダ:</string>
     <string name="show_folder_name">フォルダ名を表示</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生</string>
     <string name="remember_last_video_position">動画の最後の再生位置を記憶する</string>
@@ -214,18 +211,15 @@
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
     <string name="fullscreen_media">メディア設定</string>
     <string name="extended_details">詳細も表示する</string>
     <string name="bottom_actions">画面下部のアクション</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">表示するアクションの選択</string>
     <string name="toggle_favorite">お気に入り</string>
     <string name="toggle_file_visibility">表示/非表示の切替</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">カスタム</string>
     <string name="pesdk_transform_button_resetCrop">リセット</string>
@@ -276,7 +270,7 @@
     <string name="pesdk_brush_button_delete">削除</string>
     <string name="pesdk_brush_title_brushColor">ブラシの色</string>
     <string name="pesdk_editor_title_name">エディター</string>
-    <string name="pesdk_editor_title_closeEditorAlert">エディターを閉じますか?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">エディターを閉じますか\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">本当に変更を破棄しますか？</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">はい</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">いいえ</string>
@@ -339,11 +333,9 @@
     <string name="pesdk_common_title_aquamarinColor">アクアマリン</string>
     <string name="pesdk_common_title_pipettableColor">ピペッティング可能な色</string>
     <string name="vesdk_video_trim_title_name">トリム</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">どうすればシンプルギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
-    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。
-        次に画像や動画を開こうとした時に、アプリ選択が表示されるのでシンプルギャラリーを通常のアプリとして選択します。</string>
+    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。 次に画像や動画を開こうとした時に、アプリ選択が表示されるのでシンプルギャラリーを通常のアプリとして選択します。</string>
     <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
     <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて\"データを消去\"を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
     <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
@@ -357,25 +349,24 @@
     <string name="faq_7_title">画像フォルダが表示されなかったり、全てのアイテムが表示されなかったりします。どうしたらいいですか？</string>
     <string name="faq_7_text">理由はいくつかありますが、解決は簡単です。設定→含まれているフォルダの管理に移動し、Plusを選択し、必要なフォルダに移動します。</string>
     <string name="faq_8_title">特定のフォルダのみ表示にしたい場合はどうすればいいですか？</string>
-    <string name="faq_8_text">含まれているフォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外されたフォルダの管理に移動し、ルートフォルダを除外し、設定→含まれているフォルダの管理で目的のフォルダを追加すれば可能です。
-        除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるのです。</string>
+    <string name="faq_8_text">含まれているフォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外されたフォルダの管理に移動し、ルートフォルダを除外し、設定→含まれているフォルダの管理で目的のフォルダを追加すれば可能です。 除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるのです。</string>
     <string name="faq_10_title">このアプリで画像のトリミングは出来ますか？</string>
     <string name="faq_10_text">はい、編集で画像をトリミング出来ます。画像の隅をドラッグしてください。画像のサムネイルを長押しし編集を選択するか、フルスクリーンで編集を選択することにより編集できます。</string>
     <string name="faq_11_title">どうすればメディアファイルのサムネイルをグループ化できますか？</string>
-    <string name="faq_11_text">サムネイル表示中に\"グループ分け\"メニューを使用してください。撮影日を含めた、複数の条件でグループ化することが出来ます。\"すべてを表示\"機能を使えば、フォルダごとにグループ化することも出来ます。 </string>
+    <string name="faq_11_text">サムネイル表示中に\"グループ分け\"メニューを使用してください。撮影日を含めた、複数の条件でグループ化することが出来ます。\"すべてを表示\"機能を使えば、フォルダごとにグループ化することも出来ます。</string>
     <string name="faq_12_title">撮影日でソートがうまく機能しないようです。どうすれば直せますか？</string>
     <string name="faq_12_text">おそらく、ファイルがコピーされたものであることが原因でしょう。ファイルサムネイルを選択し、\"撮影日の値を修正\"を選択することにより直せます。</string>
     <string name="faq_13_title">画像にバンディングが見られます。どうすれば質を変えられますか？</string>
-    <string name="faq_13_text">現在の表示方法は大抵の場合問題は見られませんが、より高画質で表示したい場合はアプリ設定の\"画像のズームを深くする\"セクションで\"可能な限り高品質で画像を表示\"を有効にすると良いでしょう。 </string>
+    <string name="faq_13_text">現在の表示方法は大抵の場合問題は見られませんが、より高画質で表示したい場合はアプリ設定の\"画像のズームを深くする\"セクションで\"可能な限り高品質で画像を表示\"を有効にすると良いでしょう。</string>
     <string name="faq_14_title">非表示にしているファイルやフォルダがあります。もう一度表示するにはどうすればいいですか？</string>
     <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
     <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ゴミ箱内のアイテムが原因となっているはずです。ゴミ箱内のファイルもアプリ容量として加算されます。ゴミ箱を開くか、アプリの設定から全てのファイルを削除できます。ゴミ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

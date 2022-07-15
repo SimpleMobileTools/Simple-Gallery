@@ -28,7 +28,13 @@
     <string name="dates_fixed_successfully">日期修復成功</string>
     <string name="no_date_takens_found">未發現拍攝日期數值</string>
     <string name="share_resized">分享調整大小的版本</string>
-    <string name="upgraded_from_free">嘿\n\n你似乎從舊版免費 APP 升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。\n\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。\n\n感謝!</string>
+    <string name="upgraded_from_free">嘿
+\n
+\n你似乎從舊版免費 APP 升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。
+\n
+\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。
+\n
+\n感謝!</string>
     <string name="switch_to_file_search">檔案搜尋目標切換成全部的可見資料夾</string>
     <string name="set_as_default_folder">設為預設資料夾</string>
     <string name="unset_as_default_folder">取消設為預設資料夾</string>
@@ -46,13 +52,16 @@
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">這功能藉由新增一個\".nomedia\"檔案，來隱藏資料夾和所有子資料夾。您可以透過[設定]中的\"顯示隱藏的項目\"選項來檢視。\n是否繼續？</string>
+    <string name="hide_folder_description">這功能藉由新增一個\".nomedia\"檔案，來隱藏資料夾和所有子資料夾。您可以透過[設定]中的\"顯示隱藏的項目\"選項來檢視。
+\n是否繼續？</string>
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除資料夾</string>
     <string name="manage_excluded_folders">管理排除資料夾</string>
     <string name="exclude_folder_description">此資料夾與子資料夾將只會都從簡易相簿中排除。您可以在設定中進行管理。</string>
     <string name="exclude_folder_parent">是否排除上層資料夾？</string>
-    <string name="excluded_activity_placeholder">[排除資料夾]只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，它們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用[隱藏]功能。</string>
+    <string name="excluded_activity_placeholder">[排除資料夾]只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，它們仍會出現在其他應用程式中。
+\n
+\n如果您要在其他應用程式中也隱藏，請使用[隱藏]功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">是否將排除列表中的所有資料夾都移除？這不會刪除資料夾。</string>
     <string name="hidden_folders">隱藏資料夾</string>
@@ -330,9 +339,7 @@
     <string name="vesdk_video_trim_title_name">Trim</string>
     <!-- FAQ -->
     <string name="faq_1_title">如何將簡易相簿設為裝置的預設相簿？</string>
-    <string name="faq_1_text">首先開啟裝置的設定，在應用程式相關設定處找到目前的預設相簿。
-	選擇「預設為開啟」或類似的選項，然後按「清除預設值」。
-        之後開啟圖片或影片檔案時會出現選擇 APP 的畫面，此時即可將簡易相簿設為預設相簿。</string>
+    <string name="faq_1_text">首先開啟裝置的設定，在應用程式相關設定處找到目前的預設相簿。 選擇「預設為開啟」或類似的選項，然後按「清除預設值」。 之後開啟圖片或影片檔案時會出現選擇 APP 的畫面，此時即可將簡易相簿設為預設相簿。</string>
     <string name="faq_2_title">用密碼把這個 APP 上鎖後忘記密碼該怎麼辦？</string>
     <string name="faq_2_text">有兩種解決方法。一是重新安裝本 APP。一是在裝置的設定中找到本 APP，然後按「清除資料」（或「清除儲存空間」等類似的字眼），APP 的設定將會被重設，但不會移除任何媒體檔案。</string>
     <string name="faq_3_title">如何使某個相簿顯示在最頂端？</string>
@@ -346,8 +353,7 @@
     <string name="faq_7_title">有個含有圖片的資料夾沒出現，抑或是沒有顯示所有項目時，該怎麼辦？</string>
     <string name="faq_7_text">可能有很多種原因，但解法很簡單。前往「設定」 -&gt; 「管理包含資料夾」、按加號(+)、選擇該資料夾即可。</string>
     <string name="faq_8_title">如果只想顯示特定資料夾呢？</string>
-    <string name="faq_8_text">如果只將某資料夾加入至「包含資料夾」的話，其他的資料夾並不會被自動排除。請前往「設定」-&gt;「管理排除資料夾」、將根資料夾「/」排除，並在「設定」-&gt;「管理包含資料夾」中加入欲顯示的資料夾。
-        這樣就只會顯示所選的資料夾，因為排除與包含都是遞迴的，所以若某資料夾同時被包含及排除，其將會顯示。</string>
+    <string name="faq_8_text">如果只將某資料夾加入至「包含資料夾」的話，其他的資料夾並不會被自動排除。請前往「設定」-&gt;「管理排除資料夾」、將根資料夾「/」排除，並在「設定」-&gt;「管理包含資料夾」中加入欲顯示的資料夾。 這樣就只會顯示所選的資料夾，因為排除與包含都是遞迴的，所以若某資料夾同時被包含及排除，其將會顯示。</string>
     <string name="faq_10_title">這個 APP 可以裁剪圖片嗎？</string>
     <string name="faq_10_text">可以，在編輯器中拖動圖片的角落即可裁剪圖片。對縮圖長按並選擇編輯，或者在全螢幕檢視時選擇編輯皆可進入編輯器。</string>
     <string name="faq_11_title">有辦法分類縮圖嗎？</string>
@@ -364,7 +370,7 @@
     <string name="faq_16_text">自 Android 11 開始，因系統限制，無法隱藏或解除隱藏檔案或資料夾，也無法在相簿 app 中看到已隱藏的項目。請使用檔案管理程式達成上述操作。</string>
     <string name="faq_17_title">為什麼不能再包含缺漏的資料夾了？</string>
     <string name="faq_17_text">因 Android 11 的系統變更，這項功能無法再運作。app 沒辦法瀏覽實際的資料夾，而是透過所謂的 MediaStorage 來擷取資料。</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

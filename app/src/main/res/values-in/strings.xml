@@ -28,7 +28,13 @@
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
     <string name="no_date_takens_found">Tidak ada nilai Tanggal Diambil yang ditemukan</string>
     <string name="share_resized">Bagikan versi yang diubah ukurannya</string>
-    <string name="upgraded_from_free">Hai,\n\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.\n\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.\n\nTerima kasih!</string>
+    <string name="upgraded_from_free">Hai,
+\n
+\nsepertinya anda memperbarui dari aplikasi gratis versi lama. Anda sekarang bisa mencopot versi yang lama, yang ada tombol \'Tingkatkan ke Pro\' di bagian atas pengaturan aplikasi.
+\n
+\nHanya item Keranjang sampah yang akan dihapus, item favorit menjadi tak bertanda dan anda juga harus menyetel ulang pengaturan aplikasi.
+\n
+\nTerima kasih!</string>
     <string name="switch_to_file_search">Beralih ke pencarian berkas di semua folder yang terlihat</string>
     <string name="set_as_default_folder">Tetapkan sebagai folder default</string>
     <string name="unset_as_default_folder">Hapus sebagai folder default</string>
@@ -46,15 +52,17 @@
     <string name="no_media_with_filters">Tidak ditemukan berkas media yang sesuai dengan filter ini.</string>
     <string name="change_filters_underlined"><u>Ubah filter</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Fungsi ini menyembunyikan folder dengan menambahkan berkas \'.nomedia\' ke dalamnya, juga akan menyembunyikan semua subfoldernya. Anda bisa melihatnya dengan mengaktifkan opsi \'Tampilkan berkas tersembunyi\' di Pengaturan. Lanjutkan?</string>
+    <string name="hide_folder_description">Fungsi ini menyembunyikan folder dengan menambahkan berkas \'.nomedia\' ke dalamnya, juga akan menyembunyikan semua subfoldernya. Anda bisa melihatnya dengan mengaktifkan opsi \'Tampilkan berkas tersembunyi\' di Pengaturan. Lanjutkan\?</string>
     <string name="exclude">Kecualikan</string>
     <string name="excluded_folders">Folder yang dikecualikan</string>
     <string name="manage_excluded_folders">Kelola folder yang dikecualikan</string>
     <string name="exclude_folder_description">Ini akan mengecualikan folder yang dipilih dan seluruh subfoldernya hanya di Simple Gallery. Anda bisa mengelola folder yang dikecualikan di Pengaturan.</string>
-    <string name="exclude_folder_parent">Kecualikan folder induk?</string>
-    <string name="excluded_activity_placeholder">Mengecualikan folder akan menyembunyikan folder tersebut dan seluruh subfoldernya hanya di Simple Gallery, namun masih bisa dilihat di aplikasi lain.\n\nJika anda ingin menyembunyikannya dari aplikasi lain juga, gunakan fitur Sembunyikan.</string>
+    <string name="exclude_folder_parent">Kecualikan folder induk\?</string>
+    <string name="excluded_activity_placeholder">Mengecualikan folder akan menyembunyikan folder tersebut dan seluruh subfoldernya hanya di Simple Gallery, namun masih bisa dilihat di aplikasi lain.
+\n
+\nJika anda ingin menyembunyikannya dari aplikasi lain juga, gunakan fitur Sembunyikan.</string>
     <string name="remove_all">Buang semua</string>
-    <string name="remove_all_description">Buang semua folder dari daftar pengecualian? Ini tidak akan menghapus folder tersebut.</string>
+    <string name="remove_all_description">Buang semua folder dari daftar pengecualian\? Ini tidak akan menghapus folder tersebut.</string>
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
@@ -64,7 +72,9 @@
     <string name="include_folders">Folder yang disertakan</string>
     <string name="manage_included_folders">Kelola folder yang disertakan</string>
     <string name="add_folder">Tambah folder</string>
-    <string name="included_activity_placeholder">Jika ada folder yang berisi berkas media namun tidak dikenali oleh aplikasi ini, anda bisa menambahkannya secara manual.\n\nMenambahkan beberapa item di sini tidak akan mengecualikan folder yang lain.</string>
+    <string name="included_activity_placeholder">Jika ada folder yang berisi berkas media namun tidak dikenali oleh aplikasi ini, anda bisa menambahkannya secara manual.
+\n
+\nMenambahkan beberapa item di sini tidak akan mengecualikan folder yang lain.</string>
     <string name="no_media_add_included">Tidak ada berkas media yang ditemukan. Anda bisa memperbaikinya dengan menambahkan folder yang berisi berkas media secara manual.</string>
     <!-- Resizing -->
     <string name="resize">Ubah ukuran</string>
@@ -264,7 +274,7 @@
     <string name="pesdk_brush_button_delete">hapus</string>
     <string name="pesdk_brush_title_brushColor">Warna Kuas</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Tutup Editor?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Tutup Editor\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Apakah Anda ingin membuang perubahannya\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ya</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Tidak</string>
@@ -328,35 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Warna pipet</string>
     <string name="vesdk_video_trim_title_name">Potong</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Bagaimana cara menjadikan Simple Gallery sebagai aplikasi galeri default?</string>
-    <string name="faq_1_text">Pertama anda harus menemukan galeri default saat ini di bagian Aplikasi di Pengaturan perangkat, cari tombol dengan label seperti \"Buka secara default\", klik, lalu pilih \"Hapus default\".
-        Lain kali anda mencoba membuka gambar atau video, anda akan diminta memilih aplikasi, dan anda bisa memilih Simple Gallery dan menjadikannya default.</string>
-    <string name="faq_2_title">Saya mengunci aplikasi dengan sandi, tapi saya lupa. Apa yang harus dilakukan?</string>
+    <string name="faq_1_title">Bagaimana cara menjadikan Simple Gallery sebagai aplikasi galeri default\?</string>
+    <string name="faq_1_text">Pertama anda harus menemukan galeri default saat ini di bagian Aplikasi di Pengaturan perangkat, cari tombol dengan label seperti \"Buka secara default\", klik, lalu pilih \"Hapus default\". Lain kali anda mencoba membuka gambar atau video, anda akan diminta memilih aplikasi, dan anda bisa memilih Simple Gallery dan menjadikannya default.</string>
+    <string name="faq_2_title">Saya mengunci aplikasi dengan sandi, tapi saya lupa. Apa yang harus dilakukan\?</string>
     <string name="faq_2_text">Anda bisa menyelesaikannya dengan 2 cara. Anda bisa pasang ulang aplikasi, atau cari aplikasi ini di Pengaturan perangkat dan pilih \"Hapus data\". Ini akan menyetel ulang semua pengaturan anda, dan tidak akan menghapus berkas media apapun.</string>
-    <string name="faq_3_title">Bagaimana agar album selalu muncul paling atas di dalam daftar?</string>
+    <string name="faq_3_title">Bagaimana agar album selalu muncul paling atas di dalam daftar\?</string>
     <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, hal tersebut akan membuat album tetap berada di bagian paling atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
-    <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
+    <string name="faq_4_title">Bagaimana cara mempercepat laju video\?</string>
     <string name="faq_4_text">Anda dapat melakukannya dengan mengetuk dua kali sisi layar, atau mengetuk teks durasi saat ini atau durasi maksimal di dekat seekbar. Jika Anda mengaktifkan pembukaan video pada layar terpisah dalam pengaturan aplikasi, Anda juga dapat menggunakan gerakan horizontal.</string>
-    <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
+    <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder\?</string>
     <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery saja, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder dari aplikasi galeri yang lain. Cara kerjanya dengan membuat berkas \".nomedia\" kosong pada folder yang diinginkan, yang bisa anda hapus juga dengan aplikasi pengelola berkas. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>
+    <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul\?</string>
     <string name="faq_6_text">Kadang anda melihat beberapa album yang tidak biasa muncul. Anda bisa dengan mudah menyembunyikannya dengan menekan lama dan pilih Kecualikan. Pada dialog berikutnya, anda lalu bisa memilih folder induk, yang akan mencegah album terkait muncul kembali.</string>
-    <string name="faq_7_title">Ada folder berisi gambar namun tidak muncul, apa yang harus dilakukan?</string>
+    <string name="faq_7_title">Ada folder berisi gambar namun tidak muncul, apa yang harus dilakukan\?</string>
     <string name="faq_7_text">Itu bisa disebabkan berbagai alasan, namun solusinya mudah. Pergi ke Pengaturan -&gt; Atur folder yang disertakan, pilih Tambah dan cari folder yang diinginkan.</string>
-    <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat?</string>
-    <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa anda lakukan adalah pergi ke Pengaturan -&gt; Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Pengaturan -&gt; Atur Folder yang Disertakan.
-        Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
-    <string name="faq_10_title">Bisakah saya memangkas gambar dengan aplikasi ini?</string>
+    <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat\?</string>
+    <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa anda lakukan adalah pergi ke Pengaturan -&gt; Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Pengaturan -&gt; Atur Folder yang Disertakan. Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
+    <string name="faq_10_title">Bisakah saya memangkas gambar dengan aplikasi ini\?</string>
     <string name="faq_10_text">Ya, anda bisa melakukannya di Penyunting, dengan menyeret sudut gambar. Anda bisa masuk ke penyunting dengan menekan lama thumbnail gambar dan memilih Sunting, atau pilih Sunting dari tampilan layar penuh.</string>
-    <string name="faq_11_title">Bisakah saya mengelompokkan thumbnail berkas media?</string>
+    <string name="faq_11_title">Bisakah saya mengelompokkan thumbnail berkas media\?</string>
     <string name="faq_11_text">Bisa, gunakan menu \"Kelompokkan menurut\" pada tampilan thumbnail. Anda bisa mengelompokkan berkas dengan berbagai kriteria, termasuk Tanggal Diambil. Jika anda menggunakan fungsi \"Tampilkan semua isi folder\", anda juga bisa mengelompokkan berdasarkan foldernya.</string>
-    <string name="faq_12_title">Tidak bisa mengurutkan berdasarkan Tanggal Diambil, bagaimana cara memperbaikinya?</string>
+    <string name="faq_12_title">Tidak bisa mengurutkan berdasarkan Tanggal Diambil, bagaimana cara memperbaikinya\?</string>
     <string name="faq_12_text">Itu umumnya disebabkan karena berkas yang disalin dari tempat lain. Anda bisa memperbaikinya dengan memilih berkas thumbnail dan pilih \"Perbaiki Tanggal Diambil\".</string>
-    <string name="faq_13_title">Saya melihat beberapa pita warna pada gambar. Bagaimana saya meningkatkan kualitasnya?</string>
+    <string name="faq_13_title">Saya melihat beberapa pita warna pada gambar. Bagaimana saya meningkatkan kualitasnya\?</string>
     <string name="faq_13_text">Solusi saat ini untuk menampilkan gambar berfungsi dengan baik dalam sebagian besar kasus, namun jika anda ingin kualitas gambar yang lebih baik, anda bisa mengaktifkan \"Tampilkan gambar dalam kualitas tertinggi\" di pengaturan aplikasi, pada bagian \"Zum gambar mendalam\".</string>
-    <string name="faq_14_title">Saya punya berkas/folder tersembunyi. Bagaimana cara memunculkannya?</string>
+    <string name="faq_14_title">Saya punya berkas/folder tersembunyi. Bagaimana cara memunculkannya\?</string>
     <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara berkas tersembunyi\" di layar utama, atau \"Tampilkan berkas tersembunyi\" di pengaturan aplikasi untuk menampilkannya. Jika anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan berkas \".nomedia\" di dalamnya, anda bisa menghapus berkas tersebut dengan aplikasi pengelola berkas. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong?</string>
+    <string name="faq_15_title">Kenapa aplikasi menggunakan sangat banyak ruang kosong\?</string>
     <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
     <string name="faq_16_title">Apa yang terjadi pada penyembunyian file dan folder, dan mengapa saya tidak bisa melihat item yang tersembunyi lagi\?</string>
     <string name="faq_16_text">Dimulai dengan Android 11, Anda tidak dapat menyembunyikan atau memunculkan file atau folder lagi, Anda juga tidak dapat melihat file atau folder yang tersembunyi di aplikasi galeri karena pembatasan sistem. Anda harus menggunakan beberapa manajer file untuk itu.</string>

@@ -52,15 +52,17 @@
     <string name="no_media_with_filters">Nie znaleziono plików multimedialnych z wybranymi filtrami.</string>
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik „.nomedia”, i ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję „Pokazuj ukryte elementy” w Ustawieniach. Kontynuować?</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik „.nomedia”, i ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję „Pokazuj ukryte elementy” w Ustawieniach. Kontynuować\?</string>
     <string name="exclude">Wyklucz</string>
     <string name="excluded_folders">Wykluczone foldery</string>
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
     <string name="exclude_folder_description">Spowoduje to wykluczenie wybranego folderu i jego podfolderów z Prostej galerii. Możesz zarządzać wykluczonymi folderami w Ustawieniach.</string>
-    <string name="exclude_folder_parent">Czy zamiast tego wykluczyć folder nadrzędny?</string>
-    <string name="excluded_activity_placeholder">Wykluczenie folderów spowoduje ukrycie ich wraz z podfolderami tylko w Prostej Galerii, w innych aplikacjach będą nadal widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji „Ukryj folder”.</string>
+    <string name="exclude_folder_parent">Czy zamiast tego wykluczyć folder nadrzędny\?</string>
+    <string name="excluded_activity_placeholder">Wykluczenie folderów spowoduje ukrycie ich wraz z podfolderami tylko w Prostej Galerii, w innych aplikacjach będą nadal widoczne.
+\n
+\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji „Ukryj folder”.</string>
     <string name="remove_all">Usuń wszystko</string>
-    <string name="remove_all_description">Czy usunąć wszystkie foldery z listy wykluczonych? Nie spowoduje to fizycznego usunięcia folderów.</string>
+    <string name="remove_all_description">Czy usunąć wszystkie foldery z listy wykluczonych\? Nie spowoduje to fizycznego usunięcia folderów.</string>
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
@@ -70,7 +72,9 @@
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
     <string name="add_folder">Dodaj folder</string>
-    <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je dodać ręcznie tutaj.\n\nDodanie tutaj niektórych elementów nie wykluczy żadnego innego folderu.</string>
+    <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je dodać ręcznie tutaj.
+\n
+\nDodanie tutaj niektórych elementów nie wykluczy żadnego innego folderu.</string>
     <string name="no_media_add_included">Nie znaleziono żadnych plików multimedialnych. Możesz to naprawić, ręcznie dodając foldery zawierające pliki multimedialne.</string>
     <!-- Resizing -->
     <string name="resize">Zmień rozmiar</string>
@@ -158,7 +162,7 @@
     <string name="autoplay_videos">Odtwarzaj wideo automatycznie</string>
     <string name="remember_last_video_position">Pamiętaj ostatnią pozycję odtwarzania wideo</string>
     <string name="loop_videos">Zapętlaj wideo</string>
-    <string name="animate_gifs">Animuj GIF-y na miniaturkach </string>
+    <string name="animate_gifs">Animuj GIF-y na miniaturkach</string>
     <string name="max_brightness">Maksymalna jasność podczas oglądania multimediów na pełnym ekranie</string>
     <string name="crop_thumbnails">Przycinaj miniaturki do kwadratów</string>
     <string name="show_thumbnail_video_duration">Pokazuj czas trwania wideo</string>
@@ -270,7 +274,7 @@
     <string name="pesdk_brush_button_delete">Usuń</string>
     <string name="pesdk_brush_title_brushColor">Kolor pędzla</string>
     <string name="pesdk_editor_title_name">Edytor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Czy zamknąć edytor?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Czy zamknąć edytor\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Czy odrzucić zmiany\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Tak</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nie</string>
@@ -334,33 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Kolor z pipety</string>
     <string name="vesdk_video_trim_title_name">Przytnij</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Jak mogę ustawić Prostą galerię jako domyślną galerię urządzenia?</string>
+    <string name="faq_1_title">Jak mogę ustawić Prostą galerię jako domyślną galerię urządzenia\?</string>
     <string name="faq_1_text">Najpierw znajdź aktualnie domyślną galerię urządzenia w ustawieniach urządzenia (sekcja „Aplikacje”). Na ekranie z informacjami o niej wybierz „Otwórz domyślnie”, a następnie „Wyczyść domyślne”. Gdy podczas następnej próby otwarcia obrazu czy wideo system zapyta Cię, którą aplikacją to zrobić, wybierz Prostą galerię i opcję zapamiętania tego wyboru.</string>
     <string name="faq_2_title">Zablokowałem aplikację hasłem i je zapomniałem. Co mogę zrobić\?</string>
     <string name="faq_2_text">Możesz rozwiązać to na 2 sposoby. Możesz zarówno przeinstalować aplikację, jak i znaleźć ją w ustawieniach swojego urządzenia i wybrać „Wyczyść dane”. Przywróci to oryginalne ustawienia aplikacji, nie usuwając żadnych plików multimedialnych.</string>
-    <string name="faq_3_title">Jak sprawić, aby album zawsze pojawiał się na górze?</string>
+    <string name="faq_3_title">Jak sprawić, aby album zawsze pojawiał się na górze\?</string>
     <string name="faq_3_text">Możesz przytrzymać dłużej palcem na albumie i wybrać ikonę pinezki z menu akcji, która przypnie go na górze. Możesz przypinać także wiele folderów. Przypięte elementy będą posortowane domyślną metodą sortowania.</string>
     <string name="faq_4_title">Jak mogę przewijać wideo do przodu\?</string>
     <string name="faq_4_text">Możesz to zrobić, naciskając dwukrotnie bok ekranu albo tekst aktualnego lub całkowitego czasu trwania w pobliżu paska przewijania. Jeśli włączysz „Zawsze otwieraj wideo na osobnym ekranie…” w ustawieniach aplikacji, możesz też używać poziomych gestów.</string>
-    <string name="faq_5_title">Jaka jest różnica między ukryciem a wykluczeniem folderu?</string>
+    <string name="faq_5_title">Jaka jest różnica między ukryciem a wykluczeniem folderu\?</string>
     <string name="faq_5_text">Wykluczanie działa tylko w obrębie Prostej galerii, podczas gdy ukrywanie ma wpływ także na inne galerie. Działa to przez dodanie do folderu pustego pliku „.nomedia”, który możesz potem usunąć w dowolnym menedżerze plików. Uwaga: Niektóre urządzenia nie pozwalają na ukrywanie folderów takich, jak Aparat, Zrzuty ekranu i Pobrane.</string>
     <string name="faq_6_title">Dlaczego pojawiają się foldery z okładką albumu muzycznego lub naklejkami\?</string>
     <string name="faq_6_text">Może się zdarzyć, że zobaczysz w aplikacji jakieś nietypowe albumy. Możesz je łatwo wykluczyć, naciskając je długo i wybierając Wyklucz. W następnym oknie możesz wybrać folder nadrzędny, co prawdopodobnie zapobiegnie również wyświetlaniu się innych powiązanych albumów.</string>
-    <string name="faq_7_title">Folder z obrazami nie wyświetla się lub nie pokazuje wszystkich elementów. Co mogę zrobić?</string>
+    <string name="faq_7_title">Folder z obrazami nie wyświetla się lub nie pokazuje wszystkich elementów. Co mogę zrobić\?</string>
     <string name="faq_7_text">Może mieć to wiele powodów, jednak rozwiązanie jest proste. Po prostu wejdź w Ustawienia -&gt; Zarządzaj dołączonymi folderami, naciśnij plus i przejdź do odpowiedniego folderu.</string>
-    <string name="faq_8_title">Co zrobić, jeśli chcę, aby było widocznych tylko kilka określonych folderów?</string>
+    <string name="faq_8_title">Co zrobić, jeśli chcę, aby było widocznych tylko kilka określonych folderów\?</string>
     <string name="faq_8_text">Dodanie folderu do dołączonych folderów nie wykluczy automatycznie pozostałych. To, co możesz zrobić, to przejść do Ustawienia -&gt; Zarządzaj wykluczonymi folderami i wykluczyć główny folder systemowy („/”). Następnie dodaj foldery, które chcesz widzieć, w Ustawienia -&gt; Zarządzaj dołączonymi folderami. Dzięki temu zobaczysz jedynie dołączone foldery, ponieważ zarówno dołączanie, jak i wykluczanie działają rekursywnie, i jeśli folder jest na obu listach, to zostanie pokazany.</string>
-    <string name="faq_10_title">Czy mogę kadrować obrazy za pomocą tej aplikacji?</string>
+    <string name="faq_10_title">Czy mogę kadrować obrazy za pomocą tej aplikacji\?</string>
     <string name="faq_10_text">Tak. Możesz kadrować obrazy w edytorze przez przeciąganie krawędzi obrazu. Możesz przejść do edytora, naciskając długo miniaturkę obrazu i wybierając Edytuj, bądź wybierając tę samą opcję w widoku pełnoekranowym.</string>
-    <string name="faq_11_title">Czy mogę jakoś grupować miniaturki multimediów?</string>
+    <string name="faq_11_title">Czy mogę jakoś grupować miniaturki multimediów\?</string>
     <string name="faq_11_text">Tak. Po prostu użyj w menu opcji „Grupuj według”, gdy jesteś w widoku miniaturek. Możesz grupować pliki według wielu kryteriów, włącznie z datą ich wykonania. Jeśli użyjesz opcji „Pokaż zawartość wszystkich folderów”, możesz je także grupować według folderów.</string>
-    <string name="faq_12_title">Sortowanie według daty wykonania nie działa poprawnie. Jak mogę to naprawić?</string>
+    <string name="faq_12_title">Sortowanie według daty wykonania nie działa poprawnie. Jak mogę to naprawić\?</string>
     <string name="faq_12_text">Najprawdopodobniej jest to spowodowane przekopiowaniem plików z innego miejsca. Możesz to naprawić przez zaznaczenie miniaturek plików i wybranie „Napraw datę wykonania”.</string>
-    <string name="faq_13_title">Na obrazach widzę kolorowe paski. Jak mogę poprawić jakość?</string>
+    <string name="faq_13_title">Na obrazach widzę kolorowe paski. Jak mogę poprawić jakość\?</string>
     <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości przypadków. Jeśli jednak potrzebujesz lepszej jakości, możesz włączyć „Pokazuj obrazy w najwyższej możliwej jakości” w ustawieniach aplikacji w sekcji „Mocne powiększanie obrazów”.</string>
-    <string name="faq_14_title">Mam ukryty plik/folder. Jak mogę go przywrócić?</string>
+    <string name="faq_14_title">Mam ukryty plik/folder. Jak mogę go przywrócić\?</string>
     <string name="faq_14_text">Możesz wybrać „Tymczasowo pokaż ukryte elementy” w menu na ekranie głównym albo włączyć opcję „Pokazuj ukryte elementy” w ustawieniach aplikacji. Jeśli chcesz przywrócić folder, po prostu naciśnij go dłużej i wybierz „Odkryj folder”. Foldery są ukrywane przez dodanie do nich ukrytego pliku „.nomedia”, który możesz usunąć w dowolnym menedżerze plików. Zauważ, że ukrywanie działa rekursywnie, więc jeśli ukryjesz folder, wszystkie jego podfoldery również staną się niewidoczne. Tak więc, aby usunąć ukrycie podfolderów, musisz odkryć folder nadrzędny.</string>
-    <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca?</string>
+    <string name="faq_15_title">Dlaczego aplikacja zajmuje tak dużo miejsca\?</string>
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250 MB, aby zapewnić szybsze ładowanie obrazów. Jeśli aplikacja zajmuje więcej miejsca, jest to najprawdopodobniej spowodowane tym, że masz elementy w koszu. Pliki te liczą się do rozmiaru aplikacji. Możesz wyczyścić kosz przez otwarcie go i usunięcie wszystkich plików albo z poziomu ustawień aplikacji. Każdy plik w koszu jest usuwany automatycznie po 30 dniach.</string>
     <string name="faq_16_title">Co się stało z ukrywaniem plików i folderów i dlaczego nie widzę już ukrytych elementów\?</string>
     <string name="faq_16_text">Począwszy od Androida 11 nie można już ukrywać ani odkrywać plików lub folderów, nie możesz też zobaczyć ukrytych elementów w aplikacjach galerii ze względu na ograniczenia systemowe. W tym celu będziesz musiał(a) użyć jakiegoś menedżera plików.</string>

@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Sdílet verzi se změněnou velikostí</string>
-    <string name="upgraded_from_free">Zdravím,\n\nzdá se, že jste přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.\n\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.\n\nDěkuji!</string>
+    <string name="upgraded_from_free">Zdravím,
+\n
+\nzdá se, že jste přešli ze staré bezplatné aplikace. Starou aplikaci, která má nahoře v nastavení tlačítko \'Stáhnout Pro verzi\', můžete již odinstalovat.
+\n
+\nZtratíte tím pouze soubory v odpadkovém koši, označení oblíbených souborů a také budete muset znovu nastavit položky v nastavení aplikace.
+\n
+\nDěkuji!</string>
     <string name="switch_to_file_search">Přepnout na vyhledávání souborů ve všech viditelných složkách</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtr médií</string>
     <string name="images">Obrázky</string>
@@ -47,15 +52,17 @@
     <string name="no_media_with_filters">Se zvolenými filtry nebyly nalezeny žádné mediální soubory.</string>
     <string name="change_filters_underlined"><u>Změnit filtry</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tato funkce skryje složku včetně podsložek přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat?</string>
+    <string name="hide_folder_description">Tato funkce skryje složku včetně podsložek přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat\?</string>
     <string name="exclude">Vyloučit</string>
     <string name="excluded_folders">Vyloučené složky</string>
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
     <string name="exclude_folder_description">Tato funkce vyloučí výběr včetně podsložek jen z Jednoduché galerie. V nastavení můžete spravovat vyloučené složky.</string>
-    <string name="exclude_folder_parent">Chcete vyloučit nadřazenou složku?</string>
-    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
+    <string name="exclude_folder_parent">Chcete vyloučit nadřazenou složku\?</string>
+    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché galerie, ostatní aplikace je nadále uvidí.
+\n
+\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
-    <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
+    <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených\? Tato operace neodstraní obsah složek.</string>
     <string name="hidden_folders">Skryté složky</string>
     <string name="manage_hidden_folders">Spravovat skryté složky</string>
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
@@ -265,8 +272,8 @@
     <string name="pesdk_brush_button_delete">Vymazat</string>
     <string name="pesdk_brush_title_brushColor">Barva štětce</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Zavřít editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Opravdu chcete zahodit úpravy?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Zavřít editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Opravdu chcete zahodit úpravy\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ano</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Ne</string>
     <string name="pesdk_editor_cancel">Zrušit</string>
@@ -329,41 +336,39 @@
     <string name="pesdk_common_title_pipettableColor">Pipetovatelná barva</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Jak nastavím Jednoduchou galerii jako výchozí galerii?</string>
-    <string name="faq_1_text">Nejdříve musíte najít v nastavení zařízení, v sekci Aplikace, současnou výchozí galerii, zvolit tlačítko s textem ve smyslu \"Nastavení výchozího otevírání\" a následně \"Vymazat výchozí nastavení\".
-        Pokud poté zkusíte otevřít obrázek nebo video, zobrazí se seznam aplikací, kde můžete zvolit Jednoduchou galerii a nastavit ji jako výchozí.</string>
-    <string name="faq_2_title">Uzamknul jsem aplikaci heslem, ale zapomněl jsem ho. Co můžu udělat?</string>
+    <string name="faq_1_title">Jak nastavím Jednoduchou galerii jako výchozí galerii\?</string>
+    <string name="faq_1_text">Nejdříve musíte najít v nastavení zařízení, v sekci Aplikace, současnou výchozí galerii, zvolit tlačítko s textem ve smyslu \"Nastavení výchozího otevírání\" a následně \"Vymazat výchozí nastavení\". Pokud poté zkusíte otevřít obrázek nebo video, zobrazí se seznam aplikací, kde můžete zvolit Jednoduchou galerii a nastavit ji jako výchozí.</string>
+    <string name="faq_2_title">Uzamknul jsem aplikaci heslem, ale zapomněl jsem ho. Co můžu udělat\?</string>
     <string name="faq_2_text">Můžete to vyriešit 2 způsoby. Můžete aplikaci buď přeinstalovat nebo ji najít v nastavení zařízení a zvolit \"Vymazat data\". Vymažou se pouze nastavení aplikace, nikoliv soubory.</string>
-    <string name="faq_3_title">Jak mohu dosáhnout, aby bylo dané album stále zobrazeno jako první?</string>
+    <string name="faq_3_title">Jak mohu dosáhnout, aby bylo dané album stále zobrazeno jako první\?</string>
     <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to ji připne nahoru. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
-    <string name="faq_4_title">Jak mohu video posunout vpřed?</string>
+    <string name="faq_4_title">Jak mohu video posunout vpřed\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
+    <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky\?</string>
     <string name="faq_5_text">Zatímco vyloučení zamezí zobrazení složky pouze vrámci Jednoduché galerie, skrytí ji ukryje v celém systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného souboru \".nomedia\" v daném adresáři, který můžete vymazat i libovolným správcem souborů. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
+    <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami\?</string>
     <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt jejich vybráním pomocí dlouhého podržení a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení nadřazené složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
-    <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím?</string>
+    <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím\?</string>
     <string name="faq_7_text">Může to mít více důvodů, řešení je ale jednoduché. Jděte do Nastavení -&gt; Spravovat přidané složky, zvolte Plus a zvolte požadovanou složku.</string>
-    <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek?</string>
-    <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -&gt; Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -&gt; Spravovat přidané složky.
-        To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
-    <string name="faq_10_title">Dá se s touto aplikací oříznout obrázek?</string>
+    <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek\?</string>
+    <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -&gt; Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -&gt; Spravovat přidané složky. To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
+    <string name="faq_10_title">Dá se s touto aplikací oříznout obrázek\?</string>
     <string name="faq_10_text">Ano, oříznutí je možné v editoru, potažením rohů obrázku. Do editoru se můžete dostat buď dlouhým podržením náhledu obrázku a zvolením menu položky Upravit nebo zvolením Upravit při celoobrazovkovém režimu.</string>
-    <string name="faq_11_title">Mohu nějakým způsobem seskupit náhledy souborů?</string>
+    <string name="faq_11_title">Mohu nějakým způsobem seskupit náhledy souborů\?</string>
     <string name="faq_11_text">Ano, použitím funkce \"Seskupit podle\" v menu obrazovky s náhledy. Seskupení je možné na základě různých kritérií včetně data vytvoření. Pokud použijete funkci \"Zobrazit obsah všech složek\", můžete je seskupit také podle složek.</string>
-    <string name="faq_12_title">Řazení podle data vytvoření nefunguje správně, jak to mohu opravit?</string>
+    <string name="faq_12_title">Řazení podle data vytvoření nefunguje správně, jak to mohu opravit\?</string>
     <string name="faq_12_text">Je to pravděpodobně způsobeno kopírováním souborů. Můžete to opravit označením jednotlivých náhledů souborů a zvolit \"Opravit datum vytvoření\".</string>
-    <string name="faq_13_title">Na obrázcích vidím nějaké barevné pásy. Jak mohu zlepšit kvalitu obrázků?</string>
+    <string name="faq_13_title">Na obrázcích vidím nějaké barevné pásy. Jak mohu zlepšit kvalitu obrázků\?</string>
     <string name="faq_13_text">Současné řešení funguje správně v drtivé většině případů, pokud ale chcete zobrazit obrázky v lepší kvalitě, můžete povolit možnost \"Zobrazit obrázky v nejlepší možné kvalitě\" v nastavení aplikace v sekcí \"Hluboko priblížitelné obrázky\".</string>
-    <string name="faq_14_title">Skryl jsem soubor/složku, jak jej mohu odkrýt?</string>
+    <string name="faq_14_title">Skryl jsem soubor/složku, jak jej mohu odkrýt\?</string>
     <string name="faq_14_text">Můžete buď použít menu tlačítko \"Dočasně zobrazit skryté položky\" na hlavní obrazovce, nebo v nastavení aplikace zapnout možnost \"Zobrazit skryté položky\", tím se skryté položky zobrazí. Pokud je chcete odkrýt trvale, stačí je dlouho podržet a zvolit možnost \"Odkrýt\". Složky jsou skrývané přidáním souboru \".nomedia\", ten můžete vymazat i libovolným správcem souborů. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Proč aplikace zabírá tolik místa?</string>
+    <string name="faq_15_title">Proč aplikace zabírá tolik místa\?</string>
     <string name="faq_15_text">Vyrovnávací paměť aplikace může zabírat až 250MB, zabezpečuje to rychlejší nahrávání obrázků. Pokud aplikace zabírá místa více, bude to pravděpodobně způsobeno soubory v odpadkovém koši. Dané soubory se započítávajé do velikosti aplikace. Koš můžete vyprázdnit buď jeho otevřením a smazáním všech souborů, nebo z nastavení aplikace. Položky v koši jsou automaticky mazány po 30 dnech.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

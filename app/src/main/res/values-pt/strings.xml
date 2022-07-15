@@ -41,7 +41,6 @@
     <string name="reorder_by_dragging">Organizar pasta por arrasto</string>
     <string name="reorder_by_dragging_pro">Organizar pasta por arrasto (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
     <string name="images">Imagens</string>
@@ -58,7 +57,7 @@
     <string name="excluded_folders">Pastas excluídas</string>
     <string name="manage_excluded_folders">Gerir pastas excluídas</string>
     <string name="exclude_folder_description">As pastas seleccionadas bem como as suas subpastas serão excluídas apenas e só nesta aplicação. Pode gerir as pastas excluídas nas Definições.</string>
-    <string name="exclude_folder_parent">Excluir antes a pasta superior?</string>
+    <string name="exclude_folder_parent">Excluir antes a pasta superior\?</string>
     <string name="excluded_activity_placeholder">Excluir pastas – e implicitamente, as suas subpastas também – faz com que deixem de ser apresentadas apenas e só na Simple Gallery. Continuarão visíveis noutras aplicações.
 \n
 \nSe as quiser ocultar também noutras aplicações, utilize a função Ocultar.</string>
@@ -275,7 +274,7 @@
     <string name="pesdk_brush_button_delete">Apagar</string>
     <string name="pesdk_brush_title_brushColor">Cor do pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Fechar editor?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Fechar editor\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Tem a certeza de que pretende descartar as alterações\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Sim</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Não</string>
@@ -367,11 +366,11 @@
     <string name="faq_14_text">Pode seleccionar \"Mostrar ocultos temporariamente \" do menu, ou então habilite \"Mostrar itens ocultos\" nas Definições. As pastas ficam ocultas quando se lhes introduz um ficheiro \".nomedia\", também ele oculto. É possível apagar esse ficheiro com um gestor de ficheiros. No entanto, tome em atenção que a acção de ocultar é recursiva, e todas as subpastas ficarão ocultas também. E é por isso que para tornar visíveis as subpastas deve fazê-lo a montante, a partir da pasta superior na hierarquia.</string>
     <string name="faq_15_title">Porque é que a aplicação ocupa tanto espaço\?</string>
     <string name="faq_15_text">O armazenamento em cache da aplicação comporta até 250MB para assegurar que a imagem é carregada rapidamente. Caso esteja a ocupar mais espaço, o mais certo é que a Reciclagem esteja cheia, e isso também conta para o tamanho total da aplicação. Esvazie a Reciclagem abrindo-a e removendo todos os ficheiros lá contidos, ou faça-o pelas Definições. Todos os ficheiros na Reciclagem são automaticamente apagados após 30 dias.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:

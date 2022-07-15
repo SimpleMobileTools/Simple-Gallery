@@ -338,13 +338,13 @@
     <string name="pesdk_common_title_pipettableColor">பைப்பேடபில் நிறம்</string>
     <string name="vesdk_video_trim_title_name">ஒழுங்கமை</string>
     <!-- FAQ -->
-    <string name="faq_1_title">எளிய காட்சியகத்தை இயல்புநிலை சாதன காட்சியகமாக மாற்றுவது எப்படி?</string>
+    <string name="faq_1_title">எளிய காட்சியகத்தை இயல்புநிலை சாதன காட்சியகமாக மாற்றுவது எப்படி\?</string>
     <string name="faq_1_text">முதலில் உங்கள் சாதன அமைப்புகளின் செயலிகள் பிரிவில் தற்போது இயல்புநிலை காட்சியகத்தைக் கண்டுபிடிக்க வேண்டும், \"இயல்புநிலையாகத் திற\" போன்றதைக் கூறும் பொத்தானைத் தேடு, அதைக் சொடுக்கி, \"இயல்புநிலைகளைத் துடை\" என்பதைத் தேர்ந்தெடு. அடுத்த முறை நீங்கள் ஒரு படத்தை அ காணொளியை திறக்க முயற்சிப்பீர்கள், நீங்கள் ஒரு செயலி எடுப்பியைப் பார்க்க வேண்டும், அங்கு நீங்கள் எளிய காட்சியகத்தை தேர்ந்தெடுத்து அதை இயல்புநிலை செயலியாக மாற்றலாம்.</string>
     <string name="faq_2_title">கடவுச்சொல்லுடன் செயலியைப் பூட்டினேன், ஆனால் அதை மறந்தேன். என்ன செய்வது\?</string>
     <string name="faq_2_text">நீங்கள் அதை 2 வழிகளில் தீர்க்கலாம். நீங்கள் செயலியை மறுநிறுவலாம் அ உங்கள் சாதன அமைப்புகளில் செயலியைக் கண்டுபிடித்து \"தரவைத் துடை\" என்பதைத் தேர்ந்தெடுக்கலாம். இது உங்கள் எல்லா அமைப்புகளையும் அகரமாக்கும், இது எந்த ஊடக கோப்புகளையும் நீக்காது.</string>
     <string name="faq_3_title">ஒரு தொகுப்பை எப்போதும் மேலே தோன்றச்செய்வது எப்படி\?</string>
     <string name="faq_3_text">நீங்கள் விரும்பிய தொகுப்பை நீண்டழுத்தி, செயல்கள் சிறுபட்டியில் பின் உருவடியைத் தேர்ந்தெடுக்கலாம், அது அதனை மேலே முள்ளிடும். நீங்கள் பல அடைவுகளையும் முள்ளிடலாம், முள்ளிட்ட உருப்படிகள் இயல்புநிலை வரிசையாக்க முறையால் வரிசைப்படுத்தப்படும்.</string>
-    <string name="faq_4_title">காணொளிகளை எவ்வாறு வேகமாக அனுப்புவது?</string>
+    <string name="faq_4_title">காணொளிகளை எவ்வாறு வேகமாக அனுப்புவது\?</string>
     <string name="faq_4_text">திரையின் பக்கத்தை இருமுறை தட்டியோ சீக்பார் அருகே தற்போதைய அ அதிகபட்ச கால நூல்களைத் தட்டியோ நீங்கள் இதைச் செய்யலாம். செயலி அமைப்புகளில் தனித்திரையில் காணொளிகளைத் திறக்க நீங்கள் இயக்கினால், கிடைமட்ட சைகைகளையும் பயன்படுத்தலாம்.</string>
     <string name="faq_5_title">ஒரு அடைவை மறைப்பதற்கும் விலக்குவதற்கும் என்ன வேறுபாடு\?</string>
     <string name="faq_5_text">விலக்கு எளிய காட்சியகத்தில் மட்டுமே அடைவைக் காண்பிப்பதைத் தடுக்கிறது, அதே சமயம் கணினி வாரியாக மறைக்கிறது, மேலும் இது மற்ற காட்சியகங்களிலிருந்தும் அடைவை மறைக்கிறது. கொடுக்கப்பட்ட அடைவில் வெற்று \".nomedia\" கோப்பை உருவாக்குவதன் மூலம் இது செயல்படுகிறது, அதை நீங்கள் எந்தக் கோப்பு நிர்வாகியுடனும் நீக்கலாம். படக்கருவி, திரைப்பிடிப்புகள் மற்றும் பதிவிறக்கங்கள் போன்ற அடைவுகளை மறைக்க சில சாதனங்கள் அனுமதிக்காது என்பதை நினைவில் கொள்க.</string>
@@ -366,11 +366,11 @@
     <string name="faq_14_text">பிரதான திரையில் \"தற்காலிகமாக மறைந்த உருப்படிகளைக் காண்பி\" சிறுபட்டி உருப்படியை அழுத்தவும் அ மறைந்த உருப்படியைக் காண செயலி அமைப்புகளில் \"மறைந்த உருப்படிகளைக் காட்டு\" என்பதை மாற்று. நீங்கள் அதை மறைக்க விரும்பினால், அதை நீண்டழுத்தி \"மறை\" என்பதைத் தேர்ந்தெடு. அடைவுகள் ஒரு மறைக்கப்பட்ட \".nomedia\" கோப்பைச் சேர்ப்பதால் மறைக்கப்படுகின்றன, நீங்கள் எந்த கோப்பு நிர்வாகியிடமும் கோப்பை அழிக்கலாம். மறைப்பது மீண்டும் மீண்டும் செயல்படுகிறது என்பதை நினைவில் கொள்க, எனவே நீங்கள் ஒரு அடைவை மறைத்தால், எல்லா துணையடைவுகளும் மறைக்கப்படும். எனவே துணையடைவுகளை மறைக்க நீங்கள் பெற்றோர் அடைவை மறைக்க வேண்டும்.</string>
     <string name="faq_15_title">செயலி ஏன் அதிக இடத்தை எடுத்துக்கொள்கிறது\?</string>
     <string name="faq_15_text">செயலி பதுக்ககம் 250MB வரை எடுக்கலாம், இது படத்தை விரைவாக ஏற்றுவதை உறுதி செய்கிறது. செயலி இன்னும் அதிக இடத்தை எடுத்துக்கொண்டால், மீள்சுழற்சி தொட்டியில் நீங்கள் உருப்படிகளை வைத்திருப்பதால் இது பெரும்பாலும் ஏற்படலாம். அந்த கோப்புகள் செயலி அளவிற்கு எண்ணப்படுகின்றன. மீள்சுழற்சி தொட்டியை அதனைத் திறந்து எல்லா கோப்புகளையும் அழித்தோ செயலி அமைவுகளிலிருந்து அழித்தோ துடைக்கலாம். தொட்டியில் உள்ள ஒவ்வொரு கோப்பும் 30 நாட்களுக்குப் பிறகு தானாகவே அழிக்கப்படும்.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

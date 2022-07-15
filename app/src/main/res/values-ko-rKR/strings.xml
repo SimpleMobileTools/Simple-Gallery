@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">교정이 완료되었습니다</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">크기변경 버전 공유</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,
+\n
+\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.
+\n
+\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.
+\n
+\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">필터 설정</string>
     <string name="images">사진</string>
@@ -46,30 +51,31 @@
     <string name="portraits">세로 사진</string>
     <string name="no_media_with_filters">설정된 필터와 일치하는 컨텐츠가 존재하지 않습니다.</string>
     <string name="change_filters_underlined"><u>필터 변경</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">현재 폴더에 \'.nomedia\' 파일을 생성하여 현재 및 모든 하위 폴더를 숨김니다. 숨김 처리된 모든 폴더는 설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 볼 수 있습니다. 계속 하시겠습니까?</string>
+    <string name="hide_folder_description">현재 폴더에 \'.nomedia\' 파일을 생성하여 현재 및 모든 하위 폴더를 숨김니다. 숨김 처리된 모든 폴더는 설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 볼 수 있습니다. 계속 하시겠습니까\?</string>
     <string name="exclude">제외하기</string>
     <string name="excluded_folders">제외된 폴더</string>
     <string name="manage_excluded_folders">제외된 폴더 관리</string>
     <string name="exclude_folder_description">현재 및 모든 하위 폴더를 심플 갤러리에서 제외시킵니다. 제외된 폴더는 설정에서 관리 할 수 있습니다.</string>
-    <string name="exclude_folder_parent">상위 폴더를 제외 하시겠습니까?</string>
-    <string name="excluded_activity_placeholder">폴더를 제외하면 심플 갤러리에서만 폴더가 보이지 않게 됩니다. \n\n다른 앱에서도 보이지 않게 하려면 숨김기능을 사용하십시오.</string>
+    <string name="exclude_folder_parent">상위 폴더를 제외 하시겠습니까\?</string>
+    <string name="excluded_activity_placeholder">폴더를 제외하면 심플 갤러리에서만 폴더가 보이지 않게 됩니다.
+\n
+\n다른 앱에서도 보이지 않게 하려면 숨김기능을 사용하십시오.</string>
     <string name="remove_all">모두 제거</string>
-    <string name="remove_all_description">제외된 폴더를 모두 해제하시겠습니까?</string>
+    <string name="remove_all_description">제외된 폴더를 모두 해제하시겠습니까\?</string>
     <string name="hidden_folders">숨겨진 폴더</string>
     <string name="manage_hidden_folders">숨겨진 폴더 관리</string>
     <string name="hidden_folders_placeholder">\".nomedia\"파일로 숨겨진 폴더가 존재하지 않습니다.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-
     <!-- Include folders -->
     <string name="include_folders">포함된 폴더</string>
     <string name="manage_included_folders">포함된 폴더 관리</string>
     <string name="add_folder">폴더 추가</string>
-    <string name="included_activity_placeholder">앱에서 인식하지 못한 사진이나 동영상이 있는 경우 이곳에서 수동으로 추가 할 수 있습니다. \n\n이 작업은 다른 폴더에 영향을 미치지 않습니다.</string>
+    <string name="included_activity_placeholder">앱에서 인식하지 못한 사진이나 동영상이 있는 경우 이곳에서 수동으로 추가 할 수 있습니다.
+\n
+\n이 작업은 다른 폴더에 영향을 미치지 않습니다.</string>
     <string name="no_media_add_included">사진이나 동영상이 발견되지 않았습니다. 이는 파일을 포함하고 있는 폴더를 수동으로 추가하여 해결할 수 있습니다.</string>
-
     <!-- Resizing -->
     <string name="resize">크기 변경</string>
     <string name="resize_and_save">크기 변경 및 저장</string>
@@ -77,7 +83,6 @@
     <string name="height">세로</string>
     <string name="keep_aspect_ratio">비율 유지</string>
     <string name="invalid_values">잘못된 비율입니다.</string>
-
     <!-- Editor -->
     <string name="editor">편집</string>
     <string name="rotate">회전</string>
@@ -102,15 +107,16 @@
     <string name="flip">뒤집기</string>
     <string name="flip_horizontally">가로 뒤집기</string>
     <string name="flip_vertically">세로 뒤집기</string>
-    <string name="free_aspect_ratio">자유</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">기타</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">자유</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">기타</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">심플 배경화면</string>
     <string name="set_as_wallpaper">배경화면으로 설정</string>
     <string name="set_as_wallpaper_failed">배경화면 설정 실패</string>
     <string name="set_as_wallpaper_with">배경화면으로 설정하기:</string>
-    <string name="setting_wallpaper">배경화면 설정 중&#8230;</string>
+    <string name="setting_wallpaper">배경화면 설정 중…</string>
     <string name="wallpaper_set_successfully">배경화면이 성공적으로 설정되었습니다.</string>
     <string name="portrait_aspect_ratio">세로보기 비율</string>
     <string name="landscape_aspect_ratio">가로보기 비율</string>
@@ -118,7 +124,6 @@
     <string name="lock_screen">잠금화면</string>
     <string name="home_and_lock_screen">홈 화면과 잠금화면</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
-
     <!-- Slideshow -->
     <string name="slideshow">슬라이드 쇼</string>
     <string name="interval">간격 (초):</string>
@@ -134,10 +139,8 @@
     <string name="slide">슬라이드</string>
     <string name="slideshow_ended">슬라이드 쇼 종료</string>
     <string name="no_media_for_slideshow">슬라이드 쇼를 표시할 사진이 없습니다.</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">상위 폴더 표시</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">그룹 방식</string>
     <string name="do_not_group_files">없음</string>
@@ -152,11 +155,9 @@
     <string name="by_extension">파일 확장자</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">그룹 방식과 정렬 방식은 다른 항목입니다.</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">위젯에 표시된 폴더:</string>
     <string name="show_folder_name">폴더 이름 보이기</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">동영상 자동재생</string>
     <string name="remember_last_video_position">마지막 재생 위치 기억</string>
@@ -214,18 +215,15 @@
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>
     <string name="fullscreen_media">전체화면</string>
     <string name="extended_details">추가 세부정보</string>
     <string name="bottom_actions">하단 UI 설정</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">하단 UI 편집</string>
     <string name="toggle_favorite">즐겨찾기</string>
     <string name="toggle_file_visibility">파일 제외</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -276,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
@@ -339,43 +337,40 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery\?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\". The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do\?</string>
     <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_title">How can I make an album always appear at the top\?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast forward videos?</string>
+    <string name="faq_4_title">How can I fast forward videos\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder\?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up\?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do\?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible\?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders. That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_10_title">Can I crop images with this app\?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails\?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at

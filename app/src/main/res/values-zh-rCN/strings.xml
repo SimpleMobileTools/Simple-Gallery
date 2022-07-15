@@ -274,8 +274,8 @@
     <string name="pesdk_brush_button_delete">删除</string>
     <string name="pesdk_brush_title_brushColor">笔刷颜色</string>
     <string name="pesdk_editor_title_name">编辑器</string>
-    <string name="pesdk_editor_title_closeEditorAlert">关闭编辑器?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">你确定要放弃更改吗?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">关闭编辑器\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">你确定要放弃更改吗\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">是</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">否</string>
     <string name="pesdk_editor_cancel">取消</string>

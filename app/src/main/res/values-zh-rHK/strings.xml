@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">日期修復成功</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">分享調整大小的版本</string>
-    <string name="upgraded_from_free">嘿\n\n你似乎從舊版免費應用程式升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。\n\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。\n\n感謝!</string>
+    <string name="upgraded_from_free">嘿
+\n
+\n你似乎從舊版免費應用程式升級了。現在你能解除安裝舊版了，在應用程式設定的頂端有個\'升級至專業版\'按鈕。
+\n
+\n將只有回收桶項目會被刪除，我的最愛項目會被解除標記，以及也會重置你的應用程式設定。
+\n
+\n感謝!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
     <string name="images">圖片</string>
@@ -46,30 +51,30 @@
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">這功能藉由添加一個\".nomedia\"檔案，來隱藏資料夾和所有子資料夾。您可以透過[設定]中的\"顯示隱藏的項目\"選項來查看。\n是否繼續?</string>
+    <string name="hide_folder_description">這功能藉由添加一個\".nomedia\"檔案，來隱藏資料夾和所有子資料夾。您可以透過[設定]中的\"顯示隱藏的項目\"選項來查看。
+\n是否繼續\?</string>
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除資料夾</string>
     <string name="manage_excluded_folders">管理排除資料夾</string>
     <string name="exclude_folder_description">此資料夾與子資料夾將只會都從簡易相簿中排除。您可以在設定中進行管理。</string>
-    <string name="exclude_folder_parent">是否排除上層資料夾?</string>
-    <string name="excluded_activity_placeholder">[排除資料夾]只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用[隱藏]功能。</string>
+    <string name="exclude_folder_parent">是否排除上層資料夾\?</string>
+    <string name="excluded_activity_placeholder">[排除資料夾]只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。
+\n
+\n如果您要在其他應用程式中也隱藏，請使用[隱藏]功能。</string>
     <string name="remove_all">移除全部</string>
-    <string name="remove_all_description">是否將排除列表中的所有資料夾都移除?這不會刪除資料夾。</string>
+    <string name="remove_all_description">是否將排除列表中的所有資料夾都移除\?這不會刪除資料夾。</string>
     <string name="hidden_folders">隱藏資料夾</string>
     <string name="manage_hidden_folders">管理隱藏資料夾</string>
     <string name="hidden_folders_placeholder">您似乎沒有用\".nomedia\"檔案來隱藏的資料夾</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>
     <string name="manage_included_folders">管理包含資料夾</string>
     <string name="add_folder">增加資料夾</string>
     <string name="included_activity_placeholder">如果有些資料夾含有媒體檔案，卻沒被辨識到，您可以在此手動加入。</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">縮放</string>
     <string name="resize_and_save">縮放所選區域並儲存</string>
@@ -77,7 +82,6 @@
     <string name="height">高度</string>
     <string name="keep_aspect_ratio">保持長寬比</string>
     <string name="invalid_values">請輸入有效的解析度</string>
-
     <!-- Editor -->
     <string name="editor">編輯器</string>
     <string name="rotate">旋轉</string>
@@ -102,15 +106,16 @@
     <string name="flip">翻轉</string>
     <string name="flip_horizontally">水平翻轉</string>
     <string name="flip_vertically">垂直翻轉</string>
-    <string name="free_aspect_ratio">自由</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">其它</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">自由</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">其它</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">簡易桌布</string>
     <string name="set_as_wallpaper">設為桌布</string>
     <string name="set_as_wallpaper_failed">設為桌布失敗</string>
     <string name="set_as_wallpaper_with">用其他程式設為桌布:</string>
-    <string name="setting_wallpaper">桌布設定中&#8230;</string>
+    <string name="setting_wallpaper">桌布設定中…</string>
     <string name="wallpaper_set_successfully">成功設為桌布</string>
     <string name="portrait_aspect_ratio">直向長寬比</string>
     <string name="landscape_aspect_ratio">橫向長寬比</string>
@@ -118,7 +123,6 @@
     <string name="lock_screen">鎖定螢幕</string>
     <string name="home_and_lock_screen">主頁和鎖定螢幕</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
-
     <!-- Slideshow -->
     <string name="slideshow">投影片</string>
     <string name="interval">間隔 (秒):</string>
@@ -134,10 +138,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">投影片結束</string>
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">歸類子資料夾</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">歸類</string>
     <string name="do_not_group_files">不歸類檔案</string>
@@ -152,11 +154,9 @@
     <string name="by_extension">副檔名</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">請注意，歸類和排序是兩者是獨立的</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">在小工具顯示資料夾:</string>
     <string name="show_folder_name">顯示資料夾名稱</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
     <string name="remember_last_video_position">記住影片上次播放位置</string>
@@ -214,18 +214,15 @@
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
     <string name="fullscreen_media">全螢幕媒體檔案</string>
     <string name="extended_details">詳細資訊</string>
     <string name="bottom_actions">底部操作</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">管理要顯示的底部操作</string>
     <string name="toggle_favorite">我的最愛</string>
     <string name="toggle_file_visibility">檔案顯示</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -276,8 +273,8 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
@@ -339,43 +336,40 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
-    <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>
-    <string name="faq_1_text">首先你必須先在裝置設定中應用程式部分尋找目前預設相簿，找到一個像是\"預設開啟(Open by default)\"的按鈕，點下去，然後選擇\"清除預設(Clear defaults)\"。
-        下次你要開啟圖片或影片時應該會看到程式選擇器，你可以在那裡選擇簡易相簿並設為預設程式。</string>
-    <string name="faq_2_title">我用密碼鎖住了這應用程式，但我忘記了。怎麼辦?</string>
+    <string name="faq_1_title">我如何將簡易相簿設為預設相簿\?</string>
+    <string name="faq_1_text">首先你必須先在裝置設定中應用程式部分尋找目前預設相簿，找到一個像是\"預設開啟(Open by default)\"的按鈕，點下去，然後選擇\"清除預設(Clear defaults)\"。 下次你要開啟圖片或影片時應該會看到程式選擇器，你可以在那裡選擇簡易相簿並設為預設程式。</string>
+    <string name="faq_2_title">我用密碼鎖住了這應用程式，但我忘記了。怎麼辦\?</string>
     <string name="faq_2_text">有兩個解決方法。你可以重新安裝應用程式，或者在裝置設定中找到這程式然後選擇\"清除資料(Clear data)\"。這將重置你程式內所有設定，不會移除任何媒體檔案。</string>
-    <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
+    <string name="faq_3_title">我如何讓某個相冊總是出現在頂端\?</string>
     <string name="faq_3_text">你可以長按想要的相冊，然後在操作選單中選擇[圖釘]圖示，就會釘選於頂端。你也能釘選多個資料夾，釘選的項目會依預設的排序方法來排序。</string>
-    <string name="faq_4_title">我如何快轉影片?</string>
+    <string name="faq_4_title">我如何快轉影片\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
+    <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同\?</string>
     <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。 Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
+    <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現\?</string>
     <string name="faq_6_text">這情況可能發生，你會看到一些異常的相冊出現。你可以長按再選擇[排除]來輕易排除他們。在下個對話框，你可以選擇上層資料夾，有可能讓其他相關相冊也避免出現。</string>
-    <string name="faq_7_title">有一個圖片資料夾沒有顯示出來，怎麼辦?</string>
-    <string name="faq_7_text">可能有多種原因，不過很好解決。只要到[設定] -> [管理包含資料夾]，選擇[加號]然後導引到需要的資料夾。</string>
-    <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
-    <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
-        那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
-    <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
+    <string name="faq_7_title">有一個圖片資料夾沒有顯示出來，怎麼辦\?</string>
+    <string name="faq_7_text">可能有多種原因，不過很好解決。只要到[設定] -&gt; [管理包含資料夾]，選擇[加號]然後導引到需要的資料夾。</string>
+    <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做\?</string>
+    <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -&gt; [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -&gt; [管理包含資料夾]添加想要的資料夾。 那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
+    <string name="faq_10_title">我可以用這程式裁減圖片嗎\?</string>
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
-    <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎?</string>
+    <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎\?</string>
     <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍照日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
-    <string name="faq_12_title">依拍照日期排序似乎沒正確運作，我該如何修復?</string>
+    <string name="faq_12_title">依拍照日期排序似乎沒正確運作，我該如何修復\?</string>
     <string name="faq_12_text">那很可能是由於檔案從某處複製過來所造成的。你可以選擇檔案縮圖，然後選擇\"修復拍照日期數值\"來進行修復。</string>
-    <string name="faq_13_title">我在圖片上看到一些色彩條紋。我如何提升品質?</string>
+    <string name="faq_13_title">我在圖片上看到一些色彩條紋。我如何提升品質\?</string>
     <string name="faq_13_text">目前顯示圖片的處理方法，在大部分情況下都能正常運行。但如果你想要更好的圖片品質，你可以在程式設定中[可深度縮放的圖片]部分，啟用[以最高品質顯示圖片]。</string>
-    <string name="faq_14_title">我隱藏了一個檔案/資料夾。我如何取消隱藏?</string>
+    <string name="faq_14_title">我隱藏了一個檔案/資料夾。我如何取消隱藏\?</string>
     <string name="faq_14_text">你可以在主畫面的選單項按[暫時顯示隱藏的項目]，或者在程式設定中切換[顯示隱藏的項目]來看隱藏項目。如果你想要取消隱藏，只要長按然後選擇[取消隱藏]。以添加\".nomedia\"檔案進行隱藏的資料夾，你也可以用任何檔案管理器來刪除這檔案。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">為什麼這應用程式占用了這麼多空間?</string>
+    <string name="faq_15_title">為什麼這應用程式占用了這麼多空間\?</string>
     <string name="faq_15_text">應用程式快取最多占用250MB，以確保更快的圖片讀取。如果這應用程式占用了多更多的空間，最有可能是因為你在垃圾桶內有東西。那些檔案也計入應用程式大小內。你可以開啟垃圾桶並刪除全部檔案，或者從應用程式設定來清除垃圾桶。垃圾桶內的每個檔案都會在30天後自動刪除。</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         Haven't found some strings? There's more at
