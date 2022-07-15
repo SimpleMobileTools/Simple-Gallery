@@ -28,7 +28,13 @@
     <string name="dates_fixed_successfully">Date stabilite cu succes</string>
     <string name="no_date_takens_found">Nu a fost găsită nicio valoare pentru data creării</string>
     <string name="share_resized">Distribuie o versiune redimensionată</string>
-    <string name="upgraded_from_free">Hei,\n\nse pare că ai făcut o actualizare de la aplicația gratuită la versiunea pro. Acum poţi dezinstala vechea versiune, care are un buton \'Upgrade to Pro\' în partea de sus a setărilor aplicației.\n\nVei avea doar elementele din coșul de reciclare șterse, elementele favorite vor fi demarcate și va trebui, de asemenea, să resetezi setările aplicației.\n\nMulțumesc!</string>
+    <string name="upgraded_from_free">Hei,
+\n
+\nse pare că ai făcut o actualizare de la aplicația gratuită la versiunea pro. Acum poţi dezinstala vechea versiune, care are un buton \'Upgrade to Pro\' în partea de sus a setărilor aplicației.
+\n
+\nVei avea doar elementele din coșul de reciclare șterse, elementele favorite vor fi demarcate și va trebui, de asemenea, să resetezi setările aplicației.
+\n
+\nMulțumesc!</string>
     <string name="switch_to_file_search">Treceți la căutarea de fișiere în toate dosarele vizibile</string>
     <string name="set_as_default_folder">Setază ca dosar implicit</string>
     <string name="unset_as_default_folder">Dezactivează ca dosar implicit</string>
@@ -46,15 +52,17 @@
     <string name="no_media_with_filters">Nu a fost găsit niciun fișier media cu filtrele selectate.</string>
     <string name="change_filters_underlined"><u>Schimbă filtrele</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Această funcție ascunde dosarul prin adăugarea unui fișier \'.nomedia\' în el, ascunzând și toate subdosarele. Le poţi vedea prin activarea opțiunii \'Afișați elementele ascunse\' din Setări. Continuați?</string>
+    <string name="hide_folder_description">Această funcție ascunde dosarul prin adăugarea unui fișier \'.nomedia\' în el, ascunzând și toate subdosarele. Le poţi vedea prin activarea opțiunii \'Afișați elementele ascunse\' din Setări. Continuați\?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Dosare excluse</string>
     <string name="manage_excluded_folders">Gestionează dosarele excluse</string>
     <string name="exclude_folder_description">Acest lucru va exclude selecția, împreună cu subdosarele sale, numai din Simple Gallery. Poţi gestiona dosarele excluse în Setări.</string>
-    <string name="exclude_folder_parent">Exclude dosarul părinte în schimb?</string>
-    <string name="excluded_activity_placeholder">Excluderea dosarelor le va face ca acestea, împreună cu subdosarele lor, să fie ascunse doar în Simple Gallery, ele vor fi în continuare vizibile în alte aplicații.\n\nDacă doreşti să le ascunzi și pentru alte aplicații, utilizează funcția Ascundere.</string>
+    <string name="exclude_folder_parent">Exclude dosarul părinte în schimb\?</string>
+    <string name="excluded_activity_placeholder">Excluderea dosarelor le va face ca acestea, împreună cu subdosarele lor, să fie ascunse doar în Simple Gallery, ele vor fi în continuare vizibile în alte aplicații.
+\n
+\nDacă doreşti să le ascunzi și pentru alte aplicații, utilizează funcția Ascundere.</string>
     <string name="remove_all">Elimină tot</string>
-    <string name="remove_all_description">Elimini toate dosarele din lista de dosare excluse? Acest lucru nu va șterge dosarele.</string>
+    <string name="remove_all_description">Elimini toate dosarele din lista de dosare excluse\? Acest lucru nu va șterge dosarele.</string>
     <string name="hidden_folders">Dosare ascunse</string>
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
@@ -64,7 +72,9 @@
     <string name="include_folders">Dosare incluse</string>
     <string name="manage_included_folders">Gestionează dosarele incluse</string>
     <string name="add_folder">Adăugă un dosar</string>
-    <string name="included_activity_placeholder">Dacă ai unele dosare care conțin conținut media, dar care nu au fost recunoscute de aplicație, le poţi adăuga manual aici.\n\nAdăugarea unor elemente aici nu va exclude niciun alt dosar.</string>
+    <string name="included_activity_placeholder">Dacă ai unele dosare care conțin conținut media, dar care nu au fost recunoscute de aplicație, le poţi adăuga manual aici.
+\n
+\nAdăugarea unor elemente aici nu va exclude niciun alt dosar.</string>
     <string name="no_media_add_included">Nu a fost găsit niciun fișier media. Poţi rezolva această problemă adăugând manual dosarele care conțin fișiere media.</string>
     <!-- Resizing -->
     <string name="resize">Redimensionați</string>
@@ -264,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Şterge</string>
     <string name="pesdk_brush_title_brushColor">Culoarea pensulei</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Închide editorul?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Chiar doreşti să renunți la modificări?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Închide editorul\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Chiar doreşti să renunți la modificări\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Da</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nu</string>
     <string name="pesdk_editor_cancel">Anulează</string>
@@ -328,35 +338,33 @@
     <string name="pesdk_common_title_pipettableColor">Culoare pipetabilă</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Cum pot face ca Simple Gallery să fie galeria implicită a dispozitivului?</string>
-    <string name="faq_1_text">Mai întâi trebuie să găsiți galeria implicită curentă în secțiunea Aplicații din setările dispozitivului, căutați un buton pe care scrie ceva de genul a \"Setare ca implicită\", apăsaţi pe acesta, apoi selectați \"Ştergeţi valorile implicite\".
-        Data viitoare când veți încerca să deschideți o imagine sau un videoclip, ar trebui să vedeți un selector de aplicații, unde puteți selecta Simple Gallery și să o transformați în aplicația implicită.</string>
-    <string name="faq_2_title">Am blocat aplicația cu o parolă, dar am uitat-o. Ce pot să fac?</string>
+    <string name="faq_1_title">Cum pot face ca Simple Gallery să fie galeria implicită a dispozitivului\?</string>
+    <string name="faq_1_text">Mai întâi trebuie să găsiți galeria implicită curentă în secțiunea Aplicații din setările dispozitivului, căutați un buton pe care scrie ceva de genul a \"Setare ca implicită\", apăsaţi pe acesta, apoi selectați \"Ştergeţi valorile implicite\". Data viitoare când veți încerca să deschideți o imagine sau un videoclip, ar trebui să vedeți un selector de aplicații, unde puteți selecta Simple Gallery și să o transformați în aplicația implicită.</string>
+    <string name="faq_2_title">Am blocat aplicația cu o parolă, dar am uitat-o. Ce pot să fac\?</string>
     <string name="faq_2_text">Puteți rezolva acest lucru în 2 moduri. Puteți fie reinstala aplicația, fie găsiți aplicația în setările dispozitivului și în secţiunea de stocare a aplicaţiei selectați \"Golire date\". Aceasta va reseta toate setările, dar nu va elimina niciun fișier media.</string>
-    <string name="faq_3_title">Cum pot face ca un album să apară întotdeauna în partea de sus?</string>
+    <string name="faq_3_title">Cum pot face ca un album să apară întotdeauna în partea de sus\?</string>
     <string name="faq_3_text">Puteți să apăsați lung pe albumul dorit și să selectați pictograma Pin din meniul de acțiuni, care îl va fixa în partea de sus. Puteți fixa alte dosare, iar elementele fixate vor fi sortate după metoda de sortare implicită.</string>
-    <string name="faq_4_title">Cum pot să rulez rapid videoclipurile?</string>
+    <string name="faq_4_title">Cum pot să rulez rapid videoclipurile\?</string>
     <string name="faq_4_text">Puteți face acest lucru atingând de două ori partea laterală a ecranului sau atingând textele privind durata curentă sau durata maximă de lângă bara de căutare. Dacă activați deschiderea videoclipurilor pe un ecran separat în setările aplicației, puteți utiliza și gesturile orizontale.</string>
-    <string name="faq_5_title">Care este diferența dintre ascunderea și excluderea unui dosar?</string>
+    <string name="faq_5_title">Care este diferența dintre ascunderea și excluderea unui dosar\?</string>
     <string name="faq_5_text">Exclude previne afișarea dosarului doar în Simple Gallery, în timp ce Hide funcționează la nivel de sistem și ascunde dosarul și din alte galerii. Funcționează prin crearea unui fișier gol \".nomedia\" în dosarul dat, pe care îl puteți elimina apoi și cu orice manager de fișiere. Rețineți că unele dispozitive nu permit ascunderea unor dosare precum Camera, Imagini de ecran și Descărcări.</string>
-    <string name="faq_6_title">De ce apar dosarele cu coperte de muzică sau autocolante?</string>
+    <string name="faq_6_title">De ce apar dosarele cu coperte de muzică sau autocolante\?</string>
     <string name="faq_6_text">Se poate întâmpla să apară albume neobișnuite. Le puteți exclude cu ușurință apăsând lung pe ele și selectând Excludere. În următoarea fereastră de dialog, puteți selecta dosarul părinte, ceea ce va împiedica apariția celorlalte albume aferente.</string>
-    <string name="faq_7_title">Un dosar cu imagini nu apare sau nu afișează toate elementele. Ce pot să fac?</string>
+    <string name="faq_7_title">Un dosar cu imagini nu apare sau nu afișează toate elementele. Ce pot să fac\?</string>
     <string name="faq_7_text">Această problemă poate avea mai multe motive, dar rezolvarea ei este ușoară. Trebuie doar să accesați Setări -&gt; Gestionați dosarele incluse, selectați Plus și navigați până la dosarul necesar.</string>
-    <string name="faq_8_title">Ce se întâmplă dacă vreau ca doar câteva dosare anume să fie vizibile?</string>
-    <string name="faq_8_text">Adăugarea unui dosar la Dosarele incluse nu exclude automat nimic. Ceea ce puteți face este să accesați Setări -&gt; Gestionați dosarele excluse, să excludeți dosarul rădăcină \"/\", apoi să adăugați dosarele dorite la Setări -&gt; Gestionați dosarele incluse.
-        Astfel, vor fi vizibile numai dosarele selectate, deoarece atât excluderea, cât și includerea sunt recursive, iar dacă un dosar este atât exclus, cât și inclus, va fi afișat.</string>
-    <string name="faq_10_title">Pot să decupez imagini cu această aplicație?</string>
+    <string name="faq_8_title">Ce se întâmplă dacă vreau ca doar câteva dosare anume să fie vizibile\?</string>
+    <string name="faq_8_text">Adăugarea unui dosar la Dosarele incluse nu exclude automat nimic. Ceea ce puteți face este să accesați Setări -&gt; Gestionați dosarele excluse, să excludeți dosarul rădăcină \"/\", apoi să adăugați dosarele dorite la Setări -&gt; Gestionați dosarele incluse. Astfel, vor fi vizibile numai dosarele selectate, deoarece atât excluderea, cât și includerea sunt recursive, iar dacă un dosar este atât exclus, cât și inclus, va fi afișat.</string>
+    <string name="faq_10_title">Pot să decupez imagini cu această aplicație\?</string>
     <string name="faq_10_text">Da, puteți decupa imaginile în editor, trăgând colțurile imaginii. Puteți ajunge la editor fie prin apăsarea lungă a unei miniaturi de imagine și selectarea opţiunii Editare, fie prin selectarea opţiunii Editare din vizualizarea pe ecran complet.</string>
-    <string name="faq_11_title">Pot să grupez cumva miniaturi de fișiere media?</string>
+    <string name="faq_11_title">Pot să grupez cumva miniaturi de fișiere media\?</string>
     <string name="faq_11_text">Sigur, utilizați elementul de meniu \"Grupează după\" în timp ce vă aflați în vizualizarea miniaturilor. Puteți grupa fișierele în funcție de mai multe criterii, inclusiv de data luării. Dacă utilizați funcția \"Afișați conținutul tuturor dosarelor\", le puteți grupa, de asemenea, după dosare.</string>
-    <string name="faq_12_title">Sortarea după data luată nu pare să funcționeze corect, cum pot să o repar?</string>
+    <string name="faq_12_title">Sortarea după data luată nu pare să funcționeze corect, cum pot să o repar\?</string>
     <string name="faq_12_text">Cel mai probabil, aceasta este cauzată de faptul că fișierele au fost copiate de undeva. Puteți să o reparați selectând miniaturile fișierelor și selectând \"Fixează data creării\".</string>
-    <string name="faq_13_title">Văd unele benzi de culoare pe imagini. Cum pot îmbunătăți calitatea?</string>
+    <string name="faq_13_title">Văd unele benzi de culoare pe imagini. Cum pot îmbunătăți calitatea\?</string>
     <string name="faq_13_text">Soluția actuală de afișare a imaginilor funcționează bine în marea majoritate a cazurilor, dar dacă doriți o calitate și mai bună a imaginii, puteți activa opțiunea \"Afișați imaginile la cea mai bună calitate posibilă\" din setările aplicației, în secțiunea \"Imagini cu zoom profund\".</string>
-    <string name="faq_14_title">Am ascuns un fișier/dosar. Cum îl pot dezvălui?</string>
+    <string name="faq_14_title">Am ascuns un fișier/dosar. Cum îl pot dezvălui\?</string>
     <string name="faq_14_text">Puteți fie să apăsați elementul de meniu \"Afișaţi temporar elementele ascunse\" din ecranul principal, fie să comutați \"Afișaţi elementele ascunse\" din setările aplicației pentru a vedea elementul ascuns. Dacă doriți să îl dezascundeți, trebuie doar să apăsați lung pe el și să selectați \"Dezvăluiți\". Dosarele sunt ascunse prin adăugarea unui fișier ascuns \".nomedia\" în ele, puteți șterge fișierul și cu orice manager de fișiere. Rețineți că ascunderea funcționează totuși recursiv, astfel încât, dacă ascundeți un dosar, toate subdosarele vor fi și ele ascunse. Așadar, pentru a dezascunde subdosarele, trebuie să dezascundeți și dosarul părinte.</string>
-    <string name="faq_15_title">De ce ocupă aplicația atât de mult spațiu?</string>
+    <string name="faq_15_title">De ce ocupă aplicația atât de mult spațiu\?</string>
     <string name="faq_15_text">Memoria cache a aplicației poate ocupa până la 250 MB, asigurând o încărcare mai rapidă a imaginilor. Dacă aplicația ocupă și mai mult spațiu, cel mai probabil este cauzată de faptul că aveți elemente în coșul de reciclare. Acele fișiere contează la dimensiunea aplicației. Puteți goli coșul de reciclare deschizându-l și ștergând toate fișierele sau din setările aplicației. Fiecare fișier din coșul de gunoi este șters automat după 30 de zile.</string>
     <string name="faq_16_title">Ce s-a întâmplat cu ascunderea fișierelor și a dosarelor și de ce nu mai pot vedea elementele ascunse\?</string>
     <string name="faq_16_text">Începând cu Android 11, nu mai puteți ascunde sau dezascunde fișiere sau dosarele, nu le puteți vedea pe cele ascunse nici în aplicațiile din galerie. Va trebui să folosiți un manager de fișiere pentru asta.</string>
