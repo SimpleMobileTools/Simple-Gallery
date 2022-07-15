@@ -28,14 +28,19 @@
     <string name="dates_fixed_successfully">Датуми успешно исправљени</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">Подели верзију са промењеним димензијама</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,
+\n
+\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.
+\n
+\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.
+\n
+\nThanks!</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="set_as_default_folder">Set as default folder</string>
     <string name="unset_as_default_folder">Unset as default folder</string>
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
-
     <!-- Filter -->
     <string name="filter_media">Филтрирај медију</string>
     <string name="images">Слике</string>
@@ -46,30 +51,31 @@
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">Нема пронађених медија датотека са изабраним филтерима.</string>
     <string name="change_filters_underlined"><u>Измени филтере</u></string>
-
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ова функција скрива фасциклу додавањем \'.nomedia\' фајла у њу, она ће такође сакрити све подфасцикле. Можете их видети притиском на опцију \'Прикажи скривене ставке\' у подешавањима. Настави?</string>
+    <string name="hide_folder_description">Ова функција скрива фасциклу додавањем \'.nomedia\' фајла у њу, она ће такође сакрити све подфасцикле. Можете их видети притиском на опцију \'Прикажи скривене ставке\' у подешавањима. Настави\?</string>
     <string name="exclude">Изузми</string>
     <string name="excluded_folders">Изузете фасцикле</string>
     <string name="manage_excluded_folders">Управљај изузетим фасциклама</string>
     <string name="exclude_folder_description">Ово ће изузети одабир заједно са подфасциклама само из Једноставне галерије. Можете управљати изузетим фасциклама у подешавањима.</string>
-    <string name="exclude_folder_parent">Изузми родитеља уместо овог?</string>
-    <string name="excluded_activity_placeholder">Изузимање фасцикли ће их заједно са њиховим подфасциклама учинити скривеним само у Једноставној галерији, они ће и даље бити видљиви у другим апликацијама. \n\nАко желите да их сакријете од других апликација, употребите Сакриј функцију.</string>
+    <string name="exclude_folder_parent">Изузми родитеља уместо овог\?</string>
+    <string name="excluded_activity_placeholder">Изузимање фасцикли ће их заједно са њиховим подфасциклама учинити скривеним само у Једноставној галерији, они ће и даље бити видљиви у другим апликацијама.
+\n
+\nАко желите да их сакријете од других апликација, употребите Сакриј функцију.</string>
     <string name="remove_all">Уклони све</string>
-    <string name="remove_all_description">Уклони све фасцикле са листе изузетих? Ово неће обрисати фасцикле.</string>
+    <string name="remove_all_description">Уклони све фасцикле са листе изузетих\? Ово неће обрисати фасцикле.</string>
     <string name="hidden_folders">Скривене фасцикле</string>
     <string name="manage_hidden_folders">Управљај скривеним фасциклама</string>
     <string name="hidden_folders_placeholder">Изгледа да немате ни једну фасциклу скривену са \".nomedia\" датотеком.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-
     <!-- Include folders -->
     <string name="include_folders">Укључене фасцикле</string>
     <string name="manage_included_folders">Управљај укљученим фасциклама</string>
     <string name="add_folder">Додај фасциклу</string>
-    <string name="included_activity_placeholder">Ако имате неке фасцикле које садрже медију, али нису препознате од стране апликације, можете их додати ручно овде. \n\nДодавањем неких ставки овде нећете изузети неку другу фасциклу.</string>
+    <string name="included_activity_placeholder">Ако имате неке фасцикле које садрже медију, али нису препознате од стране апликације, можете их додати ручно овде.
+\n
+\nДодавањем неких ставки овде нећете изузети неку другу фасциклу.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
-
     <!-- Resizing -->
     <string name="resize">Промена величине</string>
     <string name="resize_and_save">Промени величину одабраног и сачувај</string>
@@ -77,7 +83,6 @@
     <string name="height">Висина</string>
     <string name="keep_aspect_ratio">Задржи пропорције</string>
     <string name="invalid_values">Унесите исправну резолуцију</string>
-
     <!-- Editor -->
     <string name="editor">Едитор</string>
     <string name="rotate">Ротирај</string>
@@ -102,15 +107,16 @@
     <string name="flip">Заврти</string>
     <string name="flip_horizontally">Заврти хоризонтално</string>
     <string name="flip_vertically">Заврти вертикално</string>
-    <string name="free_aspect_ratio">Слободна пропорција</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Друга пропорција</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
-
+    <string name="free_aspect_ratio">Слободна пропорција</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Друга пропорција</string>
+    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Једноставна позадина</string>
     <string name="set_as_wallpaper">Подеси као позадину</string>
     <string name="set_as_wallpaper_failed">Подешавање позадине неуспешно</string>
     <string name="set_as_wallpaper_with">Подеси као позадину са:</string>
-    <string name="setting_wallpaper">Подешавам позадину&#8230;</string>
+    <string name="setting_wallpaper">Подешавам позадину…</string>
     <string name="wallpaper_set_successfully">Позадина је успешно подешена</string>
     <string name="portrait_aspect_ratio">Пропорција портрета</string>
     <string name="landscape_aspect_ratio">Пропорција пејзажа</string>
@@ -118,7 +124,6 @@
     <string name="lock_screen">Закључај екран</string>
     <string name="home_and_lock_screen">Почетни и закључани екран</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
-
     <!-- Slideshow -->
     <string name="slideshow">Слајдшоу</string>
     <string name="interval">Интервал (секунди):</string>
@@ -134,10 +139,8 @@
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Слајдшоу се завршио</string>
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
-
     <!-- View types -->
     <string name="group_direct_subfolders">Групирај директне подфасцикле</string>
-
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Групиши према</string>
     <string name="do_not_group_files">Не групиши датотеке</string>
@@ -152,11 +155,9 @@
     <string name="by_extension">Тип датотеке</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Имајте на уму да су груписање и сортирање 2 различите ствари</string>
-
     <!-- Widgets -->
     <string name="folder_on_widget">Фасцикла приказана у виџету:</string>
     <string name="show_folder_name">Прикажи име фасцикле</string>
-
     <!-- Settings -->
     <string name="autoplay_videos">Пуштај видео снимке аутоматски</string>
     <string name="remember_last_video_position">Запамти позицију задње пуштаног видеа</string>
@@ -214,18 +215,15 @@
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-
     <!-- Setting sections -->
     <string name="thumbnails">Сличице</string>
     <string name="fullscreen_media">Медији преко целог екрана</string>
     <string name="extended_details">Додатни детаљи</string>
     <string name="bottom_actions">Акције на дну</string>
-
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Управљај са видљивим акцијама на дну</string>
     <string name="toggle_favorite">Укључи/искључи омиљени</string>
     <string name="toggle_file_visibility">Укључи/искључи видљивост датотеке</string>
-
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
@@ -276,8 +274,8 @@
     <string name="pesdk_brush_button_delete">Delete</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
     <string name="pesdk_editor_title_name">Editor</string>
-    <string name="pesdk_editor_title_closeEditorAlert">Close Editor?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes?</string>
+    <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Yes</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
     <string name="pesdk_editor_cancel">Cancel</string>
@@ -339,43 +337,40 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
-
     <!-- FAQ -->
-    <string name="faq_1_title">Како да подесим Једноставну галерију да буде главна галерија уређаја?</string>
-    <string name="faq_1_text">Први морате да нађете тренутну главну галерију у Апликације секцији подешавања вашег уређаја, потражите дугме које каже нешто попут \"Отвори по дифолту\", кликни на то, затим изабери \"Уклони дифолт\".
-        Следећи пут када покушате да отворите слику или видео требало би да видите изабирач апликација, где можете да изаберете Једноставну галерију и учините је подразумевајућом апликацијом.</string>
-    <string name="faq_2_title">Закључао сам апликацију са шифром и заборавио шифру. Како да решим проблем?</string>
+    <string name="faq_1_title">Како да подесим Једноставну галерију да буде главна галерија уређаја\?</string>
+    <string name="faq_1_text">Први морате да нађете тренутну главну галерију у Апликације секцији подешавања вашег уређаја, потражите дугме које каже нешто попут \"Отвори по дифолту\", кликни на то, затим изабери \"Уклони дифолт\". Следећи пут када покушате да отворите слику или видео требало би да видите изабирач апликација, где можете да изаберете Једноставну галерију и учините је подразумевајућом апликацијом.</string>
+    <string name="faq_2_title">Закључао сам апликацију са шифром и заборавио шифру. Како да решим проблем\?</string>
     <string name="faq_2_text">Постоје 2 начина. Можете да обришете апликацију, или да нађете апликацију у подешавањима и кликнете на \"Обриши податке\". То ће ресетовати сва подешавања, али неће обрисати медија фајлове.</string>
-    <string name="faq_3_title">Како да подесим да се неки албум увек појављује на врху?</string>
+    <string name="faq_3_title">Како да подесим да се неки албум увек појављује на врху\?</string>
     <string name="faq_3_text">Дуго притисните на жељени албум и изаберите Закачи икону у менију за акције, то ће га поставити на врх. Можете да закачите више фасцикли истовремено, с тим што ће бити сортирани према подразумевајућем методу за сортирање.</string>
-    <string name="faq_4_title">Како да премотавам видео снимке?</string>
+    <string name="faq_4_title">Како да премотавам видео снимке\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле?</string>
+    <string name="faq_5_title">Која је разлика између скривања и изузимања фасцикле\?</string>
     <string name="faq_5_text">Изузимање спречава приказивање фасцикле само у Једноставној галерији, док се скривање односи на цео систем и скрива фасциклу од свих других галерија. Он функционише тако што прави празан \".nomedia\" фајл у задатој фасцикли, који затим можете да уклоните са било којим фајл менаџером. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују?</string>
+    <string name="faq_6_title">Зашто се фасцикле са сликама музичких извођача или налепницама приказују\?</string>
     <string name="faq_6_text">Може се десити да се приказују неки необични албуми. Можете их лако изузети дугим притиском, а затим одабиром Изузми. У следећем дијалогу можете изабрати фасциклу родитеља, шансе су да ће спречити све остале албуме од приказивања.</string>
-    <string name="faq_7_title">Фасцикла са сликама се не приказује, или не приказује све ставке. Шта да урадим?</string>
-    <string name="faq_7_text">Може бити више разлога, али решење је лако. Идите у Подешавања -> Управљај садржаним фасциклама, изаберите плус и изаберите жељену фасциклу.</string>
-    <string name="faq_8_title">Шта ако желим само неколико одређених фасцикли у приказу?</string>
-    <string name="faq_8_text">Додавањем фасцикли у Садржаним фасциклама не изузима аутоматски ништа. Оно што можете је да одете у Подешавања -> Управљај изузетим фасциклама, изузмете почетну фасциклу \"/\", а затим додате жељене фасцикле у Подешавања -> Управљај садржаним фасциклама.
-        То ће учинити да се само одређене фасцикле приказују, јер и изузимање и укључивање су рекурзивни и ако је нека фасцикла и изузета и садржана, она ће се појавити.</string>
-    <string name="faq_10_title">Да ли могу да исечем слику са овом апликацијом?</string>
+    <string name="faq_7_title">Фасцикла са сликама се не приказује, или не приказује све ставке. Шта да урадим\?</string>
+    <string name="faq_7_text">Може бити више разлога, али решење је лако. Идите у Подешавања -&gt; Управљај садржаним фасциклама, изаберите плус и изаберите жељену фасциклу.</string>
+    <string name="faq_8_title">Шта ако желим само неколико одређених фасцикли у приказу\?</string>
+    <string name="faq_8_text">Додавањем фасцикли у Садржаним фасциклама не изузима аутоматски ништа. Оно што можете је да одете у Подешавања -&gt; Управљај изузетим фасциклама, изузмете почетну фасциклу \"/\", а затим додате жељене фасцикле у Подешавања -&gt; Управљај садржаним фасциклама. То ће учинити да се само одређене фасцикле приказују, јер и изузимање и укључивање су рекурзивни и ако је нека фасцикла и изузета и садржана, она ће се појавити.</string>
+    <string name="faq_10_title">Да ли могу да исечем слику са овом апликацијом\?</string>
     <string name="faq_10_text">Да, можете да сечете слике са едитором, повлачењем ивица слике. Можете ући у едитор дугим притиском на сличицу слике и одабирањем Измени, или избором Измени из приказа преко целог екрана.</string>
-    <string name="faq_11_title">Да ли могу да групишем сличице медија?</string>
+    <string name="faq_11_title">Да ли могу да групишем сличице медија\?</string>
     <string name="faq_11_text">Да, само употребите \"Групиши према\" мени ставку док сте у прегледу са сличицама. Можете да групишете датотеке према више критеријума, укључујући датум креирања. Ако користите \"Прикажи садржај свих фасцикли\" функцију, можете да их групишете и према фасциклама.</string>
-    <string name="faq_12_title">Сортирање према датуму креирања не ради како треба, како да га поправим?</string>
+    <string name="faq_12_title">Сортирање према датуму креирања не ради како треба, како да га поправим\?</string>
     <string name="faq_12_text">Највероватнији узрок су датотеке које се копирају од некле. То можете поправити селектовањем сличице датотеке и изабиром \"Исправи датум креирања\".</string>
-    <string name="faq_13_title">Имам проблема са приказом боја у сликама. Како да унапредим квалитет приказа слика?</string>
+    <string name="faq_13_title">Имам проблема са приказом боја у сликама. Како да унапредим квалитет приказа слика\?</string>
     <string name="faq_13_text">Тренутно решење за приказивање слика функционише добро у већини случајева, али ако хоћете још бољи квалитет слика, можете да укључите \"Прикажи слике у најбољем могућем квалитету\" у подешавањима апликације, у \"Дубоко зумирање слика\" секцији.</string>
-    <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново?</string>
+    <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново\?</string>
     <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore?</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore?</string>
+    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback?</string>
+    <string name="faq_18_title">Why do I see ads during video playback\?</string>
     <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
     <!--
         haven't found some strings? There's more at
