@@ -214,7 +214,7 @@
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
     <string name="media_management_manual">Quelque chose s\'est mal passé, veuillez aller dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
     <string name="media_management_note">Si la redirection ne fonctionne pas, allez dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Si vous ne voulez pas le faire, vous pouvez aussi aller dans les Paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autoriser cette application à gérer les médias.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>
