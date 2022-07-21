@@ -1,19 +1,23 @@
-La Simple Gallery Pro té totes les característiques de visualització i edició de fotos que trobeu a faltar a l'Android en una aplicació senzilla d'utilitzar. Exploreu, gestioneu, escapceu i editeu més ràpid que mai, recupereu els fitxers eliminats accidentalment o creeu galeries ocultes per a les imatges i vídeos més valuosos. I amb suport avançat de fitxers i personalització completa, finalment, la galeria que funciona com voleu.
+La Simple Gallery té totes les característiques de visualització i edició de fotos que trobeu a faltar a l'Android en una aplicació senzilla d'utilitzar. Exploreu, gestioneu, escapceu i editeu més ràpid que mai, recupereu els fitxers eliminats accidentalment o creeu galeries ocultes per a les imatges i vídeos més valuosos. I amb suport avançat de fitxers i personalització completa, finalment, la galeria que funciona com voleu.
 
 EDITOR DE GALERIA DE FOTOS
-Converteix l'edició de fotos en un joc infantil amb l'organitzador de fitxers i l'àlbum de fotos millorat de la Simple Gallery Pro. Els gestos intuïtius faciliten l'edició de les vostres imatges sobre la marxa. Escapceu, gireu, invertiu i redimensioneu les imatges o apliqueu filtres d'estil per fer-les vintage en un instant.
+Converteix l'edició de fotos en un joc infantil amb l'organitzador de fitxers i l'àlbum de fotos millorat de la Simple Gallery. Els gestos intuïtius faciliten l'edició de les vostres imatges sobre la marxa. Escapceu, gireu, invertiu i redimensioneu les imatges o apliqueu filtres d'estil per fer-les vintage en un instant.
 
 TOTS ELS TIPUS DE FITXERS NECESSARIS
-La Simple Gallery Pro permet una gran varietat de tipus de fitxers diferents, incloent JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panoràmiques, vídeos i molts més, de manera que gaudiu d'una flexibilitat total en l'elecció del format. Alguna vegada us heu preguntat «Puc utilitzar aquest format en el meu Android?». Ara la resposta és sí.
+La Simple Gallery permet una gran varietat de tipus de fitxers diferents, incloent JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panoràmiques, vídeos i molts més, de manera que gaudiu d'una flexibilitat total en l'elecció del format. Alguna vegada us heu preguntat «Puc utilitzar aquest format en el meu Android?». Ara la resposta és sí.
 
 FEU-LO VOSTRE
-El disseny altament personalitzable de la Simple Gallery Pro us permet ajustar l'aspecte, comportament i funcionament com vulgueu. Des de la interfície d'usuari fins als botons de funció de la barra d'eines inferior, la Simple Gallery Pro us dona la llibertat creativa que necessiteu en una aplicació de galeria.
+El disseny altament personalitzable de la Simple Gallery us permet ajustar l'aspecte, comportament i funcionament com vulgueu. Des de la interfície d'usuari fins als botons de funció de la barra d'eines inferior, la Simple Gallery us dona la llibertat creativa que necessiteu en una aplicació de galeria.
 
 RECUPEREU LES FOTOS I VÍDEOS SUPRIMITS
-No us preocupeu mai si suprimiu accidentalment la foto o el vídeo tan valuós que no es pot substituir. La Simple Gallery Pro permet recuperar ràpidament qualsevol fitxer suprimit, és a dir, a banda de ser la millor galeria multimèdia per a l'Android, la Simple Gallery Pro a sobre és una aplicació increïble de caixa forta de fotos.
+No us preocupeu mai si suprimiu accidentalment la foto o el vídeo tan valuós que no es pot substituir. La Simple Gallery permet recuperar ràpidament qualsevol fitxer suprimit, és a dir, a banda de ser la millor galeria multimèdia per a l'Android, la Simple Gallery a sobre és una aplicació increïble de caixa forta de fotos.
 
 PROTEGIU LES VOSTRES FOTOGRAFIES PRIVADES, VÍDEOS I FITXERS
-Tingueu la tranquil·litat que el vostre àlbum de fotos és segur. Amb les característiques de seguretat superior de la Simple Gallery Pro es pot utilitzar un pin, un patró o l'escàner d'empremtes digitals del vostre dispositiu per limitar qui pot veure o editar fotos i vídeos seleccionats o accedir a fitxers importants. Fins i tot podeu protegir l'aplicació en si mateixa o posar panys en funcions específiques de l'organitzador de fitxers.
+Tingueu la tranquil·litat que el vostre àlbum de fotos és segur. Amb les característiques de seguretat superior de la Simple Gallery es pot utilitzar un pin, un patró o l'escàner d'empremtes digitals del vostre dispositiu per limitar qui pot veure o editar fotos i vídeos seleccionats o accedir a fitxers importants. Fins i tot podeu protegir l'aplicació en si mateixa o posar panys en funcions específiques de l'organitzador de fitxers.
+
+De manera predeterminada, inclou el «Material design» i un tema fosc, proporcionant una gran experiència d'usuari per a un ús fàcil. La manca d'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions.
+
+No conté anuncis ni permisos innecessaris. És totalment de codi obert, ofereix colors personalitzables.
 
 Consulteu el conjunt complet d’eines senzilles aquí:
 https://www.simplemobiletools.com
