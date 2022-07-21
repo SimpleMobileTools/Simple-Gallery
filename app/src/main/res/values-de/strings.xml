@@ -214,7 +214,7 @@
     <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
     <string name="media_management_manual">Irgendetwas ist schief gelaufen. Bitte gehen Sie in Ihrem Gerät auf Einstellungen - Anwendungen - Spezieller Anwendungs-Zugriff - Medienverwaltungs-Anwendungs und erlauben Sie dieser Anwendung, Medien zu verwalten.</string>
     <string name="media_management_note">Wenn die Umleitung nicht funktioniert, gehen Sie bitte in die Einstellungen Ihres Geräts - Anwendungen - Spezieller App-Zugriff - Medienverwaltungs-Apps und erlauben Sie dieser App die Verwaltung von Medien.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Wenn Sie dies nicht tun möchten, können Sie auch in Ihrem Gerät unter Einstellungen - Anwendungen - Spezieller App-Zugriff - Medienverwaltungs-Apps dieser Anwendung die Verwaltung von Medien erlauben.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
