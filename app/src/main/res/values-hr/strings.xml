@@ -214,7 +214,7 @@
     <string name="password_protect_excluded">Lozinkom zaštiti vidljivost isključene mape</string>
     <string name="media_management_manual">Nešto nije u redu. Idi u Postavke - Aplikacije - Poseban pristup aplikaciji - Aplikacije za upravljanje medijima i dozvoli ovoj aplikaciji da upravlja medijima.</string>
     <string name="media_management_note">Ako preusmjeravanje ne radi, idi u Postavke - Aplikacije - Poseban pristup aplikaciji - Aplikacije za upravljanje medijima i dozvoli ovoj aplikaciji da upravlja medijima.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Ako to ne želiš učiniti, na svom uređaju idi u Postavke - Aplikacije - Poseban pristup aplikacijama - Aplikacije za upravljanje medijima i dopustiti ovoj aplikaciji da upravlja medijima.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji u cjeloekranskom prikazu</string>
@@ -339,13 +339,13 @@
     <string name="vesdk_video_trim_title_name">Skrati</string>
     <!-- FAQ -->
     <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja\?</string>
-    <string name="faq_1_text">Najprije moraš pronaći trenutačno standardnu galeriju u odjeljku „Aplikacije” u postavkama tog uređaja, potraži gumb koji kaže nešto poput opcije „Otvori prema standardnim postavkama”, pritisni tu opciju, a zatim odaberi „Izbriši standardne postavke”. Sljedeći put kad pokušaš otvoriti sliku ili video, trebao bi se pojaviti alat za odabir aplikacija, gdje možeš odabrati aplikaciju „Jednostavna galerija” i je postaviti je kao standardnu aplikaciju.</string>
+    <string name="faq_1_text">Najprije moraš pronaći trenutačno standardnu galeriju u odjeljku „Aplikacije” u postavkama tog uređaja, potraži gumb koji kaže nešto poput opcije „Otvori prema standardnim postavkama”, pritisni tu opciju, a zatim odaberi „Izbriši standardne postavke”. Sljedeći put kad pokušaš otvoriti sliku ili video, trebao bi se pojaviti alat za biranje aplikacija, gdje možeš odabrati aplikaciju „Jednostavna galerija” i postaviti je kao standardnu aplikaciju.</string>
     <string name="faq_2_title">Zaključao/la sam aplikaciju lozinkom, ali sam je zaboravio/la. Što mogu učiniti\?</string>
     <string name="faq_2_text">Problem možeš riješiti na dva načina. Ponovo instalirati aplikaciju ili pronađi aplikaciju u postavkama uređaja i odaberi opciju „Izbriši podatke”. Navedeno će obnoviti sve postavke, ali neće ukloniti nikoje medijske datoteke.</string>
     <string name="faq_3_title">Kako mogu postaviti album uvijek na vrh\?</string>
     <string name="faq_3_text">Dugo pritisnu željeni album i odaberi ikonu za prikvačivanje u izborniku radnji, koji će ga pričvrstiti na vrh. Možeš prikvačiti više mapa odjednom, prikvačene stavke će se razvrstati prema zadanom načinu razvrstavanja.</string>
     <string name="faq_4_title">Kako mogu premotati video prema naprijed\?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">To možeš učiniti dvostrukim dodirom strane ekrana ili dodirom na tekstove trenutačnog ili maksimalnog trajanja u blizini trake prematanja. Ako omogućiš otvaranje videoa u zasebnom ekranu u postavkama aplikacije, možeš koristiti i vodoravne geste.</string>
     <string name="faq_5_title">Koja je razlika između skrivanja i isključivanja mape\?</string>
     <string name="faq_5_text">Isključivanje sprečava prikaz mape samo u aplikaciji „Jednostavna galerija”, a skrivanje radi na razini sustava i skriva mapu u drugim galerijama. Djeluje stvaranjem praznih „.nomedia” datoteka u zadanoj mapi, koju možeš ukloniti pomoću bilo kojeg upravljača datoteka. Imaj na umu da neki uređaji ne dopuštaju skrivanje mapa kao što su Kamera, Slike ekrana i Preuzimanja.</string>
     <string name="faq_6_title">Zašto se prikazuju mape sa slikama naslovnica ili naljepnice\?</string>
@@ -365,13 +365,13 @@
     <string name="faq_14_title">Sakrio sam datoteku/mapu. Kako je mogu opet prikazati\?</string>
     <string name="faq_14_text">U glavnom ekranu pritisni stavku izbornika „Privremeno prikaži skrivene stavke” ili uključi „Prikaži skrivene stavke” u postavkama aplikacije. Ako je želiš prikazati, pritisni je dugo i odaberi „Otkrij”. Mape se skrivaju dodavanjem skrivene datoteke „.nomedia”. Datoteku možeš izbrisati i s bilo kojim upravljačem datoteka. Imaj na umu da skrivanje ipak radi rekurzivno, pa ako sakriješ mapu, sve podmape će se također sakriti. Za otkrivanje podmapa moraš otkriti nadređenu mapu.</string>
     <string name="faq_15_title">Zašto aplikacija koristi toliko memorije\?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps due to system restrictions either. You will have to use some file manager for that.</string>
+    <string name="faq_15_text">Predmemorija aplikacije može zauzeti do 250 MB, osigurava brže učitavanje slike. Ako aplikacija zauzima još više prostora, razlog tome je najvjerojatnije da imaš stavke u košu za smeće. Te se datoteke ubrajaju u veličinu aplikacije. Isprazni koš za smeće tako da ga otvoriš i izbrišeš sve datoteke ili u postavkama aplikacije. Svaka datoteka u košu automatski se briše nakon 30 dana.</string>
+    <string name="faq_16_title">Što se dogodilo sa skrivanjem datoteka i mapa i zašto više ne mogu vidjeti skrivene stavke\?</string>
+    <string name="faq_16_text">Počevši od Androida 11 više ne možeš sakriti ili otkriti datoteke ili mape, ne možeš vidjeti skrivene u aplikacijama galerije zbog ograničenja sustava. Za to ćeš morati koristiti neki upravljač datoteka.</string>
     <string name="faq_17_title">Zašto više ne mogu uključiti nedostajuće mape\?</string>
     <string name="faq_17_text">To je prestalo raditi zbog promjena sustava koje su uvedene s Androidom 11. Aplikacija više ne može pregledavati stvarne mape, oslanja se na takozvani MediaStore za dohvaćanje podataka.</string>
     <string name="faq_18_title">Zašto vidim oglase tijekom reprodukcije videa\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_text">Naše aplikacije ne sadrže oglase. Ako ih vidiš tijekom reprodukcije videa, vjerojatno koristiš neki drugi video player. Pokušaj pronaći zadani video player u postavkama uređaja, a zatim na njemu izvrši „Očisti zadane postavke“. Sljedeći put kada pozoveš neku namjeru gledanja videa, vidjet ćeš upit za biranje aplikacija u kojem možeš odabrati aplikaciju koju želiš koristiti.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
