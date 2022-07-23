@@ -214,7 +214,7 @@
     <string name="password_protect_excluded">Proteggi con password la visibilità della cartella esclusa</string>
     <string name="media_management_manual">Qualcosa è andato storto, si prega di andare nelle Impostazioni del vostro dispositivo - App - Accesso speciale per le app - App di gestione contenuti multimediali e consentire a questa app di gestire i media.</string>
     <string name="media_management_note">Se il reindirizzamento non funziona, si prega di andare nel Impostazioni del dispositivo - App - Accesso speciale app - Applicazioni di gestione dei media e consentire a questa applicazione di gestire i media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">Se non si vuole farlo, si può anche andare in Impostazioni del dispositivo - App - Accesso app speciali - App di gestione dei media e consentire a questa app di gestire i media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
