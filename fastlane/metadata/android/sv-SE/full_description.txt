@@ -4,12 +4,14 @@ Galleriet kan även användas av tredjepartsappar för att förhandsgranska bild
 
 Fingeravtrycksbehörigheten behövs för att låsa hela appen eller synligheten för dolda objekt.
 
+Det levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
+
 Innehåller ingen reklam eller onödiga behörigheter. Det har helt öppen källkod och anpassningsbara färger.
 
-Check out the full suite of Simple Tools here:
+Kolla in hela uppsättningen enkla verktyg här:
 https://www.simplemobiletools.com
 
-Standalone website of Simple Gallery Pro:
+Fristående webbplats för Simpelt galleri Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:
