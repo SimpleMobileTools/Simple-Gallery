@@ -248,7 +248,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
                         parent,
                         subDirs.first().tmb,
                         getFolderNameFromPath(parent),
-                        subDirs.sumBy { it.mediaCnt },
+                        subDirs.sumOf { it.mediaCnt },
                         lastModified,
                         dateTaken,
                         subDirs.sumByLong { it.size },

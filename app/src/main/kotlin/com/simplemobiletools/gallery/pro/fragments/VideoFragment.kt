@@ -15,7 +15,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
+import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
@@ -23,6 +23,7 @@ import com.google.android.exoplayer2.upstream.ContentDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.FileDataSource
+import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
@@ -365,9 +366,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         val factory = DataSource.Factory { fileDataSource }
-        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
+        val audioSource = ExtractorMediaSource.Factory(factory).createMediaSource(fileDataSource.uri)
+        val audioAttribute = AudioAttributes.Builder()
+            .setUsage(C.USAGE_MEDIA)
+            .setContentType(C.CONTENT_TYPE_MUSIC)
+            .build()
+
         mPlayOnPrepared = true
-        mExoPlayer!!.audioStreamType = C.STREAM_TYPE_MUSIC
+        mExoPlayer!!.audioAttributes = audioAttribute
         mExoPlayer!!.prepare(audioSource)
 
         if (mTextureView.surfaceTexture != null) {
@@ -407,7 +413,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
         })
 
-        mExoPlayer!!.addVideoListener(object : SimpleExoPlayer.VideoListener {
+        mExoPlayer!!.addVideoListener(object : VideoListener {
             override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
                 mVideoSize.x = width
                 mVideoSize.y = (height / pixelWidthHeightRatio).toInt()

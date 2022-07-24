@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.*
@@ -70,7 +69,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         mSearchMenuItem = menu.findItem(R.id.search)
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+        mSearchMenuItem?.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 mIsSearchOpen = true
                 return true

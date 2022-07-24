@@ -54,39 +54,39 @@ abstract class ViewPagerFragment : Fragment() {
         val details = StringBuilder()
         val detailsFlag = context!!.config.extendedDetails
         if (detailsFlag and EXT_NAME != 0) {
-            medium.name.let { if (it.isNotEmpty()) details.appendln(it) }
+            medium.name.let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_PATH != 0) {
-            path.let { if (it.isNotEmpty()) details.appendln(it) }
+            path.let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_SIZE != 0) {
-            file.length().formatSize().let { if (it.isNotEmpty()) details.appendln(it) }
+            file.length().formatSize().let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_RESOLUTION != 0) {
-            context!!.getResolution(file.absolutePath)?.formatAsResolution().let { if (it?.isNotEmpty() == true) details.appendln(it) }
+            context!!.getResolution(file.absolutePath)?.formatAsResolution().let { if (it?.isNotEmpty() == true) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_LAST_MODIFIED != 0) {
-            getFileLastModified(file).let { if (it.isNotEmpty()) details.appendln(it) }
+            getFileLastModified(file).let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {
-            exif.getExifDateTaken(context!!).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifDateTaken(context!!).let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_CAMERA_MODEL != 0) {
-            exif.getExifCameraModel().let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifCameraModel().let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_EXIF_PROPERTIES != 0) {
-            exif.getExifProperties().let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifProperties().let { if (it.isNotEmpty()) details.appendLine(it) }
         }
 
         if (detailsFlag and EXT_GPS != 0) {
-            getLatLonAltitude(medium.path).let { if (it.isNotEmpty()) details.appendln(it) }
+            getLatLonAltitude(medium.path).let { if (it.isNotEmpty()) details.appendLine(it) }
         }
         return details.toString().trim()
     }

@@ -23,7 +23,7 @@ class MyGlideImageDecoder(val degrees: Int, val signature: ObjectKey) : ImageDec
             .load(uri.toString().substringAfter("file://"))
             .apply(options)
             .transform(RotateTransformation(-degrees))
-            .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+            .submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
 
         return builder.get()
     }

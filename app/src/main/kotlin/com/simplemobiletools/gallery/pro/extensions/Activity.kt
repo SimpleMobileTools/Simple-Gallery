@@ -750,7 +750,7 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
             .load(tmb)
             .apply(options)
             .centerCrop()
-            .into(size, size)
+            .submit(size, size)
 
         try {
             (drawable as LayerDrawable).setDrawableByLayerId(R.id.shortcut_image, builder.get())

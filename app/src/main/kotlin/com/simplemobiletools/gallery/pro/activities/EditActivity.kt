@@ -299,7 +299,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 .asBitmap()
                 .load(uri)
                 .apply(options)
-                .into(editor_draw_canvas.width, editor_draw_canvas.height)
+                .submit(editor_draw_canvas.width, editor_draw_canvas.height)
 
             val bitmap = builder.get()
             runOnUiThread {

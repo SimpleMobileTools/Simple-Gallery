@@ -14,7 +14,6 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -336,7 +335,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             })
         }
 
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+        mSearchMenuItem?.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 mIsSearchOpen = true
                 media_refresh_layout.isEnabled = false

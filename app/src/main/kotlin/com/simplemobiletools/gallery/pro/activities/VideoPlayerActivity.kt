@@ -15,7 +15,7 @@ import android.util.DisplayMetrics
 import android.view.*
 import android.widget.SeekBar
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
+import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
@@ -218,10 +218,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         val factory = DataSource.Factory { fileDataSource }
-        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
+        val audioSource = ExtractorMediaSource.Factory(factory).createMediaSource(fileDataSource.uri)
+        val audioAttribute = AudioAttributes.Builder()
+            .setUsage(C.USAGE_MEDIA)
+            .setContentType(C.CONTENT_TYPE_MUSIC)
+            .build()
+
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
             seekParameters = SeekParameters.CLOSEST_SYNC
-            audioStreamType = C.STREAM_TYPE_MUSIC
+            audioAttributes = audioAttribute
             if (config.loopVideos) {
                 repeatMode = Player.REPEAT_MODE_ONE
             }

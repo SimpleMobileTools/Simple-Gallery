@@ -7,11 +7,11 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowInsetsController
+import androidx.core.text.parseAsHtml
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -201,7 +201,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         mIsVideo = type == TYPE_VIDEOS
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L, 0)
-        supportActionBar?.title = Html.fromHtml("<font color='${Color.WHITE.toHex()}'>${mMedium!!.name}</font>")
+        supportActionBar?.title = ("<font color='${Color.WHITE.toHex()}'>${mMedium!!.name}</font>").parseAsHtml()
         bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {

@@ -49,7 +49,7 @@ class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem
                 }
 
                 setOnClickListener {
-                    setCurrentFilter(adapterPosition)
+                    setCurrentFilter(bindingAdapterPosition)
                 }
             }
             return itemView
