@@ -5,5 +5,5 @@
         android:id="@+id/cab_unhide"
         android:icon="@drawable/ic_unhide_vector"
         android:title="@string/unhide"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>
