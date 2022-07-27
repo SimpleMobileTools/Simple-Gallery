@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,17 +8,34 @@
     <com.simplemobiletools.commons.views.MyViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <include
         android:id="@+id/bottom_actions"
-        layout="@layout/bottom_actions"/>
+        layout="@layout/bottom_actions" />
 
     <ImageView
         android:id="@+id/top_shadow"
         android:layout_width="match_parent"
         android:layout_height="@dimen/default_status_action_height"
-        android:contentDescription="@null"
-        android:background="@drawable/gradient_background_flipped"/>
+        android:background="@drawable/gradient_background_flipped"
+        android:contentDescription="@null" />
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/medium_viewer_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/medium_viewer_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu_viewpager"
+            app:navigationIcon="@drawable/ic_arrow_left_vector" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 </RelativeLayout>

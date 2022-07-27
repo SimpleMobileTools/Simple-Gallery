@@ -21,8 +21,11 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
-import android.view.*
+import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.exifinterface.media.ExifInterface
 import androidx.print.PrintHelper
@@ -86,12 +89,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
+        showTransparentTop = true
+        showTransparentNavigation = true
+
         if (config.isUsingSystemTheme) {
             setTheme(R.style.AppTheme_Material)
         }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
+        setupOptionsMenu()
+        refreshMenuItems()
 
         window.decorView.setBackgroundColor(getProperBackgroundColor())
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
@@ -108,10 +116,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         initFavorites()
-
-        if (isRPlus()) {
-            window.insetsController?.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        }
     }
 
     override fun onResume() {
@@ -138,10 +142,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         setupOrientation()
         invalidateOptionsMenu()
 
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
-        supportActionBar?.title = filename
-        window.statusBarColor = Color.TRANSPARENT
+        medium_viewer_toolbar?.title = filename
     }
 
     override fun onPause() {
@@ -164,96 +166,102 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_viewpager, menu)
-        val currentMedium = getCurrentMedium() ?: return true
+    private fun refreshMenuItems() {
+        val currentMedium = getCurrentMedium() ?: return
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
-        val rotationDegrees = getCurrentPhotoFragment()?.mCurrentRotationDegrees ?: 0
-        menu.apply {
-            findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
-            findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
-            findItem(R.id.menu_properties).isVisible = visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
-            findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
-            findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
-            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0 && !currentMedium.isSVG()
-            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
-            findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
-            findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
-            findItem(R.id.menu_copy_to).isVisible = visibleBottomActions and BOTTOM_ACTION_COPY == 0
-            findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
-            findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
-            findItem(R.id.menu_print).isVisible = currentMedium.isImage() || currentMedium.isRaw()
-            findItem(R.id.menu_resize).isVisible = visibleBottomActions and BOTTOM_ACTION_RESIZE == 0 && currentMedium.isImage()
-            findItem(R.id.menu_hide).isVisible =
-                (!isRPlus() || isExternalStorageManager()) && !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
+        runOnUiThread {
+            val rotationDegrees = getCurrentPhotoFragment()?.mCurrentRotationDegrees ?: 0
+            medium_viewer_toolbar.menu.apply {
+                findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
+                findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
+                findItem(R.id.menu_properties).isVisible = visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
+                findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
+                findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
+                findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0 && !currentMedium.isSVG()
+                findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
+                findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
+                findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
+                findItem(R.id.menu_copy_to).isVisible = visibleBottomActions and BOTTOM_ACTION_COPY == 0
+                findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
+                findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
+                findItem(R.id.menu_print).isVisible = currentMedium.isImage() || currentMedium.isRaw()
+                findItem(R.id.menu_resize).isVisible = visibleBottomActions and BOTTOM_ACTION_RESIZE == 0 && currentMedium.isImage()
+                findItem(R.id.menu_hide).isVisible =
+                    (!isRPlus() || isExternalStorageManager()) && !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
 
-            findItem(R.id.menu_unhide).isVisible =
-                (!isRPlus() || isExternalStorageManager()) && currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
+                findItem(R.id.menu_unhide).isVisible =
+                    (!isRPlus() || isExternalStorageManager()) && currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
 
-            findItem(R.id.menu_add_to_favorites).isVisible =
-                !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
+                findItem(R.id.menu_add_to_favorites).isVisible =
+                    !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
 
-            findItem(R.id.menu_remove_from_favorites).isVisible =
-                currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
+                findItem(R.id.menu_remove_from_favorites).isVisible =
+                    currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0 && !currentMedium.getIsInRecycleBin()
 
-            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(recycleBinPath)
-            findItem(R.id.menu_create_shortcut).isVisible = isOreoPlus()
-            findItem(R.id.menu_change_orientation).isVisible = rotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
-            findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
-            findItem(R.id.menu_rotate).setShowAsAction(
-                if (rotationDegrees != 0) {
-                    MenuItem.SHOW_AS_ACTION_ALWAYS
-                } else {
-                    MenuItem.SHOW_AS_ACTION_IF_ROOM
-                }
-            )
+                findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(recycleBinPath)
+                findItem(R.id.menu_create_shortcut).isVisible = isOreoPlus()
+                findItem(R.id.menu_change_orientation).isVisible = rotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
+                findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
+                findItem(R.id.menu_rotate).setShowAsAction(
+                    if (rotationDegrees != 0) {
+                        MenuItem.SHOW_AS_ACTION_ALWAYS
+                    } else {
+                        MenuItem.SHOW_AS_ACTION_IF_ROOM
+                    }
+                )
+            }
+
+            if (visibleBottomActions != 0) {
+                updateBottomActionIcons(currentMedium)
+            }
         }
-
-        if (visibleBottomActions != 0) {
-            updateBottomActionIcons(currentMedium)
-        }
-
-        updateMenuItemColors(menu, forceWhiteIcons = true)
-        return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (getCurrentMedium() == null)
-            return true
+    private fun setupOptionsMenu() {
+        (medium_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        medium_viewer_toolbar.setOnMenuItemClickListener { menuItem ->
+            if (getCurrentMedium() == null) {
+                return@setOnMenuItemClickListener true
+            }
 
-        when (item.itemId) {
-            R.id.menu_set_as -> setAs(getCurrentPath())
-            R.id.menu_slideshow -> initSlideshow()
-            R.id.menu_copy_to -> checkMediaManagementAndCopy(true)
-            R.id.menu_move_to -> moveFileTo()
-            R.id.menu_open_with -> openPath(getCurrentPath(), true)
-            R.id.menu_hide -> toggleFileVisibility(true)
-            R.id.menu_unhide -> toggleFileVisibility(false)
-            R.id.menu_share -> shareMediumPath(getCurrentPath())
-            R.id.menu_delete -> checkDeleteConfirmation()
-            R.id.menu_rename -> checkMediaManagementAndRename()
-            R.id.menu_print -> printFile()
-            R.id.menu_edit -> openEditor(getCurrentPath())
-            R.id.menu_properties -> showProperties()
-            R.id.menu_show_on_map -> showFileOnMap(getCurrentPath())
-            R.id.menu_rotate_right -> rotateImage(90)
-            R.id.menu_rotate_left -> rotateImage(-90)
-            R.id.menu_rotate_one_eighty -> rotateImage(180)
-            R.id.menu_add_to_favorites -> toggleFavorite()
-            R.id.menu_remove_from_favorites -> toggleFavorite()
-            R.id.menu_restore_file -> restoreFile()
-            R.id.menu_force_portrait -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-            R.id.menu_force_landscape -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-            R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
-            R.id.menu_save_as -> saveImageAs()
-            R.id.menu_create_shortcut -> createShortcut()
-            R.id.menu_resize -> resizeImage()
-            R.id.menu_settings -> launchSettings()
-            else -> return super.onOptionsItemSelected(item)
+            when (menuItem.itemId) {
+                R.id.menu_set_as -> setAs(getCurrentPath())
+                R.id.menu_slideshow -> initSlideshow()
+                R.id.menu_copy_to -> checkMediaManagementAndCopy(true)
+                R.id.menu_move_to -> moveFileTo()
+                R.id.menu_open_with -> openPath(getCurrentPath(), true)
+                R.id.menu_hide -> toggleFileVisibility(true)
+                R.id.menu_unhide -> toggleFileVisibility(false)
+                R.id.menu_share -> shareMediumPath(getCurrentPath())
+                R.id.menu_delete -> checkDeleteConfirmation()
+                R.id.menu_rename -> checkMediaManagementAndRename()
+                R.id.menu_print -> printFile()
+                R.id.menu_edit -> openEditor(getCurrentPath())
+                R.id.menu_properties -> showProperties()
+                R.id.menu_show_on_map -> showFileOnMap(getCurrentPath())
+                R.id.menu_rotate_right -> rotateImage(90)
+                R.id.menu_rotate_left -> rotateImage(-90)
+                R.id.menu_rotate_one_eighty -> rotateImage(180)
+                R.id.menu_add_to_favorites -> toggleFavorite()
+                R.id.menu_remove_from_favorites -> toggleFavorite()
+                R.id.menu_restore_file -> restoreFile()
+                R.id.menu_force_portrait -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+                R.id.menu_force_landscape -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+                R.id.menu_save_as -> saveImageAs()
+                R.id.menu_create_shortcut -> createShortcut()
+                R.id.menu_resize -> resizeImage()
+                R.id.menu_settings -> launchSettings()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
+
+        medium_viewer_toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
@@ -685,7 +693,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 getCurrentMedia()[mPos] = this
             }
 
-            invalidateOptionsMenu()
+            refreshMenuItems()
             callback?.invoke()
         }
     }
@@ -705,13 +713,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun rotateBy(degrees: Int) {
         getCurrentPhotoFragment()?.rotateImageViewBy(degrees)
-        supportInvalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun toggleOrientation(orientation: Int) {
         requestedOrientation = orientation
         mIsOrientationLocked = orientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun getChangeOrientationIcon(): Int {
@@ -741,7 +749,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     saveRotatedImageToFile(currPath, newPath, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
                         getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
-                        invalidateOptionsMenu()
+                        refreshMenuItems()
                     }
                 }
             }
@@ -818,6 +826,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             bottom_actions.beVisible()
         } else {
             bottom_actions.beGone()
+        }
+
+        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+            medium_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         }
     }
 
@@ -953,7 +965,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             } else {
                 mFavoritePaths.remove(medium.path)
             }
-            invalidateOptionsMenu()
+
+            runOnUiThread {
+                refreshMenuItems()
+            }
         }
     }
 
@@ -1268,7 +1283,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updateActionbarTitle()
         updatePagerItems(mMediaFiles.toMutableList())
 
-        invalidateOptionsMenu()
+        refreshMenuItems()
         checkOrientation()
         initBottomActions()
     }
@@ -1400,13 +1415,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }.withEndAction {
                 bottom_actions.beVisibleIf(newAlpha == 1f)
             }.start()
+
+            medium_viewer_appbar.animate().alpha(newAlpha).withStartAction {
+                medium_viewer_appbar.beVisible()
+            }.withEndAction {
+                medium_viewer_appbar.beVisibleIf(newAlpha == 1f)
+            }.start()
         }
     }
 
     private fun updateActionbarTitle() {
         runOnUiThread {
             if (mPos < getCurrentMedia().size) {
-                supportActionBar?.title = getCurrentMedia()[mPos].path.getFilenameFromPath()
+                medium_viewer_toolbar.title = getCurrentMedia()[mPos].path.getFilenameFromPath()
             }
         }
     }
@@ -1429,7 +1450,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mPos != position) {
             mPos = position
             updateActionbarTitle()
-            invalidateOptionsMenu()
+            refreshMenuItems()
             scheduleSwipe()
         }
     }
