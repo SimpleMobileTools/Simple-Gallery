@@ -35,6 +35,7 @@ class SettingsActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupToolbar(settings_toolbar, NavigationIcon.Arrow)
         setupSettingItems()
     }
 
@@ -89,7 +90,6 @@ class SettingsActivity : SimpleActivity() {
         setupClearCache()
         setupExportSettings()
         setupImportSettings()
-        invalidateOptionsMenu()
 
         arrayOf(
             settings_color_customization_label,

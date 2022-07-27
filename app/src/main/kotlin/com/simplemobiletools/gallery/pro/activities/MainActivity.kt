@@ -109,6 +109,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
             mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
+        setupOptionsMenu()
+        refreshMenuItems()
+
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         storeStateVariables()
         checkWhatsNewDialog()
@@ -179,6 +182,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mDateFormat = config.dateFormat
         mTimeFormat = getTimeFormat()
 
+        setupToolbar(directories_toolbar, searchMenuItem = mSearchMenuItem)
+        refreshMenuItems()
+
         if (mStoredAnimateGifs != config.animateGifs) {
             getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -221,7 +227,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_placeholder_2.bringToFront()
 
         if (!mIsSearchOpen) {
-            invalidateOptionsMenu()
+            refreshMenuItems()
             if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
                 handleAppPasswordProtection {
                     mWasProtectionHandled = it
@@ -278,7 +284,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun onBackPressed() {
-        if (config.groupDirectSubfolders) {
+        if (mIsSearchOpen && mSearchMenuItem != null) {
+            mSearchMenuItem!!.collapseActionView()
+        } else if (config.groupDirectSubfolders) {
             if (mCurrentPathPrefix.isEmpty()) {
                 super.onBackPressed()
             } else {
@@ -291,13 +299,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (mIsThirdPartyIntent) {
-            menuInflater.inflate(R.menu.menu_main_intent, menu)
-        } else {
-            menuInflater.inflate(R.menu.menu_main, menu)
+    private fun refreshMenuItems() {
+        if (!mIsThirdPartyIntent) {
             val useBin = config.useRecycleBin
-            menu.apply {
+            directories_toolbar.menu.apply {
                 findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
@@ -307,38 +312,51 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
-        menu.findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
+        directories_toolbar.menu.apply {
+            findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
+            findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
-        menu.findItem(R.id.temporarily_show_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
-        menu.findItem(R.id.stop_showing_excluded).isVisible = !menu.findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
-
-        updateMenuItemColors(menu)
-        return true
+            findItem(R.id.temporarily_show_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
+            findItem(R.id.stop_showing_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
+        }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.sort -> showSortingDialog()
-            R.id.filter -> showFilterMediaDialog()
-            R.id.open_camera -> launchCamera()
-            R.id.show_all -> showAllMedia()
-            R.id.change_view_type -> changeViewType()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
-            R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
-            R.id.create_new_folder -> createNewFolder()
-            R.id.show_the_recycle_bin -> toggleRecycleBin(true)
-            R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
-            R.id.increase_column_count -> increaseColumnCount()
-            R.id.reduce_column_count -> reduceColumnCount()
-            R.id.set_as_default_folder -> setAsDefaultFolder()
-            R.id.settings -> launchSettings()
-            R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        val menuId = if (mIsThirdPartyIntent) {
+            R.menu.menu_main_intent
+        } else {
+            R.menu.menu_main
         }
-        return true
+
+        directories_toolbar.inflateMenu(menuId)
+
+        if (!mIsThirdPartyIntent) {
+            setupSearch(directories_toolbar.menu)
+        }
+
+        directories_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.sort -> showSortingDialog()
+                R.id.filter -> showFilterMediaDialog()
+                R.id.open_camera -> launchCamera()
+                R.id.show_all -> showAllMedia()
+                R.id.change_view_type -> changeViewType()
+                R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+                R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+                R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
+                R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
+                R.id.create_new_folder -> createNewFolder()
+                R.id.show_the_recycle_bin -> toggleRecycleBin(true)
+                R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
+                R.id.increase_column_count -> increaseColumnCount()
+                R.id.reduce_column_count -> reduceColumnCount()
+                R.id.set_as_default_folder -> setAsDefaultFolder()
+                R.id.settings -> launchSettings()
+                R.id.about -> launchAbout()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -553,7 +571,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun changeViewType() {
         ChangeViewTypeDialog(this, true) {
-            invalidateOptionsMenu()
+            refreshMenuItems()
             setupLayoutManager()
             directories_grid.adapter = null
             setupAdapter(getRecyclerAdapter()?.dirs ?: mDirs)
@@ -575,7 +593,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         config.temporarilyShowHidden = show
         directories_grid.adapter = null
         getDirectories()
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun tryToggleTemporarilyShowExcluded() {
@@ -593,7 +611,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         config.temporarilyShowExcluded = show
         directories_grid.adapter = null
         getDirectories()
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
@@ -724,7 +742,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun toggleRecycleBin(show: Boolean) {
         config.showRecycleBinAtFolders = show
-        invalidateOptionsMenu()
+        refreshMenuItems()
         ensureBackgroundThread {
             var dirs = getCurrentlyDisplayedDirs()
             if (!show) {
@@ -756,7 +774,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun columnCountChanged() {
-        invalidateOptionsMenu()
+        refreshMenuItems()
         getRecyclerAdapter()?.apply {
             notifyItemRangeChanged(0, dirs.size)
         }
@@ -1162,7 +1180,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setAsDefaultFolder() {
         config.defaultFolder = ""
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun openDefaultFolder() {
