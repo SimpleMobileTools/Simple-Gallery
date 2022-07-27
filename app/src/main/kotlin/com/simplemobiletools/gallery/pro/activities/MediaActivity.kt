@@ -101,6 +101,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             return
         }
 
+        setupOptionsMenu()
+        refreshMenuItems()
         storeStateVariables()
 
         if (mShowAll) {
@@ -158,6 +160,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
+        val navigation = if (mShowAll) {
+            NavigationIcon.None
+        } else {
+            NavigationIcon.Arrow
+        }
+
+        setupToolbar(media_toolbar, navigation, searchMenuItem = mSearchMenuItem)
+        refreshMenuItems()
+
         media_fastscroller.updateColors(primaryColor)
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         getMediaAdapter()?.apply {
@@ -168,10 +179,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text_placeholder.setTextColor(getProperTextColor())
         media_empty_text_placeholder_2.setTextColor(getProperPrimaryColor())
         media_empty_text_placeholder_2.bringToFront()
-
-        if (!mIsSearchOpen) {
-            invalidateOptionsMenu()
-        }
 
         // do not refresh Random sorted files after opening a fullscreen image and going Back
         val isRandomSorting = config.getFolderSorting(mPath) and SORT_BY_RANDOM != 0
@@ -227,12 +234,18 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_media, menu)
+    override fun onBackPressed() {
+        if (mIsSearchOpen && mSearchMenuItem != null) {
+            mSearchMenuItem!!.collapseActionView()
+        } else {
+            super.onBackPressed()
+        }
+    }
 
+    private fun refreshMenuItems() {
         val isDefaultFolder = !config.defaultFolder.isEmpty() && File(config.defaultFolder).compareTo(File(mPath)) == 0
 
-        menu.apply {
+        media_toolbar.menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
             findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
@@ -255,37 +268,36 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.reduce_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
             findItem(R.id.toggle_filename).isVisible = viewType == VIEW_TYPE_GRID
         }
-
-        setupSearch(menu)
-        updateMenuItemColors(menu)
-        return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.sort -> showSortingDialog()
-            R.id.filter -> showFilterMediaDialog()
-            R.id.empty_recycle_bin -> emptyRecycleBin()
-            R.id.empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
-            R.id.restore_all_files -> restoreAllFiles()
-            R.id.toggle_filename -> toggleFilenameVisibility()
-            R.id.open_camera -> launchCamera()
-            R.id.folder_view -> switchToFolderView()
-            R.id.change_view_type -> changeViewType()
-            R.id.group -> showGroupByDialog()
-            R.id.create_new_folder -> createNewFolder()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.increase_column_count -> increaseColumnCount()
-            R.id.reduce_column_count -> reduceColumnCount()
-            R.id.set_as_default_folder -> setAsDefaultFolder()
-            R.id.unset_as_default_folder -> unsetAsDefaultFolder()
-            R.id.slideshow -> startSlideshow()
-            R.id.settings -> launchSettings()
-            R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        setupSearch(media_toolbar.menu)
+        media_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.sort -> showSortingDialog()
+                R.id.filter -> showFilterMediaDialog()
+                R.id.empty_recycle_bin -> emptyRecycleBin()
+                R.id.empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
+                R.id.restore_all_files -> restoreAllFiles()
+                R.id.toggle_filename -> toggleFilenameVisibility()
+                R.id.open_camera -> launchCamera()
+                R.id.folder_view -> switchToFolderView()
+                R.id.change_view_type -> changeViewType()
+                R.id.group -> showGroupByDialog()
+                R.id.create_new_folder -> createNewFolder()
+                R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+                R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+                R.id.increase_column_count -> increaseColumnCount()
+                R.id.reduce_column_count -> reduceColumnCount()
+                R.id.set_as_default_folder -> setAsDefaultFolder()
+                R.id.unset_as_default_folder -> unsetAsDefaultFolder()
+                R.id.slideshow -> startSlideshow()
+                R.id.settings -> launchSettings()
+                R.id.about -> launchAbout()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
     }
 
     private fun startSlideshow() {
@@ -390,7 +402,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     mPath == config.OTGPath -> getString(R.string.usb)
                     else -> getHumanizedFilename(mPath)
                 }
-                //updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
+
+                media_toolbar.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()
             } else {
@@ -525,7 +538,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun changeViewType() {
         ChangeViewTypeDialog(this, false, mPath) {
-            invalidateOptionsMenu()
+            refreshMenuItems()
             setupLayoutManager()
             media_grid.adapter = null
             setupAdapter()
@@ -653,7 +666,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
         getMedia()
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun setupLayoutManager() {
@@ -755,7 +768,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun columnCountChanged() {
         handleGridSpacing()
-        invalidateOptionsMenu()
+        refreshMenuItems()
         getMediaAdapter()?.apply {
             notifyItemRangeChanged(0, media.size)
         }
@@ -947,11 +960,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setAsDefaultFolder() {
         config.defaultFolder = mPath
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 
     private fun unsetAsDefaultFolder() {
         config.defaultFolder = ""
-        invalidateOptionsMenu()
+        refreshMenuItems()
     }
 }
