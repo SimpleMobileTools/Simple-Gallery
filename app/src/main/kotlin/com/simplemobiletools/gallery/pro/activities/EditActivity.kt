@@ -12,8 +12,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.RelativeLayout
 import androidx.exifinterface.media.ExifInterface
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,10 +26,7 @@ import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
@@ -102,6 +97,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
+        setupOptionsMenu()
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (!it) {
                 toast(R.string.no_storage_permissions)
@@ -115,6 +111,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         super.onResume()
         isEditingWithThirdParty = false
         bottom_draw_width.setColors(getProperTextColor(), getProperPrimaryColor(), getProperBackgroundColor())
+        setupToolbar(editor_toolbar, NavigationIcon.Arrow)
     }
 
     override fun onStop() {
@@ -124,20 +121,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_editor, menu)
-        updateMenuItemColors(menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.save_as -> saveImage()
-            R.id.edit -> editWith()
-            R.id.share -> shareImage()
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        editor_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.save_as -> saveImage()
+                R.id.edit -> editWith()
+                R.id.share -> shareImage()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
     }
 
     private fun initEditActivity() {
