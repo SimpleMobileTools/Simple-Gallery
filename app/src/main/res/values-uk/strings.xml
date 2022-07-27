@@ -213,8 +213,8 @@
     <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
     <string name="password_protect_excluded">Захист паролем видимості вилучених тек</string>
     <string name="media_management_manual">Щось пішло не так. Будь ласка, у вашому пристрої перейдіть в «Налаштування» - «Програми» - «Спеціальний доступ» - «Програми керування медіа» та дозвольте цій програмі керувати файлами медіа.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">Якщо переспрямування не спрацює, то перейдіть, будь ласка, у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
+    <string name="media_management_alternative">Якщо ви не хочете цього робити, ви можете перейти у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>
