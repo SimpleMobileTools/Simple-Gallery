@@ -143,7 +143,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         invalidateOptionsMenu()
 
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
-        medium_viewer_toolbar?.title = filename
+        medium_viewer_toolbar.title = filename
     }
 
     override fun onPause() {
@@ -221,6 +221,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun setupOptionsMenu() {
         (medium_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        medium_viewer_toolbar.apply {
+            setTitleTextColor(Color.WHITE)
+            overflowIcon = resources.getColoredDrawableWithColor(R.drawable.ic_three_dots_vector, Color.WHITE)
+            navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
+        }
+
         medium_viewer_toolbar.setOnMenuItemClickListener { menuItem ->
             if (getCurrentMedium() == null) {
                 return@setOnMenuItemClickListener true

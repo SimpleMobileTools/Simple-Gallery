@@ -8,10 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Html
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.view.WindowInsetsController
+import android.widget.RelativeLayout
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -38,6 +36,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     var mIsVideo = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
+        showTransparentTop = true
+        showTransparentNavigation = true
+
         if (config.isUsingSystemTheme) {
             setTheme(R.style.AppTheme_Material)
         }
@@ -48,6 +49,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         }
 
+        setupOptionsMenu()
+        refreshMenuItems()
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 checkIntent(savedInstanceState)
@@ -56,16 +59,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 finish()
             }
         }
-
-        if (isRPlus()) {
-            window.insetsController?.setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        }
     }
 
     override fun onResume() {
         super.onResume()
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        window.statusBarColor = Color.TRANSPARENT
 
         if (config.bottomActions) {
             window.navigationBarColor = Color.TRANSPARENT
@@ -78,37 +75,46 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.photo_video_menu, menu)
+    private fun refreshMenuItems() {
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
-        menu.apply {
+        fragment_viewer_toolbar.menu.apply {
             findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true && visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_EDIT == 0
             findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
         }
-
-        updateMenuItemColors(menu, forceWhiteIcons = true)
-        return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (mMedium == null || mUri == null) {
-            return true
+    private fun setupOptionsMenu() {
+        (fragment_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        fragment_viewer_toolbar.apply {
+            setTitleTextColor(Color.WHITE)
+            overflowIcon = resources.getColoredDrawableWithColor(R.drawable.ic_three_dots_vector, Color.WHITE)
+            navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
 
-        when (item.itemId) {
-            R.id.menu_set_as -> setAs(mUri!!.toString())
-            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
-            R.id.menu_share -> sharePath(mUri!!.toString())
-            R.id.menu_edit -> openEditor(mUri!!.toString())
-            R.id.menu_properties -> showProperties()
-            R.id.menu_show_on_map -> showFileOnMap(mUri!!.toString())
-            else -> return super.onOptionsItemSelected(item)
+        fragment_viewer_toolbar.setOnMenuItemClickListener { menuItem ->
+            if (mMedium == null || mUri == null) {
+                return@setOnMenuItemClickListener true
+            }
+
+            when (menuItem.itemId) {
+                R.id.menu_set_as -> setAs(mUri!!.toString())
+                R.id.menu_open_with -> openPath(mUri!!.toString(), true)
+                R.id.menu_share -> sharePath(mUri!!.toString())
+                R.id.menu_edit -> openEditor(mUri!!.toString())
+                R.id.menu_properties -> showProperties()
+                R.id.menu_show_on_map -> showFileOnMap(mUri!!.toString())
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
+
+        fragment_viewer_toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
@@ -201,7 +207,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         mIsVideo = type == TYPE_VIDEOS
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path!!.getParentPath(), 0, 0, file.length(), type, 0, false, 0L, 0)
-        supportActionBar?.title = Html.fromHtml("<font color='${Color.WHITE.toHex()}'>${mMedium!!.name}</font>")
+        fragment_viewer_toolbar.title = Html.fromHtml("<font color='${Color.WHITE.toHex()}'>${mMedium!!.name}</font>")
         bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
@@ -395,6 +401,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         if (!bottom_actions.isGone()) {
             bottom_actions.animate().alpha(newAlpha).start()
         }
+
+        fragment_viewer_toolbar.animate().alpha(newAlpha).withStartAction {
+            fragment_viewer_toolbar.beVisible()
+        }.withEndAction {
+            fragment_viewer_toolbar.beVisibleIf(newAlpha == 1f)
+        }.start()
     }
 
     override fun videoEnded() = false
