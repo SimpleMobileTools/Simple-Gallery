@@ -1,11 +1,10 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getProperTextColor
+import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
@@ -20,6 +19,13 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_folders)
         updateFolders()
+        setupOptionsMenu()
+        manage_folders_toolbar.title = getString(R.string.hidden_folders)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupToolbar(manage_folders_toolbar, NavigationIcon.Arrow)
     }
 
     private fun updateFolders() {
@@ -37,18 +43,14 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_add_folder, menu)
-        updateMenuItemColors(menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.add_folder -> addFolder()
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        manage_folders_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.add_folder -> addFolder()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
     }
 
     override fun refreshItems() {
