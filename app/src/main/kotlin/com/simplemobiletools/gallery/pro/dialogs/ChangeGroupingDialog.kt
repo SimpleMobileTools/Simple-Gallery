@@ -2,9 +2,9 @@ package com.simplemobiletools.gallery.pro.dialogs
 
 import android.content.DialogInterface
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -25,10 +25,10 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
             grouping_dialog_radio_folder.beVisibleIf(path.isEmpty())
         }
 
-        AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, this)
             .setNegativeButton(R.string.cancel, null)
-            .create().apply {
+            .apply {
                 activity.setupDialogStuff(view, this, R.string.group_by)
             }
 

@@ -47,26 +47,26 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
             }
         }
 
-        AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.resize_and_save) {
-                        showKeyboard(view.image_width)
-                        getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                            val width = getViewValue(widthView)
-                            val height = getViewValue(heightView)
-                            if (width <= 0 || height <= 0) {
-                                activity.toast(R.string.invalid_values)
-                                return@setOnClickListener
-                            }
-
-                            val newSize = Point(getViewValue(widthView), getViewValue(heightView))
-                            callback(newSize)
-                            dismiss()
+        activity.getAlertDialogBuilder()
+            .setPositiveButton(R.string.ok, null)
+            .setNegativeButton(R.string.cancel, null)
+            .apply {
+                activity.setupDialogStuff(view, this, R.string.resize_and_save) { alertDialog ->
+                    alertDialog.showKeyboard(view.image_width)
+                    alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                        val width = getViewValue(widthView)
+                        val height = getViewValue(heightView)
+                        if (width <= 0 || height <= 0) {
+                            activity.toast(R.string.invalid_values)
+                            return@setOnClickListener
                         }
+
+                        val newSize = Point(getViewValue(widthView), getViewValue(heightView))
+                        callback(newSize)
+                        alertDialog.dismiss()
                     }
                 }
+            }
     }
 
     private fun getViewValue(view: EditText): Int {

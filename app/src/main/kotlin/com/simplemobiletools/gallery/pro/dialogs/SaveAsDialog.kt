@@ -14,7 +14,6 @@ class SaveAsDialog(
     val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val cancelCallback: (() -> Unit)? = null,
     val callback: (savePath: String) -> Unit
 ) {
-
     init {
         var realPath = path.getParentPath()
         if (activity.isRestrictedWithSAFSdk30(realPath) && !activity.isInDownloadDir(realPath)) {
@@ -48,14 +47,14 @@ class SaveAsDialog(
             }
         }
 
-        AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, null)
             .setNegativeButton(R.string.cancel) { dialog, which -> cancelCallback?.invoke() }
             .setOnCancelListener { cancelCallback?.invoke() }
-            .create().apply {
-                activity.setupDialogStuff(view, this, R.string.save_as) {
-                    showKeyboard(view.save_as_name)
-                    getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            .apply {
+                activity.setupDialogStuff(view, this, R.string.save_as) { alertDialog ->
+                    alertDialog.showKeyboard(view.save_as_name)
+                    alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val filename = view.save_as_name.value
                         val extension = view.save_as_extension.value
 
@@ -87,15 +86,15 @@ class SaveAsDialog(
                                     val fileUris = activity.getFileUrisFromFileDirItems(fileDirItem)
                                     activity.updateSDK30Uris(fileUris) { success ->
                                         if (success) {
-                                            selectPath(this, newPath)
+                                            selectPath(alertDialog, newPath)
                                         }
                                     }
                                 } else {
-                                    selectPath(this, newPath)
+                                    selectPath(alertDialog, newPath)
                                 }
                             }
                         } else {
-                            selectPath(this, newPath)
+                            selectPath(alertDialog, newPath)
                         }
                     }
                 }

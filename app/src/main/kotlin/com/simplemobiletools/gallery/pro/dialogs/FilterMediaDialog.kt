@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
-import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -22,10 +22,10 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             filter_media_portraits.isChecked = filterMedia and TYPE_PORTRAITS != 0
         }
 
-        AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
             .setNegativeButton(R.string.cancel, null)
-            .create().apply {
+            .apply {
                 activity.setupDialogStuff(view, this, R.string.filter_media)
             }
     }

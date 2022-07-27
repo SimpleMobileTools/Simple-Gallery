@@ -390,7 +390,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     mPath == config.OTGPath -> getString(R.string.usb)
                     else -> getHumanizedFilename(mPath)
                 }
-                updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
+                //updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
                 getMedia()
                 setupLayoutManager()
             } else {

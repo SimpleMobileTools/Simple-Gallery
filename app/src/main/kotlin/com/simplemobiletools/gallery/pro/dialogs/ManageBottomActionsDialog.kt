@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
-import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -31,12 +31,12 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
             manage_bottom_actions_resize.isChecked = actions and BOTTOM_ACTION_RESIZE != 0
         }
 
-        AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this)
-                }
+        activity.getAlertDialogBuilder()
+            .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
+            .setNegativeButton(R.string.cancel, null)
+            .apply {
+                activity.setupDialogStuff(view, this)
+            }
     }
 
     private fun dialogConfirmed() {

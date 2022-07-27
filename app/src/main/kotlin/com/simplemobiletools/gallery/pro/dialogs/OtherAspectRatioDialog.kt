@@ -2,12 +2,17 @@ package com.simplemobiletools.gallery.pro.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_other_aspect_ratio.view.*
 
-class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspectRatio: Pair<Float, Float>?, val callback: (aspectRatio: Pair<Float, Float>) -> Unit) {
-    private val dialog: AlertDialog
+class OtherAspectRatioDialog(
+    val activity: BaseSimpleActivity,
+    val lastOtherAspectRatio: Pair<Float, Float>?,
+    val callback: (aspectRatio: Pair<Float, Float>) -> Unit
+) {
+    private var dialog: AlertDialog? = null
 
     init {
         val view = activity.layoutInflater.inflate(R.layout.dialog_other_aspect_ratio, null).apply {
@@ -53,22 +58,24 @@ class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspe
             }
         }
 
-        dialog = AlertDialog.Builder(activity)
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this)
+        activity.getAlertDialogBuilder()
+            .setNegativeButton(R.string.cancel, null)
+            .apply {
+                activity.setupDialogStuff(view, this) { alertDialog ->
+                    dialog = alertDialog
                 }
+            }
     }
 
     private fun customRatioPicked() {
         CustomAspectRatioDialog(activity, lastOtherAspectRatio) {
             callback(it)
-            dialog.dismiss()
+            dialog?.dismiss()
         }
     }
 
     private fun ratioPicked(pair: Pair<Float, Float>) {
         callback(pair)
-        dialog.dismiss()
+        dialog?.dismiss()
     }
 }

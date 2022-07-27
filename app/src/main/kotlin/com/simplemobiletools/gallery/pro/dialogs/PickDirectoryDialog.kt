@@ -24,7 +24,7 @@ class PickDirectoryDialog(
     val isPickingFolderForWidget: Boolean,
     val callback: (path: String) -> Unit
 ) {
-    private var dialog: AlertDialog
+    private var dialog: AlertDialog? = null
     private var shownDirectories = ArrayList<Directory>()
     private var allDirectories = ArrayList<Directory>()
     private var openedSubfolders = arrayListOf("")
@@ -41,7 +41,7 @@ class PickDirectoryDialog(
 
         view.directories_fastscroller.updateColors(activity.getProperPrimaryColor())
 
-        val builder = AlertDialog.Builder(activity)
+        val builder = activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, null)
             .setNegativeButton(R.string.cancel, null)
             .setOnKeyListener { dialogInterface, i, keyEvent ->
@@ -55,8 +55,9 @@ class PickDirectoryDialog(
             builder.setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
         }
 
-        dialog = builder.create().apply {
-            activity.setupDialogStuff(view, this, R.string.select_destination) {
+        builder.apply {
+            activity.setupDialogStuff(view, this, R.string.select_destination) { alertDialog ->
+                dialog = alertDialog
                 view.directories_show_hidden.beVisibleIf(!context.config.shouldShowHidden)
                 view.directories_show_hidden.setOnClickListener {
                     activity.handleHiddenFolderPasswordProtection {
@@ -125,7 +126,7 @@ class PickDirectoryDialog(
                             callback(path)
                         }
                     }
-                    dialog.dismiss()
+                    dialog?.dismiss()
                 }
             } else {
                 currentPathPrefix = path
@@ -144,14 +145,14 @@ class PickDirectoryDialog(
     private fun backPressed() {
         if (activity.config.groupDirectSubfolders) {
             if (currentPathPrefix.isEmpty()) {
-                dialog.dismiss()
+                dialog?.dismiss()
             } else {
                 openedSubfolders.removeAt(openedSubfolders.size - 1)
                 currentPathPrefix = openedSubfolders.last()
                 gotDirectories(allDirectories)
             }
         } else {
-            dialog.dismiss()
+            dialog?.dismiss()
         }
     }
 }

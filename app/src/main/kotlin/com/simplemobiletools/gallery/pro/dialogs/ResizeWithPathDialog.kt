@@ -68,54 +68,54 @@ class ResizeWithPathDialog(val activity: BaseSimpleActivity, val size: Point, va
             }
         }
 
-        AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
-                .create().apply {
-                    activity.setupDialogStuff(view, this) {
-                        showKeyboard(view.image_width)
-                        getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                            val width = getViewValue(widthView)
-                            val height = getViewValue(heightView)
-                            if (width <= 0 || height <= 0) {
-                                activity.toast(R.string.invalid_values)
-                                return@setOnClickListener
-                            }
+        activity.getAlertDialogBuilder()
+            .setPositiveButton(R.string.ok, null)
+            .setNegativeButton(R.string.cancel, null)
+            .apply {
+                activity.setupDialogStuff(view, this) { alertDialog ->
+                    alertDialog.showKeyboard(view.image_width)
+                    alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                        val width = getViewValue(widthView)
+                        val height = getViewValue(heightView)
+                        if (width <= 0 || height <= 0) {
+                            activity.toast(R.string.invalid_values)
+                            return@setOnClickListener
+                        }
 
-                            val newSize = Point(getViewValue(widthView), getViewValue(heightView))
+                        val newSize = Point(getViewValue(widthView), getViewValue(heightView))
 
-                            val filename = view.image_name.value
-                            val extension = view.image_extension.value
-                            if (filename.isEmpty()) {
-                                activity.toast(R.string.filename_cannot_be_empty)
-                                return@setOnClickListener
-                            }
+                        val filename = view.image_name.value
+                        val extension = view.image_extension.value
+                        if (filename.isEmpty()) {
+                            activity.toast(R.string.filename_cannot_be_empty)
+                            return@setOnClickListener
+                        }
 
-                            if (extension.isEmpty()) {
-                                activity.toast(R.string.extension_cannot_be_empty)
-                                return@setOnClickListener
-                            }
+                        if (extension.isEmpty()) {
+                            activity.toast(R.string.extension_cannot_be_empty)
+                            return@setOnClickListener
+                        }
 
-                            val newFilename = "$filename.$extension"
-                            val newPath = "${realPath.trimEnd('/')}/$newFilename"
-                            if (!newFilename.isAValidFilename()) {
-                                activity.toast(R.string.filename_invalid_characters)
-                                return@setOnClickListener
-                            }
+                        val newFilename = "$filename.$extension"
+                        val newPath = "${realPath.trimEnd('/')}/$newFilename"
+                        if (!newFilename.isAValidFilename()) {
+                            activity.toast(R.string.filename_invalid_characters)
+                            return@setOnClickListener
+                        }
 
-                            if (activity.getDoesFilePathExist(newPath)) {
-                                val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
-                                ConfirmationDialog(activity, title) {
-                                    callback(newSize, newPath)
-                                    dismiss()
-                                }
-                            } else {
+                        if (activity.getDoesFilePathExist(newPath)) {
+                            val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
+                            ConfirmationDialog(activity, title) {
                                 callback(newSize, newPath)
-                                dismiss()
+                                alertDialog.dismiss()
                             }
+                        } else {
+                            callback(newSize, newPath)
+                            alertDialog.dismiss()
                         }
                     }
                 }
+            }
     }
 
     private fun getViewValue(view: EditText): Int {

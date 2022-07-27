@@ -2,9 +2,9 @@ package com.simplemobiletools.gallery.pro.dialogs
 
 import android.content.DialogInterface
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
@@ -39,7 +39,8 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
                     RadioItem(8, "8x"),
                     RadioItem(16, "16x"),
                     RadioItem(32, "32x"),
-                    RadioItem(64, "64x"))
+                    RadioItem(64, "64x")
+                )
 
                 RadioGroupDialog(activity, items, thumbnailSpacing) {
                     thumbnailSpacing = it as Int
@@ -50,10 +51,10 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
 
         updateThumbnailSpacingText()
 
-        AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, this)
             .setNegativeButton(R.string.cancel, null)
-            .create().apply {
+            .apply {
                 activity.setupDialogStuff(view, this)
             }
     }

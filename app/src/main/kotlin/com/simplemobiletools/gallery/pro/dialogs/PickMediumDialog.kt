@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.dialogs
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
@@ -20,12 +21,12 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.dialog_medium_picker.view.*
 
 class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val callback: (path: String) -> Unit) {
-    var dialog: AlertDialog
-    var shownMedia = ArrayList<ThumbnailItem>()
-    val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
-    val config = activity.config
-    val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
-    var isGridViewType = viewType == VIEW_TYPE_GRID
+    private var dialog: AlertDialog? = null
+    private var shownMedia = ArrayList<ThumbnailItem>()
+    private val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
+    private val config = activity.config
+    private val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
+    private var isGridViewType = viewType == VIEW_TYPE_GRID
 
     init {
         (view.media_grid.layoutManager as MyGridLayoutManager).apply {
@@ -35,12 +36,14 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
 
         view.media_fastscroller.updateColors(activity.getProperPrimaryColor())
 
-        dialog = AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, null)
             .setNegativeButton(R.string.cancel, null)
             .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
-            .create().apply {
-                activity.setupDialogStuff(view, this, R.string.select_photo)
+            .apply {
+                activity.setupDialogStuff(view, this, R.string.select_photo) { alertDialog ->
+                    dialog = alertDialog
+                }
             }
 
         activity.getCachedMedia(path) {
@@ -60,7 +63,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
     private fun showOtherFolder() {
         PickDirectoryDialog(activity, path, true, true, false, false) {
             callback(it)
-            dialog.dismiss()
+            dialog?.dismiss()
         }
     }
 
@@ -72,7 +75,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid) {
             if (it is Medium) {
                 callback(it.path)
-                dialog.dismiss()
+                dialog?.dismiss()
             }
         }
 
