@@ -34,7 +34,6 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama_photo)
-        supportActionBar?.hide()
 
         checkNotchSupport()
         setupButtonMargins()

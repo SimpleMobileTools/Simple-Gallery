@@ -45,9 +45,9 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isRPlus
+import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
-import com.simplemobiletools.gallery.pro.activities.PhotoActivity
+import com.simplemobiletools.gallery.pro.activities.*
 import com.simplemobiletools.gallery.pro.adapters.PortraitPhotosAdapter
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.saveRotatedImageToFile
@@ -709,7 +709,10 @@ class PhotoFragment : ViewPagerFragment() {
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                     mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
                     loadBitmap(false)
-                    activity?.invalidateOptionsMenu()
+
+                    // ugly, but it works
+                    (activity as? ViewPagerActivity)?.refreshMenuItems()
+                    (activity as? PhotoVideoActivity)?.refreshMenuItems()
                 }
 
                 override fun onUpEvent() {

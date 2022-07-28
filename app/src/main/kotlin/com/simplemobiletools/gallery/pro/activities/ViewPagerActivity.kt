@@ -140,7 +140,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         setupOrientation()
-        invalidateOptionsMenu()
+        refreshMenuItems()
 
         val filename = getCurrentMedium()?.name ?: mPath.getFilenameFromPath()
         medium_viewer_toolbar.title = filename
@@ -166,7 +166,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun refreshMenuItems() {
+    fun refreshMenuItems() {
         val currentMedium = getCurrentMedium() ?: return
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
@@ -375,7 +375,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             isShowingRecycleBin -> RECYCLE_BIN
             else -> mPath.getParentPath()
         }
-        supportActionBar?.title = mPath.getFilenameFromPath()
+        medium_viewer_toolbar.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
             if (!isDestroyed) {
@@ -691,7 +691,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun toggleFileVisibility(hide: Boolean, callback: (() -> Unit)? = null) {
         toggleFileVisibility(getCurrentPath(), hide) {
             val newFileName = it.getFilenameFromPath()
-            supportActionBar?.title = newFileName
+            medium_viewer_toolbar.title = newFileName
 
             getCurrentMedium()!!.apply {
                 name = newFileName

@@ -75,7 +75,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
     }
 
-    private fun refreshMenuItems() {
+    fun refreshMenuItems() {
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
         fragment_viewer_toolbar.menu.apply {

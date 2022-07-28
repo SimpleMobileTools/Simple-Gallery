@@ -45,7 +45,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama_video)
-        supportActionBar?.hide()
 
         checkNotchSupport()
         checkIntent()

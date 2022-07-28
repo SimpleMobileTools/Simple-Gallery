@@ -106,7 +106,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         storeStateVariables()
 
         if (mShowAll) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(false)
             registerFileUpdateListener()
         }
 

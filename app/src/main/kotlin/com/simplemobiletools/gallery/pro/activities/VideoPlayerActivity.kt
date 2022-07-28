@@ -74,7 +74,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onResume() {
         super.onResume()
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
         if (config.blackBackground) {

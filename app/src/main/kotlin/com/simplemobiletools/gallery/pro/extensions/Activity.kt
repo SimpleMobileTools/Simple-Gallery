@@ -171,20 +171,12 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
 }
 
 fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
-    if (toggleActionBarVisibility) {
-        supportActionBar?.show()
-    }
-
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
         View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 }
 
 fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
-    if (toggleActionBarVisibility) {
-        supportActionBar?.hide()
-    }
-
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
         View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
