@@ -18,23 +18,32 @@
             android:layout_marginTop="@dimen/medium_margin"
             android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/bigger_margin"
+            android:layout_alignTop="@+id/interval_hint"
+            android:layout_alignBottom="@+id/interval_hint"
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/interval" />
 
-        <com.simplemobiletools.commons.views.MyEditText
-            android:id="@+id/interval_value"
-            android:layout_width="wrap_content"
+        <com.simplemobiletools.commons.views.MyTextInputLayout
+            android:id="@+id/interval_hint"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginEnd="@dimen/bigger_margin"
-            android:ems="5"
-            android:gravity="end"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:maxLength="5"
-            android:textCursorDrawable="@null"
-            android:textSize="@dimen/normal_text_size" />
+            android:layout_marginEnd="@dimen/activity_margin"
+            android:hint="@string/seconds_raw">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/interval_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/bigger_text_size" />
+
+        </com.simplemobiletools.commons.views.MyTextInputLayout>
 
         <RelativeLayout
             android:id="@+id/animation_holder"

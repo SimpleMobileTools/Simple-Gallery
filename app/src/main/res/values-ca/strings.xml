@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Permet canviar la relació d\'aspecte</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentació de diapositives</string>
-    <string name="interval">Interval (segons):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Inclou fotos</string>
     <string name="include_videos">Inclou vídeos</string>
     <string name="include_gifs">Inclou GIF</string>

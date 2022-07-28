@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Povoliť zmenu pomeru strán</string>
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>
-    <string name="interval">Interval (sekundy):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Zahrnúť fotky</string>
     <string name="include_videos">Zahrnúť videá</string>
     <string name="include_gifs">Zahrnúť GIFy</string>

@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">السماح بتغيير نسبة الأبعاد</string>
     <!-- Slideshow -->
     <string name="slideshow">عرض الشرائح</string>
-    <string name="interval">الفاصل الزمني (بالثواني):</string>
+    <string name="interval">الفاصل الزمني</string>
     <string name="include_photos">تضمين الصور</string>
     <string name="include_videos">تضمين مقاطع الفيديو</string>
     <string name="include_gifs">تضمين الصور المتحركة (GIF)</string>

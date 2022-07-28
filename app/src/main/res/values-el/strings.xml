@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Επιτρέπει την αλλαγή Αναλογίας Διαστάσεων</string>
     <!-- Slideshow -->
     <string name="slideshow">Παρουσίαση διαφανειών</string>
-    <string name="interval">Χρόνος επανάληψης (δευτ.) :</string>
+    <string name="interval">Χρόνος επανάληψης</string>
     <string name="include_photos">Συμπερίληψη φωτογραφιών</string>
     <string name="include_videos">Συμπερίληψη βίντεο</string>
     <string name="include_gifs">Συμπερίληψη GIFs</string>6

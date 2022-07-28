@@ -122,7 +122,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>
-    <string name="interval">間隔 (秒):</string>
+    <string name="interval">間隔</string>
     <string name="include_photos">写真を含める</string>
     <string name="include_videos">ビデオを含める</string>
     <string name="include_gifs">GIFを含める</string>

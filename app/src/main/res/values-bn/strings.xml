@@ -124,7 +124,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">স্লাইডশো</string>
-    <string name="interval">বিরতি (সেকেন্ডে):</string>
+    <string name="interval">বিরতি</string>
     <string name="include_photos">ছবিগুলো যোগ করুন</string>
     <string name="include_videos">ভিডিওগুলো যোগ করুন</string>
     <string name="include_gifs">গিফগুলো যোগ করুন</string>

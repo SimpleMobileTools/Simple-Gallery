@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">允许更改长宽比</string>
     <!-- Slideshow -->
     <string name="slideshow">幻灯片</string>
-    <string name="interval">间隔（秒）:</string>
+    <string name="interval">间隔</string>
     <string name="include_photos">包含照片</string>
     <string name="include_videos">包含视频</string>
     <string name="include_gifs">包含GIF</string>

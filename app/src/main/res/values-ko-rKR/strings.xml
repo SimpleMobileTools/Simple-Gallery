@@ -24,7 +24,7 @@
     <string name="force_landscape">가로 보기</string>
     <string name="use_default_orientation">기본 설정 사용</string>
     <string name="fix_date_taken">찍은 날짜 값 교정</string>
-    <string name="fixing">교정 중...</string>
+    <string name="fixing">교정 중…</string>
     <string name="dates_fixed_successfully">교정이 완료되었습니다</string>
     <string name="no_date_takens_found">No Date Taken values have been found</string>
     <string name="share_resized">크기변경 버전 공유</string>
@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">슬라이드 쇼</string>
-    <string name="interval">간격 (초):</string>
+    <string name="interval">간격</string>
     <string name="include_photos">포함된 사진</string>
     <string name="include_videos">포함된 동영상</string>
     <string name="include_gifs">포함된 GIF</string>

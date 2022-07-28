@@ -121,7 +121,7 @@
 
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Include photos</string>
     <string name="include_videos">Include videos</string>
     <string name="include_gifs">Include GIFs</string>

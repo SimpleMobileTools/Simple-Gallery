@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Autoriser la modification du rapport d\'aspect</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
-    <string name="interval">Intervalle (secondes) :</string>
+    <string name="interval">Intervalle</string>
     <string name="include_photos">Inclure les images</string>
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIF</string>

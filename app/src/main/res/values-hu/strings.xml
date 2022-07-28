@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavetítés</string>
-    <string name="interval">Időköz (másodperc):</string>
+    <string name="interval">Időköz</string>
     <string name="include_photos">Fotók belevétele</string>
     <string name="include_videos">Videók belevétele</string>
     <string name="include_gifs">GIF-ek belevétele</string>

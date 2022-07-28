@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Änderung des Seitenverhältnisses zulassen</string>
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
-    <string name="interval">Intervall (Sekunden):</string>
+    <string name="interval">Intervall</string>
     <string name="include_photos">Bilder verwenden</string>
     <string name="include_videos">Videos verwenden</string>
     <string name="include_gifs">GIFs verwenden</string>

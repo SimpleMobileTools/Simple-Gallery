@@ -124,7 +124,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Prezentace</string>
-    <string name="interval">Interval (sekund):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Zahrnout fotografie</string>
     <string name="include_videos">Zahrnout videa</string>
     <string name="include_gifs">Zahrnout GIFy</string>

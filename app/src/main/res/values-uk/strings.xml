@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Дозволити зміну співвідношення сторін</string>
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
-    <string name="interval">Інтервал (секунди):</string>
+    <string name="interval">Інтервал</string>
     <string name="include_photos">Включити світлини</string>
     <string name="include_videos">Включити відео</string>
     <string name="include_gifs">Включити GIF-зображення</string>

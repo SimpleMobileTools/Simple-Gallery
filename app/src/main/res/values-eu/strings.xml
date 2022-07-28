@@ -124,7 +124,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
-    <string name="interval">Tartea (segunduak):</string>
+    <string name="interval">Tartea</string>
     <string name="include_photos">Sartu argazkiak</string>
     <string name="include_videos">Sartu bideoak</string>
     <string name="include_gifs">Sartu GIFak</string>

@@ -122,7 +122,7 @@
     <string name="allow_changing_aspect_ratio">Beeldverhouding mag worden gewijzigd</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
-    <string name="interval">Interval (seconden):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Afbeeldingen tonen</string>
     <string name="include_videos">Video\'s tonen</string>
     <string name="include_gifs">GIF-bestanden tonen</string>

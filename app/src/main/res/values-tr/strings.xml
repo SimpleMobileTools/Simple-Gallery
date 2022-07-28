@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">En boy oranını değiştirmeye izin ver</string>
     <!-- Slideshow -->
     <string name="slideshow">Slayt gösterisi</string>
-    <string name="interval">Süre (saniye):</string>
+    <string name="interval">Süre</string>
     <string name="include_photos">Fotoğrafları dahil et</string>
     <string name="include_videos">Videoları dahil et</string>
     <string name="include_gifs">GIF\'leri dahil et</string>

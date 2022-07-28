@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaprojekcija</string>
-    <string name="interval">Interval (sekund):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Vključi fotografije</string>
     <string name="include_videos">Vključi videoposnetke</string>
     <string name="include_gifs">Vključi GIFe</string>

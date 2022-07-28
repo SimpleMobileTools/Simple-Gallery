@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Consenti di modificare le proporzioni</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentazione</string>
-    <string name="interval">Intervallo (secondi):</string>
+    <string name="interval">Intervallo</string>
     <string name="include_photos">Includi foto</string>
     <string name="include_videos">Includi video</string>
     <string name="include_gifs">Includi GIF</string>

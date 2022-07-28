@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (detik):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Sertakan foto</string>
     <string name="include_videos">Sertakan video</string>
     <string name="include_gifs">Sertakan GIF</string>

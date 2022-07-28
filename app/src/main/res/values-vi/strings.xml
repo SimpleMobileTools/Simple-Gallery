@@ -124,7 +124,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Trình chiếu</string>
-    <string name="interval">Khoảng thời gian (giây):</string>
+    <string name="interval">Khoảng thời gian</string>
     <string name="include_photos">Bao gồm hình ảnh</string>
     <string name="include_videos">Bao gồm video</string>
     <string name="include_gifs">Bao gồm ảnh GIF</string>

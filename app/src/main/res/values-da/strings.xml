@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Lysbilledshow</string>
-    <string name="interval">Frekvens (sekunder):</string>
+    <string name="interval">Frekvens</string>
     <string name="include_photos">Inkluder billeder</string>
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>

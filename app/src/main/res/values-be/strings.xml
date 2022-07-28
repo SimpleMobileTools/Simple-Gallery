@@ -139,7 +139,7 @@
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="interval">Interval (seconds):</string>
+    <string name="interval">Interval</string>
     <string name="include_photos">Include photos</string>
     <string name="slide">Slide</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>

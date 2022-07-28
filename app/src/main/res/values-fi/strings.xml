@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaesitys</string>
-    <string name="interval">Aikaväli (sekunteja):</string>
+    <string name="interval">Aikaväli</string>
     <string name="include_photos">Sisällytä Kuvat</string>
     <string name="include_videos">Sisällytä Videot</string>
     <string name="include_gifs">Sisällytä GIFit</string>

@@ -122,7 +122,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Skaidrių demonstracija</string>
-    <string name="interval">Intervalas (sekundėmis):</string>
+    <string name="interval">Intervalas</string>
     <string name="include_photos">Įtraukti nuotraukas</string>
     <string name="include_videos">Įtraukti vaizdo įrašus</string>
     <string name="include_gifs">Itraukti GIF\'us</string>

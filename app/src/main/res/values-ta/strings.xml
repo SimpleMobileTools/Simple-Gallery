@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">வில்லைக்காட்சி</string>
-    <string name="interval">இடைவெளி (நொடிகள்):</string>
+    <string name="interval">இடைவெளி</string>
     <string name="include_photos">புகைப்படங்களை உள்ளடக்கு</string>
     <string name="include_videos">காணொளிகளை உள்ளடக்கு</string>
     <string name="include_gifs">GIFகளை உள்ளடக்கு</string>

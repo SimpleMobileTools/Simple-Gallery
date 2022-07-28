@@ -126,7 +126,7 @@
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
     <!-- Slideshow -->
     <string name="slideshow">Слајдшоу</string>
-    <string name="interval">Интервал (секунди):</string>
+    <string name="interval">Интервал</string>
     <string name="include_photos">Садржи слике</string>
     <string name="include_videos">Садржи видео снимке</string>
     <string name="include_gifs">Садржи ГИФове</string>
