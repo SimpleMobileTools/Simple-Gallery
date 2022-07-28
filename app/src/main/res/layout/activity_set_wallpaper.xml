@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_set_wallpaper_holder"
+    android:id="@+id/set_wallpaper_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.theartofdev.edmodo.cropper.CropImageView
-        android:id="@+id/crop_image_view"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/set_wallpaper_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/set_wallpaper_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            app:menu="@menu/menu_set_wallpaper"
+            app:title="@string/simple_wallpaper"
+            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_set_wallpaper_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cropBackgroundColor="@color/crop_image_view_background"
-        app:cropInitialCropWindowPaddingRatio="0"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <include
-        android:id="@+id/bottom_set_wallpaper_actions"
-        layout="@layout/bottom_set_wallpaper_actions"/>
+        <com.theartofdev.edmodo.cropper.CropImageView
+            android:id="@+id/crop_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cropBackgroundColor="@color/crop_image_view_background"
+            app:cropInitialCropWindowPaddingRatio="0" />
 
-</RelativeLayout>
+        <include
+            android:id="@+id/bottom_set_wallpaper_actions"
+            layout="@layout/bottom_set_wallpaper_actions" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

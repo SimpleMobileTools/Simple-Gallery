@@ -836,6 +836,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (!portrait && navigationBarRight && navigationBarWidth > 0) {
             medium_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            medium_viewer_toolbar.setPadding(0, 0, 0, 0)
         }
     }
 

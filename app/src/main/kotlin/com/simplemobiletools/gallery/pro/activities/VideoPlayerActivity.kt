@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.*
+import android.widget.RelativeLayout
 import android.widget.SeekBar
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
@@ -58,8 +59,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mIgnoreCloseDown = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
+        useDynamicTheme = false
+        showTransparentTop = true
+        showTransparentNavigation = true
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
+        setupOptionsMenu()
         setupOrientation()
         checkNotchSupport()
         initPlayer()
@@ -105,19 +111,27 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_video_player, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_change_orientation -> changeOrientation()
-            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
-            R.id.menu_share -> shareMediumPath(mUri!!.toString())
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        (video_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        video_toolbar.apply {
+            setTitleTextColor(Color.WHITE)
+            overflowIcon = resources.getColoredDrawableWithColor(R.drawable.ic_three_dots_vector, Color.WHITE)
+            navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
-        return true
+
+        video_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_change_orientation -> changeOrientation()
+                R.id.menu_open_with -> openPath(mUri!!.toString(), true)
+                R.id.menu_share -> shareMediumPath(mUri!!.toString())
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
+        }
+
+        video_toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -126,6 +140,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         initTimeHolder()
         video_surface_frame.onGlobalLayout {
             video_surface_frame.controller.resetState()
+        }
+
+        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+            video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            video_toolbar.setPadding(0, 0, 0, 0)
         }
     }
 
@@ -141,7 +161,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun initPlayer() {
         mUri = intent.data ?: return
-        supportActionBar?.title = getFilenameFromUri(mUri!!)
+        video_toolbar.title = getFilenameFromUri(mUri!!)
         initTimeHolder()
 
         showSystemUI(true)
@@ -459,6 +479,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         arrayOf(video_prev_file, video_next_file, video_curr_time, video_duration).forEach {
             it.isClickable = !mIsFullscreen
         }
+
+        video_appbar.animate().alpha(newAlpha).withStartAction {
+            video_appbar.beVisible()
+        }.withEndAction {
+            video_appbar.beVisibleIf(newAlpha == 1f)
+        }.start()
     }
 
     private fun initTimeHolder() {

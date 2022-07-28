@@ -6,11 +6,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.checkAppSideloading
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
@@ -40,6 +39,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
             return
         }
 
+        setupOptionsMenu()
         if (intent.data == null) {
             val pickIntent = Intent(applicationContext, MainActivity::class.java)
             pickIntent.action = Intent.ACTION_PICK
@@ -51,19 +51,31 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         handleImage(intent)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
-        updateMenuItemColors(menu)
-        return true
+    override fun onResume() {
+        super.onResume()
+        setupToolbar(set_wallpaper_toolbar, NavigationIcon.Arrow)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.save -> confirmWallpaper()
-            R.id.allow_changing_aspect_ratio -> crop_image_view.clearAspectRatio()
-            else -> return super.onOptionsItemSelected(item)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (requestCode == PICK_IMAGE) {
+            if (resultCode == Activity.RESULT_OK && resultData != null) {
+                handleImage(resultData)
+            } else {
+                finish()
+            }
         }
-        return true
+        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
+    private fun setupOptionsMenu() {
+        set_wallpaper_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.save -> confirmWallpaper()
+                R.id.allow_changing_aspect_ratio -> crop_image_view.clearAspectRatio()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
+        }
     }
 
     private fun handleImage(intent: Intent) {
@@ -157,16 +169,5 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == PICK_IMAGE) {
-            if (resultCode == Activity.RESULT_OK && resultData != null) {
-                handleImage(resultData)
-            } else {
-                finish()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, resultData)
     }
 }

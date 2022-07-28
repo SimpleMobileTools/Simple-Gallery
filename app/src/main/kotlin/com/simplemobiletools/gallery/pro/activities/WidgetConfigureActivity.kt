@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -69,6 +70,11 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        setupToolbar(config_toolbar)
+    }
+
     private fun initVariables() {
         mBgColor = config.widgetBgColor
         mBgAlpha = Color.alpha(mBgColor) / 255f
@@ -126,11 +132,13 @@ class WidgetConfigureActivity : SimpleActivity() {
         mBgColor = mBgColorWithoutTransparency.adjustAlpha(mBgAlpha)
         config_image_holder.background.applyColorFilter(mBgColor)
         config_bg_color.setFillWithStroke(mBgColor, mBgColor)
+        config_save.backgroundTintList = ColorStateList.valueOf(getProperPrimaryColor())
     }
 
     private fun updateTextColor() {
         config_folder_name.setTextColor(mTextColor)
         config_text_color.setFillWithStroke(mTextColor, mTextColor)
+        config_save.setTextColor(getProperPrimaryColor().getContrastColor())
     }
 
     private fun pickBackgroundColor() {

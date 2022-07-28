@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/video_player_holder"
     android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:id="@+id/video_surface"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
     </com.alexvasilkov.gestures.GestureFrameLayout>
 
@@ -23,19 +23,19 @@
         android:id="@+id/video_volume_controller"
         android:layout_width="@dimen/media_side_slider_width"
         android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true" />
 
     <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/video_brightness_controller"
         android:layout_width="@dimen/media_side_slider_width"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/top_shadow"
         android:layout_width="match_parent"
         android:layout_height="@dimen/default_status_action_height"
         android:background="@drawable/gradient_background_flipped"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null" />
 
     <TextView
         android:id="@+id/video_bottom_gradient"
@@ -44,9 +44,9 @@
         android:layout_alignTop="@+id/video_time_holder"
         android:layout_alignParentBottom="true"
         android:background="@drawable/gradient_background"
-        tools:ignore="UnknownIdInLayout"/>
+        tools:ignore="UnknownIdInLayout" />
 
-    <include layout="@layout/bottom_video_time_holder"/>
+    <include layout="@layout/bottom_video_time_holder" />
 
     <TextView
         android:id="@+id/slide_info"
@@ -63,6 +63,23 @@
         android:paddingRight="@dimen/activity_margin"
         android:paddingBottom="@dimen/medium_margin"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/extra_big_text_size"/>
+        android:textSize="@dimen/extra_big_text_size" />
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/video_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/video_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu_video_player"
+            app:navigationIcon="@drawable/ic_arrow_left_vector" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 </RelativeLayout>

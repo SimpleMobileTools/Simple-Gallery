@@ -1,136 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/config_holder"
+    android:id="@+id/config_coordinator"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:layout_margin="@dimen/activity_margin">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/config_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/config_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            app:title="@string/app_launcher_name"
+            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
-        android:id="@+id/folder_picker_holder"
+        android:id="@+id/config_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin">
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/activity_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
-            android:id="@+id/folder_picker_show_folder_name_holder"
-            style="@style/SettingsHolderCheckboxStyle"
+            android:id="@+id/folder_picker_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground">
+            android:paddingBottom="@dimen/activity_margin">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-                android:id="@+id/folder_picker_show_folder_name"
-                style="@style/SettingsCheckboxStyle"
+            <RelativeLayout
+                android:id="@+id/folder_picker_show_folder_name_holder"
+                style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/show_folder_name" />
+                android:background="?attr/selectableItemBackground">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/folder_picker_show_folder_name"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_folder_name" />
+
+            </RelativeLayout>
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/folder_picker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/folder_picker_show_folder_name_holder"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/normal_margin"
+                android:paddingStart="@dimen/activity_margin"
+                android:text="@string/folder_on_widget" />
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/folder_picker_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/folder_picker_label"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:background="@drawable/button_background"
+                android:padding="@dimen/normal_margin"
+                tools:text="@string/internal" />
 
         </RelativeLayout>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/folder_picker_label"
+        <RelativeLayout
+            android:id="@+id/config_image_holder"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/folder_picker_holder"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:background="@drawable/widget_round_background">
+
+            <com.simplemobiletools.commons.views.MySquareImageView
+                android:id="@+id/config_image"
+                android:layout_width="@dimen/widget_initial_size"
+                android:layout_height="@dimen/widget_initial_size"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/small_margin" />
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/config_folder_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/config_image"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:lines="1"
+                android:paddingBottom="@dimen/small_margin"
+                android:textSize="@dimen/bigger_text_size"
+                tools:text="@string/internal" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/config_bg_color"
+            android:layout_width="@dimen/widget_colorpicker_size"
+            android:layout_height="@dimen/widget_colorpicker_size"
+            android:layout_above="@+id/config_text_color"
+            android:layout_margin="@dimen/tiny_margin" />
+
+        <RelativeLayout
+            android:id="@+id/config_bg_seekbar_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/config_bg_color"
+            android:layout_alignBottom="@+id/config_bg_color"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_toEndOf="@+id/config_bg_color"
+            android:background="@drawable/widget_config_seekbar_background">
+
+            <com.simplemobiletools.commons.views.MySeekBar
+                android:id="@+id/config_bg_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/activity_margin"
+                android:paddingRight="@dimen/activity_margin" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/config_text_color"
+            android:layout_width="@dimen/widget_colorpicker_size"
+            android:layout_height="@dimen/widget_colorpicker_size"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/tiny_margin" />
+
+        <Button
+            android:id="@+id/config_save"
+            style="@style/MyWidgetConfigSaveStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/folder_picker_show_folder_name_holder"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginBottom="@dimen/normal_margin"
-            android:paddingStart="@dimen/activity_margin"
-            android:text="@string/folder_on_widget" />
-
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/folder_picker_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/folder_picker_label"
-            android:layout_marginStart="@dimen/activity_margin"
-            android:background="@drawable/button_background"
-            android:padding="@dimen/normal_margin"
-            tools:text="@string/internal" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/ok" />
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/config_image_holder"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/folder_picker_holder"
-        android:layout_marginTop="@dimen/activity_margin"
-        android:background="@drawable/widget_round_background">
-
-        <com.simplemobiletools.commons.views.MySquareImageView
-            android:id="@+id/config_image"
-            android:layout_width="@dimen/widget_initial_size"
-            android:layout_height="@dimen/widget_initial_size"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="@dimen/normal_margin"
-            android:layout_marginTop="@dimen/small_margin"
-            android:layout_marginEnd="@dimen/normal_margin"
-            android:layout_marginBottom="@dimen/small_margin" />
-
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/config_folder_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/config_image"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:lines="1"
-            android:paddingBottom="@dimen/small_margin"
-            android:textSize="@dimen/bigger_text_size"
-            tools:text="@string/internal" />
-
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/config_bg_color"
-        android:layout_width="@dimen/widget_colorpicker_size"
-        android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_above="@+id/config_text_color"
-        android:layout_margin="@dimen/tiny_margin" />
-
-    <RelativeLayout
-        android:id="@+id/config_bg_seekbar_holder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignTop="@+id/config_bg_color"
-        android:layout_alignBottom="@+id/config_bg_color"
-        android:layout_marginStart="@dimen/medium_margin"
-        android:layout_toEndOf="@+id/config_bg_color"
-        android:background="@drawable/widget_config_seekbar_background">
-
-        <com.simplemobiletools.commons.views.MySeekBar
-            android:id="@+id/config_bg_seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/activity_margin"
-            android:paddingRight="@dimen/activity_margin" />
-
-    </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/config_text_color"
-        android:layout_width="@dimen/widget_colorpicker_size"
-        android:layout_height="@dimen/widget_colorpicker_size"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/tiny_margin" />
-
-    <Button
-        android:id="@+id/config_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/widget_config_seekbar_background"
-        android:fontFamily="sans-serif-light"
-        android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
-        android:text="@string/ok"
-        android:textColor="@color/dark_grey"
-        android:textFontWeight="400"
-        android:textSize="@dimen/big_text_size" />
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
