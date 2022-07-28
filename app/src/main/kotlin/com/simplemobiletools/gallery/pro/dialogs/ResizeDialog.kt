@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.dialog_resize_image.view.*
 class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callback: (newSize: Point) -> Unit) {
     init {
         val view = activity.layoutInflater.inflate(R.layout.dialog_resize_image, null)
-        val widthView = view.image_width
-        val heightView = view.image_height
+        val widthView = view.resize_image_width
+        val heightView = view.resize_image_height
 
         widthView.setText(size.x.toString())
         heightView.setText(size.y.toString())
@@ -52,7 +52,7 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
             .setNegativeButton(R.string.cancel, null)
             .apply {
                 activity.setupDialogStuff(view, this, R.string.resize_and_save) { alertDialog ->
-                    alertDialog.showKeyboard(view.image_width)
+                    alertDialog.showKeyboard(view.resize_image_width)
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val width = getViewValue(widthView)
                         val height = getViewValue(heightView)
