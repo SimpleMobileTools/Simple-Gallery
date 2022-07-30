@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.24.0 *(2022-07-30)*
+----------------------------
+
+ * Fixed a glitch with video editor saving corrupt files
+ * Adding some materialish elements, especially in System default theme
+ * Added some stability, translation and UX improvements
+
 Version 6.23.13 *(2022-07-06)*
 ----------------------------
 
