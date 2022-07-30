@@ -88,13 +88,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIgnoredPaths = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        useDynamicTheme = false
         showTransparentTop = true
         showTransparentNavigation = true
-
-        if (config.isUsingSystemTheme) {
-            setTheme(R.style.AppTheme_Material)
-        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
@@ -227,6 +222,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
 
+        updateMenuItemColors(medium_viewer_toolbar.menu, forceWhiteIcons = true)
         medium_viewer_toolbar.setOnMenuItemClickListener { menuItem ->
             if (getCurrentMedium() == null) {
                 return@setOnMenuItemClickListener true
@@ -290,6 +286,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         initBottomActionsLayout()
+        (medium_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
     }
 
     private fun initViewPager() {

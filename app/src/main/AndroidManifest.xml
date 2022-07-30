@@ -118,7 +118,8 @@
             android:name=".activities.ViewPagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
-            android:parentActivityName=".activities.MediaActivity">
+            android:parentActivityName=".activities.MediaActivity"
+            android:theme="@style/TranslucentTheme">
 
             <intent-filter>
                 <action android:name="com.android.camera.action.REVIEW" />
@@ -158,13 +159,15 @@
         <activity
             android:name=".activities.PhotoVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/TranslucentTheme" />
 
         <activity
             android:name=".activities.VideoPlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
-            android:parentActivityName=".activities.MediaActivity" />
+            android:parentActivityName=".activities.MediaActivity"
+            android:theme="@style/TranslucentTheme" />
 
         <activity
             android:name=".activities.PanoramaPhotoActivity"

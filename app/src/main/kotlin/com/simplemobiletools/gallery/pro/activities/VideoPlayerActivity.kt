@@ -59,7 +59,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mIgnoreCloseDown = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
-        useDynamicTheme = false
         showTransparentTop = true
         showTransparentNavigation = true
 
@@ -87,6 +86,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         updateTextColors(video_player_holder)
+
+        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+            video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            video_toolbar.setPadding(0, 0, 0, 0)
+        }
     }
 
     override fun onPause() {
@@ -118,6 +123,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
 
+        updateMenuItemColors(video_toolbar.menu, forceWhiteIcons = true)
         video_toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_change_orientation -> changeOrientation()
@@ -141,6 +147,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_surface_frame.controller.resetState()
         }
 
+        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        (video_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
         if (!portrait && navigationBarRight && navigationBarWidth > 0) {
             video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {

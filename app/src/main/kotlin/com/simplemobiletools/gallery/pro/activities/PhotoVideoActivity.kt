@@ -39,10 +39,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showTransparentTop = true
         showTransparentNavigation = true
 
-        if (config.isUsingSystemTheme) {
-            setTheme(R.style.AppTheme_Material)
-        }
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
         if (checkAppSideloading()) {
@@ -95,6 +91,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
 
+        updateMenuItemColors(fragment_viewer_toolbar.menu, forceWhiteIcons = true)
         fragment_viewer_toolbar.setOnMenuItemClickListener { menuItem ->
             if (mMedium == null || mUri == null) {
                 return@setOnMenuItemClickListener true
@@ -191,6 +188,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+            fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            fragment_viewer_toolbar.setPadding(0, 0, 0, 0)
+        }
+
         checkNotchSupport()
         showSystemUI(true)
         val bundle = Bundle()
@@ -279,6 +282,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         initBottomActionsLayout()
+
+        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        (fragment_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+            fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            fragment_viewer_toolbar.setPadding(0, 0, 0, 0)
+        }
     }
 
     private fun sendViewPagerIntent(path: String) {
