@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/media_holder"
+    android:id="@+id/search_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MyTextView
-        android:id="@+id/media_empty_text_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alpha="0.8"
-        android:gravity="center_horizontal"
-        android:paddingStart="@dimen/activity_margin"
-        android:paddingTop="@dimen/activity_margin"
-        android:paddingEnd="@dimen/activity_margin"
-        android:text="@string/no_media_with_filters"
-        android:textSize="@dimen/bigger_text_size"
-        android:textStyle="italic"
-        android:visibility="gone" />
-
-    <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
-        android:id="@+id/media_fastscroller"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/search_app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.simplemobiletools.commons.views.MyRecyclerView
-            android:id="@+id/media_grid"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
-            app:spanCount="@integer/media_columns_vertical_scroll" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            app:menu="@menu/menu_search"
+            app:title="@string/search"
+            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
-    </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
-</RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/search_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/search_empty_text_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:gravity="center_horizontal"
+            android:paddingStart="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:text="@string/no_media_with_filters"
+            android:textSize="@dimen/bigger_text_size"
+            android:textStyle="italic"
+            android:visibility="gone" />
+
+        <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+            android:id="@+id/search_fastscroller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.simplemobiletools.commons.views.MyRecyclerView
+                android:id="@+id/search_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+                app:spanCount="@integer/media_columns_vertical_scroll" />
+
+        </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
