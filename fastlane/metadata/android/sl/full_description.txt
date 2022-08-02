@@ -1,51 +1,29 @@
-Simple Gallery Pro je visoko prilagodljiva lokalna galerija. Organizirajte & urejajte vaše fotografije, vrnite izbrisane datoteke iz koša, zaščitite & skrijte datoteke in pregledujte ogromno različnih vrst foto & video formatov, vključujoč RAW, SVG in mnoge druge.
+Enostavna galerija prinaša vse funkcije za pregledovanje in urejanje fotografij, ki ste jih pogrešali v sistemu Android, v eni sami elegantni aplikaciji, ki je enostavna za uporabo. Brskajte po fotografijah ali videoposnetkih, jih upravljajte, obrezujte in urejajte hitreje kot kdaj koli prej, obnovite pomotoma izbrisane datoteke ali ustvarite skrite galerije za svoje najdragocenejše slike in videoposnetke. Z napredno podporo datotekam in popolno prilagoditvijo pa vaša galerija končno deluje tako, kot želite.
 
-Aplikacije ne vsebuje reklam in nepotrebnih dovoljenj. Prav tako aplikacija ne potrebuje internetnega dostopa, zato je vaša zasebnost zagotovljena.
+NAPREDNI UREJEVALNIK FOTOGRAFIJ
+Z izboljšanim organizatorjem datotek in fotoalbumom Simple Gallery spremenite urejanje fotografij v otroško igro. Z intuitivnimi potezami je urejanje slik v hipu izjemno enostavno. Obrezujte, obračajte, obračajte in spreminjajte velikost slik ali uporabite elegantne filtre, da bodo slike v trenutku postale čudovite.
 
--------------------------------------------------
-SIMPLE GALLERY PRO – FEATURES
--------------------------------------------------
+VSE DATOTEKE, KI JIH POTREBUJETE
+Enostavna galerija podpira ogromno različnih vrst datotek, vključno z JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramskimi fotografijami, videoposnetki in številnimi drugimi, zato lahko uživate v popolni prilagodljivosti pri izbiri formata. Ste se kdaj vprašali "Ali lahko ta format uporabim v svojem Androidu"? Zdaj je odgovor pritrdilen.
 
-• Offline gallery with no ads or popups
-• Simple gallery photo editor – crop, rotate, resize, draw, filters & more
-• No internet access needed, giving you more privacy and security
-• No unnecessary permissions required
-• Quickly search images, videos & files
-• Open & view many different photo and video types (RAW, SVG, panoramic etc)
-• A variety of intuitive gestures to easily edit & organize files
-• Lots of ways to filter, group & sort files
-• Customize the appearance of Simple Gallery Pro
-• Available in 32 languages
-• Mark files as favorites for quick access
-• Protect your photos & videos with a pattern, pin or fingerprint
-• Use pin, pattern & fingerprint to protect the app launch or specific functions too
-• Recover deleted photos & videos from the recycle bin
-• Toggle visibility of files to hide photos & videos
-• Create a customizable slideshow of your files
-• View detailed information of your files (resolution, EXIF values etc)
-• Simple Gallery Pro is open source
-… and much much more!
+PRIDOBITE SI SVOJE
+Zelo prilagodljiva zasnova aplikacije Simple Gallery vam omogoča, da fotografsko aplikacijo oblikujete tako, da bo videti, delovala in se počutila tako, kot želite. Od uporabniškega vmesnika do funkcijskih gumbov v spodnji orodni vrstici vam Simple Gallery omogoča ustvarjalno svobodo, ki jo potrebujete pri aplikaciji za galerijo.
 
-PHOTO GALLERY EDITOR
-Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+OBNOVITEV IZBRISANIH FOTOGRAFIJ IN VIDEOPOSNETKOV
+Nikoli več ne skrbite, da bi po nesreči izbrisali dragoceno fotografijo ali videoposnetek, ki ga ne morete nadomestiti. Z aplikacijo Simple Gallery lahko hitro obnovite vse izbrisane fotografije in videoposnetke, kar pomeni, da je Simple Gallery poleg najboljše medijske galerije za Android tudi izjemna aplikacija za shranjevanje fotografij.
 
-SUPPORT FOR MANY FILE TYPES
-Unlike some other gallery viewers & photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+ZAŠČITITE SVOJE ZASEBNE FOTOGRAFIJE, VIDEOPOSNETKE IN DATOTEKE
+Bodite prepričani, da je vaš fotoalbum varen. Z vrhunskimi varnostnimi funkcijami aplikacije Simple Gallery lahko s pinom, vzorcem ali čitalnikom prstnih odtisov naprave omejite, kdo lahko pregleduje ali ureja izbrane fotografije in videoposnetke ali dostopa do pomembnih datotek. Zaščitite lahko celo samo aplikacijo ali namestite ključavnice za določene funkcije organizatorja datotek.
 
-HIGHLY CUSTOMIZABLE GALLERY MANAGER
-From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+Privzeto je opremljen z materialnim oblikovanjem in temno temo, kar zagotavlja odlično uporabniško izkušnjo za enostavno uporabo. Zaradi odsotnosti internetnega dostopa imate več zasebnosti, varnosti in stabilnosti kot pri drugih aplikacijah.
 
-RECOVER DELETED PHOTOS & VIDEOS
-Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos & videos easily.
+Ne vsebuje oglasov ali nepotrebnih dovoljenj. Je v celoti odprtokoden, zagotavlja prilagodljive barve.
 
-PROTECT & HIDE PHOTOS, VIDEOS & FILES
-Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos & entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+Celoten nabor preprostih orodij si oglejte tukaj:
+https://www.simplemobiletools.com.
 
-Check out the full suite of Simple Tools here:
-https://www.simplemobiletools.com
-
-Standalone website of Simple Gallery Pro:
-https://www.simplemobiletools.com/gallery
+Samostojno spletno mesto Simple Gallery Pro:
+https://www.simplemobiletools.com/gallery.
 
 Facebook:
 https://www.facebook.com/simplemobiletools
