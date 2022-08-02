@@ -156,7 +156,7 @@
     <string name="show_file_count_section_header">Anzahl der Dateien in den Abschnittsüberschriften anzeigen</string>
     <string name="grouping_and_sorting">Bitte beachten, dass Gruppieren und Sortieren zwei unterschiedliche Dinge sind</string>
     <!-- Widgets -->
-    <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
+    <string name="folder_on_widget">Auf dem Widget angezeigter Ordner:</string>
     <string name="show_folder_name">Ordnernamen anzeigen</string>
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
@@ -199,10 +199,10 @@
     <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
     <string name="show_image_file_types">Bilddateitypen anzeigen</string>
     <string name="allow_zooming_videos">Erlaube Zoomen in Videos mit doppeltem Antippen</string>
-    <string name="folder_thumbnail_style">Ordner-Miniaturbildstil</string>
-    <string name="file_thumbnail_style">Dateivorschau Stil</string>
+    <string name="folder_thumbnail_style">Miniaturbildordner-Stil</string>
+    <string name="file_thumbnail_style">Dateivorschau-Stil</string>
     <string name="mark_favorite_items">Favoriten markieren</string>
-    <string name="thumbnail_spacing">Vorschaubild Abstand</string>
+    <string name="thumbnail_spacing">Vorschaubild-Abstand</string>
     <string name="show_file_count_line">Zeige Anzahl der Dateien in einer seperaten Zeile an</string>
     <string name="show_file_count_brackets">Anzahl der Dateien in Klammern anzeigen</string>
     <string name="show_file_count_none">Anzahl der Dateien nicht anzeigen</string>
@@ -346,12 +346,12 @@
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen\?</string>
     <string name="faq_4_text">Das geht, indem du doppelt auf die Seite des Bildschirms drückst, oder indem du auf den Text nahe der Suchleiste drückst, der die aktuelle bzw. maximale Zeit anzeigt. Wenn du in den App-Einstellungen die Funktion aktiviert hast, dass Videos in einem seperaten Fenster geöffnet werden können, kannst Du zudem horizontale Gesten verwenden.</string>
-    <string name="faq_5_title">Was ist der Unterschied zwischen dem Ausblenden und dem Ausschließen eines Ordners\?</string>
+    <string name="faq_5_title">Was ist der Unterschied zwischen dem Verstecken und dem Ausschließen eines Ordners\?</string>
     <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während Hide systembedingt funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die Sie dann auch mit einem beliebigen Dateimanager entfernen können. Beachte, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers\?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
-    <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt. Was kann ich tun\?</string>
-    <string name="faq_7_text">Öffne die Galerie-Einstellungen, wähle dort \'Einbezogene Ordner verwalten\', dann das Plus-Zeichen oben rechts und navigiere zum gewünschten Ordner.</string>
+    <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt oder es werden nicht alle Bilder angezeigt. Was kann ich tun\?</string>
+    <string name="faq_7_text">Die Galerie-Einstellungen öffnen, dort „Einbezogene Ordner verwalten“ wählen , dann das Plus-Zeichen oben rechts und zum gewünschten Ordner navigieren.</string>
     <string name="faq_8_title">Wie kann ich erreichen, dass nur ein paar definierte Ordner sichtbar sind\?</string>
     <string name="faq_8_text">Einen Ordner zu den „einbezogenen Ordnern“ hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen „Ausgeschlossene Ordner verwalten“ zu wählen, den Stammordner / auszuschließen und dann alle gewünschten Ordner in „Einbezogene Ordner verwalten“ hinzuzufügen.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden\?</string>
@@ -371,7 +371,7 @@
     <string name="faq_17_title">Warum kann ich fehlende Ordner nicht mehr einbinden\?</string>
     <string name="faq_17_text">Das funktioniert seit den Systemänderungen durch Android 11 nicht mehr, da die Anwendung keine echten Ordner mehr durchsuchen kann, sondern sich beim Abrufen von Daten auf den sogenannten MediaStore verlässt.</string>
     <string name="faq_18_title">Warum sehe ich während der Videowiedergabe Werbung\?</string>
-    <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn Sie sie während der Videowiedergabe sehen, müssen Sie einen anderen Anwendungsvideoplayer verwenden. Versuchen Sie, Ihren Standard-Videoplayer in den Geräteeinstellungen zu finden, und führen Sie dann einen „Standardeinstellungen löschen“ aus. Wenn Sie das nächste Mal ein Video aufrufen, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der Sie die gewünschte Anwendung auswählen können.</string>
+    <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn Sie während der Videowiedergabe trotzdem welche sehen, liegt das daran, dass Sie den Videoplayer einer anderen App verwenden. Versuchen Sie, Ihren Standard-Videoplayer in den Geräteeinstellungen zu finden, und führen Sie dann „Standardeinstellungen löschen“ aus. Wenn Sie das nächste Mal ein Video aufrufen, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der Sie die gewünschte Anwendung auswählen können.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
