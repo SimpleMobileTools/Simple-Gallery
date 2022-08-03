@@ -22,7 +22,7 @@ Simple Gallery підтримує величезну різноманітніс�
 Перегляньте повний набір простих інструментів тут:
 https://www.simplemobiletools.com
 
-Автономний веб-сайт Simple Gallery Pro:
+Вебсайт Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
 Фейсбук:
@@ -31,5 +31,5 @@ https://www.facebook.com/simplemobiletools
 Reddit:
 https://www.reddit.com/r/SimpleMobileTools
 
-Телеграма:
+Телеграм:
 https://t.me/SimpleMobileTools
