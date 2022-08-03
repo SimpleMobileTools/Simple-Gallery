@@ -1,18 +1,31 @@
-Paprastas įrankis, naudojamas peržiūrėti nuotraukas ir vaizdo įrašus. Elementus galima suskirstyti pagal datą, dydį, pavadinimą tiek didėjančia, tiek mažėjančia tvarka, nuotraukos gali būti priartintos. Vaizdo bylos rodomos keliuose stulpeliuose, priklausomai nuo ekrano dydžio, kolonėlių skaičių galite keisti naudodami gesinimo gestus. Jas galima pervardyti, bendrinti, ištrinti, kopijuoti, perkelti. Vaizdus taip pat galima apkarpyti, pasukti, apversti arba nustatyti kaip "Darbalaukio paveikslėliu" tiesiai iš programėlės.
+"Simple Gallery" suteikia visas nuotraukų peržiūros ir redagavimo funkcijas, kurių jums trūko "Android" sistemoje, vienoje stilingoje ir lengvai naudojamoje programoje. Naršykite, tvarkykite, apkarpykite ir redaguokite nuotraukas ar vaizdo įrašus greičiau nei bet kada anksčiau, atkurkite netyčia ištrintus failus arba sukurkite paslėptas galerijas savo brangiausiems vaizdams ir vaizdo įrašams. O dėl išplėstinio failų palaikymo ir visiško pritaikymo pagaliau jūsų galerija veikia taip, kaip norite.
 
-Galerija taip pat siūloma trečiosioms šalims peržiūrėti atvaizdus / vaizdo įrašus, pridėti priedus el. Pašto klientams ir pan. Tai idealu kasdieniam naudojimui.
+IŠPLĖSTINIS NUOTRAUKŲ REDAKTORIUS
+Nuotraukų redagavimą paverskite vaikišku žaidimu su patobulintu "Simple Gallery" failų tvarkytuvu ir nuotraukų albumu. Intuityvūs gestai leidžia itin lengvai redaguoti vaizdus. Apkirpkite, apverskite, pasukite ir pakeiskite nuotraukų dydį arba naudokite stilingus filtrus, kad jos akimirksniu taptų įspūdingesnės.
 
-Pirštų atspaudų leidimas reikalingas norint užblokuoti paslėptą elemento matomumą arba visą programą.
-	
-Neturi reklamų ar nereikalingų leidimų. Programėlė visiškai atviro kodo, yra galimybė keisti spalvas.
-        
-Check out the full suite of Simple Tools here:
-https://www.simplemobiletools.com
+VISI REIKALINGI FAILAI
+Programa "Simple Gallery" palaiko daugybę skirtingų failų tipų, įskaitant JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramines nuotraukas, vaizdo įrašus ir daugybę kitų, todėl galite visiškai lanksčiai rinktis formatą. Ar kada nors susimąstėte: "Ar galiu naudoti šį formatą savo "Android"? Dabar atsakymas - taip.
 
-Standalone website of Simple Gallery Pro:
+PASIRINKITE JĄ SAVO
+Labai lengvai pritaikomas "Simple Gallery" dizainas leidžia nuotraukų programėlę padaryti tokią, kokios norite, kad ji atrodytų, jaustųsi ir veiktų taip, kaip norite. Nuo vartotojo sąsajos iki funkcijų mygtukų apatinėje įrankių juostoje - "Simple Gallery" suteikia jums kūrybinę laisvę, kurios reikia galerijos programėlei.
+
+IŠTRINTŲ NUOTRAUKŲ IR VAIZDO ĮRAŠŲ ATKŪRIMAS
+Niekada nesijaudinkite, kad netyčia ištrynėte vieną brangią nuotrauką ar vaizdo įrašą, kurio tiesiog negalite pakeisti. Naudodamiesi "Simple Gallery" galite greitai atkurti visas ištrintas nuotraukas ir vaizdo įrašus, todėl "Simple Gallery" yra ne tik geriausia "Android" medijos galerija, bet ir nuostabi nuotraukų saugyklos programa.
+
+APSAUGOKITE ASMENINES NUOTRAUKAS, VAIZDO ĮRAŠUS IR FAILUS
+Būkite tikri, kad jūsų nuotraukų albumas yra saugus. Naudodami "Simple Gallery" aukščiausios kokybės apsaugos funkcijas galite naudoti PIN kodą, šabloną arba prietaiso pirštų atspaudų skaitytuvą, kad apribotumėte, kas gali peržiūrėti ar redaguoti pasirinktas nuotraukas ir vaizdo įrašus arba pasiekti svarbius failus. Galite apsaugoti net pačią programą arba uždėti užraktus konkrečioms failų tvarkyklės funkcijoms.
+
+Pagal numatytuosius nustatymus įdiegtas materialinis dizainas ir tamsi tema, todėl užtikrinama puiki naudotojo patirtis, kad būtų lengva naudotis. Interneto prieigos nebuvimas suteikia daugiau privatumo, saugumo ir stabilumo nei kitos programėlės.
+
+Sudėtyje nėra reklamų ar nereikalingų leidimų. Ji yra visiškai atviro kodo ir suteikia galimybę keisti spalvas.
+
+Visą "Simple Tools" rinkinį peržiūrėkite čia:
+https://www.simplemobiletools.com.
+
+Atskira "Simple Gallery Pro" svetainė:
 https://www.simplemobiletools.com/gallery
 
-Facebook:
+"Facebook":
 https://www.facebook.com/simplemobiletools
 
 Reddit:
