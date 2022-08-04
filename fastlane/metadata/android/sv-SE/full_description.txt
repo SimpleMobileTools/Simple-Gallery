@@ -1,17 +1,28 @@
-Ett enkelt verktyg för att visa foton och videor. Det kan zooma in på foton och sortera objekt i stigande eller fallande ordning efter datum, storlek eller namn. Mediefiler visas i flera kolumner. Antalet kolumner beror på skärmens storlek och kan ändras med nypgester. Mediefiler kan döpas om, delas, tas bort, kopieras eller flyttas. Bilder kan även beskäras, roteras, vändas eller anges som bakgrundsbilder direkt i appen.
+Simple Gallery ger dig alla de funktioner för bildvisning och redigering som du har saknat på din Android i en snygg och lättanvänd app. Bläddra, hantera, beskära och redigera foton eller videor snabbare än någonsin, återställ oavsiktligt raderade filer eller skapa dolda gallerier för dina mest värdefulla bilder och videor. Och med avancerat filstöd och fullständig anpassning fungerar ditt galleri äntligen precis som du vill ha det.
 
-Galleriet kan även användas av tredjepartsappar för att förhandsgranska bilder och videor, lägga till bilagor i e-postklienter etc. Det är perfekt för daglig användning.
+AVANCERAD FOTOREDIGERARE
+Gör fotoredigering till en barnlek med Simple Gallerys förbättrade filorganisator och fotoalbum. Intuitiva gester gör det superenkelt att redigera dina bilder i farten. Beskär, vänd, rotera och ändra storlek på bilderna eller använd snygga filter för att få dem att framstå som snygga på ett ögonblick.
 
-Fingeravtrycksbehörigheten behövs för att låsa hela appen eller synligheten för dolda objekt.
+ALLA FILER DU BEHÖVER
+Simple Gallery har stöd för ett stort antal olika filtyper, inklusive JPEG, PNG, MP4, MKV, RAW, SVG, GIF, Panoramafoton, videor och många fler, så att du har full flexibilitet när det gäller val av format. Har du någonsin undrat "Kan jag använda det här formatet på min Android"? Nu är svaret ja.
 
-Det levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
+GÖR DET TILL DITT
+Simple Gallerys mycket anpassningsbara design gör att du kan få fotoappen att se ut, kännas och fungera precis som du vill ha den. Från användargränssnittet till funktionsknapparna i det nedre verktygsfältet ger Simple Gallery dig den kreativa frihet du behöver i en galleriapp.
 
-Innehåller ingen reklam eller onödiga behörigheter. Det har helt öppen källkod och anpassningsbara färger.
+ÅTERSTÄLLA RADERADE FOTON OCH VIDEOR
+Oroa dig aldrig för att av misstag radera det där värdefulla fotot eller videon som du bara inte kan ersätta. Med Simple Gallery kan du snabbt återskapa alla raderade foton och videor, vilket innebär att Simple Gallery utöver att vara det bästa mediegalleriet för Android även fungerar som en fantastisk fotovalvsapp.
 
-Kolla in hela uppsättningen enkla verktyg här:
+SKYDDA DINA PRIVATA FOTON, VIDEOR OCH FILER
+Du kan vara säker på att ditt fotoalbum är säkert. Med Simple Gallerys överlägsna säkerhetsfunktioner kan du använda en pinkod, ett mönster eller enhetens fingeravtrycksläsare för att begränsa vem som kan se eller redigera utvalda foton och videor eller komma åt viktiga filer. Du kan till och med skydda själva appen eller placera lås på specifika funktioner i filorganisatorn.
+
+Den levereras med en materialdesign och ett mörkt tema som standard, vilket ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
+
+Innehåller inga annonser eller onödiga behörigheter. Den är helt öppen källkod och ger anpassningsbara färger.
+
+Kolla in hela sviten av Simple Tools här:
 https://www.simplemobiletools.com
 
-Fristående webbplats för Simpelt galleri Pro:
+Fristående webbplats för Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:
