@@ -1,31 +1,28 @@
-Galería Simple Pro es uno de los mejores gestores de fotos para Android. Es una aplicación de administrador de imágenes y galería de fotos simple, moderna, ligera y rápida para ver y organizar tus fotos y videos. Es una gran galería de guardar fotos, fotos rápidas, videos, gif y aplicación de álbum de fotos para tu móvil. ¡Esta aplicación crea collages de fotos en el tamaño exacto que desees guardar fotos! Te traemos las mejores funciones para editar, ordenar imágenes ,añadir filtros, agregar efectos especiales y etiquetar.
+Simple Gallery te trae todas las funciones de visualización y edición de fotos que te faltaban en tu Android en una aplicación elegante y fácil de usar. Navega, gestiona, recorta y edita fotos o vídeos más rápido que nunca, recupera archivos borrados accidentalmente o crea galerías ocultas para tus imágenes y vídeos más preciados. Y con el soporte avanzado de archivos y la personalización completa, por fin tu galería funciona como tú quieres.
 
-Galería Simple Pro te ofrece todas las funciones de visualización y edición de fotos y guardar fotos que te faltaba en tu Android. Explora, administra y edita más rápido que nunca, guardar fotos, recupera archivos borrados accidentalmente o crea galerías ocultas para tus imágenes y videos más preciados. Y con soporte de archivo avanzado y personalización completa, finalmente, la galería funcionará como deseas.
-
-EDITOR DE FOTOS AVANZAD
-
-Convierte la edición de fotos en un juego de niños con el mejorado organizador de archivos, guardar fotos y el álbum de fotos de Galeria Simple Pro. Los gestos intuitivos hacen que sea muy fácil editar las imágenes sobre la marcha. Corta,  rota y redimensiona tus fotos y guardar fotos. Si te sientes un poco más creativo, ¡Puedes añadir filtros y dibujar en tus fotos!
+EDITOR DE FOTOS AVANZADO
+Convierte la edición de fotos en un juego de niños con el organizador de archivos y el álbum de fotos mejorados de Simple Gallery. Los gestos intuitivos hacen que sea muy fácil editar tus imágenes sobre la marcha. Recorta, voltea, rota y cambia el tamaño de las imágenes o aplica elegantes filtros para hacerlas resaltar en un instante.
 
 TODOS LOS ARCHIVOS QUE NECESITAS
-
-Galería Simple Pro admite una gran variedad de tipos de archivos, incluyendo JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panorámicas, videos y muchos más, para que disfrutes de la flexibilidad total en tu elección de formato guardar fotos. Alguna vez te has preguntado :"¿Puedo usar este formato en mi Android"? Ahora la respuesta es sí.
+Simple Gallery es compatible con una gran variedad de tipos de archivo, como JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panorámicas, vídeos y muchos más, por lo que disfrutarás de total flexibilidad a la hora de elegir el formato. ¿Alguna vez te has preguntado "puedo usar este formato en mi Android"? Ahora la respuesta es sí.
 
 HAZLO TUYO
+El diseño altamente personalizable de Simple Gallery te permite hacer que la aplicación de fotos se vea, se sienta y funcione justo como tú quieres. Desde la interfaz de usuario hasta los botones de función de la barra de herramientas inferior, Simple Gallery te da la libertad creativa que necesitas en una aplicación de galería.
 
-Desde la IU hasta los botones de funciones en la barra de herramientas inferior, Galeria Simple Pro es altamente personalizable y brinda la libertad creativa que necesitas en una aplicación de galería a guardar fotos.
+RECUPERAR FOTOS Y VÍDEOS BORRADOS
+No te preocupes por haber borrado accidentalmente esa preciosa foto o vídeo que no puedes reemplazar. Simple Gallery te permite recuperar rápidamente cualquier foto o vídeo eliminado, lo que significa que, además de ser la mejor galería multimedia para Android, Simple Gallery funciona también como una increíble aplicación para guardar fotos.
 
-RECUPERA FOTOS Y VIDEOS ELIMINADOS
+PROTEGE TUS FOTOS, VÍDEOS Y ARCHIVOS PRIVADOS
+Ten la seguridad de que tu álbum de fotos está a salvo. Con las funciones de seguridad superiores de Simple Gallery puedes utilizar un pin, un patrón o el escáner de huellas dactilares de tu dispositivo para limitar quién puede ver o editar las fotos y vídeos seleccionados o acceder a los archivos importantes. Incluso puedes proteger la propia aplicación o colocar bloqueos en funciones específicas del organizador de archivos.
 
-Nunca te preocupes por eliminar accidentalmente una foto o video precioso que simplemente no puedes reemplazar. Galería Simple Pro permite recuperar rápidamente cualquier archivo eliminado, lo que significa que además de ser la mejor galería de medios para Android, funciona como una increíble aplicación de bóveda de fotos.
+Viene con material design y tema oscuro por defecto, proporciona una gran experiencia de usuario para un uso fácil. La falta de acceso a Internet le da más privacidad, seguridad y estabilidad que otras aplicaciones.
 
-PROTEGE Y OCULTA FOTOS, VIDEOS Y ARCHIVOS
+No contiene anuncios ni permisos innecesarios. Es totalmente opensource, proporciona colores personalizables.
 
-Ten la seguridad de que tu álbum de fotos está seguro! Con las funciones de seguridad superiores de Galería Simple Pro puedes usar un pin, patrón o el escáner de huellas digitales de tu dispositivo para limitar quién puede ver o editar fotos y videos seleccionados o acceder a archivos importantes. Incluso puedes proteger la propia aplicación o bloquear funciones específicas del organizador de archivos.
-  
-Mira la suite completa de Simple Tools aquí:
+Consulta el conjunto completo de Simple Tools aquí:
 https://www.simplemobiletools.com
 
-Sitio web de Simple Gallery Pro:
+Sitio web independiente de Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:

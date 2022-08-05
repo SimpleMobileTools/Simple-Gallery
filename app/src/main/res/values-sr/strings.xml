@@ -211,7 +211,7 @@
     <string name="rounded_corners">Rounded corners</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">Заштита лозинком искључена видљивост фасцикле</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
@@ -364,14 +364,14 @@
     <string name="faq_13_text">Тренутно решење за приказивање слика функционише добро у већини случајева, али ако хоћете још бољи квалитет слика, можете да укључите \"Прикажи слике у најбољем могућем квалитету\" у подешавањима апликације, у \"Дубоко зумирање слика\" секцији.</string>
     <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново\?</string>
     <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space\?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_15_title">Зашто апликација заузима толико простора\?</string>
+    <string name="faq_15_text">Кеш апликација може да потраје до 250MB, обезбеђује брже учитавање слике. Ако апликација заузима још више простора, највероватније је узрок томе што имате ставке у корпи за отпатке. Ти фајлови се рачунају до величине апликације. Корпу за отпатке можете да обришете тако што ћете је отворити и избрисати све датотеке или из поставки апликације. Свака датотека у регалу се аутоматски брише након 30 дана.</string>
+    <string name="faq_16_title">Шта се десило са скривањем датотека и фасцикли и зашто више не могу да видим скривене ставке\?</string>
+    <string name="faq_16_text">Почевши од Андроида 11 више не можете да сакријете или откријете датотеке или фасцикле, скривене не можете да видите ни у апликацијама галерије. Мораћете да користите неки менаџер датотека за то.</string>
+    <string name="faq_17_title">Зашто више не могу да укључим фасцикле које недостају\?</string>
+    <string name="faq_17_text">То је престало да ради због системских промена које су стигле и са Андроид 11, апликација више не може да прегледа праве фасцикле, ослања се на такозвани МедиаСторе при преношењу података.</string>
+    <string name="faq_18_title">Зашто видим огласе током репродукције видео записа\?</string>
+    <string name="faq_18_text">Наше апликације немају никакве огласе. Ако их видите током репродукције видео записа, сигурно користите неки други видео плејер апликација. Покушајте да пронађете подразумевани видео плејер у поставкама уређаја, а затим на њему урадите \"Обриши подразумеване вредности\". Када се следећи пут позовете на неку намеру видео записа видећете одзивник за одабирач апликација, где можете да изаберете коју апликацију желите да користите.</string>
     <!--
         haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
