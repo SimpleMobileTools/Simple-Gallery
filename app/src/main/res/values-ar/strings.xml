@@ -214,7 +214,7 @@
     <string name="password_protect_excluded">حمايةالمجلدات المستبعدة بكلمة مرور</string>
     <string name="media_management_manual">حدث خطأ ما ، يرجى الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيقات الخاصة - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
     <string name="media_management_note">إذا لم تنجح عملية إعادة التوجيه ، فيرجى الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيق الخاص - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">إذا كنت لا ترغب في القيام بذلك ، فيمكنك أيضا الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيقات الخاصة - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
