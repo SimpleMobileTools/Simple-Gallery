@@ -123,7 +123,7 @@
     <string name="home_screen">Aloitusnäyttö</string>
     <string name="lock_screen">Lukitusnäyttö</string>
     <string name="home_and_lock_screen">Aloitusnäyttö ja lukitusnäyttö</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Salli kuvasuhteen muuttaminen</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaesitys</string>
     <string name="interval">Aikaväli</string>
