@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">简易图库</string>
+    <string name="app_name">简单图库</string>
     <string name="app_launcher_name">图库</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
@@ -56,9 +56,9 @@
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除的文件夹</string>
     <string name="manage_excluded_folders">管理排除的文件夹</string>
-    <string name="exclude_folder_description">该操作仅会在“简易图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
+    <string name="exclude_folder_description">该操作仅会在“简单图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
     <string name="exclude_folder_parent">是否排除父文件夹？</string>
-    <string name="excluded_activity_placeholder">排除此文件夹将使它们与其子文件夹在简易图库中隐身，但它们仍将在其他应用程序中可见。
+    <string name="excluded_activity_placeholder">排除此文件夹将使它们与其子文件夹在简单图库中隐身，但它们仍将在其他应用程序中可见。
 \n
 \n如果您想对其他应用程序隐藏它们，请使用隐藏功能。</string>
     <string name="remove_all">全部移除</string>
@@ -112,7 +112,7 @@
     <string name="other_aspect_ratio">其他</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">简易壁纸</string>
+    <string name="simple_wallpaper">简单壁纸</string>
     <string name="set_as_wallpaper">设置为壁纸</string>
     <string name="set_as_wallpaper_failed">设置壁纸失败</string>
     <string name="set_as_wallpaper_with">设置壁纸方式：</string>
@@ -191,7 +191,7 @@
     <string name="allow_down_gesture">使用下滑手势退出全屏视图</string>
     <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
     <string name="open_videos_on_separate_screen">在单独的页面播放视频（可以左右滑动屏幕来快进/快退）</string>
-    <string name="show_notch">显示留海（如果可用）</string>
+    <string name="show_notch">显示刘海（如果可用）</string>
     <string name="allow_rotating_gestures">允许使用手势旋转图像</string>
     <string name="file_loading_priority">文件加载优先级</string>
     <string name="speed">快速</string>
@@ -338,8 +338,8 @@
     <string name="pesdk_common_title_pipettableColor">取色器</string>
     <string name="vesdk_video_trim_title_name">剪辑</string>
     <!-- FAQ -->
-    <string name="faq_1_title">如何把简易图库设置为设备的默认图库？</string>
-    <string name="faq_1_text">首先在系统设置中的“应用”菜单下找到您当前的默认图库，选择并点击“默认打开”按钮，然后点击“清除默认值”。下次再打开图片或视频时，您会看到一个应用程序选择器，在这里选择“简易图库”并将其设为默认应用程序即可。</string>
+    <string name="faq_1_title">如何把简单图库设置为设备的默认图库？</string>
+    <string name="faq_1_text">首先在系统设置中的“应用”菜单下找到您当前的默认图库，选择并点击“默认打开”按钮，然后点击“清除默认值”。下次再打开图片或视频时，您会看到一个应用程序选择器，在这里选择“简单图库”并将其设为默认应用程序即可。</string>
     <string name="faq_2_title">我用密码锁定了本应用，但我忘记密码了。该怎么办？</string>
     <string name="faq_2_text">有两种方法。您可以重新安装本应用，也可以在设置中清除此应用的数据，这样会重置您的所有设置，但不会删除任何媒体文件。</string>
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
@@ -347,7 +347,7 @@
     <string name="faq_4_title">如何快进/快退视频？</string>
     <string name="faq_4_text">您可以双击屏幕边缘或点击搜索栏附近的当前时间或总时长的文本。如果您在应用设置中启用了“在单独的页面播放视频”，就可以使用水平手势来快进/快退视频。</string>
     <string name="faq_5_title">隐藏和排除文件夹有什么区别？</string>
-    <string name="faq_5_text">排除功能只是防止其在简易图库中显示，而隐藏功能则使用的是系统提供的方法，这样的话在其他的图库应用中也会隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，您可以使用任何文件管理器来删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
+    <string name="faq_5_text">排除功能只是防止其在简单图库中显示，而隐藏功能则使用的是系统提供的方法，这样的话在其他的图库应用中也会隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，您可以使用任何文件管理器来删除它。请注意，某些设备不允许隐藏\"Camera\"，\"Screenshots\"和\"Downloads\"等文件夹。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
     <string name="faq_6_text">您可能会看到一些不寻常的相册出现。可以通过长按并选择“排除”来排除它们。在之后的对话框中，您可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>
     <string name="faq_7_title">有的图片文件夹没有显示，怎么回事？</string>
