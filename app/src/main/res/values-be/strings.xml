@@ -10,7 +10,7 @@
     <string name="unpin_folder">Адмацаваць папку</string>
     <string name="pin_to_the_top">Замацаваць зверху</string>
     <string name="show_all">Show all folders content</string>
-    <string name="videos">Videos</string>
+    <string name="videos">Відэа</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">RAW images</string>
     <string name="svgs">SVGs</string>
@@ -83,7 +83,7 @@
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
     <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
+    <string name="images">Выявы</string>
     <string name="exclude_folder_parent">Exclude a parent instead\?</string>
     <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
     <string name="change_filters_underlined"><u>Change filters</u></string>
