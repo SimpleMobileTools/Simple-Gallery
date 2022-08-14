@@ -1,50 +1,28 @@
-Jednoduchá galerie Pro je vysoce přizpůsobitelná offline galerie. Organizujte a upravujte své fotografie, obnovujte smazané fotografie s funkcí odpadkového koše, chraňte je a skrývejte. Prohlížejte množství různých foto a video formátů včetně RAW, SVG a mnoho dalších.
+Jednoduchá galerie vám přináší všechny funkce pro prohlížení a úpravu fotografií, které vám v systému Android chyběly, v jedné stylové a snadno použitelné aplikaci. Prohlížejte, spravujte, ořezávejte a upravujte fotografie nebo videa rychleji než kdykoli předtím, obnovujte omylem smazané soubory nebo vytvářejte skryté galerie pro své nejcennější snímky a videa. A díky pokročilé podpoře souborů a plnému přizpůsobení konečně vaše galerie funguje přesně podle vašich představ.
 
-Aplikace neobsahuje žádné reklamy ani nepotřebná oprávnění. Tím, že ani nevyžaduje připojení k internetu, je vaše soukromí maximálně chráněno.
+POKROČILÝ EDITOR FOTOGRAFIÍ
+S vylepšeným organizátorem souborů a fotoalbem Simple Gallery se úprava fotografií stane dětskou hrou. Intuitivní gesta umožňují mimořádně snadnou úpravu obrázků za chodu. Obrázky můžete ořezávat, převracet, otáčet a měnit jejich velikost nebo na ně aplikovat stylové filtry, které je v okamžiku rozzáří.
 
--------------------------------------------------
-JEDNODUCHÁ GALERIE PRO – FUNKCE
--------------------------------------------------
+VŠECHNY SOUBORY, KTERÉ POTŘEBUJETE
+Aplikace Simple Gallery podporuje obrovské množství různých typů souborů, včetně JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramatických fotografií, videí a mnoha dalších, takže si můžete plně vychutnat flexibilitu při výběru formátu. Přemýšleli jste někdy nad otázkou "Mohu tento formát používat ve svém systému Android"? Nyní je odpověď ano.
 
-• Offline galerie bez reklam a vyskakujících oken
-• Foto editor – ořezávejte, otáčejte, měňte velikost, kreslete, používejte filtry a více
-• Nevyžaduje přístup k internetu - více soukromí a bezpečí
-• Nepožaduje žádná nepotřebná oprávnění navíc
-• Rychle prohledávejte obrázky a videa
-• Otevírejte mnoho rozličných formátů fotografií a videí (RAW, SVG, GIF, panorama, atd)
-• Množství intuitivních gest pro jednoduchou úpravu a organizaci souborů
-• Mnoho různých způsobů filtrování, seskupování a řazení souborů
-• Změňte si vzhled Jednoduché galerie Pro
-• Dostupná ve 32 jazycích
-• Označte si oblíbené soubory pro rychlý přístup
-• Chraňte své fotografie a videa pomocí pinu, vzoru nebo otiskem prstu
-• Použijte pin, vzor a otisk prstu pro zabezpečení spuštění aplikace, nebo i některých funkcí
-• Obnovte smazané fotografie a videa z odpadkového koše
-• Přepněte viditelnost souborů pro skrytí obrázků a videí
-• Vytvořte si ze svých souborů prezentaci
-• Zobrazte si detailní informace o svých souborech (rozlišení, hodnoty EXIF, atd)
-• Jednoduchá galerie Pro má otevřený zdrojový kód
-… a mnoho dalších!
+UDĚLEJTE SI HO PODLE SVÉHO
+Vysoce přizpůsobitelný design aplikace Simple Gallery vám umožní nastavit vzhled, ovládání a fungování fotografické aplikace přesně podle vašich představ. Od uživatelského rozhraní až po funkční tlačítka na spodním panelu nástrojů vám aplikace Simple Gallery poskytuje tvůrčí svobodu, kterou u aplikace galerie potřebujete.
 
-EDITOR OBRÁZKŮ
-Jednoduchá galerie Pro umožňuje snadnou úpravu obrázků. Ořezávejte, překlápějte, otáčejte či měňte jejich velikost. Pokud se cítíte kreativně, můžete také aplikovat filtry nebo do obrázku kreslit!
+OBNOVENÍ SMAZANÝCH FOTOGRAFIÍ A VIDEÍ
+Už nikdy se nemusíte bát, že omylem vymažete tu jedinou cennou fotografii nebo video, které prostě nemůžete nahradit. Aplikace Simple Gallery umožňuje rychle obnovit všechny smazané fotografie a videa, což znamená, že kromě toho, že je nejlepší multimediální galerií pro Android, slouží Simple Gallery také jako úžasná aplikace pro ukládání fotografií do trezoru.
 
-PODPORA MNOHA TYPŮ SOUBORŮ
-Na rozdíl od některých galerií podporuje Jednoduchá galerie Pro velké množství různých druhů souborů včetně JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+CHRAŇTE SVÉ SOUKROMÉ FOTOGRAFIE, VIDEA A SOUBORY
+Buďte si jisti, že vaše fotoalbum je v bezpečí. Díky vynikajícím bezpečnostním funkcím aplikace Simple Gallery můžete pomocí PIN kódu, vzoru nebo snímače otisků prstů svého zařízení omezit, kdo může prohlížet nebo upravovat vybrané fotografie a videa nebo přistupovat k důležitým souborům. Můžete dokonce chránit samotnou aplikaci nebo umístit zámky na konkrétní funkce organizéru souborů.
 
-Vysoce upravitelný správce galerie
-Od vzhledu až po funkční tlačítka na spodní liště, Jednoduchá galerie Pro je plně nastavitelná a bude fungovat přesně jak si budete přát. Žádná jiná galerie nenabízí takovou flexibilitu! A díky otevřenému kódu je naše aplikace dostupná ve 32 jazycích!
+Ve výchozím nastavení je dodáván s designem Material a tmavým motivem, což poskytuje skvělé uživatelské prostředí pro snadné používání. Díky absenci přístupu k internetu získáte více soukromí, bezpečnosti a stability než u jiných aplikací.
 
-OBNOVTE SMAZANÉ FOTOGRAFIE A VIDEA
-Smazali jste nechtěně důležitou fotografii nebo video? Žádný strach! Jednoduchá galerie Pro pro podobné případy nabízí funkci odpadkového koše, odkud smazané fotografie a videa snadno obnovíte.
+Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně open-source a poskytuje přizpůsobitelné barvy.
 
-CHRAŇTE A SKRÝVEJTE SVÉ FOTOGRAFIE A VIDEA
-Použitím pinu, vzoru nebo otisku prstu snadno své fotografie, videa či celá alba ochráníte nebo skryjete. Můžete ochránit i spuštění samotné aplikace, nebo některé její funkce. Například můžete zabránit náhodnému smazání souboru bez potvrzení otiskem prstu.
+Kompletní sadu jednoduchých nástrojů si můžete prohlédnout zde:
+https://www.simplemobiletools.com.
 
-Prohlédněte si celou sadu Jednoduchých aplikací na:
-https://www.simplemobiletools.com
-
-Standalone website of Simple Gallery Pro:
+Samostatná webová stránka aplikace Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:
