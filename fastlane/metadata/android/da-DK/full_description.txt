@@ -1,50 +1,28 @@
-Simple Gallery Pro er et offline-galleri med mange tilpasningsmuligheder. Organiser og rediger dine billeder, gendan slettede filer via papirkurven, beskyt og skjul filer og se adskillige forskellige billed- og videoformater inklusiv RAW, SVG og mange flere.
+Simple Gallery giver dig alle de funktioner til visning og redigering af fotos, du har manglet på din Android, i én stilfuld og brugervenlig app. Gennemse, administrer, beskær og rediger fotos eller videoer hurtigere end nogensinde før, genopret filer, der er slettet ved et uheld, eller opret skjulte gallerier til dine mest værdifulde billeder og videoer. Og med avanceret filunderstøttelse og fuld tilpasning fungerer dit galleri endelig præcis som du ønsker det.
 
-Appen indeholder ingen reklamer og kræver ingen unødvendige tilladelser. Da den heller ikke kræver adgang til internettet, er dit privatliv også beskyttet.
+AVANCERET FOTOEDITOR
+Gør fotoredigering til en leg for børn med Simple Gallery's forbedrede filorganisator og fotoalbum. Intuitive bevægelser gør det super nemt at redigere dine billeder i farten. Beskær, vend, roter og ændre størrelsen på billederne, eller anvend stilfulde filtre for at få dem til at fremstå flottere på et øjeblik.
 
--------------------------------------------------
-SIMPLE GALLERY PRO – FUNKTIONER
--------------------------------------------------
+ALLE DE FILER, DU HAR BRUG FOR
+Simple Gallery understøtter et stort udvalg af forskellige filtyper, herunder JPEG, PNG, MP4, MKV, RAW, SVG, GIF, Panoramafotos, videoer og mange flere, så du nyder fuld fleksibilitet i dit valg af format. Har du nogensinde tænkt på "Kan jeg bruge dette format på min Android"? Nu er svaret ja.
 
-• Offline galleri uden reklamer eller pop op'er
-• Simple gallerys billedbehandler – beskær, roter, tilpas størrelse, tegn, filtrer mm.
-• Inget krav om internetadgang - en stor fordel for dit privatliv og din sikkerhed
-• Ingen krav om unødvendige tilladelser
-• Hurtig søgning efter billeder, videoer & filer
-• Åbn & se mange forskellige foto- og videoformater (RAW, SVG, panoramic osv.)
-• En række intuitive bevægelser til nem redigering og organisering af filer
-• Mange muligheder for filtrering, gruppering og sortering af filer
-• Tilpas udseendet af Simple Gallery Pro
-• Tilgængelig på 32 sprog
-• Marker filer som favoriter for hurtig adgang
-• Beskyt dine billeder & videoer med et mønster, pinkode eller fingeraftryk
-• Brug mønster, pinkode eller fingeraftryk til beskyttelse af åbning af appen eller specifikke funktioner
-• Gendan slettede billeder & videoer via papirkurven
-• Skift mellem vis/skjul filer for at skjule billeder & videoer
-• Opret et redigerbart slideshow med dine filer
-• Se detaljeret information om dine filer (opløsning, EXIF-værdier osv.)
-• Simple Gallery Pro er open source
-… og meget mere!
+GØR DET TIL DIT EGET
+Simple Gallery's design kan i høj grad tilpasses, så du kan få fotoappen til at se ud, føles og fungere præcis som du ønsker det. Fra brugergrænsefladen til funktionsknapperne på den nederste værktøjslinje giver Simple Gallery dig den kreative frihed, du har brug for i en galleriapp.
 
-FOTOGALLERI - EDITOR
-Simple Gallery Pro gør det nemt at redigere dine billeder i en fart. Beskær, flip, roter og tilpas størrelsen på dine billeder. Føler du dig lidt mere kreativ, kan du tilføje filtre og tegne oveni dine billeder!
+GENDANNE SLETTEDE BILLEDER OG VIDEOER
+Du skal aldrig bekymre dig om, at du ved et uheld sletter det ene dyrebare foto eller den ene video, du bare ikke kan erstatte. Simple Gallery giver dig mulighed for hurtigt at gendanne slettede fotos og videoer, hvilket betyder, at Simple Gallery ud over at være det bedste mediegalleri til Android også er en fantastisk fotoboks-app.
 
-UNDERSTØTTELSE AF MANGE FILTYPER
-I modsætning til mange andre gallerier supporterer Simple Gallery Pro en masse forskellige filtyper inklusiv JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic-foto, Panoramic-videoer og mange flere.
+BESKYT DINE PRIVATE FOTOS, VIDEOER OG FILER
+Du kan være sikker på, at dit fotoalbum er sikkert. Med Simple Gallerys overlegne sikkerhedsfunktioner kan du bruge en pinkode, et mønster eller din enheds fingeraftryksscanner til at begrænse, hvem der kan se eller redigere udvalgte fotos og videoer eller få adgang til vigtige filer. Du kan endda beskytte selve appen eller placere låse på specifikke funktioner i filorganisatoren.
 
-GALLERI MED MASSER AF TILPASNINGSMULIGHEDER
-Simple Gallery Pro kan tilpasses lige fra brugerfladen til funktionsknapper på nederste værktøjslinje og fungere lige efter dit ønske. Inget andet galleri er så fleksibelt! Takket være at det er open sourse, er det også tilgængeligt på 32 sprog!
+Den leveres med material design og et mørkt tema som standard, hvilket giver en fantastisk brugeroplevelse for nem brug. Den manglende internet adgang giver dig mere privatliv, sikkerhed og stabilitet end andre apps.
 
-GENDAN SLETTEDE BILLEDER & VIDEOER
-Er du ved en fejl kommet til at slette et billede eller en video? Intet problem! Simple Gallery Pro har en handy papirkurv hvorfra du nemt kan gendanne slettede billeder & videoer.
+Indeholder ingen reklamer eller unødvendige tilladelser. Den er fuldt ud open source og giver tilpassede farver.
 
-BESKYT & SKJUL FOTOS, VIDEOER & FILER
-Du kan beskytte og skjule billeder, videoer og hele album med en pinkode, et mønster eller din enheds fingeraftryksscanner. Du kan også beskytte selve appen eller låse specifikke funktioner i appen. Du kan for eksempel låse sletning af en fil uden scanning af fingeraftryk og dermed beskytte filer mod at blive slettet ved en fejl.
-
-Se hele suiten af Simple Tools her:
+Se hele pakken af Simple Tools her:
 https://www.simplemobiletools.com
 
-Standalone website of Simple Gallery Pro:
+Standalone website af Simple Gallery Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:
