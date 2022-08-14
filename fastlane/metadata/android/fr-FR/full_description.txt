@@ -1,30 +1,23 @@
 Galerie Simple Pro est un coffre-fort de retouche photo et une application d'organisation de fichiers hors ligne hautement personnalisable, appréciée par des millions de personnes dans le monde entier pour sa grande expérience utilisateur intuitive. Utilisez la galerie photo pour retouche photo, récupérer des photos supprimées, protéger et masquer des photos, créer un dans ce galerie privée album photo secret et recadrer facilement des images et afficher une grande variété d'images et de formats vidéo différents, y compris RAW, SVG, GIF, panoramique et bien plus encore. Téléchargez cette galerie photo non invasive et gérez vos albums comme VOUS le souhaitez!
 
---------------------------------------------------------------------------------------
-Galerie Simple Pro - Gestionnaire et éditeur de photos et de vidéos
---------------------------------------------------------------------------------------
-
-• Un bel galerie photo moderne et retouche photo avec possibilité de récupérer des vidéos supprimées et de recadrer les photos, sans publicité
-• Éditeur de photos avancé - recadrez des images, éditez des photos, recherchez des images. Coffre-fort de photos confortable et facile à utiliser pour récupérer des vidéos supprimées
-• Aucun accès Internet nécessaire, vous offrant plus de confidentialité, de sécurité et de stabilité - album photo secret vraiment hors ligne
-• Recherchez rapidement des images, masquez, modifiez des photos et récupérez des photos, des vidéos, des GIF et d'autres fichiers supprimés
-• Ouvrez et visualisez de nombreux types de photos et de vidéos (RAW, SVG, panoramique, GIF, etc.)
-• Une variété de gestes intuitifs pour modifier et organiser facilement les images dans notre gestionnaire de photos
-• Protégez et modifiez vos photos et vidéos à l’aide d‘un motif, un pin ou d‘une empreinte digitale
-• Utilisez un pin, un motif et une empreinte digitale pour protéger le lancement de l'application ou des fonctions spécifiques également
-• Récupérer des vidéos de la corbeille
-• Utilisez le coffre-fort photo pour activer la visibilité des fichiers afin de cacher les photos et les vidéos, de recadrer les images
-• Créez un diaporama personnalisable de vos fichiers avec de nombreuses options dans la galerie de photos
-• Recherchez des images, retouchez des photos et zoomez facilement sur des images, des vidéos et des GIF de haute qualité avec des gestes
-• Forcez facilement l'orientation portrait ou paysage pour une visualisation facile des vidéos
-• Organisateur de fichiers - la galerie de photos Simple Mobile vous permet de renommer, copier/déplacer, effacer/cahcer, supprimer des images, des vidéos, des GIF
-• Définissez n'importe quelle image comme fond d'écran sans problèmes
-
 ÉDITEUR DE PHOTOS AVANCÉ
 L'organisateur de fichiers et l'album photo Galerie Simple galerie photo facilitent la modification de vos images à la volée et retouche photo. Recadrez les photos, retournez-les, faites-les pivoter et redimensionnez-les ou appliquez les filtres que vous souhaitez.
 
 SUPPORT POUR DE NOMBREUX TYPES DE FICHIERS
-L'organisateur de fichiers de galerie de photos Galerie Simple prend en charge une vaste gamme de types de fichiers différents, notamment JPEG, PNG, MP4, MKV, RAW, SVG, GIF, photos panoramiques, vidéos et bien d'autres dans ce galerie photo. Vous pouvez également utiliser cette application comme galerie privée
+Simple Gallery prend en charge une grande variété de différents types de fichiers, y compris JPEG, PNG, MP4, MKV, RAW, SVG, GIF, photos panoramiques, vidéos, et bien d’autres, de sorte que vous profitez d’une flexibilité totale dans votre choix de format. Jamais demandé "Puis-je utiliser ce format sur mon Android"? Maintenant, la réponse est oui.
+
+EN FAIRE VOTRE PROPRIÉTÉ
+Le design hautement personnalisable de Simple Gallery vous permet de rendre l’application photo à l’apparence, au toucher et au travail comme vous le souhaitez. De l’interface utilisateur aux boutons de fonction dans la barre d’outils du bas, Simple Gallery vous donne la liberté créative dont vous avez besoin dans une application de galerie.
+
+RÉCUPÉRER LES PHOTOS ET VIDÉOS SUPPRIMÉES
+Ne vous inquiétez jamais de supprimer accidentellement cette précieuse photo ou vidéo que vous ne pouvez pas remplacer. Simple Gallery vous permet de récupérer rapidement toutes les photos et vidéos supprimées, ce qui signifie en plus d’être la meilleure galerie de médias pour Android, Simple Gallery se double comme une application de coffre-fort photo incroyable.
+
+PROTÉGEZ VOS PHOTOS, VIDÉOS ET FICHIERS PRIVÉS
+Soyez assuré que votre album photo est en sécurité. Avec les fonctionnalités de sécurité supérieures de Simple Gallery, vous pouvez utiliser une épingle, un motif ou le scanner d’empreintes digitales de votre appareil pour limiter qui peut voir ou modifier des photos et des vidéos sélectionnées ou accéder à des fichiers importants. Vous pouvez même protéger l’application elle-même ou placer des verrous sur des fonctions spécifiques de l’organisateur de fichiers.
+
+Il est livré avec la conception du matériel et un thème sombre par défaut, offrant une grande expérience utilisateur pour une utilisation facile. Le manque d’accès à Internet vous donne plus de confidentialité, de sécurité et de stabilité que d’autres applications.
+
+Ne contient pas d’annonces ou d’autorisations inutiles. Il est entièrement open-source et fournit des couleurs personnalisables. 
 
 Découvrez la suite complète des outils Simples ici:
 https://www.simplemobiletools.com
