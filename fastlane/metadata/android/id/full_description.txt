@@ -1,30 +1,4 @@
-Galeri Pro Simpel adalah aplikasi galeri luring yang sangat mudah diubahsuai. Mengelola pengeditan foto, memulihkan berkas yang terhapus dari keranjang sampah, melindungi & menyembunyikan berkas, dan menampilkan banyak format foto & video, diantaranya RAW, SVG dan masih banyak lainnya.
-
-Aplikasi sama sekali tidak berisi iklan dan tidak membutuhkan perizinan yang tidak perlu. Dan karena aplikasi juga tidak membutuhkan akses internet, privasi anda terlindungi.
-
--------------------------------------------------
-GALERI PRO SIMPEL – FITUR
--------------------------------------------------
-
-• Galeri luring tanpa iklan dan popup
-• Penyunting galeri foto sederhana pengeditan foto – pangkas, putar, ubah ukuran, gambar, filter & masih banyak lagi
-• Tidak membutuhkan akses internet, memberi anda jaminan keamanan dan privasi
-• Tidak membutuhkan izin yang tidak diperlukan
-• Cepat mencari gambar, video & berkas
-• Buka & lihat berbagai macam jenis foto dan video (RAW, SVG, panorama, dll)
-• Gestur untuk mempermudah penyuntingan & mengelola berkas
-• Banyak cara untuk menambahkan filter, pengeditan fotom mengelompokkan & mengurutkan berkas
-• Sesuaikan tampilan Galeri Pro Simpel
-• Tersedia dalam 32 bahasa
-• Tandai berkas sebagai favorit untuk akses cepat
-• Lindungi foto & video anda dengan pola, pin atau sidik jari
-• Gunakan pin, pattern & sidik jari untuk mencegah aplikasi dibuka
-• Pulihkan foto & video yang dihapus dari keranjang sampah
-• Ubah visibilitas berkas untuk menyembunyikan foto & video
-• Buat slideshow khusus dari berkas anda
-• Lihat informasi detail berkas (resolusi, EXIF, dll)
-• Galeri Pro Simpel bersumber terbuka pengeditan foto aplikasi
-… dan masih banyak lagi!
+Galeri Sederhana menghadirkan semua fitur melihat dan mengedit foto yang telah Anda lewatkan di Android Anda dalam satu aplikasi bergaya yang mudah digunakan. Jelajahi, kelola, pangkas, dan edit foto atau video lebih cepat dari sebelumnya, pulihkan file yang terhapus secara tidak sengaja, atau buat galeri tersembunyi untuk gambar dan video Anda yang paling berharga. Dan dengan dukungan file tingkat lanjut dan penyesuaian penuh, akhirnya, galeri Anda berfungsi seperti yang Anda inginkan.
 
 PENYUNTING GALERI FOTO
 Galeri Pro Simpel mempermudah anda menyunting foto. Pangkas, balik, putar dan ubah ukuran gambar anda. Jika anda merasa kreatif anda bisa menambahkan filter dan menggambar pada foto anda!
@@ -40,6 +14,10 @@ Secara tidak sengaja menghapus foto atau video? Jangan khawatir! Galeri Pro Simp
 
 MELINDUNGI & MENYEMBUNYIKAN FOTO, VIDEO & BERKAS
 Menggunakan pin, pola atau pemindai sidik jari perangkat, anda bisa melindungi dan menyembunyikan foto, video & seluruh album. Anda bisa melindungi aplikasinya atau mengunci fungsi-fungsi yang lebih spesifik di dalam aplikasi. Contohnya, anda tidak bisa menghapus berkas tanpa memindai sidik jari, membantu melindungi anda menghapus berkas secara tidak sengaja.
+
+Muncul dengan desain material dan tema gelap secara default, memberikan pengalaman pengguna yang luar biasa untuk penggunaan yang mudah. Kurangnya akses internet memberi Anda lebih banyak privasi, keamanan, dan stabilitas daripada aplikasi lain.
+
+Tidak berisi iklan atau izin yang tidak perlu. Ini sepenuhnya open-source dan menyediakan warna yang dapat disesuaikan.
 
 Lihat semua aplikasi Simple Tools di sini:
 https://www.simplemobiletools.com
