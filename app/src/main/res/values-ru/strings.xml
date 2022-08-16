@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Простая галерея</string>
     <string name="app_launcher_name">Галерея</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Камера</string>
@@ -181,7 +181,7 @@
     <string name="manage_extended_details">Выбор сведений о файле</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем при просмотре изображения</string>
     <string name="allow_instant_change">Переключение медиафайлов нажатием по краю экрана</string>
-    <string name="allow_deep_zooming_images">Включить полное масштабирование</string>
+    <string name="allow_deep_zooming_images">Использовать полное масштабирование</string>
     <string name="hide_extended_details">Скрывать сведения о файле при скрытой строке состояния</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
