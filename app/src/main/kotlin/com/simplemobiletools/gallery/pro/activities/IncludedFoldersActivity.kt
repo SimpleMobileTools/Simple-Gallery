@@ -16,7 +16,7 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         setContentView(R.layout.activity_manage_folders)
         updateFolders()
         setupOptionsMenu()
-        manage_folders_toolbar.title = getString(R.string.excluded_folders)
+        manage_folders_toolbar.title = getString(R.string.include_folders)
     }
 
     override fun onResume() {
