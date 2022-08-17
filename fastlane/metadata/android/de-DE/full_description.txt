@@ -36,7 +36,9 @@ Privater Schutz von Fotos, Videos und Dateien
 - Fotos können nur von ausgewählten Personen angesehen und bearbeitet werden
 - Erhöhte Sicherheit durch Funktionen wie PIN, Muster oder Fingerabdruck-Scanner deines Geräts
 
-___
+Es kommt mit Material-Design und einem dunklen Thema standardmäßig, bietet eine großartige Benutzererfahrung für die einfache Verwendung. Der fehlende Internetzugang bietet Ihnen mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
+
+Enthält keine Anzeigen oder unnötige Berechtigungen. Es ist vollständig Open-Source und bietet anpassbare Farben.
 
 Die komplette Suite von Simple Tools findest du hier:
 https://www.simplemobiletools.com

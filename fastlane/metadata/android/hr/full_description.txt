@@ -1,33 +1,28 @@
-Vrlo prilagodljiva galerija koja može prikazivati različite vrste slika i videozapisa, uključujući SVG-ove, RAW-ove, panoramske fotografije i videozapise.
+Jednostavna Galerija donosi vam sve značajke za pregled i uređivanje fotografija koje su vam nedostajale na Androidu u jednoj stilskoj aplikaciji za jednostavno korištenje. Pregledajte, upravljajte, usjevajte, i uredite fotografije ili videozapise brže nego ikad prije, oporavite slučajno izbrisane datoteke ili stvorite skrivene galerije za vaše najdragocjenije slike i videozapise. I uz naprednu podršku datoteka i potpuno prilagođavanje, konačno, vaša galerija djeluje onako kako želite.
 
-Otvorenog je koda, ne sadrži oglase ili nepotrebna dopuštenja.
+PREDNOSTI POTOREDA
+Pretvorite uređivanje fotografija u dječju predstavu s poboljšanim organizatorom datoteka Simple Gallery i albumom fotografija. Intuitivne geste čine vrlo jednostavnim uređivanje vaših slika u letu. Savijte, okrenite, okrenite i ponovno prilagodite slike ili nanesite stilske filtre kako biste ih u trenutku popalili.
 
-Navedimo neke od značajki koje vrijedi spomenuti:
-1. Pretraživanje
-2. Dijaprojekcija
-3. Podrška za notch
-4. Pričvršćivanje mapa na vrh
-5. Filtriranje medijskih datoteka prema vrsti
-6. Koš za smeće za jednostavan oporavak datoteke
-7. Zaključavanje prikaza na cijelom zaslonu
-8. Označavanje omiljenih datoteka radi lakog pristupa
-9. Brzi mediji na cijelom zaslonu zatvaraju se pokretom prema dolje
-10. Urednik za izmjenu slika i primjenu filtara
-11. Zaštita lozinkom za zaštitu skrivenih stavki ili cijele aplikacije
-12. Promjena broja stupaca minijatura pomoću pokreta ili gumba izbornika
-13. Prilagodljive akcije na dnu cijelog zaslona za brzi pristup
-14. Prikazivanje proširenih detalja preko medija, preko cijelog zaslona sa željenim svojstvima datoteke
-15. Nekoliko različitih načina razvrstavanja ili grupiranja stavki, kako rastućih tako i silaznih
-16. Skrivanje mapa (utječe i na druge aplikacije), izuzimanje mapa (utječe samo na jednostavnu galeriju)
+SVE NEJELE
+Jednostavna galerija podržava ogroman niz različitih vrsta datoteka, uključujući JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramske fotografije, videozapise i još mnogo toga, tako uživate u punoj fleksibilnosti u izboru formata. Jeste li se ikad zapitali "Mogu li koristiti ovaj format na svom Androidu"? Sada je odgovor da.
 
-Dopuštenje za otisak prsta potreban je za zaključavanje vidljivosti skrivenih stavki, cijele aplikacije ili za zaštitu datoteka od brisanja.
+MAKE NASTAVLJA
+Jednostavan Galeryjev vrlo prilagodljiv dizajn omogućuje vam da foto aplikaciju pogledate, osjetite i radite onako kako želite. Od korisničkog sučelja do funkcijskih gumba na donjoj alatnoj traci, Jednostavna galerija daje vam kreativnu slobodu koja vam je potrebna u aplikaciji galerije.
 
-Ova je aplikacija samo dio većeg broja aplikacija. 
+PREPORUČENI PHOTOS i VIDEOS
+Nikada se ne brinite za slučajno brisanje one dragocjene fotografije ili videa koju jednostavno ne možete zamijeniti. Jednostavna Galerija omogućuje vam brzo obnavljanje svih izbrisanih fotografija i videozapisa, što znači da je najbolja medijska galerija za Android, Simple Galery udvostručuje se kao nevjerojatna aplikacija trezora fotografije.
 
-Možete pronaći ostatak na:
+PROTECT VIŠA PRIVATI PHOTOS, VIDEOS i FILES
+Budite sigurni da je vaš foto album siguran. Pomoću superiornih sigurnosnih značajki tvrtke Simple Gallery možete koristiti pin, uzorak ili skener otiska prsta vašeg uređaja kako biste ograničili tko može pregledati ili urediti odabrane fotografije i videozapise ili pristupiti važnim datotekama. Možete čak zaštititi samu aplikaciju ili postaviti brave na određene funkcije organizatora datoteka.
+
+Dolazi s dizajnom materijala i tamnom temom prema zadanim postavkama, pružajući sjajno korisničko iskustvo za jednostavno korištenje. Nedostatak pristupa internetu daje vam više privatnosti, sigurnosti i stabilnosti od ostalih aplikacija.
+
+Ne sadrži oglase ili nepotrebne dozvole. Potpuno je open-source i pruža prilagođene boje.
+
+Ovdje pogledajte cijeli paket jednostavnih alata:
 https://www.simplemobiletools.com
 
-Simple Gallery Pro's Website:
+Samostalna web stranica Simple Galery Pro:
 https://www.simplemobiletools.com/gallery
 
 Facebook:
