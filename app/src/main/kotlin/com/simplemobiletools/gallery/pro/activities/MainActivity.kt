@@ -163,6 +163,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             callback(granted)
             if (granted && isRPlus()) {
                 handlePermission(PERMISSION_MEDIA_LOCATION) {}
+                if (isTiramisuPlus()) {
+                    handlePermission(PERMISSION_READ_MEDIA_VIDEO) {}
+                }
+
                 if (!mWasMediaManagementPromptShown) {
                     mWasMediaManagementPromptShown = true
                     handleMediaManagementPrompt { }
