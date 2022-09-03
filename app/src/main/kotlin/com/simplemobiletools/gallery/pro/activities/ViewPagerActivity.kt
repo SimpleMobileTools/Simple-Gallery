@@ -529,10 +529,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val oldPosition = view_pager.currentItem
         val animator = ValueAnimator.ofInt(0, view_pager.width)
         animator.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationRepeat(animation: Animator?) {
-            }
-
-            override fun onAnimationEnd(animation: Animator?) {
+            override fun onAnimationEnd(animation: Animator) {
                 if (view_pager.isFakeDragging) {
                     try {
                         view_pager.endFakeDrag()
@@ -546,12 +543,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
             }
 
-            override fun onAnimationCancel(animation: Animator?) {
+            override fun onAnimationCancel(animation: Animator) {
                 view_pager.endFakeDrag()
             }
 
-            override fun onAnimationStart(animation: Animator?) {
-            }
+            override fun onAnimationStart(animation: Animator) {}
+
+            override fun onAnimationRepeat(animation: Animator) {}
         })
 
         if (config.slideshowAnimation == SLIDESHOW_ANIMATION_SLIDE) {
@@ -831,7 +829,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             bottom_actions.beGone()
         }
 
-        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
             medium_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
             medium_viewer_toolbar.setPadding(0, 0, 0, 0)

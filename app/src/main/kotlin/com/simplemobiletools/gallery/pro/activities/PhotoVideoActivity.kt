@@ -188,7 +188,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
             fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
             fragment_viewer_toolbar.setPadding(0, 0, 0, 0)
@@ -285,7 +285,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         (fragment_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
-        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
             fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
             fragment_viewer_toolbar.setPadding(0, 0, 0, 0)

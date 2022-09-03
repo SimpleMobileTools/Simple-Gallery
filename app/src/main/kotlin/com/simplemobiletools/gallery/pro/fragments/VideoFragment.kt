@@ -116,7 +116,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mTextureView.surfaceTextureListener = this@VideoFragment
 
             val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
-                override fun onSingleTapConfirmed(e: MotionEvent?): Boolean {
+                override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
                     if (!mConfig.allowInstantChange) {
                         toggleFullscreen()
                         return true
@@ -124,7 +124,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
                     val viewWidth = width
                     val instantWidth = viewWidth / 7
-                    val clickedX = e?.rawX ?: 0f
+                    val clickedX = e.rawX
                     when {
                         clickedX <= instantWidth -> listener?.goToPrevItem()
                         clickedX >= viewWidth - instantWidth -> listener?.goToNextItem()
@@ -133,11 +133,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     return true
                 }
 
-                override fun onDoubleTap(e: MotionEvent?): Boolean {
-                    if (e != null) {
-                        handleDoubleTap(e.rawX)
-                    }
-
+                override fun onDoubleTap(e: MotionEvent): Boolean {
+                    handleDoubleTap(e.rawX)
                     return true
                 }
             })

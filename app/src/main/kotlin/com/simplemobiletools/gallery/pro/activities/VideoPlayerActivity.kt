@@ -87,7 +87,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         updateTextColors(video_player_holder)
 
-        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
             video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
             video_toolbar.setPadding(0, 0, 0, 0)
@@ -149,7 +149,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
         (video_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
-        if (!portrait && navigationBarRight && navigationBarWidth > 0) {
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
             video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
             video_toolbar.setPadding(0, 0, 0, 0)
@@ -191,11 +191,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
 
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-            override fun onDoubleTap(e: MotionEvent?): Boolean {
-                if (e != null) {
-                    handleDoubleTap(e.rawX)
-                }
-
+            override fun onDoubleTap(e: MotionEvent): Boolean {
+                handleDoubleTap(e.rawX)
                 return true
             }
         })
