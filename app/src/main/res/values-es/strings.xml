@@ -3,7 +3,7 @@
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
-    <string name="open_camera">Abrir cámara</string>
+    <string name="open_camera">Abrir la cámara</string>
     <string name="hidden">(Oculto)</string>
     <string name="excluded">(Excluido)</string>
     <string name="pin_folder">Fijar carpeta</string>
@@ -123,7 +123,7 @@
     <string name="home_screen">Pantalla de inicio</string>
     <string name="lock_screen">Pantalla de bloqueo</string>
     <string name="home_and_lock_screen">Pantalla de inicio y de bloqueo</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Permitir cambiar la relación de aspecto</string>
     <!-- Slideshow -->
     <string name="slideshow">Presentación de diapositivas</string>
     <string name="interval">Intervalo</string>
@@ -212,9 +212,9 @@
     <string name="export_favorite_paths">Exportar rutas de archivos favoritos</string>
     <string name="media_management_prompt">Para asegurarse de que todas las operaciones en ficheros funcionan de forma segura, por favor haga esta aplicación una aplicación de manejo de medios en los ajustes de su dispositivo.</string>
     <string name="password_protect_excluded">Proteger con contraseña la visibilidad de las carpetas excluidas</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Algo ha ido mal, por favor vaya a los Ajustes de su dispositivo - Aplicaciones - Acceso a aplicaciones especiales - Aplicaciones de gestión de medios y permita que esta aplicación gestione los medios.</string>
+    <string name="media_management_note">Si la redirección no funciona, ve a los Ajustes de tu dispositivo - Aplicaciones - Acceso a aplicaciones especiales - Aplicaciones de gestión de medios y permite que esta aplicación gestione los medios.</string>
+    <string name="media_management_alternative">Si no quieres hacerlo, también puedes ir a los Ajustes de tu dispositivo - Aplicaciones - Acceso a aplicaciones especiales - Aplicaciones de gestión de medios y permitir que esta aplicación gestione los medios.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
@@ -362,14 +362,14 @@
     <string name="faq_12_text">Lo más probable es que sea causado por los archivos que se copian de algún lugar. Puede solucionarlo seleccionando las miniaturas de archivo y seleccionando \"Fijar fecha de toma\".</string>
     <string name="faq_13_title">Veo algunas bandas de color en las imágenes. ¿Cómo puedo mejorar la calidad\?</string>
     <string name="faq_13_text">La solución actual para mostrar imágenes funciona bien en la gran mayoría de los casos, pero si desea una calidad de imagen aún mejor, puede habilitar \"Mostrar imágenes con la mayor calidad posible\" en la configuración de la aplicación, en la sección \"Imágenes ampliables con zoom\".</string>
-    <string name="faq_14_title">He escondido un archivo / carpeta. ¿Cómo puedo mostrarlo\?</string>
-    <string name="faq_14_text">Puede presionar el elemento del menú \"Mostrar temporalmente elementos ocultos\" en la pantalla principal o alternar \"Mostrar elementos ocultos\" en la configuración de la aplicación para ver el elemento oculto. Si desea mostrarlo, solo manténgalo presionado y seleccione \"Mostrar\". Las carpetas se ocultan agregando un archivo oculto \".nomedia\" en ellas, también puede eliminar el archivo con cualquier administrador de archivos. Sin embargo, tenga en cuenta que la ocultación funciona de forma recursiva, por lo que si oculta una carpeta, todas las subcarpetas también se ocultarán. Entonces, para mostrar las subcarpetas, debe mostrar la carpeta principal.</string>
+    <string name="faq_14_title">He ocultado un archivo/carpeta. ¿Cómo puedo desocultarlo\?</string>
+    <string name="faq_14_text">Puede presionar el elemento de menú \"Mostrar elementos ocultos temporalmente\" en la pantalla principal, o alternar \"Mostrar elementos ocultos\" en la configuración de la aplicación para ver el elemento oculto. Si desea mostrarlo, simplemente manténgalo presionado y seleccione \"Mostrar\". Las carpetas se ocultan agregando un archivo \".nomedia\" oculto en ellas, también puede eliminar el archivo con cualquier administrador de archivos. Sin embargo, tenga en cuenta que la ocultación funciona de forma recursiva, por lo que si oculta una carpeta, todas las subcarpetas también se ocultarán. Entonces, para mostrar las subcarpetas, debe mostrar la carpeta principal.</string>
     <string name="faq_15_title">¿Por qué la aplicación ocupa tanto espacio\?</string>
-    <string name="faq_15_text">El caché de aplicaciones puede ocupar hasta 250 MB, asegura una carga de imagen más rápida. Si la aplicación ocupa aún más espacio, lo más probable es que tenga elementos en la Papelera de reciclaje. Esos archivos cuentan para el tamaño de la aplicación. Puede borrar la Papelera de reciclaje abriéndola y eliminando todos los archivos, o desde la configuración de la aplicación. Todos los archivos de la Papelera se eliminan automáticamente después de 30 días.</string>
-    <string name="faq_16_title">¿Qué le pasó a los archivos y carpetas ocultas y por qué no puedo volver a ver elementos ocultos\?</string>
+    <string name="faq_15_text">La caché de la aplicación puede ocupar hasta 250 MB, lo que garantiza una carga más rápida de las imágenes. Si la aplicación está ocupando aún más espacio, lo más probable es que tenga elementos en la papelera de reciclaje. Esos archivos cuentan para el tamaño de la aplicación. Puedes borrar la papelera de reciclaje abriéndola y borrando todos los archivos, o desde los ajustes de la aplicación. Todos los archivos de la papelera se eliminan automáticamente después de 30 días.</string>
+    <string name="faq_16_title">¿Qué ha pasado con la ocultación de archivos y carpetas y por qué ya no puedo ver los elementos ocultos\?</string>
     <string name="faq_16_text">A partir de Android 11 ya no puede ocultar o mostrar archivos o carpetas, tampoco puede ver las ocultas en aplicaciones de galería debido a restricciones del sistema. Tendrá que usar algún gestor de archivos para ello.</string>
-    <string name="faq_17_title">¿Por qué ya no puedo incluir carpetas ausentes\?</string>
-    <string name="faq_17_text">Eso dejó de funcionar debido a los cambios del sistema que aparecieron junto a Adroid 11, la aplicación ya no puede navegar carpetas reales, sino que depende del llamado MediaStore (Almacén de Medios) para obtener datos.</string>
+    <string name="faq_17_title">¿Por qué ya no puedo incluir las carpetas que faltan\?</string>
+    <string name="faq_17_text">Eso dejó de funcionar debido a los cambios en el sistema que vinieron con Android 11 también, la aplicación no puede navegar por las carpetas reales más, se basa en el llamado MediaStore en la obtención de datos.</string>
     <string name="faq_18_title">¿Por qué veo anuncios durante la reproducción de vídeo\?</string>
     <string name="faq_18_text">Nuestras aplicaciones no tienen anuncios de ninguna clase. Si los ve durante la reproducción de video, entonces debe estar usando el reproductor de vídeo de otra aplicación. Pruebe encontrando su reproductor de video por defecto en los ajustes del dispositivo, luego realice un \"Borrar predeterminados\" en él. La siguiente vez que vaya a ver un vídeo verá un selector de aplicaciones, en el cual puede seleccionar que aplicación quiere usar para reproducirlo.</string>
     <!--
