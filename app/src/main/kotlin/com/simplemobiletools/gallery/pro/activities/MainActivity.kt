@@ -159,7 +159,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
-        handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
+        handlePermission(getPermissionToRequest()) { granted ->
             callback(granted)
             if (granted && isRPlus()) {
                 handlePermission(PERMISSION_MEDIA_LOCATION) {}
@@ -445,7 +445,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun checkOTGPath() {
         ensureBackgroundThread {
-            if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
+            if (!config.wasOTGHandled && hasPermission(getPermissionToRequest()) && hasOTGConnected() && config.OTGPath.isEmpty()) {
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
                     config.wasOTGHandled = true
                     val otgPath = trimEnd('/')
@@ -474,7 +474,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun tryLoadGallery() {
         // avoid calling anything right after granting the permission, it will be called from onResume()
-        val wasMissingPermission = config.appRunCount == 1 && !hasPermission(PERMISSION_WRITE_STORAGE)
+        val wasMissingPermission = config.appRunCount == 1 && !hasPermission(getPermissionToRequest())
         handleMediaPermissions {
             if (wasMissingPermission) {
                 return@handleMediaPermissions

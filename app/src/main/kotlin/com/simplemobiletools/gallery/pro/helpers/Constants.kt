@@ -1,7 +1,9 @@
 package com.simplemobiletools.gallery.pro.helpers
 
 import com.simplemobiletools.commons.helpers.MONTH_SECONDS
-import com.simplemobiletools.commons.helpers.isQPlus
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_MEDIA_IMAGES
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.isTiramisuPlus
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -244,3 +246,5 @@ const val FOLDER_MEDIA_CNT_NONE = 3
 
 const val FOLDER_STYLE_SQUARE = 1
 const val FOLDER_STYLE_ROUNDED_CORNERS = 2
+
+fun getPermissionToRequest() = if (isTiramisuPlus()) PERMISSION_READ_MEDIA_IMAGES else PERMISSION_WRITE_STORAGE

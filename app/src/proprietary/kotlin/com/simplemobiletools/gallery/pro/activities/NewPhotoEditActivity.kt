@@ -3,13 +3,12 @@ package com.simplemobiletools.gallery.pro.activities
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
-import androidx.exifinterface.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.exifinterface.media.ExifInterface
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
@@ -20,6 +19,7 @@ import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
+import com.simplemobiletools.gallery.pro.helpers.getPermissionToRequest
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
@@ -62,7 +62,7 @@ class NewPhotoEditActivity : SimpleActivity() {
             return
         }
 
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handlePermission(getPermissionToRequest()) {
             if (it) {
                 initEditActivity()
             } else {

@@ -98,7 +98,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         setupOptionsMenu()
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handlePermission(getPermissionToRequest()) {
             if (!it) {
                 toast(R.string.no_storage_permissions)
                 finish()

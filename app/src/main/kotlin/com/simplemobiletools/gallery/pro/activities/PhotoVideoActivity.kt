@@ -47,7 +47,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         setupOptionsMenu()
         refreshMenuItems()
-        handlePermission(PERMISSION_WRITE_STORAGE) {
+        handlePermission(getPermissionToRequest()) {
             if (it) {
                 checkIntent(savedInstanceState)
             } else {
