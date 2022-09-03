@@ -116,12 +116,12 @@ if (is_proprietary) {
     imglyConfig {
         vesdk {
             enabled true
-            licensePath 'vesdk_license'
+            licensePath 'vesdk_android_license'
         }
 
         pesdk {
             enabled true
-            licensePath 'pesdk_license'
+            licensePath 'pesdk_android_license'
         }
 
         modules {
