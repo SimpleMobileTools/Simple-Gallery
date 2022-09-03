@@ -8,8 +8,8 @@
 /captures
 keystore.jks
 keystore.properties
-/app/src/proprietary/assets/pesdk_license
-/app/src/proprietary/assets/vesdk_license
+/app/src/proprietary/assets/pesdk_android_license
+/app/src/proprietary/assets/vesdk_android_license
 fastlane/fastlane.json
 Gemfile
 Gemfile.lock
