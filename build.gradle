@@ -10,7 +10,7 @@ buildscript {
         propVersionName = '5.34.26'
     }*/
 
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.6.21'
     ext.is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
 
     repositories {
