@@ -267,9 +267,10 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 
-            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
-                if (it) {
-                    deleteFilteredFiles(filtered)
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) { wasSuccess, range ->
+                if (wasSuccess) {
+                    val itemsInRange = filtered.subList(range.first, range.second)
+                    deleteFilteredFiles(ArrayList(itemsInRange))
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }

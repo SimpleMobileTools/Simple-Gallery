@@ -8,7 +8,9 @@ import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
+import android.os.Environment
 import android.os.Process
+import android.os.StatFs
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
 import android.widget.ImageView
@@ -42,6 +44,7 @@ import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.collections.set
+
 
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -1102,4 +1105,13 @@ fun Context.getFileDateTaken(path: String): Long {
     }
 
     return 0L
+}
+
+// https://stackoverflow.com/questions/8133417/android-get-free-size-of-internal-external-memory
+fun Context.getAvailableInternalMemorySize(): Long {
+    val path: File = filesDir
+    val stat = StatFs(path.path)
+    val blockSize = stat.blockSizeLong
+    val availableBlocks = stat.availableBlocksLong
+    return availableBlocks * blockSize
 }

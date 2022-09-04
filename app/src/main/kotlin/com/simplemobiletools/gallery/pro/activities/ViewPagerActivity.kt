@@ -1161,8 +1161,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     onPageSelected(0)
                 }
 
-                movePathsInRecycleBin(arrayListOf(path)) {
-                    if (it) {
+                movePathsInRecycleBin(arrayListOf(path)) { wasSuccess, _ ->
+                    if (wasSuccess) {
                         tryDeleteFileDirItem(fileDirItem, false, false) {
                             mIgnoredPaths.remove(fileDirItem.path)
                             if (media.isEmpty()) {

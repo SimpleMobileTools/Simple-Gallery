@@ -656,9 +656,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val pathsToDelete = ArrayList<String>()
             itemsToDelete.mapTo(pathsToDelete) { it.path }
 
-            movePathsInRecycleBin(pathsToDelete) {
-                if (it) {
-                    deleteFilteredFileDirItems(itemsToDelete, folders)
+            movePathsInRecycleBin(pathsToDelete) { wasSuccess, range ->
+                if (wasSuccess) {
+                    val itemsInRange = itemsToDelete.subList(range.first, range.second)
+                    deleteFilteredFileDirItems(ArrayList(itemsInRange), ArrayList())
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
