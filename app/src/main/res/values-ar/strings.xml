@@ -42,7 +42,7 @@
     <string name="reorder_by_dragging_pro">إعادة ترتيب المجلدات عن طريق السحب (Pro)</string>
     <string name="restore_to_path">الاستعادة إلى \'%s\'</string>
     <!-- Filter -->
-    <string name="filter_media">فلترة الوسائط</string>
+    <string name="filter_media">فرز الوسائط</string>
     <string name="images">الصور</string>
     <string name="videos">الفيديوهات</string>
     <string name="gifs">الصور المتحركة (GIF)</string>

@@ -40,7 +40,7 @@
     <string name="unset_as_default_folder">Dezactivează ca dosar implicit</string>
     <string name="reorder_by_dragging">Reordonează dosarele prin tragere</string>
     <string name="reorder_by_dragging_pro">Reordonează dosarele prin tragere (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="restore_to_path">Restaurare la \"%s</string>
     <!-- Filter -->
     <string name="filter_media">Filtrează elementele media</string>
     <string name="images">Imagini</string>
@@ -53,7 +53,7 @@
     <string name="change_filters_underlined"><u>Schimbă filtrele</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Această funcție ascunde dosarul prin adăugarea unui fișier \'.nomedia\' în el, ascunzând și toate subdosarele. Le poţi vedea prin activarea opțiunii \'Afișați elementele ascunse\' din Setări. Continuați\?</string>
-    <string name="exclude">Exclude</string>
+    <string name="exclude">Excludeți</string>
     <string name="excluded_folders">Dosare excluse</string>
     <string name="manage_excluded_folders">Gestionează dosarele excluse</string>
     <string name="exclude_folder_description">Acest lucru va exclude selecția, împreună cu subdosarele sale, numai din Simple Gallery. Poţi gestiona dosarele excluse în Setări.</string>
@@ -123,7 +123,7 @@
     <string name="home_screen">Ecranul de pornire</string>
     <string name="lock_screen">Ecranul de blocare</string>
     <string name="home_and_lock_screen">Ecranul de pornire și de blocare</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Permiteți modificarea raportului de aspect</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval</string>
@@ -154,7 +154,7 @@
     <string name="by_file_type">Tipul de fișier</string>
     <string name="by_extension">Extensie</string>
     <string name="show_file_count_section_header">Afișați numărul de fișiere la capetele de secțiune</string>
-    <string name="grouping_and_sorting">Vă rugăm să rețineți că gruparea și sortarea sunt două câmpuri independente.</string>
+    <string name="grouping_and_sorting">Vă rugăm să rețineți că gruparea și sortarea sunt două câmpuri independente</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Dosar afișat pe widget:</string>
     <string name="show_folder_name">Afișează numele dosarului</string>
@@ -210,11 +210,11 @@
     <string name="square">Pătrat</string>
     <string name="rounded_corners">Colțuri rotunjite</string>
     <string name="export_favorite_paths">Exportă căile de acces ale fișierelor favorite</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_prompt">Pentru a vă asigura că toate operațiunile cu fișiere funcționează în mod fiabil, vă rugăm să selectați această aplicație ca aplicație de gestionare a mediilor în setările dispozitivului.</string>
+    <string name="password_protect_excluded">Protejați cu parolă vizibilitatea dosarelor excluse</string>
+    <string name="media_management_manual">Ceva nu a mers bine, vă rugăm să accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și permiteți acestei aplicații să gestioneze media.</string>
+    <string name="media_management_note">Dacă redirecționarea nu funcționează, accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și permiteți acestei aplicații să gestioneze media.</string>
+    <string name="media_management_alternative">Dacă nu doriți să faceți acest lucru, puteți, de asemenea, să accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și să permiteți acestei aplicații să gestioneze media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturi</string>
     <string name="fullscreen_media">Elemente media pe ecran complet</string>
@@ -297,11 +297,11 @@
     <string name="pesdk_sticker_button_saturation">Saturație</string>
     <string name="pesdk_sticker_button_brightness">Luminozitate</string>
     <string name="pesdk_sticker_category_name_custom">Încărcări</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_overlay_title_name">Suprapunere</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
     <string name="pesdk_overlay_button_blendModeDarken">Întunecat</string>
     <string name="pesdk_overlay_button_blendModeScreen">Ecran</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">Suprapunere</string>
     <string name="pesdk_overlay_button_blendModeLighten">Iluminat</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Multiplicat</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Culori Arse</string>
@@ -314,8 +314,8 @@
     <string name="pesdk_overlay_asset_paper">Hârtie</string>
     <string name="pesdk_overlay_asset_rain">Ploaie</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
-    <string name="pesdk_common_button_flipH">Flip Oriz.</string>
-    <string name="pesdk_common_button_flipV">Flip Vert.</string>
+    <string name="pesdk_common_button_flipH">Flip Orizontal</string>
+    <string name="pesdk_common_button_flipV">Flip Vertical</string>
     <string name="pesdk_common_button_undo">Înapoi</string>
     <string name="pesdk_common_button_redo">Înainte</string>
     <string name="pesdk_common_title_colorPicker">Alegător de culori</string>
@@ -367,7 +367,7 @@
     <string name="faq_15_title">De ce ocupă aplicația atât de mult spațiu\?</string>
     <string name="faq_15_text">Memoria cache a aplicației poate ocupa până la 250 MB, asigurând o încărcare mai rapidă a imaginilor. Dacă aplicația ocupă și mai mult spațiu, cel mai probabil este cauzată de faptul că aveți elemente în coșul de reciclare. Acele fișiere contează la dimensiunea aplicației. Puteți goli coșul de reciclare deschizându-l și ștergând toate fișierele sau din setările aplicației. Fiecare fișier din coșul de gunoi este șters automat după 30 de zile.</string>
     <string name="faq_16_title">Ce s-a întâmplat cu ascunderea fișierelor și a dosarelor și de ce nu mai pot vedea elementele ascunse\?</string>
-    <string name="faq_16_text">Începând cu Android 11, nu mai puteți ascunde sau dezascunde fișiere sau dosarele, nu le puteți vedea pe cele ascunse nici în aplicațiile din galerie. Va trebui să folosiți un manager de fișiere pentru asta.</string>
+    <string name="faq_16_text">Începând cu Android 11, nu mai puteți ascunde sau dezascunde fișiere sau foldere, nu le puteți vedea pe cele ascunse nici în aplicațiile din galerie din cauza restricțiilor de sistem. Va trebui să folosiți un manager de fișiere pentru asta.</string>
     <string name="faq_17_title">De ce nu mai pot include dosarele lipsă\?</string>
     <string name="faq_17_text">Aceasta a încetat să mai funcționeze din cauza schimbărilor de sistem care au venit odată cu Android 11. Aplicația nu mai poate răsfoi dosare reale, ci se bazează pe așa-numitul MediaStore pentru a prelua informaţiile.</string>
     <string name="faq_18_title">De ce văd reclame în timpul redării video\?</string>
