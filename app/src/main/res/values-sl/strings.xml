@@ -222,7 +222,7 @@
     <string name="bottom_actions">Akcije na dnu</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Urejaj vidne akcije na dnu</string>
-    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_favorite">Preklopi priljubljene</string>
     <string name="toggle_file_visibility">Preklopi vidljivost datotek</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
