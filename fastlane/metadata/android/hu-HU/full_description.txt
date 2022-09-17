@@ -1,25 +1,25 @@
-A Simple Gallery egyetlen stílusos, könnyen használható alkalmazásban kínálja az összes olyan fényképnézegetési és -szerkesztési funkciót, amelyet eddig hiányoltál az Androidodról. Minden eddiginél gyorsabban böngészhet, kezelhet, vághat és szerkeszthet fotókat vagy videókat, helyreállíthatja a véletlenül törölt fájlokat, vagy létrehozhat rejtett galériákat a legértékesebb képei és videói számára. A fejlett fájltámogatással és a teljes testreszabhatósággal pedig végre úgy működik a galériád, ahogyan te szeretnéd.
+A Simple Gallery egyetlen stílusos, könnyen használható alkalmazásban kínálja az összes olyan fényképnézegetési és szerkesztési funkciót, amelyet eddig hiányoltál az Androidodról. Minden eddiginél gyorsabban böngészhetsz, vághatsz és szerkeszthetsz fotókat vagy videókat, viaaszaszerezheted a véletlenül törölt fájlokat vagy létrehozhatsz rejtett galériákat a legértékesebb képeid és videóid számára. A fejlett fájltámogatással és a teljes testreszabhatósággal pedig végre úgy működik a galériád, ahogyan te szeretnéd.
 
 FEJLETT KÉPSZERKESZTŐ
-A Simple Gallery továbbfejlesztett fájlrendezőjével és fotóalbumával a fotószerkesztés gyerekjátékká válik. Intuitív gesztusokkal szuperegyszerűvé válik a képek menet közbeni szerkesztése. Vágd, forgasd, forgasd és méretezd át a képeket, vagy alkalmazz stílusos szűrőket, hogy egy pillanat alatt feldobd őket.
+A Simple Gallery továbbfejlesztett fájlrendezőjével és fotóalbumával a fotószerkesztés gyerekjátékká válik. Intuitív gesztusokkal szuperegyszerűvé válik a képek menet közbeni szerkesztése. Vágd, forgasd és méretezd át a képeket vagy alkalmazz stílusos szűrőket, hogy egy pillanat alatt feldobd őket.
 
 AZ ÖSSZES SZÜKSÉGES FÁJL
-A Simple Gallery a legkülönbözőbb fájltípusok óriási választékát támogatja, beleértve a JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panorámafotókat, videókat és még sok mást, így teljes rugalmasságot élvezhet a formátumválasztásban. Gondolkodott már azon, hogy "Használhatom-e ezt a formátumot az Androidomon"? Most a válasz igen.
+A Simple Gallery a legkülönbözőbb fájltípusok óriási választékát támogatja, beleértve a JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panorámafotókat, videókat és még sok mást, így teljes rugalmasságot élvezhetsz a formátumválasztásban. Gondolkodtál már azon, hogy "Használhatom-e ezt a formátumot az Androidomon"? Most a válasz igen.
 
-TEGYE A SAJÁTJÁVÁ
-A Simple Gallery rendkívül testreszabható kialakítása lehetővé teszi, hogy a fotóalkalmazást úgy nézzen ki, úgy érezze magát és úgy működjön, ahogyan Ön szeretné. A felhasználói felülettől kezdve az alsó eszköztáron található funkciógombokig a Simple Gallery megadja Önnek azt a kreatív szabadságot, amelyre egy galériaalkalmazásban szüksége van.
+TEDD SAJÁTODDÁL
+A Simple Gallery rendkívül testreszabható kialakítása lehetővé teszi, hogy az alkalmazás olyan lehgyen amilyennek szeretnéd. A felhasználói felülettől kezdve az alsó eszköztáron található funkciógombokig a Simple Gallery megadja azt a kreatív szabadságot, amelyre egy galériaalkalmazásban szükséged van.
 
 TÖRÖLT FÉNYKÉPEK ÉS VIDEÓK HELYREÁLLÍTÁSA
-Soha többé nem kell aggódnia amiatt, hogy véletlenül törli azt az értékes fényképet vagy videót, amelyet egyszerűen nem tud pótolni. A Simple Gallery lehetővé teszi, hogy gyorsan visszaállítson bármilyen törölt fényképet és videót, vagyis amellett, hogy a Simple Gallery a legjobb médiagaléria Androidhoz, egy csodálatos fotópáncélterem alkalmazásként is funkcionál.
+Soha többé nem kell aggódnod amiatt, hogy véletlenül kitörlöd azt az értékes fényképet vagy videót, amelyet egyszerűen nem tudsz pótolni. A Simple Gallery lehetővé teszi, hogy gyorsan visszaállíts bármilyen törölt fényképet és videót vagyis amellett, hogy a Simple Gallery a legjobb médiagaléria Androidhoz, egy csodálatos fotópáncélterem alkalmazásként is funkcionál.
 
 VÉDI A PRIVÁT FÉNYKÉPEKET, VIDEÓKAT ÉS FÁJLOKAT
-Biztos lehet benne, hogy a fotóalbuma biztonságban van. A Simple Gallery kiváló biztonsági funkcióival kitűzővel, mintával vagy a készülék ujjlenyomat-olvasójával korlátozhatja, hogy ki láthatja vagy szerkesztheti a kiválasztott fényképeket és videókat, illetve hozzáférhet a fontos fájlokhoz. Még magát az alkalmazást is megvédheti, vagy a fájlrendező egyes funkcióit is lezárhatja.
+Biztos lehetsz benne, hogy a fotóalbumod biztonságban van. A Simple Gallery kiváló biztonsági funkcióival kitűzővel, mintával vagy a készülék ujjlenyomat-olvasójával korlátozhatja, hogy ki láthatja vagy szerkesztheti a kiválasztott fényképeket és videókat, illetve hozzáférhet a fontos fájlokhoz. Még magát az alkalmazást is megvédheted, vagy a fájlrendező egyes funkcióit is lezárhatod.
 
-Alapértelmezés szerint anyagi dizájnnal és sötét témával rendelkezik, így nagyszerű felhasználói élményt nyújt a könnyű használathoz. Az internet-hozzáférés hiánya nagyobb magánéletet, biztonságot és stabilitást biztosít, mint más alkalmazások.
+Dizájnos és sötét témával rendelkezik, így nagyszerű felhasználói élményt nyújt a könnyű használathoz. Az internet-hozzáférés hiánya nagyobb magánéletet, biztonságot és stabilitást biztosít, mint más alkalmazások.
 
-Nem tartalmaz hirdetéseket vagy felesleges engedélyeket. Teljesen nyílt forráskódú, és testreszabható színeket biztosít.
+Nem tartalmaz hirdetéseket vagy felesleges engedélyeket. Teljesen nyílt forráskódú és testreszabható színeket biztosít.
 
-Tekintse meg a Simple Tools teljes csomagját itt:
+Nézd meg a Simple Tools teljes csomagját itt:
 https://www.simplemobiletools.com
 
 A Simple Gallery Pro önálló weboldala:
