@@ -1,46 +1,26 @@
-Schlichte Galerie ist eine stark individualisierbare Offline bilder bearbeiten Galerie. Ordne & bilder bearbeiten, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze & verstecke Dateien und zeige eine Vielzahl von Bilder- & Videoformaten an, unter anderem RAW, SVG und viele mehr.
+Schlichte Galerie bringt alles zur Betrachtung und Bearbeitung von Fotos mit, was auf einem Android-Gerät in einer modernen, einfach zu verwendenden App fehlt. Schneller als je zuvor Fotos oder Videos durchsuchen, verwalten, zuschneiden und bearbeiten, versehentlich gelöschte Dateien wiederherstellen oder verborgene Galerien für die wertvollsten Bilder und Videos erstellen. Durch Unterstützung einer Vielzahl von Bilder- & Videoformaten und komplette Individualisierung, funktioniert die Galerie endlich so wie sie es soll.
 
-Die App enthält keine Werbung und verlangt keine unnötigen Berechtigungen. Da die App auch keinen Internetzugang benötigt, ist deine Privatsphäre geschützt.
+FORTSCHRITTLICHE FOTOBEARBEITUNG
+Mit der verbesserten Dateiverwaltung und dem Fotoalbum in Schlichte Galerie die Fotobearbeitung in ein Kinderspiel verwandeln. Intuitive Gesten machen es superleicht, Bilder schnell zu bearbeiten. Bilder zuschneiden, spiegeln, drehen und ihre Größe ändern oder elegante Filter anwenden, um sie im Nu aufzuwerten.
 
-Lade Schlichte Galerie noch heute herunter und kreiere magische Fotos. 
+ALLE DATEITYPEN, DIE MAN BRAUCHT
+Schlichte Galerie unterstützt eine Vielzahl an verschiedenen Dateiformaten. JPEG, PNG, MP4, MKV, RAW, SVG, GIF, Panorama-Fotos, Videos und viele mehr. Man genießt die komplette Flexibilität, was die Wahl des Dateiformats anlangt. Wer sich jemals gefragt hat: „Kann ich dieses Format auf meinem Gerät verwenden?“ Die Antwort lautet „Ja“.
+Die App enthält keine Werbung und verlangt keine unnötigen Berechtigungen. Da die App auch keinen Internetzugang benötigt, ist deine Privatsphäre geschützt. 
 
-SCHLICHTE GALERIE FUNKTIONEN:
+INDIVIDUALISIERUNG
+Das bis ins Feinste anpassbare Design von Schlichte Galerie ermöglicht die Anpassung von Aussehen, Erleben und Funktion in jeder gewünschten Weise. Von der Benutzeroberfläche bis zu den Funktionstasten in der unteren Werkzeugleiste verleiht Schlichte Galerie die kreative Freiheit, die in einer Foto-App nötig ist.
 
-Erweiterter Foto-Editor
-- Bearbeite Fotos in der einfachen Dateiverwaltung und im Fotoalbum von Schlichte Galerie
-- Zuschneiden und Bearbeiten von Bildern von überall
-- Mit dem einfachen Foto-Editor kannst du Bilder drehen, korrigieren und vieles mehr
-- Fotobearbeitung leicht gemacht: Fotos spiegeln, drehen und in der Größe verändern, dann stilvolle Filter anwenden
-- Sammle deine Bilder in der Fotogalerie und schau dir deine Kunstwerke an
+GELÖSCHTE FOTOS & VIDEOS WIEDERHERSTELLEN
+Keine Sorge mehr, dass ein versehentlich gelöschtes, wertvolles Foto oder Video unwiederbringlich verloren ist. Schlichte Galerie ermöglicht die schnelle Wiederherstellung jedes gelöschten Fotos und Videos. Das bedeutet, dass Schlichte Galerie neben der besten Mediengalerie für Android auch eine herausragende Tresor-App für Fotos ist.
 
-Teile deine Fotos
-- Gib bearbeitete Fotos frei und zeig dein Können 
-- Fotos einfach und schnell freigeben
-- Bilder in der Fotogalerie anschauen und mit Kontakten teilen 
-- Die Fotofreigabefunktion macht es einfach, Fotos mit Schlichte Galerie zu teilen
+SCHUTZ FÜR PRIVATE FOTOS, VIDEOS & DATEIEN
+Sicher bleibt, das Fotoalbum ist sicher. Mit den ausgefeilten Sicherheitsfunktionen von Schlichte Galerie kann man eine PIN, ein Muster oder den Fingerabdruck-Scanner verwenden, um einzuschränken, wer bestimmte Fotos und Videos ansehen oder bearbeiten darf oder Zugriff auf wichtige Dateien erhält. Selbst die App selbst kann geschützt oder spezielle Funktionen der Dateiverwaltung mit Schlössern versehen werden.
 
-Verwalten von Dateiformaten
-- Schlichte Galerie unterstützt viele verschiedene Dateitypen
-- Gib Fotos aller Dateitypen frei, du hast volle Flexibilität bei der Wahl des Formats
-- JPEG, PNG, MP4, MKV, RAW, SVG, GIF und mehr
-- Unterstützung von Foto- und Videodateien 
+s kommt mit Material-Design und einem dunklen Thema standardmäßig, bietet eine großartige Benutzererfahrung für die einfache Verwendung. Der fehlende Internetzugang bietet Ihnen mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
 
-Individualisierbare Fotogalerie
-- Die App kann deinen Bedürfnissen angepasst werden 
-- Die Foto-App sieht genauso aus und funktioniert so, wie du es willst  
-- Fotos können wiederhergestellt werden, wenn du sie aus Versehen gelöscht hast
-- Unser Foto-Keeper bewahrt deine Bilder sicher und geschützt in einem privaten Foto-Tresor auf
+Enthält keine Werbung oder unnötige Berechtigungen. Ist komplett Open-Source und bietet anpassbare Farben.
 
-Privater Schutz von Fotos, Videos und Dateien
-- Versteckte Galerien sind sicher und geschützt
-- Fotos können nur von ausgewählten Personen angesehen und bearbeitet werden
-- Erhöhte Sicherheit durch Funktionen wie PIN, Muster oder Fingerabdruck-Scanner deines Geräts
-
-Es kommt mit Material-Design und einem dunklen Thema standardmäßig, bietet eine großartige Benutzererfahrung für die einfache Verwendung. Der fehlende Internetzugang bietet Ihnen mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
-
-Enthält keine Anzeigen oder unnötige Berechtigungen. Es ist vollständig Open-Source und bietet anpassbare Farben.
-
-Die komplette Suite von Simple Tools findest du hier:
+Die komplette Suite von Simple Tools gibt es hier:
 https://www.simplemobiletools.com
 
 Website von Schlichte Galerie Pro:
