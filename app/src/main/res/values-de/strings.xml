@@ -56,13 +56,13 @@
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
-    <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
+    <string name="exclude_folder_description">Diese Funktion schließt die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Stattdessen einen Elternteil ausschließen\?</string>
     <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.
 \n
 \nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion „Ordner verstecken“.</string>
     <string name="remove_all">Alle entfernen</string>
-    <string name="remove_all_description">Alle Ordner aus der Liste ausgeblendeter Ordner entfernen\? Die Ordner selbst werden nicht gelöscht.</string>
+    <string name="remove_all_description">Alle Ordner aus der Liste ausgeschlossener Ordner entfernen\? Die Ordner selbst werden dabei nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
     <string name="hidden_folders_placeholder">Keinen mit einer .nomedia-Datei versteckten Ordner gefunden.</string>
@@ -160,7 +160,7 @@
     <string name="show_folder_name">Ordnernamen anzeigen</string>
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
-    <string name="remember_last_video_position">Letzte Videowiedergabeposition erinnern</string>
+    <string name="remember_last_video_position">Letzte Videowiedergabeposition merken</string>
     <string name="loop_videos">Videos in Endlosschleife abspielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
@@ -186,27 +186,27 @@
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
-    <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
-    <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
-    <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
-    <string name="allow_one_to_one_zoom">Erlaube 1:1-Zoom mit zweimaligem doppelten Antippen</string>
-    <string name="open_videos_on_separate_screen">Öffne Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten</string>
-    <string name="show_notch">Zeige eine Notch, wenn vorhanden</string>
+    <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität zeigen</string>
+    <string name="show_recycle_bin_last">Papierkorb als letztes Element auf dem Hauptbildschirm anzeigen</string>
+    <string name="allow_down_gesture">Schließen der Vollbildansicht mit einer Abwärtsgeste ermöglichen</string>
+    <string name="allow_one_to_one_zoom">1:1-Zoom mit zweimaligem doppeltem Antippen ermöglichen</string>
+    <string name="open_videos_on_separate_screen">Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten öffnen</string>
+    <string name="show_notch">Notch anzeigen, wenn vorhanden</string>
     <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
     <string name="file_loading_priority">Priorität beim Laden von Dateien</string>
     <string name="speed">Geschwindigkeit</string>
     <string name="compromise">Kompromiss</string>
-    <string name="avoid_showing_invalid_files">Das Anzeigen von ungültigen Dateien vermeiden</string>
+    <string name="avoid_showing_invalid_files">Anzeige ungültiger Dateien vermeiden</string>
     <string name="show_image_file_types">Bilddateitypen anzeigen</string>
     <string name="allow_zooming_videos">Erlaube Zoomen in Videos mit doppeltem Antippen</string>
     <string name="folder_thumbnail_style">Miniaturbildordner-Stil</string>
     <string name="file_thumbnail_style">Dateivorschau-Stil</string>
     <string name="mark_favorite_items">Favoriten markieren</string>
     <string name="thumbnail_spacing">Vorschaubild-Abstand</string>
-    <string name="show_file_count_line">Zeige Anzahl der Dateien in einer seperaten Zeile an</string>
+    <string name="show_file_count_line">Anzahl der Dateien in einer separaten Zeile anzeigen</string>
     <string name="show_file_count_brackets">Anzahl der Dateien in Klammern anzeigen</string>
     <string name="show_file_count_none">Anzahl der Dateien nicht anzeigen</string>
-    <string name="limit_folder_title">Begrenze lange Ordnertitel auf 1 Zeile</string>
+    <string name="limit_folder_title">Lange Ordnertitel auf 1 Zeile begrenzen</string>
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
@@ -223,7 +223,7 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Funktionen auswählen</string>
     <string name="toggle_favorite">Favorit umschalten</string>
-    <string name="toggle_file_visibility">Schaltet die Sichtbarkeit von Dateien um</string>
+    <string name="toggle_file_visibility">Sichtbarkeit von Dateien umschalten</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Benutzerdefiniert</string>
     <string name="pesdk_transform_button_resetCrop">Zurücksetzen</string>
@@ -265,7 +265,7 @@
     <string name="pesdk_text_button_alignment">Ausrichtung</string>
     <string name="pesdk_text_button_bringToFront">Nach Vorne</string>
     <string name="pesdk_text_button_delete">Löschen</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Dein Text</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Ihr Text</string>
     <string name="pesdk_brush_title_name">Pinsel</string>
     <string name="pesdk_brush_button_color">Farbe</string>
     <string name="pesdk_brush_button_size">Größe</string>
@@ -275,14 +275,14 @@
     <string name="pesdk_brush_title_brushColor">Pinselfarbe</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Editor schließen\?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Möchtest du die Änderungen wirklich verwerfen\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Möchten Sie die Änderungen wirklich verwerfen\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nein</string>
     <string name="pesdk_editor_cancel">Abbrechen</string>
     <string name="pesdk_editor_accept">Akzeptieren</string>
     <string name="pesdk_editor_save">Speichern</string>
-    <string name="pesdk_editor_text_exportProgressUnknown">Wird exportiert …</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Wird exportiert %s.</string>
+    <string name="pesdk_editor_text_exportProgressUnknown">Exportieren …</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s wird exportiert.</string>
     <string name="pesdk_sticker_title_name">Aufkleber</string>
     <string name="pesdk_sticker_title_color">Aufkleberfarbe</string>
     <string name="pesdk_sticker_title_options">Aufkleber-Optionen</string>
@@ -339,15 +339,15 @@
     <string name="vesdk_video_trim_title_name">Zuschneiden</string>
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen\?</string>
-    <string name="faq_1_text">Zunächst musst du unter „Apps“ in den Geräteeinstellungen die aktuelle Standardgalerie finden. Suche nach einer Bedienfläche wie „Standardmäßig öffnen“, betätige diese und wähle „Standardeinstellungen löschen“. Das nächste Mal, wenn du ein Bild oder ein Video öffnest, sollte ein Auswahlfenster erscheinen und es möglich sein, Schlichte Galerie als Standard-Anwendung auszuwählen.</string>
+    <string name="faq_1_text">Zunächst muss man unter „Apps“ in den Geräteeinstellungen die aktuelle Standardgalerie finden, dort nach einer Bedienfläche wie „Standardmäßig öffnen“ suchen, diese betätigen und „Standardeinstellungen löschen“ wählen. Beim nächsten Öffnen eines Bildes oder eines Videos, sollte ein Auswahlfenster erscheinen, in dem man Schlichte Galerie als Standard-Anwendung auswählen kann.</string>
     <string name="faq_2_title">Ich habe die App mit einem Passwort geschützt und es vergessen. Was kann ich tun\?</string>
-    <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder du installierst die App erneut oder du wählst in den Geräteeinstellungen „Apps“ aus und dann „Daten löschen“. Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
+    <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder man installiert die App neu oder sucht die App in den Geräteeinstellungen und wählt dort „Daten löschen“. Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
     <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen\?</string>
-    <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
+    <string name="faq_3_text">Man kann lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angeheftet. Man kann auch mehrere Ordner anheften. Angeheftete Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen\?</string>
-    <string name="faq_4_text">Das geht, indem du doppelt auf die Seite des Bildschirms drückst, oder indem du auf den Text nahe der Suchleiste drückst, der die aktuelle bzw. maximale Zeit anzeigt. Wenn du in den App-Einstellungen die Funktion aktiviert hast, dass Videos in einem seperaten Fenster geöffnet werden können, kannst Du zudem horizontale Gesten verwenden.</string>
+    <string name="faq_4_text">Das geht, indem man doppelt auf die Seite des Bildschirms drückt, oder indem man auf den Text nahe der Suchleiste drückt, der die aktuelle bzw. maximale Zeit anzeigt. Wenn in den App-Einstellungen die Funktion aktiviert ist, dass Videos in einem separaten Fenster geöffnet werden, kann man zudem horizontale Gesten verwenden.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen dem Verstecken und dem Ausschließen eines Ordners\?</string>
-    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während Hide systembedingt funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die Sie dann auch mit einem beliebigen Dateimanager entfernen können. Beachte, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
+    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers\?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
     <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt oder es werden nicht alle Bilder angezeigt. Was kann ich tun\?</string>
@@ -356,8 +356,8 @@
     <string name="faq_8_text">Einen Ordner zu den „einbezogenen Ordnern“ hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen „Ausgeschlossene Ordner verwalten“ zu wählen, den Stammordner / auszuschließen und dann alle gewünschten Ordner in „Einbezogene Ordner verwalten“ hinzuzufügen.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden\?</string>
     <string name="faq_10_text">Ja, man kann Bilder über das Ziehen der Bildecken im Editor zuschneiden. Zum Editor gelangt man, indem man lange auf ein Vorschaubild drückt und Bearbeiten auswählt oder durch Auswählen von „Bearbeiten“ in der Vollbildansicht.</string>
-    <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren\?</string>
-    <string name="faq_11_text">Verwende dazu den Menüeintrag „Gruppieren nach“ in der Miniaturansicht. Man kann Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn man die Funktion „Alle Ordnerinhalte anzeigen“ verwendet, kann man sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_11_title">Kann ich Mediendatei-Miniaturansichten irgendwie gruppieren\?</string>
+    <string name="faq_11_text">Sicher, einfach den Menüeintrag „Gruppieren nach“ verwenden, während man in der Ansicht der Minibilder ist. Man kann Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn man die Funktion „Alle Ordnerinhalte anzeigen“ verwendet, kann man sie auch nach Ordnern gruppieren.</string>
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren\?</string>
     <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass die Bilder von woanders kopiert worden sind. In diesem Fall sollten die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markiert und dann im Menü oben rechts die Funktion „Aufnahmedatum korrigieren“ ausgeführt werden.</string>
     <string name="faq_13_title">Ich sehe Banding (streifiger Farbverlauf) auf den Bildern. Wie kann ich die Qualität verbessern\?</string>
@@ -371,7 +371,7 @@
     <string name="faq_17_title">Warum kann ich fehlende Ordner nicht mehr einbinden\?</string>
     <string name="faq_17_text">Das funktioniert seit den Systemänderungen durch Android 11 nicht mehr, da die Anwendung keine echten Ordner mehr durchsuchen kann, sondern sich beim Abrufen von Daten auf den sogenannten MediaStore verlässt.</string>
     <string name="faq_18_title">Warum sehe ich während der Videowiedergabe Werbung\?</string>
-    <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn Sie während der Videowiedergabe trotzdem welche sehen, liegt das daran, dass Sie den Videoplayer einer anderen App verwenden. Versuchen Sie, Ihren Standard-Videoplayer in den Geräteeinstellungen zu finden, und führen Sie dann „Standardeinstellungen löschen“ aus. Wenn Sie das nächste Mal ein Video aufrufen, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der Sie die gewünschte Anwendung auswählen können.</string>
+    <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn während der Videowiedergabe trotzdem welche gezeigt wird, liegt das daran, dass man den Videoplayer einer anderen App verwendet. Man sollte versuchen, den Standard-Videoplayer in den Geräteeinstellungen zu finden, und dann „Standardeinstellungen löschen“ ausführen. Beim nächsten Aufruf eines Videos, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der man die gewünschte Anwendung auswählen kann.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
