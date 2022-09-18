@@ -352,7 +352,7 @@
     <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
     <string name="faq_7_title">Un cartafol con imaxes non aparece, que podo facer\?</string>
     <string name="faq_7_text">Isto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -&gt; xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
-    <string name="faq_8_title">E que pasa se só quero que sexan visibles certos cartafoles</string>
+    <string name="faq_8_title">¿E que pasa se só quero que sexan visibles certos cartafoles\?</string>
     <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -&gt; Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despois engadir os cartafoles desexados con Axustes -&gt; Xestionar Cartafoles Incluídos. Isto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
     <string name="faq_10_title">Podo recortar imaxes con este aplciativo\?</string>
     <string name="faq_10_text">Si, pode recortar imaxes no editor, arrastrando as esquinas das imaxes. Pode chegar ao editor tanto presionando na imaxe durante un anaco e seleccionando Editar, ou seleccionando Editar dende a vista de pantalla completa.</string>
