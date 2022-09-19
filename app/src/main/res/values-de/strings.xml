@@ -60,7 +60,7 @@
     <string name="exclude_folder_parent">Stattdessen einen höherliegenden Ordner ausschließen\?</string>
     <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.
 \n
-\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion „Ordner verstecken“.</string>
+\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion „Ordner verstecken“.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Liste ausgeschlossener Ordner entfernen\? Die Ordner selbst werden dabei nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
