@@ -19,11 +19,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_180
-import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_270
-import androidx.exifinterface.media.ExifInterface.ORIENTATION_ROTATE_90
-import androidx.exifinterface.media.ExifInterface.ORIENTATION_TRANSVERSE
-import androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION
+import androidx.exifinterface.media.ExifInterface.*
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
@@ -342,7 +338,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun degreesForRotation(orientation: Int) = when (orientation) {
-        ORIENTATION_ROTATE_270 -> 270
+        ORIENTATION_ROTATE_270, ORIENTATION_TRANSPOSE -> 270
         ORIENTATION_ROTATE_180 -> 180
         ORIENTATION_ROTATE_90, ORIENTATION_TRANSVERSE -> 90
         else -> 0
