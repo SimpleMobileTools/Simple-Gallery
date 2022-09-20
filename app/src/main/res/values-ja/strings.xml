@@ -11,7 +11,7 @@
     <string name="pin_to_the_top">トップにピン留めする</string>
     <string name="show_all">すべてを表示</string>
     <string name="all_folders">すべてのフォルダ</string>
-    <string name="folder_view">フォルダを選択する</string>
+    <string name="folder_view">フォルダ表示に切り替え</string>
     <string name="other_folder">その他のフォルダ</string>
     <string name="show_on_map">地図上で表示</string>
     <string name="unknown_location">位置情報がありません</string>
@@ -64,8 +64,8 @@
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">除外項目を一時的に表示</string>
+    <string name="stop_showing_excluded">除外項目の表示を中止</string>
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>
     <string name="manage_included_folders">追加フォルダの管理</string>
