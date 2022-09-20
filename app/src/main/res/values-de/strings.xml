@@ -24,15 +24,15 @@
     <string name="force_landscape">Bildausrichtung im Querformat</string>
     <string name="use_default_orientation">Automatische Bildausrichtung</string>
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
-    <string name="fixing">Korrigiere …</string>
+    <string name="fixing">Korrigieren…</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
     <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
     <string name="upgraded_from_free">Hallo,
 \n
-\nes sieht so aus, als ob Sie eine Aktualisierung von der alten kostenlosen Anwendung durchgeführt haben. Sie können die alte Version jetzt deinstallieren. Oben in den Anwendungseinstellungen gibt es eine Schaltfläche „Auf Pro aktualisieren“.
+\nes sieht so aus, als hättest du eine Aktualisierung von der alten kostenlosen Anwendung durchgeführt. Du kannst die alte Version jetzt deinstallieren. Oben in den Anwendungseinstellungen gibt es eine Schaltfläche „Auf Pro aktualisieren“.
 \n
-\nDabei werden nur die Elemente im Papierkorb gelöscht, die Markierung der Favoriten aufgehoben und Sie müssen Ihre Anwendungseinstellungen zurücksetzen.
+\nDabei werden nur die Elemente im Papierkorb gelöscht, die Markierung der Favoriten aufgehoben und du musst deine Anwendungseinstellungen zurücksetzen.
 \n
 \nVielen Dank!</string>
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
@@ -52,15 +52,15 @@
     <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden.</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem sie eine .nomedia-Datei hinzufügt, und sie verbirgt auch alle Unterordner. Sie können sie sehen, indem Sie die Option „Ausgeblendete Elemente anzeigen“ in den Einstellungen umschalten. Weiter\?</string>
+    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem sie in ihn eine .nomedia-Datei einfügt, sie verbirgt auch alle Unterordner. Du kannst sie wieder sehen, indem du in den Einstellungen die Option „Ausgeblendete Elemente anzeigen“ umschaltest. Weiter\?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
     <string name="exclude_folder_description">Diese Funktion schließt die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Stattdessen einen höherliegenden Ordner ausschließen\?</string>
-    <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.
+    <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird die gewählten Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden sie weiterhin anzeigen.
 \n
-\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion „Ordner verstecken“.</string>
+\nWenn du Ordner auch für andere Apps verstecken willst, verwende die Funktion „Ordner verstecken“.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Liste ausgeschlossener Ordner entfernen\? Die Ordner selbst werden dabei nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
@@ -72,7 +72,7 @@
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Wenn Sie einige Ordner haben, die Medien enthalten, aber von der Anwendung nicht erkannt wurden, können Sie sie hier manuell hinzufügen.
+    <string name="included_activity_placeholder">Wenn du einige Ordner hast, die Medien enthalten, aber von der Anwendung nicht erkannt wurden, kannst du sie hier manuell hinzufügen.
 \n
 \nDas Hinzufügen einiger Elemente hier schließt keine anderen Ordner aus.</string>
     <string name="no_media_add_included">Es konnten keine Mediendateien gefunden werden. Das Problem kann behoben werden, indem die Ordner mit den Mediendateien manuell hinzugefügt werden.</string>
@@ -210,11 +210,11 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
-    <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollten Sie diese App in den Einstellungen Ihres Geräts als Medienverwaltungs-App festlegen.</string>
+    <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollte diese App in den Geräteeinstellungen als Medienverwaltungs-App festgelegt werden.</string>
     <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
-    <string name="media_management_manual">Irgendetwas ist schief gelaufen. Bitte gehen Sie in Ihrem Gerät auf Einstellungen - Anwendungen - Spezieller Anwendungs-Zugriff - Medienverwaltungs-Anwendungs und erlauben Sie dieser Anwendung, Medien zu verwalten.</string>
-    <string name="media_management_note">Wenn die Umleitung nicht funktioniert, gehen Sie bitte in die Einstellungen Ihres Geräts - Anwendungen - Spezieller App-Zugriff - Medienverwaltungs-Apps und erlauben Sie dieser App die Verwaltung von Medien.</string>
-    <string name="media_management_alternative">Wenn Sie dies nicht tun möchten, können Sie auch in Ihrem Gerät unter Einstellungen - Anwendungen - Spezieller App-Zugriff - Medienverwaltungs-Apps dieser Anwendung die Verwaltung von Medien erlauben.</string>
+    <string name="media_management_manual">Irgendetwas ist schief gelaufen. Öffne bitte die Geräteeinstellungen - Apps - Erweitert - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser Anwendung, Medien zu verwalten.</string>
+    <string name="media_management_note">Wenn die Umleitung nicht funktioniert, öffne bitte die Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser App die Medienverwaltung.</string>
+    <string name="media_management_alternative">Wenn du das nicht möchtest, kannst du auch in den Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung dieser Anwendung die Verwaltung von Medien erlauben.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>
@@ -275,7 +275,7 @@
     <string name="pesdk_brush_title_brushColor">Pinselfarbe</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Editor schließen\?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">Möchten Sie die Änderungen wirklich verwerfen\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">Sollen die Änderungen wirklich verworfen werden\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Nein</string>
     <string name="pesdk_editor_cancel">Abbrechen</string>
