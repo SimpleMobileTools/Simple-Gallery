@@ -119,7 +119,7 @@
     <string name="home_screen">ホーム画面</string>
     <string name="lock_screen">ロック画面</string>
     <string name="home_and_lock_screen">ホーム画面とロック画面</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">縦横比の変更を許可</string>
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>
     <string name="interval">間隔</string>
@@ -206,10 +206,10 @@
     <string name="square">四角</string>
     <string name="rounded_corners">丸コーナー</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">すべてのファイル操作を確実に行うためには、端末の設定でこのアプリをメディア管理アプリにする必要があります。</string>
     <string name="password_protect_excluded">除外されたフォルダの表示をパスワードで保護します</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_note">リダイレクトが機能しない場合、端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
@@ -362,8 +362,8 @@
     <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
     <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ゴミ箱内のアイテムが原因となっているはずです。ゴミ箱内のファイルもアプリ容量として加算されます。ゴミ箱を開くか、アプリの設定から全てのファイルを削除できます。ゴミ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
-    <string name="faq_16_text">Android 11以降では、ファイルやフォルダを非表示または非表示にすることはできません。ギャラリーアプリケーションでも非表示のファイルやフォルダを表示することはできません。 そのためには、いくつかのファイルマネージャを使用する必要があります。</string>
+    <string name="faq_16_title">ファイルとフォルダを非表示にする機能はどうなったのでしょうか？非表示の項目が表示されなくなったのはなぜですか？</string>
+    <string name="faq_16_text">Android11以降では、システムの制限により、ファイルやフォルダの非表示と非表示解除ができなくなりました。また、ギャラリーアプリ内で非表示の項目を確認できなくなりましたので、対処可能な別のファイルマネージャーを使用する必要があります。</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback\?</string>
