@@ -1287,7 +1287,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (refetchViewPagerPosition || mPos == -1) {
             mPos = getPositionInList(media)
             if (mPos == -1) {
-                min(mPos, media.size - 1)
+                min(mPos, media.lastIndex)
             }
         }
 
@@ -1392,7 +1392,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 putExtra(IS_FROM_GALLERY, true)
                 putExtra(REAL_FILE_PATH, path)
                 putExtra(SHOW_PREV_ITEM, view_pager.currentItem != 0)
-                putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.size - 1)
+                putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.lastIndex)
 
                 try {
                     startActivityForResult(this, REQUEST_VIEW_VIDEO)
@@ -1448,7 +1448,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return if (getCurrentMedia().isEmpty() || mPos == -1) {
             null
         } else {
-            getCurrentMedia()[min(mPos, getCurrentMedia().size - 1)]
+            getCurrentMedia()[min(mPos, getCurrentMedia().lastIndex)]
         }
     }
 
