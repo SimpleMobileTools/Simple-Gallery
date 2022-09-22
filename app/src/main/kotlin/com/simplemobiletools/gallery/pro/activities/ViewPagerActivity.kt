@@ -594,12 +594,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
+            val medium = getCurrentMedium()
+
             view_pager.setPageTransformer(false, DefaultPageTransformer())
             mIsSlideshowActive = false
             showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             mAreSlideShowMediaVisible = false
+
+            if (config.slideshowRandomOrder) {
+                // reset sort order while retaining currently displayed item
+                mPos = getCurrentMedia().indexOf(medium)
+                updatePagerItems(mMediaFiles)
+            }
         }
     }
 
@@ -1429,8 +1437,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updateActionbarTitle() {
         runOnUiThread {
-            if (mPos < getCurrentMedia().size) {
-                medium_viewer_toolbar.title = getCurrentMedia()[mPos].path.getFilenameFromPath()
+            val medium = getCurrentMedium()
+            if (medium != null) {
+                medium_viewer_toolbar.title = medium.path.getFilenameFromPath()
             }
         }
     }
