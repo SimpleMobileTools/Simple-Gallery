@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Yksinkertainen galleria</string>
     <string name="app_launcher_name">Galleria</string>
     <string name="edit">Muokkaa</string>
     <string name="open_camera">Avaa kamera</string>
@@ -15,7 +15,7 @@
     <string name="other_folder">Muu kansio</string>
     <string name="show_on_map">Näytä kartalla</string>
     <string name="unknown_location">Tuntematon sijainti</string>
-    <string name="volume">Äänenvoimakkuus</string>
+    <string name="volume">Tilavuus</string>
     <string name="brightness">Kirkkaus</string>
     <string name="lock_orientation">Lukitse näytön kierto</string>
     <string name="unlock_orientation">Vapauta näytön kierto</string>
@@ -207,14 +207,14 @@
     <string name="show_file_count_brackets">Näytä tiedostojen lukumäärä suluissa</string>
     <string name="show_file_count_none">Älä näytä tiedostojen lukumäärää</string>
     <string name="limit_folder_title">Rajoita pitkät kansioiden nimet yhdelle riville</string>
-    <string name="square">Suorakulmio</string>
+    <string name="square">Neliö</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
     <string name="export_favorite_paths">Vie suosikkitiedostojen polut</string>
     <string name="media_management_prompt">Varmistaaksesi, että kaikki tiedostotoiminnot toimivat luotettavasti, tee tästä sovelluksesta medianhallintasovellus laitteen asetuksissa.</string>
     <string name="password_protect_excluded">Suojaa salasanalla pois suljettujen kansioiden näkyvyys</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Jokin meni pieleen, mene laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
+    <string name="media_management_note">Jos uudelleenohjaus ei toimi, siirry laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
+    <string name="media_management_alternative">Jos et halua tehdä sitä, voit myös mennä laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja sallia tämän sovelluksen hallita mediaa.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
@@ -222,7 +222,7 @@
     <string name="bottom_actions">Alareunan toiminnot</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Hallitse näkyviä alarivin toimintoja</string>
-    <string name="toggle_favorite">Suosikkimerkinnän muutos</string>
+    <string name="toggle_favorite">Vaihda suosikki</string>
     <string name="toggle_file_visibility">Tiedoston näkyvyyden muutos</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Vapaa</string>
@@ -300,7 +300,7 @@
     <string name="pesdk_overlay_title_name">Päällys</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normaali</string>
     <string name="pesdk_overlay_button_blendModeDarken">Tummenna</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Näyttö</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Päällys</string>
     <string name="pesdk_overlay_button_blendModeLighten">Valaise</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Monista</string>

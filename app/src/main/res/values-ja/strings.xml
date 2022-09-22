@@ -11,7 +11,7 @@
     <string name="pin_to_the_top">トップにピン留めする</string>
     <string name="show_all">すべてを表示</string>
     <string name="all_folders">すべてのフォルダ</string>
-    <string name="folder_view">フォルダを選択する</string>
+    <string name="folder_view">フォルダ表示に切り替え</string>
     <string name="other_folder">その他のフォルダ</string>
     <string name="show_on_map">地図上で表示</string>
     <string name="unknown_location">位置情報がありません</string>
@@ -37,7 +37,7 @@
     <string name="set_as_default_folder">デフォルトのフォルダとして設定</string>
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
     <string name="reorder_by_dragging">ドラッグによるフォルダの並べ替え</string>
-    <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
+    <string name="reorder_by_dragging_pro">ドラッグによるフォルダの並べ替え (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
@@ -64,8 +64,8 @@
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">除外項目を一時的に表示</string>
+    <string name="stop_showing_excluded">除外項目の表示を中止</string>
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>
     <string name="manage_included_folders">追加フォルダの管理</string>
@@ -170,13 +170,13 @@
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">全画面ではシステムUIを非表示</string>
     <string name="delete_empty_folders">空になったフォルダは削除する</string>
-    <string name="allow_photo_gestures">垂直の動作で写真の明るさを制御</string>
+    <string name="allow_photo_gestures">縦の動作で写真の明るさを制御</string>
     <string name="allow_video_gestures">音量と明るさを縦の動作で変更</string>
     <string name="show_media_count">フォルダ内のメディア数を表示する</string>
     <string name="show_extended_details">フルスクリーンに詳細を重ねて表示する</string>
     <string name="manage_extended_details">詳細表示を管理する</string>
     <string name="one_finger_zoom">メディアを指だけでズームする</string>
-    <string name="allow_instant_change">端を押してメディアをスライド</string>
+    <string name="allow_instant_change">画面端を押してメディアを切り替え</string>
     <string name="allow_deep_zooming_images">深いズームを許可</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
     <string name="show_at_bottom">画面の下にはアクションを表示</string>
@@ -186,7 +186,7 @@
     <string name="show_recycle_bin_last">ごみ箱をメイン画面の最後に表示</string>
     <string name="allow_down_gesture">フルスクリーン表示を下にスワイプするジェスチャーで閉じる</string>
     <string name="allow_one_to_one_zoom">ダブルタップして 1:1 ズームする</string>
-    <string name="open_videos_on_separate_screen">常に新しい左右のジェスチャーで動画を開く</string>
+    <string name="open_videos_on_separate_screen">左右ジェスチャー機能の切り替え (別の動画を開くor早送り/早戻し)</string>
     <string name="show_notch">ノッチ領域にも画像を表示</string>
     <string name="allow_rotating_gestures">ジェスチャーで画像を回転する</string>
     <string name="file_loading_priority">ファイルの優先ローディング</string>

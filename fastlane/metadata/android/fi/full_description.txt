@@ -1,0 +1,35 @@
+Yksinkertainen galleria tuo kaikki Androidista puuttuneet valokuvien katselu- ja muokkausominaisuudet yhteen tyylikkääseen helppokäyttöiseen sovellukseen. Selaa, hallitse, rajoita ja muokkaa valokuvia tai videoita nopeammin kuin koskaan, palauta vahingossa poistetut tiedostot tai luo piilotettuja gallerioita arvokkaimmille kuvillesi ja videoillesi. Ja kehittyneen tiedostotuen ja täydellisen mukauttamisen ansiosta galleriasi toimii vihdoin juuri niin kuin haluat.
+
+EDISTYNYT KUVANKÄSITTELYOHJELMA
+Tee kuvankäsittelystä lastenleikkiä Yksinkertainen Galleryn parannetulla tiedostojärjestelijällä ja valokuva-albumilla. Intuitiivisten eleiden avulla kuvien muokkaaminen lennossa on superhelppoa. Rajaa, käännä, pyöritä ja muuta kuvien kokoa tai käytä tyylikkäitä suodattimia, jotta kuvat nousevat esiin hetkessä.
+
+KAIKKI TARVITSEMASI TIEDOSTOT
+Yksinkertainen galleria tukee valtavaa valikoimaa erilaisia tiedostotyyppejä, kuten JPEG-, PNG-, MP4-, MKV-, RAW-, SVG-, GIF-, panoraamakuvia, videoita ja monia muita, joten voit nauttia täydestä joustavuudesta formaatin valinnassa. Oletko koskaan miettinyt "Voinko käyttää tätä muotoa Androidissani"? Nyt vastaus on kyllä.
+
+TEE SE OMAKSI
+Yksinkertainen Galleryn erittäin muokattavan suunnittelun ansiosta saat valokuvasovelluksen näyttämään, tuntumaan ja toimimaan juuri niin kuin haluat. Käyttöliittymästä alareunan työkalupalkin toimintopainikkeisiin Yksinkertainen Galleria antaa sinulle luovan vapauden, jota tarvitset galleriasovelluksessa.
+
+PALAUTTAA POISTETUT VALOKUVAT JA VIDEOT
+Älä enää koskaan murehdi, että poistat vahingossa sen yhden arvokkaan valokuvan tai videon, jota et voi korvata. Yksinkertainen Gallerian avulla voit palauttaa nopeasti kaikki poistetut valokuvat ja videot, eli sen lisäksi, että Yksinkertainen Galleria on Androidin paras mediagalleria, se toimii myös hämmästyttävänä valokuvaholvisovelluksena.
+
+SUOJAA YKSITYISIÄ VALOKUVIA, VIDEOITA JA TIEDOSTOJA
+Voit olla varma, että valokuva-albumisi on turvassa. Yksinkertainen Galleryn ylivoimaisten turvaominaisuuksien avulla voit rajoittaa pinin, kuvion tai laitteesi sormenjälkilukijan avulla, kuka voi katsella tai muokata valittuja valokuvia ja videoita tai päästä käsiksi tärkeisiin tiedostoihin. Voit jopa suojata itse sovelluksen tai asettaa lukot tiedostojen järjestelijän tietyille toiminnoille.
+
+Mukana on materiaalinen muotoilu ja oletusarvoisesti tumma teema, joka tarjoaa loistavan käyttökokemuksen helppokäyttöisyyttä varten. Internet-yhteyden puuttuminen antaa sinulle enemmän yksityisyyttä, turvallisuutta ja vakautta kuin muut sovellukset.
+
+Ei sisällä mainoksia tai tarpeettomia käyttöoikeuksia. Se on täysin avoimen lähdekoodin, tarjoaa muokattavia värejä.
+
+Katso koko paketti yksinkertaisia työkaluja täältä:
+https://www.simplemobiletools.com
+
+Yksinkertainen Galleria Pron itsenäinen verkkosivusto:
+https://www.simplemobiletools.com/gallery
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
