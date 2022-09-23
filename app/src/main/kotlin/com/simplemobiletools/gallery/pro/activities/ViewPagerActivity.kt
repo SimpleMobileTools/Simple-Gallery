@@ -603,10 +603,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             mAreSlideShowMediaVisible = false
 
-            if (config.slideshowRandomOrder) {
+            if (config.slideshowRandomOrder && medium != null) {
                 // reset sort order while retaining currently displayed item
                 mPos = getCurrentMedia().indexOf(medium)
-                updatePagerItems(mMediaFiles)
+                refreshUI(mMediaFiles, false)
+                if (medium.isVideo()) {
+                    view_pager.onGlobalLayout {
+                        (getCurrentFragment() as? VideoFragment)?.playVideo()
+                    }
+                }
             }
         }
     }
