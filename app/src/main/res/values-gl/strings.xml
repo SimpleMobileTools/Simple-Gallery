@@ -222,7 +222,7 @@
     <string name="bottom_actions">Accións do fondo</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Xestionar accións visibles do fondo</string>
-    <string name="toggle_favorite">Marcar como favorito</string>
+    <string name="toggle_favorite">Engadir como favorito</string>
     <string name="toggle_file_visibility">Alternar visibilidade do ficheiro</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Persoalizado</string>
