@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Galerie simplă</string>
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Editaţi</string>
     <string name="open_camera">Deschide camera</string>
