@@ -77,7 +77,6 @@
 \nEngadindo aquí elementos non eliminarás outros.</string>
     <string name="no_media_add_included">Non se atopou ningún ficheiro multimedia. Podes solucionalo engadindo manualmente algúns cartafoles con eses ficheiros.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Selección da redimensión e gardar</string>
     <string name="width">Ancho</string>
     <string name="height">Alto</string>

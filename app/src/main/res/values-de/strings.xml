@@ -77,7 +77,6 @@
 \nDas Hinzufügen einiger Elemente hier schließt keine anderen Ordner aus.</string>
     <string name="no_media_add_included">Es konnten keine Mediendateien gefunden werden. Das Problem kann behoben werden, indem die Ordner mit den Mediendateien manuell hinzugefügt werden.</string>
     <!-- Resizing -->
-    <string name="resize">Größe ändern</string>
     <string name="resize_and_save">Größe ändern und speichern</string>
     <string name="width">Breite</string>
     <string name="height">Höhe</string>

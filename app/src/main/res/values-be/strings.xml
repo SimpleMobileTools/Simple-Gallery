@@ -17,7 +17,6 @@
     <string name="portraits">Партрэты</string>
     <string name="manage_excluded_folders">Кіраванне выключанымі папкамі</string>
     <string name="no_media_add_included">Медыяфайлы не знойдзеныя. Вы можаце вырашыць гэтую праблему, дадаўшы тэчкі, якія змяшчаюць медыяфайлы ўручную.</string>
-    <string name="resize">Змяніць памер</string>
     <string name="resize_and_save">Зменіце памер выбару і захавайце</string>
     <string name="width">Шырыня</string>
     <string name="file_edited_successfully">Файл паспяхова адрэдагаваны</string>

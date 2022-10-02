@@ -77,7 +77,6 @@
 \nAñadir elementos aquí no excluirá ninguna otra carpeta.</string>
     <string name="no_media_add_included">Ningún archivo multimedia ha sido encontrado. Puede resolverlo añadiendo las carpetas que contengan archivos multimedia manualmente.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar la selección y guardar</string>
     <string name="width">Ancho</string>
     <string name="height">Alto</string>

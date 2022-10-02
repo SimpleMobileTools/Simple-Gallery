@@ -77,7 +77,6 @@
 \nAdicionar itens aqui não exclui as restantes pastas.</string>
     <string name="no_media_add_included">Não foram encontrados ficheiros multimédia. Pode adicionar manualmente as pastas que contenham esses ficheiros.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar seleção e guardar</string>
     <string name="width">Largura</string>
     <string name="height">Altura</string>

@@ -73,7 +73,6 @@
     <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
     <string name="no_media_add_included">メディアファイルが見つかりません。メディアファイルを手動で追加することにより解決できます。</string>
     <!-- Resizing -->
-    <string name="resize">リサイズ</string>
     <string name="resize_and_save">選択領域をリサイズして保存</string>
     <string name="width">幅</string>
     <string name="height">高さ</string>

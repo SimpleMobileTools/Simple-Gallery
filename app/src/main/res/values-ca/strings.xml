@@ -77,7 +77,6 @@
 \nSi aquí s\'afegeixen elements, no s\'exclourà cap altra carpeta.</string>
     <string name="no_media_add_included">No s\'ha trobat cap fitxer multimèdia. Podeu resoldre-ho afegint manualment les carpetes que contenen fitxers multimèdia.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensiona</string>
     <string name="resize_and_save">Redimensiona la selecció i desa</string>
     <string name="width">Amplada</string>
     <string name="height">Alçada</string>

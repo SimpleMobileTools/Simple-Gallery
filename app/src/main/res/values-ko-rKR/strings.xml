@@ -77,7 +77,6 @@
 \n이 작업은 다른 폴더에 영향을 미치지 않습니다.</string>
     <string name="no_media_add_included">사진이나 동영상이 발견되지 않았습니다. 이는 파일을 포함하고 있는 폴더를 수동으로 추가하여 해결할 수 있습니다.</string>
     <!-- Resizing -->
-    <string name="resize">크기 변경</string>
     <string name="resize_and_save">크기 변경 및 저장</string>
     <string name="width">가로</string>
     <string name="height">세로</string>

@@ -75,7 +75,6 @@
 \n הוספת כמה פריטים כאן לא תכלול שום תיקייה אחרת.</string>
     <string name="no_media_add_included">לא נמצאו קבצי מדיה. אתה יכול לפתור את זה על ידי הוספת התיקיות המכילות קבצי מדיה באופן ידני.</string>
     <!-- Resizing -->
-    <string name="resize">שנה גודל</string>
     <string name="resize_and_save">שנה את גודל הבחירה ושמור</string>
     <string name="width">רוחב</string>
     <string name="height">גובה</string>

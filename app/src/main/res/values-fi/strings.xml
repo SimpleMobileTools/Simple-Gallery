@@ -77,7 +77,6 @@
 \nLisääminen ei poissulje muita kansioita.</string>
     <string name="no_media_add_included">Mediatiedostoja ei löytynyt. Lisää mediatiedostoja sisältävät kansiot manuaalisesti.</string>
     <!-- Resizing -->
-    <string name="resize">Rajaa</string>
     <string name="resize_and_save">Rajaa valinta ja tallenna</string>
     <string name="width">Leveys</string>
     <string name="height">Korkeus</string>

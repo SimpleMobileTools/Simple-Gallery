@@ -77,7 +77,6 @@
 \nDodanie tutaj niektórych elementów nie wykluczy żadnego innego folderu.</string>
     <string name="no_media_add_included">Nie znaleziono żadnych plików multimedialnych. Możesz to naprawić, ręcznie dodając foldery zawierające pliki multimedialne.</string>
     <!-- Resizing -->
-    <string name="resize">Zmień rozmiar</string>
     <string name="resize_and_save">Zmień rozmiar zaznaczenia i zapisz</string>
     <string name="width">Szerokość</string>
     <string name="height">Wysokość</string>

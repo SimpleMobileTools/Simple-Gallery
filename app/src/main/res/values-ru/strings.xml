@@ -77,7 +77,6 @@
 \nДобавление папки не приводит к исключению каких-либо других.</string>
     <string name="no_media_add_included">Медиафайлы не найдены. Вы можете исправить данную проблему, добавив папки с медиафайлами вручную.</string>
     <!-- Resizing -->
-    <string name="resize">Изменить размер</string>
     <string name="resize_and_save">Изменить и сохранить</string>
     <string name="width">Ширина</string>
     <string name="height">Высота</string>

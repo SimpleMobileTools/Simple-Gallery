@@ -73,7 +73,6 @@
 \nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
     <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit is op te lossen door de mappen met mediabestanden handmatig toe te voegen.</string>
     <!-- Resizing -->
-    <string name="resize">Grootte aanpassen</string>
     <string name="resize_and_save">Grootte aanpassen en opslaan</string>
     <string name="width">Breedte</string>
     <string name="height">Hoogte</string>

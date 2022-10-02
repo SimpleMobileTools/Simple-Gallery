@@ -77,7 +77,6 @@
 \nAz elemek hozzáadása nem zár ki más mappákat.</string>
     <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák kézi hozzáadásával.</string>
     <!-- Resizing -->
-    <string name="resize">Átméretezés</string>
     <string name="resize_and_save">Kiválasztás átméretezése és mentés</string>
     <string name="width">Szélesség</string>
     <string name="height">Magasság</string>

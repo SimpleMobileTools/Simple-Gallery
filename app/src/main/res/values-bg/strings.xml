@@ -77,7 +77,6 @@
 \nДобавянето на елементи тук няма да изключи никакви други папки.</string>
     <string name="no_media_add_included">Не са открити медийни файлове. Можете да го поправите чрез ръчно добавяне на папки с медия.</string>
     <!-- Resizing -->
-    <string name="resize">Преоразмеряване</string>
     <string name="resize_and_save">Преоразмеряване на избраното и запазване</string>
     <string name="width">Широчина</string>
     <string name="height">Височина</string>

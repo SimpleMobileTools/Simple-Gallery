@@ -75,7 +75,6 @@
 \nThêm một số mục ở đây sẽ không loại trừ bất kỳ thư mục nào khác.</string>
     <string name="no_media_add_included">Không có tập tin phương tiện được tìm thấy. Bạn có thể thêm các thư mục chứa tệp phương tiện theo cách thủ công.</string>
     <!-- Resizing -->
-    <string name="resize">Thay đổi kích thước</string>
     <string name="resize_and_save">Thay đổi kích thước mục đã chọn và lưu</string>
     <string name="width">Chiều rộng</string>
     <string name="height">Chiều cao</string>

@@ -75,7 +75,6 @@
     <string name="included_activity_placeholder">Pokud máte nějaké složky obsahující média, ale nebyly aplikací nalezeny, můžete je zde přidat ručně.</string>
     <string name="no_media_add_included">Nebyly nalezeny žádné mediální soubory. Můžete to napravit ručním přidáním složek, které obsahují média.</string>
     <!-- Resizing -->
-    <string name="resize">Změnit velikost</string>
     <string name="resize_and_save">Změnit velikost a uložit</string>
     <string name="width">Šířka</string>
     <string name="height">Výška</string>

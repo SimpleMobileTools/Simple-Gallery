@@ -77,7 +77,6 @@
 \nAdding some items here will not exclude any other folder.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
     <!-- Resizing -->
-    <string name="resize">Resize</string>
     <string name="resize_and_save">Resize selection and save</string>
     <string name="width">चाैडाई</string>
     <string name="height">उचाई</string>

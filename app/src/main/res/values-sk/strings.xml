@@ -77,7 +77,6 @@
 \nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
     <string name="no_media_add_included">Nenašli sa žiadne súbory s médiami. Viete to napraviť manuálnym pridaním priečinkov, ktoré obsahujú médiá.</string>
     <!-- Resizing -->
-    <string name="resize">Zmeniť veľkosť</string>
     <string name="resize_and_save">Zmeniť veľkosť a uložiť</string>
     <string name="width">Šǐrka</string>
     <string name="height">Výška</string>
