@@ -147,7 +147,7 @@ class PickDirectoryDialog(
             if (currentPathPrefix.isEmpty()) {
                 dialog?.dismiss()
             } else {
-                openedSubfolders.removeAt(openedSubfolders.size - 1)
+                openedSubfolders.removeLast()
                 currentPathPrefix = openedSubfolders.last()
                 gotDirectories(allDirectories)
             }

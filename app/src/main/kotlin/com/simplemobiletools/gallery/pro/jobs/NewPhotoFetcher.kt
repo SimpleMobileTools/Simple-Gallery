@@ -70,7 +70,7 @@ class NewPhotoFetcher : JobService() {
                 for (uri in params.triggeredContentUris!!) {
                     val path = uri.pathSegments
                     if (path != null && (path.size == PHOTO_PATH_SEGMENTS.size + 1 || path.size == VIDEO_PATH_SEGMENTS.size + 1)) {
-                        ids.add(path[path.size - 1])
+                        ids.add(path[path.lastIndex])
                     }
                 }
 
