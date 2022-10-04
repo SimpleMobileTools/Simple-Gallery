@@ -42,7 +42,7 @@
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
     <string name="images">画像</string>
-    <string name="videos">ビデオ</string>
+    <string name="videos">動画</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
     <string name="svgs">SVG</string>
@@ -123,7 +123,7 @@
     <string name="slideshow">スライドショー</string>
     <string name="interval">間隔</string>
     <string name="include_photos">写真を含める</string>
-    <string name="include_videos">ビデオを含める</string>
+    <string name="include_videos">動画を含める</string>
     <string name="include_gifs">GIFを含める</string>
     <string name="random_order">ランダムな順序</string>
     <string name="move_backwards">逆方向に進む</string>
@@ -154,9 +154,9 @@
     <string name="folder_on_widget">ウィジェットに表示するフォルダ:</string>
     <string name="show_folder_name">フォルダ名を表示</string>
     <!-- Settings -->
-    <string name="autoplay_videos">ビデオを自動再生</string>
+    <string name="autoplay_videos">動画を自動再生</string>
     <string name="remember_last_video_position">動画の最後の再生位置を記憶する</string>
-    <string name="loop_videos">ビデオを繰り返し再生</string>
+    <string name="loop_videos">動画を繰り返し再生</string>
     <string name="animate_gifs">アニメーションGIFを動かす</string>
     <string name="max_brightness">再生時には明るさを最大にする</string>
     <string name="crop_thumbnails">サムネイルを正方形に切り取る</string>
@@ -207,9 +207,9 @@
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">すべてのファイル操作を確実に行うためには、端末の設定でこのアプリをメディア管理アプリにする必要があります。</string>
     <string name="password_protect_excluded">除外されたフォルダの表示をパスワードで保護します</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">問題が発生しました。端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_note">リダイレクトが機能しない場合、端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_alternative">もし、それを許可したくない場合は、端末の [設定] &gt; [アプリ] &gt; [特別なアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
     <string name="fullscreen_media">メディア設定</string>
@@ -340,15 +340,15 @@
     <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
     <string name="faq_3_text">アルバムを長押しで選択し、アクションメニューからピンアイコンを選択すれば一番上に固定されます。複数のフォルダをピン留めできます。ピン留めされた項目は、デフォルトのソート方法でソートされます。</string>
     <string name="faq_4_title">動画を早送りするにはどうすればよいですか？</string>
-    <string name="faq_4_text">画面の横をダブルタップするか、検索バーの近くにある現在もしくは最大数のテキストをタップすれば可能です。別画面動画を開くことをアプリ設定で有効にしている場合、左右ジェスチャーも使用できます。</string>
+    <string name="faq_4_text">画面端をダブルタップするか、シークバーの近くにある現在の再生位置もしくは曲の長さを示すテキストをタップすれば可能です。アプリ設定の左右ジェスチャー機能の切り替えを有効にすると、左右ジェスチャーで早送りが可能です（無効にすると左右ジェスチャーで別の動画を開きます）。</string>
     <string name="faq_5_title">フォルダの非表示と除外の違いは何ですか？</string>
     <string name="faq_5_text">除外はシンプルギャラリーでのみフォルダを非表示にし、非表示はシステム上で動作するので他のギャラリーからもフォルダを非表示にします。指定されたフォルダに空の\".nomedia\"ファイルを作成することにより動作し、任意のファイルマネージャーで削除することも出来ます。一部のデバイスでは、カメラ、スクリーンショット、ダウンロードのようなフォルダを非表示に出来ないことはご留意ください。</string>
     <string name="faq_6_title">音楽のカバーアートやステッカーのフォルダが表示されるのはなぜですか？</string>
     <string name="faq_6_text">通常ではないアルバムが表示されることがあります。長押しして除外を選択することで簡単に除くことができます。次のダイアログで親フォルダを選択すると、他の関連アルバムも表示されなくなります。</string>
     <string name="faq_7_title">画像フォルダが表示されなかったり、全てのアイテムが表示されなかったりします。どうしたらいいですか？</string>
-    <string name="faq_7_text">理由はいくつかありますが、解決は簡単です。設定→含まれているフォルダの管理に移動し、Plusを選択し、必要なフォルダに移動します。</string>
+    <string name="faq_7_text">理由はいくつかありますが、解決は簡単です。設定→追加フォルダの管理に移動して、プラスボタンを押し、表示したいフォルダを選択して追加します。</string>
     <string name="faq_8_title">特定のフォルダのみ表示にしたい場合はどうすればいいですか？</string>
-    <string name="faq_8_text">含まれているフォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外されたフォルダの管理に移動し、ルートフォルダを除外し、設定→含まれているフォルダの管理で目的のフォルダを追加すれば可能です。 除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるのです。</string>
+    <string name="faq_8_text">追加フォルダにフォルダを追加しても、自動的に除外されるわけではありません。設定→除外フォルダの管理に移動し、ルートフォルダを除外し、設定→追加フォルダの管理で目的のフォルダを追加すれば可能です。除外と包含は両方再帰的なので、フォルダが含まれており除外もされている場合、選択したフォルダのみ表示されるようになります。</string>
     <string name="faq_10_title">このアプリで画像のトリミングは出来ますか？</string>
     <string name="faq_10_text">はい、編集で画像をトリミング出来ます。画像の隅をドラッグしてください。画像のサムネイルを長押しし編集を選択するか、フルスクリーンで編集を選択することにより編集できます。</string>
     <string name="faq_11_title">どうすればメディアファイルのサムネイルをグループ化できますか？</string>
@@ -360,7 +360,7 @@
     <string name="faq_14_title">非表示にしているファイルやフォルダがあります。もう一度表示するにはどうすればいいですか？</string>
     <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
     <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
-    <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ゴミ箱内のアイテムが原因となっているはずです。ゴミ箱内のファイルもアプリ容量として加算されます。ゴミ箱を開くか、アプリの設定から全てのファイルを削除できます。ゴミ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
+    <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ごみ箱内のアイテムが原因となっているはずです。ごみ箱内のファイルもアプリ容量として加算されます。ごみ箱を開くか、アプリの設定から全てのファイルを削除できます。ごみ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
     <string name="faq_16_title">ファイルとフォルダを非表示にする機能はどうなったのでしょうか？非表示の項目が表示されなくなったのはなぜですか？</string>
     <string name="faq_16_text">Android11以降では、システムの制限により、ファイルやフォルダの非表示と非表示解除ができなくなりました。また、ギャラリーアプリ内で非表示の項目を確認できなくなりましたので、対処可能な別のファイルマネージャーを使用する必要があります。</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
