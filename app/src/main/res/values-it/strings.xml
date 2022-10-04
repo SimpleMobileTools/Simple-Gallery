@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Semplice Galleria</string>
+    <string name="app_name">Galleria Semplice</string>
     <string name="app_launcher_name">Galleria</string>
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
