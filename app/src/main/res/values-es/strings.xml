@@ -23,7 +23,7 @@
     <string name="force_portrait">Forzar retrato</string>
     <string name="force_landscape">Forzar paisaje</string>
     <string name="use_default_orientation">Usar la orientación por defecto</string>
-    <string name="fix_date_taken">Fijar fecha de toma</string>
+    <string name="fix_date_taken">Fijar la fecha toma</string>
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="no_date_takens_found">No se han encontrado valores de fechas tomadas</string>
