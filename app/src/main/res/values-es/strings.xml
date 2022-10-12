@@ -23,7 +23,7 @@
     <string name="force_portrait">Forzar retrato</string>
     <string name="force_landscape">Forzar paisaje</string>
     <string name="use_default_orientation">Usar la orientación por defecto</string>
-    <string name="fix_date_taken">Fijar fecha de toma</string>
+    <string name="fix_date_taken">Fijar la fecha toma</string>
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="no_date_takens_found">No se han encontrado valores de fechas tomadas</string>
@@ -45,9 +45,9 @@
     <string name="filter_media">Filtro de medios</string>
     <string name="images">Imágenes</string>
     <string name="videos">Vídeos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">Imagenes con animación</string>
     <string name="raw_images">Imágenes RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="portraits">Retratos</string>
     <string name="no_media_with_filters">No se han encontrado ficheros con los filtros seleccionados.</string>
     <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
@@ -246,7 +246,7 @@
     <string name="pesdk_adjustments_button_reset">Reiniciar</string>
     <string name="pesdk_focus_title_name">Enfoque</string>
     <string name="pesdk_focus_title_disabled">Ninguno</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
+    <string name="pesdk_focus_button_radial">Equilibrio radial</string>
     <string name="pesdk_focus_button_linear">Lineal</string>
     <string name="pesdk_focus_button_mirrored">Reflejado</string>
     <string name="pesdk_focus_button_gaussian">Gaussiano</string>
@@ -282,7 +282,7 @@
     <string name="pesdk_editor_save">Guardar</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Exportando…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">Exportando %s.</string>
-    <string name="pesdk_sticker_title_name">Sticker</string>
+    <string name="pesdk_sticker_title_name">Pegatina</string>
     <string name="pesdk_sticker_title_color">Color de Sticker</string>
     <string name="pesdk_sticker_title_options">Opciones de Sticker</string>
     <string name="pesdk_sticker_button_add">Añadir</string>
