@@ -43,8 +43,8 @@
     <string name="restore_to_path">Restoring to \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
-    <string name="images">Slike</string>
-    <string name="videos">Videoposnetki</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
     <string name="gifs">GIFi</string>
     <string name="raw_images">RAW slike</string>
     <string name="svgs">SVGji</string>
