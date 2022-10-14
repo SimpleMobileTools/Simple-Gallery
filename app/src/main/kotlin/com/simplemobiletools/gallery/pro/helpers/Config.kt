@@ -241,8 +241,13 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    private fun getDefaultDirectoryColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.directory_columns_horizontal_scroll
-    else R.integer.directory_columns_vertical_scroll)
+    private fun getDefaultDirectoryColumnCount() = context.resources.getInteger(
+        if (scrollHorizontally) {
+            R.integer.directory_columns_horizontal_scroll
+        } else {
+            R.integer.directory_columns_vertical_scroll
+        }
+    )
 
     var mediaColumnCnt: Int
         get() = prefs.getInt(getMediaColumnsField(), getDefaultMediaColumnCount())
@@ -265,8 +270,13 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    private fun getDefaultMediaColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.media_columns_horizontal_scroll
-    else R.integer.media_columns_vertical_scroll)
+    private fun getDefaultMediaColumnCount() = context.resources.getInteger(
+        if (scrollHorizontally) {
+            R.integer.media_columns_horizontal_scroll
+        } else {
+            R.integer.media_columns_vertical_scroll
+        }
+    )
 
     var albumCovers: String
         get() = prefs.getString(ALBUM_COVERS, "")!!
