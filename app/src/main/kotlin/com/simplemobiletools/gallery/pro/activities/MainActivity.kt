@@ -1500,7 +1500,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
             add(Release(327, R.string.release_327))
-            add(Release(359, R.string.faq_16_text))
             add(Release(369, R.string.release_369))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
