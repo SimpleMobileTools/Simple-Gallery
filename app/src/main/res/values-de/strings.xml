@@ -24,7 +24,7 @@
     <string name="force_landscape">Bildausrichtung im Querformat</string>
     <string name="use_default_orientation">Automatische Bildausrichtung</string>
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
-    <string name="fixing">Korrigieren…</string>
+    <string name="fixing">Korrigieren …</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
     <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
@@ -115,7 +115,7 @@
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
     <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
-    <string name="setting_wallpaper">Hintergrund festlegen…</string>
+    <string name="setting_wallpaper">Hintergrund festlegen …</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
