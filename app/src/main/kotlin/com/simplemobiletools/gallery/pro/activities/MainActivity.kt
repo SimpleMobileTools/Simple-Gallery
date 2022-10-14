@@ -677,7 +677,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             ensureBackgroundThread {
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
-                    directoryDao.deleteDirPath(it.absolutePath)
+                    directoryDB.deleteDirPath(it.absolutePath)
                 }
 
                 if (config.deleteEmptyFolders) {
@@ -1063,7 +1063,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (dirPathsToRemove.isNotEmpty()) {
                 val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
                 dirsToRemove.forEach {
-                    directoryDao.deleteDirPath(it.path)
+                    directoryDB.deleteDirPath(it.path)
                 }
                 dirs.removeAll(dirsToRemove)
                 setupAdapter(dirs)
@@ -1132,7 +1132,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             // make sure to create a new thread for these operations, dont just use the common bg thread
             Thread {
                 try {
-                    directoryDao.insert(newDir)
+                    directoryDB.insert(newDir)
                     if (folder != RECYCLE_BIN && folder != FAVORITES) {
                         mediaDB.insertAll(newMedia)
                     }
@@ -1346,7 +1346,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(dirs)
             invalidDirs.forEach {
                 try {
-                    directoryDao.deleteDirPath(it.path)
+                    directoryDB.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
                 }
             }

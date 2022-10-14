@@ -517,7 +517,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
         restoreRecycleBinPaths(paths) {
             ensureBackgroundThread {
-                directoryDao.deleteDirPath(RECYCLE_BIN)
+                directoryDB.deleteDirPath(RECYCLE_BIN)
             }
             finish()
         }
@@ -625,7 +625,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             if (mPath == FAVORITES) {
                 ensureBackgroundThread {
-                    directoryDao.deleteDirPath(FAVORITES)
+                    directoryDB.deleteDirPath(FAVORITES)
                 }
             }
 
@@ -639,7 +639,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun deleteDBDirectory() {
         ensureBackgroundThread {
             try {
-                directoryDao.deleteDirPath(mPath)
+                directoryDB.deleteDirPath(mPath)
             } catch (ignored: Exception) {
             }
         }

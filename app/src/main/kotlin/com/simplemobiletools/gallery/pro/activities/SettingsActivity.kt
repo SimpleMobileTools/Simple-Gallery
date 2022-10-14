@@ -224,7 +224,6 @@ class SettingsActivity : SimpleActivity() {
     private fun setupShowHiddenItems() {
         if (isRPlus() && !isExternalStorageManager()) {
             settings_show_hidden_items_holder.beGone()
-            settings_manage_excluded_folders_holder.background = resources.getDrawable(R.drawable.ripple_bottom_corners, theme)
         }
 
         settings_show_hidden_items.isChecked = config.showHiddenMedia
