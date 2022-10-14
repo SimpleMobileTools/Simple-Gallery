@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.25.3 *(2022-10-14)*
+----------------------------
+
+ * Restored the All Files permission, mostly related to hidden files
+ * Added some translation, stability and UX improvements
+
 Version 6.25.1 *(2022-10-03)*
 ----------------------------
 
