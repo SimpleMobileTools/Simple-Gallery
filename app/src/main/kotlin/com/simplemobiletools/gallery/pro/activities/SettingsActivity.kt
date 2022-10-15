@@ -82,6 +82,7 @@ class SettingsActivity : SimpleActivity() {
         setupHideExtendedDetails()
         setupManageExtendedDetails()
         setupSkipDeleteConfirmation()
+        setupSearchAllFilesByDefault()
         setupManageBottomActions()
         setupUseRecycleBin()
         setupShowRecycleBin()
@@ -590,6 +591,14 @@ class SettingsActivity : SimpleActivity() {
         settings_skip_delete_confirmation_holder.setOnClickListener {
             settings_skip_delete_confirmation.toggle()
             config.skipDeleteConfirmation = settings_skip_delete_confirmation.isChecked
+        }
+    }
+
+    private fun setupSearchAllFilesByDefault() {
+        settings_search_all_files_by_default.isChecked = config.searchAllFilesByDefault
+        settings_search_all_files_by_default_holder.setOnClickListener {
+            settings_search_all_files_by_default.toggle()
+            config.searchAllFilesByDefault = settings_search_all_files_by_default.isChecked
         }
     }
 

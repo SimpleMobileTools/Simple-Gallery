@@ -173,6 +173,7 @@
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="search_all_files">Search all files in visible folders by default</string>
     <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
     <string name="show_media_count">Show folder media count on the main view</string>

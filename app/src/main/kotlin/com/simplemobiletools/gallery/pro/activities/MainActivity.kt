@@ -406,6 +406,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                if (config.searchAllFilesByDefault) {
+                    launchSearchActivity()
+                    return false
+                }
                 directories_switch_searching.beVisible()
                 mIsSearchOpen = true
                 directories_refresh_layout.isEnabled = false
