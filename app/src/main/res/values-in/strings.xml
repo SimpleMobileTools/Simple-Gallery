@@ -77,7 +77,6 @@
 \nMenambahkan beberapa item di sini tidak akan mengecualikan folder yang lain.</string>
     <string name="no_media_add_included">Tidak ada berkas media yang ditemukan. Anda bisa memperbaikinya dengan menambahkan folder yang berisi berkas media secara manual.</string>
     <!-- Resizing -->
-    <string name="resize">Ubah ukuran</string>
     <string name="resize_and_save">Ubah ukuran dan simpan</string>
     <string name="width">Lebar</string>
     <string name="height">Tinggi</string>

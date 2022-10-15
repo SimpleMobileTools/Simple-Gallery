@@ -75,7 +75,6 @@
 \nHainbat elementu hemen gehitzeak ez du beste karpetarik baztertuko.</string>
     <string name="no_media_add_included">Multimedia fitxategirik ez da aurkitu. Fitxategi horiek dituzten karpetak eskuz gehituz konpondu dezakezu.</string>
     <!-- Resizing -->
-    <string name="resize">Aldatu tamaina</string>
     <string name="resize_and_save">Aldatu hautatutakoaren tamaina eta gorde</string>
     <string name="width">Zabalera</string>
     <string name="height">Altuera</string>

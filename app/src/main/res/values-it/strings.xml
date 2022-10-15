@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Semplice Galleria</string>
+    <string name="app_name">Galleria Semplice</string>
     <string name="app_launcher_name">Galleria</string>
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
@@ -77,7 +77,6 @@
 \nL\'aggiunta di alcuni elementi qui non escluderà nessun\'altra cartella.</string>
     <string name="no_media_add_included">Nessun file multimediale trovato. È risolvibile aggiungendo a mano le cartelle contenenti i file multimediali.</string>
     <!-- Resizing -->
-    <string name="resize">Ridimensiona</string>
     <string name="resize_and_save">Ridimensiona la selezione e salva</string>
     <string name="width">Larghezza</string>
     <string name="height">Altezza</string>

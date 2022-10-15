@@ -56,7 +56,7 @@ val Context.widgetsDB: WidgetsDao get() = GalleryDatabase.getInstance(applicatio
 
 val Context.mediaDB: MediumDao get() = GalleryDatabase.getInstance(applicationContext).MediumDao()
 
-val Context.directoryDao: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
+val Context.directoryDB: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
 
 val Context.favoritesDB: FavoritesDao get() = GalleryDatabase.getInstance(applicationContext).FavoritesDao()
 
@@ -397,7 +397,7 @@ fun Context.rescanFolderMediaSync(path: String) {
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
     ensureBackgroundThread {
-        directoryDao.insertAll(items)
+        directoryDB.insertAll(items)
     }
 }
 
@@ -644,7 +644,7 @@ fun Context.getCachedDirectories(
         }
 
         val directories = try {
-            directoryDao.getAll() as ArrayList<Directory>
+            directoryDB.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
             ArrayList()
         }
@@ -801,11 +801,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 }
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null) {
-    val dirsToCheck = dirs ?: directoryDao.getAll()
+    val dirsToCheck = dirs ?: directoryDB.getAll()
     val OTGPath = config.OTGPath
     dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path, OTGPath) && it.path != config.tempFolderPath }.forEach {
         try {
-            directoryDao.deleteDirPath(it.path)
+            directoryDB.deleteDirPath(it.path)
         } catch (ignored: Exception) {
         }
     }
@@ -823,7 +823,7 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 
 fun Context.updateDBDirectory(directory: Directory) {
     try {
-        directoryDao.updateDirectory(
+        directoryDB.updateDirectory(
             directory.path,
             directory.tmb,
             directory.mediaCnt,

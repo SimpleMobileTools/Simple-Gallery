@@ -68,12 +68,11 @@
     <string name="include_folders">Toegevoegde mappen</string>
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>
     <string name="add_folder">Map toevoegen</string>
-    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet door Eenvoudige Galerij worden herkend, voeg ze dan hier handmatig toe.
+    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet zijn herkend door Eenvoudige Galerij, voeg ze dan hier handmatig toe.
 \n
 \nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
     <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit is op te lossen door de mappen met mediabestanden handmatig toe te voegen.</string>
     <!-- Resizing -->
-    <string name="resize">Grootte aanpassen</string>
     <string name="resize_and_save">Grootte aanpassen en opslaan</string>
     <string name="width">Breedte</string>
     <string name="height">Hoogte</string>
@@ -82,8 +81,8 @@
     <!-- Editor -->
     <string name="editor">Bewerken</string>
     <string name="rotate">Draaien</string>
-    <string name="invalid_image_path">Ongeldig afbeeldingspad</string>
-    <string name="invalid_video_path">Ongeldig videopad</string>
+    <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
+    <string name="invalid_video_path">Ongeldig pad naar video</string>
     <string name="image_editing_failed">Beeldbewerking mislukt</string>
     <string name="video_editing_failed">Videobewerking mislukt</string>
     <string name="image_editing_cancelled">Afbeelding bewerken is geannuleerd</string>
@@ -168,7 +167,7 @@
     <string name="screen_rotation_aspect_ratio">Beeldverhouding</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
     <string name="scroll_thumbnails_horizontally">Miniaturen horizontaal scrollen</string>
-    <string name="hide_system_ui_at_fullscreen">Gebruikersinterface van het systeem automatisch verbergen in volledig scherm</string>
+    <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
     <string name="allow_photo_gestures">Helderheid van afbeeldingen regelen met verticale veeggebaren</string>
     <string name="allow_video_gestures">Volume en helderheid van video’s regelen met verticale veeggebaren</string>
@@ -195,10 +194,10 @@
     <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
     <string name="show_image_file_types">Bestandstypen tonen</string>
     <string name="allow_zooming_videos">Bij video\'s inzoomen met dubbelklikken</string>
-    <string name="folder_thumbnail_style">Stijl voor voorbeelden van mappen</string>
-    <string name="file_thumbnail_style">Stijl voor voorbeelden van bestanden</string>
+    <string name="folder_thumbnail_style">Stijl voor miniaturen van mappen</string>
+    <string name="file_thumbnail_style">Stijl voor miniaturen van bestanden</string>
     <string name="mark_favorite_items">Favoriete items markeren</string>
-    <string name="thumbnail_spacing">Afstand tussen voorbeelden</string>
+    <string name="thumbnail_spacing">Afstand tussen miniaturen</string>
     <string name="show_file_count_line">Aantal bestanden op aparte regel tonen</string>
     <string name="show_file_count_brackets">Aantal bestanden tussen rechte haken tonen</string>
     <string name="show_file_count_none">Aantal bestanden niet tonen</string>
@@ -354,7 +353,7 @@
     <string name="faq_10_text">Ja, dat kan bij \"Bewerken\" door de hoeken te verslepen. Druk lang op een afbeelding in het overzicht of ga naar het volledig scherm en klik vervolgens op \"Bewerken\".</string>
     <string name="faq_11_title">Hoe kan ik mediabestanden groeperen\?</string>
     <string name="faq_11_text">Kies het menu-item \"Groeperen op\" om op basis van verschillende criteria te groeperen. Dit kan ook ongeacht de mappenstructuur als voor de functie \"Alles weergeven\" is gekozen.</string>
-    <string name="faq_12_title">Sorteren op Opnamedatum lijkt niet te werken. Hoe kan ik dit oplossen\?</string>
+    <string name="faq_12_title">Sorteren op opnamedatum lijkt niet te werken. Hoe kan ik dit oplossen\?</string>
     <string name="faq_12_text">Waarschijnlijk zijn de bestanden gekopieerd vanaf een andere locatie. Selecteer de bestanden en kies \"Opnamedatum corrigeren\".</string>
     <string name="faq_13_title">Ik zie \"color banding\" op de afbeeldingen. Hoe kan ik de kwaliteit verbeteren\?</string>
     <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>

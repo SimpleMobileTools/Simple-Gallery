@@ -1,0 +1,35 @@
+Galeria simplă vă oferă toate funcțiile de vizualizare și editare a fotografiilor care vă lipseau pe Android într-o singură aplicație elegantă. Răsfoiți, gestionați, decupați și editați fotografii sau videoclipuri mai rapid ca niciodată, recuperați fișiere șterse din greșeală sau creați galerii ascunse. Iar cu suportul avansat pentru fișiere și personalizarea completă, în sfârșit, galeria dvs. funcționează exact așa cum vă doriți.
+
+EDITOR FOTO AVANSAT
+Transformați editarea fotografiilor într-o joacă de copii cu organizatorul de fișiere îmbunătățit de la Galeria simplă. Gesturile intuitive fac super ușoară editarea imaginilor dvs. Decupați, întoarceți, rotiți și redimensionați imaginile sau aplicați filtre elegante pentru a le face să iasă în evidență într-o clipă.
+
+TOATE FIȘIERELE DE CARE AVEȚI NEVOIE
+Galeria simplă suportă o mare varietate de tipuri de fișiere diferite, inclusiv JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotografii panoramice, videoclipuri și multe altele, astfel încât vă bucurați de o flexibilitate totală. V-ați întrebat vreodată "Pot utiliza acest format pe Android-ul meu"? Acum răspunsul este da.
+
+FACEȚI-L AL DVS.
+Designul extrem de personalizabil al Galeriei simple vă permite să faceți ca aplicația foto să arate, să se simtă și să funcționeze exact așa cum doriți. De la interfața de utilizare până la butoanele de funcții din bara de instrumente de jos, Galeria simplă vă oferă libertatea creativă de care aveți nevoie.
+
+RECUPERAȚI FOTOGRAFII ȘI VIDEOCLIPURI ȘTERSE
+Nu vă mai faceți griji că ați șters din greșeală acea poză prețioasă pe care nu-l puteți înlocui. Galeria simplă vă permite să recuperați rapid orice fotografie și videoclipuri șterse, ceea ce înseamnă că, pe lângă faptul că este cea mai bună galerie media pentru Android, Simple Gallery funcționează și ca o aplicație extraordinară de arhivare a fotografiilor.
+
+PROTEJAȚI-VĂ FOTOGRAFIILE, VIDEOCLIPURILE ȘI FIȘIERELE PRIVATE
+Fiți siguri că albumul dvs. foto este în siguranță. Cu funcțiile de securitate superioare ale Galeriei simple, puteți utiliza un pin, un model sau scanerul de amprente al dispozitivului dvs. pentru a limita cine poate vizualiza sau edita fotografiile și videoclipurile selectate sau pentru a accesa fișierele importante. Puteți chiar să protejați aplicația în sine sau să plasați încuietori pe funcții specifice ale organizatorului de fișiere.
+
+Este prevăzut cu design material și temă întunecată în mod implicit, oferă o experiență de utilizare excelentă pentru o utilizare ușoară. Lipsa accesului la internet vă oferă mai multă intimitate, securitate și stabilitate decât alte aplicații.
+
+Nu conține reclame sau permisiuni inutile. Este complet opensource, oferă culori personalizabile.
+
+Consultați suita completă de instrumente Simple Tools aici:
+https://www.simplemobiletools.com
+
+Site-ul independent al Simple Gallery Pro:
+https://www.simplemobiletools.com/gallery
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

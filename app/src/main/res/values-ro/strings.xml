@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Galerie simplă</string>
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Editaţi</string>
     <string name="open_camera">Deschide camera</string>
@@ -77,7 +77,6 @@
 \nAdăugarea unor elemente aici nu va exclude niciun alt dosar.</string>
     <string name="no_media_add_included">Nu a fost găsit niciun fișier media. Poţi rezolva această problemă adăugând manual dosarele care conțin fișiere media.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionați</string>
     <string name="resize_and_save">Redimensionează selecția și salvează</string>
     <string name="width">Lățime</string>
     <string name="height">Înălțime</string>

@@ -75,7 +75,6 @@
     <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen, kan du lägga till dem manuellt här.</string>
     <string name="no_media_add_included">Inga mediefiler hittades. Du kan lägga till de mappar som innehåller mediefiler manuellt.</string>
     <!-- Resizing -->
-    <string name="resize">Ändra storlek</string>
     <string name="resize_and_save">Ändra storlek och spara</string>
     <string name="width">Bredd</string>
     <string name="height">Höjd</string>

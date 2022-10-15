@@ -77,7 +77,6 @@
 \nDodavanjem stavki ovdje neće isključiti bilo koju drugu mapu.</string>
     <string name="no_media_add_included">Medijske datoteke nisu pronađene. To možeš riješiti ručnim dodavanjem mapa koje sadrže medijske datoteke.</string>
     <!-- Resizing -->
-    <string name="resize">Promjeni veličinu</string>
     <string name="resize_and_save">Promjeni veličinu odabira i spremi</string>
     <string name="width">Širina</string>
     <string name="height">Visina</string>

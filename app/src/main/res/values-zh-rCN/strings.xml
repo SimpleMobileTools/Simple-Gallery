@@ -77,7 +77,6 @@
 \n在此处添加一些项目不会排除任何其他文件夹。</string>
     <string name="no_media_add_included">没有找到媒体文件。请手动添加包含媒体文件的文件夹。</string>
     <!-- Resizing -->
-    <string name="resize">调整尺寸</string>
     <string name="resize_and_save">调整选定项目的尺寸并保存</string>
     <string name="width">宽度</string>
     <string name="height">高度</string>

@@ -77,7 +77,6 @@
 \nDet vil ikke ekskludere andre mapper.</string>
     <string name="no_media_add_included">Ingen mediefiler er fundet. Dette kan løses ved manuelt at tilføje mapper som indeholder mediefiler.</string>
     <!-- Resizing -->
-    <string name="resize">Skaler</string>
     <string name="resize_and_save">Skaler valgte elementer og gem</string>
     <string name="width">Bredde</string>
     <string name="height">Højde</string>

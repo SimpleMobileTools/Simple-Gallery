@@ -77,7 +77,6 @@
 \nBuraya bazı ögeler eklemek başka bir klasörü hariç tutmaz.</string>
     <string name="no_media_add_included">Hiçbir medya dosyası bulunamadı. Medya dosyalarını içeren klasörleri elle ekleyerek çözebilirsiniz.</string>
     <!-- Resizing -->
-    <string name="resize">Yeniden boyutlandır</string>
     <string name="resize_and_save">Seçimi yeniden boyutlandır ve kaydet</string>
     <string name="width">Genişlik</string>
     <string name="height">Yükseklik</string>

@@ -77,7 +77,6 @@
 \nCet ajout n\'exclura aucun autre dossier.</string>
     <string name="no_media_add_included">Aucun fichier multimédia n\'a été trouvé. Vous pouvez ajouter manuellement des dossiers contenant des fichiers multimédia.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionner</string>
     <string name="resize_and_save">Redimensionner la sélection et enregistrer</string>
     <string name="width">Largeur</string>
     <string name="height">Hauteur</string>

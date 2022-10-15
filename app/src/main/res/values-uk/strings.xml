@@ -77,7 +77,6 @@
 \nДодавання елементів сюди не виключить будь-яку іншу теку.</string>
     <string name="no_media_add_included">Жоден медіафайл не знайдено. Ви можете додати теки з медіафайлами вручну, щоб вирішити цю проблему.</string>
     <!-- Resizing -->
-    <string name="resize">Змінити розмір</string>
     <string name="resize_and_save">Змінити розмір вибраного і зберегти</string>
     <string name="width">Ширина</string>
     <string name="height">Висота</string>

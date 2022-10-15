@@ -77,7 +77,6 @@
 \nசில உருப்படிகளை இங்கே சேர்ப்பது வேறு எவ்வடைவையும் விலக்காது.</string>
     <string name="no_media_add_included">ஊடக கோப்புகள் ஏதுமில்லை. ஊடக கோப்புகளைக் கொண்ட அடைவுகளை கைமுறையாகச் சேர்த்து அதைத் தீர்க்கலாம்.</string>
     <!-- Resizing -->
-    <string name="resize">மறுஅளவிடு</string>
     <string name="resize_and_save">தெரிவை மறுஅளவிட்டுச் சேமி</string>
     <string name="width">அகலம்</string>
     <string name="height">உயரம்</string>

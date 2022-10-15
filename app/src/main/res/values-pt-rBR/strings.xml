@@ -77,7 +77,6 @@
 \nA adição de alguns itens aqui não vai excluir nenhuma outra pasta.</string>
     <string name="no_media_add_included">Nenhum arquivo de mídia foi encontrado. Você pode resolver isso incluindo manualmente as pastas com arquivos de mídia.</string>
     <!-- Resizing -->
-    <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar seleção e salvar</string>
     <string name="width">Largura</string>
     <string name="height">Altura</string>

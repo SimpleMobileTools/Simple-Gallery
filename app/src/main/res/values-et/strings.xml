@@ -77,7 +77,6 @@
 \nSiia kaustade lisamine ei välista muude kaustade tuvastamist ja kasutamist.</string>
     <string name="no_media_add_included">Meediafaile ei ole leitud. Selle saate lahendada, lisades meediafaile sisaldavad kaustad käsitsi.</string>
     <!-- Resizing -->
-    <string name="resize">Muuda suurust</string>
     <string name="resize_and_save">Muuda suurust ja salvesta</string>
     <string name="width">Laius</string>
     <string name="height">Kõrgus</string>

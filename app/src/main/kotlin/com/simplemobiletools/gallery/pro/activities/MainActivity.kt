@@ -294,7 +294,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (mCurrentPathPrefix.isEmpty()) {
                 super.onBackPressed()
             } else {
-                mOpenedSubfolders.removeAt(mOpenedSubfolders.size - 1)
+                mOpenedSubfolders.removeLast()
                 mCurrentPathPrefix = mOpenedSubfolders.last()
                 setupAdapter(mDirs)
             }
@@ -681,7 +681,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             ensureBackgroundThread {
                 folders.filter { !getDoesFilePathExist(it.absolutePath, OTGPath) }.forEach {
-                    directoryDao.deleteDirPath(it.absolutePath)
+                    directoryDB.deleteDirPath(it.absolutePath)
                 }
 
                 if (config.deleteEmptyFolders) {
@@ -1067,7 +1067,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (dirPathsToRemove.isNotEmpty()) {
                 val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
                 dirsToRemove.forEach {
-                    directoryDao.deleteDirPath(it.path)
+                    directoryDB.deleteDirPath(it.path)
                 }
                 dirs.removeAll(dirsToRemove)
                 setupAdapter(dirs)
@@ -1136,7 +1136,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             // make sure to create a new thread for these operations, dont just use the common bg thread
             Thread {
                 try {
-                    directoryDao.insert(newDir)
+                    directoryDB.insert(newDir)
                     if (folder != RECYCLE_BIN && folder != FAVORITES) {
                         mediaDB.insertAll(newMedia)
                     }
@@ -1350,7 +1350,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(dirs)
             invalidDirs.forEach {
                 try {
-                    directoryDao.deleteDirPath(it.path)
+                    directoryDB.deleteDirPath(it.path)
                 } catch (ignored: Exception) {
                 }
             }
@@ -1504,7 +1504,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(277, R.string.release_277))
             add(Release(295, R.string.release_295))
             add(Release(327, R.string.release_327))
-            add(Release(359, R.string.faq_16_text))
             add(Release(369, R.string.release_369))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }

@@ -40,7 +40,7 @@
     <string name="unset_as_default_folder">Eltávolítás mint alapértelmezett mappa</string>
     <string name="reorder_by_dragging">Mappák átrendezése húzással</string>
     <string name="reorder_by_dragging_pro">Mappák átrendezése húzással (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="restore_to_path">Helyreállítás ide: „%s”</string>
     <!-- Filter -->
     <string name="filter_media">Médiafájlok szűrése</string>
     <string name="images">Képek</string>
@@ -66,8 +66,8 @@
     <string name="hidden_folders">Rejtett mappák</string>
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Kihagyottak megjelenítése ideiglenesen</string>
+    <string name="stop_showing_excluded">Kihagyottak megjelenítésének leállítása</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>
@@ -77,7 +77,6 @@
 \nAz elemek hozzáadása nem zár ki más mappákat.</string>
     <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák kézi hozzáadásával.</string>
     <!-- Resizing -->
-    <string name="resize">Átméretezés</string>
     <string name="resize_and_save">Kiválasztás átméretezése és mentés</string>
     <string name="width">Szélesség</string>
     <string name="height">Magasság</string>
@@ -123,7 +122,7 @@
     <string name="home_screen">Kezdőképernyő</string>
     <string name="lock_screen">Zárolási képernyő</string>
     <string name="home_and_lock_screen">Kezdő- és zárolási képernyő</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Képarány módosításának engedélyezése</string>
     <!-- Slideshow -->
     <string name="slideshow">Diavetítés</string>
     <string name="interval">Időköz</string>
@@ -210,11 +209,11 @@
     <string name="square">Négyzet</string>
     <string name="rounded_corners">Lekerekített sarkok</string>
     <string name="export_favorite_paths">Kedvenc fájlútvonalak exportálása</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="media_management_prompt">Hogy megbízhatóan működjenek a fájlműveletek, győződjön meg róla, hogy ez az alkalmazás egy Médiakezelő alkalmazás az eszközbeállításokban.</string>
     <string name="password_protect_excluded">Jelszóval védi a kizárt mappák láthatóságát</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Valami hiba történt, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
+    <string name="media_management_note">Ha az átirányítás nem működik, akkor ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
+    <string name="media_management_alternative">Ha ezt nem akarja megtenni, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
     <!-- Setting sections -->
     <string name="thumbnails">Bélyegképek</string>
     <string name="fullscreen_media">Teljes képernyős média</string>
@@ -366,12 +365,12 @@
     <string name="faq_14_text">A rejtett elemek megtekintéséhez nyomja meg a „Rejtett elemek ideiglenes megjelenítése” elemet a főképernyőn, vagy válassza a „Rejtett elemek megjelenítése” lehetőséget az alkalmazásbeállításokban. Ha meg akarja szüntetni, csak hosszan nyomja meg, és válassza az „Elrejtés megszüntetése” lehetőséget. A mappák elrejtése egy rejtett „.nomedia” fájl hozzáadásával történik. Ezt a fájlt bármelyik fájlkezelővel törölheti. Vegye figyelembe, hogy az elrejtés rekurzív módon működik, ha elrejt egy mappát, akkor az összes almappája is rejtett lesz. Így az almappák elrejtésének megszüntetéséhez láthatóvá kell tennie a szülőmappát is.</string>
     <string name="faq_15_title">Miért használ az alkalmazás ennyi helyet\?</string>
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
+    <string name="faq_16_title">Mi történt a fájlok és mappák elrejtésével, és miért nem látom már a rejtett elemeket\?</string>
     <string name="faq_16_text">Az Android 11-től kezdődően már nem lehet elrejteni vagy elrejtést megszüntetni a fájlokat vagy mappákat, a rendszer korlátozása miatt a galériaalkalmazásokban sem láthatók a rejtett fájlok és mappák. Ehhez valamilyen fájlkezelőt kell használnod.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_17_title">Miért nem vehetem bele a hiányzó mappákat\?</string>
+    <string name="faq_17_text">Ez már nem működik egy az Android 11-gyel érkezett rendszermódosítás miatt, az alkalmazás már nem tallózhatja a tényleges mappákat, az ún. MediaStore-ra támaszkodik az adatok lekéréséhez.</string>
+    <string name="faq_18_title">Miért látok reklámokat videólejátszás során\?</string>
+    <string name="faq_18_text">Az alkalmazásainkban egyáltalán nincsenek reklámok. Ha videólejátszás során látja őket, akkor valamilyen külső videólejátszót használhat. Próbálja megkeresni az alapértelmezett videólejátszót az eszközbeállításokban, majd futtassa az „Alapértelmezések törlése” lehetőséget. Amikor legközelebb videót játszana le, akkor az alkalmazásválasztót fogja látni, és kiválaszthatja a használandó alkalmazást.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

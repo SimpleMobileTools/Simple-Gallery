@@ -460,7 +460,7 @@ fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
         try {
             recycleBin.deleteRecursively()
             mediaDB.clearRecycleBin()
-            directoryDao.deleteRecycleBin()
+            directoryDB.deleteRecycleBin()
             toast(R.string.recycle_bin_emptied)
             callback?.invoke()
         } catch (e: Exception) {

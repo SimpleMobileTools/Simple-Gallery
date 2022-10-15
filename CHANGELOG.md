@@ -1,6 +1,19 @@
 Changelog
 ==========
 
+Version 6.25.3 *(2022-10-14)*
+----------------------------
+
+ * Restored the All Files permission, mostly related to hidden files
+ * Added some translation, stability and UX improvements
+
+Version 6.25.1 *(2022-10-03)*
+----------------------------
+
+ * Updated the photo/video editor
+ * Adding a Get Simple Phone button into the About section
+ * Added some translation and UX improvements
+
 Version 6.25.0 *(2022-09-03)*
 ----------------------------
 

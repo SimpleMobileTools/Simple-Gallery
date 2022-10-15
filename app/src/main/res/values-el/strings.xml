@@ -77,7 +77,6 @@
 \nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
     <string name="no_media_add_included">Δεν βρέθηκαν αρχεία πολυμέσων. Μπορεί να λυθεί αυτό, προσθέτοντας τους φακέλους που περιέχουν αρχεία πολυμέσων με μη αυτόματο τρόπο.</string>
     <!-- Resizing -->
-    <string name="resize">Αλλαγή μεγέθους</string>
     <string name="resize_and_save">Αλλαγή μεγέθους και αποθήκευση</string>
     <string name="width">Πλάτος</string>
     <string name="height">Ύψος</string>

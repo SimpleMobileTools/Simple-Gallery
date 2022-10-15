@@ -77,7 +77,6 @@
 \n在此加入項目不會排除其他資料夾。</string>
     <string name="no_media_add_included">未發現媒體檔案。您可以手動加入包含媒體檔案的資料夾來解決。</string>
     <!-- Resizing -->
-    <string name="resize">縮放</string>
     <string name="resize_and_save">縮放所選區域並儲存</string>
     <string name="width">寬度</string>
     <string name="height">高度</string>

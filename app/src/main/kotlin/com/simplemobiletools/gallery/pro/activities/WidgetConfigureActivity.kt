@@ -173,7 +173,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
 
         ensureBackgroundThread {
-            val path = directoryDao.getDirectoryThumbnail(folderPath)
+            val path = directoryDB.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
                     val signature = ObjectKey(System.currentTimeMillis().toString())
