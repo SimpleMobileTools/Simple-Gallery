@@ -235,7 +235,7 @@ class MediaAdapter(
     }
 
     private fun checkMediaManagementAndRename() {
-        activity.handleMediaManagementPrompt(true) {
+        activity.handleMediaManagementPrompt {
             renameFile()
         }
     }
@@ -367,7 +367,7 @@ class MediaAdapter(
     }
 
     private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
-        activity.handleMediaManagementPrompt(true) {
+        activity.handleMediaManagementPrompt {
             copyMoveTo(isCopyOperation)
         }
     }
@@ -446,7 +446,7 @@ class MediaAdapter(
     }
 
     private fun checkDeleteConfirmation() {
-        activity.handleMediaManagementPrompt(true) {
+        activity.handleMediaManagementPrompt {
             if (config.isDeletePasswordProtectionOn) {
                 activity.handleDeletePasswordProtection {
                     deleteFiles()

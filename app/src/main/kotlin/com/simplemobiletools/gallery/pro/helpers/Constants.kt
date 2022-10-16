@@ -96,6 +96,7 @@ const val LIMIT_FOLDER_TITLE = "folder_limit_title"
 const val THUMBNAIL_SPACING = "thumbnail_spacing"
 const val FILE_ROUNDED_CORNERS = "file_rounded_corners"
 const val CUSTOM_FOLDERS_ORDER = "custom_folders_order"
+const val AVOID_SHOWING_ALL_FILES_PROMPT = "avoid_showing_all_files_prompt"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

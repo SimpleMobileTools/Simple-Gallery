@@ -26,7 +26,6 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.dialogs.ConfirmationAdvancedDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.*
@@ -37,6 +36,7 @@ import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
+import com.simplemobiletools.gallery.pro.dialogs.AllFilesPermissionDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
@@ -127,19 +127,21 @@ fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
 
-fun BaseSimpleActivity.handleMediaManagementPrompt(avoidShowingAllFiles: Boolean, callback: () -> Unit) {
+fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
     if (canManageMedia() || isExternalStorageManager()) {
         callback()
-    } else if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access) && !avoidShowingAllFiles) {
+    } else if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access) && !config.avoidShowingAllFilesPrompt) {
         if (Environment.isExternalStorageManager()) {
             callback()
         } else {
             var messagePrompt = getString(R.string.access_storage_prompt)
-            if (isSPlus()) {
-                messagePrompt += "\n\n${getString(R.string.media_management_alternative)}"
+            messagePrompt += if (isSPlus()) {
+                "\n\n${getString(R.string.media_management_alternative)}"
+            } else {
+                "\n\n${getString(R.string.alternative_media_access)}"
             }
 
-            ConfirmationAdvancedDialog(this, messagePrompt, 0, R.string.ok, 0, true) { success ->
+            AllFilesPermissionDialog(this, messagePrompt, callback = { success ->
                 if (success) {
                     try {
                         val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
@@ -155,15 +157,14 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(avoidShowingAllFiles: Boolean
                             showErrorToast(e)
                         }
                     }
-                } else {
-                    finish()
                 }
-            }
-        }
-    } else if (isSPlus() && !MediaStore.canManageMedia(this) && !isExternalStorageManager()) {
-        val message = "${getString(R.string.media_management_prompt)}\n\n${getString(R.string.media_management_note)}"
-        ConfirmationDialog(this, message, 0, R.string.ok, 0) {
-            launchMediaManagementIntent(callback)
+            }, neutralPressed = {
+                if (isSPlus()) {
+                    launchMediaManagementIntent(callback)
+                } else {
+                    config.avoidShowingAllFilesPrompt = true
+                }
+            })
         }
     } else {
         callback()

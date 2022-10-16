@@ -546,4 +546,8 @@ class Config(context: Context) : BaseConfig(context) {
     var customFoldersOrder: String
         get() = prefs.getString(CUSTOM_FOLDERS_ORDER, "")!!
         set(customFoldersOrder) = prefs.edit().putString(CUSTOM_FOLDERS_ORDER, customFoldersOrder).apply()
+
+    var avoidShowingAllFilesPrompt: Boolean
+        get() = prefs.getBoolean(AVOID_SHOWING_ALL_FILES_PROMPT, false)
+        set(avoidShowingAllFilesPrompt) = prefs.edit().putBoolean(AVOID_SHOWING_ALL_FILES_PROMPT, avoidShowingAllFilesPrompt).apply()
 }
