@@ -214,6 +214,8 @@
     <string name="media_management_manual">Midagi läks valesti, palun minge oma seadmesse Seaded - Rakendused - Erirakenduste juurdepääs - Meediahaldusrakendused ja lubage sellel rakendusel meediat hallata.</string>
     <string name="media_management_note">Kui ümbersuunamine ei toimi, minge seadme seadistustesse - Rakendused - Erirakenduste juurdepääs - Meedia haldamise rakendused ja lubage sellel rakendusel meediat hallata.</string>
     <string name="media_management_alternative">Kui te ei soovi seda teha, võite ka minna oma seadmesse Seaded - Rakendused - Erirakenduste juurdepääs - Meediahaldusrakendused ja lubada sellel rakendusel meediat hallata.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
     <string name="fullscreen_media">Täisekraani meedia</string>

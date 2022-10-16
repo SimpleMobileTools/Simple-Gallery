@@ -214,6 +214,8 @@
     <string name="media_management_manual">Algo deu errado! Por favor, acesse Configurações - Apps - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
     <string name="media_management_note">Se o redirecionamento não funcionar, acesse Configurações - Apps - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
     <string name="media_management_alternative">Se você não quer fazer isso, você também pode acessar em seu dispositivo Configurações - Apps - Acesso especial ao aplicativ - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Mídia em tela cheia</string>

@@ -214,6 +214,8 @@
     <string name="media_management_manual">Jokin meni pieleen, mene laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
     <string name="media_management_note">Jos uudelleenohjaus ei toimi, siirry laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
     <string name="media_management_alternative">Jos et halua tehdä sitä, voit myös mennä laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja sallia tämän sovelluksen hallita mediaa.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
