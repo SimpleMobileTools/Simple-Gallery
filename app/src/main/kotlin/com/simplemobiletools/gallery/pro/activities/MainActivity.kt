@@ -320,8 +320,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
-            findItem(R.id.temporarily_show_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
-            findItem(R.id.stop_showing_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
+            findItem(R.id.temporarily_show_excluded).isVisible = !config.temporarilyShowExcluded
+            findItem(R.id.stop_showing_excluded).isVisible = config.temporarilyShowExcluded
         }
     }
 
