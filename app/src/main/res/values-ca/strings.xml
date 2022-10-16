@@ -214,7 +214,7 @@
     <string name="media_management_manual">S\'ha produït un error, aneu a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_note">Si la redirecció no funciona, aneu a la Configuració del dispositiu - Aplicacions - Accés especial d\'aplicacions - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_alternative">Si no voleu fer-ho, també podeu anar a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permetre que aquesta aplicació gestioni el contingut multimèdia.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <!-- Setting sections -->

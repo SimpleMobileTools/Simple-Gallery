@@ -210,7 +210,7 @@
     <string name="media_management_manual">問題が発生しました。端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_note">リダイレクトが機能しない場合、端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_alternative">もし、それを許可したくない場合は、端末の [設定] &gt; [アプリ] &gt; [特別なアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <!-- Setting sections -->

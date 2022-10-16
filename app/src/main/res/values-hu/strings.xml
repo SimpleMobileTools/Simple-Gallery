@@ -214,7 +214,7 @@
     <string name="media_management_manual">Valami hiba történt, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
     <string name="media_management_note">Ha az átirányítás nem működik, akkor ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
     <string name="media_management_alternative">Ha ezt nem akarja megtenni, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <!-- Setting sections -->

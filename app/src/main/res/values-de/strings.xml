@@ -214,7 +214,7 @@
     <string name="media_management_manual">Irgendetwas ist schief gelaufen. Öffne bitte die Geräteeinstellungen - Apps - Erweitert - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser Anwendung, Medien zu verwalten.</string>
     <string name="media_management_note">Wenn die Umleitung nicht funktioniert, öffne bitte die Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser App die Medienverwaltung.</string>
     <string name="media_management_alternative">Wenn du das nicht möchtest, kannst du auch in den Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung dieser Anwendung die Verwaltung von Medien erlauben.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <!-- Setting sections -->

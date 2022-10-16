@@ -214,7 +214,7 @@
     <string name="media_management_manual">Algo deu errado, por favor, entre nas configurações do seu dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permita que este aplicativo gerencie mídia.</string>
     <string name="media_management_note">Se o redirecionamento não funcionar, acesse as Configurações do seu dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permita que este aplicativo gerencie mídia.</string>
     <string name="media_management_alternative">Se você não quiser fazer isso, também pode acessar Configurações do dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <!-- Setting sections -->
