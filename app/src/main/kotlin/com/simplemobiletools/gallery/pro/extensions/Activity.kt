@@ -127,10 +127,10 @@ fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
 
-fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
+fun BaseSimpleActivity.handleMediaManagementPrompt(avoidShowingAllFiles: Boolean, callback: () -> Unit) {
     if (canManageMedia() || isExternalStorageManager()) {
         callback()
-    } else if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access)) {
+    } else if (isRPlus() && resources.getBoolean(R.bool.require_all_files_access) && !avoidShowingAllFiles) {
         if (Environment.isExternalStorageManager()) {
             callback()
         } else {

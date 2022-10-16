@@ -169,7 +169,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 if (!mWasMediaManagementPromptShown) {
                     mWasMediaManagementPromptShown = true
-                    handleMediaManagementPrompt { }
+                    handleMediaManagementPrompt(false) { }
                 }
             }
         }

@@ -662,7 +662,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkMediaManagementAndCopy(isCopyOperation: Boolean) {
-        handleMediaManagementPrompt {
+        handleMediaManagementPrompt(true) {
             copyMoveTo(isCopyOperation)
         }
     }
@@ -1109,7 +1109,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        handleMediaManagementPrompt {
+        handleMediaManagementPrompt(true) {
             if (config.isDeletePasswordProtectionOn) {
                 handleDeletePasswordProtection {
                     deleteConfirmed()
@@ -1225,7 +1225,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkMediaManagementAndRename() {
-        handleMediaManagementPrompt {
+        handleMediaManagementPrompt(true) {
             renameFile()
         }
     }
