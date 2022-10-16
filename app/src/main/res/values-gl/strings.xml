@@ -216,6 +216,7 @@
     <string name="media_management_alternative">Se non queres facelo, tamén podes accedela Configuración do teu dispositivo - Aplicacións - Acceso especial ás aplicacións - Aplicacións de xestión multimedia e permitir ca ista aplicación xestione o contido multimedia.</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>

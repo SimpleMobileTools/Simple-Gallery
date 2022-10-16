@@ -216,6 +216,7 @@
     <string name="media_management_alternative">如果你不想进行此操作，你也可以转到设备的 “设置” - “应用” - “特殊应用权限” - “媒体管理应用” 并允许此应用管理媒体文件。</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>

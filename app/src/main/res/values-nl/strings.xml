@@ -212,6 +212,7 @@
     <string name="media_management_alternative">Ga anders naar de systeeminstellingen - Apps - Geavanceerd - Speciale app-toegang - Mediabeheer en geef deze app toegang tot mediabestanden.</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>

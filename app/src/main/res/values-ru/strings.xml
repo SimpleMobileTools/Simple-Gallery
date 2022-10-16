@@ -216,6 +216,7 @@
     <string name="media_management_alternative">Если вы не хотите этого делать, откройте настройки устройства и перейдите в: \"Приложения\" → \"Специальный доступ\" → \"Приложения для управления медиа\" и разрешите этому приложению управлять медиа.</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you won`t be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>
     <string name="fullscreen_media">Просмотр медиафайлов</string>

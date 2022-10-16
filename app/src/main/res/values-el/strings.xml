@@ -216,6 +216,7 @@
     <string name="media_management_alternative">Αν δεν θέλετε να το κάνετε, μπορείτε επίσης να μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και να επιτρέψετε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>
     <string name="alternative_media_access">Εναλλακτικά, μπορείτε να επιτρέψετε την πρόσβαση μόνο σε αρχεία πολυμέσων. Σε αυτή την περίπτωση, όμως, δεν θα μπορείτε να εργαστείτε με κρυφά αρχεία.</string>
     <string name="media_only">Πολυμέσα μόνο</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
     <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
