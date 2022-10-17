@@ -214,9 +214,9 @@
     <string name="media_management_manual">Qualcosa è andato storto, si prega di andare nelle Impostazioni del vostro dispositivo - App - Accesso speciale per le app - App di gestione contenuti multimediali e consentire a questa app di gestire i media.</string>
     <string name="media_management_note">Se il reindirizzamento non funziona, si prega di andare nel Impostazioni del dispositivo - App - Accesso speciale app - Applicazioni di gestione dei media e consentire a questa applicazione di gestire i media.</string>
     <string name="media_management_alternative">Se non si vuole farlo, si può anche andare in Impostazioni del dispositivo - App - Accesso app speciali - App di gestione dei media e consentire a questa app di gestire i media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="alternative_media_access">In alternativa, è possibile consentire l\'accesso solo ai file multimediali. In questo caso, però, non sarà possibile lavorare con i file nascosti.</string>
+    <string name="media_only">Solo media</string>
+    <string name="all_files">Tutti i file</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
