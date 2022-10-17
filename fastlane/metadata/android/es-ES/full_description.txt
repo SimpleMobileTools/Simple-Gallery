@@ -1,19 +1,19 @@
-Galería Simple te trae todas las funciones de visualización y edición de fotos que te faltaban en tu Android en una aplicación elegante y fácil de usar. Navega, gestiona, recorta y edita fotos o vídeos más rápido que nunca, recupera archivos borrados accidentalmente o crea galerías ocultas para tus imágenes y vídeos más preciados. Y con el soporte avanzado de archivos y la personalización total, por fin tu galería funciona como tú quieres. 
+Galería Sencilla te trae todas las funciones de visualización y edición de fotos que te faltaban en tu Android en una aplicación elegante y fácil de usar. Navega, gestiona, recorta y edita fotos o vídeos más rápido que nunca, recupera archivos borrados accidentalmente o crea galerías ocultas para tus imágenes y vídeos más preciados. Y con el soporte avanzado de archivos y la personalización total, por fin tu galería funciona como tú quieres. 
  
 EDITOR DE FOTOS AVANZADO 
-Convierte la edición de fotos en un juego de niños con el organizador de archivos y el álbum de fotos mejorados de Simple Gallery. Los gestos intuitivos hacen que sea muy fácil editar tus imágenes sobre la marcha. Recorta, voltea, rota y cambia el tamaño de las imágenes o aplica elegantes filtros para hacerlas resaltar en un instante. 
+Convierte la edición de fotos en un juego de niños con el organizador de archivos y el álbum de fotos mejorados de Galería Sencilla. Los gestos intuitivos hacen que sea muy fácil editar tus imágenes sobre la marcha. Recorta, voltea, rota y cambia el tamaño de las imágenes o aplica elegantes filtros para hacerlas resaltar en un instante. 
  
 TODOS LOS ARCHIVOS QUE NECESITAS 
-Simple Gallery es compatible con una gran variedad de tipos de archivo, como JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panorámicas, vídeos y muchos más, por lo que disfrutarás de total flexibilidad a la hora de elegir el formato. ¿Alguna vez te has preguntado "puedo usar este formato en mi Android"? Ahora la respuesta es sí. 
+Galería Sencilla es compatible con una gran variedad de tipos de archivo, como JPEG, PNG, MP4, MKV, RAW, SVG, GIF, fotos panorámicas, vídeos y muchos más, por lo que disfrutarás de total flexibilidad a la hora de elegir el formato. ¿Alguna vez te has preguntado "puedo usar este formato en mi Android"? Ahora la respuesta es sí. 
  
 HAZLO TUYO 
-El diseño altamente personalizable de Simple Gallery te permite hacer que la aplicación de fotos se vea, se sienta y funcione justo como tú quieres. Desde la interfaz de usuario hasta los botones de función de la barra de herramientas inferior, Simple Gallery te da la libertad creativa que necesitas en una aplicación de galería. 
+El diseño altamente personalizable de Galería Sencilla te permite hacer que la aplicación de fotos se vea, se sienta y funcione justo como tú quieres. Desde la interfaz de usuario hasta los botones de función de la barra de herramientas inferior, Galería Sencilla te da la libertad creativa que necesitas en una aplicación de galería. 
  
 RECUPERAR FOTOS Y VÍDEOS BORRADOS 
-No te preocupes por haber borrado accidentalmente esa preciosa foto o vídeo que no puedes reemplazar. Simple Gallery te permite recuperar rápidamente cualquier foto o vídeo eliminado, lo que significa que, además de ser la mejor galería multimedia para Android, Simple Gallery funciona también como una increíble aplicación para guardar fotos. 
+No te preocupes por haber borrado accidentalmente esa preciosa foto o vídeo que no puedes reemplazar. Galería Sencilla te permite recuperar rápidamente cualquier foto o vídeo eliminado, lo que significa que, además de ser la mejor galería multimedia para Android, Galería Sencilla funciona también como una increíble aplicación para guardar fotos. 
  
 PROTEGE TUS FOTOS, VÍDEOS Y ARCHIVOS PRIVADOS 
-Ten la seguridad de que tu álbum de fotos está a salvo. Con las funciones de seguridad superiores de Simple Gallery puedes utilizar un pin, un patrón o el escáner de huellas dactilares de tu dispositivo para limitar quién puede ver o editar las fotos y vídeos seleccionados o acceder a los archivos importantes. Incluso puedes proteger la propia aplicación o colocar bloqueos en funciones específicas del organizador de archivos. 
+Ten la seguridad de que tu álbum de fotos está a salvo. Con las funciones de seguridad superiores de Galería Sencilla puedes utilizar un pin, un patrón o el escáner de huellas dactilares de tu dispositivo para limitar quién puede ver o editar las fotos y vídeos seleccionados o acceder a los archivos importantes. Incluso puedes proteger la propia aplicación o colocar bloqueos en funciones específicas del organizador de archivos. 
  
 Viene con material design y tema oscuro por defecto, proporciona una gran experiencia de usuario para un uso fácil. La falta de acceso a Internet le da más privacidad, seguridad y estabilidad que otras aplicaciones. 
  
@@ -22,7 +22,7 @@ No contiene anuncios ni permisos innecesarios. Es totalmente opensource, proporc
 Consulta el conjunto completo de Simple Tools aquí: 
 https://www.simplemobiletools.com 
  
-Sitio web independiente de Simple Gallery Pro: 
+Sitio web independiente de Galería Sencilla Pro: 
 https://www.simplemobiletools.com/gallery 
  
 Facebook: 
