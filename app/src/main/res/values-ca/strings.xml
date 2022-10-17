@@ -214,9 +214,9 @@
     <string name="media_management_manual">S\'ha produït un error, aneu a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_note">Si la redirecció no funciona, aneu a la Configuració del dispositiu - Aplicacions - Accés especial d\'aplicacions - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_alternative">Si no voleu fer-ho, també podeu anar a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permetre que aquesta aplicació gestioni el contingut multimèdia.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="alternative_media_access">Alternativament, podeu permetre l\'accés només a fitxers multimèdia. En aquest cas, però, no podreu treballar amb fitxers ocults.</string>
+    <string name="media_only">Només fitxers multimèdia</string>
+    <string name="all_files">Tots els fitxers</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>
@@ -351,13 +351,13 @@
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta\?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Gallery, mentre que ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer «.nomedia» buit a la carpeta indicada, que podeu eliminar amb qualsevol gestor de fitxers. Tingueu en compte que alguns dispositius no permeten amagar carpetes com Càmera, Captures de pantalla o Descàrregues.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius\?</string>
-    <string name="faq_6_text">Pot passar que veureu que apareixen alguns àlbums inusuals. Podeu excloure\'ls fàcilment prement-los i seleccionant Excloure. Al diàleg següent, podeu seleccionar la carpeta principal, és probable que impedeixi que també apareguin altres àlbums relacionats.</string>
+    <string name="faq_6_text">Pot passar que veureu que apareixen alguns àlbums inusuals. Podeu excloure\'ls fàcilment prement-los prolongadament i seleccionant Excloure. Al diàleg següent, podeu seleccionar la carpeta principal, és probable que impedeixi que també apareguin altres àlbums relacionats.</string>
     <string name="faq_7_title">No apareix una carpeta amb imatges, o no mostra tots els elements. Què puc fer\?</string>
     <string name="faq_7_text">Això pot tenir diversos motius, però resoldre-ho és fàcil. Accediu a Configuració -&gt; Gestiona les carpetes incloses, seleccioneu Més i navegueu fins a la carpeta necessària.</string>
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes\?</string>
     <string name="faq_8_text">Afegir una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -&gt; Gestiona les carpetes excloses, excloure la carpeta arrel «/» i, a continuació, afegir les carpetes desitjades a Configuració -&gt; Gestiona les carpetes incloses. Això farà que només siguin visibles les carpetes seleccionades, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, aquesta es mostrarà.</string>
     <string name="faq_10_title">Puc escapçar imatges amb aquesta aplicació\?</string>
-    <string name="faq_10_text">Sí, podeu escapçar imatges a l\'editor, arrossegant les cantonades de la imatge. Es pot accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
+    <string name="faq_10_text">Sí, podeu escapçar imatges a l\'editor, arrossegant les cantonades de la imatge. Es pot accedir a l\'editor prement prolongadament una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures dels fitxers multimèdia\?</string>
     <string name="faq_11_text">Si, només cal utilitzar l\'element de menú «Agrupa per» mentre esteu a la vista de miniatures. Podeu agrupar fitxers amb diversos criteris, inclosa la data de presa. Si utilitzeu la funció «Mostra el contingut de totes les carpetes», també podeu agrupar-les per carpetes.</string>
     <string name="faq_12_title">L\'ordenació per la data de presa no sembla funcionar correctament, com puc solucionar-ho\?</string>
