@@ -4,8 +4,8 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
-    <string name="hidden">(versteckt)</string>
-    <string name="excluded">(ausgenommen)</string>
+    <string name="hidden">(ausgeblendet)</string>
+    <string name="excluded">(ausgeschlossen)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -27,7 +27,7 @@
     <string name="fixing">Korrigieren …</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
     <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
-    <string name="share_resized">Teile eine verkleinerte Version</string>
+    <string name="share_resized">Eine verkleinerte Version teilen</string>
     <string name="upgraded_from_free">Hallo,
 \n
 \nes sieht so aus, als hättest du eine Aktualisierung von der alten kostenlosen Anwendung durchgeführt. Du kannst die alte Version jetzt deinstallieren. Oben in den Anwendungseinstellungen gibt es eine Schaltfläche „Auf Pro aktualisieren“.
@@ -38,8 +38,8 @@
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
     <string name="set_as_default_folder">Als Standardordner festlegen</string>
     <string name="unset_as_default_folder">Nicht mehr als Standardordner festlegen</string>
-    <string name="reorder_by_dragging">Neuordnung von Ordnern durch Ziehen</string>
-    <string name="reorder_by_dragging_pro">Neuordnung von Ordnern durch Ziehen (Pro)</string>
+    <string name="reorder_by_dragging">Ordner durch Ziehen neu anordnen</string>
+    <string name="reorder_by_dragging_pro">Ordner durch Ziehen neu anordnen (Pro)</string>
     <string name="restore_to_path">Wiederherstellung nach „%s“</string>
     <!-- Filter -->
     <string name="filter_media">Medien filtern</string>
@@ -52,7 +52,7 @@
     <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden.</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem sie in ihn eine .nomedia-Datei einfügt, sie verbirgt auch alle Unterordner. Du kannst sie wieder sehen, indem du in den Einstellungen die Option „Ausgeblendete Elemente anzeigen“ umschaltest. Weiter\?</string>
+    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem eine .nomedia-Datei in ihn eingefügt wird, sie verbirgt auch alle Unterordner. Sie können sie sehen, indem Sie die Option „Ausgeblendete Elemente anzeigen“ in den Einstellungen umschalten. Weiter\?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
@@ -284,7 +284,7 @@
     <string name="pesdk_editor_accept">Akzeptieren</string>
     <string name="pesdk_editor_save">Speichern</string>
     <string name="pesdk_editor_text_exportProgressUnknown">Exportieren …</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">%s wird exportiert.</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Export von %s.</string>
     <string name="pesdk_sticker_title_name">Aufkleber</string>
     <string name="pesdk_sticker_title_color">Aufkleberfarbe</string>
     <string name="pesdk_sticker_title_options">Aufkleber-Optionen</string>
