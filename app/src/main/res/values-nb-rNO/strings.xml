@@ -58,9 +58,9 @@
     <string name="manage_excluded_folders">Håndter ekskluderte mapper</string>
     <string name="exclude_folder_description">Dette vil ekskludere valgte sammen med undermapper, bare fra Simple Gallery. Ekskluderte mapper kan håndteres i Innstillinger.</string>
     <string name="exclude_folder_parent">Ekskludere en overordnet isteden\?</string>
-    <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i denne appen. De vil fortsatt være synlige i andre apper.
+    <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i Simple Gallery. De vil fortsatt være synlige i andre apper.
 \n
-\nHvis du vil skjule dem fra andre apper, bruk Skjul-funksjonen.</string>
+\nHvis du vil skjule dem fra andre apper også, bruk Skjul-funksjonen.</string>
     <string name="remove_all">Fjern alle</string>
     <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte\? Dette sletter ikke mappene.</string>
     <string name="hidden_folders">Skjulte mapper</string>
@@ -122,7 +122,7 @@
     <string name="home_screen">Startskjerm</string>
     <string name="lock_screen">Låseskjerm</string>
     <string name="home_and_lock_screen">Start- og låseskjerm</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Tillat endring av sideforholdet</string>
     <!-- Slideshow -->
     <string name="slideshow">Lysbildeshow</string>
     <string name="interval">Intervall</string>
@@ -215,8 +215,8 @@
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="media_only">Kun media</string>
+    <string name="all_files">Alle filer</string>
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
     <string name="fullscreen_media">Mediavisning</string>
@@ -369,7 +369,7 @@
     <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
-    <string name="faq_16_text">Fra og med Android 11 kan du heller ikke skjule eller vise filer eller mapper, du kan heller ikke se de skjulte i galleriapper. Du må bruke litt filbehandling for det.</string>
+    <string name="faq_16_text">Fra og med Android 11 kan du ikke lenger skjule/vise filer eller mapper, du kan heller ikke se de skjulte i galleriapper pga. systemrestriksjoner. Du må bruke en filbehandlingsapp for det.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback\?</string>
