@@ -221,6 +221,9 @@
     <string name="media_management_manual">Нешта пайшло не так, калі ласка, перайдзіце ў Налады прылады - Прыкладанні - Спецыяльны доступ да праграм - Прыкладанні для кіравання мультымедыя і дазвольце гэтай праграме кіраваць мультымедыя.</string>
     <string name="media_management_note">Калі перанакіраванне не працуе, калі ласка, перайдзіце ў Налады прылады - Праграмы - Спецыяльны доступ да праграм - Праграмы для кіравання медыяфайламі і дазвольце гэтай праграме кіраваць медыяфайламі.</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <string name="thumbnails">Эскізы</string>
     <string name="fullscreen_media">Поўнаэкранны медыя</string>
     <string name="extended_details">Пашыраныя дэталі</string>

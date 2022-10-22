@@ -214,6 +214,9 @@
     <string name="media_management_manual">Quelque chose s\'est mal passé, veuillez aller dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
     <string name="media_management_note">Si la redirection ne fonctionne pas, allez dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
     <string name="media_management_alternative">Si vous ne voulez pas le faire, vous pouvez aussi aller dans les Paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autoriser cette application à gérer les médias.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>

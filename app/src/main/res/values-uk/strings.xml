@@ -214,6 +214,9 @@
     <string name="media_management_manual">Щось пішло не так. Будь ласка, у вашому пристрої перейдіть в «Налаштування» - «Програми» - «Спеціальний доступ» - «Програми керування медіа» та дозвольте цій програмі керувати файлами медіа.</string>
     <string name="media_management_note">Якщо переспрямування не спрацює, то перейдіть, будь ласка, у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
     <string name="media_management_alternative">Якщо ви не хочете цього робити, ви можете перейти у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>

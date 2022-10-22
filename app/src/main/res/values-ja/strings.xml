@@ -168,7 +168,7 @@
     <string name="black_background_at_fullscreen">全画面表示の背景色を黒にする</string>
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">全画面表示時にシステムUIを自動的に隠す</string>
-    <string name="delete_empty_folders">空になったフォルダは削除する</string>
+    <string name="delete_empty_folders">ファイルの削除後、空になったフォルダを削除する</string>
     <string name="allow_photo_gestures">写真の明るさを縦の動作で制御</string>
     <string name="allow_video_gestures">音量と明るさを縦の動作で変更</string>
     <string name="show_media_count">フォルダ内のメディア数を表示する</string>
@@ -203,13 +203,16 @@
     <string name="show_file_count_none">ファイル数を非表示</string>
     <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
     <string name="square">四角</string>
-    <string name="rounded_corners">丸コーナー</string>
+    <string name="rounded_corners">角丸</string>
     <string name="export_favorite_paths">Export favorite file paths</string>
     <string name="media_management_prompt">すべてのファイル操作を確実に行うためには、端末の設定でこのアプリをメディア管理アプリにする必要があります。</string>
     <string name="password_protect_excluded">除外されたフォルダの表示をパスワードで保護する</string>
     <string name="media_management_manual">問題が発生しました。端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_note">リダイレクトが機能しない場合、端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_alternative">もし、それを許可したくない場合は、端末の [設定] &gt; [アプリ] &gt; [特別なアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
+    <string name="alternative_media_access">または、メディアファイルのみアクセスを許可することもできます。ただし、この場合、隠しファイルへの操作は行なえません。</string>
+    <string name="media_only">メディアのみ</string>
+    <string name="all_files">すべてのファイル</string>
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
     <string name="fullscreen_media">メディア設定</string>
@@ -334,7 +337,7 @@
     <string name="vesdk_video_trim_title_name">トリム</string>
     <!-- FAQ -->
     <string name="faq_1_title">どうすればシンプルギャラリーをデバイスのデフォルトギャラリーに出来ますか？</string>
-    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"のようなボタンを探してクリックし、そして\"デフォルトを消去\"を選択します。 次に画像や動画を開こうとした時に、アプリ選択が表示されるのでシンプルギャラリーを通常のアプリとして選択します。</string>
+    <string name="faq_1_text">まずデバイスの設定内のアプリセクションで現在のデフォルトのギャラリーを探し、\"デフォルトで開く\"というような表記のボタンを探してクリックし、そして\"デフォルトの設定のクリア\"や\"設定を消去\"といった表記のものを選択します。 次に画像や動画を開こうとした時に、アプリ選択が表示されるのでシンプルギャラリーを通常のアプリとして選択します。</string>
     <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
     <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて\"データを消去\"を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
     <string name="faq_3_title">常にアルバムが一番上に表示されるようにするにはどうすればいいですか？</string>
@@ -366,7 +369,7 @@
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">動画の再生中に広告が表示されるのはなぜですか？</string>
-    <string name="faq_18_text">私たちのアプリには広告は一切表示されません。動画の再生中に広告が表示される場合、他のアプリの動画プレーヤーを使用している可能性があります。端末の設定でデフォルトの動画プレーヤーを見つけて、「デフォルトのクリア」を実行してみてください。次回以降、何らかの動画インテントを投げると、使用するアプリを選択するアプリ選択ダイアログが表示されます。</string>
+    <string name="faq_18_text">私たちのアプリには広告は一切表示されません。動画の再生中に広告が表示される場合、他のアプリの動画プレーヤーを使用している可能性があります。端末の設定でデフォルトの動画プレーヤーを見つけて、”デフォルトの設定をクリア”（あるいは”設定を消去”や”デフォルトをクリア”といった表記のもの）を実行してみてください。次回以降、何らかの動画を開こうとすると、使用するアプリを選択するアプリ選択ダイアログが表示されます。</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

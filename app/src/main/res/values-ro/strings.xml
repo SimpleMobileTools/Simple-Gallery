@@ -214,6 +214,9 @@
     <string name="media_management_manual">Ceva nu a mers bine, vă rugăm să accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și permiteți acestei aplicații să gestioneze media.</string>
     <string name="media_management_note">Dacă redirecționarea nu funcționează, accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și permiteți acestei aplicații să gestioneze media.</string>
     <string name="media_management_alternative">Dacă nu doriți să faceți acest lucru, puteți, de asemenea, să accesați Setări - Aplicații - Acces special la aplicații - Aplicații de gestionare media și să permiteți acestei aplicații să gestioneze media.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturi</string>
     <string name="fullscreen_media">Elemente media pe ecran complet</string>

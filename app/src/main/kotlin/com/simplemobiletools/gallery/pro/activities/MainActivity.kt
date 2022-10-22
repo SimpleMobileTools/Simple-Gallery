@@ -150,8 +150,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         // just request the permission, tryLoadGallery will then trigger in onResume
-        handleMediaPermissions {
-            if (!it) {
+        handleMediaPermissions { success ->
+            if (!success) {
                 toast(R.string.no_storage_permissions)
                 finish()
             }
@@ -320,8 +320,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
-            findItem(R.id.temporarily_show_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && !config.temporarilyShowExcluded
-            findItem(R.id.stop_showing_excluded).isVisible = !findItem(R.id.temporarily_show_hidden).isVisible && config.temporarilyShowExcluded
+            findItem(R.id.temporarily_show_excluded).isVisible = !config.temporarilyShowExcluded
+            findItem(R.id.stop_showing_excluded).isVisible = config.temporarilyShowExcluded
         }
     }
 
@@ -483,12 +483,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         // avoid calling anything right after granting the permission, it will be called from onResume()
         val wasMissingPermission = config.appRunCount == 1 && !hasPermission(getPermissionToRequest())
-        handleMediaPermissions {
-            if (wasMissingPermission) {
-                return@handleMediaPermissions
-            }
+        handleMediaPermissions { success ->
+            if (success) {
+                if (wasMissingPermission) {
+                    return@handleMediaPermissions
+                }
 
-            if (it) {
                 if (!mWasDefaultFolderChecked) {
                     openDefaultFolder()
                     mWasDefaultFolderChecked = true

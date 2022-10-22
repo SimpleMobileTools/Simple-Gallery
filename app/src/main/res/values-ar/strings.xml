@@ -214,6 +214,9 @@
     <string name="media_management_manual">حدث خطأ ما ، يرجى الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيقات الخاصة - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
     <string name="media_management_note">إذا لم تنجح عملية إعادة التوجيه ، فيرجى الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيق الخاص - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
     <string name="media_management_alternative">إذا كنت لا ترغب في القيام بذلك، فيمكنك أيضًا الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيقات الخاصة - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
+    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
+    <string name="media_only">Media only</string>
+    <string name="all_files">All files</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
