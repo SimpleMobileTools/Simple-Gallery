@@ -26,7 +26,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Vrednosti datumske všečnosti niso bile najdene</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
     <string name="upgraded_from_free">Živjo,
 \n
@@ -35,12 +35,12 @@
 \nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.
 \n
 \nHvala!</string>
-    <string name="switch_to_file_search">Switch to file search across all visible folders</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="switch_to_file_search">Preklop na iskanje datotek v vseh mapah</string>
+    <string name="set_as_default_folder">Nastavite kot privzeto mapo</string>
+    <string name="unset_as_default_folder">Odpravljena nastavitev privzete mape</string>
+    <string name="reorder_by_dragging">Spreminjanje zaporedja map z vlečenjem</string>
+    <string name="reorder_by_dragging_pro">Prospreminjanje vrstnega reda map z vlečenjem</string>
+    <string name="restore_to_path">Obnovitev v \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
     <string name="images">Slike</string>
@@ -48,7 +48,7 @@
     <string name="gifs">GIFi</string>
     <string name="raw_images">RAW slike</string>
     <string name="svgs">SVGji</string>
-    <string name="portraits">Portraits</string>
+    <string name="portraits">Portreti</string>
     <string name="no_media_with_filters">Na podlagi izbranih filtrov ne najdem nobenih medijskih datotek.</string>
     <string name="change_filters_underlined"><u>Spremeni filtre</u></string>
     <!-- Hide / Exclude -->
@@ -66,8 +66,8 @@
     <string name="hidden_folders">Skrite mape</string>
     <string name="manage_hidden_folders">Urejaj skrite mape</string>
     <string name="hidden_folders_placeholder">Kot kaže skrite mape z \".nomedia\" datoteko ne obstajajo.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <string name="temporarily_show_excluded">Prikaži začasno izključeno</string>
+    <string name="stop_showing_excluded">Prenehajte prikazovati izključene</string>
     <!-- Include folders -->
     <string name="include_folders">Vključene mape</string>
     <string name="manage_included_folders">Urejaj vključene mape</string>
@@ -75,7 +75,7 @@
     <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.
 \n
 \nDodajanje novih elementov ne bo izključilo drugih.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Niso bile najdene medijske datoteke. To rešite, da mape z medijskimi datotekami dodate ročno.</string>
     <!-- Resizing -->
     <string name="resize_and_save">Spremeni velikost izbora in shrani</string>
     <string name="width">Širina</string>
@@ -86,18 +86,18 @@
     <string name="editor">Urejevalnik</string>
     <string name="rotate">Zavrti</string>
     <string name="invalid_image_path">Napačna pot</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Nepravilna video pot</string>
     <string name="image_editing_failed">Urejanje slike ni uspelo</string>
-    <string name="video_editing_failed">Video editing failed</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
-    <string name="file_edited_successfully">File edited successfully</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="video_editing_failed">Neuspešno video urejanje</string>
+    <string name="image_editing_cancelled">Urejanje slik preklicano</string>
+    <string name="video_editing_cancelled">Ukinjeno video urejanje</string>
+    <string name="file_edited_successfully">Datoteka je uspešno urejena</string>
+    <string name="image_edited_successfully">Slika je uspešno urejena</string>
+    <string name="video_edited_successfully">Uspešno urejen video</string>
     <string name="edit_image_with">Uredi sliko z:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Urejanje video z:</string>
     <string name="no_image_editor_found">Ne najdem urejevalnika slik</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Ni najden noben video urejevalnik</string>
     <string name="unknown_file_location">Neznana lokacija datoteke</string>
     <string name="error_saving_file">Ne morem prepisati izvorne datoteke</string>
     <string name="rotate_left">Zavrti levo</string>
