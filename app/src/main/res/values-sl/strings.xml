@@ -15,7 +15,7 @@
     <string name="other_folder">Druga mapa</string>
     <string name="show_on_map">Prikaži na zemljevidu</string>
     <string name="unknown_location">Neznana lokacija</string>
-    <string name="volume">Volume</string>
+    <string name="volume">Obseg</string>
     <string name="brightness">Svetlost</string>
     <string name="lock_orientation">Zakleni usmerjenost</string>
     <string name="unlock_orientation">Odkleni usmerjenost</string>
@@ -122,19 +122,19 @@
     <string name="home_screen">Domači zaslon</string>
     <string name="lock_screen">Zaklenjeni zaslon</string>
     <string name="home_and_lock_screen">Domači in zaklenjeni zaslon</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Omogočite spreminjanje razmerja stranic</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaprojekcija</string>
-    <string name="interval">Interval</string>
+    <string name="interval">Razdalja</string>
     <string name="include_photos">Vključi fotografije</string>
     <string name="include_videos">Vključi videoposnetke</string>
     <string name="include_gifs">Vključi GIFe</string>
     <string name="random_order">Naključni vrstni red</string>
     <string name="move_backwards">Premik nazaj</string>
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
-    <string name="animation">Animation</string>
+    <string name="animation">Animacija</string>
     <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
+    <string name="fade">Zbledi</string>
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
@@ -145,14 +145,14 @@
     <string name="do_not_group_files">Ne združuj datotek</string>
     <string name="by_folder">Mapa</string>
     <string name="by_last_modified">Zadnjič spremenjeno</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
-    <string name="by_date_taken">Posneto</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_last_modified_daily">Zadnjič spremenjeno (dnevno)</string>
+    <string name="by_last_modified_monthly">Zadnjič spremenjeno (mesečno)</string>
+    <string name="by_date_taken">Datum zajema</string>
+    <string name="by_date_taken_daily">Datum odvzema (dnevno)</string>
+    <string name="by_date_taken_monthly">Datum odvzema (mesečno)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">Prikažite število datotek v glavi razdelka</string>
     <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
