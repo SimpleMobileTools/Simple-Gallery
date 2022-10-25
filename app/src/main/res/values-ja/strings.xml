@@ -38,7 +38,7 @@
     <string name="unset_as_default_folder">デフォルトのフォルダから外す</string>
     <string name="reorder_by_dragging">ドラッグによるフォルダの並べ替え</string>
     <string name="reorder_by_dragging_pro">ドラッグによるフォルダの並べ替え (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="restore_to_path">\'%s\' に復元中</string>
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
     <string name="images">画像</string>
@@ -204,13 +204,13 @@
     <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
     <string name="square">四角</string>
     <string name="rounded_corners">角丸</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="export_favorite_paths">お気に入りファイルのパスをエクスポート</string>
     <string name="media_management_prompt">すべてのファイル操作を確実に行うためには、端末の設定でこのアプリをメディア管理アプリにする必要があります。</string>
     <string name="password_protect_excluded">除外されたフォルダの表示をパスワードで保護する</string>
     <string name="media_management_manual">問題が発生しました。端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_note">リダイレクトが機能しない場合、端末の [設定] &gt; [アプリ] &gt; [特別なアプリアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
     <string name="media_management_alternative">もし、それを許可したくない場合は、端末の [設定] &gt; [アプリ] &gt; [特別なアクセス] &gt; [メディア管理アプリ] に移動して、このアプリをメディア管理アプリに設定してください。</string>
-    <string name="alternative_media_access">または、メディアファイルのみアクセスを許可することもできます。ただし、この場合、隠しファイルへの操作は行なえません。</string>
+    <string name="alternative_media_access">または、メディアファイルのみアクセスを許可することもできます。ただし、この場合、隠しファイル (このアプリでは非表示項目を指します) への操作は行なえません。</string>
     <string name="media_only">メディアのみ</string>
     <string name="all_files">すべてのファイル</string>
     <!-- Setting sections -->
@@ -361,7 +361,7 @@
     <string name="faq_13_title">画像にバンディングが見られます。どうすれば質を変えられますか？</string>
     <string name="faq_13_text">現在の表示方法は大抵の場合問題は見られませんが、より高画質で表示したい場合はアプリ設定の\"画像のズームを深くする\"セクションで\"可能な限り高品質で画像を表示\"を有効にすると良いでしょう。</string>
     <string name="faq_14_title">非表示にしているファイルやフォルダがあります。もう一度表示するにはどうすればいいですか？</string>
-    <string name="faq_14_text">メイン画面で\"非表示の項目を一時的に表示\"を押すか、 アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。表示したい場合は\"再表示\"を長押ししてください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text">メイン画面で\"非表示項目を一時的に表示\"を押すか、アプリの設定で\"非表示のアイテムを表示する\"を切り替えると非表示にしている項目を見ることができます。再表示したい場合は長押して\"再表示\"を選択してください。フォルダは非表示の\".nomedia\"ファイルを追加して非表示にしているので、ファイルマネージャーで削除することもできます。※非表示は再帰的に機能するため、フォルダを非表示にすると、すべてのサブフォルダも非表示になることに注意してください。したがって、サブフォルダを再表示するには親フォルダを再表示する必要があります。</string>
     <string name="faq_15_title">アプリが容量を沢山使用するのはなぜですか？</string>
     <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ごみ箱内のアイテムが原因となっているはずです。ごみ箱内のファイルもアプリ容量として加算されます。ごみ箱を開くか、アプリの設定から全てのファイルを削除できます。ごみ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
     <string name="faq_16_title">ファイルとフォルダを非表示にする機能はどうなったのでしょうか？非表示の項目が表示されなくなったのはなぜですか？</string>
