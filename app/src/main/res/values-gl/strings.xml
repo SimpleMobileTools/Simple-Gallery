@@ -370,6 +370,7 @@
     <string name="faq_15_text">Os ficheiros temporais poden chegar aos 250MB e server para cargar máis rápido. Se o aplicativo está a a consumir máis espazo, o máis probable é que teña ficheiros na Papeleira de Reciclaxe.Estes ficheiros contan no tamaño da aplicación.Podes baleirala abríndoa e borrando os ficheiros, ou desde a configuración.Cada ficheiro da Papeleira bórrase automáticamente tras 30 días.</string>
     <string name="faq_16_title">Que pasou ca ocultación dos ficheiros e cartafoles e por que xa non podo velos elementos ocultos\?</string>
     <string name="faq_16_text">Desde Android 11 xa non podes agochar ou mostrar cartafoles, non podes ver os agochados nas apps galería debido a restricións dos sistema. Terás que usar algún xestor de ficheiros para isto.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Por que xa non podo incluilos cartafoles que faltan\?</string>
     <string name="faq_17_text">Iso deixou de funcionar debido aos cambios no sistema que tamén viñeron con Android 11, a aplicación xa non pode navegar por cartafoles reais, depende da chamada MediaStore para obtelos datos.</string>
     <string name="faq_18_title">Por que vexo anuncios na reprodución dos vídeos\?</string>

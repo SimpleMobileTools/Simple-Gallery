@@ -370,6 +370,7 @@
     <string name="faq_15_text">应用缓存最多可达250MB，这样可以使图像加载更快。如果应用占用了更多空间，则很可能是因为回收站中有项目。这些文件被计入应用程序大小。您可以打开回收站并删除所有文件，或从应用设置中清除回收站。回收站中的内容会在30天后自动删除。</string>
     <string name="faq_16_title">文件和文件夹隐藏发生了什么，为什么我再不能看到隐藏项目了？</string>
     <string name="faq_16_text">从 Android 11 开始，你再也不能隐藏或取消隐藏文件或文件夹，由于系统限制，也不能在图库应用中看到隐藏的文件或文件夹了。你必须使用文件管理器来进行此类操作。</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">为什么我再不能包含缺失的文件夹？</string>
     <string name="faq_17_text">由于 Android 11 的系统变化，这一功能也停止了工作，本应用不能再浏览真实的文件夹了，它依赖于所谓的 MediaStore 来获取数据。</string>
     <string name="faq_18_title">为何我在视频播放期间看到广告？</string>

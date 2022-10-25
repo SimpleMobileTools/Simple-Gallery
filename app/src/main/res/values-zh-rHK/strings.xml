@@ -369,6 +369,7 @@
     <string name="faq_15_text">應用程式快取最多占用250MB，以確保更快的圖片讀取。如果這應用程式占用了多更多的空間，最有可能是因為你在垃圾桶內有東西。那些檔案也計入應用程式大小內。你可以開啟垃圾桶並刪除全部檔案，或者從應用程式設定來清除垃圾桶。垃圾桶內的每個檔案都會在30天後自動刪除。</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">Why do I see ads during video playback\?</string>

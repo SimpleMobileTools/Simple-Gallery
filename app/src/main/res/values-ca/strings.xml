@@ -370,6 +370,7 @@
     <string name="faq_15_text">La memòria cau de l\'aplicació pot ocupar fins a 250 MB, i garanteix una càrrega més ràpida de les imatges. Si l\'aplicació ocupa més espai, probablement serà perquè hi ha elements a la paperera de reciclatge. Aquests fitxers compten en la mida de l\'aplicació. Podeu netejar la paperera de reciclatge obrint-la i suprimint tots els fitxers, o des de la configuració de l\'aplicació. Els fitxers de la paperera s\'eliminen automàticament després de 30 dies.</string>
     <string name="faq_16_title">Què ha passat amb l\'ocultació de fitxers i carpetes i per què ja no puc veure els elements ocults\?</string>
     <string name="faq_16_text">A partir d\'Android 11, ja no podeu amagar ni mostrar carpetes ni fitxers, tampoc no podeu veure els ocults a les aplicacions de galeria per restriccions del sistema. Haureu d\'utilitzar algun gestor de fitxers per a això.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Per què ja no puc incloure les carpetes que manquen\?</string>
     <string name="faq_17_text">Això ha deixat de funcionar a causa dels canvis del sistema que també han vingut amb Android 11, l\'aplicació ja no pot navegar per carpetes reals, es basa en l\'anomenat MediaStore per obtenir dades.</string>
     <string name="faq_18_title">Per què veig anuncis comercials durant la reproducció de vídeo\?</string>

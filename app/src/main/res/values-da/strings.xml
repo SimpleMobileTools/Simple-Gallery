@@ -370,6 +370,7 @@
     <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
     <string name="faq_16_title">Hvad skete der med \'Skjul filer og mapper\', og hvorfor kan jeg ikke se skjulte elementer længere\?</string>
     <string name="faq_16_text">Fra og med Android 11 kan du ikke længere skjule eller vise filer eller mapper. På grund af systembegrænsninger kan du heller ikke se de skjulte i galleriapps. Du bliver nødt til at bruge en anden form for filhåndtering til det.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Hvorfor kan jeg ikke længere inkludere manglende mapper\?</string>
     <string name="faq_17_text">Det holdt op med at virke på grund af systemændringerne, der fulgte med Android 11, appen kan ikke længere gennemse rigtige mapper, den er afhængig af den såkaldte MediaStore til at hente data.</string>
     <string name="faq_18_title">Hvorfor ser jeg reklamer under videoafspilning\?</string>

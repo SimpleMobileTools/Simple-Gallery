@@ -370,6 +370,7 @@
     <string name="faq_15_text">Memoria cache a aplicației poate ocupa până la 250 MB, asigurând o încărcare mai rapidă a imaginilor. Dacă aplicația ocupă și mai mult spațiu, cel mai probabil este cauzată de faptul că aveți elemente în coșul de reciclare. Acele fișiere contează la dimensiunea aplicației. Puteți goli coșul de reciclare deschizându-l și ștergând toate fișierele sau din setările aplicației. Fiecare fișier din coșul de gunoi este șters automat după 30 de zile.</string>
     <string name="faq_16_title">Ce s-a întâmplat cu ascunderea fișierelor și a dosarelor și de ce nu mai pot vedea elementele ascunse\?</string>
     <string name="faq_16_text">Începând cu Android 11, nu mai puteți ascunde sau dezascunde fișiere sau foldere, nu le puteți vedea pe cele ascunse nici în aplicațiile din galerie din cauza restricțiilor de sistem. Va trebui să folosiți un manager de fișiere pentru asta.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">De ce nu mai pot include dosarele lipsă\?</string>
     <string name="faq_17_text">Aceasta a încetat să mai funcționeze din cauza schimbărilor de sistem care au venit odată cu Android 11. Aplicația nu mai poate răsfoi dosare reale, ci se bazează pe așa-numitul MediaStore pentru a prelua informaţiile.</string>
     <string name="faq_18_title">De ce văd reclame în timpul redării video\?</string>

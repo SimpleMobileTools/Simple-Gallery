@@ -117,7 +117,7 @@ fun SimpleActivity.launchAbout() {
     }
 
     if (isRPlus() && !isExternalStorageManager()) {
-        faqItems.add(0, FAQItem(R.string.faq_16_title, R.string.faq_16_text))
+        faqItems.add(0, FAQItem(R.string.faq_16_title, "${getString(R.string.faq_16_text)} ${getString(R.string.faq_16_text_extra)}"))
         faqItems.add(1, FAQItem(R.string.faq_17_title, R.string.faq_17_text))
         faqItems.removeIf { it.text == R.string.faq_7_text }
         faqItems.removeIf { it.text == R.string.faq_14_text }

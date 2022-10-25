@@ -370,6 +370,7 @@
     <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
     <string name="faq_16_title">Čo sa stalo s ukrývaním súborov a priečinkov a prečo nevidím žiadne ukryté položky\?</string>
     <string name="faq_16_text">Od Androidu verzie 11 galérie ako je táto z technických príčin nemôžu ani skryť, ani odokryť žiadne súbory, ani priečinky. Budete na to musieť použiť správcov súborov.</string>
+    <string name="faq_16_text_extra">Alebo môžete tejto galérií povoliť prístup ku všetkým súborom cez nastavenia zariadenia, to apke povolí prácu so skrytými súbormi a vo všeobecnosti to zlepší spoľahlivosť pri všetkých súborových operáciách.</string>
     <string name="faq_17_title">Prečo sa už nedá manuálne pridať chýbajúce priečinky\?</string>
     <string name="faq_17_text">Je to taktiež spôsobené zmenami súvisiacimi s Android 11, kedy apka už nevie prehliadať reálne priečinky. V získavaní súborov sa môže iba spoliehať na takzvaný MediaStore.</string>
     <string name="faq_18_title">Prečo sa mi počas prehrávania videí zobrazujú reklamy\?</string>

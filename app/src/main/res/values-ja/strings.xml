@@ -366,6 +366,7 @@
     <string name="faq_15_text">アプリのキャッシュは画像の素早い読み込みのために最大250MB使用します。もしそれ以上にアプリが容量を取るようであれば、ごみ箱内のアイテムが原因となっているはずです。ごみ箱内のファイルもアプリ容量として加算されます。ごみ箱を開くか、アプリの設定から全てのファイルを削除できます。ごみ箱内のアイテムは30日を過ぎると自動的に削除されます。</string>
     <string name="faq_16_title">ファイルとフォルダを非表示にする機能はどうなったのでしょうか？非表示の項目が表示されなくなったのはなぜですか？</string>
     <string name="faq_16_text">Android11以降では、システムの制限により、ファイルやフォルダの非表示と非表示解除ができなくなりました。また、ギャラリーアプリ内で非表示の項目を確認できなくなりましたので、対処可能な別のファイルマネージャーを使用する必要があります。</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
     <string name="faq_18_title">動画の再生中に広告が表示されるのはなぜですか？</string>

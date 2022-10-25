@@ -370,6 +370,7 @@
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
     <string name="faq_16_title">Mi történt a fájlok és mappák elrejtésével, és miért nem látom már a rejtett elemeket\?</string>
     <string name="faq_16_text">Az Android 11-től kezdődően már nem lehet elrejteni vagy elrejtést megszüntetni a fájlokat vagy mappákat, a rendszer korlátozása miatt a galériaalkalmazásokban sem láthatók a rejtett fájlok és mappák. Ehhez valamilyen fájlkezelőt kell használnod.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Miért nem vehetem bele a hiányzó mappákat\?</string>
     <string name="faq_17_text">Ez már nem működik egy az Android 11-gyel érkezett rendszermódosítás miatt, az alkalmazás már nem tallózhatja a tényleges mappákat, az ún. MediaStore-ra támaszkodik az adatok lekéréséhez.</string>
     <string name="faq_18_title">Miért látok reklámokat videólejátszás során\?</string>

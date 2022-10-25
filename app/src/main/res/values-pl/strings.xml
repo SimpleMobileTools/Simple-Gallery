@@ -370,6 +370,7 @@
     <string name="faq_15_text">Pamięć podręczna aplikacji zajmuje do 250 MB, aby zapewnić szybsze ładowanie obrazów. Jeśli aplikacja zajmuje więcej miejsca, jest to najprawdopodobniej spowodowane tym, że masz elementy w koszu. Pliki te liczą się do rozmiaru aplikacji. Możesz wyczyścić kosz przez otwarcie go i usunięcie wszystkich plików albo z poziomu ustawień aplikacji. Każdy plik w koszu jest usuwany automatycznie po 30 dniach.</string>
     <string name="faq_16_title">Co się stało z ukrywaniem plików i folderów i dlaczego nie widzę już ukrytych elementów\?</string>
     <string name="faq_16_text">Począwszy od Androida 11 nie można już ukrywać ani odkrywać plików lub folderów, nie możesz też zobaczyć ukrytych elementów w aplikacjach galerii ze względu na ograniczenia systemowe. W tym celu będziesz musiał(a) użyć jakiegoś menedżera plików.</string>
+    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Dlaczego nie mogę już dołączyć brakujących folderów\?</string>
     <string name="faq_17_text">To również przestało działać z powodu zmian systemowych, które pojawiły się w Androidzie 11. Aplikacja nie może już przeglądać prawdziwych folderów i polega na tak zwanym MediaStore przy pobieraniu danych.</string>
     <string name="faq_18_title">Dlaczego widzę reklamy podczas odtwarzania wideo\?</string>
