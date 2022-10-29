@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="videos">ویڈیو</string>
-    <string name="gifs">جیف</string>
-    <string name="invalid_video_path">Invalid video path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
-    <string name="pesdk_text_button_alignment">ایکسارتا</string>
-    <string name="pesdk_text_button_bringToFront">To Front</string>
-    <string name="pesdk_brush_button_color">رنگ</string>
-    <string name="pesdk_brush_button_size">اکار</string>
-    <string name="pesdk_brush_button_hardness">کٹھورتا</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
-    <string name="pesdk_sticker_button_brightness">چمک</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_common_button_flipV">Flip V</string>
-    <string name="faq_3_title">How can I make an album always appear at the top\?</string>
-    <string name="faq_10_title">Can I crop images with this app\?</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
-    <string name="faq_15_title">Why does the app take up so much space\?</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="app_name">سادیاں تصویراں</string>
     <string name="app_launcher_name">تصویراں</string>
     <string name="edit">سودھو</string>
@@ -61,13 +41,17 @@
     <string name="reorder_by_dragging">Reorder folders by dragging</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="restore_to_path">Restoring to \'%s\'</string>
+    <!-- Filter -->
     <string name="filter_media">Filter media</string>
     <string name="images">تصویراں</string>
+    <string name="videos">ویڈیو</string>
+    <string name="gifs">جیف</string>
     <string name="raw_images">RAW images</string>
     <string name="svgs">ایس‌وی‌گی</string>
     <string name="portraits">Portraits</string>
     <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
     <string name="change_filters_underlined"><u>Change filters</u></string>
+    <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue\?</string>
     <string name="exclude">باہر کڈھو</string>
     <string name="excluded_folders">Excluded folders</string>
@@ -84,21 +68,26 @@
     <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
     <string name="temporarily_show_excluded">Temporarily show excluded</string>
     <string name="stop_showing_excluded">Stop showing excluded</string>
-    <string name="manage_included_folders">Manage included folders</string>
+    <!-- Include folders -->
     <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.
 \n
 \nAdding some items here will not exclude any other folder.</string>
     <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <!-- Resizing -->
     <string name="resize_and_save">Resize selection and save</string>
     <string name="width">چوڑائی</string>
     <string name="height">اُچائی</string>
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="invalid_values">Please enter a valid resolution</string>
+    <!-- Editor -->
     <string name="editor">ایڈیٹر</string>
     <string name="rotate">گھُنماؤ</string>
     <string name="invalid_image_path">Invalid image path</string>
+    <string name="invalid_video_path">Invalid video path</string>
+    <string name="image_editing_failed">Image editing failed</string>
     <string name="video_editing_failed">Video editing failed</string>
     <string name="image_editing_cancelled">Image editing cancelled</string>
     <string name="video_editing_cancelled">Video editing cancelled</string>
@@ -119,6 +108,7 @@
     <string name="flip_vertically">Flip vertically</string>
     <string name="free_aspect_ratio">Free</string>
     <string name="other_aspect_ratio">ہور</string>
+    <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
@@ -131,6 +121,7 @@
     <string name="lock_screen">Lock screen</string>
     <string name="home_and_lock_screen">Home and lock screen</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval</string>
     <string name="include_photos">Include photos</string>
@@ -145,7 +136,9 @@
     <string name="slide">سلائیڈ</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <!-- View types -->
     <string name="group_direct_subfolders">Group direct subfolders</string>
+    <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>
     <string name="do_not_group_files">Do not group files</string>
     <string name="by_folder">فولڈر</string>
@@ -159,8 +152,10 @@
     <string name="by_extension">ایکسٹینشن</string>
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <!-- Widgets -->
     <string name="folder_on_widget">Folder shown on the widget:</string>
     <string name="show_folder_name">Show folder name</string>
+    <!-- Settings -->
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="loop_videos">Loop videos</string>
@@ -186,6 +181,7 @@
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
@@ -219,13 +215,16 @@
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
+    <!-- Setting sections -->
     <string name="thumbnails">تھمنیل</string>
     <string name="fullscreen_media">Fullscreen media</string>
     <string name="extended_details">Extended details</string>
     <string name="bottom_actions">Bottom actions</string>
+    <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
+    <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">چݨے</string>
     <string name="pesdk_transform_button_resetCrop">ریسیٹ کرو</string>
     <string name="pesdk_transform_button_squareCrop">ورگ</string>
@@ -241,7 +240,6 @@
     <string name="pesdk_adjustments_button_saturationTool">سنترپتہ</string>
     <string name="pesdk_adjustments_button_clarityTool">سپشٹتا</string>
     <string name="pesdk_adjustments_button_gammaTool">گاما</string>
-    <string name="pesdk_focus_button_radial">Radial</string>
     <string name="pesdk_adjustments_button_blacksTool">کالؕے</string>
     <string name="pesdk_adjustments_button_whitesTool">چٹے</string>
     <string name="pesdk_adjustments_button_temperatureTool">تاپمان</string>
@@ -249,6 +247,7 @@
     <string name="pesdk_adjustments_button_reset">ریسیٹ کرو</string>
     <string name="pesdk_focus_title_name">فوکس</string>
     <string name="pesdk_focus_title_disabled">کوئی نہیں</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
     <string name="pesdk_focus_button_linear">ریکھک</string>
     <string name="pesdk_focus_button_mirrored">Mirrored</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
@@ -263,10 +262,14 @@
     <string name="pesdk_text_button_font">فونٹ</string>
     <string name="pesdk_text_button_color">رنگ</string>
     <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_alignment">ایکسارتا</string>
+    <string name="pesdk_text_button_bringToFront">To Front</string>
     <string name="pesdk_text_button_delete">مٹاؤ</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">نہیں</string>
     <string name="pesdk_text_text_editTextPlaceholder">Your text</string>
     <string name="pesdk_brush_title_name">برش</string>
+    <string name="pesdk_brush_button_color">رنگ</string>
+    <string name="pesdk_brush_button_size">اکار</string>
+    <string name="pesdk_brush_button_hardness">کٹھورتا</string>
     <string name="pesdk_brush_button_bringToFront">To Front</string>
     <string name="pesdk_brush_button_delete">مٹاؤ</string>
     <string name="pesdk_brush_title_brushColor">Brush Color</string>
@@ -274,22 +277,25 @@
     <string name="pesdk_editor_title_closeEditorAlert">Close Editor\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Do you really want to discard the changes\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">ہاں</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">نہیں</string>
     <string name="pesdk_editor_cancel">رد کرو</string>
     <string name="pesdk_editor_accept">سویکار کرو</string>
     <string name="pesdk_editor_save">سامبھو</string>
     <string name="pesdk_editor_text_exportProgressUnknown">اوہ ایکسپورٹ کیتے جا رہے اے۔ ۔ ۔</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">Exporting %s.</string>
     <string name="pesdk_sticker_title_name">سٹِکر</string>
     <string name="pesdk_sticker_title_color">Sticker Color</string>
-    <string name="pesdk_sticker_button_bringToFront">To Front</string>
     <string name="pesdk_sticker_title_options">Sticker Options</string>
     <string name="pesdk_sticker_button_add">پایو</string>
     <string name="pesdk_sticker_button_color">رنگ</string>
     <string name="pesdk_sticker_button_delete">مٹاؤ</string>
+    <string name="pesdk_sticker_button_bringToFront">To Front</string>
     <string name="pesdk_sticker_button_straighten">سدھا کرو</string>
     <string name="pesdk_sticker_button_replace">بدلو</string>
     <string name="pesdk_sticker_button_opacity">دھُندلاپن</string>
     <string name="pesdk_sticker_button_contrast">Contrast</string>
     <string name="pesdk_sticker_button_saturation">سنترپتہ</string>
+    <string name="pesdk_sticker_button_brightness">چمک</string>
     <string name="pesdk_sticker_category_name_custom">چڑھائے</string>
     <string name="pesdk_overlay_title_name">کج</string>
     <string name="pesdk_overlay_button_blendModeNormal">سدھارن</string>
@@ -303,18 +309,20 @@
     <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
     <string name="pesdk_overlay_asset_none">کوئی نہیں</string>
     <string name="pesdk_overlay_asset_golden">سُنہری</string>
+    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
     <string name="pesdk_overlay_asset_mosaic">موزیک</string>
     <string name="pesdk_overlay_asset_paper">کاغذ</string>
     <string name="pesdk_overlay_asset_rain">مینہہ</string>
     <string name="pesdk_overlay_asset_vintage">پُراݨی</string>
     <string name="pesdk_common_button_flipH">Flip H</string>
+    <string name="pesdk_common_button_flipV">Flip V</string>
     <string name="pesdk_common_button_undo">موڑو</string>
     <string name="pesdk_common_button_redo">دُبارہ کرو</string>
     <string name="pesdk_common_title_colorPicker">Color Picker</string>
     <string name="pesdk_common_title_transparentColor">پاردرشتہ</string>
-    <string name="pesdk_common_title_blackColor">کالؕا</string>
     <string name="pesdk_common_title_whiteColor">چٹا</string>
     <string name="pesdk_common_title_grayColor">سلیٹی</string>
+    <string name="pesdk_common_title_blackColor">کالؕا</string>
     <string name="pesdk_common_title_lightBlueColor">Light blue</string>
     <string name="pesdk_common_title_blueColor">نیلا</string>
     <string name="pesdk_common_title_purpleColor">جامنی</string>
@@ -329,29 +337,36 @@
     <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
     <string name="pesdk_common_title_pipettableColor">Pipettable color</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
+    <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery\?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\". The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
     <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do\?</string>
     <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top\?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast forward videos\?</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up\?</string>
     <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder\?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up\?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
     <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do\?</string>
     <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible\?</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders. That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_10_title">Can I crop images with this app\?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails\?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps due to system restrictions either. You will have to use some file manager for that.</string>
     <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
