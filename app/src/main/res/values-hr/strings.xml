@@ -117,7 +117,7 @@
     <string name="allow_changing_aspect_ratio">Dozvoli mijenjanje omjera</string>
     <!-- Slideshow -->
     <string name="slideshow">Dijaprojekcija</string>
-    <string name="interval">Interval</string>
+    <string name="interval">Razmak</string>
     <string name="include_photos">Dodaj slike</string>
     <string name="include_videos">Dodaj videa</string>
     <string name="include_gifs">Dodaj GIF-ove</string>
@@ -206,9 +206,9 @@
     <string name="media_management_manual">Nešto nije u redu. Idi u Postavke - Aplikacije - Poseban pristup aplikaciji - Aplikacije za upravljanje medijima i dozvoli ovoj aplikaciji da upravlja medijima.</string>
     <string name="media_management_note">Ako preusmjeravanje ne radi, idi u Postavke - Aplikacije - Poseban pristup aplikaciji - Aplikacije za upravljanje medijima i dozvoli ovoj aplikaciji da upravlja medijima.</string>
     <string name="media_management_alternative">Ako to ne želiš učiniti, na svom uređaju idi u Postavke - Aplikacije - Poseban pristup aplikacijama - Aplikacije za upravljanje medijima i dopustiti ovoj aplikaciji da upravlja medijima.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="alternative_media_access">Alternativno, možete dopustiti pristup samo medijskim datotekama. U tom slučaju nećete moći raditi sa skrivenim datotekama.</string>
+    <string name="media_only">Samo mediji</string>
+    <string name="all_files">Sve datoteke</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji u cjeloekranskom prikazu</string>
@@ -362,7 +362,7 @@
     <string name="faq_15_text">Predmemorija aplikacije može zauzeti do 250 MB, osigurava brže učitavanje slike. Ako aplikacija zauzima još više prostora, razlog tome je najvjerojatnije da imaš stavke u košu za smeće. Te se datoteke ubrajaju u veličinu aplikacije. Isprazni koš za smeće tako da ga otvoriš i izbrišeš sve datoteke ili u postavkama aplikacije. Svaka datoteka u košu automatski se briše nakon 30 dana.</string>
     <string name="faq_16_title">Što se dogodilo sa skrivanjem datoteka i mapa i zašto više ne mogu vidjeti skrivene stavke\?</string>
     <string name="faq_16_text">Počevši od Androida 11 više ne možeš sakriti ili otkriti datoteke ili mape, ne možeš vidjeti skrivene u aplikacijama galerije zbog ograničenja sustava. Za to ćeš morati koristiti neki upravljač datoteka.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Ili ovoj galeriji možete odobriti pristup svim datotekama putem postavki uređaja, što će nam omogućiti prikazivanje skrivenih stavki i učiniti rad s datotekama općenito pouzdanijim.</string>
     <string name="faq_17_title">Zašto više ne mogu uključiti nedostajuće mape\?</string>
     <string name="faq_17_text">To je prestalo raditi zbog promjena sustava koje su uvedene s Androidom 11. Aplikacija više ne može pregledavati stvarne mape, oslanja se na takozvani MediaStore za dohvaćanje podataka.</string>
     <string name="faq_18_title">Zašto vidim oglase tijekom reprodukcije videa\?</string>
