@@ -5,7 +5,6 @@
     <string name="edit">Redakti</string>
     <string name="open_camera">Malfermi fotilon</string>
     <string name="hidden">(kaŝita)</string>
-    <string name="excluded">(ekskluzivita)</string>
     <string name="pin_folder">Alpingli dosierujon</string>
     <string name="unpin_folder">Depingli dosierujon</string>
     <string name="pin_to_the_top">Alpingli supren</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Change filters</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue\?</string>
-    <string name="exclude">Ekskluzivi</string>
-    <string name="excluded_folders">Ekskluzivitaj dosierujoj</string>
-    <string name="manage_excluded_folders">Administri ekskluzivitajn dosierujojn</string>
     <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
     <string name="exclude_folder_parent">Exclude a parent instead\?</string>
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.
 \n
 \nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded\? This will not delete the folders.</string>
     <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
     <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>

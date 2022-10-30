@@ -5,7 +5,6 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（已隐藏）</string>
-    <string name="excluded">（已排除）</string>
     <string name="pin_folder">固定文件夹</string>
     <string name="unpin_folder">取消固定文件夹</string>
     <string name="pin_to_the_top">置顶固定</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>更改筛选条件</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">该功能通过添加“.nomedia”文件到文件夹来隐藏它，这也会隐藏其所有子文件夹。您可以通过启用设置中的“显示隐藏的项目”选项来查看它们，是否继续？</string>
-    <string name="exclude">排除</string>
-    <string name="excluded_folders">排除的文件夹</string>
-    <string name="manage_excluded_folders">管理排除的文件夹</string>
     <string name="exclude_folder_description">该操作仅会在“简单图库”中排除显示选定的文件夹及其子文件夹。您可以在设置中管理排除的文件夹。</string>
     <string name="exclude_folder_parent">是否排除父文件夹？</string>
     <string name="excluded_activity_placeholder">排除此文件夹将使它们与其子文件夹在简单图库中隐身，但它们仍将在其他应用程序中可见。
 \n
 \n如果您想对其他应用程序隐藏它们，请使用隐藏功能。</string>
-    <string name="remove_all">全部移除</string>
-    <string name="remove_all_description">是否移除排除列表中的所有项目？此操作不会删除文件夹本身。</string>
     <string name="hidden_folders">隐藏的文件夹</string>
     <string name="manage_hidden_folders">管理隐藏的文件夹</string>
     <string name="hidden_folders_placeholder">看起来您没有任何使用“.nomedia”文件隐藏的目录。</string>
-    <string name="temporarily_show_excluded">临时显示已排除的</string>
-    <string name="stop_showing_excluded">停止显示已排除的</string>
     <!-- Include folders -->
     <string name="include_folders">包含的文件夹</string>
     <string name="manage_included_folders">管理包含的文件夹</string>

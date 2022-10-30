@@ -5,7 +5,6 @@
     <string name="edit">Bewerken</string>
     <string name="open_camera">Camera</string>
     <string name="hidden">(verborgen)</string>
-    <string name="excluded">(uitgesloten)</string>
     <string name="pin_folder">Map vastzetten</string>
     <string name="unpin_folder">Map losmaken</string>
     <string name="pin_to_the_top">Bovenaan vastzetten</string>
@@ -49,21 +48,14 @@
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Deze functie verbergt de map door het bestand ’.nomedia’ toe te voegen. Alle onderliggende mappen zullen ook worden verborgen. Kies ’Verborgen mappen tonen’ in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan\?</string>
-    <string name="exclude">Uitsluiten</string>
-    <string name="excluded_folders">Uitgesloten mappen</string>
-    <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
     <string name="exclude_folder_description">Hiermee wordt de selectie (en onderliggende mappen) uitgesloten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
     <string name="exclude_folder_parent">In plaats hiervan de bovenliggende map uitsluiten\?</string>
     <string name="excluded_activity_placeholder">Uitsluiten zal mappen plus onderliggende mappen verbergen in Eenvoudige Galerij, maar niet voor andere apps.
 \n
 \nGebruik de functie Verbergen om ze ook in andere apps te verbergen.</string>
-    <string name="remove_all">Alles verwijderen</string>
-    <string name="remove_all_description">De lijst van uitgesloten mappen wissen. Dit zal de mappen zelf niet verwijderen.</string>
     <string name="hidden_folders">Verborgen mappen</string>
     <string name="manage_hidden_folders">Verborgen mappen beheren</string>
     <string name="hidden_folders_placeholder">Er zijn geen mappen gevonden die zijn verborgen door bestand \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Uitgesloten mappen tijdelijk tonen</string>
-    <string name="stop_showing_excluded">Uitgesloten mappen verbergen</string>
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>

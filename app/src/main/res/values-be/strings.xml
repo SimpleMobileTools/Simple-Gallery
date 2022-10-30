@@ -5,7 +5,6 @@
     <string name="edit">Рэдагаваць</string>
     <string name="open_camera">Адкрытая камера</string>
     <string name="hidden">(схаваны)</string>
-    <string name="excluded">(выключана)</string>
     <string name="pin_folder">Замацаваць папку</string>
     <string name="unpin_folder">Адмацаваць папку</string>
     <string name="pin_to_the_top">Замацаваць зверху</string>
@@ -15,7 +14,6 @@
     <string name="raw_images">Выявы RAW</string>
     <string name="svgs">SVG</string>
     <string name="portraits">Партрэты</string>
-    <string name="manage_excluded_folders">Кіраванне выключанымі папкамі</string>
     <string name="no_media_add_included">Медыяфайлы не знойдзеныя. Вы можаце вырашыць гэтую праблему, дадаўшы тэчкі, якія змяшчаюць медыяфайлы ўручную.</string>
     <string name="resize_and_save">Зменіце памер выбару і захавайце</string>
     <string name="width">Шырыня</string>
@@ -87,18 +85,12 @@
     <string name="no_media_with_filters">З выбранымі фільтрамі не знойдзены медыяфайлы.</string>
     <string name="change_filters_underlined"><u>Змяніць фільтры</u></string>
     <string name="hide_folder_description">Гэтая функцыя хавае тэчку, дадаючы ў яе файл\'.nomedia\' , ён таксама схавае ўсе укладзеныя папкі. Вы можаце ўбачыць іх, пераключыўшы опцыю \"Паказваць схаваныя элементы\" у наладах. Працягваць\?</string>
-    <string name="exclude">Выключыць</string>
     <string name="excluded_activity_placeholder">Выключэнне тэчак зробіць іх разам з іх укладзенымі тэчкамі ўтоенымі толькі ў простай галерэі, яны ўсё роўна будуць бачныя ў іншых прыкладаннях.
 \n
 \nКалі вы хочаце, каб схаваць іх ад іншых прыкладанняў, выкарыстоўвайце функцыю ўтойвання.</string>
-    <string name="remove_all">Выдаліць усе</string>
-    <string name="remove_all_description">Выдаліць усе тэчкі з спісу выключаных\? Гэта не прывядзе да выдалення тэчак.</string>
-    <string name="excluded_folders">Выключаныя тэчкі</string>
     <string name="exclude_folder_description">Гэта выключыць вылучэнне разам з яго укладзенымі тэчкамі толькі з простай галерэі. Вы можаце кіраваць выключанымі тэчкамі ў наладах.</string>
     <string name="hidden_folders">Схаваныя тэчкі</string>
     <string name="manage_hidden_folders">Кіраванне схаванымі папкамі</string>
-    <string name="temporarily_show_excluded">Паказ часова выключаны</string>
-    <string name="stop_showing_excluded">Спыніць паказ выключаны</string>
     <string name="include_folders">Уключаныя тэчкі</string>
     <string name="manage_included_folders">Кіраванне ўключанымі папкамі</string>
     <string name="add_folder">Дадаць папку</string>

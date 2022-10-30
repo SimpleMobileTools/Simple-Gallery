@@ -5,7 +5,6 @@
     <string name="edit">Edita</string>
     <string name="open_camera">Obre la càmera</string>
     <string name="hidden">(ocult)</string>
-    <string name="excluded">(exclòs)</string>
     <string name="pin_folder">Fixa la carpeta</string>
     <string name="unpin_folder">No fixis la carpeta</string>
     <string name="pin_to_the_top">Fixa a dalt</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Canvia els filtres</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Aquesta funció oculta la carpeta agregant un fitxer «.nomedia» a dins d\'ella. També ocultarà les subcarpetes. Podeu veure-les canviant l\'opció «Mostra els elements ocults» a la configuració. Continuo\?</string>
-    <string name="exclude">Exclou</string>
-    <string name="excluded_folders">Carpetes excloses</string>
-    <string name="manage_excluded_folders">Gestiona les carpetes excloses</string>
     <string name="exclude_folder_description">Això exclourà la selecció junt amb les seves subcarpetes, només a la Simple Gallery. Podeu gestionar les carpetes excloses a la configuració.</string>
     <string name="exclude_folder_parent">Voleu excloure la carpeta superior\?</string>
     <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a la Simple Gallery. Seguiran sent visibles en altres aplicacions.
 \n
 \nSi voleu ocultar-les d\'altres aplicacions, feu servir la funció Oculta.</string>
-    <string name="remove_all">Elimina-ho tot</string>
-    <string name="remove_all_description">Elimino totes les carpetes de la llista d\'excloses\? Això no eliminarà les carpetes.</string>
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestiona les carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no teniu cap carpeta oculta amb el fitxer «.nomedia».</string>
-    <string name="temporarily_show_excluded">Mostra temporalment les excloses</string>
-    <string name="stop_showing_excluded">Deixa de mostrar les excloses</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
     <string name="manage_included_folders">Gestiona les carpetes incloses</string>

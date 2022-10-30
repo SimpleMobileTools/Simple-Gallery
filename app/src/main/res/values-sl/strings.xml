@@ -5,7 +5,6 @@
     <string name="edit">Uredi</string>
     <string name="open_camera">Zaženi fotoaparat</string>
     <string name="hidden">(skrito)</string>
-    <string name="excluded">(izključeno)</string>
     <string name="pin_folder">Pripni mapo</string>
     <string name="unpin_folder">Odpni mapo</string>
     <string name="pin_to_the_top">Pripni na vrh</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Spremeni filtre</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcija skrije mapo tako, da vanjo doda \'.nomedia\' datoteko, kar skrije tudi vse podmape. Ponovno jih lahko prikažete z uporabo možnosti \'Prikaži skrite elemente\' v Nastavitvah. Nadaljujem\?</string>
-    <string name="exclude">Izključi</string>
-    <string name="excluded_folders">Izključene mape</string>
-    <string name="manage_excluded_folders">Urejaj izključene mape</string>
     <string name="exclude_folder_description">Izbira bo skupaj s podmapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
     <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo\?</string>
     <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.
 \n
 \nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
-    <string name="remove_all">Odstrani vse</string>
-    <string name="remove_all_description">Odstranim vse mape iz seznama izključenih\? Mape ne bodo izbrisane.</string>
     <string name="hidden_folders">Skrite mape</string>
     <string name="manage_hidden_folders">Urejaj skrite mape</string>
     <string name="hidden_folders_placeholder">Kot kaže skrite mape z \".nomedia\" datoteko ne obstajajo.</string>
-    <string name="temporarily_show_excluded">Prikaži začasno izključeno</string>
-    <string name="stop_showing_excluded">Prenehajte prikazovati izključene</string>
     <!-- Include folders -->
     <string name="include_folders">Vključene mape</string>
     <string name="manage_included_folders">Urejaj vključene mape</string>

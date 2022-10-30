@@ -5,7 +5,6 @@
     <string name="edit">Rediger</string>
     <string name="open_camera">Åpne kamera</string>
     <string name="hidden">(skjult)</string>
-    <string name="excluded">(ekskludert)</string>
     <string name="pin_folder">Fest mappe</string>
     <string name="unpin_folder">Løsne mappe</string>
     <string name="pin_to_the_top">Fest til toppen</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denne funksjonen skjuler mappen ved å legge til filen \'.nomedia\' i den. Alle undermapper blir også skjult. Du kan se dem ved å aktivere alternativet \'Vis skjulte elementer\' i innstillinger. Fortsette\?</string>
-    <string name="exclude">Ekskluder</string>
-    <string name="excluded_folders">Ekskluderte mapper</string>
-    <string name="manage_excluded_folders">Håndter ekskluderte mapper</string>
     <string name="exclude_folder_description">Dette vil ekskludere valgte sammen med undermapper, bare fra Simple Gallery. Ekskluderte mapper kan håndteres i Innstillinger.</string>
     <string name="exclude_folder_parent">Ekskludere en overordnet isteden\?</string>
     <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i Simple Gallery. De vil fortsatt være synlige i andre apper.
 \n
 \nHvis du vil skjule dem fra andre apper også, bruk Skjul-funksjonen.</string>
-    <string name="remove_all">Fjern alle</string>
-    <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte\? Dette sletter ikke mappene.</string>
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Håndter skjulte mapper</string>
     <string name="hidden_folders_placeholder">Ser ut til at du ikke har skjult noen mapper med en \".nomedia\"-fil.</string>
-    <string name="temporarily_show_excluded">Vis ekskluderte midlertidig</string>
-    <string name="stop_showing_excluded">Stopp å vise ekskluderte</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
     <string name="manage_included_folders">Håndter inkluderte mapper</string>

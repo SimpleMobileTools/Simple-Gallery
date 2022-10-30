@@ -5,7 +5,6 @@
     <string name="edit">திருத்து</string>
     <string name="open_camera">படக்கருவியைத் திற</string>
     <string name="hidden">(மறைந்த)</string>
-    <string name="excluded">(விலக்கிய)</string>
     <string name="pin_folder">அடைவை முள்ளிடு</string>
     <string name="unpin_folder">அடைவை முள்ளெடு</string>
     <string name="pin_to_the_top">மேலே முள்ளிடு</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>வடிகட்டிகளை மாற்று</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">இச்செயல்பாடு ஒரு \'.nomedia\' கோப்பைச் சேர்த்து அடைவை மறைக்கிறது, இது எல்லா துணையடைவுகளையும் மறைக்கும். அமைப்புகளில் \'மறைந்த உருப்படிகளைக் காட்டு\' விருப்பத்தை மாற்றிஅவற்றைக் காணலாம். தொடரவா\?</string>
-    <string name="exclude">விலக்கு</string>
-    <string name="excluded_folders">விலக்கிய அடைவுகள்</string>
-    <string name="manage_excluded_folders">விலக்கிய அடைவுகளை நிர்வகி</string>
     <string name="exclude_folder_description">இது எளிய காட்சியகத்திலிருந்து தெரிவின் துணையடைவுகளுடன் அதை விலக்கும். அமைப்புகளில் விலக்கிய அடைவுகளை நீங்கள் நிர்வகிக்கலாம்.</string>
     <string name="exclude_folder_parent">பதிலாக ஒரு பெற்றோரை விலக்கவா\?</string>
     <string name="excluded_activity_placeholder">அடைவுகளை விலக்குதல், அவற்றின் துணையடைவுகளுடன் அவற்றை எளிய காட்சியகத்தில் மட்டுமே மறைக்கும், அவை பிற செயலிகளில் இன்னும் தெரியும்.
 \n
 \nபிற செயலிகளிலிருந்தும் அவற்றை மறைக்க, மறை செயல்பாட்டைப் பயன்படுத்து.</string>
-    <string name="remove_all">எல்லாம் நீக்கு</string>
-    <string name="remove_all_description">விலக்கப்பட்டவை பட்டியலிலிருந்து எல்லா அடைவுகளையும் நீக்கவா\? இது அடைவுகளை அழிக்காது.</string>
     <string name="hidden_folders">மறைத்த அடைவுகள்</string>
     <string name="manage_hidden_folders">மறைத்த அடைவுகளை நிர்வகி</string>
     <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எவ்வடைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">உள்ளடக்கிய அடைவுகள்</string>
     <string name="manage_included_folders">உள்ளடக்கிய அடைவுகளை நிர்வகி</string>

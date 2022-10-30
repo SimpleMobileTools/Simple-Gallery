@@ -5,7 +5,6 @@
     <string name="edit">Taisyti</string>
     <string name="open_camera">Atidaryti fotoaparatą</string>
     <string name="hidden">(paslėpta)</string>
-    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Prisegti aplanką</string>
     <string name="unpin_folder">Atsegti aplanką</string>
     <string name="pin_to_the_top">Prisegti į viršų</string>
@@ -53,19 +52,12 @@
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \'. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti\?</string>
-    <string name="exclude">Išskirti</string>
-    <string name="excluded_folders">Išskirti aplankai</string>
-    <string name="manage_excluded_folders">Tvarkyti išskirtus aplankus</string>
     <string name="exclude_folder_description">Tai pašalins pasirinkimą su jo aplankais tik iš Paprastos galerijos. Galite valdyti išskirtus aplankus skiltyje Nustatymai.</string>
     <string name="exclude_folder_parent">Vietoj to išskirti tėvinį\?</string>
     <string name="excluded_activity_placeholder">"Išskyrus aplankus, jie bus sujungti su jų aplankais paslėpti tik Paprastoje galerijoje, jie vis tiek bus matomi kitose programose.  N  nJei norite paslėpti juos ir iš kitų programų, naudokite funkciją Slėpti."</string>
-    <string name="remove_all">Pašalinti visus</string>
-    <string name="remove_all_description">Pašalinti visus aplankus iš išskirtųjų sąrašo\? Tai neištrins aplankų.</string>
     <string name="hidden_folders">Paslėpti aplankai</string>
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
     <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Įtraukti aplankai</string>
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>

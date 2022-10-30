@@ -5,7 +5,6 @@
     <string name="edit">ערוך</string>
     <string name="open_camera">פתח מצלמה</string>
     <string name="hidden">(מוסתר)</string>
-    <string name="excluded">(לא נכלל)</string>
     <string name="pin_folder">הצמד תקיה</string>
     <string name="unpin_folder">בטל הצמדת תקיה</string>
     <string name="pin_to_the_top">הצמד למעלה</string>
@@ -51,21 +50,14 @@
     <string name="change_filters_underlined"><u>שנה מסננים</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">פונקציה זו מסתירה את התיקיה על ידי הוספת קובץ \'.nomedia\' לתוכה, היא תסתיר גם את כל תיקיות המשנה. אתה יכול לראות אותם על ידי החלפת האפשרות \'הצג פריטים מוסתרים\' בהגדרות. לְהַמשִׁיך\?</string>
-    <string name="exclude">אל תכלול</string>
-    <string name="excluded_folders">תיקיות שלא נכללו</string>
-    <string name="manage_excluded_folders">נהל תיקיות שלא נכללו</string>
     <string name="exclude_folder_description">פעולה זו לא תכלול את הבחירה יחד עם תיקיות המשנה שלה מ-Simple Gallery בלבד. אתה יכול לנהל תיקיות שלא נכללות בהגדרות.</string>
     <string name="exclude_folder_parent">לא לכלול הורה במקום זאת\?</string>
     <string name="excluded_activity_placeholder">אי הכללת תיקיות תגרום לכך שהן יחד עם תיקיות המשנה שלהן יהיו מוסתרות רק בגלריה הפשוטה, הן עדיין יהיו גלויות ביישומים אחרים.
 \n
 \nאם אתה רוצה להסתיר אותם גם מאפליקציות אחרות, השתמש בפונקציה הסתר.</string>
-    <string name="remove_all">להסיר הכל</string>
-    <string name="remove_all_description">להסיר את כל התיקיות מרשימת החרגות\? פעולה זו לא תמחק את התיקיות.</string>
     <string name="hidden_folders">תיקיות נסתרות–‐‐</string>
     <string name="manage_hidden_folders">נהל תיקיות נסתרות</string>
     <string name="hidden_folders_placeholder">נראה שאין לך תיקיות מוסתרות עם קובץ \".nomedia\".</string>
-    <string name="temporarily_show_excluded">הצג לא נכלל באופן זמני</string>
-    <string name="stop_showing_excluded">הפסק את הצגת החרגות</string>
     <!-- Include folders -->
     <string name="include_folders">תיקיות כלולות</string>
     <string name="manage_included_folders">נהל תיקיות כלולות</string>

@@ -5,7 +5,6 @@
     <string name="edit">تعديل</string>
     <string name="open_camera">فتح الكاميرا</string>
     <string name="hidden">(مخفي)</string>
-    <string name="excluded">(مستبعد)</string>
     <string name="pin_folder">تثبيت المجلد</string>
     <string name="unpin_folder">إلغاء تثبيت المجلد</string>
     <string name="pin_to_the_top">تثبيت في الأعلى</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>تغيير الفلاتر</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">تقوم هذه الوظيفة بإخفاء المجلد عن طريق إضافة ملف \'. nomedia \' إليه، وستقوم بإخفاء كل المجلدات الفرعية أيضًا. يمكنك رؤيتهم عن طريق تبديل خيار \'إظهار العناصر المخفية \' في الإعدادات. هل تريد المتابعة؟</string>
-    <string name="exclude">استبعاد</string>
-    <string name="excluded_folders">المجلدات المستبعدة</string>
-    <string name="manage_excluded_folders">إدارة المجلدات المستبعدة</string>
     <string name="exclude_folder_description">سيؤدي ذلك إلى استبعاد التحديد مع المجلدات الفرعية من الاستديو فقط. يمكنك إدارة المجلدات المستبعدة في الإعدادات.</string>
     <string name="exclude_folder_parent">استبعاد المجلد الأصل بدلاً من ذلك (المحدد)؟</string>
     <string name="excluded_activity_placeholder">سيؤدي استبعاد المجلدات إلى جعلها هي والمجلدات الفرعية مخفية في الاستديو فقط، وستظل مرئية في تطبيقات أخرى.
 \n
 \nإذا كنت تريد إخفاءها من التطبيقات الأخرى أيضاً، فاستخدم وظيفة الإخفاء.</string>
-    <string name="remove_all">إزالة الكل</string>
-    <string name="remove_all_description">هل تريد إزالة كافة المجلدات من قائمة المجلدات المستبعدة؟ لن يؤدي هذا إلى حذف المجلدات.</string>
     <string name="hidden_folders">المجلدات المخفية</string>
     <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
     <string name="hidden_folders_placeholder">يبدو أنه لا توجد لديك أي مجلدات مخفية بملف \".nomedia\".</string>
-    <string name="temporarily_show_excluded">إظهار الملفات المستبعدة مؤقتًا</string>
-    <string name="stop_showing_excluded">إيقاف عرض الملفات المستبعدة</string>
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>

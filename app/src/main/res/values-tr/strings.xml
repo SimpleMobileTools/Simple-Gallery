@@ -5,7 +5,6 @@
     <string name="edit">Düzenle</string>
     <string name="open_camera">Kamerayı aç</string>
     <string name="hidden">(gizli)</string>
-    <string name="excluded">(hariç)</string>
     <string name="pin_folder">Klasörü sabitle</string>
     <string name="unpin_folder">Klasörü ayır</string>
     <string name="pin_to_the_top">Üste sabitle</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Filtreleri değiştir</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre bir \'.nomedia\' dosyası ekleyerek gizler, tüm alt klasörleri de gizler. Ayarlar\'dan \'Gizli ögeleri göster\' seçeneğini değiştirerek onları görebilirsiniz. Devam edilsin mi\?</string>
-    <string name="exclude">Hariç tut</string>
-    <string name="excluded_folders">Hariç tutulan klasörler</string>
-    <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
     <string name="exclude_folder_description">Bu, alt klasörleriyle birlikte seçimi yalnızca Basit Galeriden hariç tutacaktır. Hariç tutulan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
     <string name="exclude_folder_parent">Bunun yerine bir üst dizin hariç tutulsun mu\?</string>
     <string name="excluded_activity_placeholder">Klasörleri hariç tutmak, onları yalnızca Basit Galeri\'de gizlenen alt klasörleriyle bir araya getirecek, diğer uygulamalarda görünmeye devam edecektir.
 \n
 \nBunları diğer uygulamalardan gizlemek istiyorsanız, Gizle işlevini kullanın.</string>
-    <string name="remove_all">Tümünü kaldır</string>
-    <string name="remove_all_description">Tüm klasörler hariç tutulanlar listesinden kaldırılsın mı\? Bu klasörleri silmez.</string>
     <string name="hidden_folders">Gizli klasörler</string>
     <string name="manage_hidden_folders">Gizli klasörleri yönet</string>
     <string name="hidden_folders_placeholder">\".nomedia\" dosyasıyla gizlenmiş herhangi bir klasörünüz yok gibi görünüyor.</string>
-    <string name="temporarily_show_excluded">Hariç tutulanları geçici olarak göster</string>
-    <string name="stop_showing_excluded">Hariç tutulanları göstermeyi durdur</string>
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>
     <string name="manage_included_folders">Dahil edilen klasörleri yönet</string>

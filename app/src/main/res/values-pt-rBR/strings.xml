@@ -5,7 +5,6 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(ignorado)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta a pasta ao adicionar um arquivo \".nomedia\" dentro dela, o que também ocultará todas as suas subpastas. Você poderá voltar a exibir estas pastas com a opção \"Exibir pastas ocultas\". Continuar\?</string>
-    <string name="exclude">Ignorar</string>
-    <string name="excluded_folders">Pastas ignoradas</string>
-    <string name="manage_excluded_folders">Gerenciar pastas ignoradas</string>
     <string name="exclude_folder_description">Esta ação deixará de exibir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas ignoradas nas configurações do aplicativo.</string>
     <string name="exclude_folder_parent">Ignorar a pasta raiz ao invés desta\?</string>
     <string name="excluded_activity_placeholder">Ignorar uma pasta apenas deixa de exibi-la nesta galeria. Ela continuará visível para outros aplicativos.
 \n
 \nSe você quiser ocultar a pasta para todos os aplicativos, utilize a função Ocultar.</string>
-    <string name="remove_all">Remover todas</string>
-    <string name="remove_all_description">Remover todas as pastas da lista de pastas ignoradas\? Esta ação não exclui as pastas.</string>
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Exibir excluído temporariamente</string>
-    <string name="stop_showing_excluded">Parar de exibir excluído</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>

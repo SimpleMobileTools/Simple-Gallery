@@ -5,7 +5,6 @@
     <string name="edit">Uredi</string>
     <string name="open_camera">Otvori kameru</string>
     <string name="hidden">(skrivene)</string>
-    <string name="excluded">(isključene)</string>
     <string name="pin_folder">Prikvači mapu</string>
     <string name="unpin_folder">Otkvači mapu</string>
     <string name="pin_to_the_top">Prikvači na vrh</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Promijeni filtar</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ova funkcija skriva mapu dodavanjem „.nomedia” datoteke u mapu. Također će sakriti i sve podmape. Možeš ih vidjeti uključivanjem opcije „Prikaži skrivene mape” u postavkama. Nastaviti\?</string>
-    <string name="exclude">Isključi</string>
-    <string name="excluded_folders">Isključene mape</string>
-    <string name="manage_excluded_folders">Upravljaj isključenim mapama</string>
     <string name="exclude_folder_description">Ovo će isključiti odabir zajedno s podmapama samo iz aplikacije „Jednostavna galerija”. Isključenim mapama možeš upravljati u postavkama.</string>
     <string name="exclude_folder_parent">Isključiti glavnu mapu umjesto toga\?</string>
     <string name="excluded_activity_placeholder">Isključivanjem mapa, one će se sakriti zajedno s podmapama samo u aplikaciji „Jednostavna galerija”. I dalje će biti vidljive u drugim aplikacijama.
 \n
 \nAko ih želiš sakriti i u drugim aplikacijama, koristi funkciju „Sakrij”.</string>
-    <string name="remove_all">Ukloni sve</string>
-    <string name="remove_all_description">Želiš li ukloniti sve mape s popisa isključenih\? Ovo neće izbrisati mape.</string>
     <string name="hidden_folders">Skrivene mape</string>
     <string name="manage_hidden_folders">Upravljaj skrivenim mapama</string>
     <string name="hidden_folders_placeholder">Čini se da nemaš skrivene mape s \".nomedia\" datotekom.</string>
-    <string name="temporarily_show_excluded">Privremeno prikaži isključene</string>
-    <string name="stop_showing_excluded">Prekini prikazivanje isključenih</string>
     <!-- Include folders -->
     <string name="include_folders">Uključene mape</string>
     <string name="manage_included_folders">Upravljaj uključenim mapama</string>

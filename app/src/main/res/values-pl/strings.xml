@@ -5,7 +5,6 @@
     <string name="edit">Edytuj</string>
     <string name="open_camera">Otwórz aparat</string>
     <string name="hidden">(ukryte)</string>
-    <string name="excluded">(wykluczone)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Odepnij folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa folder, dodając do niego plik „.nomedia”, i ukryje również wszystkie podfoldery. Możesz je zobaczyć, przełączając opcję „Pokazuj ukryte elementy” w Ustawieniach. Kontynuować\?</string>
-    <string name="exclude">Wyklucz</string>
-    <string name="excluded_folders">Wykluczone foldery</string>
-    <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
     <string name="exclude_folder_description">Spowoduje to wykluczenie wybranego folderu i jego podfolderów z Prostej galerii. Możesz zarządzać wykluczonymi folderami w Ustawieniach.</string>
     <string name="exclude_folder_parent">Czy zamiast tego wykluczyć folder nadrzędny\?</string>
     <string name="excluded_activity_placeholder">Wykluczenie folderów spowoduje ukrycie ich wraz z podfolderami tylko w Prostej Galerii, w innych aplikacjach będą nadal widoczne.
 \n
 \nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji „Ukryj folder”.</string>
-    <string name="remove_all">Usuń wszystko</string>
-    <string name="remove_all_description">Czy usunąć wszystkie foldery z listy wykluczonych\? Nie spowoduje to fizycznego usunięcia folderów.</string>
     <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
-    <string name="temporarily_show_excluded">Tymczasowo pokaż wykluczone foldery</string>
-    <string name="stop_showing_excluded">Przestań pokazywać wykluczone foldery</string>
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>

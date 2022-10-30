@@ -5,7 +5,6 @@
     <string name="edit">편집</string>
     <string name="open_camera">카메라 열기</string>
     <string name="hidden">(숨겨짐)</string>
-    <string name="excluded">(제외됨)</string>
     <string name="pin_folder">폴더 고정</string>
     <string name="unpin_folder">폴더 고정 해제</string>
     <string name="pin_to_the_top">상단에 고정</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>필터 변경</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">현재 폴더에 \'.nomedia\' 파일을 생성하여 현재 및 모든 하위 폴더를 숨김니다. 숨김 처리된 모든 폴더는 설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 볼 수 있습니다. 계속 하시겠습니까\?</string>
-    <string name="exclude">제외하기</string>
-    <string name="excluded_folders">제외된 폴더</string>
-    <string name="manage_excluded_folders">제외된 폴더 관리</string>
     <string name="exclude_folder_description">현재 및 모든 하위 폴더를 심플 갤러리에서 제외시킵니다. 제외된 폴더는 설정에서 관리 할 수 있습니다.</string>
     <string name="exclude_folder_parent">상위 폴더를 제외 하시겠습니까\?</string>
     <string name="excluded_activity_placeholder">폴더를 제외하면 심플 갤러리에서만 폴더가 보이지 않게 됩니다.
 \n
 \n다른 앱에서도 보이지 않게 하려면 숨김기능을 사용하십시오.</string>
-    <string name="remove_all">모두 제거</string>
-    <string name="remove_all_description">제외된 폴더를 모두 해제하시겠습니까\?</string>
     <string name="hidden_folders">숨겨진 폴더</string>
     <string name="manage_hidden_folders">숨겨진 폴더 관리</string>
     <string name="hidden_folders_placeholder">\".nomedia\"파일로 숨겨진 폴더가 존재하지 않습니다.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">포함된 폴더</string>
     <string name="manage_included_folders">포함된 폴더 관리</string>

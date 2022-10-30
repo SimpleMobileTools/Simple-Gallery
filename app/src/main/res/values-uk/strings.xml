@@ -5,7 +5,6 @@
     <string name="edit">Редагувати</string>
     <string name="open_camera">Запустити камеру</string>
     <string name="hidden">(приховане)</string>
-    <string name="excluded">(виключене)</string>
     <string name="pin_folder">Закріпити теку</string>
     <string name="unpin_folder">Відкріпити теку</string>
     <string name="pin_to_the_top">Закріпити зверху</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Змінити фільтри</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ця функція приховує теку шляхом додавання в неї файлу \".nomedia\"; це також приховає і підтеки. Ви можете побачити приховані теки, обравши опцію \'Показати приховані елементи\' в \"Налаштуваннях\". Продовжити\?</string>
-    <string name="exclude">Виключити</string>
-    <string name="excluded_folders">Виключені теки</string>
-    <string name="manage_excluded_folders">Керування виключеними теками</string>
     <string name="exclude_folder_description">Ця дія виключить обрані теки з їх підтеками тільки з Простої Галереї. Керувати виключеними теками можна у \"Налаштуваннях\".</string>
     <string name="exclude_folder_parent">Виключити батьківську теку натомість\?</string>
     <string name="excluded_activity_placeholder">Виключення тек приховає їх разом з їх підтеками тільки у Простій Галереї, але вони все ще будуть видимі у інших додатках.
 \n
 \nЯкщо ви хочете приховати їх і від інших додатків, використовуйте функцію \"Приховати\".</string>
-    <string name="remove_all">Видалити все</string>
-    <string name="remove_all_description">Видалити всі теки зі списку виключених\? Це не видалить теки з пристрою.</string>
     <string name="hidden_folders">Приховані теки</string>
     <string name="manage_hidden_folders">Керування прихованими теками</string>
     <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Тимчасово показати вилучені</string>
-    <string name="stop_showing_excluded">Припинити показ вилучених</string>
     <!-- Include folders -->
     <string name="include_folders">Включені теки</string>
     <string name="manage_included_folders">Керування включеними теками</string>

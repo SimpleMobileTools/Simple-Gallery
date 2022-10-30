@@ -5,7 +5,6 @@
     <string name="edit">Szerkesztés</string>
     <string name="open_camera">Kamera megnyitása</string>
     <string name="hidden">(rejtett)</string>
-    <string name="excluded">(kizárt)</string>
     <string name="pin_folder">Mappa kitűzése</string>
     <string name="unpin_folder">Mappa kitűzésének megszüntetése</string>
     <string name="pin_to_the_top">Kitűzés felülre</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ez a funkció elrejti a mappát egy „.nomedia” fájl hozzáadásával, és elrejti az almappákat is. Láthatóvá teheti ezeket a Beállítások „Rejtett elemek megjelenítése\" lehetőségének bekapcsolásáva. Folytatja\?</string>
-    <string name="exclude">Kizárás</string>
-    <string name="excluded_folders">Kizárt mappák</string>
-    <string name="manage_excluded_folders">Kizárt mappák kezelése</string>
     <string name="exclude_folder_description">Ez kizárja a kijelölést és az alkönyvtárakat a Simple Gallery alkalmazásból. A kizárt mappákat a Beállításokban kezelheti.</string>
     <string name="exclude_folder_parent">Kizárja a szülőmappát\?</string>
     <string name="excluded_activity_placeholder">A mappák kizárásával az almappákkal együtt elrejti a Simple Gallery alkalmazásban, de továbbra is láthatóak maradnak más alkalmazásokban.
 \n
 \nHa el szeretné rejteni őket más alkalmazásokban is, használja az Elrejtés funkciót.</string>
-    <string name="remove_all">Összes eltávolítása</string>
-    <string name="remove_all_description">Összes mappa eltávolítása a Kizárás listából. Ez nem törli a mappákat.</string>
     <string name="hidden_folders">Rejtett mappák</string>
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
-    <string name="temporarily_show_excluded">Kihagyottak megjelenítése ideiglenesen</string>
-    <string name="stop_showing_excluded">Kihagyottak megjelenítésének leállítása</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>

@@ -5,7 +5,6 @@
     <string name="edit">Редактировать</string>
     <string name="open_camera">Камера</string>
     <string name="hidden">(скрыто)</string>
-    <string name="excluded">(исключено)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
     <string name="pin_to_the_top">Закрепить сверху</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\". Также будут скрыты все подпапки. Можно показать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить\?</string>
-    <string name="exclude">Исключить</string>
-    <string name="excluded_folders">Исключённые папки</string>
-    <string name="manage_excluded_folders">Управление исключёнными папками</string>
     <string name="exclude_folder_description">Эта функция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
     <string name="exclude_folder_parent">Исключить только родительскую папку\?</string>
     <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях.
 \n
 \nЕсли вы хотите скрыть их и в других приложениях, используйте функцию \"Скрыть\".</string>
-    <string name="remove_all">Удалить всё</string>
-    <string name="remove_all_description">Очистить список исключённых папок\? Сами папки не будут удалены.</string>
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Временно показать исключённые</string>
-    <string name="stop_showing_excluded">Не показывать исключённые</string>
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>

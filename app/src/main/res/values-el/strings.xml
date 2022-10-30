@@ -5,7 +5,6 @@
     <string name="edit">Επεξεργασία</string>
     <string name="open_camera">Άνοιγμα κάμερας</string>
     <string name="hidden">(κρυφά)</string>
-    <string name="excluded">(εξαιρούνται)</string>
     <string name="pin_folder">Καρφίτσωμα φακέλου</string>
     <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
     <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Αλλαγή φίλτρων</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Αυτή η λειτουργία κρύβει τον φάκελο προσθέτοντας ένα \".nomedia\" αρχείο μέσα του, θα κρύψει και όλους τους υποφακέλους επίσης. Μπορείτε να τους δείτε με την επιλογή του \'Εμφάνιση κρυφών δεδομένων\' στις Ρυθμίσεις. Συνέχεια\?</string>
-    <string name="exclude">Εξαίρεση</string>
-    <string name="excluded_folders">Εξαίρεση φακέλων</string>
-    <string name="manage_excluded_folders">Διαχείριση εξαιρεμένων φακέλων</string>
     <string name="exclude_folder_description">Αυτό θα εξαιρέσει τον επιλεγμένο μαζί με τους υποφακέλους από την Απλή Συλλογή μόνο. Μπορείτε να διαχειριστείτε τους φακέλους που εξαιρέθηκαν στις Ρυθμίσεις.</string>
     <string name="exclude_folder_parent">Να εξαιρεθεί μήπως ο γονικός φάκελος;</string>
     <string name="excluded_activity_placeholder">Εξαιρώντας τους φακέλους, θα τους αποκρύψει μαζί με τους υποφακέλους τους μόνο στην Απλή Συλλογή, θα είναι ορατοί στις υπόλοιπες εφαρμογές.
 \n
 \nΑν θέλετε να τους αποκρύψετε και στις υπόλοιπες εφαρμογές, χρησιμοποιήστε την λειτουργία Απόκρυψη.</string>
-    <string name="remove_all">Διαγραφή όλων</string>
-    <string name="remove_all_description">Να αφαιρεθούν όλοι οι φάκελοι από την λίστα των εξαιρεμένων; Αυτό δεν θα διαγράψει τους φακέλους.</string>
     <string name="hidden_folders">Κρυφοί φάκελοι</string>
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
-    <string name="temporarily_show_excluded">Προσωρινή εμφάνιση αποκλεισμένων</string>
-    <string name="stop_showing_excluded">Παύση εμφάνισης αποκλεισμένων</string>
     <!-- Include folders -->
     <string name="include_folders">Συμπεριλαμβανόμενοι Φάκελοι</string>
     <string name="manage_included_folders">Διαχείριση συμπεριλαμβανόμενων Φακέλων</string>

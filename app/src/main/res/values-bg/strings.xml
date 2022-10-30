@@ -5,7 +5,6 @@
     <string name="edit">Редакция</string>
     <string name="open_camera">Камера</string>
     <string name="hidden">(скрито)</string>
-    <string name="excluded">(изключено)</string>
     <string name="pin_folder">Закачете папката</string>
     <string name="unpin_folder">Откачете папката</string>
     <string name="pin_to_the_top">Закачете отгоре</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Смени филтрите</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Тази функция скрива папката чрез добавяне на \'.nomedia\' файл в нея; това също ще скрие и папките в нея. Можете да ги видите чрез превключване на \'Показване на скритите елементи\' в настройките. Напред\?</string>
-    <string name="exclude">Изключение</string>
-    <string name="excluded_folders">Изключени папки</string>
-    <string name="manage_excluded_folders">Управление на изключените папки</string>
     <string name="exclude_folder_description">Това ще изключи селекцията заедно с вътрешните ѝ папки само от Обикновена Галерия. Можете да управлявате изключените папки в Настройки.</string>
     <string name="exclude_folder_parent">Вместо това, изключване на папката от горното ниво\?</string>
     <string name="excluded_activity_placeholder">Изключването на папките ще ги скрие, заедно с вътрешните им папки, само в Обикновена Галерия; те ще бъдат видими в други приложения.
 \n
 \nАко искате да ги скриете също и от други приложения, използвайте функцията Скриване.</string>
-    <string name="remove_all">Премахване на всички</string>
-    <string name="remove_all_description">Премахване на всички папки от списъка с изключените\? Това няма да изтрие папките.</string>
     <string name="hidden_folders">Скрити папки</string>
     <string name="manage_hidden_folders">Управление на скритите папки</string>
     <string name="hidden_folders_placeholder">Изглежда нямате папки скрити чрез \'.nomedia\' файл.</string>
-    <string name="temporarily_show_excluded">Временно показване на изключени</string>
-    <string name="stop_showing_excluded">Стоп показване на изключени</string>
     <!-- Include folders -->
     <string name="include_folders">Включени папки</string>
     <string name="manage_included_folders">Управление на включените папки</string>

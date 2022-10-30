@@ -5,7 +5,6 @@
     <string name="edit">Biên tập</string>
     <string name="open_camera">Mở Camera</string>
     <string name="hidden">(ẩn)</string>
-    <string name="excluded">(không bao gồm)</string>
     <string name="pin_folder">Ghim thư mục</string>
     <string name="unpin_folder">Bỏ ghim thư mục</string>
     <string name="pin_to_the_top">Ghim lên đầu</string>
@@ -51,21 +50,14 @@
     <string name="change_filters_underlined"><u>Thay đổi bộ lọc</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Chức năng này ẩn thư mục bằng cách thêm tệp \'.nomedia\' vào nó, nó cũng sẽ ẩn tất cả các thư mục con. Bạn có thể nhìn thấy chúng bằng cách bật tùy chọn \'Hiển thị các mục bị ẩn\' trong Cài đặt. Tiếp tục\?</string>
-    <string name="exclude">Loại trừ</string>
-    <string name="excluded_folders">Các thư mục bị loại trừ</string>
-    <string name="manage_excluded_folders">Quản lý các thư mục loại trừ</string>
     <string name="exclude_folder_description">Điều này sẽ loại trừ lựa chọn cùng với các thư mục con của nó khỏi Simple Gallery. Bạn có thể quản lý các thư mục loại trừ trong Cài đặt.</string>
     <string name="exclude_folder_parent">Loại trừ thư mục mẹ thay thế\?</string>
     <string name="excluded_activity_placeholder">Các thư mục loại trừ sẽ làm cho chúng cùng với các thư mục con của chúng bị ẩn chỉ trong Simple Gallery, chúng vẫn sẽ hiển thị trong các ứng dụng khác.
 \n
 \nNếu bạn cũng muốn ẩn chúng khỏi các ứng dụng khác, hãy sử dụng chức năng Ẩn.</string>
-    <string name="remove_all">Xóa tất cả</string>
-    <string name="remove_all_description">Xóa tất cả các thư mục khỏi danh sách loại trừ\? Điều này sẽ không xóa các thư mục.</string>
     <string name="hidden_folders">Các thư mục ẩn</string>
     <string name="manage_hidden_folders">Quản lý thư mục ẩn</string>
     <string name="hidden_folders_placeholder">Có vẻ như bạn không có bất kỳ thư mục nào bị ẩn với tệp \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Bao gồm các thư mục</string>
     <string name="manage_included_folders">Quản lý các thư mục được bao gồm</string>

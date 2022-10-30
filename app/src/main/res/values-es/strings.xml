@@ -5,7 +5,6 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir la cámara</string>
     <string name="hidden">(Oculto)</string>
-    <string name="excluded">(Excluido)</string>
     <string name="pin_folder">Fijar carpeta</string>
     <string name="unpin_folder">No fijar carpeta</string>
     <string name="pin_to_the_top">Anclar arriba</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y también ocultará las subcarpetas. Puede mostrarlas modificando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar\?</string>
-    <string name="exclude">Excluir</string>
-    <string name="excluded_folders">Carpetas excluidas</string>
-    <string name="manage_excluded_folders">Gestionar carpetas excluidas</string>
     <string name="exclude_folder_description">Esto excluirá la selección junto con sus subcarpetas, solamente de Simple Gallery. Puede gestionar las carpetas excluidas en los Ajustes.</string>
     <string name="exclude_folder_parent">¿Excluir mejor la carpeta superior\?</string>
     <string name="excluded_activity_placeholder">La opción de excluir las carpetas las excluirá junto a sus subcarpetas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.
 \n
 \nSi desea ocultarlo de otras aplicaciones, utilice la función \"Ocultar\".</string>
-    <string name="remove_all">Eliminar todo</string>
-    <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas\? Nota: Esto no borrará las carpetas.</string>
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que no tiene carpetas ocultas con archivos \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Mostrar excluidos temporalmente</string>
-    <string name="stop_showing_excluded">Dejar de mostrar excluidos</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
     <string name="manage_included_folders">Gestionar carpetas incluidas</string>

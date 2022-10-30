@@ -5,7 +5,6 @@
     <string name="edit">Измени</string>
     <string name="open_camera">Отвори камеру</string>
     <string name="hidden">(скривено)</string>
-    <string name="excluded">(изузето)</string>
     <string name="pin_folder">Прикачи фасциклу</string>
     <string name="unpin_folder">Раскачи фасциклу</string>
     <string name="pin_to_the_top">Закачи на врх</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Измени филтере</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ова функција скрива фасциклу додавањем \'.nomedia\' фајла у њу, она ће такође сакрити све подфасцикле. Можете их видети притиском на опцију \'Прикажи скривене ставке\' у подешавањима. Настави\?</string>
-    <string name="exclude">Изузми</string>
-    <string name="excluded_folders">Изузете фасцикле</string>
-    <string name="manage_excluded_folders">Управљај изузетим фасциклама</string>
     <string name="exclude_folder_description">Ово ће изузети одабир заједно са подфасциклама само из Једноставне галерије. Можете управљати изузетим фасциклама у подешавањима.</string>
     <string name="exclude_folder_parent">Изузми родитеља уместо овог\?</string>
     <string name="excluded_activity_placeholder">Изузимање фасцикли ће их заједно са њиховим подфасциклама учинити скривеним само у Једноставној галерији, они ће и даље бити видљиви у другим апликацијама.
 \n
 \nАко желите да их сакријете од других апликација, употребите Сакриј функцију.</string>
-    <string name="remove_all">Уклони све</string>
-    <string name="remove_all_description">Уклони све фасцикле са листе изузетих\? Ово неће обрисати фасцикле.</string>
     <string name="hidden_folders">Скривене фасцикле</string>
     <string name="manage_hidden_folders">Управљај скривеним фасциклама</string>
     <string name="hidden_folders_placeholder">Изгледа да немате ни једну фасциклу скривену са \".nomedia\" датотеком.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Укључене фасцикле</string>
     <string name="manage_included_folders">Управљај укљученим фасциклама</string>

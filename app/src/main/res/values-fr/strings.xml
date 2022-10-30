@@ -5,7 +5,6 @@
     <string name="edit">Modifier</string>
     <string name="open_camera">Ouvrir l\'appareil photo</string>
     <string name="hidden">(caché)</string>
-    <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Libérer le dossier</string>
     <string name="pin_to_the_top">Épingler le dossier</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Modifier les filtres</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option cache le dossier en y ajoutant un fichier .nomedia, elle cachera aussi tous les sous-dossiers. Vous pouvez afficher ces dossiers avec l\'option « Afficher les fichiers cachés » dans les paramètres. Continuer \?</string>
-    <string name="exclude">Exclure le dossier</string>
-    <string name="excluded_folders">Dossiers exclus</string>
-    <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">La sélection sera exclue ainsi que ses sous-dossiers dans Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
     <string name="exclude_folder_parent">Exclure un dossier parent \?</string>
     <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.
 \n
 \nSi vous voulez aussi les cacher ailleurs, utilisez la fonction Cacher.</string>
-    <string name="remove_all">Tout supprimer</string>
-    <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions \? Ceci ne supprimera pas les dossiers.</string>
     <string name="hidden_folders">Dossiers cachés</string>
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
     <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché par un fichier .nomedia.</string>
-    <string name="temporarily_show_excluded">Afficher temporairement les exclus</string>
-    <string name="stop_showing_excluded">Arrêter l\'affichage des exclus</string>
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>

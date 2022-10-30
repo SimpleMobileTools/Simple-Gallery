@@ -5,7 +5,6 @@
     <string name="edit">Editatu</string>
     <string name="open_camera">Ireki kamera</string>
     <string name="hidden">(ezkutatuta)</string>
-    <string name="excluded">(baztertuta)</string>
     <string name="pin_folder">Ainguratu karpeta</string>
     <string name="unpin_folder">Kendu aingura karpetari</string>
     <string name="pin_to_the_top">Ainguratu goian</string>
@@ -51,21 +50,14 @@
     <string name="change_filters_underlined"><u>Aldatu filtroak</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Funtzio honek karpeta \'.nomedia\' fitxategi bat gehituz ezkutatzen du, azpikarpeta guztiak ere ezkutatuko ditu. Ezarpenetako \'Erakutsi ezkutatutako elementuak\' aukera aldatuz ikus ditzakezu. Jarraitu\?</string>
-    <string name="exclude">Baztertu</string>
-    <string name="excluded_folders">Baztertutako karpetak</string>
-    <string name="manage_excluded_folders">Kudeatu baztertutako karpetak</string>
     <string name="exclude_folder_description">Honek hautatutakoa bere azpikarpetekin baztertutako ditu Galeria Sinpletik soilik. Baztertutako karpetak ezarpenetan kudeatu ditzakezu.</string>
     <string name="exclude_folder_parent">Baztertu nagusia horren ordez\?</string>
     <string name="excluded_activity_placeholder">Karpetak baztertzeak hauek eta beren azpikarpetak Galeria Sinplean soilik ezkutatuko ditu, beste aplikazioetan oraindik ikusgai egongo dira.
 \n
 \nBeste aplikazioetatik ere ezkutatu nahi badituzu, erabili Ezkutatu funtzioa.</string>
-    <string name="remove_all">Kendu guztiak</string>
-    <string name="remove_all_description">Kendu karpeta guztiak baztertutako zerrendatik\? Honek ez ditu karpetak ezabatuko.</string>
     <string name="hidden_folders">Ezkutatutako karpetak</string>
     <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
     <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Sartutako karpetak</string>
     <string name="manage_included_folders">Kudeatu sartutako karpetak</string>

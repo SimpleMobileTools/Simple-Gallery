@@ -5,7 +5,6 @@
     <string name="edit">Upravit</string>
     <string name="open_camera">Spustit fotoaparát</string>
     <string name="hidden">(skryto)</string>
-    <string name="excluded">(vyloučeno)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>
     <string name="pin_to_the_top">Připnout nahoru</string>
@@ -53,21 +52,14 @@
     <string name="change_filters_underlined"><u>Změnit filtry</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tato funkce skryje složku včetně podsložek přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat\?</string>
-    <string name="exclude">Vyloučit</string>
-    <string name="excluded_folders">Vyloučené složky</string>
-    <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
     <string name="exclude_folder_description">Tato funkce vyloučí výběr včetně podsložek jen z Jednoduché galerie. V nastavení můžete spravovat vyloučené složky.</string>
     <string name="exclude_folder_parent">Chcete vyloučit nadřazenou složku\?</string>
     <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché galerie, ostatní aplikace je nadále uvidí.
 \n
 \nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
-    <string name="remove_all">Odstranit všechny</string>
-    <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených\? Tato operace neodstraní obsah složek.</string>
     <string name="hidden_folders">Skryté složky</string>
     <string name="manage_hidden_folders">Spravovat skryté složky</string>
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
-    <string name="temporarily_show_excluded">Temporarily show excluded</string>
-    <string name="stop_showing_excluded">Stop showing excluded</string>
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>
     <string name="manage_included_folders">Spravovat přidané složky</string>
