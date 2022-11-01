@@ -115,7 +115,7 @@
     <string name="home_screen">Hjemmeskærm</string>
     <string name="lock_screen">Låseskærm</string>
     <string name="home_and_lock_screen">Hjemme- og låseskærm</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Tillader ændring af billedformatet</string>
     <!-- Slideshow -->
     <string name="slideshow">Lysbilledshow</string>
     <string name="interval">Frekvens</string>
@@ -203,13 +203,13 @@
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="password_protect_excluded">Beskyt synligheden af udelukkede mapper med adgangskode</string>
+    <string name="media_management_manual">Noget gik galt, gå ind på din enhed Indstillinger - Apps - Særlig app-adgang - Mediehåndteringsapps, og tillad denne app at håndtere medier.</string>
+    <string name="media_management_note">Hvis omdirigeringen ikke virker, skal du gå ind i enheden Indstillinger - Apps - Særlig app-adgang - Mediehåndteringsapps og tillade denne app at håndtere medier.</string>
+    <string name="media_management_alternative">Hvis du ikke ønsker at gøre dette, kan du også gå ind i din enhed - Indstillinger - Apps - Særlig appadgang - Mediehåndteringsapps og tillade denne app at håndtere medier.</string>
+    <string name="alternative_media_access">Alternativt kan du kun tillade adgang til mediefiler. I så fald vil du dog ikke kunne arbejde med skjulte filer.</string>
+    <string name="media_only">Kun medier</string>
+    <string name="all_files">Alle filer</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>
     <string name="fullscreen_media">Fuldskærmsmedier</string>
@@ -363,7 +363,7 @@
     <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
     <string name="faq_16_title">Hvad skete der med \'Skjul filer og mapper\', og hvorfor kan jeg ikke se skjulte elementer længere\?</string>
     <string name="faq_16_text">Fra og med Android 11 kan du ikke længere skjule eller vise filer eller mapper. På grund af systembegrænsninger kan du heller ikke se de skjulte i galleriapps. Du bliver nødt til at bruge en anden form for filhåndtering til det.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Du kan også give dette galleri adgang til Alle filer via din enheds indstillinger, hvilket vil give os mulighed for at vise skjulte elementer og generelt gøre filoperationer mere pålidelige.</string>
     <string name="faq_17_title">Hvorfor kan jeg ikke længere inkludere manglende mapper\?</string>
     <string name="faq_17_text">Det holdt op med at virke på grund af systemændringerne, der fulgte med Android 11, appen kan ikke længere gennemse rigtige mapper, den er afhængig af den såkaldte MediaStore til at hente data.</string>
     <string name="faq_18_title">Hvorfor ser jeg reklamer under videoafspilning\?</string>
