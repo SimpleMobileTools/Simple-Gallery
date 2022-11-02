@@ -87,9 +87,9 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         gestureDetector.onTouchEvent(event)
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-                mLastTouchY = event.y
+                mTouchDownX = event.rawX
+                mTouchDownY = event.rawY
+                mLastTouchY = event.rawY
                 mTouchDownTime = System.currentTimeMillis()
                 if (mIsBrightnessScroll) {
                     if (mTouchDownValue == -1) {
@@ -100,15 +100,15 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 }
             }
             MotionEvent.ACTION_MOVE -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
+                val diffX = mTouchDownX - event.rawX
+                val diffY = mTouchDownY - event.rawY
 
                 if (Math.abs(diffY) > dragThreshold && Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / mViewHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 
-                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
-                        mTouchDownY = event.y
+                    if ((percent == 100 && event.rawY > mLastTouchY) || (percent == -100 && event.rawY < mLastTouchY)) {
+                        mTouchDownY = event.rawY
                         mTouchDownValue = if (mIsBrightnessScroll) mTempBrightness else getCurrentVolume()
                     }
 
@@ -116,14 +116,14 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 } else if (Math.abs(diffX) > dragThreshold || Math.abs(diffY) > dragThreshold) {
                     if (!mPassTouches) {
                         event.action = MotionEvent.ACTION_DOWN
-                        event.setLocation(event.rawX, event.y)
+                        event.setLocation(event.rawX, event.rawY)
                         mParentView?.dispatchTouchEvent(event)
                     }
                     mPassTouches = true
                     mParentView?.dispatchTouchEvent(event)
                     return false
                 }
-                mLastTouchY = event.y
+                mLastTouchY = event.rawY
             }
             MotionEvent.ACTION_UP -> {
                 if (mIsBrightnessScroll) {

@@ -544,15 +544,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private fun handleEvent(event: MotionEvent) {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
+                mTouchDownX = event.rawX
+                mTouchDownY = event.rawY
                 mTouchDownTime = System.currentTimeMillis()
                 mProgressAtDown = mExoPlayer!!.currentPosition
             }
             MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
             MotionEvent.ACTION_MOVE -> {
-                val diffX = event.x - mTouchDownX
-                val diffY = event.y - mTouchDownY
+                val diffX = event.rawX - mTouchDownX
+                val diffY = event.rawY - mTouchDownY
 
                 if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY)) && video_surface_frame.controller.state.zoom == 1f) {
                     if (!mIsDragged) {
@@ -574,8 +574,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 }
             }
             MotionEvent.ACTION_UP -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
+                val diffX = mTouchDownX - event.rawX
+                val diffY = mTouchDownY - event.rawY
 
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
                 if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold &&
