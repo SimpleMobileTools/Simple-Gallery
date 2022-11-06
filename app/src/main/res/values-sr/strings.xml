@@ -14,7 +14,7 @@
     <string name="other_folder">Друга фасцикла</string>
     <string name="show_on_map">Прикажи на мапи</string>
     <string name="unknown_location">Непозната локација</string>
-    <string name="volume">Јачина звука</string>
+    <string name="volume">Volume</string>
     <string name="brightness">Осветљење</string>
     <string name="lock_orientation">Закључај оријентацију</string>
     <string name="unlock_orientation">Откључај оријентацију</string>
