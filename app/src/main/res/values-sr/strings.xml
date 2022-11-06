@@ -217,7 +217,7 @@
     <string name="bottom_actions">Акције на дну</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Управљај са видљивим акцијама на дну</string>
-    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_favorite">Укључите фаворит</string>
     <string name="toggle_file_visibility">Укључи/искључи видљивост датотеке</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Custom</string>
