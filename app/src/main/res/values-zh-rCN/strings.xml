@@ -358,12 +358,12 @@
     <string name="faq_13_title">我看到图片上有一些色带。如何提高提高质量？</string>
     <string name="faq_13_text">目前显示图片的方案在绝大多数情况下都是正常的，如果您想要更好的图像质量，您可以在设置中启用\"以最高质量显示图像\"。</string>
     <string name="faq_14_title">我隐藏了某个文件/文件夹。如何取消隐藏？</string>
-    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果您想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。 Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果您想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。 注意，隐藏是递归的，所以如果你隐藏了一个文件夹，所有的子文件夹也会被隐藏。为了取消隐藏子文件夹你必须取消隐藏父文件夹。</string>
     <string name="faq_15_title">为什么应用占用了这么多的空间？</string>
     <string name="faq_15_text">应用缓存最多可达250MB，这样可以使图像加载更快。如果应用占用了更多空间，则很可能是因为回收站中有项目。这些文件被计入应用程序大小。您可以打开回收站并删除所有文件，或从应用设置中清除回收站。回收站中的内容会在30天后自动删除。</string>
     <string name="faq_16_title">文件和文件夹隐藏发生了什么，为什么我再不能看到隐藏项目了？</string>
     <string name="faq_16_text">从 Android 11 开始，你再也不能隐藏或取消隐藏文件或文件夹，由于系统限制，也不能在图库应用中看到隐藏的文件或文件夹了。你必须使用文件管理器来进行此类操作。</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">或者你也可以通过你的设备设置授予这个图库访问所有文件的权限，这将允许我们显示隐藏的项目，使文件操作总体上更可靠。</string>
     <string name="faq_17_title">为什么我再不能包含缺失的文件夹？</string>
     <string name="faq_17_text">由于 Android 11 的系统变化，这一功能也停止了工作，本应用不能再浏览真实的文件夹了，它依赖于所谓的 MediaStore 来获取数据。</string>
     <string name="faq_18_title">为何我在视频播放期间看到广告？</string>
