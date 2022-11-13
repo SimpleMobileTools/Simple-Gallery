@@ -107,7 +107,7 @@
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
-    <string name="set_as_wallpaper_with">Установить в качестве обоев с помощью</string>
+    <string name="set_as_wallpaper_with">Установить в качестве обоев с помощью:</string>
     <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои установлены</string>
     <string name="portrait_aspect_ratio">Портретная ориентация</string>
@@ -134,7 +134,7 @@
     <!-- View types -->
     <string name="group_direct_subfolders">Объединять вложенные папки</string>
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Группировать по…</string>
+    <string name="group_by">Группировать по</string>
     <string name="do_not_group_files">Не группировать</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>
