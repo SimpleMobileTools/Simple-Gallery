@@ -189,19 +189,19 @@
     <string name="speed">Hitrost</string>
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Izogni se prikazovanju napačnih datotek</string>
-    <string name="show_image_file_types">Show image file types</string>
+    <string name="show_image_file_types">Prikaži tipe datotek za slike</string>
     <string name="allow_zooming_videos">Allow zooming videos with double tapping them</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Označi priljubljene predmete</string>
     <string name="thumbnail_spacing">Thumbnail spacing</string>
     <string name="show_file_count_line">Show file count on a separate line</string>
     <string name="show_file_count_brackets">Show file count in brackets</string>
     <string name="show_file_count_none">Do not show file count</string>
     <string name="limit_folder_title">Limit long folder titles to 1 line</string>
-    <string name="square">Square</string>
-    <string name="rounded_corners">Rounded corners</string>
-    <string name="export_favorite_paths">Export favorite file paths</string>
+    <string name="square">Kvadrat</string>
+    <string name="rounded_corners">Zaobljeni vogali</string>
+    <string name="export_favorite_paths">Izvozi priljubljene poti datotek</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="password_protect_excluded">Zaščita vidnosti izključenih map z geslom</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
@@ -209,7 +209,7 @@
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="all_files">Vse datoteke</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Celozaslonski prikaz</string>
@@ -220,14 +220,14 @@
     <string name="toggle_favorite">Preklopi priljubljene</string>
     <string name="toggle_file_visibility">Preklopi vidljivost datotek</string>
     <!-- New editor strings -->
-    <string name="pesdk_transform_button_freeCrop">Custom</string>
+    <string name="pesdk_transform_button_freeCrop">Prirejeno</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
-    <string name="pesdk_transform_button_squareCrop">Square</string>
-    <string name="pesdk_transform_title_name">Transform</string>
+    <string name="pesdk_transform_button_squareCrop">Kvadrat</string>
+    <string name="pesdk_transform_title_name">Preobrazi</string>
     <string name="pesdk_filter_title_name">Filter</string>
     <string name="pesdk_filter_asset_none">None</string>
     <string name="pesdk_adjustments_title_name">Adjust</string>
-    <string name="pesdk_adjustments_button_shadowTool">Shadows</string>
+    <string name="pesdk_adjustments_button_shadowTool">Sence</string>
     <string name="pesdk_adjustments_button_exposureTool">Exposure</string>
     <string name="pesdk_adjustments_button_highlightTool">Highlights</string>
     <string name="pesdk_adjustments_button_brightnessTool">Brightness</string>
