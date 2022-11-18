@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Thư viện</string>
-    <string name="edit">Biên tập</string>
+    <string name="edit">Chỉnh sửa</string>
     <string name="open_camera">Mở Camera</string>
     <string name="hidden">(ẩn)</string>
     <string name="pin_folder">Ghim thư mục</string>
@@ -25,19 +25,19 @@
     <string name="fix_date_taken">Sửa giá trị ngày chụp</string>
     <string name="fixing">Đang sửa…</string>
     <string name="dates_fixed_successfully">Sửa ngày thành công</string>
-    <string name="no_date_takens_found">No Date Taken values have been found</string>
+    <string name="no_date_takens_found">Không tìm thấy Ngày chụp phù hợp</string>
     <string name="share_resized">Chia sẻ phiên bản đã thay đổi kích thước</string>
     <string name="upgraded_from_free">Xin chào, có vẻ như bạn đã nâng cấp từ ứng dụng miễn phí cũ. Giờ đây, bạn có thể gỡ cài đặt phiên bản cũ có nút \'Nâng cấp lên Pro\' ở đầu Cài đặt ứng dụng.
 \n
-\nBạn sẽ chỉ xóa các mục Thùng rác, các mục yêu thích không được đánh dấu và bạn cũng sẽ phải đặt lại cài đặt ứng dụng của bạn.
+\nBạn sẽ chỉ xóa các mục Thùng rác, các mục yêu thích không được đánh dấu và bạn cũng sẽ phải đặt lại những cài đặt của ứng dụng.
 \n
 \nCảm ơn!</string>
     <string name="switch_to_file_search">Chuyển sang tìm kiếm tệp trên tất cả các thư mục hiển thị</string>
-    <string name="set_as_default_folder">Set as default folder</string>
-    <string name="unset_as_default_folder">Unset as default folder</string>
-    <string name="reorder_by_dragging">Reorder folders by dragging</string>
-    <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="set_as_default_folder">Đặt làm thư mục mặc định</string>
+    <string name="unset_as_default_folder">Bỏ đặt làm thư mục mặc định</string>
+    <string name="reorder_by_dragging">Sắp xếp lại các thư mục bằng cách kéo</string>
+    <string name="reorder_by_dragging_pro">Sắp xếp lại các thư mục bằng cách kéo (Phiên bản Pro)</string>
+    <string name="restore_to_path">Đang khôi phục lại \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Lọc</string>
     <string name="images">Hình ảnh</string>
@@ -77,18 +77,18 @@
     <string name="editor">Trình biên tập</string>
     <string name="rotate">Xoay</string>
     <string name="invalid_image_path">Đường dẫn hình ảnh không hợp lệ</string>
-    <string name="invalid_video_path">Invalid video path</string>
+    <string name="invalid_video_path">Đường dẫn video không hợp lệ</string>
     <string name="image_editing_failed">Thất bại</string>
-    <string name="video_editing_failed">Video editing failed</string>
-    <string name="image_editing_cancelled">Image editing cancelled</string>
-    <string name="video_editing_cancelled">Video editing cancelled</string>
+    <string name="video_editing_failed">Chỉnh sửa video không thành công</string>
+    <string name="image_editing_cancelled">Chỉnh sửa hình ảnh đã bị hủy</string>
+    <string name="video_editing_cancelled">Chỉnh sửa video đã bị hủy</string>
     <string name="file_edited_successfully">Tập tin được chỉnh sửa thành công</string>
-    <string name="image_edited_successfully">Image edited successfully</string>
-    <string name="video_edited_successfully">Video edited successfully</string>
+    <string name="image_edited_successfully">Đã chỉnh sửa hình ảnh thành công</string>
+    <string name="video_edited_successfully">Đã chỉnh sửa video thành công</string>
     <string name="edit_image_with">Chỉnh sửa hình ảnh với:</string>
-    <string name="edit_video_with">Edit video with:</string>
+    <string name="edit_video_with">Chỉnh sửa video với:</string>
     <string name="no_image_editor_found">Không tìm thấy trình chỉnh sửa hình ảnh</string>
-    <string name="no_video_editor_found">No video editor found</string>
+    <string name="no_video_editor_found">Không tìm thấy trình chỉnh sửa video</string>
     <string name="unknown_file_location">Vị trí tệp không xác định</string>
     <string name="error_saving_file">Không thể ghi đè tệp nguồn</string>
     <string name="rotate_left">Xoay trái</string>

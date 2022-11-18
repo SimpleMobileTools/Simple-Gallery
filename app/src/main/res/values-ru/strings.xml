@@ -134,7 +134,7 @@
     <!-- View types -->
     <string name="group_direct_subfolders">Объединять вложенные папки</string>
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Группировать по…</string>
+    <string name="group_by">Группировать по</string>
     <string name="do_not_group_files">Не группировать</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>

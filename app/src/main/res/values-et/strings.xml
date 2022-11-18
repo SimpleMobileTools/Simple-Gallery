@@ -144,7 +144,7 @@
     <string name="by_date_taken_daily">Võetud kuupäev (iga päev)</string>
     <string name="by_date_taken_monthly">Võetud kuupäev (igakuiselt)</string>
     <string name="by_file_type">Faili tüüp</string>
-    <string name="by_extension">Pikendus</string>
+    <string name="by_extension">Faililaiend</string>
     <string name="show_file_count_section_header">Näita vahepealkirjades failide arvu</string>
     <string name="grouping_and_sorting">Pange tähele, et rühmitamine ja sorteerimine on 2 sõltumatut valdkonda</string>
     <!-- Widgets -->
@@ -363,7 +363,7 @@
     <string name="faq_15_text">Rakenduse vahemälu võib võtta kuni 250 MB, see tagab kiirema pildi laadimise. Kui rakendus võtab veelgi rohkem ruumi, on selle põhjuseks tõenäoliselt see, et teil on esemeid prügikastis. Need failid arvestavad rakenduse suuruse hulka. Saate prügikasti tühjendada, avades selle ja kustutades kõik failid või rakenduse seadetest. Iga prügikastis olev fail kustutatakse automaatselt 30 päeva pärast.</string>
     <string name="faq_16_title">Mis juhtus failide ja kaustade peitmisega ja miks ma ei näe enam peidetud objekte\?</string>
     <string name="faq_16_text">Alates Android 11\'st sa enam ei saa rakendusest kaustu peita või teha nähtavaks. Lisaks ei saa süsteemsete piirangute tõttu enam galeriist kasutada peidetud kaustu. Kirjeldatud eesmärgi saavutamiseks palun kasuta failihaldurit.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Aga samas võid sa sellele galeriirakendusele anda süsteemihaldusest õigused kõikide failide nägemiseks ning sellega saame õigused ka peidetud failide kuvamiseks ja kõik toimingud failidega on töökindlamad.</string>
     <string name="faq_17_title">Miks ma ei saa enam lisada puuduvaid kaustu\?</string>
     <string name="faq_17_text">See lakkas töötamast tänu süsteemimuudatustele, mis tulid koos Android 11-ga, rakendus ei saa enam sirvida reaalseid kaustu, vaid tugineb andmete hankimisel nn MediaStore\'ile.</string>
     <string name="faq_18_title">Miks ma näen video taasesituse ajal reklaami\?</string>
