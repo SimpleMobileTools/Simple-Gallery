@@ -58,6 +58,7 @@
     <string name="hidden_folders">Các thư mục ẩn</string>
     <string name="manage_hidden_folders">Quản lý thư mục ẩn</string>
     <string name="hidden_folders_placeholder">Có vẻ như bạn không có bất kỳ thư mục nào bị ẩn với tệp \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Bao gồm các thư mục</string>
     <string name="manage_included_folders">Quản lý các thư mục được bao gồm</string>

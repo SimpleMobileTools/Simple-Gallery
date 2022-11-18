@@ -60,6 +60,7 @@
     <string name="hidden_folders">Dosare ascunse</string>
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Dosare incluse</string>
     <string name="manage_included_folders">Gestionează dosarele incluse</string>

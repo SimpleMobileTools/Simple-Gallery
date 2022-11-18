@@ -60,6 +60,7 @@
     <string name="hidden_folders">மறைத்த அடைவுகள்</string>
     <string name="manage_hidden_folders">மறைத்த அடைவுகளை நிர்வகி</string>
     <string name="hidden_folders_placeholder">உங்களிடம் \".nomedia\" கோப்புடன் எவ்வடைகளும் மறைக்கப்படவில்லை என தெரிகிறது.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">உள்ளடக்கிய அடைவுகள்</string>
     <string name="manage_included_folders">உள்ளடக்கிய அடைவுகளை நிர்வகி</string>

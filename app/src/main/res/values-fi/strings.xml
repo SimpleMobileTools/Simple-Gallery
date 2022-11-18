@@ -60,6 +60,7 @@
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>

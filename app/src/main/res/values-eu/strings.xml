@@ -58,6 +58,7 @@
     <string name="hidden_folders">Ezkutatutako karpetak</string>
     <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
     <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Sartutako karpetak</string>
     <string name="manage_included_folders">Kudeatu sartutako karpetak</string>

@@ -60,6 +60,7 @@
     <string name="hidden_folders">Skryté složky</string>
     <string name="manage_hidden_folders">Spravovat skryté složky</string>
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>
     <string name="manage_included_folders">Spravovat přidané složky</string>

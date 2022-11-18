@@ -60,6 +60,7 @@
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Håndter skjulte mapper</string>
     <string name="hidden_folders_placeholder">Ser ut til at du ikke har skjult noen mapper med en \".nomedia\"-fil.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
     <string name="manage_included_folders">Håndter inkluderte mapper</string>

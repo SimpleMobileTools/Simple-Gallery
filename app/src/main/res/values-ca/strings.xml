@@ -60,6 +60,7 @@
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestiona les carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no teniu cap carpeta oculta amb el fitxer «.nomedia».</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
     <string name="manage_included_folders">Gestiona les carpetes incloses</string>

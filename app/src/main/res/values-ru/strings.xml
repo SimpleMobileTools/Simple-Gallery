@@ -60,6 +60,7 @@
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>

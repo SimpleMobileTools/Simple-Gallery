@@ -60,6 +60,7 @@
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Folder yang disertakan</string>
     <string name="manage_included_folders">Kelola folder yang disertakan</string>

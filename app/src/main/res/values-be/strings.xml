@@ -98,6 +98,7 @@
 \n
 \nДаданне некаторых элементаў сюды не прывядзе да выключэння якой-небудзь іншай тэчкі.</string>
     <string name="hidden_folders_placeholder">Здаецца, у вас няма тэчак, схаваных з файлам \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <string name="height">Вышыня</string>
     <string name="keep_aspect_ratio">Захоўвайце суадносіны бакоў</string>
     <string name="invalid_values">Увядзіце сапраўднае рашэнне</string>

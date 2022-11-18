@@ -60,6 +60,7 @@
     <string name="hidden_folders">Dolda mappar</string>
     <string name="manage_hidden_folders">Hantera dolda mappar</string>
     <string name="hidden_folders_placeholder">Det verkar som att inga mappar har dolts med \".nomedia\"-filer.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderade mappar</string>
     <string name="manage_included_folders">Hantera inkluderade mappar</string>

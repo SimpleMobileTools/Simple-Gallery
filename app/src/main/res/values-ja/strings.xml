@@ -60,6 +60,7 @@
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>
     <string name="manage_included_folders">追加フォルダの管理</string>

@@ -60,6 +60,7 @@
     <string name="hidden_folders">Cartelle nascoste</string>
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
     <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file .nomedia.</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>

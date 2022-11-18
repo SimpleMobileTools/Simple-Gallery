@@ -60,6 +60,7 @@
     <string name="hidden_folders">Приховані теки</string>
     <string name="manage_hidden_folders">Керування прихованими теками</string>
     <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
+    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
     <!-- Include folders -->
     <string name="include_folders">Включені теки</string>
     <string name="manage_included_folders">Керування включеними теками</string>
