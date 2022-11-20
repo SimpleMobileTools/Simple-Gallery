@@ -11,10 +11,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.dialogs.ChangeFileThumbnailStyleDialog
-import com.simplemobiletools.gallery.pro.dialogs.ChangeFolderThumbnailStyleDialog
-import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
-import com.simplemobiletools.gallery.pro.dialogs.ManageExtendedDetailsDialog
+import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.AlbumCover
@@ -223,13 +220,16 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupShowHiddenItems() {
         if (isRPlus() && !isExternalStorageManager()) {
-            settings_show_hidden_items_holder.beGone()
-            settings_manage_excluded_folders_holder.background = resources.getDrawable(R.drawable.ripple_bottom_corners, theme)
+            settings_show_hidden_items.text = "${getString(R.string.show_hidden_items)} (${getString(R.string.no_permission)})"
+        } else {
+            settings_show_hidden_items.setText(R.string.show_hidden_items)
         }
 
         settings_show_hidden_items.isChecked = config.showHiddenMedia
         settings_show_hidden_items_holder.setOnClickListener {
-            if (config.showHiddenMedia) {
+            if (isRPlus() && !isExternalStorageManager()) {
+                GrantAllFilesDialog(this)
+            } else if (config.showHiddenMedia) {
                 toggleHiddenItems()
             } else {
                 handleHiddenFolderPasswordProtection {

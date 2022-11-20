@@ -143,20 +143,7 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
 
             AllFilesPermissionDialog(this, messagePrompt, callback = { success ->
                 if (success) {
-                    try {
-                        val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-                        intent.addCategory("android.intent.category.DEFAULT")
-                        intent.data = Uri.parse("package:$packageName")
-                        startActivity(intent)
-                    } catch (e: Exception) {
-                        val intent = Intent()
-                        intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
-                        try {
-                            startActivity(intent)
-                        } catch (e: Exception) {
-                            showErrorToast(e)
-                        }
-                    }
+                    launchGrantAllFilesIntent()
                 }
             }, neutralPressed = {
                 if (isSPlus()) {
@@ -168,6 +155,23 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
         }
     } else {
         callback()
+    }
+}
+
+fun BaseSimpleActivity.launchGrantAllFilesIntent() {
+    try {
+        val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+        intent.addCategory("android.intent.category.DEFAULT")
+        intent.data = Uri.parse("package:$packageName")
+        startActivity(intent)
+    } catch (e: Exception) {
+        val intent = Intent()
+        intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
+        try {
+            startActivity(intent)
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
     }
 }
 

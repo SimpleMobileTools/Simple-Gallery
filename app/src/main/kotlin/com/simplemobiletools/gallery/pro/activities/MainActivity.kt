@@ -35,6 +35,7 @@ import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
+import com.simplemobiletools.gallery.pro.dialogs.GrantAllFilesDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
@@ -317,7 +318,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         directories_toolbar.menu.apply {
-            findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
             findItem(R.id.temporarily_show_excluded).isVisible = !config.temporarilyShowExcluded
@@ -586,8 +587,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.temporarilyShowHidden) {
             toggleTemporarilyShowHidden(false)
         } else {
-            handleHiddenFolderPasswordProtection {
-                toggleTemporarilyShowHidden(true)
+            if (isRPlus() && !isExternalStorageManager()) {
+                GrantAllFilesDialog(this)
+            } else {
+                handleHiddenFolderPasswordProtection {
+                    toggleTemporarilyShowHidden(true)
+                }
             }
         }
     }

@@ -31,10 +31,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
-import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
-import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
+import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
@@ -256,7 +253,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.about).isVisible = mShowAll
             findItem(R.id.create_new_folder).isVisible = !mShowAll && mPath != RECYCLE_BIN && mPath != FAVORITES
 
-            findItem(R.id.temporarily_show_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && !config.shouldShowHidden
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
             findItem(R.id.set_as_default_folder).isVisible = !isDefaultFolder
@@ -655,8 +652,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (config.temporarilyShowHidden) {
             toggleTemporarilyShowHidden(false)
         } else {
-            handleHiddenFolderPasswordProtection {
-                toggleTemporarilyShowHidden(true)
+            if (isRPlus() && !isExternalStorageManager()) {
+                GrantAllFilesDialog(this)
+            } else {
+                handleHiddenFolderPasswordProtection {
+                    toggleTemporarilyShowHidden(true)
+                }
             }
         }
     }
