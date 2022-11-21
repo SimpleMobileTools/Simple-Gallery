@@ -60,7 +60,7 @@
     <string name="hidden_folders">隐藏的文件夹</string>
     <string name="manage_hidden_folders">管理隐藏的文件夹</string>
     <string name="hidden_folders_placeholder">看起来您没有任何使用“.nomedia”文件隐藏的目录。</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">你必须授予访问所有文件的权限，应用才能看到隐藏的文件。</string>
     <!-- Include folders -->
     <string name="include_folders">包含的文件夹</string>
     <string name="manage_included_folders">管理包含的文件夹</string>
