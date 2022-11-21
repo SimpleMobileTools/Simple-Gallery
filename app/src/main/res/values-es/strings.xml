@@ -60,7 +60,7 @@
     <string name="hidden_folders">Carpetas ocultas</string>
     <string name="manage_hidden_folders">Gestionar carpetas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que no tiene carpetas ocultas con archivos \".nomedia\".</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Tienes que conceder a la aplicación el acceso a todos los archivos para ver los archivos ocultos, de lo contrario no puede funcionar.</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
     <string name="manage_included_folders">Gestionar carpetas incluidas</string>
