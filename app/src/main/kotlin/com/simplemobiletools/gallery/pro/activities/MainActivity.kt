@@ -313,6 +313,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
                 findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
+                findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
                 setupSearch(this)
             }
         }
@@ -356,6 +357,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 R.id.increase_column_count -> increaseColumnCount()
                 R.id.reduce_column_count -> reduceColumnCount()
                 R.id.set_as_default_folder -> setAsDefaultFolder()
+                R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
                 else -> return@setOnMenuItemClickListener false
