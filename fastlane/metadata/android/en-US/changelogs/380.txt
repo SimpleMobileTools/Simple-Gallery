@@ -1,0 +1,2 @@
+ * Always show the hidden item display button, just require All Files for it
+ * Added some translation, stability and UX improvements

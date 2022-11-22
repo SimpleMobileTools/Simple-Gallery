@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.25.5 *(2022-11-22)*
+----------------------------
+
+ * Always show the hidden item display button, just require All Files for it
+ * Added some translation, stability and UX improvements
+
 Version 6.25.4 *(2022-10-17)*
 ----------------------------
 
