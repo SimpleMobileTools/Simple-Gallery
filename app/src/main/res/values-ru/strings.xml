@@ -60,7 +60,7 @@
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Чтобы видеть скрытые файлы, необходимо предоставить приложению доступ ко всем файлам.</string>
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
@@ -134,7 +134,7 @@
     <!-- View types -->
     <string name="group_direct_subfolders">Объединять вложенные папки</string>
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Группировать по</string>
+    <string name="group_by">Группировать по…</string>
     <string name="do_not_group_files">Не группировать</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>

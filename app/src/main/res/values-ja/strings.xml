@@ -51,7 +51,7 @@
     <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">対象のフォルダに「.nomedia」ファイルを作成し、フォルダを非表示にします。そのフォルダの中にあるすべてのサブフォルダも非表示となります。非表示のフォルダを見るには、「設定」の中にある「非表示のフォルダを表示」で切り替えてください。このフォルダを非表示にしますか？</string>
+    <string name="hide_folder_description">対象のフォルダに「.nomedia」ファイルを作成し、フォルダを非表示にします。そのフォルダの中にあるすべてのサブフォルダも非表示となります。非表示のフォルダを見るには、「設定」の中にある「非表示のアイテムを表示する」を有効にしてください。このフォルダを非表示にしますか？</string>
     <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、シンプルギャラリーの一覧から除外します。除外したフォルダは「設定」で確認できます。</string>
     <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
     <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めシンプルギャラリーの一覧から除外します。他のアプリでは引き続き表示されます。
@@ -60,7 +60,7 @@
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダの管理</string>
     <string name="hidden_folders_placeholder">\".nomedia\"で隠されたフォルダはありません。</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">非表示項目を表示するには [すべてのファイルへのアクセス] を許可する必要があります。許可をしないと機能しません。</string>
     <!-- Include folders -->
     <string name="include_folders">追加フォルダ</string>
     <string name="manage_included_folders">追加フォルダの管理</string>

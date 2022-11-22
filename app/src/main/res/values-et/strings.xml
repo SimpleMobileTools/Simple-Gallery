@@ -60,7 +60,7 @@
     <string name="hidden_folders">Peidetud kaustad</string>
     <string name="manage_hidden_folders">Halda peidetud kaustu</string>
     <string name="hidden_folders_placeholder">Tundub, et sa pole „.nomedia“ faili abil ühtegi kausta märkinud peidetuks.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Peidetud failide nägemiseks pead andma sellele rakendusele juurdepääsu kõikidele failidele, muidu ei saa see töötada.</string>
     <!-- Include folders -->
     <string name="include_folders">Kaasatud kaustad</string>
     <string name="manage_included_folders">Halda kaasatud kaustu</string>

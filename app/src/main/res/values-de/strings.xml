@@ -51,7 +51,7 @@
     <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden.</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem eine .nomedia-Datei in ihn eingefügt wird, sie verbirgt auch alle Unterordner. Sie können sie sehen, indem Sie die Option „Ausgeblendete Elemente anzeigen“ in den Einstellungen umschalten. Weiter\?</string>
+    <string name="hide_folder_description">Diese Funktion verbirgt den Ordner, indem sie in ihn eine .nomedia-Datei einfügt, sie verbirgt auch alle Unterordner. Du kannst sie wieder sehen, indem du in den Einstellungen die Option „Ausgeblendete Elemente anzeigen“ umschaltest. Weiter\?</string>
     <string name="exclude_folder_description">Diese Funktion schließt die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Stattdessen einen höherliegenden Ordner ausschließen\?</string>
     <string name="excluded_activity_placeholder">„Ordner ausschließen“ wird die gewählten Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden sie weiterhin anzeigen.
@@ -60,7 +60,7 @@
     <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
     <string name="hidden_folders_placeholder">Keinen mit einer .nomedia-Datei versteckten Ordner gefunden.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Du musst der App den Zugriff auf alle Dateien gewähren, um versteckte Dateien zu sehen, sonst funktioniert sie nicht.</string>
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
@@ -207,7 +207,7 @@
     <string name="media_management_manual">Irgendetwas ist schief gelaufen. Öffne bitte die Geräteeinstellungen - Apps - Erweitert - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser Anwendung, Medien zu verwalten.</string>
     <string name="media_management_note">Wenn die Umleitung nicht funktioniert, öffne bitte die Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser App die Medienverwaltung.</string>
     <string name="media_management_alternative">Wenn du das nicht möchtest, kannst du auch in den Geräteeinstellungen - Apps - Spezieller App-Zugriff - Apps zur Medienverwaltung dieser Anwendung die Verwaltung von Medien erlauben.</string>
-    <string name="alternative_media_access">Alternativ können Sie auch nur den Zugriff auf Mediendateien zulassen. In diesem Fall können Sie allerdings nicht mit versteckten Dateien arbeiten.</string>
+    <string name="alternative_media_access">Alternativ kannst du auch nur den Zugriff auf Mediendateien zulassen. In diesem Fall kann allerdings nicht mit versteckten Dateien gearbeitet werden.</string>
     <string name="media_only">Nur Medien</string>
     <string name="all_files">Alle Dateien</string>
     <!-- Setting sections -->
@@ -260,7 +260,7 @@
     <string name="pesdk_text_button_alignment">Ausrichtung</string>
     <string name="pesdk_text_button_bringToFront">Nach Vorne</string>
     <string name="pesdk_text_button_delete">Löschen</string>
-    <string name="pesdk_text_text_editTextPlaceholder">Ihr Text</string>
+    <string name="pesdk_text_text_editTextPlaceholder">Dein Text</string>
     <string name="pesdk_brush_title_name">Pinsel</string>
     <string name="pesdk_brush_button_color">Farbe</string>
     <string name="pesdk_brush_button_size">Größe</string>
@@ -363,7 +363,7 @@
     <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Die Dateien des Papierkorbs zählen zum Speicherplatz der App dazu. Man kann den Papierkorb leeren, indem man ihn öffnet und alle Dateien darin löscht, oder den entsprechenden Button in den Einstellungen betätigt. Alle 30 Tage wird der Papierkorb automatisch geleert.</string>
     <string name="faq_16_title">Was ist mit dem Ausblenden von Dateien und Ordnern passiert und warum kann ich versteckte Elemente nicht mehr sehen\?</string>
     <string name="faq_16_text">Ab Android 11 kann man keine Dateien oder Ordner mehr ein- oder ausblenden, auch in anderen Galerie-Anwendungen kann man die versteckten Dateien nicht mehr sehen. Dafür muss man jetzt ein Dateiverwaltungsprogramm verwenden.</string>
-    <string name="faq_16_text_extra">Sie können dieser Galerie auch über Ihre Geräteeinstellungen Zugriff auf alle Dateien gewähren, damit versteckte Elemente anzeigt und die Dateioperationen im Allgemeinen zuverlässiger werden.</string>
+    <string name="faq_16_text_extra">Du kannst dieser Galerie auch über die Geräteeinstellungen Zugriff auf alle Dateien gewähren, damit versteckte Elemente anzeigt und die Dateioperationen im Allgemeinen zuverlässiger werden.</string>
     <string name="faq_17_title">Warum kann ich fehlende Ordner nicht mehr einbinden\?</string>
     <string name="faq_17_text">Das funktioniert seit den Systemänderungen durch Android 11 nicht mehr, da die Anwendung keine echten Ordner mehr durchsuchen kann, sondern sich beim Abrufen von Daten auf den sogenannten MediaStore verlässt.</string>
     <string name="faq_18_title">Warum sehe ich während der Videowiedergabe Werbung\?</string>
