@@ -60,7 +60,7 @@
     <string name="hidden_folders">Κρυφοί φάκελοι</string>
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Πρέπει να εκχωρήσετε στην εφαρμογή πρόσβαση σε \"Όλα τα αρχεία\" για να δείτε τα κρυφά αρχεία, διαφορετικά δεν μπορεί να λειτουργήσει.</string>
     <!-- Include folders -->
     <string name="include_folders">Συμπεριλαμβανόμενοι Φάκελοι</string>
     <string name="manage_included_folders">Διαχείριση συμπεριλαμβανόμενων Φακέλων</string>
@@ -261,13 +261,13 @@
     <string name="pesdk_text_button_bringToFront">Σε Γραμ/σειρά</string>
     <string name="pesdk_text_button_delete">Διαγραφή</string>
     <string name="pesdk_text_text_editTextPlaceholder">Το κειμενό μου</string>
-    <string name="pesdk_brush_title_name">Βούρτσα</string>
+    <string name="pesdk_brush_title_name">Πινέλο</string>
     <string name="pesdk_brush_button_color">Χρώμα</string>
     <string name="pesdk_brush_button_size">Μέγεθος</string>
     <string name="pesdk_brush_button_hardness">Σκληρότητα</string>
     <string name="pesdk_brush_button_bringToFront">Σε Γραμ/σειρά</string>
     <string name="pesdk_brush_button_delete">Διαγραφή</string>
-    <string name="pesdk_brush_title_brushColor">Χρώμα Βούρτσας</string>
+    <string name="pesdk_brush_title_brushColor">Χρώμα Πινέλου</string>
     <string name="pesdk_editor_title_name">Επεξεργαστής</string>
     <string name="pesdk_editor_title_closeEditorAlert">Κλείσιμο Επεξεργαστή\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Θέλετε πραγματικά να απορρίψετε τις αλλαγές;</string>
@@ -294,10 +294,10 @@
     <string name="pesdk_sticker_category_name_custom">Μεταφορτώσεις</string>
     <string name="pesdk_overlay_title_name">Επικάλυψη</string>
     <string name="pesdk_overlay_button_blendModeNormal">Κανονικό</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Σκούρο</string>
+    <string name="pesdk_overlay_button_blendModeDarken">Σκοτεινό</string>
     <string name="pesdk_overlay_button_blendModeScreen">Οθόνη</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Επικάλυψη</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Ξάνοιγμα</string>
+    <string name="pesdk_overlay_button_blendModeLighten">Φωτεινό</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Πολλαπ/σμός</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">Κάψιμο χρώματος</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">Απαλό φως</string>
