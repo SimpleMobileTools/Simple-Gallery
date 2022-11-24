@@ -262,7 +262,7 @@
     <string name="pesdk_brush_title_name">ブラシ</string>
     <string name="pesdk_brush_button_color">色</string>
     <string name="pesdk_brush_button_size">太さ</string>
-    <string name="pesdk_brush_button_hardness">硬度</string>
+    <string name="pesdk_brush_button_hardness">硬さ</string>
     <string name="pesdk_brush_button_bringToFront">前面に</string>
     <string name="pesdk_brush_button_delete">削除</string>
     <string name="pesdk_brush_title_brushColor">ブラシの色</string>
@@ -291,12 +291,12 @@
     <string name="pesdk_sticker_button_brightness">明るさ</string>
     <string name="pesdk_sticker_category_name_custom">アップロード済</string>
     <string name="pesdk_overlay_title_name">オーバーレイ</string>
-    <string name="pesdk_overlay_button_blendModeNormal">ノーマル</string>
-    <string name="pesdk_overlay_button_blendModeDarken">暗め</string>
-    <string name="pesdk_overlay_button_blendModeScreen">画面</string>
+    <string name="pesdk_overlay_button_blendModeNormal">通常</string>
+    <string name="pesdk_overlay_button_blendModeDarken">比較 (暗)</string>
+    <string name="pesdk_overlay_button_blendModeScreen">スクリーン</string>
     <string name="pesdk_overlay_button_blendModeOverlay">オーバーレイ</string>
-    <string name="pesdk_overlay_button_blendModeLighten">明るめ</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">複写</string>
+    <string name="pesdk_overlay_button_blendModeLighten">比較 (明)</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">乗算</string>
     <string name="pesdk_overlay_button_blendModeColorBurn">焼き込みカラー</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">ソフトライト</string>
     <string name="pesdk_overlay_button_blendModeHardLight">ハードライト</string>
