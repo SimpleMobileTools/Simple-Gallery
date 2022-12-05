@@ -178,7 +178,8 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
 
         // show the current folder as an available option too, not just subfolders
         if (currentPathPrefix.isNotEmpty()) {
-            val currentFolder = allDirs.firstOrNull { parentDirs.firstOrNull { it.path == currentPathPrefix } == null && it.path == currentPathPrefix }
+            val currentFolder =
+                allDirs.firstOrNull { parentDirs.firstOrNull { it.path.equals(currentPathPrefix, true) } == null && it.path.equals(currentPathPrefix, true) }
             currentFolder?.apply {
                 subfoldersCount = 1
                 parentDirs.add(this)
@@ -213,7 +214,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
             }
         }
 
-        if (currentPathPrefix.isNotEmpty() && path == currentPathPrefix || File(path).parent.equals(currentPathPrefix, true)) {
+        if (currentPathPrefix.isNotEmpty() && path.equals(currentPathPrefix, true) || File(path).parent.equals(currentPathPrefix, true)) {
             currentPaths.add(path)
         } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
             // if we have folders like
@@ -221,7 +222,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
             // /storage/emulated/0/Pictures/Screenshots,
             // but /storage/emulated/0/Pictures is empty, still Pictures with the first folders thumbnails and proper other info
             val parent = File(path).parent
-            if (parent != null && !folders.contains(parent) && dirs.none { it.path == parent }) {
+            if (parent != null && !folders.contains(parent) && dirs.none { it.path.equals(parent, true) }) {
                 currentPaths.add(parent)
                 val isSortingAscending = config.sorting.isSortingAscending()
                 val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
