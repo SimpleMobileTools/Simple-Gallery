@@ -202,6 +202,8 @@
     <string name="square">Neliö</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
     <string name="export_favorite_paths">Vie suosikkitiedostojen polut</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Varmistaaksesi, että kaikki tiedostotoiminnot toimivat luotettavasti, tee tästä sovelluksesta medianhallintasovellus laitteen asetuksissa.</string>
     <string name="password_protect_excluded">Suojaa salasanalla pois suljettujen kansioiden näkyvyys</string>
     <string name="media_management_manual">Jokin meni pieleen, mene laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>

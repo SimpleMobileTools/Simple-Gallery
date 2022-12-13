@@ -202,6 +202,8 @@
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos ficheiros favoritos</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Para garantir que todas as operações de arquivo funcionem de forma confiável, faça deste aplicativo um aplicativo de gerenciamento de mídia nas configurações do dispositivo.</string>
     <string name="password_protect_excluded">Proteger com senha a visibilidade da pasta excluída</string>
     <string name="media_management_manual">Algo deu errado, por favor, entre nas configurações do seu dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permita que este aplicativo gerencie mídia.</string>

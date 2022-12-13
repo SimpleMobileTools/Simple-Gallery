@@ -202,6 +202,8 @@
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
     <string name="export_favorite_paths">Eksportér favoritfil-stier</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
     <string name="password_protect_excluded">Beskyt synligheden af udelukkede mapper med adgangskode</string>
     <string name="media_management_manual">Noget gik galt, gå ind på din enhed Indstillinger - Apps - Særlig app-adgang - Mediehåndteringsapps, og tillad denne app at håndtere medier.</string>

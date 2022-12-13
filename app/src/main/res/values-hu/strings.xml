@@ -202,6 +202,8 @@
     <string name="square">Négyzet</string>
     <string name="rounded_corners">Lekerekített sarkok</string>
     <string name="export_favorite_paths">Kedvenc fájlútvonalak exportálása</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Hogy megbízhatóan működjenek a fájlműveletek, győződjön meg róla, hogy ez az alkalmazás egy Médiakezelő alkalmazás az eszközbeállításokban.</string>
     <string name="password_protect_excluded">Jelszóval védi a kizárt mappák láthatóságát</string>
     <string name="media_management_manual">Valami hiba történt, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>

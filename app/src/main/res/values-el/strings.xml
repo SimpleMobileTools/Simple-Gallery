@@ -202,6 +202,8 @@
     <string name="square">Τετράγωνο</string>
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
     <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων αγαπημένων</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
     <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
     <string name="media_management_manual">Κάτι πήγε λάθος, μεταβείτε στις Ρυθμίσεις της συσκευής σας - Εφαρμογές - Ειδική πρόσβαση εφαρμογών - Εφαρμογές διαχείρισης πολυμέσων και επιτρέψτε σε αυτή την εφαρμογή να διαχειρίζεται πολυμέσα.</string>

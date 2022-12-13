@@ -202,6 +202,8 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
     <string name="password_protect_excluded">Захист паролем видимості вилучених тек</string>
     <string name="media_management_manual">Щось пішло не так. Будь ласка, у вашому пристрої перейдіть в «Налаштування» - «Програми» - «Спеціальний доступ» - «Програми керування медіа» та дозвольте цій програмі керувати файлами медіа.</string>

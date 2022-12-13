@@ -202,6 +202,8 @@
     <string name="square">Kwadrat</string>
     <string name="rounded_corners">Zaokrąglone rogi</string>
     <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Aby mieć pewność, że wszystkie operacje na plikach działają niezawodnie, ustaw tę aplikację jako aplikację do zarządzania multimediami w ustawieniach urządzenia.</string>
     <string name="password_protect_excluded">Chroń hasłem widoczność wykluczonych folderów</string>
     <string name="media_management_manual">Coś poszło nie tak. Przejdź do ustawień swojego urządzenia -&gt; Aplikacje -&gt; Aplikacje ze specjalnym dostępem -&gt; Aplikacje do zarządzania multimediami i zezwól tej aplikacji na zarządzanie multimediami.</string>

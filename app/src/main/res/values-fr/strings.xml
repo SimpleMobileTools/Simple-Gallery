@@ -202,6 +202,8 @@
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les emplacements favoris</string>
+    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
     <string name="media_management_manual">Quelque chose s\'est mal passé, veuillez aller dans les paramètres de votre appareil - Applis - Accès aux applications spéciales - Applis de gestion des médias et autorisez cette application à gérer les médias.</string>
