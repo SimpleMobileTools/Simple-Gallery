@@ -55,16 +55,6 @@
         android:title="@string/show_all"
         app:showAsAction="never" />
     <item
-        android:id="@+id/show_the_recycle_bin"
-        android:showAsAction="never"
-        android:title="@string/show_the_recycle_bin"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/hide_the_recycle_bin"
-        android:showAsAction="never"
-        android:title="@string/hide_the_recycle_bin"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/set_as_default_folder"
         android:showAsAction="never"
         android:title="@string/set_as_default_folder"

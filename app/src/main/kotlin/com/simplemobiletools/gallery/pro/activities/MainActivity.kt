@@ -306,12 +306,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun refreshMenuItems() {
         if (!mIsThirdPartyIntent) {
-            val useBin = config.useRecycleBin
             directories_toolbar.menu.apply {
                 findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
-                findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
-                findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
                 findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
                 setupSearch(this)
@@ -352,8 +349,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
                 R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
                 R.id.create_new_folder -> createNewFolder()
-                R.id.show_the_recycle_bin -> toggleRecycleBin(true)
-                R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
                 R.id.increase_column_count -> increaseColumnCount()
                 R.id.reduce_column_count -> reduceColumnCount()
                 R.id.set_as_default_folder -> setAsDefaultFolder()
@@ -748,18 +743,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         } else {
             mZoomListener = null
-        }
-    }
-
-    private fun toggleRecycleBin(show: Boolean) {
-        config.showRecycleBinAtFolders = show
-        refreshMenuItems()
-        ensureBackgroundThread {
-            var dirs = getCurrentlyDisplayedDirs()
-            if (!show) {
-                dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
-            }
-            gotDirectories(dirs)
         }
     }
 
