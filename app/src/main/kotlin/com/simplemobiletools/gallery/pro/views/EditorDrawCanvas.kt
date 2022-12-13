@@ -55,8 +55,8 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        val x = event.rawX
-        val y = event.rawY
+        val x = event.x
+        val y = event.y
 
         when (event.action and MotionEvent.ACTION_MASK) {
             MotionEvent.ACTION_DOWN -> {
