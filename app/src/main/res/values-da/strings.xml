@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galleri</string>
-    <string name="edit">Rediger</string>
+    <string name="edit">Redigér</string>
     <string name="open_camera">Åbn kamera</string>
     <string name="hidden">(skjult)</string>
     <string name="pin_folder">Fastgør mappe</string>
@@ -87,8 +87,8 @@
     <string name="file_edited_successfully">Fil redigeret med succes</string>
     <string name="image_edited_successfully">Billede redigeret med succes</string>
     <string name="video_edited_successfully">Video redigeret med succes</string>
-    <string name="edit_image_with">Rediger billede med:</string>
-    <string name="edit_video_with">Rediger video med:</string>
+    <string name="edit_image_with">Redigér billede med:</string>
+    <string name="edit_video_with">Redigér video med:</string>
     <string name="no_image_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="no_video_editor_found">Der blev ikke fundet en videoeditor</string>
     <string name="unknown_file_location">Ukendt filplacering</string>
@@ -201,7 +201,7 @@
     <string name="limit_folder_title">Begræns lange mappenavne til 1 linje</string>
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
-    <string name="export_favorite_paths">Eksporter favoritfil-stier</string>
+    <string name="export_favorite_paths">Eksportér favoritfil-stier</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
     <string name="password_protect_excluded">Beskyt synligheden af udelukkede mapper med adgangskode</string>
     <string name="media_management_manual">Noget gik galt, gå ind på din enhed Indstillinger - Apps - Særlig app-adgang - Mediehåndteringsapps, og tillad denne app at håndtere medier.</string>
