@@ -202,8 +202,8 @@
     <string name="square">Kare</string>
     <string name="rounded_corners">Yuvarlatılmış köşeler</string>
     <string name="export_favorite_paths">Favori dosya yollarını dışa aktar</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Sık kullanılan dosya yollarını içe aktar</string>
+    <string name="paths_imported_successfully">Yollar başarıyla içe aktarıldı</string>
     <string name="media_management_prompt">Tüm dosya işlemlerinin güvenilir bir şekilde çalıştığından emin olmak için lütfen bu uygulamayı aygıt ayarlarınızda bir medya yönetimi uygulaması yapın.</string>
     <string name="password_protect_excluded">Hariç tutulan klasör görünürlüğünü parola ile koru</string>
     <string name="media_management_manual">Bir şeyler ters gitti, lütfen aygıtınızın Ayarlar - Uygulamalar - Özel uygulama erişimi - Medya yönetimi uygulamaları bölümüne gidin ve bu uygulamanın medyayı yönetmesine izin verin.</string>
