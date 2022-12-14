@@ -202,8 +202,8 @@
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Abgerundete Ecken</string>
     <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Bevorzugte Dateipfade importieren</string>
+    <string name="paths_imported_successfully">Pfade erfolgreich importiert</string>
     <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollte diese App in den Geräteeinstellungen als Medienverwaltungs-App festgelegt werden.</string>
     <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
     <string name="media_management_manual">Irgendetwas ist schief gelaufen. Öffne bitte die Geräteeinstellungen - Apps - Erweitert - Spezieller App-Zugriff - Apps zur Medienverwaltung und erlaube dieser Anwendung, Medien zu verwalten.</string>
