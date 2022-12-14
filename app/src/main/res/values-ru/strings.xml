@@ -202,8 +202,8 @@
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
     <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Импорт путей избранных файлов</string>
+    <string name="paths_imported_successfully">Пути успешно импортированы</string>
     <string name="media_management_prompt">Чтобы быть уверенным в надёжной работе операций с файлами, сделайте это приложение основным менеджером медиафайлов в настройках устройства.</string>
     <string name="password_protect_excluded">Защита паролем отображения исключённых папок</string>
     <string name="media_management_manual">Что-то пошло не так. Откройте настройки устройства и перейдите в: \"Приложения\" → \"Специальный доступ\" → \"Приложения для управления медиа\" и разрешите этому приложению управлять медиа.</string>
