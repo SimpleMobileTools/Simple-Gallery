@@ -202,8 +202,8 @@
     <string name="square">方形</string>
     <string name="rounded_corners">圆角</string>
     <string name="export_favorite_paths">导出收藏文件路径</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">导入收藏的文件路径</string>
+    <string name="paths_imported_successfully">路径导入成功</string>
     <string name="media_management_prompt">为了确保所有文件操作可靠地工作，请在你的设备设置中使此应用成为媒体管理应用。</string>
     <string name="password_protect_excluded">密码保护已排除文件夹的可见性</string>
     <string name="media_management_manual">出错了，请转到设备的“设置” - “应用” -“特殊应用权限” - “媒体管理应用” 并允许本应用管理媒体文件。</string>
