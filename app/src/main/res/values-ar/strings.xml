@@ -202,8 +202,8 @@
     <string name="square">مربع</string>
     <string name="rounded_corners">زوايا مستديرة</string>
     <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">استيراد مسارات الملفات المفضلة</string>
+    <string name="paths_imported_successfully">تم استيراد المسارات بنجاح</string>
     <string name="media_management_prompt">للتأكد من أن جميع عمليات الملفات تعمل بشكل موثوق ، يرجى جعل هذا التطبيق تطبيقا لإدارة الوسائط في إعدادات جهازك.</string>
     <string name="password_protect_excluded">حمايةالمجلدات المستبعدة بكلمة مرور</string>
     <string name="media_management_manual">حدث خطأ ما ، يرجى الانتقال إلى إعدادات جهازك - التطبيقات - الوصول إلى التطبيقات الخاصة - تطبيقات إدارة الوسائط والسماح لهذا التطبيق بإدارة الوسائط.</string>
