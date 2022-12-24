@@ -277,7 +277,7 @@
     <string name="pesdk_editor_accept">了解</string>
     <string name="pesdk_editor_save">保存</string>
     <string name="pesdk_editor_text_exportProgressUnknown">エクスポート中…</string>
-    <string name="pesdk_editor_text_exportProgress" formatted="false">エクスポート%s</string>
+    <string name="pesdk_editor_text_exportProgress" formatted="false">%s をエクスポート中。</string>
     <string name="pesdk_sticker_title_name">ステッカー</string>
     <string name="pesdk_sticker_title_color">ステッカーの色</string>
     <string name="pesdk_sticker_title_options">ステッカーオプション</string>
