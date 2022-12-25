@@ -636,6 +636,7 @@ fun Context.getCachedDirectories(
     getVideosOnly: Boolean = false,
     getImagesOnly: Boolean = false,
     forceShowHidden: Boolean = false,
+    forceShowExcluded: Boolean = false,
     callback: (ArrayList<Directory>) -> Unit
 ) {
     ensureBackgroundThread {
@@ -655,7 +656,7 @@ fun Context.getCachedDirectories(
         }
 
         val shouldShowHidden = config.shouldShowHidden || forceShowHidden
-        val excludedPaths = if (config.temporarilyShowExcluded) {
+        val excludedPaths = if (config.temporarilyShowExcluded || forceShowExcluded) {
             HashSet()
         } else {
             config.excludedFolders
