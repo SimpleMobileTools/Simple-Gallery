@@ -60,7 +60,7 @@
     <string name="hidden_folders">Приховані теки</string>
     <string name="manage_hidden_folders">Керування прихованими теками</string>
     <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Ви повинні надати доступ застосунку до всіх файлів, щоб бачити приховані файли, інакше це не може працювати.</string>
     <!-- Include folders -->
     <string name="include_folders">Включені теки</string>
     <string name="manage_included_folders">Керування включеними теками</string>
@@ -202,16 +202,16 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
     <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Імпорт улюблених шляхів до файлів</string>
+    <string name="paths_imported_successfully">Шляхи успішно імпортовано</string>
     <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
     <string name="password_protect_excluded">Захист паролем видимості вилучених тек</string>
     <string name="media_management_manual">Щось пішло не так. Будь ласка, у вашому пристрої перейдіть в «Налаштування» - «Застосунки» - «Спеціальний доступ» - «Застосунки керування медіа» та дозвольте цьому застосунку керувати файлами медіа.</string>
     <string name="media_management_note">Якщо переспрямування не спрацює, то перейдіть, будь ласка, у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
     <string name="media_management_alternative">Якщо ви не хочете цього робити, ви можете перейти у вашому пристрої до «Налаштування» – «Застосунки» – «Спеціальний доступ застосунків» - «Застосунки для керування медіа» та дозвольте цьому застосунку керувати медіа.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
+    <string name="alternative_media_access">Крім того, ви можете дозволити доступ лише до медіа файлів. У цьому випадку ви не зможете працювати з прихованими файлами.</string>
+    <string name="media_only">Тільки медіа</string>
+    <string name="all_files">Всі файли</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>
@@ -365,7 +365,7 @@
     <string name="faq_15_text">Кеш додатка може займати до 500 МБ, він забезпечує швидше завантаження зображень. Якщо додаток займає ще більше місця, найбільш вірогідно, це спричинено видаленими елементами у Кошику. Вони враховуються у загальному розмірі додатка. Ви можете очистити Кошик, відкривши його та видаливши всі файли, або через налаштування додатка. Кожен файл у Кошику автоматично видаляється через 30 днів.</string>
     <string name="faq_16_title">Що трапилося з приховуванням файлів і тек та чому я більше не можу бачити приховані елементи\?</string>
     <string name="faq_16_text">Починаючи з Android 11, ви більше не можете приховувати чи показувати файли та теки, ви також не можете бачити приховані в додатках галереї через системні обмеження. Для цього вам доведеться використовувати якийсь файловий менеджер.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Або ви також можете надати цій галереї доступ до всіх файлів через налаштування вашого пристрою, що дозволить нам показувати приховані елементи та зробити операції з файлами більш надійними в цілому.</string>
     <string name="faq_17_title">Чому я більше не можу включити відсутні теки\?</string>
     <string name="faq_17_text">Це перестало працювати через системні зміни, які прийшли з Android 11. Додаток більше не може переглядати реальні теки, при отриманні даних він покладається на так званий MediaStore.</string>
     <string name="faq_18_title">Чому я бачу рекламу під час відтворення відео\?</string>
