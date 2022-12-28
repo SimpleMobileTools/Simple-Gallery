@@ -202,8 +202,8 @@
     <string name="square">Ruut</string>
     <string name="rounded_corners">Ümarad nurgad</string>
     <string name="export_favorite_paths">Ekspordi lemmikfailide teekonnad</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Impordi lemmikute asukohad</string>
+    <string name="paths_imported_successfully">Asukohtade import õnnestus</string>
     <string name="media_management_prompt">Selleks, et kõik failitoimingud toimiksid usaldusväärselt, muutke see rakendus oma seadme seadetes meediahaldusrakenduseks.</string>
     <string name="password_protect_excluded">Kaitse salasõna abil varjatud kaustade nähtavust</string>
     <string name="media_management_manual">Midagi läks valesti, palun minge oma seadmesse Seaded - Rakendused - Erirakenduste juurdepääs - Meediahaldusrakendused ja lubage sellel rakendusel meediat hallata.</string>
