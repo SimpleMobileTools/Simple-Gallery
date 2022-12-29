@@ -168,7 +168,7 @@
     <string name="allow_video_gestures">音量と明るさを縦の動作で変更</string>
     <string name="show_media_count">フォルダ内のメディア数を表示する</string>
     <string name="show_extended_details">全画面表示に詳細も表示する</string>
-    <string name="manage_extended_details">詳細表示を管理する</string>
+    <string name="manage_extended_details">詳細表示の管理</string>
     <string name="one_finger_zoom">メディアを指だけでズームする</string>
     <string name="allow_instant_change">画面端を押してメディアを切り替え</string>
     <string name="allow_deep_zooming_images">深いズームを許可</string>
