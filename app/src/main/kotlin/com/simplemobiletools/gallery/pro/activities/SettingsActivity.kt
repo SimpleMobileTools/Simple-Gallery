@@ -26,8 +26,12 @@ class SettingsActivity : SimpleActivity() {
     private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        updateMaterialActivityViews(settings_coordinator, settings_holder, useTransparentNavigation = true, useTopSearchMenu = false)
+        setupMaterialScrollListener(settings_nested_scrollview, settings_toolbar)
     }
 
     override fun onResume() {
@@ -90,7 +94,7 @@ class SettingsActivity : SimpleActivity() {
         setupImportSettings()
 
         arrayOf(
-            settings_color_customization_label,
+            settings_color_customization_section_label,
             settings_general_settings_label,
             settings_videos_label,
             settings_thumbnails_label,
@@ -106,24 +110,6 @@ class SettingsActivity : SimpleActivity() {
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
         }
-
-        arrayOf(
-            settings_color_customization_holder,
-            settings_general_settings_holder,
-            settings_videos_holder,
-            settings_thumbnails_holder,
-            settings_scrolling_holder,
-            settings_fullscreen_media_holder,
-            settings_deep_zoomable_images_holder,
-            settings_extended_details_holder,
-            settings_security_holder,
-            settings_file_operations_holder,
-            settings_bottom_actions_holder,
-            settings_recycle_bin_holder,
-            settings_migrating_holder
-        ).forEach {
-            it.background.applyColorFilter(getProperBackgroundColor().getContrastColor())
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
@@ -135,7 +121,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupCustomizeColors() {
-        settings_customize_colors_holder.setOnClickListener {
+        settings_color_customization_holder.setOnClickListener {
             startCustomizationActivity()
         }
     }
@@ -153,11 +139,6 @@ class SettingsActivity : SimpleActivity() {
     private fun setupLanguage() {
         settings_language.text = Locale.getDefault().displayLanguage
         settings_language_holder.beVisibleIf(isTiramisuPlus())
-
-        if (settings_use_english_holder.isGone() && settings_language_holder.isGone()) {
-            settings_change_date_time_format_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
-
         settings_language_holder.setOnClickListener {
             launchChangeAppLanguageIntent()
         }
@@ -514,12 +495,6 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_rotating_with_gestures_holder.beVisibleIf(config.allowZoomingImages)
         settings_show_highest_quality_holder.beVisibleIf(config.allowZoomingImages)
         settings_allow_one_to_one_zoom_holder.beVisibleIf(config.allowZoomingImages)
-
-        if (config.allowZoomingImages) {
-            settings_allow_zooming_images_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        } else {
-            settings_allow_zooming_images_holder.background = resources.getDrawable(R.drawable.ripple_all_corners, theme)
-        }
     }
 
     private fun setupShowHighestQuality() {
@@ -577,12 +552,6 @@ class SettingsActivity : SimpleActivity() {
     private fun updateExtendedDetailsButtons() {
         settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
         settings_hide_extended_details_holder.beVisibleIf(config.showExtendedDetails)
-
-        if (config.showExtendedDetails) {
-            settings_show_extended_details_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        } else {
-            settings_show_extended_details_holder.background = resources.getDrawable(R.drawable.ripple_all_corners, theme)
-        }
     }
 
     private fun setupSkipDeleteConfirmation() {
@@ -619,11 +588,11 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupBottomActions() {
         settings_bottom_actions_checkbox.isChecked = config.bottomActions
-        updateManageBottomActionsButtons()
+        settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
         settings_bottom_actions_checkbox_holder.setOnClickListener {
             settings_bottom_actions_checkbox.toggle()
             config.bottomActions = settings_bottom_actions_checkbox.isChecked
-            updateManageBottomActionsButtons()
+            settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
         }
     }
 
@@ -636,15 +605,6 @@ class SettingsActivity : SimpleActivity() {
                     config.visibleBottomActions = DEFAULT_BOTTOM_ACTIONS
                 }
             }
-        }
-    }
-
-    private fun updateManageBottomActionsButtons() {
-        settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
-        if (config.bottomActions) {
-            settings_bottom_actions_checkbox_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        } else {
-            settings_bottom_actions_checkbox_holder.background = resources.getDrawable(R.drawable.ripple_all_corners, theme)
         }
     }
 
@@ -682,12 +642,6 @@ class SettingsActivity : SimpleActivity() {
         settings_show_recycle_bin_last_holder.beVisibleIf(config.useRecycleBin && config.showRecycleBinAtFolders)
         settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
         settings_show_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
-
-        if (config.useRecycleBin) {
-            settings_use_recycle_bin_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        } else {
-            settings_use_recycle_bin_holder.background = resources.getDrawable(R.drawable.ripple_all_corners, theme)
-        }
     }
 
     private fun setupEmptyRecycleBin() {
