@@ -5,6 +5,7 @@
     <string name="edit">Edita</string>
     <string name="open_camera">Obre la càmera</string>
     <string name="hidden">(ocult)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fixa la carpeta</string>
     <string name="unpin_folder">No fixis la carpeta</string>
     <string name="pin_to_the_top">Fixa a dalt</string>

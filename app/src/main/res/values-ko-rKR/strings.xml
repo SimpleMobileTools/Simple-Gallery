@@ -5,6 +5,7 @@
     <string name="edit">편집</string>
     <string name="open_camera">카메라 열기</string>
     <string name="hidden">(숨겨짐)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">폴더 고정</string>
     <string name="unpin_folder">폴더 고정 해제</string>
     <string name="pin_to_the_top">상단에 고정</string>

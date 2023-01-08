@@ -5,6 +5,7 @@
     <string name="edit">Upravit</string>
     <string name="open_camera">Spustit fotoaparát</string>
     <string name="hidden">(skryto)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>
     <string name="pin_to_the_top">Připnout nahoru</string>

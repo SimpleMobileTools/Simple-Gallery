@@ -5,6 +5,7 @@
     <string name="edit">Уредити</string>
     <string name="open_camera">Отвори камеру</string>
     <string name="hidden">(скривено)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Прикачи фасциклу</string>
     <string name="unpin_folder">Раскачи фасциклу</string>
     <string name="pin_to_the_top">Закачи на врх</string>

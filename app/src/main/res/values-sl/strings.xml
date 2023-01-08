@@ -5,6 +5,7 @@
     <string name="edit">Uredi</string>
     <string name="open_camera">Zaženi fotoaparat</string>
     <string name="hidden">(skrito)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Pripni mapo</string>
     <string name="unpin_folder">Odpni mapo</string>
     <string name="pin_to_the_top">Pripni na vrh</string>

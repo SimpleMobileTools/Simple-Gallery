@@ -5,6 +5,7 @@
     <string name="edit">ویرایش</string>
     <string name="open_camera">گشودن دوربین</string>
     <string name="hidden">(پنهان)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">سنجاق کردن شاخه</string>
     <string name="unpin_folder">برداشتن سنجاق شاخه</string>
     <string name="pin_to_the_top">سنجاق کردن به بالا</string>

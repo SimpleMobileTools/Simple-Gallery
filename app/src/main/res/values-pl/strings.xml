@@ -5,6 +5,7 @@
     <string name="edit">Edytuj</string>
     <string name="open_camera">Otwórz aparat</string>
     <string name="hidden">(ukryte)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Odepnij folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>

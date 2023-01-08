@@ -5,6 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="hidden">(oculta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Marcar pasta</string>
     <string name="unpin_folder">Desmarcar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>

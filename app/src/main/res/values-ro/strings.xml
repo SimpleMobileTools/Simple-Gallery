@@ -5,6 +5,7 @@
     <string name="edit">Editaţi</string>
     <string name="open_camera">Deschide camera</string>
     <string name="hidden">(ascuns)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fixează dosarul</string>
     <string name="unpin_folder">Desprinde dosarul</string>
     <string name="pin_to_the_top">Fixează în vârf</string>

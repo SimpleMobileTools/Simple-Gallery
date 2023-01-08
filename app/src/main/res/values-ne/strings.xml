@@ -5,6 +5,7 @@
     <string name="edit">सम्पादन</string>
     <string name="open_camera">क्यामेरा खोल्नुहोस</string>
     <string name="hidden">(लुकेको)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">फोल्डरलाई पिन गर्नुहोस</string>
     <string name="unpin_folder">फोल्डरलाई पिन गर्नुहोस</string>
     <string name="pin_to_the_top">सबैभन्दा माथि पिन गर्नुहोस</string>

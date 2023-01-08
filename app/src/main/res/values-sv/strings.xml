@@ -5,6 +5,7 @@
     <string name="edit">Redigera</string>
     <string name="open_camera">Öppna kameran</string>
     <string name="hidden">(dold)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fäst mapp</string>
     <string name="unpin_folder">Lossa mapp</string>
     <string name="pin_to_the_top">Fäst högst upp</string>

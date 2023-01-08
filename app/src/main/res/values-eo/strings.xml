@@ -5,6 +5,7 @@
     <string name="edit">Redakti</string>
     <string name="open_camera">Malfermi fotilon</string>
     <string name="hidden">(kaŝita)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Alpingli dosierujon</string>
     <string name="unpin_folder">Depingli dosierujon</string>
     <string name="pin_to_the_top">Alpingli supren</string>

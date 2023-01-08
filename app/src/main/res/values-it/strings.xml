@@ -5,6 +5,7 @@
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="hidden">(nascosta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Blocca cartella</string>
     <string name="unpin_folder">Sblocca cartella</string>
     <string name="pin_to_the_top">Fissa in alto</string>

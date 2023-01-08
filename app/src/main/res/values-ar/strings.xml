@@ -5,6 +5,7 @@
     <string name="edit">تعديل</string>
     <string name="open_camera">فتح الكاميرا</string>
     <string name="hidden">(مخفي)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">تثبيت المجلد</string>
     <string name="unpin_folder">إلغاء تثبيت المجلد</string>
     <string name="pin_to_the_top">تثبيت في الأعلى</string>

@@ -5,6 +5,7 @@
     <string name="edit">Redaktə</string>
     <string name="open_camera">Kameranı aç</string>
     <string name="hidden">(gizli)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Pin qovluğu</string>
     <string name="unpin_folder">Unpin qovluğu</string>
     <string name="pin_to_the_top">Pin to the top</string>

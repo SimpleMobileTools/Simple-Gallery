@@ -5,6 +5,7 @@
     <string name="edit">Düzenle</string>
     <string name="open_camera">Kamerayı aç</string>
     <string name="hidden">(gizli)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Klasörü sabitle</string>
     <string name="unpin_folder">Klasörü ayır</string>
     <string name="pin_to_the_top">Üste sabitle</string>

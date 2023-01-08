@@ -5,6 +5,7 @@
     <string name="edit">Рэдагаваць</string>
     <string name="open_camera">Адкрытая камера</string>
     <string name="hidden">(схаваны)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Замацаваць папку</string>
     <string name="unpin_folder">Адмацаваць папку</string>
     <string name="pin_to_the_top">Замацаваць зверху</string>

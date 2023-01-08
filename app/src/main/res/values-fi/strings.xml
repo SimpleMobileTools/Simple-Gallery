@@ -5,6 +5,7 @@
     <string name="edit">Muokkaa</string>
     <string name="open_camera">Avaa kamera</string>
     <string name="hidden">(piilotettu)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Kiinnitä kansio</string>
     <string name="unpin_folder">Poista kiinnitys</string>
     <string name="pin_to_the_top">Kiinnitä ylimmäksi</string>

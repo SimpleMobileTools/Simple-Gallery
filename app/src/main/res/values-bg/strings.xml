@@ -5,6 +5,7 @@
     <string name="edit">Редакция</string>
     <string name="open_camera">Камера</string>
     <string name="hidden">(скрито)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Закачете папката</string>
     <string name="unpin_folder">Откачете папката</string>
     <string name="pin_to_the_top">Закачете отгоре</string>

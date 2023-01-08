@@ -5,6 +5,7 @@
     <string name="edit">Επεξεργασία</string>
     <string name="open_camera">Άνοιγμα κάμερας</string>
     <string name="hidden">(κρυφά)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Καρφίτσωμα φακέλου</string>
     <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
     <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>

@@ -5,6 +5,7 @@
     <string name="edit">Muuda</string>
     <string name="open_camera">Ava kaamera</string>
     <string name="hidden">(peidetud)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Klammerda kaust</string>
     <string name="unpin_folder">Eemalda kausta klammerdus</string>
     <string name="pin_to_the_top">Kinnitage ülaossa</string>

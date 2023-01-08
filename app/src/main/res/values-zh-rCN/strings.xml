@@ -5,6 +5,7 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（已隐藏）</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">固定文件夹</string>
     <string name="unpin_folder">取消固定文件夹</string>
     <string name="pin_to_the_top">置顶固定</string>

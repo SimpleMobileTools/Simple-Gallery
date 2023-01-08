@@ -5,6 +5,7 @@
     <string name="edit">ערוך</string>
     <string name="open_camera">פתח מצלמה</string>
     <string name="hidden">(מוסתר)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">הצמד תקיה</string>
     <string name="unpin_folder">בטל הצמדת תקיה</string>
     <string name="pin_to_the_top">הצמד למעלה</string>
