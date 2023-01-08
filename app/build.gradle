@@ -10,12 +10,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdk 33
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
-        minSdk 21
-        targetSdk 33
+        minSdkVersion 23
+        targetSdkVersion 33
         versionCode 380
         versionName "6.25.5"
         setProperty("archivesBaseName", "gallery-$versionCode")
@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:ecdc896381'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:8d0cd51dd8'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'

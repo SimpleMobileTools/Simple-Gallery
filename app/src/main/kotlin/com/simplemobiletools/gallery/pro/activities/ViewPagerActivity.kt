@@ -90,7 +90,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
-        showTransparentNavigation = true
+        //showTransparentNavigation = true
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)

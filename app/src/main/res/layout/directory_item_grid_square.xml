@@ -52,7 +52,7 @@
         android:background="@drawable/circle_black_background"
         android:contentDescription="@string/pin"
         android:padding="@dimen/small_margin"
-        android:src="@drawable/ic_pin"
+        android:src="@drawable/ic_pin_filled_vector"
         android:visibility="gone" />
 
     <RelativeLayout

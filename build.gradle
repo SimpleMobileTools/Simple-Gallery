@@ -4,7 +4,7 @@ buildscript {
     // needed only if we are including commons locally from our pc, not via Jitpack
     /*ext {
         propCompileSdkVersion = 33
-        propMinSdkVersion = 21
+        propMinSdkVersion = 23
         propTargetSdkVersion = propCompileSdkVersion
         propVersionCode = 1
         propVersionName = '5.34.26'

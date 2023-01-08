@@ -37,7 +37,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
-        showTransparentNavigation = true
+        //showTransparentNavigation = true
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)

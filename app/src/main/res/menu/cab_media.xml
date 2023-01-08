@@ -2,20 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="AppCompatResource">
+    tools:ignore="AppCompatResource,AlwaysShowAction">
     <item
         android:id="@+id/cab_confirm_selection"
         android:icon="@drawable/ic_check_vector"
+        android:showAsAction="always"
         android:title="@string/confirm_selection"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
+        android:showAsAction="always"
         android:title="@string/delete"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_share"
         android:icon="@drawable/ic_share_vector"
+        android:showAsAction="always"
         android:title="@string/share"
         app:showAsAction="always" />
     <item

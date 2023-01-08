@@ -60,7 +60,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
-        showTransparentNavigation = true
+        //showTransparentNavigation = true
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)

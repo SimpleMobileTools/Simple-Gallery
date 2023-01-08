@@ -108,7 +108,7 @@
             android:layout_height="@dimen/sd_card_icon_size"
             android:contentDescription="@string/pin"
             android:paddingBottom="@dimen/small_margin"
-            android:src="@drawable/ic_pin"
+            android:src="@drawable/ic_pin_filled_vector"
             android:visibility="gone" />
 
         <ImageView

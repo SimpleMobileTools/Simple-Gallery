@@ -2,25 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="AppCompatResource">
+    tools:ignore="AppCompatResource,AlwaysShowAction">
     <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
+        android:showAsAction="always"
         android:title="@string/delete"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_properties"
         android:icon="@drawable/ic_info_vector"
+        android:showAsAction="always"
         android:title="@string/properties"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_pin"
-        android:icon="@drawable/ic_pin"
+        android:icon="@drawable/ic_pin_filled_vector"
+        android:showAsAction="always"
         android:title="@string/pin_to_the_top"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_unpin"
-        android:icon="@drawable/ic_unpin"
+        android:icon="@drawable/ic_pin_vector"
         android:title="@string/unpin_folder"
         app:showAsAction="ifRoom" />
     <item

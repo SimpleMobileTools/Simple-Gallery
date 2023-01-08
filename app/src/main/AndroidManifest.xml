@@ -57,16 +57,9 @@
 
         <activity
             android:name=".activities.MainActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:resizeableActivity="true">
-
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:resource="@xml/searchable" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
@@ -93,34 +86,17 @@
 
         <activity
             android:name=".activities.MediaActivity"
+            android:configChanges="orientation"
             android:exported="false"
-            android:parentActivityName=".activities.MainActivity">
-
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:resource="@xml/searchable" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-        </activity>
+            android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name=".activities.SearchActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/search"
             android:parentActivityName=".activities.MainActivity"
-            android:resizeableActivity="true">
-
-            <meta-data
-                android:name="android.app.default_searchable"
-                android:resource="@xml/searchable" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-        </activity>
+            android:resizeableActivity="true" />
 
         <activity
             android:name=".activities.ViewPagerActivity"
@@ -142,18 +118,21 @@
 
         <activity
             android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.SettingsActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity">
@@ -191,18 +170,21 @@
 
         <activity
             android:name=".activities.IncludedFoldersActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/include_folders"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ExcludedFoldersActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/excluded_folders"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.HiddenFoldersActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/hidden_folders"
             android:parentActivityName=".activities.SettingsActivity" />
@@ -237,6 +219,7 @@
 
         <activity
             android:name=".activities.EditActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/editor">
 
@@ -264,6 +247,7 @@
 
         <activity
             android:name=".activities.SetWallpaperActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/simple_wallpaper">
             <intent-filter>
