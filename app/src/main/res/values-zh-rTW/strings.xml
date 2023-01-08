@@ -214,6 +214,7 @@
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
     <string name="search_all_folders">Search all files instead of folders on the main screen</string>
+    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
     <string name="fullscreen_media">全螢幕媒體檔案</string>

@@ -214,6 +214,7 @@
     <string name="media_only">Só medios</string>
     <string name="all_files">Todolos ficheiros</string>
     <string name="search_all_folders">Search all files instead of folders on the main screen</string>
+    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
