@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Vous pouvez également n\'autoriser que l\'accès aux fichiers multimédias. Dans ce cas, vous ne pourrez cependant pas travailler avec les fichiers cachés.</string>
     <string name="media_only">Médias uniquement</string>
     <string name="all_files">Tous les fichiers</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>

@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternativ kannst du auch nur den Zugriff auf Mediendateien zulassen. In diesem Fall kann allerdings nicht mit versteckten Dateien gearbeitet werden.</string>
     <string name="media_only">Nur Medien</string>
     <string name="all_files">Alle Dateien</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
     <string name="fullscreen_media">Vollbild-Anzeige von Medien</string>

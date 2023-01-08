@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternativament, podeu permetre l\'accés només a fitxers multimèdia. En aquest cas, però, no podreu treballar amb fitxers ocults.</string>
     <string name="media_only">Només fitxers multimèdia</string>
     <string name="all_files">Tots els fitxers</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>

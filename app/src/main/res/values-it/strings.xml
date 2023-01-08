@@ -213,6 +213,7 @@
     <string name="alternative_media_access">In alternativa, è possibile consentire l\'accesso solo ai file multimediali. In questo caso, però, non sarà possibile lavorare con i file nascosti.</string>
     <string name="media_only">Solo media</string>
     <string name="all_files">Tutti i file</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>

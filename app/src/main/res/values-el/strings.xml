@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Εναλλακτικά, μπορείτε να επιτρέψετε την πρόσβαση μόνο σε αρχεία πολυμέσων. Σε αυτή την περίπτωση, όμως, δεν θα μπορείτε να εργαστείτε με κρυφά αρχεία.</string>
     <string name="media_only">Πολυμέσα μόνο</string>
     <string name="all_files">Όλα τα Αρχεία</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
     <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>

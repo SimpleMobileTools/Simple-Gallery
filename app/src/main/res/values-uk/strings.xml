@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Крім того, ви можете дозволити доступ лише до медіа файлів. У цьому випадку ви не зможете працювати з прихованими файлами.</string>
     <string name="media_only">Тільки медіа</string>
     <string name="all_files">Всі файли</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Мініатюри</string>
     <string name="fullscreen_media">Повноекранний перегляд</string>

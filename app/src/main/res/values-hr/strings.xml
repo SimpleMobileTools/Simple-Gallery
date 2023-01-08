@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternativno, možete dopustiti pristup samo medijskim datotekama. U tom slučaju nećete moći raditi sa skrivenim datotekama.</string>
     <string name="media_only">Samo mediji</string>
     <string name="all_files">Sve datoteke</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji u cjeloekranskom prikazu</string>

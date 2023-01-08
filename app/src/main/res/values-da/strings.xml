@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternativt kan du kun tillade adgang til mediefiler. I så fald vil du dog ikke kunne arbejde med skjulte filer.</string>
     <string name="media_only">Kun medier</string>
     <string name="all_files">Alle filer</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>
     <string name="fullscreen_media">Fuldskærmsmedier</string>

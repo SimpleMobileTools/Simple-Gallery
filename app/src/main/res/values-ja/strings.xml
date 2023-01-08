@@ -211,6 +211,7 @@
     <string name="alternative_media_access">または、メディアファイルのみアクセスを許可することもできます。ただし、この場合、隠しファイル (このアプリでは非表示項目を指します) への操作は行なえません。</string>
     <string name="media_only">メディアのみ</string>
     <string name="all_files">すべてのファイル</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
     <string name="fullscreen_media">メディア設定</string>

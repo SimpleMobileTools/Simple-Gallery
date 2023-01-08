@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternativamente, só pode permitilo acceso a ficheiros multimedia. Nese caso non poderás traballar con ficheiros ocultos.</string>
     <string name="media_only">Só medios</string>
     <string name="all_files">Todolos ficheiros</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>

@@ -213,6 +213,7 @@
     <string name="alternative_media_access">Alternatif olarak, yalnızca medya dosyalarına erişime izin verebilirsiniz. Ancak bu durumda gizli dosyalarla çalışamazsınız.</string>
     <string name="media_only">Yalnızca medya</string>
     <string name="all_files">Tüm dosyalar</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>

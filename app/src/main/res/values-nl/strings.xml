@@ -209,6 +209,7 @@
     <string name="alternative_media_access">De app kan ook toegang tot alleen mediabestanden worden gegeven, maar er kan dan niet worden gewerkt met verborgen bestanden.</string>
     <string name="media_only">Mediabestanden</string>
     <string name="all_files">Alle bestanden</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>
     <string name="fullscreen_media">Volledig scherm</string>

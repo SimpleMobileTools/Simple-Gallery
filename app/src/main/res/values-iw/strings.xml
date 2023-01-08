@@ -209,6 +209,7 @@
     <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
     <string name="media_only">Media only</string>
     <string name="all_files">All files</string>
+    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
     <!-- Setting sections -->
     <string name="thumbnails">תמונות ממוזערות</string>
     <string name="fullscreen_media">מדיה במסך מלא</string>
