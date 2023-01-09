@@ -70,11 +70,6 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        setupToolbar(config_toolbar)
-    }
-
     private fun initVariables() {
         mBgColor = config.widgetBgColor
         mBgAlpha = Color.alpha(mBgColor) / 255f
@@ -83,14 +78,18 @@ class WidgetConfigureActivity : SimpleActivity() {
         config_bg_seekbar.apply {
             progress = (mBgAlpha * 100).toInt()
 
-            onSeekBarChangeListener {
-                mBgAlpha = it / 100f
+            onSeekBarChangeListener { progress ->
+                mBgAlpha = progress / 100f
                 updateBackgroundColor()
             }
         }
         updateBackgroundColor()
 
         mTextColor = config.widgetTextColor
+        if (mTextColor == resources.getColor(R.color.default_widget_text_color) && config.isUsingSystemTheme) {
+            mTextColor = resources.getColor(R.color.you_primary_color, theme)
+        }
+
         updateTextColor()
     }
 
@@ -128,17 +127,17 @@ class WidgetConfigureActivity : SimpleActivity() {
         }
     }
 
+    private fun updateTextColor() {
+        config_folder_name.setTextColor(mTextColor)
+        config_text_color.setFillWithStroke(mTextColor, mTextColor)
+        config_save.setTextColor(getProperPrimaryColor().getContrastColor())
+    }
+
     private fun updateBackgroundColor() {
         mBgColor = mBgColorWithoutTransparency.adjustAlpha(mBgAlpha)
         config_image_holder.background.applyColorFilter(mBgColor)
         config_bg_color.setFillWithStroke(mBgColor, mBgColor)
         config_save.backgroundTintList = ColorStateList.valueOf(getProperPrimaryColor())
-    }
-
-    private fun updateTextColor() {
-        config_folder_name.setTextColor(mTextColor)
-        config_text_color.setFillWithStroke(mTextColor, mTextColor)
-        config_save.setTextColor(getProperPrimaryColor().getContrastColor())
     }
 
     private fun pickBackgroundColor() {
