@@ -15,12 +15,17 @@ import com.simplemobiletools.gallery.pro.extensions.getNoMediaFolders
 import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_folders)
         updateFolders()
         setupOptionsMenu()
         manage_folders_toolbar.title = getString(R.string.hidden_folders)
+
+        updateMaterialActivityViews(manage_folders_coordinator, manage_folders_list, useTransparentNavigation = true, useTopSearchMenu = false)
+        setupMaterialScrollListener(manage_folders_list, manage_folders_toolbar)
     }
 
     override fun onResume() {

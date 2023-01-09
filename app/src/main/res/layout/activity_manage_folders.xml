@@ -5,34 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/manage_folders_app_bar_layout"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/manage_folders_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/manage_folders_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/color_primary"
-            app:menu="@menu/menu_add_folder"
-            app:title=""
-            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        app:menu="@menu/menu_add_folder"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
     <RelativeLayout
-        android:id="@+id/manage_folders_wrapper"
+        android:id="@+id/manage_folders_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="?attr/actionBarSize">
 
         <com.simplemobiletools.commons.views.MyRecyclerView
             android:id="@+id/manage_folders_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:scrollbars="vertical"
+            android:scrollbars="none"
             app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
 
         <com.simplemobiletools.commons.views.MyTextView
