@@ -87,6 +87,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredStyleString = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
@@ -112,6 +113,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         setupOptionsMenu()
         refreshMenuItems()
+
+        updateMaterialActivityViews(directories_coordinator, directories_grid, useTransparentNavigation = true, useTopSearchMenu = true)
 
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         storeStateVariables()
@@ -183,11 +186,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        updateMenuColors()
         config.isThirdPartyIntent = false
         mDateFormat = config.dateFormat
         mTimeFormat = getTimeFormat()
 
-        setupToolbar(directories_toolbar, searchMenuItem = mSearchMenuItem)
         refreshMenuItems()
 
         if (mStoredAnimateGifs != config.animateGifs) {
@@ -289,8 +292,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun onBackPressed() {
-        if (mIsSearchOpen && mSearchMenuItem != null) {
-            mSearchMenuItem!!.collapseActionView()
+        if (main_menu.isSearchOpen) {
+            main_menu.closeSearch()
         } else if (config.groupDirectSubfolders) {
             if (mCurrentPathPrefix.isEmpty()) {
                 super.onBackPressed()
@@ -306,16 +309,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun refreshMenuItems() {
         if (!mIsThirdPartyIntent) {
-            directories_toolbar.menu.apply {
+            main_menu.getToolbar().menu.apply {
                 findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
                 findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
-                setupSearch(this)
             }
         }
 
-        directories_toolbar.menu.apply {
+        main_menu.getToolbar().menu.apply {
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
 
@@ -331,13 +333,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.menu.menu_main
         }
 
-        directories_toolbar.inflateMenu(menuId)
+        main_menu.getToolbar().inflateMenu(menuId)
+        main_menu.toggleHideOnScroll(true)
+        main_menu.setupMenu()
 
-        if (!mIsThirdPartyIntent) {
-            setupSearch(directories_toolbar.menu)
-        }
-
-        directories_toolbar.setOnMenuItemClickListener { menuItem ->
+        main_menu.getToolbar().setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.sort -> showSortingDialog()
                 R.id.filter -> showFilterMediaDialog()
@@ -369,6 +369,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         mWasProtectionHandled = savedInstanceState.getBoolean(WAS_PROTECTION_HANDLED, false)
+    }
+
+    private fun updateMenuColors() {
+        updateStatusbarColor(getProperBackgroundColor())
+        main_menu.updateColors()
     }
 
     private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
