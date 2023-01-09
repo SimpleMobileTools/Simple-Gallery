@@ -25,7 +25,7 @@
         android:id="@+id/activity_edit_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="?attr/actionBarSize">
 
         <ImageView
             android:id="@+id/default_image_view"
