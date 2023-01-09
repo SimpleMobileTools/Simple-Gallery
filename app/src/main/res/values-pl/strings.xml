@@ -78,8 +78,8 @@
     <string name="invalid_values">Podaj prawidłową rozdzielczość</string>
     <!-- Editor -->
     <string name="editor">Edytor</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Podstawowy edytor</string>
+    <string name="advanced_editor">Zaawansowany edytor</string>
     <string name="rotate">Obróć</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka obrazu</string>
     <string name="invalid_video_path">Nieprawidłowa ścieżka wideo</string>
