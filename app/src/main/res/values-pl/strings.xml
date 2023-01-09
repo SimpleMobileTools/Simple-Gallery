@@ -5,7 +5,7 @@
     <string name="edit">Edytuj</string>
     <string name="open_camera">Otwórz aparat</string>
     <string name="hidden">(ukryte)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(wykluczone)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Odepnij folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>
@@ -213,8 +213,8 @@
     <string name="alternative_media_access">Alternatywnie możesz zezwolić na dostęp jedynie do plików multimedialnych. W takim przypadku nie będziesz jednak mógł/mogła pracować z ukrytymi plikami.</string>
     <string name="media_only">Tylko multimedia</string>
     <string name="all_files">Wszystkie pliki</string>
-    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_folders">Przeszukuj wszystkie pliki zamiast folderów na ekranie głównym</string>
+    <string name="show_all_folders">Pokazuj przycisk w menu do szybkiego przełączania opcji „Pokaż zawartość wszystkich folderów”</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturki</string>
     <string name="fullscreen_media">Multimedia na pełnym ekranie</string>
