@@ -78,6 +78,8 @@
     <string name="invalid_values">Vă rugăm să introduceți o rezoluție validă</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Rotire</string>
     <string name="invalid_image_path">Calea imaginii este invalidă</string>
     <string name="invalid_video_path">Calea videoclupui este invalidă</string>

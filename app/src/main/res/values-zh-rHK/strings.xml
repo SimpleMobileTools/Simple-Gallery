@@ -77,6 +77,8 @@
     <string name="invalid_values">請輸入有效的解析度</string>
     <!-- Editor -->
     <string name="editor">編輯器</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">旋轉</string>
     <string name="invalid_image_path">無效的圖片路徑</string>
     <string name="invalid_video_path">Invalid video path</string>

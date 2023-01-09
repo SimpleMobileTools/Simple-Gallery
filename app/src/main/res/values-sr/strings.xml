@@ -78,6 +78,8 @@
     <string name="invalid_values">Унесите исправну резолуцију</string>
     <!-- Editor -->
     <string name="editor">Едитор</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Ротирај</string>
     <string name="invalid_image_path">Неисправна стаза слике</string>
     <string name="invalid_video_path">Неважећа путања видеа</string>

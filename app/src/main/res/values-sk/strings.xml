@@ -78,6 +78,8 @@
     <string name="invalid_values">Prosím zadajte platné rozlíšenie</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
+    <string name="basic_editor">Základný editor</string>
+    <string name="advanced_editor">Pokročilý editor</string>
     <string name="rotate">Otočiť</string>
     <string name="invalid_image_path">Neplatná cesta obrázka</string>
     <string name="invalid_video_path">Neplatná cesta videa</string>

@@ -78,6 +78,8 @@
     <string name="invalid_values">Oppfør en gyldig oppløsning</string>
     <!-- Editor -->
     <string name="editor">Redigering</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Roter</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
     <string name="invalid_video_path">Ugyldig videobane</string>

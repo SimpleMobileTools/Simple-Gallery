@@ -78,6 +78,8 @@
     <string name="invalid_values">Vnesite veljavno ločljivost</string>
     <!-- Editor -->
     <string name="editor">Urejevalnik</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Zavrti</string>
     <string name="invalid_image_path">Napačna pot</string>
     <string name="invalid_video_path">Nepravilna video pot</string>

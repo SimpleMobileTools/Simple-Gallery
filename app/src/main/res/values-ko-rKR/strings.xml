@@ -78,6 +78,8 @@
     <string name="invalid_values">잘못된 비율입니다.</string>
     <!-- Editor -->
     <string name="editor">편집</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">회전</string>
     <string name="invalid_image_path">유효하지 않은 사진 경로</string>
     <string name="invalid_video_path">Invalid video path</string>

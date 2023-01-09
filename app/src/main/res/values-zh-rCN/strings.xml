@@ -78,6 +78,8 @@
     <string name="invalid_values">请输入有效的分辨率</string>
     <!-- Editor -->
     <string name="editor">编辑器</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">旋转</string>
     <string name="invalid_image_path">无效的图片路径</string>
     <string name="invalid_video_path">无效的视频路径</string>

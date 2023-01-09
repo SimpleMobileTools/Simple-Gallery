@@ -78,6 +78,8 @@
     <string name="invalid_values">يرجى إدخال دقة صالحة</string>
     <!-- Editor -->
     <string name="editor">تعديل</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">تدوير</string>
     <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="invalid_video_path">مسار الفيديو غير صالح</string>

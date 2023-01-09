@@ -78,6 +78,8 @@
     <string name="invalid_values">செல்லத்தக்க தீர்மானத்தை உள்ளிடவும்</string>
     <!-- Editor -->
     <string name="editor">திருத்தி</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">சுழற்று</string>
     <string name="invalid_image_path">செல்லாத பட பாதை</string>
     <string name="invalid_video_path">செல்லாத காணொளி பாதை</string>

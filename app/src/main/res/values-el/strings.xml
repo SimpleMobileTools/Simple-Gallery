@@ -78,6 +78,8 @@
     <string name="invalid_values">Παρακαλώ εισάγετε σωστή ανάλυση</string>
     <!-- Editor -->
     <string name="editor">Επεξεργαστής</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Περιστροφή</string>
     <string name="invalid_image_path">Άκυρη διαδρομή εικόνας</string>
     <string name="invalid_video_path">Άκυρη διαδρομή βίντεο</string>

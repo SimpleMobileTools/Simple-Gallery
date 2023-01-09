@@ -78,6 +78,8 @@
     <string name="invalid_values">Моля въведете валидна резолюция</string>
     <!-- Editor -->
     <string name="editor">Редактор</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Завъртане</string>
     <string name="invalid_image_path">Неправилен път до изображението</string>
     <string name="invalid_video_path">Неправилен път до видеото</string>

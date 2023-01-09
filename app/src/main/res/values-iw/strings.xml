@@ -76,6 +76,8 @@
     <string name="invalid_values">נא להזין החלטה חוקית</string>
     <!-- Editor -->
     <string name="editor">עורך</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">להחליף</string>
     <string name="invalid_image_path">נתיב תמונה לא חוקי</string>
     <string name="invalid_video_path">נתיב וידאו לא חוקי</string>

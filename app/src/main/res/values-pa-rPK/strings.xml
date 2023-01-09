@@ -78,6 +78,8 @@
     <string name="invalid_values">Please enter a valid resolution</string>
     <!-- Editor -->
     <string name="editor">ایڈیٹر</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">گھُنماؤ</string>
     <string name="invalid_image_path">Invalid image path</string>
     <string name="invalid_video_path">Invalid video path</string>

@@ -78,6 +78,8 @@
     <string name="invalid_values">Introduïu una resolució vàlida</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Gira</string>
     <string name="invalid_image_path">El camí de la imatge no és vàlid</string>
     <string name="invalid_video_path">El camí del vídeo no és vàlid</string>

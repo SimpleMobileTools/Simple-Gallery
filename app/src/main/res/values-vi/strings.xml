@@ -76,6 +76,8 @@
     <string name="invalid_values">Vui lòng nhập độ phân giải hợp lệ</string>
     <!-- Editor -->
     <string name="editor">Trình biên tập</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Xoay</string>
     <string name="invalid_image_path">Đường dẫn hình ảnh không hợp lệ</string>
     <string name="invalid_video_path">Đường dẫn video không hợp lệ</string>

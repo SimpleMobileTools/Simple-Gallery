@@ -76,6 +76,8 @@
     <string name="invalid_values">Prosím zadejte platné rozlišení</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Otočit</string>
     <string name="invalid_image_path">Neplatná cesta</string>
     <string name="invalid_video_path">Invalid video path</string>

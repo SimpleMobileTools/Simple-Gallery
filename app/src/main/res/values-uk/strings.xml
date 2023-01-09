@@ -78,6 +78,8 @@
     <string name="invalid_values">Введіть допустиму роздільну здатність</string>
     <!-- Editor -->
     <string name="editor">Редактор</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Обернути</string>
     <string name="invalid_image_path">Неприпустимий шлях до зображення</string>
     <string name="invalid_video_path">Неприпустимий шлях до відео</string>

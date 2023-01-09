@@ -78,6 +78,8 @@
     <string name="invalid_values">Veuillez entrer une résolution valide</string>
     <!-- Editor -->
     <string name="editor">Éditeur</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Pivoter</string>
     <string name="invalid_image_path">Emplacement d\'image invalide</string>
     <string name="invalid_video_path">Emplacement de vidéo invalide</string>

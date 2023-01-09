@@ -78,6 +78,8 @@
     <string name="invalid_values">Írjon be érvényes felbontást</string>
     <!-- Editor -->
     <string name="editor">Szerkesztő</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Forgatás</string>
     <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
     <string name="invalid_video_path">Érvénytelen videó elérési útvonal</string>

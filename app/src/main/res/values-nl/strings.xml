@@ -74,6 +74,8 @@
     <string name="invalid_values">Voer geldige afmetingen in</string>
     <!-- Editor -->
     <string name="editor">Bewerken</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Draaien</string>
     <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
     <string name="invalid_video_path">Ongeldig pad naar video</string>

@@ -76,6 +76,8 @@
     <string name="invalid_values">দয়া করে একটি বৈধ রেজোলিউশন দিন।</string>
     <!-- Editor -->
     <string name="editor">সম্পাদক</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">ঘোরান</string>
     <string name="invalid_image_path">ভুল ছবির পথ</string>
     <string name="invalid_video_path">ভুল ভিডিওর পথ</string>

@@ -76,6 +76,8 @@
     <string name="invalid_values">Sartu baliozko bereizmena</string>
     <!-- Editor -->
     <string name="editor">Editorea</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Biratu</string>
     <string name="invalid_image_path">Irudiaren bide-izen baliogabea</string>
     <string name="invalid_video_path">Bideoaren bide-izen baliogabea</string>

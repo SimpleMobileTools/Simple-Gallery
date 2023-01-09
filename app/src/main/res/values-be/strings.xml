@@ -107,6 +107,8 @@
     <string name="invalid_image_path">Няправільны шлях выявы</string>
     <string name="invalid_video_path">Няправільны шлях відэа</string>
     <string name="editor">Рэдактар</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="image_editing_failed">Збой рэдагавання выявы</string>
     <string name="video_editing_failed">Збой рэдагавання відэа</string>
     <string name="image_editing_cancelled">Рэдагаванне выявы скасавана</string>

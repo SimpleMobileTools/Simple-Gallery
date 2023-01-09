@@ -78,6 +78,8 @@
     <string name="invalid_values">Palun sisestage kehtiv resolutsioon</string>
     <!-- Editor -->
     <string name="editor">Toimetaja</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Pööra</string>
     <string name="invalid_image_path">Vale pildi asukoht</string>
     <string name="invalid_video_path">Vale video asukoht</string>

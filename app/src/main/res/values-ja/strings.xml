@@ -76,6 +76,8 @@
     <string name="invalid_values">解像度を正しく入力してください</string>
     <!-- Editor -->
     <string name="editor">画像編集</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">回転</string>
     <string name="invalid_image_path">無効な画像パス</string>
     <string name="invalid_video_path">無効な動画パス</string>

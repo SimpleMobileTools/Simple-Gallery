@@ -78,6 +78,8 @@
     <string name="invalid_values">Silakan masukkan resolusi yang valid</string>
     <!-- Editor -->
     <string name="editor">Penyunting</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Rotasi</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="invalid_video_path">Jalur video tidak valid</string>

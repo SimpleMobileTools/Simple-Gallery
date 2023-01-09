@@ -78,6 +78,8 @@
     <string name="invalid_values">Aseta oikea resoluutio</string>
     <!-- Editor -->
     <string name="editor">Editori</string>
+    <string name="basic_editor">Basic Editor</string>
+    <string name="advanced_editor">Advanced Editor</string>
     <string name="rotate">Käännä</string>
     <string name="invalid_image_path">Virheellinen kuvan polku</string>
     <string name="invalid_video_path">Virheellinen videon polku</string>
