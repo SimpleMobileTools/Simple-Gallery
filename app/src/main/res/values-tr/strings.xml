@@ -5,7 +5,7 @@
     <string name="edit">Düzenle</string>
     <string name="open_camera">Kamerayı aç</string>
     <string name="hidden">(gizli)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(hariç)</string>
     <string name="pin_folder">Klasörü sabitle</string>
     <string name="unpin_folder">Klasörü ayır</string>
     <string name="pin_to_the_top">Üste sabitle</string>
@@ -213,8 +213,8 @@
     <string name="alternative_media_access">Alternatif olarak, yalnızca medya dosyalarına erişime izin verebilirsiniz. Ancak bu durumda gizli dosyalarla çalışamazsınız.</string>
     <string name="media_only">Yalnızca medya</string>
     <string name="all_files">Tüm dosyalar</string>
-    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_folders">Ana ekranda klasörler yerine tüm dosyaları ara</string>
+    <string name="show_all_folders">Tüm Klasör İçeriğini Göster seçeneğini hızlıca değiştirmek için bir menü düğmesi göster</string>
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
     <string name="fullscreen_media">Tam ekran medya</string>
