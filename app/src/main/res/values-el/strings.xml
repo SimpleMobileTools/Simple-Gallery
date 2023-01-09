@@ -5,7 +5,7 @@
     <string name="edit">Επεξεργασία</string>
     <string name="open_camera">Άνοιγμα κάμερας</string>
     <string name="hidden">(κρυφά)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(εξαιρούνται)</string>
     <string name="pin_folder">Καρφίτσωμα φακέλου</string>
     <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
     <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Παρακαλώ εισάγετε σωστή ανάλυση</string>
     <!-- Editor -->
     <string name="editor">Επεξεργαστής</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Βασικός επεξεργαστής</string>
+    <string name="advanced_editor">Προηγμένος επεξεργαστής</string>
     <string name="rotate">Περιστροφή</string>
     <string name="invalid_image_path">Άκυρη διαδρομή εικόνας</string>
     <string name="invalid_video_path">Άκυρη διαδρομή βίντεο</string>
@@ -215,8 +215,8 @@
     <string name="alternative_media_access">Εναλλακτικά, μπορείτε να επιτρέψετε την πρόσβαση μόνο σε αρχεία πολυμέσων. Σε αυτή την περίπτωση, όμως, δεν θα μπορείτε να εργαστείτε με κρυφά αρχεία.</string>
     <string name="media_only">Πολυμέσα μόνο</string>
     <string name="all_files">Όλα τα Αρχεία</string>
-    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_folders">Αναζήτηση όλων των αρχείων αντί φακέλων στην κύρια οθόνη</string>
+    <string name="show_all_folders">Εμφάνιση κουμπιού μενού για εναλλαγή προβολή περιεχομένου Όλων των Φακέλων ταχύτερα</string>
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
     <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
