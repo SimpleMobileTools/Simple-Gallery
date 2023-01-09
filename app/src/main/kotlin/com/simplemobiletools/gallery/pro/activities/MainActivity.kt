@@ -1,9 +1,7 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
-import android.app.SearchManager
 import android.content.ClipData
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,13 +9,9 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.provider.MediaStore.Images
 import android.provider.MediaStore.Video
-import android.view.Menu
-import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
@@ -63,7 +57,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
     private var mShouldStopFetching = false
-    private var mIsSearchOpen = false
     private var mWasDefaultFolderChecked = false
     private var mWasMediaManagementPromptShown = false
     private var mLatestMediaId = 0L
@@ -75,9 +68,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
-    private var mSearchMenuItem: MenuItem? = null
     private var mLastMediaFetcher: MediaFetcher? = null
     private var mDirs = ArrayList<Directory>()
+    private var mDirsIgnoringSearch = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -234,7 +227,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_switch_searching.underlineText()
         directories_empty_placeholder_2.bringToFront()
 
-        if (!mIsSearchOpen) {
+        if (!main_menu.isSearchOpen) {
             refreshMenuItems()
             if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
                 handleAppPasswordProtection {
@@ -337,6 +330,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         main_menu.toggleHideOnScroll(true)
         main_menu.setupMenu()
 
+        main_menu.onSearchTextChangedListener = { text ->
+            setupAdapter(mDirsIgnoringSearch, text)
+            directories_refresh_layout.isEnabled = text.isEmpty() && config.enablePullToRefresh
+            directories_switch_searching.beVisibleIf(text.isNotEmpty())
+        }
+
         main_menu.getToolbar().setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.sort -> showSortingDialog()
@@ -387,45 +386,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredScrollHorizontally = scrollHorizontally
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"
         }
-    }
-
-    private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem?.actionView as? SearchView)?.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (mIsSearchOpen) {
-                        setupAdapter(mDirs, newText)
-                    }
-                    return true
-                }
-            })
-        }
-
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                directories_switch_searching.beVisible()
-                mIsSearchOpen = true
-                directories_refresh_layout.isEnabled = false
-                return true
-            }
-
-            // this triggers on device rotation too, avoid doing anything
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (mIsSearchOpen) {
-                    directories_switch_searching.beGone()
-                    mIsSearchOpen = false
-                    directories_refresh_layout.isEnabled = config.enablePullToRefresh
-                    setupAdapter(mDirs, "")
-                }
-                return true
-            }
-        })
     }
 
     private fun startNewPhotoFetcher() {
@@ -1204,7 +1164,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_placeholder.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_placeholder_2.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
 
-        if (mIsSearchOpen) {
+        if (main_menu.isSearchOpen) {
             directories_empty_placeholder.text = getString(R.string.no_items_found)
             directories_empty_placeholder_2.beGone()
         } else if (dirs.isEmpty() && config.filterMedia == getDefaultFileFilter()) {
@@ -1234,13 +1194,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_fastscroller.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
-    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "", forceRecreate: Boolean = false) {
+    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = main_menu.getCurrentQuery(), forceRecreate: Boolean = false) {
         val currAdapter = directories_grid.adapter
         val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
         val sortedDirs = getSortedDirectories(distinctDirs)
         var dirsToShow = getDirsToShow(sortedDirs, mDirs, mCurrentPathPrefix).clone() as ArrayList<Directory>
 
         if (currAdapter == null || forceRecreate) {
+            mDirsIgnoringSearch = dirs
             initZoomListener()
             DirectoryAdapter(
                 this,
