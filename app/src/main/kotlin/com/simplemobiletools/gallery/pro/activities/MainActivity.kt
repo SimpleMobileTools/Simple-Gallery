@@ -495,6 +495,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         Intent(this, SearchActivity::class.java).apply {
             startActivity(this)
         }
+
+        main_menu.postDelayed({
+            main_menu.closeSearch()
+        }, 500)
     }
 
     private fun showSortingDialog() {

@@ -1,19 +1,12 @@
 package com.simplemobiletools.gallery.pro.activities
 
-import android.app.SearchManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
@@ -33,17 +26,17 @@ import kotlinx.android.synthetic.main.activity_search.*
 import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
-    private var mIsSearchOpen = false
     private var mLastSearchedText = ""
 
-    private var mSearchMenuItem: MenuItem? = null
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mAllMedia = ArrayList<ThumbnailItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         setupOptionsMenu()
+        updateMaterialActivityViews(search_coordinator, search_grid, useTransparentNavigation = true, useTopSearchMenu = true)
         search_empty_text_placeholder.setTextColor(getProperTextColor())
         getAllMedia()
         search_fastscroller.updateColors(getProperPrimaryColor())
@@ -51,7 +44,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(search_toolbar, NavigationIcon.Arrow, searchMenuItem = mSearchMenuItem)
+        updateMenuColors()
     }
 
     override fun onDestroy() {
@@ -60,8 +53,26 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupOptionsMenu() {
-        setupSearch(search_toolbar.menu)
-        search_toolbar.setOnMenuItemClickListener { menuItem ->
+        search_menu.getToolbar().inflateMenu(R.menu.menu_search)
+        search_menu.toggleHideOnScroll(true)
+        search_menu.setupMenu()
+        search_menu.toggleForceArrowBackIcon(true)
+        search_menu.requestFocus()
+
+        search_menu.onNavigateBackClickListener = {
+            if (search_menu.getCurrentQuery().isEmpty()) {
+                finish()
+            } else {
+                search_menu.closeSearch()
+            }
+        }
+
+        search_menu.onSearchTextChangedListener = { text ->
+            mLastSearchedText = text
+            textChanged(text)
+        }
+
+        search_menu.getToolbar().setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.toggle_filename -> toggleFilenameVisibility()
                 else -> return@setOnMenuItemClickListener false
@@ -70,41 +81,9 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        mSearchMenuItem = menu.findItem(R.id.search)
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                mIsSearchOpen = true
-                return true
-            }
-
-            // this triggers on device rotation too, avoid doing anything
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (mIsSearchOpen) {
-                    mIsSearchOpen = false
-                    mLastSearchedText = ""
-                }
-                return true
-            }
-        })
-        mSearchMenuItem?.expandActionView()
-
-        (mSearchMenuItem?.actionView as? SearchView)?.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (mIsSearchOpen) {
-                        mLastSearchedText = newText
-                        textChanged(newText)
-                    }
-                    return true
-                }
-            })
-        }
+    private fun updateMenuColors() {
+        updateStatusbarColor(getProperBackgroundColor())
+        search_menu.updateColors()
     }
 
     private fun textChanged(text: String) {
