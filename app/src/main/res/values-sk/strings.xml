@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Ako alternatíva môžete povoliť prístup iba k médiám. V tomto prípade ale nebudete môcť pracovať so skrytými súbormi.</string>
     <string name="media_only">Iba médiá</string>
     <string name="all_files">Všetky súbory</string>
-    <string name="search_all_folders">Vyhľadávať medzi všetkými súbormi namiesto priečinkov na hlavnej obrazovke</string>
+    <string name="search_all_files">Vyhľadávať medzi všetkými súbormi namiesto priečinkov na hlavnej obrazovke</string>
     <string name="show_all_folders">Zobraziť tlačidlo na menu pre rýchle prepínanie zobrazovania obsahu všetkých priečinkov</string>
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

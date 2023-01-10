@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Также можно разрешить доступ только к медиафайлам. Однако в этом случае вы не сможете работать со скрытыми файлами.</string>
     <string name="media_only">Только медиафайлы</string>
     <string name="all_files">Все файлы</string>
-    <string name="search_all_folders">Поиск всех файлов, а не только в папках на главном экране</string>
+    <string name="search_all_files">Поиск всех файлов, а не только в папках на главном экране</string>
     <string name="show_all_folders">Показывать кнопку меню для быстрого переключения \"Показать все медиафайлы\"</string>
     <!-- Setting sections -->
     <string name="thumbnails">Эскизы</string>

@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Alternativamente, puede permitir el acceso a los archivos multimedia solamente. Sin embargo, en ese caso no podrá trabajar con los archivos ocultos.</string>
     <string name="media_only">Sólo archivos multimedia</string>
     <string name="all_files">Todos los archivos</string>
-    <string name="search_all_folders">Buscar todos los archivos en lugar de carpetas en la pantalla de inicio</string>
+    <string name="search_all_files">Buscar todos los archivos en lugar de carpetas en la pantalla de inicio</string>
     <string name="show_all_folders">Mostrar un botón de menú para ver rápidamente el contenido de todas las carpetas</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

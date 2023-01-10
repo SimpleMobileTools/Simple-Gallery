@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Alternativ kannst du auch nur den Zugriff auf Mediendateien zulassen. In diesem Fall kann allerdings nicht mit versteckten Dateien gearbeitet werden.</string>
     <string name="media_only">Nur Medien</string>
     <string name="all_files">Alle Dateien</string>
-    <string name="search_all_folders">Alle Dateien statt der Ordner auf dem Hauptbildschirm durchsuchen</string>
+    <string name="search_all_files">Alle Dateien statt der Ordner auf dem Hauptbildschirm durchsuchen</string>
     <string name="show_all_folders">Menüschaltfläche einblenden für schnelles Umschalten „Alle Ordnerinhalte anzeigen“</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>

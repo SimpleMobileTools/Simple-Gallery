@@ -211,7 +211,7 @@
     <string name="alternative_media_access">De app kan ook toegang tot alleen mediabestanden worden gegeven, maar er kan dan niet worden gewerkt met verborgen bestanden.</string>
     <string name="media_only">Mediabestanden</string>
     <string name="all_files">Alle bestanden</string>
-    <string name="search_all_folders">Op het beginscherm niet naar mappen, maar bestanden in alle zichtbare mappen zoeken</string>
+    <string name="search_all_files">Op het beginscherm niet naar mappen, maar bestanden in alle zichtbare mappen zoeken</string>
     <string name="show_all_folders">Menuknop ’Inhoud van alle mappen tonen’ tonen</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturen</string>

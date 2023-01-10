@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Alternatiivina võid lubada juurdepääsu ainult meediafailidele. Sellisel juhul ei saa sa siiski tegutseda peidetud failidega.</string>
     <string name="media_only">Ainult meedia</string>
     <string name="all_files">Kõik failid</string>
-    <string name="search_all_folders">Avavaatest otsi kaustade asemel kõiki faile</string>
+    <string name="search_all_files">Avavaatest otsi kaustade asemel kõiki faile</string>
     <string name="show_all_folders">Näitamaks kõikide kaustade sisu kuva menüüs vastav nupp</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
