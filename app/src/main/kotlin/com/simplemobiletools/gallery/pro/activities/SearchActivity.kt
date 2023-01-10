@@ -58,6 +58,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         search_menu.setupMenu()
         search_menu.toggleForceArrowBackIcon(true)
         search_menu.requestFocus()
+        search_menu.updateHintText(getString(R.string.search_files))
 
         search_menu.onNavigateBackClickListener = {
             if (search_menu.getCurrentQuery().isEmpty()) {
