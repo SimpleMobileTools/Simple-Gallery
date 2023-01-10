@@ -221,7 +221,7 @@
             android:name=".activities.EditActivity"
             android:configChanges="orientation"
             android:exported="true"
-            android:label="@string/editor">
+            android:label="@string/basic_editor">
 
             <intent-filter android:name="foss-editor">
 

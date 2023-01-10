@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.simplemobiletools.gallery.pro"
     android:installLocation="auto">
 
@@ -9,25 +8,9 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activities.EditActivity"
-            android:exported="true">
-
-            <intent-filter
-                android:name="foss-editor"
-                tools:node="remove">
-
-                <action android:name="android.intent.action.EDIT" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="image/*" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".activities.NewPhotoEditActivity"
             android:exported="true"
-            android:label="@string/editor">
+            android:label="@string/advanced_editor">
 
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
@@ -41,7 +24,7 @@
         <activity
             android:name=".activities.NewVideoEditActivity"
             android:exported="true"
-            android:label="@string/editor">
+            android:label="@string/advanced_editor">
 
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
