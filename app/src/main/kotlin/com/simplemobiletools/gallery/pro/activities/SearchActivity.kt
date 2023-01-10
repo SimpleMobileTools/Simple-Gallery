@@ -112,7 +112,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupAdapter() {
         val currAdapter = search_grid.adapter
         if (currAdapter == null) {
-            MediaAdapter(this, ArrayList(), this, false, false, "", search_grid) {
+            MediaAdapter(this, mAllMedia, this, false, false, "", search_grid) {
                 if (it is Medium) {
                     itemClicked(it.path)
                 }
