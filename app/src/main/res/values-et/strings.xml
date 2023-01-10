@@ -5,10 +5,10 @@
     <string name="edit">Muuda</string>
     <string name="open_camera">Ava kaamera</string>
     <string name="hidden">(peidetud)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(välistatud)</string>
     <string name="pin_folder">Klammerda kaust</string>
     <string name="unpin_folder">Eemalda kausta klammerdus</string>
-    <string name="pin_to_the_top">Kinnitage ülaossa</string>
+    <string name="pin_to_the_top">Kinnita ülaossa</string>
     <string name="show_all">Näita kõikide kaustade sisu</string>
     <string name="all_folders">Kõik kaustad</string>
     <string name="folder_view">Kasuta kaustavaadet</string>
@@ -17,7 +17,7 @@
     <string name="unknown_location">Teadmata asukoht</string>
     <string name="volume">Helitugevus</string>
     <string name="brightness">Eredus</string>
-    <string name="lock_orientation">Lukustuse orientatsioon</string>
+    <string name="lock_orientation">Lukusta ekraani pööramine</string>
     <string name="unlock_orientation">Eemalda ekraani pööramise lukustus</string>
     <string name="change_orientation">Muuda ekraani paigutust</string>
     <string name="force_portrait">Kasuta püstkuva</string>
@@ -30,19 +30,19 @@
     <string name="share_resized">Jaga versiooni, mille suurust sa oled muutnud</string>
     <string name="upgraded_from_free">Hei,
 \n
-\ntundub, et sa uuendasid vanast tasuta rakendusest. Saate nüüd vana versiooni eemaldada, millel on rakenduse seadete ülaosas nupp \"Upgrade to Pro\".
+\nTundub, et sa uuendasid vanast tasuta rakendusest. Saad nüüd vana versiooni eemaldada, millel on rakenduse seadete ülaosas nupp „Upgrade to Pro“.
 \n
-\nSul on ainult prügikasti elemendid kustutatud, lemmikobjektid eemaldatud ja sa pead ka rakenduse seaded tagasi seadistama.
+\nSellega saab prügikasti sisu kustutatud, lemmikud eemaldatud ja sa pead ka rakenduse lähtestama.
 \n
 \nAitäh!</string>
-    <string name="switch_to_file_search">Üleminek failiotsingule kõigis nähtavates kaustades</string>
+    <string name="switch_to_file_search">Kasuta failiotsingus kõiki nähtavaid kaustu</string>
     <string name="set_as_default_folder">Määra vaikimisi kaustaks</string>
     <string name="unset_as_default_folder">Eemalda määramine vaikimisi kaustaks</string>
     <string name="reorder_by_dragging">Muuda kaustade järjekorda lohistades</string>
     <string name="reorder_by_dragging_pro">Muuda kaustade järjekorda lohistades (Pro)</string>
     <string name="restore_to_path">Taastame kausta „%s“</string>
     <!-- Filter -->
-    <string name="filter_media">Filterkandja</string>
+    <string name="filter_media">Sirvi meediat</string>
     <string name="images">Pildid</string>
     <string name="videos">Videod</string>
     <string name="gifs">GIF\'id</string>
@@ -78,20 +78,20 @@
     <string name="invalid_values">Palun sisestage kehtiv resolutsioon</string>
     <!-- Editor -->
     <string name="editor">Toimetaja</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Lihtne redaktor</string>
+    <string name="advanced_editor">Võimalusterohke redaktor</string>
     <string name="rotate">Pööra</string>
     <string name="invalid_image_path">Vale pildi asukoht</string>
     <string name="invalid_video_path">Vale video asukoht</string>
     <string name="image_editing_failed">Pildi muutmine ei õnnestunud</string>
     <string name="video_editing_failed">Video muutmine ei õnnestunud</string>
-    <string name="image_editing_cancelled">Pildi redigeerimine tühistati</string>
-    <string name="video_editing_cancelled">Video redigeerimine tühistati</string>
+    <string name="image_editing_cancelled">Pildi muutmine tühistati</string>
+    <string name="video_editing_cancelled">Video muutmine tühistati</string>
     <string name="file_edited_successfully">Faili muutmine õnnestus</string>
     <string name="image_edited_successfully">Pildi muutmine õnnestus</string>
     <string name="video_edited_successfully">Video muutmine õnnestus</string>
-    <string name="edit_image_with">Redigeerige pilti:</string>
-    <string name="edit_video_with">Redigeerige videot:</string>
+    <string name="edit_image_with">Muuda pilti:</string>
+    <string name="edit_video_with">Muuda videot:</string>
     <string name="no_image_editor_found">Pildiredaktorit ei leitud</string>
     <string name="no_video_editor_found">Videoredaktorit ei leitud</string>
     <string name="unknown_file_location">Teadmata faili asukoht</string>
@@ -215,8 +215,8 @@
     <string name="alternative_media_access">Alternatiivina võid lubada juurdepääsu ainult meediafailidele. Sellisel juhul ei saa sa siiski tegutseda peidetud failidega.</string>
     <string name="media_only">Ainult meedia</string>
     <string name="all_files">Kõik failid</string>
-    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_folders">Avavaatest otsi kaustade asemel kõiki faile</string>
+    <string name="show_all_folders">Näitamaks kõikide kaustade sisu kuva menüüs vastav nupp</string>
     <!-- Setting sections -->
     <string name="thumbnails">Pisipildid</string>
     <string name="fullscreen_media">Täisekraani meedia</string>
