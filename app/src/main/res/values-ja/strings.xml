@@ -76,8 +76,8 @@
     <string name="invalid_values">解像度を正しく入力してください</string>
     <!-- Editor -->
     <string name="editor">画像編集</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">基本的な編集</string>
+    <string name="advanced_editor">高度な編集</string>
     <string name="rotate">回転</string>
     <string name="invalid_image_path">無効な画像パス</string>
     <string name="invalid_video_path">無効な動画パス</string>
@@ -214,7 +214,7 @@
     <string name="media_only">メディアのみ</string>
     <string name="all_files">すべてのファイル</string>
     <string name="search_all_folders">メイン画面の検索でフォルダの代わりにすべてのファイルを検索する</string>
-    <string name="show_all_folders">「すべてを表示」機能を素早く切り替えるためのメニューボタンを表示</string>
+    <string name="show_all_folders">「すべてを表示」を素早く切り替えるためのメニューボタンを表示</string>
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
     <string name="fullscreen_media">メディア設定</string>

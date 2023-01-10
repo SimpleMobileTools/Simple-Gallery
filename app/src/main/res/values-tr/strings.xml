@@ -78,8 +78,8 @@
     <string name="invalid_values">Lütfen geçerli bir çözünürlük girin</string>
     <!-- Editor -->
     <string name="editor">Düzenleyici</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Temel Düzenleyici</string>
+    <string name="advanced_editor">Gelişmiş Düzenleyici</string>
     <string name="rotate">Döndür</string>
     <string name="invalid_image_path">Geçersiz resim yolu</string>
     <string name="invalid_video_path">Geçersiz video yolu</string>

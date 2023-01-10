@@ -5,7 +5,7 @@
     <string name="edit">تعديل</string>
     <string name="open_camera">فتح الكاميرا</string>
     <string name="hidden">(مخفي)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(مستبعد)</string>
     <string name="pin_folder">تثبيت المجلد</string>
     <string name="unpin_folder">إلغاء تثبيت المجلد</string>
     <string name="pin_to_the_top">تثبيت في الأعلى</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">يرجى إدخال دقة صالحة</string>
     <!-- Editor -->
     <string name="editor">تعديل</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">المحرر الأساسي</string>
+    <string name="advanced_editor">محرر متقدم</string>
     <string name="rotate">تدوير</string>
     <string name="invalid_image_path">مسار الصورة غير صحيح</string>
     <string name="invalid_video_path">مسار الفيديو غير صالح</string>
@@ -215,8 +215,8 @@
     <string name="alternative_media_access">بدلاً من ذلك ، يمكنك السماح بالوصول إلى ملفات الوسائط فقط. في هذه الحالة ، لن تتمكن من العمل مع الملفات المخفية بالرغم من ذلك.</string>
     <string name="media_only">الوسائط فقط</string>
     <string name="all_files">كل الملفات</string>
-    <string name="search_all_folders">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_folders">البحث في جميع الملفات بدلا من المجلدات على الشاشة الرئيسية</string>
+    <string name="show_all_folders">إظهار زر قائمة للتبديل إظهار محتوى كافة المجلدات بسرعة</string>
     <!-- Setting sections -->
     <string name="thumbnails">الصور المصغّرة</string>
     <string name="fullscreen_media">وسائط ملء الشاشة</string>
