@@ -329,6 +329,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         main_menu.getToolbar().inflateMenu(menuId)
         main_menu.toggleHideOnScroll(true)
         main_menu.setupMenu()
+        main_menu.updateHintText(getString(R.string.search_folders))
 
         main_menu.onSearchTextChangedListener = { text ->
             setupAdapter(mDirsIgnoringSearch, text)
