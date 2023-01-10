@@ -1,20 +1,14 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
-import android.app.SearchManager
 import android.app.WallpaperManager
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.view.Menu
-import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RelativeLayout
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -53,7 +47,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mAllowPickingMultiple = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
-    private var mIsSearchOpen = false
     private var mWasFullscreenViewOpen = false
     private var mLastSearchedText = ""
     private var mLatestMediaId = 0L
@@ -62,7 +55,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
-    private var mSearchMenuItem: MenuItem? = null
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -79,6 +71,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media)
 
@@ -101,6 +94,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         setupOptionsMenu()
         refreshMenuItems()
         storeStateVariables()
+        updateMaterialActivityViews(media_coordinator, media_grid, useTransparentNavigation = true, useTopSearchMenu = true)
 
         if (mShowAll) {
             registerFileUpdateListener()
@@ -120,6 +114,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        updateMenuColors()
         if (mStoredAnimateGifs != config.animateGifs) {
             getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -156,13 +151,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             setupAdapter()
         }
 
-        val navigation = if (mShowAll) {
-            NavigationIcon.None
-        } else {
-            NavigationIcon.Arrow
-        }
-
-        setupToolbar(media_toolbar, navigation, searchMenuItem = mSearchMenuItem)
         refreshMenuItems()
 
         media_fastscroller.updateColors(primaryColor)
@@ -231,8 +219,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun onBackPressed() {
-        if (mIsSearchOpen && mSearchMenuItem != null) {
-            mSearchMenuItem!!.collapseActionView()
+        if (media_menu.isSearchOpen) {
+            media_menu.closeSearch()
         } else {
             super.onBackPressed()
         }
@@ -241,7 +229,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun refreshMenuItems() {
         val isDefaultFolder = !config.defaultFolder.isEmpty() && File(config.defaultFolder).compareTo(File(mPath)) == 0
 
-        media_toolbar.menu.apply {
+        media_menu.getToolbar().menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
             findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
@@ -267,8 +255,17 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupOptionsMenu() {
-        setupSearch(media_toolbar.menu)
-        media_toolbar.setOnMenuItemClickListener { menuItem ->
+        media_menu.getToolbar().inflateMenu(R.menu.menu_media)
+        media_menu.toggleHideOnScroll(true)
+        media_menu.setupMenu()
+
+        media_menu.onSearchTextChangedListener = { text ->
+            mLastSearchedText = text
+            searchQueryChanged(text)
+            media_refresh_layout.isEnabled = text.isEmpty() && config.enablePullToRefresh
+        }
+
+        media_menu.getToolbar().setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.sort -> showSortingDialog()
                 R.id.filter -> showFilterMediaDialog()
@@ -310,6 +307,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
+    private fun updateMenuColors() {
+        updateStatusbarColor(getProperBackgroundColor())
+        media_menu.updateColors()
+    }
+
     private fun storeStateVariables() {
         mStoredTextColor = getProperTextColor()
         mStoredPrimaryColor = getProperPrimaryColor()
@@ -323,46 +325,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mStoredRoundedCorners = fileRoundedCorners
             mShowAll = showAll
         }
-    }
-
-    private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem?.actionView as? SearchView)?.apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (mIsSearchOpen) {
-                        mLastSearchedText = newText
-                        searchQueryChanged(newText)
-                    }
-                    return true
-                }
-            })
-        }
-
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                mIsSearchOpen = true
-                media_refresh_layout.isEnabled = false
-                return true
-            }
-
-            // this triggers on device rotation too, avoid doing anything
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (mIsSearchOpen) {
-                    mIsSearchOpen = false
-                    mLastSearchedText = ""
-
-                    media_refresh_layout.isEnabled = config.enablePullToRefresh
-                    searchQueryChanged("")
-                }
-                return true
-            }
-        })
     }
 
     private fun searchQueryChanged(text: String) {
@@ -399,7 +361,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     else -> getHumanizedFilename(mPath)
                 }
 
-                media_toolbar.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                //media_toolbar.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                if (!mShowAll) {
+                    media_menu.toggleForceArrowBackIcon(true)
+                    media_menu.onNavigateBackClickListener = {
+                        onBackPressed()
+                    }
+                }
+
                 getMedia()
                 setupLayoutManager()
             } else {
