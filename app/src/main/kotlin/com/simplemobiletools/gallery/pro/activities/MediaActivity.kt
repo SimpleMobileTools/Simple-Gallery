@@ -16,9 +16,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
@@ -248,8 +250,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.unset_as_default_folder).isVisible = isDefaultFolder
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
-            findItem(R.id.increase_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
-            findItem(R.id.reduce_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
+            findItem(R.id.column_count).isVisible = viewType == VIEW_TYPE_GRID
             findItem(R.id.toggle_filename).isVisible = viewType == VIEW_TYPE_GRID
         }
     }
@@ -280,8 +281,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 R.id.create_new_folder -> createNewFolder()
                 R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
                 R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-                R.id.increase_column_count -> increaseColumnCount()
-                R.id.reduce_column_count -> reduceColumnCount()
+                R.id.column_count -> changeColumnCount()
                 R.id.set_as_default_folder -> setAsDefaultFolder()
                 R.id.unset_as_default_folder -> unsetAsDefaultFolder()
                 R.id.slideshow -> startSlideshow()
@@ -731,17 +731,34 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
+    private fun changeColumnCount() {
+        val items = ArrayList<RadioItem>()
+        for (i in 1..MAX_COLUMN_COUNT) {
+            items.add(RadioItem(i, resources.getQuantityString(R.plurals.column_counts, i, i)))
+        }
+
+        val currentColumnCount = (media_grid.layoutManager as MyGridLayoutManager).spanCount
+        RadioGroupDialog(this, items, currentColumnCount) {
+            val newColumnCount = it as Int
+            if (currentColumnCount != newColumnCount) {
+                config.mediaColumnCnt = newColumnCount
+                columnCountChanged()
+            }
+        }
+    }
+
     private fun increaseColumnCount() {
-        config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
+        config.mediaColumnCnt += 1
         columnCountChanged()
     }
 
     private fun reduceColumnCount() {
-        config.mediaColumnCnt = --(media_grid.layoutManager as MyGridLayoutManager).spanCount
+        config.mediaColumnCnt -= 1
         columnCountChanged()
     }
 
     private fun columnCountChanged() {
+        (media_grid.layoutManager as MyGridLayoutManager).spanCount = config.mediaColumnCnt
         handleGridSpacing()
         refreshMenuItems()
         getMediaAdapter()?.apply {

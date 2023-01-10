@@ -16,9 +16,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -303,8 +305,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun refreshMenuItems() {
         if (!mIsThirdPartyIntent) {
             main_menu.getToolbar().menu.apply {
-                findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
-                findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+                findItem(R.id.column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
                 findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
             }
@@ -349,8 +350,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
                 R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
                 R.id.create_new_folder -> createNewFolder()
-                R.id.increase_column_count -> increaseColumnCount()
-                R.id.reduce_column_count -> reduceColumnCount()
+                R.id.column_count -> changeColumnCount()
                 R.id.set_as_default_folder -> setAsDefaultFolder()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
@@ -727,17 +727,34 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    private fun changeColumnCount() {
+        val items = ArrayList<RadioItem>()
+        for (i in 1..MAX_COLUMN_COUNT) {
+            items.add(RadioItem(i, resources.getQuantityString(R.plurals.column_counts, i, i)))
+        }
+
+        val currentColumnCount = (directories_grid.layoutManager as MyGridLayoutManager).spanCount
+        RadioGroupDialog(this, items, currentColumnCount) {
+            val newColumnCount = it as Int
+            if (currentColumnCount != newColumnCount) {
+                config.dirColumnCnt = newColumnCount
+                columnCountChanged()
+            }
+        }
+    }
+
     private fun increaseColumnCount() {
-        config.dirColumnCnt = ++(directories_grid.layoutManager as MyGridLayoutManager).spanCount
+        config.dirColumnCnt += 1
         columnCountChanged()
     }
 
     private fun reduceColumnCount() {
-        config.dirColumnCnt = --(directories_grid.layoutManager as MyGridLayoutManager).spanCount
+        config.dirColumnCnt -= 1
         columnCountChanged()
     }
 
     private fun columnCountChanged() {
+        (directories_grid.layoutManager as MyGridLayoutManager).spanCount = config.dirColumnCnt
         refreshMenuItems()
         getRecyclerAdapter()?.apply {
             notifyItemRangeChanged(0, dirs.size)
