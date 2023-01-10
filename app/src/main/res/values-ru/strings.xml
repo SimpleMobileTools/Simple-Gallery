@@ -78,8 +78,8 @@
     <string name="invalid_values">Указано недопустимое разрешение</string>
     <!-- Editor -->
     <string name="editor">Редактор</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Простой редактор</string>
+    <string name="advanced_editor">Расширенный редактор</string>
     <string name="rotate">Поворот</string>
     <string name="invalid_image_path">Недопустимый путь изображения</string>
     <string name="invalid_video_path">Недопустимый путь видео</string>
