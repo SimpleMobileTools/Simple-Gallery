@@ -9,10 +9,15 @@
         android:title="@string/toggle_filename"
         app:showAsAction="always" />
     <item
+        android:id="@+id/folder_view"
+        android:icon="@drawable/ic_folders_vector"
+        android:title="@string/folder_view"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/sort"
         android:icon="@drawable/ic_sort_vector"
         android:title="@string/sort_by"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/filter"
         android:icon="@drawable/ic_filter_vector"
@@ -47,11 +52,6 @@
         android:id="@+id/restore_all_files"
         android:showAsAction="never"
         android:title="@string/restore_all_files"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/folder_view"
-        android:showAsAction="never"
-        android:title="@string/folder_view"
         app:showAsAction="never" />
     <item
         android:id="@+id/open_camera"

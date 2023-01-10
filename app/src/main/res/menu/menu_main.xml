@@ -9,10 +9,15 @@
         android:title="@string/open_camera"
         app:showAsAction="always" />
     <item
+        android:id="@+id/show_all"
+        android:icon="@drawable/ic_files_vector"
+        android:title="@string/show_all"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/sort"
         android:icon="@drawable/ic_sort_vector"
         android:title="@string/sort_by"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/filter"
         android:icon="@drawable/ic_filter_vector"
@@ -42,11 +47,6 @@
         android:id="@+id/stop_showing_excluded"
         android:showAsAction="never"
         android:title="@string/stop_showing_excluded"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/show_all"
-        android:showAsAction="never"
-        android:title="@string/show_all"
         app:showAsAction="never" />
     <item
         android:id="@+id/set_as_default_folder"
