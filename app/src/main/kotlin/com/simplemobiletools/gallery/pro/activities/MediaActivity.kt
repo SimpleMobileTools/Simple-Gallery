@@ -361,7 +361,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     else -> getHumanizedFilename(mPath)
                 }
 
-                //media_toolbar.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                val searchHint = if (mShowAll) {
+                    getString(R.string.search)
+                } else {
+                    getString(R.string.search_in_placeholder, dirName)
+                }
+
+                media_menu.updateHintText(searchHint)
                 if (!mShowAll) {
                     media_menu.toggleForceArrowBackIcon(true)
                     media_menu.onNavigateBackClickListener = {
