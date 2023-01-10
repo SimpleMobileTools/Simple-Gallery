@@ -332,6 +332,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         main_menu.setupMenu()
         main_menu.updateHintText(getString(R.string.search_folders))
 
+        if (isPiePlus()) {
+            main_menu.onSearchOpenListener = {
+                if (config.searchAllFilesByDefault) {
+                    launchSearchActivity()
+                }
+            }
+        }
+
         main_menu.onSearchTextChangedListener = { text ->
             setupAdapter(mDirsIgnoringSearch, text)
             directories_refresh_layout.isEnabled = text.isEmpty() && config.enablePullToRefresh

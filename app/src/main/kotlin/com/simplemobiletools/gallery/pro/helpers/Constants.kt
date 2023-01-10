@@ -97,6 +97,7 @@ const val THUMBNAIL_SPACING = "thumbnail_spacing"
 const val FILE_ROUNDED_CORNERS = "file_rounded_corners"
 const val CUSTOM_FOLDERS_ORDER = "custom_folders_order"
 const val AVOID_SHOWING_ALL_FILES_PROMPT = "avoid_showing_all_files_prompt"
+const val SEARCH_ALL_FILES_BY_DEFAULT = "search_all_files_by_default"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

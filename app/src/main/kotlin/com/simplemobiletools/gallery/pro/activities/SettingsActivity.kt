@@ -49,6 +49,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
+        setupSearchAllFiles()
         setupShowHiddenItems()
         setupAutoplayVideos()
         setupRememberLastVideo()
@@ -223,6 +224,16 @@ class SettingsActivity : SimpleActivity() {
     private fun toggleHiddenItems() {
         settings_show_hidden_items.toggle()
         config.showHiddenMedia = settings_show_hidden_items.isChecked
+    }
+
+    // show this on Android 9+ only due to a glitch on lower versions where search is automatically open on startup
+    private fun setupSearchAllFiles() {
+        settings_search_all_files_holder.beVisibleIf(isPiePlus())
+        settings_search_all_files.isChecked = config.searchAllFilesByDefault
+        settings_search_all_files_holder.setOnClickListener {
+            settings_search_all_files.toggle()
+            config.searchAllFilesByDefault = settings_search_all_files.isChecked
+        }
     }
 
     private fun setupAutoplayVideos() {
@@ -782,6 +793,7 @@ class SettingsActivity : SimpleActivity() {
                 put(LIMIT_FOLDER_TITLE, config.limitFolderTitle)
                 put(THUMBNAIL_SPACING, config.thumbnailSpacing)
                 put(FILE_ROUNDED_CORNERS, config.fileRoundedCorners)
+                put(SEARCH_ALL_FILES_BY_DEFAULT, config.searchAllFilesByDefault)
             }
 
             exportSettings(configItems)
@@ -923,6 +935,7 @@ class SettingsActivity : SimpleActivity() {
                 LIMIT_FOLDER_TITLE -> config.limitFolderTitle = value.toBoolean()
                 THUMBNAIL_SPACING -> config.thumbnailSpacing = value.toInt()
                 FILE_ROUNDED_CORNERS -> config.fileRoundedCorners = value.toBoolean()
+                SEARCH_ALL_FILES_BY_DEFAULT -> config.searchAllFilesByDefault = value.toBoolean()
                 ALBUM_COVERS -> {
                     val existingCovers = config.parseAlbumCovers()
                     val existingCoverPaths = existingCovers.map { it.path }.toMutableList() as ArrayList<String>
