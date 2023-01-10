@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Alternativ kannst du auch nur den Zugriff auf Mediendateien zulassen. In diesem Fall kann allerdings nicht mit versteckten Dateien gearbeitet werden.</string>
     <string name="media_only">Nur Medien</string>
     <string name="all_files">Alle Dateien</string>
-    <string name="search_all_folders">Durchsuche alle Dateien anstelle von Ordnern auf dem Hauptbildschirm</string>
+    <string name="search_all_folders">Alle Dateien statt der Ordner auf dem Hauptbildschirm durchsuchen</string>
     <string name="show_all_folders">Menüschaltfläche einblenden für schnelles Umschalten „Alle Ordnerinhalte anzeigen“</string>
     <!-- Setting sections -->
     <string name="thumbnails">Vorschaubilder</string>
@@ -367,7 +367,7 @@
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen\?</string>
     <string name="faq_14_text">Man kann entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Versteckte Elemente anzeigen“ in den Anwendungseinstellungen einschalten, um das ausgeblendete Element zu sehen. Um es dauerhaft wieder einzublenden, drückt man einfach lange darauf und wählt „Nicht verstecken“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; man kann die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Bitte beachten, dass das Verstecken rekursiv funktioniert, d. h. wenn man einen Ordner versteckt, werden auch alle Unterordner versteckt. Um die Unterordner wieder sichtbar zu machen, muss man also den übergeordneten Ordner sichtbar machen.</string>
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz\?</string>
-    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Die Dateien des Papierkorbs zählen zum Speicherplatz der App dazu. Man kann den Papierkorb leeren, indem man ihn öffnet und alle Dateien darin löscht, oder die entsprechende Schaltfläche in den Einstellungen betätigt. Alle 30 Tage wird der Papierkorb automatisch geleert.</string>
+    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden, er sorgt für schnelleres Laden der Bilder. Wenn die App darüber hinaus Speicherplatz beansprucht, liegt das wahrscheinlich an Dateien im Papierkorb. Diese Dateien werden dem Speicherplatz der App zugerechnet. Man kann den Papierkorb leeren, indem man ihn öffnet und alle Dateien darin löscht, oder den entsprechenden Menüeintrag in den Einstellungen wählt. Jede Datei im Papierkorb wird nach 30 Tagen automatisch gelöscht.</string>
     <string name="faq_16_title">Was ist mit dem Ausblenden von Dateien und Ordnern passiert und warum kann ich versteckte Elemente nicht mehr sehen\?</string>
     <string name="faq_16_text">Ab Android 11 kann man keine Dateien oder Ordner mehr ein- oder ausblenden, auch in anderen Galerie-Anwendungen kann man die versteckten Dateien nicht mehr sehen. Dafür muss man jetzt ein Dateiverwaltungsprogramm verwenden.</string>
     <string name="faq_16_text_extra">Du kannst dieser Galerie auch über die Geräteeinstellungen Zugriff auf alle Dateien gewähren, damit versteckte Elemente anzeigt und die Dateioperationen im Allgemeinen zuverlässiger werden.</string>
