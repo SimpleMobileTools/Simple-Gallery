@@ -52,7 +52,7 @@
     <string name="no_media_with_filters">Valitud päringu alusel ei leidu meediafaile.</string>
     <string name="change_filters_underlined"><u>Muuda filtreid</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">See funktsioon peidab kausta, lisades sinna faili .nomedia, see peidab ka kõik alamkaustad. Neid näete, lülitades seadetes sisse suvandi \"Kuva peidetud üksused\". Jätkama\?</string>
+    <string name="hide_folder_description">See funktsioon peidab kausta koos alamkaustadega, lisades sinna faili „.nomedia“. Neid näed, lülitades seadetes sisse valiku „Kuva peidetud kirjed“. Kas jätkame\?</string>
     <string name="exclude_folder_description">See välistab valiku koos selle alamkaustadega ainult Simple Gallery\'st. Väljajäetud kaustu saate hallata seadetes.</string>
     <string name="exclude_folder_parent">Kas jätta selle asemel vanem välja\?</string>
     <string name="excluded_activity_placeholder">Kaustade välistamine peidab kaustad koos nende alamkaustadega vaid Lihtsast galeriist ning nad jäävad nähtavaks muudele rakendustele.

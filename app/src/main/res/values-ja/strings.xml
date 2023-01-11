@@ -75,7 +75,7 @@
     <string name="keep_aspect_ratio">縦横比を固定</string>
     <string name="invalid_values">解像度を正しく入力してください</string>
     <!-- Editor -->
-    <string name="editor">画像編集</string>
+    <string name="editor">編集</string>
     <string name="basic_editor">基本的な編集</string>
     <string name="advanced_editor">高度な編集</string>
     <string name="rotate">回転</string>
