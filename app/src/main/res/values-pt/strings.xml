@@ -224,7 +224,7 @@
     <string name="bottom_actions">Acções em baixo</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Gerir botões de acção</string>
-    <string name="toggle_favorite">Alternar favoritos</string>
+    <string name="toggle_favorite">Alternar favorito</string>
     <string name="toggle_file_visibility">Alternar visibilidade dos ficheiros</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Personalizado</string>
