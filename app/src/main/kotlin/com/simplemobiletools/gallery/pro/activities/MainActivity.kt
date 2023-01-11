@@ -245,6 +245,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 tryLoadGallery()
             }
         }
+
+        if (config.searchAllFilesByDefault) {
+            main_menu.updateHintText(getString(R.string.search_files))
+        } else {
+            main_menu.updateHintText(getString(R.string.search_folders))
+        }
     }
 
     override fun onPause() {
@@ -330,7 +336,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         main_menu.getToolbar().inflateMenu(menuId)
         main_menu.toggleHideOnScroll(true)
         main_menu.setupMenu()
-        main_menu.updateHintText(getString(R.string.search_folders))
 
         if (isPiePlus()) {
             main_menu.onSearchOpenListener = {
