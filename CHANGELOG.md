@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 6.26.0 *(2023-01-11)*
+----------------------------
+
+ * Use Material You design by default on Android 12+
+ * Increased minimal required Android OS version to 6
+ * Allow choosing between the basic and advanced photo editor
+ * Added a menu button for quick toggle between Folders and All Files views
+ * Added a setting for always searching all device files from the main screen
+ * Allow showing excluded folders at the destination picker too
+ * Added many translation, stability, UX and UI improvements
+
 Version 6.25.5 *(2022-11-22)*
 ----------------------------
 
