@@ -94,7 +94,7 @@
     <string name="edit_video_with">Muuda videot:</string>
     <string name="no_image_editor_found">Pildiredaktorit ei leitud</string>
     <string name="no_video_editor_found">Videoredaktorit ei leitud</string>
-    <string name="unknown_file_location">Teadmata faili asukoht</string>
+    <string name="unknown_file_location">Faili asukoht pole teada</string>
     <string name="error_saving_file">Lähtefaili ei saanud üle kirjutada</string>
     <string name="rotate_left">Pööra vasakule</string>
     <string name="rotate_right">Pööra paremale</string>
@@ -367,14 +367,14 @@
     <string name="faq_14_title">Olen faili/kausta ära peitnud. Kuidas ma saan selle peidust välja tuua\?</string>
     <string name="faq_14_text">Peidetud elemendi nägemiseks saate kas vajutada põhiekraanil menüüelementi \"Ajutiselt näidata peidetud elemente\" või lülitada rakenduse seadetes ümber \"Näita peidetud elemente\". Kui soovite selle välja võtta, vajutage sellele lihtsalt pikalt ja valige \"Unhide\". Kaustad on peidetud, lisades neisse peidetud \".nomedia\" faili, saate selle faili kustutada ka mis tahes failihalduriga. Pange tähele, et peitmine toimib siiski rekursiivselt, nii et kui te peidate kausta, muutuvad ka kõik alamkaustad samuti peidetuks. Nii et alamkaustade peitmise tühistamiseks tuleb eemaldada vanema kausta peitmine.</string>
     <string name="faq_15_title">Miks võtab rakendus nii palju ruumi\?</string>
-    <string name="faq_15_text">Rakenduse vahemälu võib võtta kuni 250 MB, see tagab kiirema pildi laadimise. Kui rakendus võtab veelgi rohkem ruumi, on selle põhjuseks tõenäoliselt see, et teil on esemeid prügikastis. Need failid arvestavad rakenduse suuruse hulka. Saate prügikasti tühjendada, avades selle ja kustutades kõik failid või rakenduse seadetest. Iga prügikastis olev fail kustutatakse automaatselt 30 päeva pärast.</string>
-    <string name="faq_16_title">Mis juhtus failide ja kaustade peitmisega ja miks ma ei näe enam peidetud objekte\?</string>
+    <string name="faq_15_text">Rakenduse vahemälu võib võtta kuni 250 MB ja see tagab piltide kiirema laadimise. Kui rakendus võtab veelgi rohkem ruumi, on selle põhjuseks tõenäoliselt see, et sul on esemeid prügikastis. Need failid on osa rakenduse mälukasutusest. Saad prügikasti tühjendada, avades selle ja kustutades kõik failid või tehes sama rakenduse seadetest. Iga prügikastis olev fail kustutatakse automaatselt 30 päeva pärast.</string>
+    <string name="faq_16_title">Mis juhtus failide ja kaustade peitmisega ja miks ma ei näe enam peidetud kirjeid\?</string>
     <string name="faq_16_text">Alates Android 11\'st sa enam ei saa rakendusest kaustu peita või teha nähtavaks. Lisaks ei saa süsteemsete piirangute tõttu enam galeriist kasutada peidetud kaustu. Kirjeldatud eesmärgi saavutamiseks palun kasuta failihaldurit.</string>
     <string name="faq_16_text_extra">Aga samas võid sa sellele galeriirakendusele anda süsteemihaldusest õigused kõikide failide nägemiseks ning sellega saame õigused ka peidetud failide kuvamiseks ja kõik toimingud failidega on töökindlamad.</string>
     <string name="faq_17_title">Miks ma ei saa enam lisada puuduvaid kaustu\?</string>
-    <string name="faq_17_text">See lakkas töötamast tänu süsteemimuudatustele, mis tulid koos Android 11-ga, rakendus ei saa enam sirvida reaalseid kaustu, vaid tugineb andmete hankimisel nn MediaStore\'ile.</string>
+    <string name="faq_17_text">See funktsionaalsus lakkas töötamast tänu süsteemimuudatustele, mis lisandusid Android 11-ga, mispuhul rakendus ei saa enam sirvida reaalseid kaustu, vaid tugineb andmete hankimisel nn MediaStore\'ile.</string>
     <string name="faq_18_title">Miks ma näen video taasesituse ajal reklaami\?</string>
-    <string name="faq_18_text">Meie rakendustes ei ole üldse reklaami. Kui näete neid videote esitamise ajal, peate kasutama mõnda muud rakendust videomängijana. Proovi leida seadme seadetest oma vaikimisi videomängija, seejärel tee selle kohta \"Tühjenda vaikimisi\". Järgmine kord, kui kutsute mõne video kavatsuse esile, näete rakenduse valiku nõuet, kus saate valida, millist rakendust soovite kasutada.</string>
+    <string name="faq_18_text">Meie rakendustes ei ole üldse reklaami. Kui näed neid videote esitamise ajal, pead kasutama mõnda muud rakendust videomängijana. Proovi leida seadme seadetest oma vaikimisi videomängija, seejärel tee selle kohta „Eemalda vaikimisi seaded“. Järgmine kord, kui alustad videoesitust, näed rakenduse valikut, kus saad valida, millist rakendust soovid kasutada.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
