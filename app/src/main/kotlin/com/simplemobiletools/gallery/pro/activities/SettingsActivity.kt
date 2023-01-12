@@ -226,9 +226,7 @@ class SettingsActivity : SimpleActivity() {
         config.showHiddenMedia = settings_show_hidden_items.isChecked
     }
 
-    // show this on Android 9+ only due to a glitch on lower versions where search is automatically open on startup
     private fun setupSearchAllFiles() {
-        settings_search_all_files_holder.beVisibleIf(isPiePlus())
         settings_search_all_files.isChecked = config.searchAllFilesByDefault
         settings_search_all_files_holder.setOnClickListener {
             settings_search_all_files.toggle()

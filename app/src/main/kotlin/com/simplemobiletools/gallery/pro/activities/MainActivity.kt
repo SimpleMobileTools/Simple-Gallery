@@ -337,11 +337,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         main_menu.toggleHideOnScroll(true)
         main_menu.setupMenu()
 
-        if (isPiePlus()) {
-            main_menu.onSearchOpenListener = {
-                if (config.searchAllFilesByDefault) {
-                    launchSearchActivity()
-                }
+        main_menu.onSearchOpenListener = {
+            if (config.searchAllFilesByDefault) {
+                launchSearchActivity()
             }
         }
 
