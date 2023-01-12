@@ -362,7 +362,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
 
                 val searchHint = if (mShowAll) {
-                    getString(R.string.search)
+                    getString(R.string.search_files)
                 } else {
                     getString(R.string.search_in_placeholder, dirName)
                 }
