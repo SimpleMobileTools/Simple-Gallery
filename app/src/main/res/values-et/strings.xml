@@ -53,8 +53,8 @@
     <string name="change_filters_underlined"><u>Muuda filtreid</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">See funktsioon peidab kausta koos alamkaustadega, lisades sinna faili „.nomedia“. Neid näed, lülitades seadetes sisse valiku „Kuva peidetud kirjed“. Kas jätkame\?</string>
-    <string name="exclude_folder_description">See välistab valiku koos selle alamkaustadega ainult Simple Gallery\'st. Väljajäetud kaustu saate hallata seadetes.</string>
-    <string name="exclude_folder_parent">Kas jätta selle asemel vanem välja\?</string>
+    <string name="exclude_folder_description">See välistab valiku koos selle alamkaustadega ainult Lihtsast galeriist. Väljajäetud kaustu saad hallata seadetes.</string>
+    <string name="exclude_folder_parent">Kas selle asemel jätame ülemkirjed välja\?</string>
     <string name="excluded_activity_placeholder">Kaustade välistamine peidab kaustad koos nende alamkaustadega vaid Lihtsast galeriist ning nad jäävad nähtavaks muudele rakendustele.
 \n
 \nKui sa tahad neid varjata ka muude rakenduste eest, siis kasuta peitmise funktsionaalsust.</string>
@@ -69,15 +69,15 @@
     <string name="included_activity_placeholder">Kui sinu teda on olemas meediakaustu, mida rakendus pole tuvastanud, siis saad need käsitsi siin lisada.
 \n
 \nSiia kaustade lisamine ei välista muude kaustade tuvastamist ja kasutamist.</string>
-    <string name="no_media_add_included">Meediafaile ei ole leitud. Selle saate lahendada, lisades meediafaile sisaldavad kaustad käsitsi.</string>
+    <string name="no_media_add_included">Meediafaile ei leidunud. Selle saad lahendada, lisades meediafaile sisaldavad kaustad käsitsi.</string>
     <!-- Resizing -->
     <string name="resize_and_save">Muuda suurust ja salvesta</string>
     <string name="width">Laius</string>
     <string name="height">Kõrgus</string>
     <string name="keep_aspect_ratio">Jäta proportsioon samaks</string>
-    <string name="invalid_values">Palun sisestage kehtiv resolutsioon</string>
+    <string name="invalid_values">Palun sisesta korrektne resolutsioon</string>
     <!-- Editor -->
-    <string name="editor">Toimetaja</string>
+    <string name="editor">Redaktor</string>
     <string name="basic_editor">Lihtne redaktor</string>
     <string name="advanced_editor">Võimalusterohke redaktor</string>
     <string name="rotate">Pööra</string>
@@ -96,94 +96,94 @@
     <string name="no_video_editor_found">Videoredaktorit ei leitud</string>
     <string name="unknown_file_location">Teadmata faili asukoht</string>
     <string name="error_saving_file">Lähtefaili ei saanud üle kirjutada</string>
-    <string name="rotate_left">Pöörake vasakule</string>
-    <string name="rotate_right">Pöörake paremale</string>
-    <string name="rotate_one_eighty">Pöörake 180º võrra</string>
-    <string name="flip">Pöörake</string>
-    <string name="flip_horizontally">Pöörake horisontaalselt</string>
-    <string name="flip_vertically">Vertikaalselt pööramine</string>
+    <string name="rotate_left">Pööra vasakule</string>
+    <string name="rotate_right">Pööra paremale</string>
+    <string name="rotate_one_eighty">Pööra 180º võrra</string>
+    <string name="flip">Pööra ümber</string>
+    <string name="flip_horizontally">Pööra ümber horisontaalselt</string>
+    <string name="flip_vertically">Pööra ümber vertikaalselt</string>
     <string name="free_aspect_ratio">Tasuta</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Muud</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Lihtne tapeet</string>
+    <string name="simple_wallpaper">Lihtne taustapilt</string>
     <string name="set_as_wallpaper">Määra taustapildiks</string>
-    <string name="set_as_wallpaper_failed">Taustapildiks määramine ebaõnnestus</string>
+    <string name="set_as_wallpaper_failed">Taustapildiks määramine ei õnnestunud</string>
     <string name="set_as_wallpaper_with">Määra taustapildiks:</string>
     <string name="setting_wallpaper">Taustapildi seadistamine…</string>
-    <string name="wallpaper_set_successfully">Taustapildi komplekt edukalt</string>
-    <string name="portrait_aspect_ratio">Portree kuvasuhe</string>
-    <string name="landscape_aspect_ratio">Maastikuline kuvasuhe</string>
-    <string name="home_screen">Avakuva</string>
+    <string name="wallpaper_set_successfully">Taustapildi seadistamine õnnestus</string>
+    <string name="portrait_aspect_ratio">Portreevaate kuvasuhe</string>
+    <string name="landscape_aspect_ratio">Maastikuvaate kuvasuhe</string>
+    <string name="home_screen">Avaleht</string>
     <string name="lock_screen">Lukustusekraan</string>
-    <string name="home_and_lock_screen">Avakuva ja lukustusekraan</string>
-    <string name="allow_changing_aspect_ratio">Lubab muuta kuvasuhet</string>
+    <string name="home_and_lock_screen">Avaleht ja lukustusekraan</string>
+    <string name="allow_changing_aspect_ratio">Võimalda kuvasuhte muutmist</string>
     <!-- Slideshow -->
     <string name="slideshow">Slaidiesitlus</string>
-    <string name="interval">Intervall</string>
-    <string name="include_photos">Lisage fotod</string>
-    <string name="include_videos">Lisage videod</string>
-    <string name="include_gifs">Kaasa GIFid</string>
+    <string name="interval">Välp</string>
+    <string name="include_photos">Kaasa fotod</string>
+    <string name="include_videos">Kaasa videod</string>
+    <string name="include_gifs">Kaasa GIF-pildid</string>
     <string name="random_order">Juhuslik järjekord</string>
-    <string name="move_backwards">Tagasi liikumine</string>
-    <string name="loop_slideshow">Silmus slaidiesitlus</string>
+    <string name="move_backwards">Liigu tagasi</string>
+    <string name="loop_slideshow">Korda slaidiesitlust</string>
     <string name="animation">Animatsioon</string>
-    <string name="no_animation">Ükski</string>
+    <string name="no_animation">Puudub</string>
     <string name="fade">Hämardumine</string>
     <string name="slide">Slaid</string>
     <string name="slideshow_ended">Slaidiesitlus lõppes</string>
-    <string name="no_media_for_slideshow">Slaidiesitluse jaoks ei ole leitud ühtegi meediat</string>
+    <string name="no_media_for_slideshow">Slaidiesitluse jaoks ei ole leitud ühtegi meediafaili</string>
     <!-- View types -->
-    <string name="group_direct_subfolders">Otseste alamkaustade rühmitamine</string>
+    <string name="group_direct_subfolders">Rühmita otseseid alamkaustu</string>
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Rühma poolt</string>
-    <string name="do_not_group_files">Ärge grupeerige faile</string>
-    <string name="by_folder">Kaustik</string>
+    <string name="group_by">Rühmituse alus</string>
+    <string name="do_not_group_files">Ärge rühmita faile</string>
+    <string name="by_folder">Kaust</string>
     <string name="by_last_modified">Viimati muudetud</string>
-    <string name="by_last_modified_daily">Viimati muudetud (iga päev)</string>
-    <string name="by_last_modified_monthly">Viimati muudetud (igakuiselt)</string>
-    <string name="by_date_taken">Võetud kuupäev</string>
-    <string name="by_date_taken_daily">Võetud kuupäev (iga päev)</string>
-    <string name="by_date_taken_monthly">Võetud kuupäev (igakuiselt)</string>
+    <string name="by_last_modified_daily">Viimati muudetud (päevana)</string>
+    <string name="by_last_modified_monthly">Viimati muudetud (kuuna)</string>
+    <string name="by_date_taken">Pildistamise kuupäev</string>
+    <string name="by_date_taken_daily">Pildistamise kuupäev (päevana)</string>
+    <string name="by_date_taken_monthly">Pildistamise kuupäev (kuuna)</string>
     <string name="by_file_type">Faili tüüp</string>
     <string name="by_extension">Faililaiend</string>
     <string name="show_file_count_section_header">Näita vahepealkirjades failide arvu</string>
-    <string name="grouping_and_sorting">Pange tähele, et rühmitamine ja sorteerimine on 2 sõltumatut valdkonda</string>
+    <string name="grouping_and_sorting">Pane tähele, et rühmitamine ja sorteerimine on 2 erinevat välja</string>
     <!-- Widgets -->
-    <string name="folder_on_widget">Vidina näidatud kaust:</string>
+    <string name="folder_on_widget">Vidinas näidatav kaust:</string>
     <string name="show_folder_name">Näita kausta nime</string>
     <!-- Settings -->
-    <string name="autoplay_videos">Videote automaatne esitamine</string>
-    <string name="remember_last_video_position">Mäletab viimase video taasesituse positsiooni</string>
-    <string name="loop_videos">Silmus videod</string>
-    <string name="animate_gifs">GIF-ide animeerimine pisipiltide juures</string>
-    <string name="max_brightness">Maksimaalne heledus täisekraani meedia vaatamisel</string>
-    <string name="crop_thumbnails">Pisipiltide kärpimine ruutudeks</string>
-    <string name="show_thumbnail_video_duration">Näita videod kestust</string>
-    <string name="screen_rotation_by">Pöörake täisekraani meediat</string>
-    <string name="screen_rotation_system_setting">Süsteemi seadistus</string>
-    <string name="screen_rotation_device_rotation">Seadme pöörlemine</string>
-    <string name="screen_rotation_aspect_ratio">Kujundisuhe</string>
-    <string name="black_background_at_fullscreen">Must taust täisekraani meedias</string>
-    <string name="scroll_thumbnails_horizontally">Kerige pisipilte horisontaalselt</string>
-    <string name="hide_system_ui_at_fullscreen">Süsteemi kasutajaliidese automaatne peitmine täisekraani meedia puhul</string>
-    <string name="delete_empty_folders">Tühjade kaustade kustutamine pärast nende sisu kustutamist</string>
-    <string name="allow_photo_gestures">Võimaldab foto heleduse juhtimist vertikaalsete žestidega</string>
-    <string name="allow_video_gestures">Võimaldab video helitugevuse ja heleduse reguleerimist vertikaalsete žestidega</string>
-    <string name="show_media_count">Kaustameediumite arvu kuvamine põhivaates</string>
-    <string name="show_extended_details">Näita laiendatud üksikasju täisekraani meedia üle</string>
-    <string name="manage_extended_details">Laiendatud üksikasjade haldamine</string>
-    <string name="one_finger_zoom">Võimaldab ühe sõrmega suumimist täisekraani meediumis</string>
-    <string name="allow_instant_change">Võimaldab koheselt vahetada meediat, klõpsates ekraani külgedel</string>
-    <string name="allow_deep_zooming_images">Võimaldab piltide sügavat suumimist</string>
-    <string name="hide_extended_details">Laiendatud üksikasjade peitmine, kui olekuriba on peidetud</string>
+    <string name="autoplay_videos">Esita videosid automaatselt</string>
+    <string name="remember_last_video_position">Jäta meelde video taasesituse viimane ajapunkt</string>
+    <string name="loop_videos">Esita videosid lõputult</string>
+    <string name="animate_gifs">Animeeri GIF-faile pisipiltide juures</string>
+    <string name="max_brightness">Maksimaalne heledus meedia vaatamisel täisekraanil</string>
+    <string name="crop_thumbnails">Kärbi pisipildid ruutudeks</string>
+    <string name="show_thumbnail_video_duration">Näita videote kestust</string>
+    <string name="screen_rotation_by">Täisekraani vaates pööra meediat</string>
+    <string name="screen_rotation_system_setting">Süsteemi seadistused</string>
+    <string name="screen_rotation_device_rotation">Seadme pööramine</string>
+    <string name="screen_rotation_aspect_ratio">Kuvasuhe</string>
+    <string name="black_background_at_fullscreen">Meedia must taust täisekraanivaates</string>
+    <string name="scroll_thumbnails_horizontally">Keri pisipilte horisontaalselt</string>
+    <string name="hide_system_ui_at_fullscreen">Täisekraanivaates peida süsteemi kasutajaliides automaatselt</string>
+    <string name="delete_empty_folders">Kustuta tühjad kaustad pärast nende sisu kustutamist</string>
+    <string name="allow_photo_gestures">Luba foto heleduse muutmist vertikaalse viipamisega</string>
+    <string name="allow_video_gestures">Luba foto video valjuse ja heleduse muutmist vertikaalse viipamisega</string>
+    <string name="show_media_count">Näita põhivaates kaustates olevate meediafailide arvu</string>
+    <string name="show_extended_details">Näita meedia täisekraanivaates detailset teavet</string>
+    <string name="manage_extended_details">Halda detailse vaate teavet</string>
+    <string name="one_finger_zoom">Näita meedia täisekraanivaates ühe sõrmega suumimist</string>
+    <string name="allow_instant_change">Luba koheselt vahetada meediat, klõpsates ekraani külgedel</string>
+    <string name="allow_deep_zooming_images">Luba piltide sügavat suumimist</string>
+    <string name="hide_extended_details">Kui olekuriba on peidetud, peida detailne lisateave</string>
     <string name="show_at_bottom">Näita mõned tegevusnupud ekraani allosas</string>
-    <string name="show_recycle_bin">Prügikasti kuvamine kaustade ekraanil</string>
+    <string name="show_recycle_bin">Kuva prügikast kaustade vaates</string>
     <string name="deep_zoomable_images">Sügavalt suumitavad pildid</string>
     <string name="show_highest_quality">Näita pilte võimalikult kõrge kvaliteediga</string>
-    <string name="show_recycle_bin_last">Prügikasti kuvamine põhiekraani viimase elemendina</string>
-    <string name="allow_down_gesture">Võimaldab täisekraani vaate sulgemist allapoole suunatud žestiga</string>
+    <string name="show_recycle_bin_last">Kuva prügikast põhivaate viimase kirjena</string>
+    <string name="allow_down_gesture">Luba täisekraanivaate sulgemist allapoole suunatud viipega</string>
     <string name="allow_one_to_one_zoom">Võimaldab 1:1 suumimist kahe topeltpuudutusega</string>
     <string name="open_videos_on_separate_screen">Avage videod alati eraldi ekraanil uute horisontaalsete žestidega</string>
     <string name="show_notch">Kuva sälk, kui see on saadaval</string>
