@@ -215,7 +215,7 @@
     <string name="alternative_media_access">Vous pouvez également n\'autoriser que l\'accès aux fichiers multimédias. Dans ce cas, vous ne pourrez cependant pas travailler avec les fichiers cachés.</string>
     <string name="media_only">Médias uniquement</string>
     <string name="all_files">Tous les fichiers</string>
-    <string name="search_all_files">Rechercher tous les fichiers au lieu des dossiers sur l\'écran principal</string>
+    <string name="search_all_files">Rechercher des fichiers au lieu des dossiers sur l\'écran principal</string>
     <string name="show_all_folders">Afficher un bouton de menu pour afficher rapidement le contenu de tous les dossiers</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
