@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.26.1 *(2023-01-12)*
+----------------------------
+
+ * Added some Search related fixes on lower OS versions
+
 Version 6.26.0 *(2023-01-11)*
 ----------------------------
 
