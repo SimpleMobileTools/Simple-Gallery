@@ -184,7 +184,7 @@
     <string name="show_highest_quality">Näita pilte võimalikult kõrge kvaliteediga</string>
     <string name="show_recycle_bin_last">Kuva prügikast põhivaate viimase kirjena</string>
     <string name="allow_down_gesture">Luba täisekraanivaate sulgemist allapoole suunatud viipega</string>
-    <string name="allow_one_to_one_zoom">Võimaldab 1:1 suumimist kahe topeltpuudutusega</string>
+    <string name="allow_one_to_one_zoom">Luba 1:1 suumimist kahe topeltpuudutusega</string>
     <string name="open_videos_on_separate_screen">Avage videod alati eraldi ekraanil uute horisontaalsete žestidega</string>
     <string name="show_notch">Kuva sälk, kui see on saadaval</string>
     <string name="allow_rotating_gestures">Võimaldab piltide pööramist žestidega</string>
