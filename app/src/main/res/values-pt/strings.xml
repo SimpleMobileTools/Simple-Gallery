@@ -5,9 +5,9 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="hidden">(oculta)</string>
-    <string name="excluded">(excluded)</string>
-    <string name="pin_folder">Marcar pasta</string>
-    <string name="unpin_folder">Desmarcar pasta</string>
+    <string name="excluded">(excluída)</string>
+    <string name="pin_folder">Fixar pasta</string>
+    <string name="unpin_folder">Desafixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
@@ -23,24 +23,24 @@
     <string name="force_portrait">Impor modo vertical</string>
     <string name="force_landscape">Impor modo horizontal</string>
     <string name="use_default_orientation">Usar predefinição</string>
-    <string name="fix_date_taken">Corrigir Tirada em</string>
+    <string name="fix_date_taken">Corrigir data de captura</string>
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
-    <string name="no_date_takens_found">Não foram encontrados dados para a data de obtenção da fotografia</string>
+    <string name="no_date_takens_found">Não foram encontrados dados para a data de captura</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
     <string name="upgraded_from_free">Olá,
 \n
-\nParece ter sido feita uma actualização para a versão Pro a partir a antiga versão grátis. Agora já pode desinstalar a versão anterior.
+\nParece ter sido feita uma atualização para a versão Pro a partir a antiga versão grátis. Agora já pode desinstalar a versão anterior, que tem o texto \'Atualizar para Pro\', nas definições da aplicação.
 \n
-\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados, e bastará repor as suas definições na aplicação.
+\nMas perderá os itens existentes na reciclagem, os favoritos e terá que repor as definições padrão.
 \n
 \nObrigado!</string>
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
     <string name="set_as_default_folder">Utilizar como pasta padrão</string>
     <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>
-    <string name="reorder_by_dragging">Organizar pasta por arrasto</string>
-    <string name="reorder_by_dragging_pro">Organizar pasta por arrasto (Pro)</string>
-    <string name="restore_to_path">Restaurando para \'%s\'</string>
+    <string name="reorder_by_dragging">Organizar pastas por arrasto</string>
+    <string name="reorder_by_dragging_pro">Organizar pastas por arrasto (Pro)</string>
+    <string name="restore_to_path">A restaurar para \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
     <string name="images">Imagens</string>
@@ -52,8 +52,8 @@
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta função oculta a pasta adicionando-lhe um ficheiro \'.nomedia\' e ocultará também todas as subpastas nela existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar\?</string>
-    <string name="exclude_folder_description">As pastas seleccionadas bem como as suas subpastas serão excluídas apenas e só nesta aplicação. Pode gerir as pastas excluídas nas Definições.</string>
+    <string name="hide_folder_description">Esta função oculta a pasta, adicionando-lhe um ficheiro \'.nomedia\' e ocultará também todas as subpastas nela existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar\?</string>
+    <string name="exclude_folder_description">As pastas selecionadas, bem como as suas subpastas serão excluídas apenas e só nesta aplicação. Pode gerir as pastas excluídas nas Definições.</string>
     <string name="exclude_folder_parent">Excluir antes a pasta superior\?</string>
     <string name="excluded_activity_placeholder">Excluir pastas – e implicitamente, as suas subpastas também – faz com que deixem de ser apresentadas apenas e só na Simple Gallery. Continuarão visíveis noutras aplicações.
 \n
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerir pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que não existem pastas ocultas com ficheiros \".nomedia\".</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Tem que conceder o acesso a todos os ficheiros para ver os ficheiros ocultos. Se não o fizer, a aplicação não funcionará corretamente.</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
     <string name="manage_included_folders">Gerir pastas incluídas</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Introduza uma resolução válida</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Editor básico</string>
+    <string name="advanced_editor">Editor avançado</string>
     <string name="rotate">Rodar</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="invalid_video_path">Caminho de vídeo inválido</string>
