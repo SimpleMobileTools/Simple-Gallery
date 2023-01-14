@@ -109,7 +109,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         setupOptionsMenu()
         refreshMenuItems()
 
-        updateMaterialActivityViews(directories_coordinator, directories_grid, useTransparentNavigation = true, useTopSearchMenu = true)
+        updateMaterialActivityViews(directories_coordinator, directories_grid, useTransparentNavigation = !config.scrollHorizontally, useTopSearchMenu = true)
 
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         storeStateVariables()
@@ -334,7 +334,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         main_menu.getToolbar().inflateMenu(menuId)
-        main_menu.toggleHideOnScroll(true)
+        main_menu.toggleHideOnScroll(!config.scrollHorizontally)
         main_menu.setupMenu()
 
         main_menu.onSearchOpenListener = {

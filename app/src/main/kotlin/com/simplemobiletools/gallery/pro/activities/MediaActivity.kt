@@ -96,7 +96,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         setupOptionsMenu()
         refreshMenuItems()
         storeStateVariables()
-        updateMaterialActivityViews(media_coordinator, media_grid, useTransparentNavigation = true, useTopSearchMenu = true)
+        updateMaterialActivityViews(media_coordinator, media_grid, useTransparentNavigation = !config.scrollHorizontally, useTopSearchMenu = true)
 
         if (mShowAll) {
             registerFileUpdateListener()
@@ -257,7 +257,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun setupOptionsMenu() {
         media_menu.getToolbar().inflateMenu(R.menu.menu_media)
-        media_menu.toggleHideOnScroll(true)
+        media_menu.toggleHideOnScroll(!config.scrollHorizontally)
         media_menu.setupMenu()
 
         media_menu.onSearchTextChangedListener = { text ->
