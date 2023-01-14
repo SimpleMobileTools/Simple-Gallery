@@ -1,9 +1,11 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.*
@@ -18,11 +20,13 @@ import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.io.File
 import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
     private val PICK_IMPORT_SOURCE_INTENT = 1
+    private val SELECT_EXPORT_FAVORITES_FILE_INTENT = 2
     private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,6 +95,7 @@ class SettingsActivity : SimpleActivity() {
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupClearCache()
+        setupExportFavorites()
         setupExportSettings()
         setupImportSettings()
 
@@ -118,6 +123,9 @@ class SettingsActivity : SimpleActivity() {
         if (requestCode == PICK_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
             val inputStream = contentResolver.openInputStream(resultData.data!!)
             parseFile(inputStream)
+        } else if (requestCode == SELECT_EXPORT_FAVORITES_FILE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+            val outputStream = contentResolver.openOutputStream(resultData.data!!)
+            exportFavoritesTo(outputStream)
         }
     }
 
@@ -702,6 +710,66 @@ class SettingsActivity : SimpleActivity() {
                 }
             }
         }
+    }
+
+    private fun setupExportFavorites() {
+        settings_export_favorites_holder.setOnClickListener {
+            if (isQPlus()) {
+                ExportFavoritesDialog(this, getExportFavoritesFilename(), true) { path, filename ->
+                    Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TITLE, filename)
+                        addCategory(Intent.CATEGORY_OPENABLE)
+
+                        try {
+                            startActivityForResult(this, SELECT_EXPORT_FAVORITES_FILE_INTENT)
+                        } catch (e: ActivityNotFoundException) {
+                            toast(R.string.system_service_disabled, Toast.LENGTH_LONG)
+                        } catch (e: Exception) {
+                            showErrorToast(e)
+                        }
+                    }
+                }
+            } else {
+                handlePermission(PERMISSION_WRITE_STORAGE) {
+                    if (it) {
+                        ExportFavoritesDialog(this, getExportFavoritesFilename(), false) { path, filename ->
+                            val file = File(path)
+                            getFileOutputStream(file.toFileDirItem(this), true) {
+                                exportFavoritesTo(it)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun exportFavoritesTo(outputStream: OutputStream?) {
+        if (outputStream == null) {
+            toast(R.string.unknown_error_occurred)
+            return
+        }
+
+        ensureBackgroundThread {
+            val favoritePaths = favoritesDB.getValidFavoritePaths()
+            if (favoritePaths.isNotEmpty()) {
+                outputStream.bufferedWriter().use { out ->
+                    favoritePaths.forEach { path ->
+                        out.writeLn(path)
+                    }
+                }
+
+                toast(R.string.exporting_successful)
+            } else {
+                toast(R.string.no_items_found)
+            }
+        }
+    }
+
+    private fun getExportFavoritesFilename(): String {
+        val appName = baseConfig.appId.removeSuffix(".debug").removeSuffix(".pro").removePrefix("com.simplemobiletools.")
+        return "$appName-favorites_${getCurrentFormattedDateTime()}"
     }
 
     private fun setupExportSettings() {

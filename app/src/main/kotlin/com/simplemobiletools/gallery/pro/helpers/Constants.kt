@@ -98,6 +98,7 @@ const val FILE_ROUNDED_CORNERS = "file_rounded_corners"
 const val CUSTOM_FOLDERS_ORDER = "custom_folders_order"
 const val AVOID_SHOWING_ALL_FILES_PROMPT = "avoid_showing_all_files_prompt"
 const val SEARCH_ALL_FILES_BY_DEFAULT = "search_all_files_by_default"
+const val LAST_EXPORTED_FAVORITES_FOLDER = "last_exported_favorites_folder"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
