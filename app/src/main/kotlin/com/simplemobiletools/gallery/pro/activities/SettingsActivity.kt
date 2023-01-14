@@ -27,6 +27,7 @@ import kotlin.system.exitProcess
 class SettingsActivity : SimpleActivity() {
     private val PICK_IMPORT_SOURCE_INTENT = 1
     private val SELECT_EXPORT_FAVORITES_FILE_INTENT = 2
+    private val SELECT_IMPORT_FAVORITES_FILE_INTENT = 3
     private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,6 +97,7 @@ class SettingsActivity : SimpleActivity() {
         updateTextColors(settings_holder)
         setupClearCache()
         setupExportFavorites()
+        setupImportFavorites()
         setupExportSettings()
         setupImportSettings()
 
@@ -126,6 +128,9 @@ class SettingsActivity : SimpleActivity() {
         } else if (requestCode == SELECT_EXPORT_FAVORITES_FILE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
             val outputStream = contentResolver.openOutputStream(resultData.data!!)
             exportFavoritesTo(outputStream)
+        } else if (requestCode == SELECT_IMPORT_FAVORITES_FILE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+            val inputStream = contentResolver.openInputStream(resultData.data!!)
+            importFavorites(inputStream)
         }
     }
 
@@ -770,6 +775,55 @@ class SettingsActivity : SimpleActivity() {
     private fun getExportFavoritesFilename(): String {
         val appName = baseConfig.appId.removeSuffix(".debug").removeSuffix(".pro").removePrefix("com.simplemobiletools.")
         return "$appName-favorites_${getCurrentFormattedDateTime()}"
+    }
+
+    private fun setupImportFavorites() {
+        settings_import_favorites_holder.setOnClickListener {
+            if (isQPlus()) {
+                Intent(Intent.ACTION_GET_CONTENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "text/plain"
+                    startActivityForResult(this, SELECT_IMPORT_FAVORITES_FILE_INTENT)
+                }
+            } else {
+                handlePermission(PERMISSION_READ_STORAGE) {
+                    if (it) {
+                        FilePickerDialog(this) {
+                            ensureBackgroundThread {
+                                importFavorites(File(it).inputStream())
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun importFavorites(inputStream: InputStream?) {
+        if (inputStream == null) {
+            toast(R.string.unknown_error_occurred)
+            return
+        }
+
+        ensureBackgroundThread {
+            var importedItems = 0
+            inputStream.bufferedReader().use {
+                while (true) {
+                    try {
+                        val line = it.readLine() ?: break
+                        if (getDoesFilePathExist(line)) {
+                            val favorite = getFavoriteFromPath(line)
+                            favoritesDB.insert(favorite)
+                            importedItems++
+                        }
+                    } catch (e: Exception) {
+                        showErrorToast(e)
+                    }
+                }
+            }
+
+            toast(if (importedItems > 0) R.string.importing_successful else R.string.no_entries_for_importing)
+        }
     }
 
     private fun setupExportSettings() {

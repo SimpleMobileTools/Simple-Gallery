@@ -968,6 +968,21 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_import_favorites_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_import_favorites"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_favorite_paths" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_export_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
