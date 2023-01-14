@@ -5,7 +5,7 @@
     <string name="edit">Sunting</string>
     <string name="open_camera">Buka kamera</string>
     <string name="hidden">(tersembunyi)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(tidak disertakan)</string>
     <string name="pin_folder">Sematkan folder</string>
     <string name="unpin_folder">Lepas pin folder</string>
     <string name="pin_to_the_top">Pin ke atas</string>
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Folder tersembunyi</string>
     <string name="manage_hidden_folders">Kelola folder tersembunyi</string>
     <string name="hidden_folders_placeholder">Sepertinya tidak ada folder yang tersembunyi dengan berkas \".nomedia\" di dalamnya.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Anda harus memberikan aplikasi akses Semua Berkas untuk melihat berkas tersembunyi, jika tidak diberikan maka tidak akan bekerja.</string>
     <!-- Include folders -->
     <string name="include_folders">Folder yang disertakan</string>
     <string name="manage_included_folders">Kelola folder yang disertakan</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Silakan masukkan resolusi yang valid</string>
     <!-- Editor -->
     <string name="editor">Penyunting</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Penyunting Dasar</string>
+    <string name="advanced_editor">Penyunting Tingkat Lanjut</string>
     <string name="rotate">Rotasi</string>
     <string name="invalid_image_path">Jalur gambar tidak valid</string>
     <string name="invalid_video_path">Jalur video tidak valid</string>
@@ -118,7 +118,7 @@
     <string name="home_screen">Layar beranda</string>
     <string name="lock_screen">Layar kunci</string>
     <string name="home_and_lock_screen">Beranda dan layar kunci</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Perbolehkan mengubah rasio aspek</string>
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval</string>
@@ -205,18 +205,18 @@
     <string name="square">Kotak</string>
     <string name="rounded_corners">Sudut bulat</string>
     <string name="export_favorite_paths">Ekspor jalur file favorit</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Impor jalur berkas favorit</string>
+    <string name="paths_imported_successfully">Jalur berhasil diimpor</string>
     <string name="media_management_prompt">Untuk memastikan semua operasi file bekerja dengan andal, mohon buat aplikasi ini sebagai pengelola aplikasi Media di pengaturan perangkat Anda.</string>
     <string name="password_protect_excluded">Lindungi visibiltas folder yang tidak disertakan dengan kata sandi</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="media_management_manual">Ada yang salah, silakan menuju ke Pengaturan - Aplikasi - Akses aplikasi khusus - Aplikasi manajemen media dan perbolehkan aplikasi ini untuk mengelola media.</string>
+    <string name="media_management_note">Jika perubahan arah tidak bekerja, silakan menuju ke Pengaturan - Aplikasi - Akses aplikasi khusus - Aplikasi manajemen media dan perbolehkan aplikasi ini untuk mengelola media.</string>
+    <string name="media_management_alternative">Jika Anda tidak ingin melakukannya, Anda juga dapat menuju ke Pengaturan - Aplikasi - Akses aplikasi khusus - Aplikasi manajemen media dan perbolehkan aplikasi ini untuk mengelola media.</string>
+    <string name="alternative_media_access">Secara alternatif, Anda dapat memperbolehkan mengakses berkas media saja. Dalam hal itu Anda tidak akan dapat bekerja dengan berkas tersembunyi.</string>
+    <string name="media_only">Hanya media</string>
+    <string name="all_files">Semua berkas</string>
+    <string name="search_all_files">Cari semua berkas daripada folder di layar utama</string>
+    <string name="show_all_folders">Tampilkan tombol menu untuk menampilkan konten Tampilkan Semua Folder secara cepat</string>
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>
     <string name="fullscreen_media">Media layar penuh</string>
@@ -370,7 +370,7 @@
     <string name="faq_15_text">Cache aplikasi bisa mencapai 250MB, ini untuk menjamin pemuatan gambar yang lebih cepat. Jika aplikasi menggunakan lebih banyak lagi ruang kosong, sangat memungkinkan anda memiliki item di dalam Keranjang Sampah. Berkas tersebut akan menambah ukuran aplikasi. Anda bisa mengosongkan Keranjang sampah dengan cara membukanya dan menghapus semua berkas, atau dari pengaturan aplikasi. Semua berkas di dalam keranjang sampah akan otomatis dihapus setelah 30 hari.</string>
     <string name="faq_16_title">Apa yang terjadi pada penyembunyian file dan folder, dan mengapa saya tidak bisa melihat item yang tersembunyi lagi\?</string>
     <string name="faq_16_text">Dimulai dengan Android 11, Anda tidak dapat menyembunyikan atau memunculkan file atau folder lagi, Anda juga tidak dapat melihat file atau folder yang tersembunyi di aplikasi galeri karena pembatasan sistem. Anda harus menggunakan beberapa manajer file untuk itu.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Atau Anda dapat memberikan galeri ini akses ke Semua Berkas melalui pengaturan perangkat Anda, itu akan memungkinkan kami untuk menampilkan item tersembunyi dan operasi berkas lebih andal.</string>
     <string name="faq_17_title">Mengapa saya tidak bisa lagi menyertakan folder yang hilang\?</string>
     <string name="faq_17_text">Itu berhenti bekerja karena perubahan sistem yang datang dengan Android 11 juga, aplikasinya tidak dapat menelusuri folder nyata lagi, itu bergantung pada apa yang disebut MediaStore dalam mengambil data.</string>
     <string name="faq_18_title">Mengapa saya melihat iklan selama pemutaran video\?</string>
