@@ -82,12 +82,12 @@
     <string name="advanced_editor">Editor avançado</string>
     <string name="rotate">Rodar</string>
     <string name="invalid_image_path">Caminho inválido</string>
-    <string name="invalid_video_path">Caminho de vídeo inválido</string>
+    <string name="invalid_video_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha ao editar a imagem</string>
     <string name="video_editing_failed">Falha ao editar o vídeo</string>
     <string name="image_editing_cancelled">Edição de imagem cancelada</string>
     <string name="video_editing_cancelled">Edição de vídeo cancelada</string>
-    <string name="file_edited_successfully">Imagem editada com sucesso</string>
+    <string name="file_edited_successfully">Ficheiro editado com sucesso</string>
     <string name="image_edited_successfully">Imagem editada com sucesso</string>
     <string name="video_edited_successfully">Vídeo editado com sucesso</string>
     <string name="edit_image_with">Editar imagem com:</string>
@@ -104,10 +104,10 @@
     <string name="flip_vertically">Verticalmente</string>
     <string name="free_aspect_ratio">Livre</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Outro</string>
+    <string name="other_aspect_ratio">Outra</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper - fundos de ecrã</string>
+    <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Definir como fundo de ecrã</string>
     <string name="set_as_wallpaper_failed">Falha ao definir o fundo de ecrã</string>
     <string name="set_as_wallpaper_with">Definir fundo com:</string>
@@ -126,7 +126,7 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIF</string>
     <string name="random_order">Ordem aleatória</string>
-    <string name="move_backwards">Retroceder</string>
+    <string name="move_backwards">Recuar</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="animation">Animação</string>
     <string name="no_animation">Nenhuma</string>
@@ -148,7 +148,7 @@
     <string name="by_date_taken_monthly">Tirada em (por mês)</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
-    <string name="show_file_count_section_header">Mostrar contagem no cabeçalho</string>
+    <string name="show_file_count_section_header">Mostrar contagem no título da secção</string>
     <string name="grouping_and_sorting">Tenha em atenção de que agrupamento e ordenação são campos independentes</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Pasta mostrada no widget:</string>
@@ -165,21 +165,21 @@
     <string name="screen_rotation_system_setting">Definições do sistema</string>
     <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporção</string>
-    <string name="black_background_at_fullscreen">Fundo escuro e barra de estado no modo de ecrã completo</string>
+    <string name="black_background_at_fullscreen">Fundo escuro no modo de ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar pastas vazias depois de remover o seu conteúdo</string>
-    <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
-    <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos com gestos verticais</string>
+    <string name="allow_photo_gestures">Permitir controlo do brilho com gestos verticais</string>
+    <string name="allow_video_gestures">Permitir controlo do volume e do brilho com gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
     <string name="one_finger_zoom">Permitir ampliação com um dedo se em ecrã completo</string>
     <string name="allow_instant_change">Permitir troca imediata de ficheiro ao tocar nas margens do ecrã</string>
     <string name="allow_deep_zooming_images">Permitir ampliação profunda de imagens</string>
-    <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
-    <string name="show_at_bottom">Mostrar alguns botões de acção na base do ecrã</string>
-    <string name="show_recycle_bin">Mostrar reciclagem no ecrã de vista de pastas</string>
+    <string name="hide_extended_details">Ocultar detalhes se a barra de estado estiver oculta</string>
+    <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
+    <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
     <string name="deep_zoomable_images">Ampliação de imagens</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar reciclagem como o último item do ecrã principal</string>
@@ -192,11 +192,11 @@
     <string name="speed">Velocidade</string>
     <string name="compromise">Qualidade</string>
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
-    <string name="show_image_file_types">Mostrar o tipo de imagem</string>
+    <string name="show_image_file_types">Mostrar o tipo da imagem</string>
     <string name="allow_zooming_videos">Permitir ampliação de vídeos com dois toques</string>
     <string name="folder_thumbnail_style">Estilo de miniatura das pastas</string>
-    <string name="file_thumbnail_style">Estilo das miniaturas</string>
-    <string name="mark_favorite_items">Assinalar itens favoritos</string>
+    <string name="file_thumbnail_style">Estilo de miniaturas dos ficheiros</string>
+    <string name="mark_favorite_items">Marcar itens favoritos</string>
     <string name="thumbnail_spacing">Espaçamento entre miniaturas</string>
     <string name="show_file_count_line">Mostrar número de ficheiros em linha distinta</string>
     <string name="show_file_count_brackets">Mostrar número de ficheiros em chavetas</string>
