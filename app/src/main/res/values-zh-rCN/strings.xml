@@ -215,7 +215,7 @@
     <string name="alternative_media_access">你也可以只允许访问媒体文件。但那样的话将无法处理隐藏的文件。</string>
     <string name="media_only">仅媒体文件</string>
     <string name="all_files">所有文件</string>
-    <string name="search_all_files">搜素所有文件而不是主屏幕上的文件夹</string>
+    <string name="search_all_files">在主屏幕上搜索所有文件而不是文件夹</string>
     <string name="show_all_folders">显示可快速切换“显示所有文件夹内容”选项的菜单按钮</string>
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
