@@ -5,7 +5,7 @@
     <string name="edit">Redigér</string>
     <string name="open_camera">Åbn kamera</string>
     <string name="hidden">(skjult)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ekskluderet)</string>
     <string name="pin_folder">Fastgør mappe</string>
     <string name="unpin_folder">Frigør mappe</string>
     <string name="pin_to_the_top">Fastgør til toppen</string>
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Skjulte mapper</string>
     <string name="manage_hidden_folders">Administrer skjulte mapper</string>
     <string name="hidden_folders_placeholder">Det ser ikke ud til at du har nogen skjulte mapper med en \".nomedia\"-fil.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+	<string name="hidden_all_files">Du skal give app'en "Alle filer" tilladelsen for at se skjulte filer, ellers vil det ikke fungere.</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderede mapper</string>
     <string name="manage_included_folders">Administrer inkluderede mapper</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Indtast en gyldig opløsning</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+	<string name="basic_editor">Grundlæggende editor</string>
+	<string name="advanced_editor">Avanceret editor</string>
     <string name="rotate">Roter</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="invalid_video_path">Ugyldig sti til video</string>
@@ -204,9 +204,9 @@
     <string name="limit_folder_title">Begræns lange mappenavne til 1 linje</string>
     <string name="square">Firkant</string>
     <string name="rounded_corners">Afrundede hjørner</string>
-    <string name="export_favorite_paths">Eksportér favoritfil-stier</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="export_favorite_paths">Eksportér favorit filstier</string>
+	<string name="import_favorite_paths">Importér favorit filstier</string>
+	<string name="paths_imported_successfully">Stier blev importeret</string>
     <string name="media_management_prompt">For at sikre at alle filhandlinger fungerer pålideligt, skal du gøre denne app en mediestyringsapp i dine enhedsindstillinger.</string>
     <string name="password_protect_excluded">Beskyt synligheden af udelukkede mapper med adgangskode</string>
     <string name="media_management_manual">Noget gik galt, gå ind på din enhed Indstillinger - Apps - Særlig app-adgang - Mediehåndteringsapps, og tillad denne app at håndtere medier.</string>
@@ -215,8 +215,8 @@
     <string name="alternative_media_access">Alternativt kan du kun tillade adgang til mediefiler. I så fald vil du dog ikke kunne arbejde med skjulte filer.</string>
     <string name="media_only">Kun medier</string>
     <string name="all_files">Alle filer</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_files">Søg i alle filer i stedet for mapper på hovedskærmen</string>
+	<string name="show_all_folders">Vis en menuknap til at slå "Vis indholdet af alle mapper" til og fra hurtigt</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturebilleder</string>
     <string name="fullscreen_media">Fuldskærmsmedier</string>
