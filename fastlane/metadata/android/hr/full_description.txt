@@ -22,9 +22,6 @@ Ne sadrži oglase ili nepotrebne dozvole. Potpuno je open-source i pruža prilag
 Ovdje pogledajte cijeli paket jednostavnih alata:
 https://www.simplemobiletools.com
 
-Samostalna web stranica Simple Galery Pro:
-https://www.simplemobiletools.com/gallery
-
 Facebook:
 https://www.facebook.com/simplemobiletools
 

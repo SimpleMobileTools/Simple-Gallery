@@ -22,9 +22,6 @@ Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně open-source a 
 Kompletní sadu jednoduchých nástrojů si můžete prohlédnout zde:
 https://www.simplemobiletools.com.
 
-Samostatná webová stránka aplikace Simple Gallery Pro:
-https://www.simplemobiletools.com/gallery
-
 Facebook:
 https://www.facebook.com/simplemobiletools
 

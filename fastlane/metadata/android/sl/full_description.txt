@@ -22,9 +22,6 @@ Ne vsebuje oglasov ali nepotrebnih dovoljenj. Je v celoti odprtokoden, zagotavlj
 Celoten nabor preprostih orodij si oglejte tukaj:
 https://www.simplemobiletools.com.
 
-Samostojno spletno mesto Simple Gallery Pro:
-https://www.simplemobiletools.com/gallery.
-
 Facebook:
 https://www.facebook.com/simplemobiletools
 
