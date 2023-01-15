@@ -205,25 +205,25 @@
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos ficheiros favoritos</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
-    <string name="media_management_prompt">Para garantir que todas as operações de arquivo funcionem de forma confiável, faça deste aplicativo um aplicativo de gerenciamento de mídia nas configurações do dispositivo.</string>
-    <string name="password_protect_excluded">Proteger com senha a visibilidade da pasta excluída</string>
-    <string name="media_management_manual">Algo deu errado, por favor, entre nas configurações do seu dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permita que este aplicativo gerencie mídia.</string>
-    <string name="media_management_note">Se o redirecionamento não funcionar, acesse as Configurações do seu dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permita que este aplicativo gerencie mídia.</string>
-    <string name="media_management_alternative">Se você não quiser fazer isso, também pode acessar Configurações do dispositivo - Aplicativos - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="import_favorite_paths">Importar caminho dos ficheiros favoritos</string>
+    <string name="paths_imported_successfully">Caminhos importados com sucesso</string>
+    <string name="media_management_prompt">Para garantir que todas as operações de ficheiros funcionem corretamente, torne esta a aplicação padrão para gerir os ficheiros multimédia.</string>
+    <string name="password_protect_excluded">Proteger exibição das pastas excluídas com palavra-passe</string>
+    <string name="media_management_manual">Ocorreu um erro. Aceda às definições e conceda as permissões necessárias para que esta aplicação possa fazer a gestão de ficheiros multimédia.</string>
+    <string name="media_management_note">Se o redirecionamento não funcionar, aceda às definições e conceda as permissões necessárias para que esta aplicação possa fazer a gestão de ficheiros multimédia.</string>
+    <string name="media_management_alternative">Se não o quiser fazer, aceda às definições e conceda as permissões necessárias para que esta aplicação possa fazer a gestão de ficheiros multimédia.</string>
+    <string name="alternative_media_access">Alternativamente, pode conceder apenas a permissão para aceder aos ficheiros multimédia. Neste caso, acede aos ficheiros mas não consegue fazer a sua gestão nem aceder aos ficheiros ocultos.</string>
+    <string name="media_only">Apenas multimédia</string>
+    <string name="all_files">Todos os ficheiros</string>
+    <string name="search_all_files">Pesquisar todos os ficheiros em vez de pastas no ecrã principal</string>
+    <string name="show_all_folders">Mostrar botão para alternar rapidamente a opção Mostrar conteúdo de todas as pastas</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Multimédia em ecrã completo</string>
     <string name="extended_details">Mais detalhes</string>
-    <string name="bottom_actions">Acções em baixo</string>
+    <string name="bottom_actions">Ações em baixo</string>
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Gerir botões de acção</string>
+    <string name="manage_bottom_actions">Gerir exibição dos botões de ação</string>
     <string name="toggle_favorite">Alternar favorito</string>
     <string name="toggle_file_visibility">Alternar visibilidade dos ficheiros</string>
     <!-- New editor strings -->
@@ -249,7 +249,7 @@
     <string name="pesdk_adjustments_button_reset">Repor</string>
     <string name="pesdk_focus_title_name">Foco</string>
     <string name="pesdk_focus_title_disabled">Nenhum</string>
-    <string name="pesdk_focus_button_radial">radial</string>
+    <string name="pesdk_focus_button_radial">Radial</string>
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Espelhado</string>
     <string name="pesdk_focus_button_gaussian">Gaussiano</string>
@@ -285,7 +285,7 @@
     <string name="pesdk_editor_save">Guardar</string>
     <string name="pesdk_editor_text_exportProgressUnknown">A exportar…</string>
     <string name="pesdk_editor_text_exportProgress" formatted="false">A exportar %s.</string>
-    <string name="pesdk_sticker_title_name">sticker</string>
+    <string name="pesdk_sticker_title_name">Sticker</string>
     <string name="pesdk_sticker_title_color">Cor do sticker</string>
     <string name="pesdk_sticker_title_options">Opções do sticker</string>
     <string name="pesdk_sticker_button_add">Adicionar</string>
@@ -315,12 +315,12 @@
     <string name="pesdk_overlay_asset_mosaic">Mosaico</string>
     <string name="pesdk_overlay_asset_paper">Papel</string>
     <string name="pesdk_overlay_asset_rain">Chuva</string>
-    <string name="pesdk_overlay_asset_vintage">vintage</string>
+    <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Inversão horizontal</string>
     <string name="pesdk_common_button_flipV">Inversão vertical</string>
     <string name="pesdk_common_button_undo">Desfazer</string>
     <string name="pesdk_common_button_redo">Refazer</string>
-    <string name="pesdk_common_title_colorPicker">Selector de cores</string>
+    <string name="pesdk_common_title_colorPicker">Seletor de cores</string>
     <string name="pesdk_common_title_transparentColor">Transparente</string>
     <string name="pesdk_common_title_whiteColor">Branco</string>
     <string name="pesdk_common_title_grayColor">Cinzento</string>
@@ -329,7 +329,7 @@
     <string name="pesdk_common_title_blueColor">Azul</string>
     <string name="pesdk_common_title_purpleColor">Púrpura</string>
     <string name="pesdk_common_title_orchidColor">Orquídea</string>
-    <string name="pesdk_common_title_pinkColor">Cor de rosa</string>
+    <string name="pesdk_common_title_pinkColor">Rosa</string>
     <string name="pesdk_common_title_redColor">Vermelho</string>
     <string name="pesdk_common_title_orangeColor">Laranja</string>
     <string name="pesdk_common_title_goldColor">Dourado</string>
@@ -340,11 +340,11 @@
     <string name="pesdk_common_title_pipettableColor">Pipeta de cores</string>
     <string name="vesdk_video_trim_title_name">Recortar</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Como tornar a Simple Gallery a minha galeria por padrão\?</string>
-    <string name="faq_1_text">Primeiro identifique a galeria pré-definida pelo sistema do seu dispositivo em Definições -&gt; Gerir aplicações. Na Informação da aplicação dessa mesma galeria, seleccione Limpar pré-definições. Da próxima vez que tentar abrir um ficheiro de imagem ou de video, irá deparar-se com diversas alternativas. Escolha então a Simple Gallery e escolha-a para abrir sempre por padrão.</string>
-    <string name="faq_2_title">Bloquei a aplicação com uma palavra-chave mas agora esqueci-me dela. O que posso fazer\?</string>
-    <string name="faq_2_text">Exitem duas soluções. Ou reinstala a aplicação, ou, nas Definições do sistema –&gt; Gerir aplicações –&gt; Informações da aplicação, seleccione Limpar dados. Reiniciará assim todas as suas definições na aplicação mas não apagará os seus ficheiros multimedia.</string>
-    <string name="faq_3_title">Como posso fazer para que um álbum seja sempre apresentado no topo\?</string>
+    <string name="faq_1_title">Como tornar Simple Gallery a minha galeria padrão\?</string>
+    <string name="faq_1_text">Primeiro, identifique a galeria padrão do sistema em Definições -&gt; Gerir aplicações. Na informação da aplicação dessa mesma galeria, selecione Limpar predefinições. Da próxima vez que tentar abrir um ficheiro de imagem ou de vídeo, irá deparar-se com diversas alternativas. Escolha então Simple Gallery e escolha-a para abrir sempre os ficheiros deste tipo.</string>
+    <string name="faq_2_title">Bloqueei a aplicação com uma palavra-passe mas agora esqueci-me dela. O que posso fazer\?</string>
+    <string name="faq_2_text">Existem duas soluções. Reinstala a aplicação ou, nas Definições do sistema –&gt; Gerir aplicações –&gt; Informações da aplicação, seleccone Limpar dados. Reiniciará assim todas as suas definições na aplicação mas não apagará os seus ficheiros multimedia.</string>
+    <string name="faq_3_title">Como posso fazer para que um álbum seja sempre mostrado no topo\?</string>
     <string name="faq_3_text">Prima longamente o álbum, seleccione Fixar no topo a partir do menu e será apresentado no topo. Pode também fixar diversas pastas em simultâneo. A ordem de apresentação é a da ordenação padrão.</string>
     <string name="faq_4_title">Como posso fazer avançar rápido os videos\?</string>
     <string name="faq_4_text">Dando dois toques nas margens ecrã ou então dando um toque em cima da indicação de duração junto à barra de pesquisa. E, se a opção de abrir videos noutro ecrã estiver habilitada, pode também fazê-lo por gestos.</string>
@@ -374,7 +374,7 @@
     <string name="faq_17_title">Por que não posso incluir pastas ocultas\?</string>
     <string name="faq_17_text">Isso parou de funcionar devido às mudanças no sistema que vieram com o Android 11, o aplicativo não pode mais navegar em pastas reais, ele depende do chamado MediaStore para buscar dados.</string>
     <string name="faq_18_title">Por que vejo anúncios durante a reprodução de vídeo\?</string>
-    <string name="faq_18_text">Nossos aplicativos não têm nenhum anúncio. Se você vê-los durante a reprodução de vídeo, você deve estar usando algum outro aplicativo para reproduzi-los. Tente encontrar o reprodutor de vídeo padrão nas configurações do dispositivo e, em seguida, faça um \"Limpar padrões\" nele. Da próxima vez que você invocar alguma intenção de vídeo, você verá um prompt de seleção de aplicativo, onde você pode selecionar qual aplicativo você deseja usar.</string>
+    <string name="faq_18_text">As nossas aplicações não têm anúncios. Se você vê-os durante a reprodução de um vídeo, deve estar a usar outra aplicação . Tente encontrar o reprodutor de vídeo padrão nas definições do dispositivo e, em seguida, faça um \"Limpar dados\". Da próxima vez quiser reproduzir um vídeo, surgirá uma opção para escolher a aplicação utilizada.</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
