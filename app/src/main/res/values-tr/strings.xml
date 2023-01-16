@@ -15,7 +15,7 @@
     <string name="other_folder">Diğer klasör</string>
     <string name="show_on_map">Haritada göster</string>
     <string name="unknown_location">Bilinmeyen konum</string>
-    <string name="volume">Ses</string>
+    <string name="volume">Ses seviyesi</string>
     <string name="brightness">Parlaklık</string>
     <string name="lock_orientation">Yönü kilitle</string>
     <string name="unlock_orientation">Yönün kilidini aç</string>
