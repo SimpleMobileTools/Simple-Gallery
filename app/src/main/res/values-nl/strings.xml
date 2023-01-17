@@ -95,9 +95,9 @@
     <string name="rotate_left">Linksom draaien</string>
     <string name="rotate_right">Rechtsom draaien</string>
     <string name="rotate_one_eighty">180º draaien</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Vervormen</string>
+    <string name="crop">Bijsnijden</string>
+    <string name="draw">Tekenen</string>
     <string name="flip">Omdraaien</string>
     <string name="flip_horizontally">Horizontaal spiegelen</string>
     <string name="flip_vertically">Verticaal spiegelen</string>
