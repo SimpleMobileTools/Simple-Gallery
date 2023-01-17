@@ -99,9 +99,9 @@
     <string name="rotate_left">Pööra vasakule</string>
     <string name="rotate_right">Pööra paremale</string>
     <string name="rotate_one_eighty">Pööra 180º võrra</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Muuda</string>
+    <string name="crop">Kadreeri</string>
+    <string name="draw">Joonista</string>
     <string name="flip">Pööra ümber</string>
     <string name="flip_horizontally">Pööra ümber horisontaalselt</string>
     <string name="flip_vertically">Pööra ümber vertikaalselt</string>
