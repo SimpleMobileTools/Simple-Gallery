@@ -78,7 +78,7 @@
     <string name="invalid_values">Veuillez entrer une résolution valide</string>
     <!-- Editor -->
     <string name="editor">Éditeur</string>
-    <string name="basic_editor">Éditeur de base</string>
+    <string name="basic_editor">Éditeur simple</string>
     <string name="advanced_editor">Éditeur avancé</string>
     <string name="rotate">Pivoter</string>
     <string name="invalid_image_path">Emplacement d\'image invalide</string>
@@ -99,9 +99,9 @@
     <string name="rotate_left">Pivoter à gauche</string>
     <string name="rotate_right">Pivoter à droite</string>
     <string name="rotate_one_eighty">Pivoter à 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformer</string>
+    <string name="crop">Rogner</string>
+    <string name="draw">Dessiner</string>
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
