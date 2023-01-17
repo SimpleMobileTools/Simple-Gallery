@@ -5,7 +5,7 @@
     <string name="edit">Szerkesztés</string>
     <string name="open_camera">Kamera megnyitása</string>
     <string name="hidden">(rejtett)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(kizárt)</string>
     <string name="pin_folder">Mappa kitűzése</string>
     <string name="unpin_folder">Mappa kitűzésének megszüntetése</string>
     <string name="pin_to_the_top">Kitűzés felülre</string>
