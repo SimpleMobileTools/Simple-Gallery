@@ -99,9 +99,9 @@
     <string name="rotate_left">Gira a l\'esquerra</string>
     <string name="rotate_right">Gira a la dreta</string>
     <string name="rotate_one_eighty">Gira 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transforma</string>
+    <string name="crop">Escapça</string>
+    <string name="draw">Dibuixa</string>
     <string name="flip">Inverteix</string>
     <string name="flip_horizontally">Inverteix horitzontalment</string>
     <string name="flip_vertically">Inverteix verticalment</string>
