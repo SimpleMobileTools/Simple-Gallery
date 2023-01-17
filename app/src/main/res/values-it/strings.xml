@@ -99,9 +99,9 @@
     <string name="rotate_left">Ruota a sinistra</string>
     <string name="rotate_right">Ruota a destra</string>
     <string name="rotate_one_eighty">Ruota di 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Trasforma</string>
+    <string name="crop">Ritaglia</string>
+    <string name="draw">Disegna</string>
     <string name="flip">Capovolgi</string>
     <string name="flip_horizontally">Capovolgi orizzontalmente</string>
     <string name="flip_vertically">Capovolgi verticalmente</string>
