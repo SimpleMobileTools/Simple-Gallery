@@ -99,9 +99,9 @@
     <string name="rotate_left">Obróć w lewo</string>
     <string name="rotate_right">Obróć w prawo</string>
     <string name="rotate_one_eighty">Obróć o 180°</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Przekształć</string>
+    <string name="crop">Wykadruj</string>
+    <string name="draw">Narysuj</string>
     <string name="flip">Odbij</string>
     <string name="flip_horizontally">Odbij w poziomie</string>
     <string name="flip_vertically">Odbij w pionie</string>
