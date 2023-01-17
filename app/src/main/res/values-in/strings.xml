@@ -99,6 +99,9 @@
     <string name="rotate_left">Putar ke kiri</string>
     <string name="rotate_right">Putar ke kanan</string>
     <string name="rotate_one_eighty">Putar 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Balik</string>
     <string name="flip_horizontally">Balik horizontal</string>
     <string name="flip_vertically">Balik vertikal</string>

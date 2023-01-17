@@ -99,6 +99,9 @@
     <string name="rotate_left">Zavrti levo</string>
     <string name="rotate_right">Zavrti desno</string>
     <string name="rotate_one_eighty">Zavrti za 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Zrcaljenje</string>
     <string name="flip_horizontally">Zrcali horizontalno</string>
     <string name="flip_vertically">Zrcali vertikalno</string>

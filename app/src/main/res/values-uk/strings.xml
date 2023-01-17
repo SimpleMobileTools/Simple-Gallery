@@ -99,6 +99,9 @@
     <string name="rotate_left">Обернути ліворуч</string>
     <string name="rotate_right">Обернути праворуч</string>
     <string name="rotate_one_eighty">Обернути на 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Віддзеркалити</string>
     <string name="flip_horizontally">Віддзеркалити горизонтально</string>
     <string name="flip_vertically">Віддзеркалити вертикально</string>

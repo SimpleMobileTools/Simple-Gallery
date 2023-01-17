@@ -99,6 +99,9 @@
     <string name="rotate_left">Kierrä vasemmalle</string>
     <string name="rotate_right">Kierrä oikealle</string>
     <string name="rotate_one_eighty">Kierrä 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Käännä</string>
     <string name="flip_horizontally">Käännä vaakasuoraan</string>
     <string name="flip_vertically">Käännä pystysuoraan</string>

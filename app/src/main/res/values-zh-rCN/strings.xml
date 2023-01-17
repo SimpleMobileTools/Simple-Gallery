@@ -99,6 +99,9 @@
     <string name="rotate_left">向左旋转</string>
     <string name="rotate_right">向右旋转</string>
     <string name="rotate_one_eighty">旋转 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">翻转</string>
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>

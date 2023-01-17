@@ -99,6 +99,9 @@
     <string name="rotate_left">Rodar à esquerda</string>
     <string name="rotate_right">Rodar à direita</string>
     <string name="rotate_one_eighty">Rodar 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>

@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.exifinterface.media.ExifInterface
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +27,10 @@ import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.NavigationIcon
+import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
@@ -452,6 +456,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_primary_draw.setOnClickListener {
             bottomDrawClicked()
         }
+        arrayOf(bottom_primary_filter, bottom_primary_crop_rotate, bottom_primary_draw).forEach {
+            setupLongPress(it)
+        }
     }
 
     private fun bottomFilterClicked() {
@@ -510,6 +517,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 CROP_ROTATE_ASPECT_RATIO
             }
             updateCropRotateActionButtons()
+        }
+
+        arrayOf(bottom_rotate, bottom_resize, bottom_flip_horizontally, bottom_flip_vertically, bottom_aspect_ratio).forEach {
+            setupLongPress(it)
         }
     }
 
@@ -915,6 +926,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()
+        }
+    }
+
+    private fun setupLongPress(view: ImageView) {
+        view.setOnLongClickListener {
+            val contentDescription = view.contentDescription
+            if (contentDescription != null) {
+                toast(contentDescription.toString())
+            }
+            true
         }
     }
 }

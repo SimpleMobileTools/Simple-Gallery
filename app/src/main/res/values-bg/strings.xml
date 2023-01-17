@@ -99,6 +99,9 @@
     <string name="rotate_left">Завъртане наляво</string>
     <string name="rotate_right">Завъртане надясно</string>
     <string name="rotate_one_eighty">Завъртане на 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Oбръщане</string>
     <string name="flip_horizontally">Хоризонтално обръщане</string>
     <string name="flip_vertically">Вертикално обръщане</string>

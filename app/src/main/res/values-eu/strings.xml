@@ -97,6 +97,9 @@
     <string name="rotate_left">Biratu ezkerrera</string>
     <string name="rotate_right">Biratu eskuinera</string>
     <string name="rotate_one_eighty">Biratu 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Irauli</string>
     <string name="flip_horizontally">Irauli horizontalki</string>
     <string name="flip_vertically">Irauli bertikalki</string>

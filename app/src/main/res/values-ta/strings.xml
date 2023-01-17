@@ -99,6 +99,9 @@
     <string name="rotate_left">இடதில் சுழற்று</string>
     <string name="rotate_right">வலதில் சுழற்று</string>
     <string name="rotate_one_eighty">180º சுழற்று</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">புரட்டு</string>
     <string name="flip_horizontally">கிடைமட்டமாக புரட்டு</string>
     <string name="flip_vertically">செங்குத்தாக புரட்டு</string>

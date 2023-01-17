@@ -99,6 +99,9 @@
     <string name="rotate_left">Rotar a la izquierda</string>
     <string name="rotate_right">Rotar a la derecha</string>
     <string name="rotate_one_eighty">Rotar 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>

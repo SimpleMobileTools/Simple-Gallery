@@ -97,6 +97,9 @@
     <string name="rotate_left">বামে ঘোরান</string>
     <string name="rotate_right">ডানে ঘোরান</string>
     <string name="rotate_one_eighty">১৮০º ঘোরান</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">ঘোরান</string>
     <string name="flip_horizontally">অবতলভাবে ঘোরান</string>
     <string name="flip_vertically">খাড়াখাড়িভাবে ঘোরান</string>

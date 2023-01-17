@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/free_aspect_ratio"
+        android:contentDescription="@string/crop"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_aspect_ratio_vector"
         app:layout_constraintBottom_toBottomOf="parent"
