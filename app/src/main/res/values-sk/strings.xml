@@ -99,9 +99,9 @@
     <string name="rotate_left">Otočiť vľavo</string>
     <string name="rotate_right">Otočiť vpravo</string>
     <string name="rotate_one_eighty">Otočiť o 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformovať</string>
+    <string name="crop">Orezať</string>
+    <string name="draw">Kresliť</string>
     <string name="flip">Preklopiť</string>
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
