@@ -99,9 +99,9 @@
     <string name="rotate_left">Nach links drehen</string>
     <string name="rotate_right">Nach rechts drehen</string>
     <string name="rotate_one_eighty">Um 180° drehen</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Umwandeln</string>
+    <string name="crop">Zuschneiden</string>
+    <string name="draw">Zeichnen</string>
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
@@ -352,7 +352,7 @@
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen\?</string>
     <string name="faq_4_text">Das geht, indem man doppelt auf die Seite des Bildschirms drückt, oder indem man auf den Text nahe der Suchleiste drückt, der die aktuelle bzw. maximale Zeit anzeigt. Wenn in den App-Einstellungen die Funktion aktiviert ist, dass Videos in einem separaten Fenster geöffnet werden, kann man zudem horizontale Gesten verwenden.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen dem Verstecken und dem Ausschließen eines Ordners\?</string>
-    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in der Schlichte Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Heruntergeladene nicht zulassen.</string>
+    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in Schlichte Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Downloads nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers\?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
     <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt oder es werden nicht alle Bilder angezeigt. Was kann ich tun\?</string>
