@@ -48,7 +48,7 @@
     <string name="gifs">GIF</string>
     <string name="raw_images">Nyers kép</string>
     <string name="svgs">SVG</string>
-    <string name="portraits">Portré</string>
+    <string name="portraits">Portrék</string>
     <string name="no_media_with_filters">A kiválasztott szűrők nem találtak médiafájlokat.</string>
     <string name="change_filters_underlined"><u>Szűrők változtatása</u></string>
     <!-- Hide / Exclude -->
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Rejtett mappák</string>
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Meg kell adnia az alkalmazásnak az összes fájl elérésének engedélyét a rejtett fájlok megtekintéséhez, különben nem tud működni.</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Írjon be érvényes felbontást</string>
     <!-- Editor -->
     <string name="editor">Szerkesztő</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Alapvető szerkesztő</string>
+    <string name="advanced_editor">Speciális szerkesztő</string>
     <string name="rotate">Forgatás</string>
     <string name="invalid_image_path">Érvénytelen kép elérési útvonal</string>
     <string name="invalid_video_path">Érvénytelen videó elérési útvonal</string>
@@ -99,9 +99,9 @@
     <string name="rotate_left">Forgatás balra</string>
     <string name="rotate_right">Forgatás jobbra</string>
     <string name="rotate_one_eighty">Forgatás 180º-kal</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Átalakítás</string>
+    <string name="crop">Levágás</string>
+    <string name="draw">Rajzolás</string>
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
@@ -110,7 +110,7 @@
     <string name="other_aspect_ratio">Egyéb</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="simple_wallpaper">Egyszerű háttérkép</string>
     <string name="set_as_wallpaper">Beállítás háttérképként</string>
     <string name="set_as_wallpaper_failed">A háttérképként beállítás sikertelen</string>
     <string name="set_as_wallpaper_with">Beállítás háttérképként ezzel:</string>
@@ -143,7 +143,7 @@
     <string name="group_by">Csoportosítás</string>
     <string name="do_not_group_files">Nincs csoportosítás</string>
     <string name="by_folder">Mappa</string>
-    <string name="by_last_modified">Utolsó módosítás</string>
+    <string name="by_last_modified">Utoljára módosítva</string>
     <string name="by_last_modified_daily">Utoljára módosítva (naponta)</string>
     <string name="by_last_modified_monthly">Utoljára módosítva (havonta)</string>
     <string name="by_date_taken">Dátum</string>
@@ -208,18 +208,18 @@
     <string name="square">Négyzet</string>
     <string name="rounded_corners">Lekerekített sarkok</string>
     <string name="export_favorite_paths">Kedvenc fájlútvonalak exportálása</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Kedvenc fájlútvonalak importálása</string>
+    <string name="paths_imported_successfully">A fájlútvonalak sikeresen importálva</string>
     <string name="media_management_prompt">Hogy megbízhatóan működjenek a fájlműveletek, győződjön meg róla, hogy ez az alkalmazás egy Médiakezelő alkalmazás az eszközbeállításokban.</string>
     <string name="password_protect_excluded">Jelszóval védi a kizárt mappák láthatóságát</string>
     <string name="media_management_manual">Valami hiba történt, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
     <string name="media_management_note">Ha az átirányítás nem működik, akkor ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
     <string name="media_management_alternative">Ha ezt nem akarja megtenni, ugorjon a Beállítások – Alkalmazások – Különleges alkalmazás-hozzáférés – Médiakezelő alkalmazások részhez, és engedélyezze, hogy az alkalmazás kezelhesse a médiafájlokat.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="alternative_media_access">Vagy engedélyezheti csak a médiafájlok elérését. Ebben az esetben viszont nem fog tudni rejtett fájlokkal dolgozni.</string>
+    <string name="media_only">Csak média</string>
+    <string name="all_files">Összes fájl</string>
+    <string name="search_all_files">A főképernyőn a mappák helyett keresés az összes fájl között</string>
+    <string name="show_all_folders">Menügomb megjelenítése az Összes mappa tartalmának megjelenítéséhez</string>
     <!-- Setting sections -->
     <string name="thumbnails">Bélyegképek</string>
     <string name="fullscreen_media">Teljes képernyős média</string>
@@ -373,7 +373,7 @@
     <string name="faq_15_text">Az alkalmazás gyorsítótára akár a 250 MB-ot is meghaladhatja, és ez gyorsabb megjelenítést biztosít. Ha az alkalmazás még több helyet foglal el, a legvalószínűbb oka, hogy a Lomtárban is van elem. Ezek a fájlok is az alkalmazás méretébe számítanak bele. Törölheti a Lomtárat azzal, hogy megnyitja és törli az összes fájlt vagy az alkalmazás beállításait. A Lomtárban lévő minden fájl 30 nap elteltével automatikusan törlődik.</string>
     <string name="faq_16_title">Mi történt a fájlok és mappák elrejtésével, és miért nem látom már a rejtett elemeket\?</string>
     <string name="faq_16_text">Az Android 11-től kezdődően már nem lehet elrejteni vagy elrejtést megszüntetni a fájlokat vagy mappákat, a rendszer korlátozása miatt a galériaalkalmazásokban sem láthatók a rejtett fájlok és mappák. Ehhez valamilyen fájlkezelőt kell használnod.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Vagy engedélyezheti a galériának az eszközbeállításokban, hogy az összes fájlt elérje, ez lehetővé teszi a rejtett fájlok megjelenítését, és úgy általánosságban megbízhatóbbá teszi a fájlműveleteket.</string>
     <string name="faq_17_title">Miért nem vehetem bele a hiányzó mappákat\?</string>
     <string name="faq_17_text">Ez már nem működik egy az Android 11-gyel érkezett rendszermódosítás miatt, az alkalmazás már nem tallózhatja a tényleges mappákat, az ún. MediaStore-ra támaszkodik az adatok lekéréséhez.</string>
     <string name="faq_18_title">Miért látok reklámokat videólejátszás során\?</string>
