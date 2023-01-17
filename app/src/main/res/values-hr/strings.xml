@@ -99,6 +99,9 @@
     <string name="rotate_left">Okreni nalijevo</string>
     <string name="rotate_right">Okreni nadesno</string>
     <string name="rotate_one_eighty">Okreni za 180 º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Preokreni</string>
     <string name="flip_horizontally">Preokreni vodoravno</string>
     <string name="flip_vertically">Preokreni okomito</string>

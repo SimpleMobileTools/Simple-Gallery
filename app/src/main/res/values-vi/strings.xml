@@ -97,6 +97,9 @@
     <string name="rotate_left">Xoay trái</string>
     <string name="rotate_right">Xoay phải</string>
     <string name="rotate_one_eighty">Xoay 180 độ</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Lật</string>
     <string name="flip_horizontally">Lật theo chiều ngang</string>
     <string name="flip_vertically">Lật theo chiều dọc</string>

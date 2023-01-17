@@ -99,6 +99,9 @@
     <string name="rotate_left">왼쪽으로 회전</string>
     <string name="rotate_right">오른쪽으로 회전</string>
     <string name="rotate_one_eighty">180도 회전</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">뒤집기</string>
     <string name="flip_horizontally">가로 뒤집기</string>
     <string name="flip_vertically">세로 뒤집기</string>

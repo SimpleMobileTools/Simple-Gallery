@@ -99,6 +99,9 @@
     <string name="rotate_left">Περιστροφή αριστερά</string>
     <string name="rotate_right">Περιστροφή δεξιά</string>
     <string name="rotate_one_eighty">Περιστροφή κατά 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Περιστροφή</string>
     <string name="flip_horizontally">Οριζόντια περιστροφή</string>
     <string name="flip_vertically">Κατακόρυφη περιστροφή</string>

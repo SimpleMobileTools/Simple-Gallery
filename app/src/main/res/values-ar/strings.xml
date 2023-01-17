@@ -99,6 +99,9 @@
     <string name="rotate_left">تدوير لليسار</string>
     <string name="rotate_right">تدوير لليمين</string>
     <string name="rotate_one_eighty">تدوير بزاوية 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">انعكاس</string>
     <string name="flip_horizontally">قلب أفقياً</string>
     <string name="flip_vertically">قلب عمودياً</string>

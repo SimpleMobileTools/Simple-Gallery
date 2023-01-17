@@ -97,6 +97,9 @@
     <string name="rotate_left">סובב שמאלה</string>
     <string name="rotate_right">לסובב ימינה</string>
     <string name="rotate_one_eighty">סובב 180 מעלות</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">להשליך</string>
     <string name="flip_horizontally">הפוך אופקית</string>
     <string name="flip_vertically">הפוך אנכית</string>

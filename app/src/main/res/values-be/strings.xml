@@ -119,6 +119,9 @@
     <string name="rotate_left">Павярнуць улева</string>
     <string name="rotate_right">Павярнуць управа</string>
     <string name="rotate_one_eighty">Павярнуць на 180°</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Адлюстраваць</string>
     <string name="flip_horizontally">Адлюстраваць гарызантальна</string>
     <string name="wallpaper_set_successfully">Шпалеры ўсталяваны паспяхова</string>

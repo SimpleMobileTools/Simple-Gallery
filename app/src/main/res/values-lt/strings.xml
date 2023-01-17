@@ -95,6 +95,9 @@
     <string name="rotate_left">Sukti į kairę</string>
     <string name="rotate_right">Sukti į dešinę</string>
     <string name="rotate_one_eighty">Sukti 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Apversti</string>
     <string name="flip_horizontally">Apversti horizontaliai</string>
     <string name="flip_vertically">Apversti vertikaliai</string>

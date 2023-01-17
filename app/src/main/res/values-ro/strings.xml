@@ -99,6 +99,9 @@
     <string name="rotate_left">Rotire la stânga</string>
     <string name="rotate_right">Rotire la dreapta</string>
     <string name="rotate_one_eighty">Rotire cu 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Flip</string>
     <string name="flip_horizontally">Flip orizontal</string>
     <string name="flip_vertically">Flip vertical</string>

@@ -99,6 +99,9 @@
     <string name="rotate_left">Sola döndür</string>
     <string name="rotate_right">Sağa döndür</string>
     <string name="rotate_one_eighty">180º döndür</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Çevir</string>
     <string name="flip_horizontally">Yatay olarak çevir</string>
     <string name="flip_vertically">Dikey olarak çevir</string>

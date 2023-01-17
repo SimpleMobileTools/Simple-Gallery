@@ -99,6 +99,9 @@
     <string name="rotate_left">Ротирај лево</string>
     <string name="rotate_right">Ротирај десно</string>
     <string name="rotate_one_eighty">Ротирај за 180º</string>
+    <string name="transform">Transform</string>
+    <string name="crop">Crop</string>
+    <string name="draw">Draw</string>
     <string name="flip">Заврти</string>
     <string name="flip_horizontally">Заврти хоризонтално</string>
     <string name="flip_vertically">Заврти вертикално</string>
