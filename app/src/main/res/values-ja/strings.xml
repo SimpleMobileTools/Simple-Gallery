@@ -97,9 +97,9 @@
     <string name="rotate_left">左に回転</string>
     <string name="rotate_right">右に回転</string>
     <string name="rotate_one_eighty">180度回転</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">変形</string>
+    <string name="crop">切り抜き</string>
+    <string name="draw">描画</string>
     <string name="flip">反転</string>
     <string name="flip_horizontally">水平方向に反転</string>
     <string name="flip_vertically">垂直方向に反転</string>
