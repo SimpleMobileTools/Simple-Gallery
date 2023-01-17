@@ -875,6 +875,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             rotateImage(90)
         }
 
+        bottom_properties.applyColorFilter(Color.WHITE)
         bottom_properties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
         bottom_properties.setOnLongClickListener { toast(R.string.properties); true }
         bottom_properties.setOnClickListener {
