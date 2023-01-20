@@ -15,11 +15,11 @@
             android:id="@+id/interval_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:paddingStart="@dimen/activity_margin"
-            android:paddingTop="@dimen/bigger_margin"
             android:layout_alignTop="@+id/interval_hint"
             android:layout_alignBottom="@+id/interval_hint"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:paddingStart="@dimen/big_margin"
+            android:paddingTop="@dimen/bigger_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/interval" />
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/normal_margin"
-            android:layout_marginEnd="@dimen/activity_margin"
+            android:layout_marginEnd="@dimen/big_margin"
             android:hint="@string/seconds_raw">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -52,9 +52,9 @@
             android:layout_below="@+id/interval_label"
             android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/medium_margin"
+            android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/activity_margin"
+            android:paddingEnd="@dimen/bigger_margin"
             android:paddingBottom="@dimen/bigger_margin">
 
             <com.simplemobiletools.commons.views.MyTextView
