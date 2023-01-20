@@ -2,16 +2,16 @@
 <resources>
     <string name="app_name">Paprasta galerija</string>
     <string name="app_launcher_name">Galerija</string>
-    <string name="edit">Taisyti</string>
+    <string name="edit">Redaguoti</string>
     <string name="open_camera">Atidaryti fotoaparatą</string>
     <string name="hidden">(paslėpta)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(neįtraukta)</string>
     <string name="pin_folder">Prisegti aplanką</string>
     <string name="unpin_folder">Atsegti aplanką</string>
     <string name="pin_to_the_top">Prisegti į viršų</string>
     <string name="show_all">Rodyti visų aplankų turinį</string>
     <string name="all_folders">Visi aplankai</string>
-    <string name="folder_view">Perjungti į aplanko rodymą</string>
+    <string name="folder_view">Perjungti į aplankų peržiūrą</string>
     <string name="other_folder">Kitas aplankas</string>
     <string name="show_on_map">Rodyti žemėlapyje</string>
     <string name="unknown_location">Nežinoma vieta</string>
@@ -19,7 +19,7 @@
     <string name="brightness">Ryškumas</string>
     <string name="lock_orientation">Užrakinti orientaciją</string>
     <string name="unlock_orientation">Atrakinti orientaciją</string>
-    <string name="change_orientation">Change orientation</string>
+    <string name="change_orientation">Keisti orientaciją</string>
     <string name="force_portrait">Force portrait</string>
     <string name="force_landscape">Force landscape</string>
     <string name="use_default_orientation">Use default orientation</string>
