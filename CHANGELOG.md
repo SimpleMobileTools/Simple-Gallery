@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.26.2 *(2023-01-20)*
+----------------------------
+
+ * Allow exporting and importing favorite file paths
+ * Fixed an image gesture rotation glitch
+ * Added many translation, stability, UX and UI improvements
+
 Version 6.26.1 *(2023-01-12)*
 ----------------------------
 

@@ -1,0 +1,3 @@
+ * Allow exporting and importing favorite file paths
+ * Fixed an image gesture rotation glitch
+ * Added many translation, stability, UX and UI improvements
