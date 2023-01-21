@@ -190,9 +190,18 @@ class SettingsActivity : SimpleActivity() {
     )
 
     private fun setupManageIncludedFolders() {
-        settings_manage_included_folders_holder.beGoneIf(isRPlus() && !isExternalStorageManager())
+        if (isRPlus() && !isExternalStorageManager()) {
+            settings_manage_included_folders.text = "${getString(R.string.manage_included_folders)} (${getString(R.string.no_permission)})"
+        } else {
+            settings_manage_included_folders.setText(R.string.manage_included_folders)
+        }
+
         settings_manage_included_folders_holder.setOnClickListener {
-            startActivity(Intent(this, IncludedFoldersActivity::class.java))
+            if (isRPlus() && !isExternalStorageManager()) {
+                GrantAllFilesDialog(this)
+            } else {
+                startActivity(Intent(this, IncludedFoldersActivity::class.java))
+            }
         }
     }
 

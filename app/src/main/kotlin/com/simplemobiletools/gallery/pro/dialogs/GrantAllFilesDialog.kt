@@ -19,7 +19,7 @@ class GrantAllFilesDialog(val activity: BaseSimpleActivity) {
             .setPositiveButton(R.string.ok) { dialog, which -> activity.launchGrantAllFilesIntent() }
             .setNegativeButton(R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(view, this, cancelOnTouchOutside = false) { alertDialog -> }
+                activity.setupDialogStuff(view, this) { alertDialog -> }
             }
     }
 }
