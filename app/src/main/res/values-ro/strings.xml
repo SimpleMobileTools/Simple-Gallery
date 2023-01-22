@@ -208,7 +208,7 @@
     <string name="square">Pătrat</string>
     <string name="rounded_corners">Colțuri rotunjite</string>
     <string name="export_favorite_paths">Exportă căile de acces ale fișierelor favorite</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Pentru a vă asigura că toate operațiunile cu fișiere funcționează în mod fiabil, vă rugăm să selectați această aplicație ca aplicație de gestionare a mediilor în setările dispozitivului.</string>
     <string name="password_protect_excluded">Protejați cu parolă vizibilitatea dosarelor excluse</string>

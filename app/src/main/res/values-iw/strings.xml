@@ -204,7 +204,7 @@
     <string name="square">כיכר</string>
     <string name="rounded_corners">פינות מעוגלות</string>
     <string name="export_favorite_paths">ייצא נתיבי קבצים מועדפים</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">כדי לוודא שכל פעולות הקבצים פועלות בצורה מהימנה, אנא הפוך את האפליקציה הזו לאפליקציית ניהול מדיה בהגדרות המכשיר שלך.</string>
     <string name="password_protect_excluded">הגנה באמצעות סיסמה על נראות התיקייה שלא נכללה</string>

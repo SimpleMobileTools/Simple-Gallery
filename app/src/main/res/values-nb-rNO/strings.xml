@@ -208,7 +208,7 @@
     <string name="square">Firkantet</string>
     <string name="rounded_corners">Avrundede hjørner</string>
     <string name="export_favorite_paths">Eksporter favorittfilbaner</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
     <string name="password_protect_excluded">Passordbeskytt synlighet for ekskludert mappe</string>

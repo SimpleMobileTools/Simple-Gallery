@@ -208,7 +208,7 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Заобљени углови</string>
     <string name="export_favorite_paths">Извезите путање омиљених датотека</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">Да бисте били сигурни да све операције са датотекама раде поуздано, учините ову апликацију апликацијом за управљање медијима у подешавањима уређаја.</string>
     <string name="password_protect_excluded">Заштита лозинком искључена видљивост фасцикле</string>

@@ -208,7 +208,7 @@
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Заоблени ъгли</string>
     <string name="export_favorite_paths">Експортиране на пътищата на любимите файлове</string>
-    <string name="import_favorite_paths">Import favorite file paths</string>
+    <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
     <string name="password_protect_excluded">Защита на изключена папка с парола</string>

@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Obmedziť názvy dlhých priečinkov na 1 riadok</string>
     <string name="square">Štvorec</string>
     <string name="rounded_corners">Zaoblené rohy</string>
-    <string name="export_favorite_paths">Exportovať cesty obľúbených položiek</string>
-    <string name="import_favorite_paths">Importovať cesty obľúbených položiek</string>
+    <string name="export_favorite_paths">Exportovať obľúbené</string>
+    <string name="import_favorite_paths">Importovať obľúbené</string>
     <string name="paths_imported_successfully">Cesty boli úspešne importované</string>
     <string name="media_management_prompt">Aby súborové operácie fungovali správne, prosím povoľte túto apku ako Správca médií v nastaveniach zariadenia.</string>
     <string name="password_protect_excluded">Uzamknúť viditeľnosť vylúčených priečinkov heslom</string>
