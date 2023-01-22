@@ -63,8 +63,8 @@
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
     <string name="hidden_all_files">Pro zobrazení skrytých souborů musíte aplikaci povolit přístup ke všem souborům.</string>
     <!-- Include folders -->
-    <string name="include_folders">Přidané složky</string>
-    <string name="manage_included_folders">Spravovat přidané složky</string>
+    <string name="include_folders">Zahrnuté složky</string>
+    <string name="manage_included_folders">Spravovat zahrnuté složky</string>
     <string name="add_folder">Přidat složku</string>
     <string name="included_activity_placeholder">Pokud máte nějaké složky obsahující média, ale nebyly aplikací nalezeny, můžete je zde přidat ručně.
 \n
@@ -356,9 +356,9 @@
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami\?</string>
     <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt jejich vybráním pomocí dlouhého podržení a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení nadřazené složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
     <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím\?</string>
-    <string name="faq_7_text">Může to mít více důvodů, řešení je ale jednoduché. Jděte do Nastavení -&gt; Spravovat přidané složky, zvolte Plus a zvolte požadovanou složku.</string>
+    <string name="faq_7_text">Může to mít více důvodů, ale řešení je jednoduché. Jděte do Nastavení -&gt; Spravovat zahrnuté složky, stiskněte Plus a vyberte požadovanou složku.</string>
     <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek\?</string>
-    <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -&gt; Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -&gt; Spravovat přidané složky. To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
+    <string name="faq_8_text">Přidání složky do Zahrnutých složek automaticky nevyloučí ostatní. Co můžete udělat, je přejít do Nastavení -&gt; Spravovat vyloučené složky, vyloučit kořenovou složku \"/\" a poté přidat požadované složky v Nastavení -&gt; Spravovat zahrnuté složky. Tím se zobrazí pouze vybrané složky, protože vyloučení i zahrnutí funguje rekurzivně a pokud je složka vyloučena i zahrnuta, zobrazí se.</string>
     <string name="faq_10_title">Dá se s touto aplikací oříznout obrázek\?</string>
     <string name="faq_10_text">Ano, oříznutí je možné v editoru potažením rohů obrázku. Do editoru se můžete dostat buď dlouhým stisknutím miniatury obrázku a zvolením Upravit, nebo zvolením Upravit v celoobrazovkovém režimu.</string>
     <string name="faq_11_title">Mohu nějakým způsobem seskupit miniatury mediálních souborů\?</string>
