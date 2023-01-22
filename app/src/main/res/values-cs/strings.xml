@@ -161,16 +161,16 @@
     <string name="remember_last_video_position">Zapamatovat pozici posledního přehraného videa</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat miniatury souborů GIF</string>
-    <string name="max_brightness">Maximální jas obrazovky při zobrazení médií</string>
+    <string name="max_brightness">Maximální jas obrazovky při zobrazení médií na celou obrazovku</string>
     <string name="crop_thumbnails">Oříznout miniatury na čtverce</string>
     <string name="show_thumbnail_video_duration">Zobrazit dobu trvání videí</string>
     <string name="screen_rotation_by">Otáčet média na celé obrazovce podle</string>
     <string name="screen_rotation_system_setting">Systémového nastavení</string>
     <string name="screen_rotation_device_rotation">Otočení zařízení</string>
     <string name="screen_rotation_aspect_ratio">Poměru stran</string>
-    <string name="black_background_at_fullscreen">Černé pozadí při médiích na celou obrazovku</string>
+    <string name="black_background_at_fullscreen">Černé pozadí při zobrazení médií na celou obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prohlížet miniatury vodorovně</string>
-    <string name="hide_system_ui_at_fullscreen">Automaticky skrývat systémové lišty při celoobrazovkových médiích</string>
+    <string name="hide_system_ui_at_fullscreen">Automaticky skrývat systémové lišty při zobrazení médií na celou obrazovku</string>
     <string name="delete_empty_folders">Odstranit prázdné složky po smazání jejich obsahu</string>
     <string name="allow_photo_gestures">Povolit ovládání jasu vertikálními gesty</string>
     <string name="allow_video_gestures">Povolit ovládání hlasitosti a jasu videa vertikálními gesty</string>
@@ -178,7 +178,7 @@
     <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovková média</string>
     <string name="manage_extended_details">Spravovat rozšířené vlastnosti</string>
     <string name="one_finger_zoom">Povolit zoomování jedním prstem v celoobrazovkovém režimu</string>
-    <string name="allow_instant_change">Povolit okamžité přepínání médií klepnutím na okraj obrazovky</string>
+    <string name="allow_instant_change">Povolit okamžitou změnu média klepnutím na okraj obrazovky</string>
     <string name="allow_deep_zooming_images">Povolit hluboké zoomování obrázků</string>
     <string name="hide_extended_details">Skrýt rozšířené vlastnosti pokud je skrytá stavová lišta</string>
     <string name="show_at_bottom">Zobrazit některá akční tlačítka ve spodní části obrazovky</string>
@@ -189,7 +189,7 @@
     <string name="allow_down_gesture">Povolit zavírání celoobrazovkového režimu gestem tažení dolů</string>
     <string name="allow_one_to_one_zoom">Povolit přiblížení 1:1 dvojitým klepnutím</string>
     <string name="open_videos_on_separate_screen">Vždy otevírat videa na vlastní obrazovce s novými vodorovnými gesty</string>
-    <string name="show_notch">Zobrazit výřez obrazovky pokud je dostupný</string>
+    <string name="show_notch">Zobrazit výřez obrazovky (notch) pokud je dostupný</string>
     <string name="allow_rotating_gestures">Povolit otáčení obrázků gesty</string>
     <string name="file_loading_priority">Priorita načítání obrázků</string>
     <string name="speed">Rychlost</string>
@@ -226,7 +226,7 @@
     <string name="extended_details">Rozšířené vlastnosti</string>
     <string name="bottom_actions">Spodní akční tlačítka</string>
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Upravit viditelná spodní akční tlačítka</string>
+    <string name="manage_bottom_actions">Spravovat viditelná spodní akční tlačítka</string>
     <string name="toggle_favorite">Přepnutí oblíbenosti</string>
     <string name="toggle_file_visibility">Přepnutí viditelnosti souboru</string>
     <!-- New editor strings -->
@@ -305,7 +305,7 @@
     <string name="pesdk_overlay_title_name">Překrytí</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normální</string>
     <string name="pesdk_overlay_button_blendModeDarken">Ztmavení</string>
-    <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
+    <string name="pesdk_overlay_button_blendModeScreen">Obrazovka</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Překrytí</string>
     <string name="pesdk_overlay_button_blendModeLighten">Zesvětlení</string>
     <string name="pesdk_overlay_button_blendModeMultiply">Znásobení</string>
