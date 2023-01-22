@@ -81,7 +81,7 @@
     <string name="basic_editor">Základní editor</string>
     <string name="advanced_editor">Pokročilý editor</string>
     <string name="rotate">Otočit</string>
-    <string name="invalid_image_path">Neplatná cesta</string>
+    <string name="invalid_image_path">Neplatná cesta k obrázku</string>
     <string name="invalid_video_path">Neplatná cesta k videu</string>
     <string name="image_editing_failed">Úprava souboru selhala</string>
     <string name="video_editing_failed">Úprava videa selhala</string>
@@ -92,7 +92,7 @@
     <string name="video_edited_successfully">Video bylo úspěšně upraveno</string>
     <string name="edit_image_with">Upravit soubor pomocí:</string>
     <string name="edit_video_with">Upravit video pomocí:</string>
-    <string name="no_image_editor_found">Nebyl nalezen žádný editor</string>
+    <string name="no_image_editor_found">Nebyl nalezen žádný editor obrázků</string>
     <string name="no_video_editor_found">Nebyl nalezen žádný editor videa</string>
     <string name="unknown_file_location">Neznámé umístění souboru</string>
     <string name="error_saving_file">Nepodařilo se přepsat zdrojový soubor</string>
@@ -152,7 +152,7 @@
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
     <string name="show_file_count_section_header">Zobrazit počet souborů v záhlaví sekcí</string>
-    <string name="grouping_and_sorting">Mějte prosím na paměti, že seskupování a řazení jsou 2 nezávislé hodnoty</string>
+    <string name="grouping_and_sorting">Vezměte prosím na vědomí, že seskupování a řazení jsou dvě nezávislé oblasti</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Složka zobrazená na widgetu:</string>
     <string name="show_folder_name">Zobrazit název složky</string>
