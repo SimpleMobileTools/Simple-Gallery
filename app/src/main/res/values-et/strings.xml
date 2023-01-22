@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Piira pikad kaustanimed 1 reaga</string>
     <string name="square">Ruut</string>
     <string name="rounded_corners">Ümarad nurgad</string>
-    <string name="export_favorite_paths">Ekspordi lemmikfailide asukohad</string>
-    <string name="import_favorite_paths">Impordi lemmikute asukohad</string>
+    <string name="export_favorite_paths">Ekspordi lemmikud</string>
+    <string name="import_favorite_paths">Impordi lemmikud</string>
     <string name="paths_imported_successfully">Asukohtade import õnnestus</string>
     <string name="media_management_prompt">Selleks, et kõik failitoimingud toimiksid korralikult, muuda see rakendus oma seadme seadetes meediahaldusrakenduseks.</string>
     <string name="password_protect_excluded">Kaitse salasõna abil varjatud kaustade nähtavust</string>
