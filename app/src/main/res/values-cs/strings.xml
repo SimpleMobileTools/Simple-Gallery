@@ -233,7 +233,7 @@
     <string name="pesdk_transform_button_freeCrop">Vlastní</string>
     <string name="pesdk_transform_button_resetCrop">Obnovit</string>
     <string name="pesdk_transform_button_squareCrop">Čtverec</string>
-    <string name="pesdk_transform_title_name">Transformovat</string>
+    <string name="pesdk_transform_title_name">Transformace</string>
     <string name="pesdk_filter_title_name">Filtr</string>
     <string name="pesdk_filter_asset_none">Žádný</string>
     <string name="pesdk_adjustments_title_name">Doladění</string>
