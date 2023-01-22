@@ -301,7 +301,7 @@
     <string name="pesdk_sticker_button_contrast">Kontrast</string>
     <string name="pesdk_sticker_button_saturation">Sytost</string>
     <string name="pesdk_sticker_button_brightness">Jas</string>
-    <string name="pesdk_sticker_category_name_custom">Nahrávky</string>
+    <string name="pesdk_sticker_category_name_custom">Nahrané</string>
     <string name="pesdk_overlay_title_name">Překrytí</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normální</string>
     <string name="pesdk_overlay_button_blendModeDarken">Ztmavení</string>
@@ -321,10 +321,10 @@
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Překlopit H</string>
     <string name="pesdk_common_button_flipV">Překlopit V</string>
-    <string name="pesdk_common_button_undo">Vrátit</string>
-    <string name="pesdk_common_button_redo">Vrátit</string>
+    <string name="pesdk_common_button_undo">Vrátit zpět</string>
+    <string name="pesdk_common_button_redo">Provést znovu</string>
     <string name="pesdk_common_title_colorPicker">Výběr barvy</string>
-    <string name="pesdk_common_title_transparentColor">Průsvitná</string>
+    <string name="pesdk_common_title_transparentColor">Průhledná</string>
     <string name="pesdk_common_title_whiteColor">Bílá</string>
     <string name="pesdk_common_title_grayColor">Šedá</string>
     <string name="pesdk_common_title_blackColor">Černá</string>
