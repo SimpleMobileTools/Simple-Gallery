@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Lange Ordnertitel auf 1 Zeile begrenzen</string>
     <string name="square">Quadrat</string>
     <string name="rounded_corners">Abgerundete Ecken</string>
-    <string name="export_favorite_paths">Bevorzugte Dateipfade exportieren</string>
-    <string name="import_favorite_paths">Bevorzugte Dateipfade importieren</string>
+    <string name="export_favorite_paths">Favoriten exportieren</string>
+    <string name="import_favorite_paths">Favoriten importieren</string>
     <string name="paths_imported_successfully">Pfade erfolgreich importiert</string>
     <string name="media_management_prompt">Um sicherzustellen, dass alle Dateivorgänge zuverlässig funktionieren, sollte diese App in den Geräteeinstellungen als Medienverwaltungs-App festgelegt werden.</string>
     <string name="password_protect_excluded">Passwortschutz für die Sichtbarkeit ausgeschlossener Ordner</string>
