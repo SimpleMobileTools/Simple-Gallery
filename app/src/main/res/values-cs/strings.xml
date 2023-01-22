@@ -227,8 +227,8 @@
     <string name="bottom_actions">Spodní akční tlačítka</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Spravovat viditelná spodní akční tlačítka</string>
-    <string name="toggle_favorite">Přepnutí oblíbenosti</string>
-    <string name="toggle_file_visibility">Přepnutí viditelnosti souboru</string>
+    <string name="toggle_favorite">Přepínač oblíbenosti</string>
+    <string name="toggle_file_visibility">Přepínač viditelnosti souboru</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Vlastní</string>
     <string name="pesdk_transform_button_resetCrop">Obnovit</string>
