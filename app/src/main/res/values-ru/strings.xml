@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Длинное название папки одной строкой</string>
     <string name="square">Квадраты</string>
     <string name="rounded_corners">Закруглённые углы</string>
-    <string name="export_favorite_paths">Экспорт путей избранных файлов</string>
-    <string name="import_favorite_paths">Импорт путей избранных файлов</string>
+    <string name="export_favorite_paths">Экспорт избранного</string>
+    <string name="import_favorite_paths">Импорт избранного</string>
     <string name="paths_imported_successfully">Пути успешно импортированы</string>
     <string name="media_management_prompt">Чтобы быть уверенным в надёжной работе операций с файлами, сделайте это приложение основным менеджером медиафайлов в настройках устройства.</string>
     <string name="password_protect_excluded">Защита паролем отображения исключённых папок</string>

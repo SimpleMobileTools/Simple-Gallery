@@ -30,7 +30,7 @@
     <string name="share_resized">Udostępnij wersję ze zmienionym rozmiarem</string>
     <string name="upgraded_from_free">Witaj,
 \n
-\nWygląda na to, że uaktualniłeś(-aś) starą darmową aplikację na nową płatną. Możesz teraz odinstalować poprzednią przyciskiem „Uaktualnij do Pro” na górze w ustawieniach aplikacji.
+\nWygląda na to, że uaktualniłeś(-aś) starą darmową aplikację do nowej płatnej. Możesz teraz odinstalować starą wersję, która ma przycisk „Uaktualnij do Pro” na górze w ustawieniach aplikacji.
 \n
 \nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.
 \n
@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Ograniczaj długie nazwy folderów do 1 linii</string>
     <string name="square">Kwadrat</string>
     <string name="rounded_corners">Zaokrąglone rogi</string>
-    <string name="export_favorite_paths">Eksportuj ścieżki ulubionych plików</string>
-    <string name="import_favorite_paths">Importuj ścieżki ulubionych plików</string>
+    <string name="export_favorite_paths">Eksportuj ulubione</string>
+    <string name="import_favorite_paths">Importuj ulubione</string>
     <string name="paths_imported_successfully">Ścieżki zostały zaimportowane</string>
     <string name="media_management_prompt">Aby mieć pewność, że wszystkie operacje na plikach działają niezawodnie, ustaw tę aplikację jako aplikację do zarządzania multimediami w ustawieniach urządzenia.</string>
     <string name="password_protect_excluded">Chroń hasłem widoczność wykluczonych folderów</string>

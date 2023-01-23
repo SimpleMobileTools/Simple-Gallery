@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Limitar los títulos largos de las carpetas a 1 línea</string>
     <string name="square">Cuadrado</string>
     <string name="rounded_corners">Esquinas redondeadas</string>
-    <string name="export_favorite_paths">Exportar rutas de archivos favoritos</string>
-    <string name="import_favorite_paths">Importar las rutas de los archivos favoritos</string>
+    <string name="export_favorite_paths">Exportar los favoritos</string>
+    <string name="import_favorite_paths">Importar los favoritos</string>
     <string name="paths_imported_successfully">Rutas importadas correctamente</string>
     <string name="media_management_prompt">Para asegurarse de que todas las operaciones en ficheros funcionan de forma segura, por favor haga esta aplicación una aplicación de manejo de medios en los ajustes de su dispositivo.</string>
     <string name="password_protect_excluded">Proteger con contraseña la visibilidad de las carpetas excluidas</string>

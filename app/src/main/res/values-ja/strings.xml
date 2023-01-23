@@ -205,8 +205,8 @@
     <string name="limit_folder_title">長いフォルダ名を1行に制限</string>
     <string name="square">四角</string>
     <string name="rounded_corners">角丸</string>
-    <string name="export_favorite_paths">お気に入りファイルのパスをエクスポート</string>
-    <string name="import_favorite_paths">お気に入りファイルのパスをインポート</string>
+    <string name="export_favorite_paths">お気に入りをエクスポート</string>
+    <string name="import_favorite_paths">お気に入りをインポート</string>
     <string name="paths_imported_successfully">パスのインポートに成功しました</string>
     <string name="media_management_prompt">すべてのファイル操作を確実に行うためには、端末の設定でこのアプリをメディア管理アプリにする必要があります。</string>
     <string name="password_protect_excluded">除外されたフォルダの表示をパスワードで保護する</string>
@@ -345,8 +345,8 @@
     <string name="faq_1_text">デバイスの設定内の [アプリ] セクションで現在のデフォルトのギャラリーを探し、「デフォルトで開く」というような表記のボタンを探してタップし、そして「デフォルトの設定のクリア」や「設定を消去」といった表記のものを選択します。 次に画像や動画を開こうとした時に、アプリ選択ダイアログが表示されるので、シンプルギャラリーを通常のアプリとして選択します。</string>
     <string name="faq_2_title">アプリをパスワードでロックしましたが、パスワードを忘れてしまいました。どうすればいいですか？</string>
     <string name="faq_2_text">解決策は2つあります。アプリを再インストールするか、デバイス設定からアプリを見つけて「データを消去」を選択するかです。そうすると設定がリセットされますが、メディアファイルは削除されません。</string>
-    <string name="faq_3_title">アルバムが常に一番上に表示されるようにするにはどうすればいいですか？</string>
-    <string name="faq_3_text">アルバムを長押しで選択し、アクションメニューからピンアイコンを選択すれば一番上に固定されます。複数のフォルダをピン留めできます。ピン留めされた項目は、デフォルトの並べ替え方法で並べ替えられます。</string>
+    <string name="faq_3_title">アルバムが常に上部に表示されるようにするにはどうすればいいですか？</string>
+    <string name="faq_3_text">アルバムを長押しで選択し、アクションメニューからピンアイコンを選択すれば上部に固定されます。複数のフォルダをピン留めできます。ピン留めされた項目群は、既定の並べ替え方法で並べ替えられます。</string>
     <string name="faq_4_title">動画を早送りするにはどうすればよいですか？</string>
     <string name="faq_4_text">画面端をダブルタップするか、シークバーの近くにある曲の長さを示すテキストをタップすれば可能です。アプリ設定の左右ジェスチャー機能の切り替えを有効にすると、右ジェスチャーで早送りが可能です（無効にすると左右ジェスチャーで別の動画を開きます）。</string>
     <string name="faq_5_title">フォルダの非表示と除外の違いは何ですか？</string>

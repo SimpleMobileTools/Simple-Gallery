@@ -1,23 +1,23 @@
 Jednoduchá galerie vám přináší všechny funkce pro prohlížení a úpravu fotografií, které vám v systému Android chyběly, v jedné stylové a snadno použitelné aplikaci. Prohlížejte, spravujte, ořezávejte a upravujte fotografie nebo videa rychleji než kdykoli předtím, obnovujte omylem smazané soubory nebo vytvářejte skryté galerie pro své nejcennější snímky a videa. A díky pokročilé podpoře souborů a plnému přizpůsobení konečně vaše galerie funguje přesně podle vašich představ.
 
 POKROČILÝ EDITOR FOTOGRAFIÍ
-S vylepšeným organizátorem souborů a fotoalbem Simple Gallery se úprava fotografií stane dětskou hrou. Intuitivní gesta umožňují mimořádně snadnou úpravu obrázků za chodu. Obrázky můžete ořezávat, převracet, otáčet a měnit jejich velikost nebo na ně aplikovat stylové filtry, které je v okamžiku rozzáří.
+S vylepšeným organizátorem souborů a fotoalbem Jednoduché galerie se úprava fotografií stane dětskou hrou. Intuitivní gesta umožňují mimořádně snadnou úpravu obrázků za chodu. Obrázky můžete ořezávat, převracet, otáčet a měnit jejich velikost nebo na ně aplikovat stylové filtry, které je v okamžiku rozzáří.
 
 VŠECHNY SOUBORY, KTERÉ POTŘEBUJETE
-Aplikace Simple Gallery podporuje obrovské množství různých typů souborů, včetně JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramatických fotografií, videí a mnoha dalších, takže si můžete plně vychutnat flexibilitu při výběru formátu. Přemýšleli jste někdy nad otázkou "Mohu tento formát používat ve svém systému Android"? Nyní je odpověď ano.
+Aplikace Jednoduchá galerie podporuje obrovské množství různých typů souborů, včetně JPEG, PNG, MP4, MKV, RAW, SVG, GIF, panoramatických fotografií, videí a mnoha dalších, takže si můžete plně vychutnat flexibilitu při výběru formátu. Přemýšleli jste někdy nad otázkou "Mohu tento formát používat v systému Android"? Nyní je odpověď ano.
 
 UDĚLEJTE SI HO PODLE SVÉHO
-Vysoce přizpůsobitelný design aplikace Simple Gallery vám umožní nastavit vzhled, ovládání a fungování fotografické aplikace přesně podle vašich představ. Od uživatelského rozhraní až po funkční tlačítka na spodním panelu nástrojů vám aplikace Simple Gallery poskytuje tvůrčí svobodu, kterou u aplikace galerie potřebujete.
+Vysoce přizpůsobitelný design aplikace Jednoduchá galerie vám umožní nastavit vzhled, ovládání a fungování fotografické aplikace přesně podle vašich představ. Od uživatelského rozhraní až po funkční tlačítka na spodním panelu nástrojů vám aplikace Jednoduchá galerie poskytuje tvůrčí svobodu, kterou u aplikace galerie potřebujete.
 
 OBNOVENÍ SMAZANÝCH FOTOGRAFIÍ A VIDEÍ
-Už nikdy se nemusíte bát, že omylem vymažete tu jedinou cennou fotografii nebo video, které prostě nemůžete nahradit. Aplikace Simple Gallery umožňuje rychle obnovit všechny smazané fotografie a videa, což znamená, že kromě toho, že je nejlepší multimediální galerií pro Android, slouží Simple Gallery také jako úžasná aplikace pro ukládání fotografií do trezoru.
+Už nikdy se nemusíte bát, že omylem vymažete tu jedinou cennou fotografii nebo video, které prostě nemůžete nahradit. Aplikace Jednoduchá galerie umožňuje rychle obnovit všechny smazané fotografie a videa, což znamená, že kromě toho, že je nejlepší multimediální galerií pro Android, slouží Jednoduchá galerie také jako úžasná aplikace pro ukládání fotografií do trezoru.
 
 CHRAŇTE SVÉ SOUKROMÉ FOTOGRAFIE, VIDEA A SOUBORY
-Buďte si jisti, že vaše fotoalbum je v bezpečí. Díky vynikajícím bezpečnostním funkcím aplikace Simple Gallery můžete pomocí PIN kódu, vzoru nebo snímače otisků prstů svého zařízení omezit, kdo může prohlížet nebo upravovat vybrané fotografie a videa nebo přistupovat k důležitým souborům. Můžete dokonce chránit samotnou aplikaci nebo umístit zámky na konkrétní funkce organizéru souborů.
+Buďte si jisti, že vaše fotoalbum je v bezpečí. Díky vynikajícím bezpečnostním funkcím aplikace Jednoduchá galerie můžete pomocí PIN kódu, vzoru nebo snímače otisků prstů svého zařízení omezit, kdo může prohlížet nebo upravovat vybrané fotografie a videa nebo přistupovat k důležitým souborům. Můžete dokonce chránit samotnou aplikaci nebo umístit zámky na konkrétní funkce organizéru souborů.
 
-Ve výchozím nastavení je dodáván s designem Material a tmavým motivem, což poskytuje skvělé uživatelské prostředí pro snadné používání. Díky absenci přístupu k internetu získáte více soukromí, bezpečnosti a stability než u jiných aplikací.
+Ve výchozím nastavení přichází s motivem Material a tmavým vzhledem, což poskytuje skvělé uživatelské prostředí pro snadné používání. Díky absenci přístupu k internetu získáte více soukromí, bezpečnosti a stability než u jiných aplikací.
 
-Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně open-source a poskytuje přizpůsobitelné barvy.
+Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně z otevřených zdrojů a poskytuje přizpůsobitelné barvy.
 
 Kompletní sadu jednoduchých nástrojů si můžete prohlédnout zde:
 https://www.simplemobiletools.com.
