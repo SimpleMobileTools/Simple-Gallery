@@ -99,9 +99,9 @@
     <string name="rotate_left">تدوير لليسار</string>
     <string name="rotate_right">تدوير لليمين</string>
     <string name="rotate_one_eighty">تدوير بزاوية 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">تحويل</string>
+    <string name="crop">ا قتصاص</string>
+    <string name="draw">رسم</string>
     <string name="flip">انعكاس</string>
     <string name="flip_horizontally">قلب أفقياً</string>
     <string name="flip_vertically">قلب عمودياً</string>
@@ -207,8 +207,8 @@
     <string name="limit_folder_title">تحديد عناوين المجلدات الطويلة إلى سطر واحد</string>
     <string name="square">مربع</string>
     <string name="rounded_corners">زوايا مستديرة</string>
-    <string name="export_favorite_paths">تصدير مسارات الملفات المفضلة</string>
-    <string name="import_favorite_paths">استيراد مسارات الملفات المفضلة</string>
+    <string name="export_favorite_paths">تصدير المفضلة</string>
+    <string name="import_favorite_paths">استيراد المفضلة</string>
     <string name="paths_imported_successfully">تم استيراد المسارات بنجاح</string>
     <string name="media_management_prompt">للتأكد من أن جميع عمليات الملفات تعمل بشكل موثوق ، يرجى جعل هذا التطبيق تطبيقا لإدارة الوسائط في إعدادات جهازك.</string>
     <string name="password_protect_excluded">حمايةالمجلدات المستبعدة بكلمة مرور</string>
