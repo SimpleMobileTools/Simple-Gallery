@@ -1,0 +1,3 @@
+ * Added an Open Recycle Bin menu item for quick access, if it isnt shown as folder
+ * Show Manage Included Folders even without proper permissions
+ * Added some translation, stability and UX improvements

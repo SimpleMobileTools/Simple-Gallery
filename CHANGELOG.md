@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.26.3 *(2023-01-23)*
+----------------------------
+
+ * Added an Open Recycle Bin menu item for quick access, if it isnt shown as folder
+ * Show Manage Included Folders even without proper permissions
+ * Added some translation, stability and UX improvements
+
 Version 6.26.2 *(2023-01-20)*
 ----------------------------
 
