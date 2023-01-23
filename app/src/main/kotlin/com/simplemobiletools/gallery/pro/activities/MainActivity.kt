@@ -313,7 +313,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             main_menu.getToolbar().menu.apply {
                 findItem(R.id.column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID
                 findItem(R.id.set_as_default_folder).isVisible = !config.defaultFolder.isEmpty()
-                findItem(R.id.open_recycle_bin).isVisible = !config.useRecycleBin
+                findItem(R.id.open_recycle_bin).isVisible = config.useRecycleBin && !config.showRecycleBinAtFolders
                 findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
             }
         }
