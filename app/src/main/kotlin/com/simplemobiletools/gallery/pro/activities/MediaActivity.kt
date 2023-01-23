@@ -242,6 +242,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
             findItem(R.id.create_new_folder).isVisible = !mShowAll && mPath != RECYCLE_BIN && mPath != FAVORITES
+            findItem(R.id.open_recycle_bin).isVisible = mPath != RECYCLE_BIN
 
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = (!isRPlus() || isExternalStorageManager()) && config.temporarilyShowHidden
@@ -279,6 +280,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 R.id.change_view_type -> changeViewType()
                 R.id.group -> showGroupByDialog()
                 R.id.create_new_folder -> createNewFolder()
+                R.id.open_recycle_bin -> openRecycleBin()
                 R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
                 R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
                 R.id.column_count -> changeColumnCount()
@@ -601,7 +603,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
             }
 
-            finish()
+            if (mPath == RECYCLE_BIN) {
+                media_empty_text_placeholder.setText(R.string.no_items_found)
+                media_empty_text_placeholder.beVisible()
+                media_empty_text_placeholder_2.beGone()
+            } else {
+                finish()
+            }
+
             true
         } else {
             false

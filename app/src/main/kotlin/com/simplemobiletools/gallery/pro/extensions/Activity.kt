@@ -34,10 +34,12 @@ import com.simplemobiletools.commons.models.FAQItem
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
 import com.simplemobiletools.gallery.pro.dialogs.AllFilesPermissionDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
+import com.simplemobiletools.gallery.pro.helpers.DIRECTORY
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
 import com.squareup.picasso.Picasso
@@ -790,5 +792,12 @@ fun Activity.handleExcludedFolderPasswordProtection(callback: () -> Unit) {
         }
     } else {
         callback()
+    }
+}
+
+fun Activity.openRecycleBin() {
+    Intent(this, MediaActivity::class.java).apply {
+        putExtra(DIRECTORY, RECYCLE_BIN)
+        startActivity(this)
     }
 }

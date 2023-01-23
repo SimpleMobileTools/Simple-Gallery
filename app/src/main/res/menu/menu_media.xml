@@ -49,6 +49,11 @@
         android:title="@string/empty_and_disable_recycle_bin"
         app:showAsAction="never" />
     <item
+        android:id="@+id/open_recycle_bin"
+        android:showAsAction="never"
+        android:title="@string/open_the_recycle_bin"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/restore_all_files"
         android:showAsAction="never"
         android:title="@string/restore_all_files"
