@@ -28,11 +28,11 @@
     <string name="dates_fixed_successfully">Дати успішно виправлені</string>
     <string name="no_date_takens_found">Не знайдено значень параметра Дата Зйомки</string>
     <string name="share_resized">Поділитися зображенням іншого розміру</string>
-    <string name="upgraded_from_free">Агов,
+    <string name="upgraded_from_free">Привіт
 \n
-\nздається, ви оновились зі старого безкоштовного додатка. Тепер ви можете видалити стару версію, у якій є кнопка \"Перейти на Pro\" вгорі налаштувань додатка.
+\nздається, ви оновили старий безплатний застосунок. Тепер ви можете видалити стару версію, яка має кнопку «Оновити до Pro» у верхній частині налаштувань застосунку.
 \n
-\nВи втратите лише елементи з Кошика, позначки улюблених елементів, а також потрібно буде скинути ваші налаштування додатка.
+\nВи матимете лише видалені елементи кошика, зняті позначки з улюблених, а також вам доведеться скинути налаштування застосунку.
 \n
 \nДякую!</string>
     <string name="switch_to_file_search">Перейти до пошуку файла в усіх видимих теках</string>
@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Обмежити довгі назви тек одним рядком</string>
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Закруглені кути</string>
-    <string name="export_favorite_paths">Експорт розташування улюблених файлів</string>
-    <string name="import_favorite_paths">Імпорт улюблених шляхів до файлів</string>
+    <string name="export_favorite_paths">Експорт обраних</string>
+    <string name="import_favorite_paths">Імпорт обраного</string>
     <string name="paths_imported_successfully">Шляхи успішно імпортовано</string>
     <string name="media_management_prompt">Щоб переконатися в надійності роботи операції з файлами, будь ласка, в налаштуваннях свого пристрою зробіть цю програму такою, що керує мультимедіа.</string>
     <string name="password_protect_excluded">Захист паролем видимості вилучених тек</string>
