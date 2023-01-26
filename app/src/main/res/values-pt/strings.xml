@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Restringir título das pastas a 1 linha</string>
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
-    <string name="export_favorite_paths">Exportar caminho dos ficheiros favoritos</string>
-    <string name="import_favorite_paths">Importar caminho dos ficheiros favoritos</string>
+    <string name="export_favorite_paths">Exportar favoritos</string>
+    <string name="import_favorite_paths">Importar favoritos</string>
     <string name="paths_imported_successfully">Caminhos importados com sucesso</string>
     <string name="media_management_prompt">Para garantir que todas as operações de ficheiros funcionem corretamente, torne esta a aplicação padrão para gerir os ficheiros multimédia.</string>
     <string name="password_protect_excluded">Proteger exibição das pastas excluídas com palavra-passe</string>
