@@ -78,10 +78,7 @@ class SaveAsDialog(
                         if (activity.getDoesFilePathExist(newPath)) {
                             val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
                             ConfirmationDialog(activity, title) {
-                                val newFile = File(newPath)
-                                val isInDownloadDir = activity.isInDownloadDir(newPath)
-                                val isInSubFolderInDownloadDir = activity.isInSubFolderInDownloadDir(newPath)
-                                if ((isRPlus() && !isExternalStorageManager()) && isInDownloadDir && !isInSubFolderInDownloadDir && !newFile.canWrite()) {
+                                if ((isRPlus() && !isExternalStorageManager())) {
                                     val fileDirItem = arrayListOf(File(newPath).toFileDirItem(activity))
                                     val fileUris = activity.getFileUrisFromFileDirItems(fileDirItem)
                                     activity.updateSDK30Uris(fileUris) { success ->
