@@ -873,11 +873,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             ensureBackgroundThread {
                 val file = File(path)
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
-                getFileOutputStream(fileDirItem, true) {
-                    if (it != null) {
-                        saveBitmap(file, bitmap, it, showSavingToast)
-                    } else {
-                        toast(R.string.image_editing_failed)
+                try {
+                    val out = FileOutputStream(file)
+                    saveBitmap(file, bitmap, out, showSavingToast)
+                } catch (e: Exception) {
+                    getFileOutputStream(fileDirItem, true) {
+                        if (it != null) {
+                            saveBitmap(file, bitmap, it, showSavingToast)
+                        } else {
+                            toast(R.string.image_editing_failed)
+                        }
                     }
                 }
             }
