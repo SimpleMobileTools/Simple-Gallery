@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Hosszú mappanevek egy sorra korlátozása</string>
     <string name="square">Négyzet</string>
     <string name="rounded_corners">Lekerekített sarkok</string>
-    <string name="export_favorite_paths">Kedvenc fájlútvonalak exportálása</string>
-    <string name="import_favorite_paths">Kedvenc fájlútvonalak importálása</string>
+    <string name="export_favorite_paths">Kedvencek exportálása</string>
+    <string name="import_favorite_paths">Kedvencek importálása</string>
     <string name="paths_imported_successfully">A fájlútvonalak sikeresen importálva</string>
     <string name="media_management_prompt">Hogy megbízhatóan működjenek a fájlműveletek, győződjön meg róla, hogy ez az alkalmazás egy Médiakezelő alkalmazás az eszközbeállításokban.</string>
     <string name="password_protect_excluded">Jelszóval védi a kizárt mappák láthatóságát</string>

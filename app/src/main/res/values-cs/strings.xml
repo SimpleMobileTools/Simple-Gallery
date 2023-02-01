@@ -321,8 +321,8 @@
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">Překlopit H</string>
     <string name="pesdk_common_button_flipV">Překlopit V</string>
-    <string name="pesdk_common_button_undo">Vrátit zpět</string>
-    <string name="pesdk_common_button_redo">Provést znovu</string>
+    <string name="pesdk_common_button_undo">Zpět</string>
+    <string name="pesdk_common_button_redo">Znovu</string>
     <string name="pesdk_common_title_colorPicker">Výběr barvy</string>
     <string name="pesdk_common_title_transparentColor">Průhledná</string>
     <string name="pesdk_common_title_whiteColor">Bílá</string>
@@ -353,13 +353,13 @@
     <string name="faq_4_text">Můžete to udělat dvojitým klepnutím na stranu obrazovky nebo klepnutím na text aktuálního nebo celkového času videa poblíž ukazatele průběhu. Pokud v nastavení aplikace povolíte otevírání videí na samostatné obrazovce, můžete používat i horizontální gesta.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky\?</string>
     <string name="faq_5_text">Funkce Vyloučit zabrání zobrazení složky pouze v Jednoduché galerii, zatímco funkce Skrýt funguje systémově a skryje složku i v ostatních galeriích. Funguje tak, že v dané složce vytvoří prázdný soubor \".nomedia\", který pak můžete odstranit také pomocí libovolného správce souborů. Všimněte si, že některá zařízení neumožňují skrývání složek jako Camera, Screenshots a Downloads.</string>
-    <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami\?</string>
+    <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb nebo nálepkami\?</string>
     <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt jejich vybráním pomocí dlouhého podržení a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení nadřazené složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
     <string name="faq_7_title">Složka s fotografiemi se mi nezobrazuje nebo ve složce nevidím všechny soubory. Co s tím\?</string>
     <string name="faq_7_text">Může to mít více důvodů, ale řešení je jednoduché. Jděte do Nastavení -&gt; Spravovat zahrnuté složky, stiskněte Plus a vyberte požadovanou složku.</string>
-    <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek\?</string>
+    <string name="faq_8_title">Co dělat v případě, že chci mít zobrazeno pouze několik složek\?</string>
     <string name="faq_8_text">Přidání složky do Zahrnutých složek automaticky nevyloučí ostatní. Co můžete udělat, je přejít do Nastavení -&gt; Spravovat vyloučené složky, vyloučit kořenovou složku \"/\" a poté přidat požadované složky v Nastavení -&gt; Spravovat zahrnuté složky. Tím se zobrazí pouze vybrané složky, protože vyloučení i zahrnutí funguje rekurzivně a pokud je složka vyloučena i zahrnuta, zobrazí se.</string>
-    <string name="faq_10_title">Dá se s touto aplikací oříznout obrázek\?</string>
+    <string name="faq_10_title">Mohu pomocí této aplikace ořezávat obrázky\?</string>
     <string name="faq_10_text">Ano, oříznutí je možné v editoru potažením rohů obrázku. Do editoru se můžete dostat buď dlouhým stisknutím miniatury obrázku a zvolením Upravit, nebo zvolením Upravit v celoobrazovkovém režimu.</string>
     <string name="faq_11_title">Mohu nějakým způsobem seskupit miniatury mediálních souborů\?</string>
     <string name="faq_11_text">Jistě, stačí použít položku nabídky „Seskupit podle“ v zobrazení miniatur. Seskupení je možné na základě různých kritérií, včetně data pořízení. Pokud použijete funkci \"Zobrazit obsah všech složek\", můžete je seskupit také podle složek.</string>

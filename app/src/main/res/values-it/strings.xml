@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Limita i nomi lunghi delle cartelle a 1 riga</string>
     <string name="square">Quadrato</string>
     <string name="rounded_corners">Angoli arrotondati</string>
-    <string name="export_favorite_paths">Esporta i percorsi dei file preferiti</string>
-    <string name="import_favorite_paths">Importa i percorsi dei file preferiti</string>
+    <string name="export_favorite_paths">Esporta i preferiti</string>
+    <string name="import_favorite_paths">Importa i preferiti</string>
     <string name="paths_imported_successfully">Percorsi importati correttamente</string>
     <string name="media_management_prompt">Per assicurarsi che tutte le operazioni sui file funzionino in modo affidabile, si prega di rendere questa app un\'app di gestione dei media nelle impostazioni del dispositivo.</string>
     <string name="password_protect_excluded">Proteggi con password la visibilità della cartella esclusa</string>

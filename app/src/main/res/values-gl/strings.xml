@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Limitalos títulos longos dos cartafoles a 1 liña</string>
     <string name="square">Praza</string>
     <string name="rounded_corners">Cantos redondeados</string>
-    <string name="export_favorite_paths">Exportalas rutas dos ficheiros favoritos</string>
-    <string name="import_favorite_paths">Importalas rutas dos arquivos favoritos</string>
+    <string name="export_favorite_paths">Exportalos favoritos</string>
+    <string name="import_favorite_paths">Importalos favoritos</string>
     <string name="paths_imported_successfully">As rutas importáronse correctamente</string>
     <string name="media_management_prompt">Para asegurarte de que todalas operacións cos ficheiros funcionan de forma fiable, fai desta aplicación unha aplicación de xestión multimedia na configuración do teu dispositivo.</string>
     <string name="password_protect_excluded">Visibilidade do cartafol protexida con contrasinal</string>
