@@ -5,7 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(excluído)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Pastas ocultas</string>
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Você deve dar para o aplicativo a permissão de acesso à todos os arquivos para acessar arquivos encondidos, do contrário não pode funcionar.</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Digite uma resolução válida</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Editor básico</string>
+    <string name="advanced_editor">Editor avançado</string>
     <string name="rotate">Girar</string>
     <string name="invalid_image_path">Caminho de imagem inválido</string>
     <string name="invalid_video_path">Caminho de vídeo inválido</string>
@@ -99,9 +99,9 @@
     <string name="rotate_left">Girar para a esquerda</string>
     <string name="rotate_right">Girar para a direita</string>
     <string name="rotate_one_eighty">Girar 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformar</string>
+    <string name="crop">Cultivos</string>
+    <string name="draw">Desenhar</string>
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
@@ -110,7 +110,7 @@
     <string name="other_aspect_ratio">Outro</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="simple_wallpaper">Papel de Parede Simples</string>
     <string name="set_as_wallpaper">Definir como papel de parede</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como papel de parede</string>
     <string name="set_as_wallpaper_with">Definir papel de parede com:</string>
@@ -121,7 +121,7 @@
     <string name="home_screen">Tela inicial</string>
     <string name="lock_screen">Tela de bloqueio</string>
     <string name="home_and_lock_screen">Tela inicial e de bloqueio</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Permitir a mudança das proporções</string>
     <!-- Slideshow -->
     <string name="slideshow">Apresentação</string>
     <string name="interval">Intervalo</string>
@@ -208,18 +208,18 @@
     <string name="square">Quadrado</string>
     <string name="rounded_corners">Cantos arredondados</string>
     <string name="export_favorite_paths">Exportar caminho dos favoritos</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="import_favorite_paths">Importar favoritos</string>
+    <string name="paths_imported_successfully">Caminhos importados com sucesso</string>
     <string name="media_management_prompt">Para você se certificar que todas as operações de arquivos funcionam corretamente, por favor, permita o gerenciamento de mídias nas configurações do seu dispositivo.</string>
     <string name="password_protect_excluded">Proteger com senha a visibilidade da pasta excluída</string>
     <string name="media_management_manual">Algo deu errado! Por favor, acesse Configurações - Apps - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
     <string name="media_management_note">Se o redirecionamento não funcionar, acesse Configurações - Apps - Acesso especial ao aplicativo - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
     <string name="media_management_alternative">Se você não quer fazer isso, você também pode acessar em seu dispositivo Configurações - Apps - Acesso especial ao aplicativ - Aplicativos de gerenciamento de mídia e permitir que este aplicativo gerencie mídia.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="alternative_media_access">Alternativamente, você pode permitir o acesso somente a arquivos de mídia. Porém, nesse caso você não terá a possibilidade de trabalhar com arquivos ocultos.</string>
+    <string name="media_only">Somente multimídia</string>
+    <string name="all_files">Todos os arquivos</string>
+    <string name="search_all_files">Procurar todos os arquivos ao invés de somente as pastas na tela principal</string>
+    <string name="show_all_folders">Mostrar um botão no menu para rapidamente ligar e desligar a opção de mostrar o conteúdo de todas as pastas</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Mídia em tela cheia</string>
@@ -373,7 +373,7 @@
     <string name="faq_15_text">O cache deste app, que garante que as imagens sejam carregadas mais rapidamente, pode ocupar até 250MB. Se o app estiver ocupando mais espaço que isso, pode ser por que você tem muitos arquivos na sua Lixeira. Arquivos na Lixeira são removidos permanentemente após 30 dias, mas se mesmo assim sua Lixeira estiver ocupando muito espaço, você pode esvaziá-la manualmente. Para fazer isso, você pode abrir a Lixeira e excluir os arquivos dentro dela, ou você pode fazer o mesmo na tela de Configurações deste app.</string>
     <string name="faq_16_title">O que aconteceu com o arquivo e a pasta escondidos e por que não posso mais ver arquivos escondidos\?</string>
     <string name="faq_16_text">A partir do Android 11, você não pode mais ocultar ou exibir arquivos ou pastas, também não pode ver os ocultos nos aplicativos da galeria devido a restrições do sistema. Você terá que usar algum gerenciador de arquivos para isso.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Ou você também pode dar à essa galeria acesso a todos os arquivos por meio das configurações do dispositivo, isso irá possibilitar que aplicativo o mostre itens ocultos e execute operações com arquivos de forma mais confiável no geral.</string>
     <string name="faq_17_title">Por que não posso incluir pastas ausentes\?</string>
     <string name="faq_17_text">Isso parou de funcionar devido a mudanças de sistema do Android 11, pois o aplicativo não pode mais gerenciar pastas verdadeiras, precisa utilizar algo chamado MediaStore para obter os dados.</string>
     <string name="faq_18_title">Por que estou vendo anúncios durante o playback do vídeo\?</string>
