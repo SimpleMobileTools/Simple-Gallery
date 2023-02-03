@@ -34,6 +34,11 @@
 
     <uses-sdk tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano" />
 
+    <queries>
+        <package android:name="com.simplemobiletools.gallery.debug" />
+        <package android:name="com.simplemobiletools.gallery" />
+    </queries>
+
     <uses-feature
         android:name="android.hardware.faketouch"
         android:required="false" />
