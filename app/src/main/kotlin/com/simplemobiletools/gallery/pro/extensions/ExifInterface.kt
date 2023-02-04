@@ -34,7 +34,8 @@ private class ExifInterfaceAttributes {
                 ExifInterface.TAG_PIXEL_Y_DIMENSION,
                 ExifInterface.TAG_THUMBNAIL_IMAGE_LENGTH,
                 ExifInterface.TAG_THUMBNAIL_IMAGE_WIDTH,
-                ExifInterface.TAG_ORIENTATION)
+                ExifInterface.TAG_ORIENTATION
+            )
 
             return tagFields
                 .map { tagField -> tagField.get(null) as String }
@@ -44,8 +45,8 @@ private class ExifInterfaceAttributes {
 
         private fun isExif(field: Field): Boolean {
             return field.type == String::class.java &&
-                    isPublicStaticFinal(field.modifiers) &&
-                    field.name.startsWith("TAG_")
+                isPublicStaticFinal(field.modifiers) &&
+                field.name.startsWith("TAG_")
         }
 
         private const val publicStaticFinal = Modifier.PUBLIC or Modifier.STATIC or Modifier.FINAL

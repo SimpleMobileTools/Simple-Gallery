@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 
-class GridSpacingItemDecoration(val spanCount: Int, val spacing: Int, val isScrollingHorizontally: Boolean, val addSideSpacing: Boolean,
-                                var items: ArrayList<ThumbnailItem>, val useGridPosition: Boolean) : RecyclerView.ItemDecoration() {
+class GridSpacingItemDecoration(
+    val spanCount: Int, val spacing: Int, val isScrollingHorizontally: Boolean, val addSideSpacing: Boolean,
+    var items: ArrayList<ThumbnailItem>, val useGridPosition: Boolean
+) : RecyclerView.ItemDecoration() {
 
     override fun toString() = "spanCount: $spanCount, spacing: $spacing, isScrollingHorizontally: $isScrollingHorizontally, addSideSpacing: $addSideSpacing, " +
-            "items: ${items.hashCode()}, useGridPosition: $useGridPosition"
+        "items: ${items.hashCode()}, useGridPosition: $useGridPosition"
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         if (spacing <= 1) {

@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.models.FilterItem
 import kotlinx.android.synthetic.main.editor_filter_item.view.*
-import java.util.*
 
-class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem>, val itemClick: (Int) -> Unit) : RecyclerView.Adapter<FiltersAdapter.ViewHolder>() {
+class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem>, val itemClick: (Int) -> Unit) :
+    RecyclerView.Adapter<FiltersAdapter.ViewHolder>() {
 
     private var currentSelection = filterItems.first()
     private var strokeBackground = context.resources.getDrawable(R.drawable.stroke_background)

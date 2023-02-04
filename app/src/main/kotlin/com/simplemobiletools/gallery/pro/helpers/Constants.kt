@@ -226,13 +226,6 @@ const val ASPECT_RATIO_FOUR_THREE = 2
 const val ASPECT_RATIO_SIXTEEN_NINE = 3
 const val ASPECT_RATIO_OTHER = 4
 
-// some constants related to zooming videos
-const val MIN_VIDEO_ZOOM_SCALE = 1f
-const val MAX_VIDEO_ZOOM_SCALE = 5f
-const val ZOOM_MODE_NONE = 0
-const val ZOOM_MODE_DRAG = 1
-const val ZOOM_MODE_ZOOM = 2
-
 // constants related to image quality
 const val LOW_TILE_DPI = 160
 const val NORMAL_TILE_DPI = 220
