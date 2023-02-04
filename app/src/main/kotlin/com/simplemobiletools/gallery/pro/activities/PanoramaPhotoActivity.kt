@@ -85,6 +85,11 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         }
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setupButtonMargins()
+    }
+
     private fun checkIntent() {
         val path = intent.getStringExtra(PATH)
         if (path == null) {
@@ -133,11 +138,6 @@ open class PanoramaPhotoActivity : SimpleActivity() {
             isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             toggleButtonVisibility()
         }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setupButtonMargins()
     }
 
     private fun getBitmapToLoad(path: String): Bitmap? {

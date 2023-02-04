@@ -37,7 +37,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
-        //showTransparentNavigation = true
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
@@ -68,6 +67,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (config.blackBackground) {
             updateStatusbarColor(Color.BLACK)
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        initBottomActionsLayout()
+
+        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        (fragment_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
+            fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+        } else {
+            fragment_viewer_toolbar.setPadding(0, 0, 0, 0)
         }
     }
 
@@ -277,19 +289,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         }
         finish()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        initBottomActionsLayout()
-
-        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        (fragment_viewer_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
-        if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
-            fragment_viewer_toolbar.setPadding(0, 0, navigationBarWidth, 0)
-        } else {
-            fragment_viewer_toolbar.setPadding(0, 0, 0, 0)
-        }
     }
 
     private fun sendViewPagerIntent(path: String) {

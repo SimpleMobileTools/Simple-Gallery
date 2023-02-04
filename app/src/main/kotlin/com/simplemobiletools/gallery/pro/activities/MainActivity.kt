@@ -308,6 +308,36 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == PICK_MEDIA && resultData != null) {
+                val resultIntent = Intent()
+                var resultUri: Uri? = null
+                if (mIsThirdPartyIntent) {
+                    when {
+                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true && intent.flags and Intent.FLAG_GRANT_WRITE_URI_PERMISSION != 0 -> {
+                            resultUri = fillExtraOutput(resultData)
+                        }
+                        resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
+                        else -> fillIntentPath(resultData, resultIntent)
+                    }
+                }
+
+                if (resultUri != null) {
+                    resultIntent.data = resultUri
+                    resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+
+                setResult(Activity.RESULT_OK, resultIntent)
+                finish()
+            } else if (requestCode == PICK_WALLPAPER) {
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
     private fun refreshMenuItems() {
         if (!mIsThirdPartyIntent) {
             main_menu.getToolbar().menu.apply {
@@ -801,36 +831,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun isImageType(intent: Intent) = (intent.type?.startsWith("image/") == true || intent.type == Images.Media.CONTENT_TYPE)
 
     private fun isVideoType(intent: Intent) = (intent.type?.startsWith("video/") == true || intent.type == Video.Media.CONTENT_TYPE)
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PICK_MEDIA && resultData != null) {
-                val resultIntent = Intent()
-                var resultUri: Uri? = null
-                if (mIsThirdPartyIntent) {
-                    when {
-                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true && intent.flags and Intent.FLAG_GRANT_WRITE_URI_PERMISSION != 0 -> {
-                            resultUri = fillExtraOutput(resultData)
-                        }
-                        resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
-                        else -> fillIntentPath(resultData, resultIntent)
-                    }
-                }
-
-                if (resultUri != null) {
-                    resultIntent.data = resultUri
-                    resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                }
-
-                setResult(Activity.RESULT_OK, resultIntent)
-                finish()
-            } else if (requestCode == PICK_WALLPAPER) {
-                setResult(Activity.RESULT_OK)
-                finish()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, resultData)
-    }
 
     private fun fillExtraOutput(resultData: Intent): Uri? {
         val file = File(resultData.data!!.path!!)

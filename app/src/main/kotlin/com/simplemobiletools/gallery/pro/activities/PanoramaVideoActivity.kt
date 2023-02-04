@@ -88,6 +88,11 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setupButtons()
+    }
+
     private fun checkIntent() {
         val path = intent.getStringExtra(PATH)
         if (path == null) {
@@ -166,11 +171,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             mIsFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             toggleButtonVisibility()
         }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setupButtons()
     }
 
     private fun setupDuration(duration: Long) {

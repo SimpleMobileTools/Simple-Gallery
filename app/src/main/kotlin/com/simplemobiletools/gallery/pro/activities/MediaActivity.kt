@@ -228,6 +228,16 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (requestCode == REQUEST_EDIT_IMAGE) {
+            if (resultCode == Activity.RESULT_OK && resultData != null) {
+                mMedia.clear()
+                refreshItems()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
     private fun refreshMenuItems() {
         val isDefaultFolder = !config.defaultFolder.isEmpty() && File(config.defaultFolder).compareTo(File(mPath)) == 0
 
@@ -776,16 +786,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == REQUEST_EDIT_IMAGE) {
-            if (resultCode == Activity.RESULT_OK && resultData != null) {
-                mMedia.clear()
-                refreshItems()
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, resultData)
-    }
 
     private fun itemClicked(path: String) {
         hideKeyboard()

@@ -60,8 +60,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
-        //showTransparentNavigation = true
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
         setupOptionsMenu()
@@ -188,7 +186,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
         video_prev_file.setOnClickListener { handlePrevFile() }
-
 
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onDoubleTap(e: MotionEvent): Boolean {
@@ -658,8 +655,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mIsDragged = false
     }
 
-    override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
-    }
+    override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {}
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
 
