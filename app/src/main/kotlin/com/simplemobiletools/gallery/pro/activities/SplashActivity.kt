@@ -11,7 +11,6 @@ import com.simplemobiletools.gallery.pro.models.Favorite
 
 class SplashActivity : BaseSplashActivity() {
     override fun initActivity() {
-
         // check if previously selected favorite items have been properly migrated into the new Favorites table
         if (config.wereFavoritesMigrated) {
             launchActivity()

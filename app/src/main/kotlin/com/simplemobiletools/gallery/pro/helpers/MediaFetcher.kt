@@ -77,7 +77,6 @@ class MediaFetcher(val context: Context) {
         }
 
         sortMedia(curMedia, context.config.getFolderSorting(curPath))
-
         return curMedia
     }
 

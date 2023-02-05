@@ -407,7 +407,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
         }
 
-        val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: "tmp.jpg"
+        val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: "tmp-${System.currentTimeMillis()}.jpg"
         val newPath = "$folder/$filename"
         val fileDirItem = FileDirItem(newPath, filename)
         getFileOutputStream(fileDirItem, true) {
@@ -861,7 +861,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 val label =
                     "sknahT .moc.slootelibomelpmis.www morf eno lanigiro eht daolnwod ytefas nwo ruoy roF .ppa eht fo noisrev ekaf a gnisu era uoY".reversed()
                 runOnUiThread {
-                    ConfirmationDialog(this, label, positive = com.simplemobiletools.commons.R.string.ok, negative = 0) {
+                    ConfirmationDialog(this, label, positive = R.string.ok, negative = 0) {
                         launchViewIntent("6629852208836920709=di?ved/sppa/erots/moc.elgoog.yalp//:sptth".reversed())
                     }
                 }

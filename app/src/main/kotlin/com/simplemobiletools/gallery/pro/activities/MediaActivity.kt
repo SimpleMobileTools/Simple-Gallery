@@ -373,14 +373,16 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     else -> getHumanizedFilename(mPath)
                 }
 
-                val searchHint = if (mShowAll) {
+                val searchHint = if (mPath == RECYCLE_BIN) {
+                    getString(R.string.search_in_placeholder, dirName)
+                } else if (mShowAll) {
                     getString(R.string.search_files)
                 } else {
                     getString(R.string.search_in_placeholder, dirName)
                 }
 
                 media_menu.updateHintText(searchHint)
-                if (!mShowAll) {
+                if (!mShowAll || mPath == RECYCLE_BIN) {
                     media_menu.toggleForceArrowBackIcon(true)
                     media_menu.onNavigateBackClickListener = {
                         onBackPressed()

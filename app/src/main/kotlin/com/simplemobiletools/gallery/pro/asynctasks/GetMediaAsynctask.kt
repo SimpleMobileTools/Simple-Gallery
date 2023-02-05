@@ -33,7 +33,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val lastModifieds = if (getProperLastModified) mediaFetcher.getLastModifieds() else HashMap()
         val dateTakens = if (getProperDateTaken) mediaFetcher.getDateTakens() else HashMap()
 
-        val media = if (showAll) {
+        // make sure "Open Recycle Bin" works even from Show All Folders Content view
+        val media = if (showAll && mPath != RECYCLE_BIN) {
             val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES && !context.config.isFolderProtected(it) }
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
