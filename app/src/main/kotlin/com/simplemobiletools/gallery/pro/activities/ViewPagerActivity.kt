@@ -304,7 +304,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } else {
             try {
                 mPath = intent.getStringExtra(PATH) ?: ""
-                mShowAll = config.showAll
+
+                // make sure "Open Recycle Bin" works well with "Show all folders content"
+                mShowAll = config.showAll && (mPath.isNotEmpty() && !mPath.startsWith(recycleBinPath))
             } catch (e: Exception) {
                 showErrorToast(e)
                 finish()
