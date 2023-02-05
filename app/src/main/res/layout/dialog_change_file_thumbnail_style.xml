@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/ripple_top_corners"
-            android:paddingStart="@dimen/normal_margin"
+            android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/bigger_margin"
-            android:paddingEnd="@dimen/normal_margin"
+            android:paddingEnd="@dimen/activity_margin"
             android:paddingBottom="@dimen/bigger_margin">
 
             <com.simplemobiletools.commons.views.MyTextView
