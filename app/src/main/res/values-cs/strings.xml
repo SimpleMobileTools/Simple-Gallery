@@ -141,7 +141,7 @@
     <string name="group_direct_subfolders">Sloučit přímé podsložky</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Seskupit podle</string>
-    <string name="do_not_group_files">Neseskupovat soubory</string>
+    <string name="do_not_group_files">Neseskupovat</string>
     <string name="by_folder">Složky</string>
     <string name="by_last_modified">Data poslední úpravy</string>
     <string name="by_last_modified_daily">Data poslední úpravy (denně)</string>
@@ -152,7 +152,7 @@
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
     <string name="show_file_count_section_header">Zobrazit počet souborů v záhlaví sekcí</string>
-    <string name="grouping_and_sorting">Vezměte prosím na vědomí, že seskupování a řazení jsou dvě nezávislé oblasti</string>
+    <string name="grouping_and_sorting">Vezměte na vědomí, že seskupování a řazení jsou dvě nezávislé hodnoty</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Složka zobrazená na widgetu:</string>
     <string name="show_folder_name">Zobrazit název složky</string>
