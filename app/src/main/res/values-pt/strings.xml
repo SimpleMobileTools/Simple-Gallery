@@ -99,9 +99,9 @@
     <string name="rotate_left">Rodar à esquerda</string>
     <string name="rotate_right">Rodar à direita</string>
     <string name="rotate_one_eighty">Rodar 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformar</string>
+    <string name="crop">Recortar</string>
+    <string name="draw">Desenhar</string>
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
@@ -373,7 +373,7 @@
     <string name="faq_15_text">O armazenamento em cache da aplicação comporta até 250MB para assegurar que a imagem é carregada rapidamente. Caso esteja a ocupar mais espaço, o mais certo é que a Reciclagem esteja cheia, e isso também conta para o tamanho total da aplicação. Esvazie a Reciclagem abrindo-a e removendo todos os ficheiros lá contidos, ou faça-o pelas Definições. Todos os ficheiros na Reciclagem são automaticamente apagados após 30 dias.</string>
     <string name="faq_16_title">O que aconteceu com o arquivos e as pastas ocultas e por que não posso mais ver itens ocultos\?</string>
     <string name="faq_16_text">A partir do Android 11, você não pode mais ocultar ou exibir arquivos ou pastas, também não pode ver os ocultos nos aplicativos da galeria devido a restrições do sistema. Você terá que usar algum gerenciador de arquivos para isso.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Também poder conceder a esta aplicação a permissão para aceder a todos os ficheiros nas definições. Desta forma, será possível mostrar os ficheiros ocultos e executar ações de ficheiros de uma forma mais fiável.</string>
     <string name="faq_17_title">Por que não posso incluir pastas ocultas\?</string>
     <string name="faq_17_text">Isso parou de funcionar devido às mudanças no sistema que vieram com o Android 11, o aplicativo não pode mais navegar em pastas reais, ele depende do chamado MediaStore para buscar dados.</string>
     <string name="faq_18_title">Por que vejo anúncios durante a reprodução de vídeo\?</string>
