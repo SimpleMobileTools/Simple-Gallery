@@ -1,5 +1,5 @@
 ### Reporting
-Before you report a new issue, make sure you look at the existing ones first to avoid creating duplicates. You can use Search with some keywords too.
+Before you report something, read the reporting rules [here](https://github.com/SimpleMobileTools/General-Discussion#how-do-i-suggest-an-improvement-ask-a-question-or-report-an-issue) please.
 
 ### Contributing as a developer
 Some instructions about code style and everything that has to be done to increase the change of your code getting accepted can be found at the [General Discussion](https://github.com/SimpleMobileTools/General-Discussion#contribution-rules-for-developers) section. 
