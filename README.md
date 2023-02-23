@@ -22,9 +22,6 @@ Rest assured your photo album is safe. With Simple Gallery's superior security f
 Check out the full suite of Simple Tools here:  
 https://www.simplemobiletools.com
 
-Standalone website of Simple Gallery Pro:  
-https://www.simplemobiletools.com/gallery
-
 Facebook:  
 https://www.facebook.com/simplemobiletools
 
