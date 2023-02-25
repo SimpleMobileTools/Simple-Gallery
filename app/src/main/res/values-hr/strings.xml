@@ -207,8 +207,8 @@
     <string name="limit_folder_title">Ograniči dugačke nalsove mapa na jedan redak</string>
     <string name="square">Kvadrat</string>
     <string name="rounded_corners">Zaobljeni kutovi</string>
-    <string name="export_favorite_paths">Izvezi staze omiljenih datoteka</string>
-    <string name="import_favorite_paths">Uvezi staze favorita</string>
+    <string name="export_favorite_paths">Izvezi favorite</string>
+    <string name="import_favorite_paths">Uvezi favorite</string>
     <string name="paths_imported_successfully">Staze su uspješno uvezene</string>
     <string name="media_management_prompt">Kako bi sve radnje s datotekama pouzdano radile, postavi ovu aplikaciju kao aplikaciju za upravljanje medijima u postavkama uređaja.</string>
     <string name="password_protect_excluded">Lozinkom zaštiti vidljivost isključene mape</string>
