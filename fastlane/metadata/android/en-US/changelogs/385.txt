@@ -1,0 +1,3 @@
+ * Allow merging videos in the Advanced Editor
+ * Show a welcome screen at upgrading from the free version
+ * Added some translation, stability, UX and UI improvements

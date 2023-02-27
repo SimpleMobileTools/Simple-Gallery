@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.26.4 *(2023-02-27)*
+----------------------------
+
+ * Allow merging videos in the Advanced Editor
+ * Show a welcome screen at upgrading from the free version
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.3 *(2023-01-23)*
 ----------------------------
 
