@@ -5,7 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(excluído)</string>
     <string name="pin_folder">Fixar cartafol</string>
     <string name="unpin_folder">Soltar cartafol</string>
     <string name="pin_to_the_top">Fixar arriba</string>
@@ -30,9 +30,9 @@
     <string name="share_resized">Comparte unha versión reducida</string>
     <string name="upgraded_from_free">Ola,
 \n
-\nsemella que actualizaches desde o vello aplicativo gratuito. Podes desinstalar a versión vella, que ten un botón \'Mellorar a Pro\' enriba da pantalla de configuración.
+\nParece que actualizaches a aplicación gratuíta antiga. Agora podes desinstalar a versión antiga, que ten un botón \"Actualizala Pro\" na parte superior da configuración da aplicación.
 \n
-\nSo terás os elementos borrados da Papeleira de reciclaxe, os elementos favoritos sen marcar e tamén terás que reiniciar os Axustes.
+\nSó terás os elementos da papeleira eliminados, os elementos favoritos desmarcados e tamén terás que restablecer a configuración da túa aplicación.
 \n
 \nGrazas!</string>
     <string name="switch_to_file_search">Cambiala procura de ficheiros en todolos cartafoles visibles</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Por favor escribe unha resolución válida</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Editor básico</string>
+    <string name="advanced_editor">Editor avanzado</string>
     <string name="rotate">Rotar</string>
     <string name="invalid_image_path">Ruta á imaxe non válida</string>
     <string name="invalid_video_path">Ruta do vídeo non válida</string>
@@ -99,9 +99,9 @@
     <string name="rotate_left">Virar a esquerda</string>
     <string name="rotate_right">Virar a dereita</string>
     <string name="rotate_one_eighty">Virar 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformar</string>
+    <string name="crop">Recortar</string>
+    <string name="draw">Debuxa</string>
     <string name="flip">Virar</string>
     <string name="flip_horizontally">Virar horizontalmente</string>
     <string name="flip_vertically">Virar verticalmente</string>
@@ -218,8 +218,8 @@
     <string name="alternative_media_access">Alternativamente, só pode permitilo acceso a ficheiros multimedia. Nese caso non poderás traballar con ficheiros ocultos.</string>
     <string name="media_only">Só medios</string>
     <string name="all_files">Todolos ficheiros</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_files">Busca todolos ficheiros en lugar de cartafoles na pantalla principal</string>
+    <string name="show_all_folders">Mostrar un botón de menú para alternar Mostralo contido de todolos cartafoles rapidamente</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Medios a pantalla completa</string>
