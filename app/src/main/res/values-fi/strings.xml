@@ -5,7 +5,7 @@
     <string name="edit">Muokkaa</string>
     <string name="open_camera">Avaa kamera</string>
     <string name="hidden">(piilotettu)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ohitettu)</string>
     <string name="pin_folder">Kiinnitä kansio</string>
     <string name="unpin_folder">Poista kiinnitys</string>
     <string name="pin_to_the_top">Kiinnitä ylimmäksi</string>
@@ -61,7 +61,7 @@
     <string name="hidden_folders">Piilotetut kansiot</string>
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Sovellukselle on myönnettävä kaikkien tiedostojen käyttöoikeus, jotta se näkee piilotiedostot, tai se ei toimi.</string>
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
@@ -78,8 +78,8 @@
     <string name="invalid_values">Aseta oikea resoluutio</string>
     <!-- Editor -->
     <string name="editor">Editori</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Peruseditori</string>
+    <string name="advanced_editor">Edistynyt editori</string>
     <string name="rotate">Käännä</string>
     <string name="invalid_image_path">Virheellinen kuvan polku</string>
     <string name="invalid_video_path">Virheellinen videon polku</string>
@@ -99,9 +99,9 @@
     <string name="rotate_left">Kierrä vasemmalle</string>
     <string name="rotate_right">Kierrä oikealle</string>
     <string name="rotate_one_eighty">Kierrä 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Muunna</string>
+    <string name="crop">Leikkaa</string>
+    <string name="draw">Piirrä</string>
     <string name="flip">Käännä</string>
     <string name="flip_horizontally">Käännä vaakasuoraan</string>
     <string name="flip_vertically">Käännä pystysuoraan</string>
@@ -207,19 +207,19 @@
     <string name="limit_folder_title">Rajoita pitkät kansioiden nimet yhdelle riville</string>
     <string name="square">Neliö</string>
     <string name="rounded_corners">Pyöristetyt kulmat</string>
-    <string name="export_favorite_paths">Vie suosikkitiedostojen polut</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="export_favorite_paths">Vie suosikit</string>
+    <string name="import_favorite_paths">Tuo suosikit</string>
+    <string name="paths_imported_successfully">Sijaintien tuonti onnistui</string>
     <string name="media_management_prompt">Varmistaaksesi, että kaikki tiedostotoiminnot toimivat luotettavasti, tee tästä sovelluksesta medianhallintasovellus laitteen asetuksissa.</string>
     <string name="password_protect_excluded">Suojaa salasanalla pois suljettujen kansioiden näkyvyys</string>
     <string name="media_management_manual">Jokin meni pieleen, mene laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
     <string name="media_management_note">Jos uudelleenohjaus ei toimi, siirry laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja salli tämän sovelluksen hallita mediaa.</string>
     <string name="media_management_alternative">Jos et halua tehdä sitä, voit myös mennä laitteesi Asetukset - Sovellukset - Erikoissovellusten käyttöoikeus - Medianhallintasovellukset ja sallia tämän sovelluksen hallita mediaa.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="alternative_media_access">Vaihtoehtoisesti voit myöntää vain mediatiedostojen käyttöoikeuden, joskaan tällöin et voi käsitellä piilotiedostoja.</string>
+    <string name="media_only">Vain media</string>
+    <string name="all_files">Kaikki tiedostot</string>
+    <string name="search_all_files">Etsi kaikista tiedostoista pelkän päänäytön sijaan</string>
+    <string name="show_all_folders">Näytä valikkopainike kaikkien kansioiden näytön nopeaa kytkentää varten</string>
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
@@ -373,7 +373,7 @@
     <string name="faq_15_text">Välimuisti voi viedä jopa 250 Mt; se varmistaa nopeamman kuvien lataamisen. Jos sovellus vie vielä enemmän tilaa, se johtuu mitä ilmeisemmin roskakorissa olevista kohteista, joiden koko lasketaan sovelluksen kokoon. Voit tyhjentää roskakorin sovelluksen asetuksista tai avaamalla roskakorin sovelluksessa ja poistamalla kohteet. Roskakori tyhjennetään automaattisesti 30 päivän välein.</string>
     <string name="faq_16_title">Mitä taphtui tiedostojen ja kansioiden piilotukselle ja miksi en nää enää piilotettuja kohteita\?</string>
     <string name="faq_16_text">Android 11:stä alkaen ei voi enää piilottaa tai poistaa piilotettuja tiedostoja tai kansioita, eikä näe piilotettuja tiedostoja tai kansioita galleriasovelluksissa järjestelmän rajoitusten vuoksi. On käytettävä jotain tiedostonhallintaohjelmaa siihen.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Tai voit myös myöntää tälle gallerialle kaikkien tiedostojen käyttöoikeuden laitteesi asetuksista, jolloin se voi näyttää myös piilotiedostot ja suorittaa yleisiä tiedostojen hallintatoimenpiteitä luotettavammin.</string>
     <string name="faq_17_title">Miksi en voi enää sisällyttää puuttuvia kansioita\?</string>
     <string name="faq_17_text">Se lakkasi toimimasta Android 11:n mukana tulleiden järjestelmämuutosten vuoksi. Sovellus ei voi enää selata oikeita kansioita, vaan se luottaa niin sanottuun MediaStoreen tietojen hakemisessa.</string>
     <string name="faq_18_title">Miksi näen mainoksia videon toiston aikana\?</string>
