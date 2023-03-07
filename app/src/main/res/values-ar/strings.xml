@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">تم إصلاح التواريخ بنجاح</string>
     <string name="no_date_takens_found">لم يتم العثور على قيم تاريخ التقاط</string>
     <string name="share_resized">مشاركة الصورة التي تم تغيير حجمها</string>
-    <string name="upgraded_from_free">يا هذا
-\n
-\nيبدو أنك قمت بالترقية من التطبيق المجاني القديم. يمكنك الآن إلغاء تثبيت الإصدار القديم ، الذي يحتوي على زر \"الترقية إلى Pro\" في الجزء العلوي من إعدادات التطبيق.
-\n
-\nسيتم حذف عناصر سلة المحذوفات فقط ، والعناصر المفضلة التي لم يتم وضع علامة عليها ، وسيتعين عليك أيضا إعادة تعيين إعدادات التطبيق.
-\n
-\nشكرا!</string>
     <string name="switch_to_file_search">التبديل إلى البحث فى الملفات عبر كافة المجلدات المرئية</string>
     <string name="set_as_default_folder">تعيين كمجلد افتراضي</string>
     <string name="unset_as_default_folder">إلغاء التعيين كمجلد افتراضي</string>

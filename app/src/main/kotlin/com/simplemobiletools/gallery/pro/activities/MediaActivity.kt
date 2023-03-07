@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
@@ -50,6 +51,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
     private var mWasFullscreenViewOpen = false
+    private var mWasUpgradedFromFreeShown = false
     private var mLastSearchedText = ""
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
@@ -100,6 +102,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (mShowAll) {
             registerFileUpdateListener()
+
+            if (!mWasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+                ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0, false) {}
+                mWasUpgradedFromFreeShown = true
+            }
         }
 
         media_empty_text_placeholder_2.setOnClickListener {

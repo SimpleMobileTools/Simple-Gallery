@@ -61,6 +61,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mShouldStopFetching = false
     private var mWasDefaultFolderChecked = false
     private var mWasMediaManagementPromptShown = false
+    private var mWasUpgradedFromFreeShown = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
@@ -497,9 +498,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     mWasDefaultFolderChecked = true
                 }
 
-                if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+                if (!mWasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
                     ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0, false) {}
-                    config.wasUpgradedFromFreeShown = true
+                    mWasUpgradedFromFreeShown = true
                 }
 
                 checkOTGPath()

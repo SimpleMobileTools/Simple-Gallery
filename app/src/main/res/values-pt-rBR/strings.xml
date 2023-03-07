@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datas corrigidas com sucesso</string>
     <string name="no_date_takens_found">Nenhum valor de data foi encontrado</string>
     <string name="share_resized">Compartilhar uma versão redimensionada</string>
-    <string name="upgraded_from_free">Olá,
-\n
-\nparece que você está vindo do antigo aplicativo gratuito. Agora você já pode desinstalar a versão antiga, que tem o botão de \"Atualizar para a versão Pro\" no topo da página de configurações.
-\n
-\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.
-\n
-\nObrigado!</string>
     <string name="switch_to_file_search">Alternar para a pesquisa de arquivos em todas as pastas visíveis</string>
     <string name="set_as_default_folder">Definir como pasta padrão</string>
     <string name="unset_as_default_folder">Indefinir como pasta padrão</string>

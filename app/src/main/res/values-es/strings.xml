@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
     <string name="no_date_takens_found">No se han encontrado valores de fechas tomadas</string>
     <string name="share_resized">Compartir una versión redimensionada</string>
-    <string name="upgraded_from_free">Oye,
-\n
-\nparece que actualizó desde la antigua aplicación gratuita. Ahora puede desinstalar la versión anterior, que tiene un botón \'Actualizar a Pro\' en la parte superior de los ajustes de la app.
-\n
-\nSolo se eliminarán los elementos de la Papelera de reciclaje, favoritos desmarcados y también tendrá que reiniciar los ajustes de la app.
-\n
-\n¡Gracias!</string>
     <string name="switch_to_file_search">Cambiar a la búsqueda de archivos en todas las carpetas visibles</string>
     <string name="set_as_default_folder">Poner como carpeta predeterminada</string>
     <string name="unset_as_default_folder">Quitar como carpeta predeterminada</string>

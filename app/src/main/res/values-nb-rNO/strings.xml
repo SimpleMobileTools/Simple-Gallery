@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datoer er korrigerte</string>
     <string name="no_date_takens_found">Ingen verdier for Dato tatt er funnet</string>
     <string name="share_resized">Del versjon med endret størrelse</string>
-    <string name="upgraded_from_free">Hey,
-\n
-\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.
-\n
-\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.
-\n
-\nThanks!</string>
     <string name="switch_to_file_search">Skift til filsøk i alle synlige mapper</string>
     <string name="set_as_default_folder">Sett som standardmappe</string>
     <string name="unset_as_default_folder">Ikke lenger sett som standardmappe</string>

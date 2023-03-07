@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="no_date_takens_found">Aucune date de prise de vue trouvée</string>
     <string name="share_resized">Partager une version redimensionnée</string>
-    <string name="upgraded_from_free">Hé,
-\n
-\nvous avez apparemment fait une mise à niveau à partir de l\'ancienne application gratuite. Vous pouvez maintenant désinstaller l\'ancienne version avec le bouton \'Mettre à niveau vers Pro\' en haut des paramètres de l\'application.
-\n
-\nLes éléments de la corbeille seront supprimés, les éléments favoris seront non marqués et vous devrez également restaurer les paramètres de votre application.
-\n
-\nMerci !</string>
     <string name="switch_to_file_search">Basculer vers la recherche de fichiers</string>
     <string name="set_as_default_folder">Dossier par défaut</string>
     <string name="unset_as_default_folder">Oublier le dossier</string>

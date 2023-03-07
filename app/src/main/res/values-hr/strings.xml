@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datumi uspješno ispravljeni</string>
     <string name="no_date_takens_found">Nije pronađen nijedan datum snimanja</string>
     <string name="share_resized">Dijeli verziju promijenjene veličine</string>
-    <string name="upgraded_from_free">Hej,
-\n
-\nčini se da si nadogradio/la staru besplatnu aplikaciju. Sada možeš deinstalirati staru verziju, koja ima gumb „Nadogradi na Pro” na vrhu postavki aplikacije.
-\n
-\nIzbrisat će se samo stavke u košu za smeće, oznake omiljenih stavki će se odznačiti i morat ćeš obnoviti postavke aplikacije.
-\n
-\nHvala!</string>
     <string name="switch_to_file_search">Prijeđi na pretraživanje datoteka u svim vidljivim mapama</string>
     <string name="set_as_default_folder">Postavi kao standardnu mapu</string>
     <string name="unset_as_default_folder">Poništi postavljanje kao standardne mape</string>

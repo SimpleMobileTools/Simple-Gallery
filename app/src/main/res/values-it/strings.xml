@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
     <string name="no_date_takens_found">Nessun valore trovato per data creazione</string>
     <string name="share_resized">Condividi una versione ridimensionata</string>
-    <string name="upgraded_from_free">Ehi,
-\n
-\nhai aggiornato dalla vecchia versione gratuita. Puoi disinstallare le vecchia versione, che ha un pulsante \'Aggiorna a Pro\' in alto nelle impostazioni.
-\n
-\nNon potrai recuperare gli elementi dal cestino, gli elementi marcati come preferiti e dovrai anche reimpostare le impostazioni dell\'app.
-\n
-\nGrazie!</string>
     <string name="switch_to_file_search">Passa alla ricerca file su tutte le cartelle visibili</string>
     <string name="set_as_default_folder">Imposta come cartella predefinita</string>
     <string name="unset_as_default_folder">Non impostare come cartella predefinita</string>

@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Päivämäärät korjattu</string>
     <string name="no_date_takens_found">Kuvanottopäivämääriä ei löytynyt</string>
     <string name="share_resized">Jaa versio, jonka kokoa on muutettu</string>
-    <string name="upgraded_from_free">Hei,
-\n
-\nnäyttää siltä, että olet päivittänyt vanhasta ilmaisversiosta. Voit nyt poistaa vanhan version, jossa on \'Päivitä Pro-versioon\'-painike sovellusasetusten yläosassa.
-\n
-\nRoskakorissa olevat kohteet poistetaan ja suosikkimerkinnät pyyhkiytyvät. Sinun täytyy myös nollata sovellusasetukset.
-\n
-\nKiitos!</string>
     <string name="switch_to_file_search">Vaihda tiedostohakuun kaikissa näkyvillä olevissa kansioissa</string>
     <string name="set_as_default_folder">Aseta oletushakemistoksi</string>
     <string name="unset_as_default_folder">Älä käytä oletushakemistona</string>

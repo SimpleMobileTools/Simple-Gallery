@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">تاریخ‌ها با موفّقیت اصلاح شدند</string>
     <string name="no_date_takens_found">هیچ تاریخ گرفتنی یافت نشد</string>
     <string name="share_resized">هم‌رسانی نسخهٔ تغییر اندازه داده شده</string>
-    <string name="upgraded_from_free">Hey,
-\n
-\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.
-\n
-\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.
-\n
-\nThanks!</string>
     <string name="switch_to_file_search">تعویض به جست‌وجوی پرونده در میان همهٔ شاخه‌های نمایان</string>
     <string name="set_as_default_folder">تنظیم به عنوان شاخهٔ پیش‌گزیده</string>
     <string name="unset_as_default_folder">برداشتن تنظیم به عنوان شاخهٔ پیش‌گزیده</string>

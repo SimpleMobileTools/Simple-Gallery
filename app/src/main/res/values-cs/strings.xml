@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Data byla úspěšně opravena</string>
     <string name="no_date_takens_found">Nebylo nalezeno žádné datum pořízení</string>
     <string name="share_resized">Sdílet verzi se změněnou velikostí</string>
-    <string name="upgraded_from_free">Zdravím,
-\n
-\nzdá se, že jste upgradovali ze staré bezplatné aplikace. Starou verzi, která má v horní části nastavení aplikace tlačítko \'Stáhnout verzi Pro\', již můžete odinstalovat.
-\n
-\nPřijdete tím pouze o smazané položky v koši, oblíbené položky budou odznačené a také budete muset znovu nastavit aplikaci.
-\n
-\nDěkuji!</string>
     <string name="switch_to_file_search">Přepnout na vyhledávání souborů ve všech viditelných složkách</string>
     <string name="set_as_default_folder">Nastavit jako výchozí složku</string>
     <string name="unset_as_default_folder">Zrušit nastavení složky jako výchozí</string>

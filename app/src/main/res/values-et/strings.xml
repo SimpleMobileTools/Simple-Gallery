@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Kuupäevade parandamine õnnestus</string>
     <string name="no_date_takens_found">Pildistamise kuupäevi ei leidu</string>
     <string name="share_resized">Jaga versiooni, mille suurust sa oled muutnud</string>
-    <string name="upgraded_from_free">Hei,
-\n
-\nTundub, et sa uuendasid vanast tasuta rakendusest. Saad nüüd vana versiooni eemaldada, millel on rakenduse seadete ülaosas nupp „Upgrade to Pro“.
-\n
-\nSellega saab prügikasti sisu kustutatud, lemmikud eemaldatud ja sa pead ka rakenduse lähtestama.
-\n
-\nAitäh!</string>
     <string name="switch_to_file_search">Kasuta failiotsingus kõiki nähtavaid kaustu</string>
     <string name="set_as_default_folder">Määra vaikimisi kaustaks</string>
     <string name="unset_as_default_folder">Eemalda määramine vaikimisi kaustaks</string>

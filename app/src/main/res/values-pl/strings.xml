@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
     <string name="no_date_takens_found">Nie znaleziono dat wykonania</string>
     <string name="share_resized">Udostępnij wersję ze zmienionym rozmiarem</string>
-    <string name="upgraded_from_free">Witaj,
-\n
-\nWygląda na to, że uaktualniłeś(-aś) starą darmową aplikację do nowej płatnej. Możesz teraz odinstalować starą wersję, która ma przycisk „Uaktualnij do Pro” na górze w ustawieniach aplikacji.
-\n
-\nZostaną jedynie usunięte elementy z kosza, odznaczone ulubione elementy i konieczne będzie zresetowanie ustawień aplikacji.
-\n
-\nDzięki!</string>
     <string name="switch_to_file_search">Przełącz na przeszukiwanie plików we wszystkich widocznych folderach</string>
     <string name="set_as_default_folder">Ustaw jako folder domyślny</string>
     <string name="unset_as_default_folder">Anuluj ustawienie jako folder domyślny</string>

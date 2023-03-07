@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Date stabilite cu succes</string>
     <string name="no_date_takens_found">Nu a fost găsită nicio valoare pentru data creării</string>
     <string name="share_resized">Distribuie o versiune redimensionată</string>
-    <string name="upgraded_from_free">Hei,
-\n
-\nse pare că ai făcut o actualizare de la aplicația gratuită la versiunea pro. Acum poţi dezinstala vechea versiune, care are un buton \'Upgrade to Pro\' în partea de sus a setărilor aplicației.
-\n
-\nVei avea doar elementele din coșul de reciclare șterse, elementele favorite vor fi demarcate și va trebui, de asemenea, să resetezi setările aplicației.
-\n
-\nMulțumesc!</string>
     <string name="switch_to_file_search">Treceți la căutarea de fișiere în toate dosarele vizibile</string>
     <string name="set_as_default_folder">Setază ca dosar implicit</string>
     <string name="unset_as_default_folder">Dezactivează ca dosar implicit</string>

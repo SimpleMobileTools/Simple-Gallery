@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
     <string name="no_date_takens_found">Não foram encontrados dados para a data de captura</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
-    <string name="upgraded_from_free">Olá,
-\n
-\nParece ter sido feita uma atualização para a versão Pro a partir a antiga versão grátis. Agora já pode desinstalar a versão anterior, que tem o texto \'Atualizar para Pro\', nas definições da aplicação.
-\n
-\nMas perderá os itens existentes na reciclagem, os favoritos e terá que repor as definições padrão.
-\n
-\nObrigado!</string>
     <string name="switch_to_file_search">Trocar para pesquisa de ficheiros em todas as pastas visíveis</string>
     <string name="set_as_default_folder">Utilizar como pasta padrão</string>
     <string name="unset_as_default_folder">Deixar de utilizar como pasta padrão</string>

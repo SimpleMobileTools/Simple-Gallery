@@ -28,11 +28,6 @@
     <string name="dates_fixed_successfully">Datak ongi konpondu dira</string>
     <string name="no_date_takens_found">Ateratze-dataren baliorik ez da aurkitu</string>
     <string name="share_resized">Partekatu tamaina aldatutako bertsioa</string>
-    <string name="upgraded_from_free">Kaixo,
-\n
-\nbadirudi doako aplikazio zaharra eguneratu duzula. Orain bertsio zaharra desinstalatu dezakezu aplikazioaren ezarpenen goiko aldean dagoen \'Eskuratu Pro bertsioa\' botoiarekin. Azkenik, zakarrontzian dituzun elementuak ezabatuko dira, gogoko elementuei marka kenduko zaie eta zure azplikazio-ezarpenak berrezarri beharko dituzu.
-\n
-\nEskerrik asko!</string>
     <string name="switch_to_file_search">Aldatu fitxategi-bilaketa ikusgai dauden karpeta guztien artean</string>
     <string name="set_as_default_folder">Ezarri lehenetsitako karpeta gisa</string>
     <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>

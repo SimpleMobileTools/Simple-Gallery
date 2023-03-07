@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Dátumok sikeresen javítva</string>
     <string name="no_date_takens_found">Nem találhatók elkészítési dátumok</string>
     <string name="share_resized">Átméretezett verzió megosztása</string>
-    <string name="upgraded_from_free">Üdv,
-\n
-\nÚgy néz ki, hogy a régi ingyenes alkalmazásról frissített. Most már eltávolíthatja a régi verziót, amelyben az „Upgrade to Pro” gomb szerepel az alkalmazásbeállítások tetején.
-\n
-\nCsak a Kuka elemei lesznek törölve, a kedvenc elemek jelöletlenek lesznek, és vissza kell majd állítania az alkalmazásbeállításokat.
-\n
-\nKöszönöm!</string>
     <string name="switch_to_file_search">Váltás a fájlkeresésre az összes látható mappában</string>
     <string name="set_as_default_folder">Beállítás alapértelmezett mappaként</string>
     <string name="unset_as_default_folder">Eltávolítás mint alapértelmezett mappa</string>

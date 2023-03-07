@@ -28,11 +28,6 @@
     <string name="dates_fixed_successfully">תאריכים תוקנה בהצלחה</string>
     <string name="no_date_takens_found">לא נמצאו ערכי תאריך נטילתם</string>
     <string name="share_resized">שתף גרסה ששונתה</string>
-    <string name="upgraded_from_free">היי,
-\n נראה כאילו שדרגת מהאפליקציה הישנה החינמית. כעת תוכל להסיר את ההתקנה של הגרסה הישנה, בעלת כפתור \'שדרג למקצוען\' בחלק העליון של הגדרות האפליקציה.
-\n
-\nרק פריטי סל המיחזור יימחקו, פריטים מועדפים לא יהיו מסומנים ותצטרך גם לאפס את הגדרות האפליקציה שלך.
-\nתודה!</string>
     <string name="switch_to_file_search">עבור לחיפוש קבצים בכל התיקיות הגלויות</string>
     <string name="set_as_default_folder">הגדר כתיקיית ברירת מחדל</string>
     <string name="unset_as_default_folder">בטל את ההגדרה כתיקיית ברירת המחדל</string>

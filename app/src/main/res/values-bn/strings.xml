@@ -28,11 +28,6 @@
     <string name="dates_fixed_successfully">তারিখ সফলভাবে ঠিক করা হয়েছে</string>
     <string name="no_date_takens_found">তোলার তারিখ নেই</string>
     <string name="share_resized">পরিবর্তিত একা সংস্করণ নিন</string>
-    <string name="upgraded_from_free">অই,
-\n
-\n মনে হচ্ছে আপনি অ্যাপটি পুরোনো মুক্ত সংস্করণ থেকে হালনাগাদ করেছেন, যেটার সেটিংসে \'প্রোতে হালনাগাদ করুন\' বাটন রয়েছে।
-\n
-\nধন্যবাদ!</string>
     <string name="switch_to_file_search">সব দেখা যাওয়া ফোল্ডারে ফাইল সার্চে চলে যান</string>
     <string name="set_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে সেট করুন</string>
     <string name="unset_as_default_folder">ডিফল্ট ফোল্ডার হিশেবে আর রাখবেন না</string>

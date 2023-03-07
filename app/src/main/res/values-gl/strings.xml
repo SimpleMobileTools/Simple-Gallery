@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datas arranxadas con éxito</string>
     <string name="no_date_takens_found">Non se atoparon valores de Datas de Captura</string>
     <string name="share_resized">Comparte unha versión reducida</string>
-    <string name="upgraded_from_free">Ola,
-\n
-\nParece que actualizaches a aplicación gratuíta antiga. Agora podes desinstalar a versión antiga, que ten un botón \"Actualizala Pro\" na parte superior da configuración da aplicación.
-\n
-\nSó terás os elementos da papeleira eliminados, os elementos favoritos desmarcados e tamén terás que restablecer a configuración da túa aplicación.
-\n
-\nGrazas!</string>
     <string name="switch_to_file_search">Cambiala procura de ficheiros en todolos cartafoles visibles</string>
     <string name="set_as_default_folder">Poñer como cartafol predeterminado</string>
     <string name="unset_as_default_folder">Desactivar como cartafol predeterminado</string>

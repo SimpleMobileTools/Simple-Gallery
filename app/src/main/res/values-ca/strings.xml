@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Data corregida correctament</string>
     <string name="no_date_takens_found">No s\'ha trobat cap valor de data de presa</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
-    <string name="upgraded_from_free">Hola,
-\n
-\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó «Actualitza a Pro» a la part superior de la configuració de l\'aplicació.
-\n
-\nNomés s\'eliminaran els elements de la paperera de reciclatge, els elements preferits sense marcar i també caldrà restablir la vostra configuració de l\'aplicació.
-\n
-\nGràcies!</string>
     <string name="switch_to_file_search">Canvia a la cerca de fitxers per totes les carpetes visibles</string>
     <string name="set_as_default_folder">Estableix com a carpeta predeterminada</string>
     <string name="unset_as_default_folder">Desactiva com a carpeta predeterminada</string>

@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
     <string name="no_date_takens_found">Es wurden keine Werte für das Aufnahmedatum gefunden</string>
     <string name="share_resized">Eine verkleinerte Version teilen</string>
-    <string name="upgraded_from_free">Hallo,
-\n
-\nes sieht so aus, als hättest du eine Aktualisierung von der alten kostenlosen Anwendung durchgeführt. Du kannst die alte Version jetzt deinstallieren. Oben in den Anwendungseinstellungen gibt es eine Schaltfläche „Auf Pro aktualisieren“.
-\n
-\nDabei werden nur die Elemente im Papierkorb gelöscht, die Markierung der Favoriten aufgehoben und du musst deine Anwendungseinstellungen zurücksetzen.
-\n
-\nVielen Dank!</string>
     <string name="switch_to_file_search">Zur Dateisuche in allen sichtbaren Ordnern wechseln</string>
     <string name="set_as_default_folder">Als Standardordner festlegen</string>
     <string name="unset_as_default_folder">Nicht mehr als Standardordner festlegen</string>

@@ -28,13 +28,6 @@
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
     <string name="no_date_takens_found">Vrednosti datumske všečnosti niso bile najdene</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
-    <string name="upgraded_from_free">Živjo,
-\n
-\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.
-\n
-\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.
-\n
-\nHvala!</string>
     <string name="switch_to_file_search">Preklop na iskanje datotek v vseh mapah</string>
     <string name="set_as_default_folder">Nastavite kot privzeto mapo</string>
     <string name="unset_as_default_folder">Odpravljena nastavitev privzete mape</string>
