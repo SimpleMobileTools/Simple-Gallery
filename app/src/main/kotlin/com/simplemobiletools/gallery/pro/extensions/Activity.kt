@@ -253,8 +253,15 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
 
     tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
-        deleteFromMediaStore(file.absolutePath)
-        rescanFolderMedia(path)
+        deleteFromMediaStore(file.absolutePath) { needsRescan ->
+            if (needsRescan) {
+                rescanAndDeletePath(path) {
+                    rescanFolderMedia(path)
+                }
+            } else {
+                rescanFolderMedia(path)
+            }
+        }
     }
 }
 
