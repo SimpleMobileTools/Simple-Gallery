@@ -168,7 +168,7 @@
     <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
-    <string name="show_extended_details">Dateieigenschaften in Vollbild-Anzeige einblenden</string>
+    <string name="show_extended_details">Dateieigenschaften im Vollbild einblenden</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
     <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
@@ -294,7 +294,7 @@
     <string name="pesdk_sticker_button_contrast">Kontrast</string>
     <string name="pesdk_sticker_button_saturation">Sättigung</string>
     <string name="pesdk_sticker_button_brightness">Helligkeit</string>
-    <string name="pesdk_sticker_category_name_custom">Hochgeladene</string>
+    <string name="pesdk_sticker_category_name_custom">Uploads</string>
     <string name="pesdk_overlay_title_name">Überlagerung</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
     <string name="pesdk_overlay_button_blendModeDarken">Abdunkeln</string>
@@ -346,7 +346,7 @@
     <string name="faq_4_text">Das geht, indem man doppelt auf die Seite des Bildschirms drückt, oder indem man auf den Text nahe der Suchleiste drückt, der die aktuelle bzw. maximale Zeit anzeigt. Wenn in den App-Einstellungen die Funktion aktiviert ist, dass Videos in einem separaten Fenster geöffnet werden, kann man zudem horizontale Gesten verwenden.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen dem Verstecken und dem Ausschließen eines Ordners\?</string>
     <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in Schlichte Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Downloads nicht zulassen.</string>
-    <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers\?</string>
+    <string name="faq_6_title">Wieso erscheinen Ordner mit Musikcover oder Aufkleber\?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
     <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt oder es werden nicht alle Bilder angezeigt. Was kann ich tun\?</string>
     <string name="faq_7_text">Die Galerie-Einstellungen öffnen, dort „Einbezogene Ordner verwalten“ wählen , dann das Plus-Zeichen oben rechts und zum gewünschten Ordner navigieren.</string>
