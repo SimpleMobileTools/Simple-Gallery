@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.26.6 *(2023-03-22)*
+----------------------------
+
+ * Fixed deleting files from hidden folders
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.5 *(2023-03-07)*
 ----------------------------
 

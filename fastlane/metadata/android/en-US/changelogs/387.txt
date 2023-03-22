@@ -1,0 +1,2 @@
+ * Fixed deleting files from hidden folders
+ * Added some translation, stability, UX and UI improvements
