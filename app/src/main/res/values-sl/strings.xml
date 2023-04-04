@@ -15,7 +15,7 @@
     <string name="other_folder">Druga mapa</string>
     <string name="show_on_map">Prikaži na zemljevidu</string>
     <string name="unknown_location">Neznana lokacija</string>
-    <string name="volume">Obseg</string>
+    <string name="volume">Glasnost</string>
     <string name="brightness">Svetlost</string>
     <string name="lock_orientation">Zakleni usmerjenost</string>
     <string name="unlock_orientation">Odkleni usmerjenost</string>
@@ -26,18 +26,18 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
-    <string name="no_date_takens_found">Vrednosti datumske všečnosti niso bile najdene</string>
-    <string name="share_resized">Deli spremenjeno verzijo</string>
-    <string name="switch_to_file_search">Preklop na iskanje datotek v vseh mapah</string>
+    <string name="no_date_takens_found">Datum nastanka ni bil najden</string>
+    <string name="share_resized">Deli pomanjšano verzijo</string>
+    <string name="switch_to_file_search">Preklop na iskanje datotek v vseh vidnih mapah</string>
     <string name="set_as_default_folder">Nastavite kot privzeto mapo</string>
     <string name="unset_as_default_folder">Odpravljena nastavitev privzete mape</string>
-    <string name="reorder_by_dragging">Spreminjanje zaporedja map z vlečenjem</string>
-    <string name="reorder_by_dragging_pro">Prospreminjanje vrstnega reda map z vlečenjem</string>
+    <string name="reorder_by_dragging">Razporedi mape z vlečenjem</string>
+    <string name="reorder_by_dragging_pro">Razporedi mape z vlečenjem (Pro)</string>
     <string name="restore_to_path">Obnovitev v \'%s\'</string>
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
     <string name="images">Slike</string>
-    <string name="videos">Videoposnetki</string>
+    <string name="videos">Video</string>
     <string name="gifs">GIFi</string>
     <string name="raw_images">RAW slike</string>
     <string name="svgs">SVGji</string>
@@ -47,13 +47,13 @@
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcija skrije mapo tako, da vanjo doda \'.nomedia\' datoteko, kar skrije tudi vse podmape. Ponovno jih lahko prikažete z uporabo možnosti \'Prikaži skrite elemente\' v Nastavitvah. Nadaljujem\?</string>
     <string name="exclude_folder_description">Izbira bo skupaj s podmapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
-    <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo\?</string>
+    <string name="exclude_folder_parent">Namesto tega izključim nadrejeno mapo\?</string>
     <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.
 \n
 \nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
     <string name="hidden_folders">Skrite mape</string>
     <string name="manage_hidden_folders">Urejaj skrite mape</string>
-    <string name="hidden_folders_placeholder">Kot kaže skrite mape z \".nomedia\" datoteko ne obstajajo.</string>
+    <string name="hidden_folders_placeholder">Kot kaže, ne obstajajo skrite mape z \".nomedia\" datoteko.</string>
     <string name="hidden_all_files">Dovoliti morate dostop do vseh datotek, da so vidne skrite datoteke, sicer ne bo delovalo.</string>
     <!-- Include folders -->
     <string name="include_folders">Vključene mape</string>
@@ -62,7 +62,7 @@
     <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.
 \n
 \nDodajanje novih elementov ne bo izključilo drugih.</string>
-    <string name="no_media_add_included">Niso bile najdene medijske datoteke. To rešite, da mape z medijskimi datotekami dodate ročno.</string>
+    <string name="no_media_add_included">Medijske datoteke niso bile najdene. To rešite, da mape z medijskimi datotekami dodate ročno.</string>
     <!-- Resizing -->
     <string name="resize_and_save">Spremeni velikost izbora in shrani</string>
     <string name="width">Širina</string>
@@ -74,17 +74,17 @@
     <string name="basic_editor">Osnovni urejevalnik</string>
     <string name="advanced_editor">Napredni urejevalnik</string>
     <string name="rotate">Zavrti</string>
-    <string name="invalid_image_path">Napačna pot</string>
-    <string name="invalid_video_path">Nepravilna video pot</string>
+    <string name="invalid_image_path">Neveljavna pot slike</string>
+    <string name="invalid_video_path">Neveljavna pot videa</string>
     <string name="image_editing_failed">Urejanje slike ni uspelo</string>
-    <string name="video_editing_failed">Neuspešno video urejanje</string>
+    <string name="video_editing_failed">Urejanje videa ni uspelo</string>
     <string name="image_editing_cancelled">Urejanje slik preklicano</string>
-    <string name="video_editing_cancelled">Ukinjeno video urejanje</string>
-    <string name="file_edited_successfully">Datoteka je uspešno urejena</string>
-    <string name="image_edited_successfully">Slika je uspešno urejena</string>
-    <string name="video_edited_successfully">Uspešno urejen video</string>
+    <string name="video_editing_cancelled">Urejanje videa preklicano</string>
+    <string name="file_edited_successfully">Datoteka uspešno urejena</string>
+    <string name="image_edited_successfully">Slika uspešno urejena</string>
+    <string name="video_edited_successfully">Video uspešno urejen</string>
     <string name="edit_image_with">Uredi sliko z:</string>
-    <string name="edit_video_with">Urejanje video z:</string>
+    <string name="edit_video_with">Uredi video z:</string>
     <string name="no_image_editor_found">Ne najdem urejevalnika slik</string>
     <string name="no_video_editor_found">Ni najden noben video urejevalnik</string>
     <string name="unknown_file_location">Neznana lokacija datoteke</string>
@@ -140,8 +140,8 @@
     <string name="by_last_modified_daily">Zadnjič spremenjeno (dnevno)</string>
     <string name="by_last_modified_monthly">Zadnjič spremenjeno (mesečno)</string>
     <string name="by_date_taken">Datum zajema</string>
-    <string name="by_date_taken_daily">Datum odvzema (dnevno)</string>
-    <string name="by_date_taken_monthly">Datum odvzema (mesečno)</string>
+    <string name="by_date_taken_daily">Datum zajema (dnevno)</string>
+    <string name="by_date_taken_monthly">Datum zajema (mesečno)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
     <string name="show_file_count_section_header">Prikažite število datotek v glavi razdelka</string>
@@ -194,7 +194,7 @@
     <string name="file_thumbnail_style">Slog sličice datoteke</string>
     <string name="mark_favorite_items">Označi priljubljene predmete</string>
     <string name="thumbnail_spacing">Razmik sličic</string>
-    <string name="show_file_count_line">"Prikaži število datotek v svoji  vrstici"</string>
+    <string name="show_file_count_line">Prikaži število datotek v svoji vrstici</string>
     <string name="show_file_count_brackets">Prikaži število datotek v oklepaju</string>
     <string name="show_file_count_none">Ne prikaži števila datotek</string>
     <string name="limit_folder_title">Omeji dolga imena map na eno vrstico</string>
@@ -228,7 +228,7 @@
     <string name="pesdk_transform_button_squareCrop">Kvadrat</string>
     <string name="pesdk_transform_title_name">Preobrazi</string>
     <string name="pesdk_filter_title_name">Filter</string>
-    <string name="pesdk_filter_asset_none">None</string>
+    <string name="pesdk_filter_asset_none">Nič</string>
     <string name="pesdk_adjustments_title_name">Prilagodi</string>
     <string name="pesdk_adjustments_button_shadowTool">Sence</string>
     <string name="pesdk_adjustments_button_exposureTool">Izpostavljenost</string>
@@ -249,23 +249,23 @@
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_focus_button_mirrored">Zrcalno</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
-    <string name="pesdk_text_title_input">Add text</string>
+    <string name="pesdk_text_title_input">Dodaj besedilo</string>
     <string name="pesdk_text_title_name">Text</string>
-    <string name="pesdk_text_title_options">Text Options</string>
-    <string name="pesdk_text_title_textColor">Text Color</string>
-    <string name="pesdk_text_title_font">Font</string>
-    <string name="pesdk_text_button_add">Add</string>
+    <string name="pesdk_text_title_options">Možnosti besedila</string>
+    <string name="pesdk_text_title_textColor">Barva besedila</string>
+    <string name="pesdk_text_title_font">Pisava</string>
+    <string name="pesdk_text_button_add">Dodaj</string>
     <string name="pesdk_text_button_edit">Uredi</string>
     <string name="pesdk_text_button_straighten">Ravnost</string>
-    <string name="pesdk_text_button_font">Font</string>
+    <string name="pesdk_text_button_font">Pisava</string>
     <string name="pesdk_text_button_color">Color</string>
-    <string name="pesdk_text_button_backgroundColor">BG Color</string>
+    <string name="pesdk_text_button_backgroundColor">Barva ozadja</string>
     <string name="pesdk_text_button_alignment">Poravnava</string>
     <string name="pesdk_text_button_bringToFront">V ospredje</string>
     <string name="pesdk_text_button_delete">Delete</string>
     <string name="pesdk_text_text_editTextPlaceholder">Vaše besedilo</string>
     <string name="pesdk_brush_title_name">Čopič</string>
-    <string name="pesdk_brush_button_color">Color</string>
+    <string name="pesdk_brush_button_color">Barva</string>
     <string name="pesdk_brush_button_size">Velikost</string>
     <string name="pesdk_brush_button_hardness">Trdota</string>
     <string name="pesdk_brush_button_bringToFront">V ospredje</string>
@@ -275,7 +275,7 @@
     <string name="pesdk_editor_title_closeEditorAlert">Zapri urejevalnik\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Ali res želite zavrniti spremembe\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ja</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">No</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Ne</string>
     <string name="pesdk_editor_cancel">Prekliči</string>
     <string name="pesdk_editor_accept">Sprejmi</string>
     <string name="pesdk_editor_save">Shrani</string>
@@ -284,9 +284,9 @@
     <string name="pesdk_sticker_title_name">Nalepka</string>
     <string name="pesdk_sticker_title_color">Barva nalepke</string>
     <string name="pesdk_sticker_title_options">Možnosti nalepke</string>
-    <string name="pesdk_sticker_button_add">Add</string>
-    <string name="pesdk_sticker_button_color">Color</string>
-    <string name="pesdk_sticker_button_delete">Delete</string>
+    <string name="pesdk_sticker_button_add">Dodaj</string>
+    <string name="pesdk_sticker_button_color">Barva</string>
+    <string name="pesdk_sticker_button_delete">Izbriši</string>
     <string name="pesdk_sticker_button_bringToFront">V ospredje</string>
     <string name="pesdk_sticker_button_straighten">Izravnaj</string>
     <string name="pesdk_sticker_button_replace">Zamenjaj</string>
@@ -305,7 +305,7 @@
     <string name="pesdk_overlay_button_blendModeColorBurn">Sežig barv</string>
     <string name="pesdk_overlay_button_blendModeSoftLight">Mehka svetloba</string>
     <string name="pesdk_overlay_button_blendModeHardLight">Močna svetloba</string>
-    <string name="pesdk_overlay_asset_none">None</string>
+    <string name="pesdk_overlay_asset_none">Nič</string>
     <string name="pesdk_overlay_asset_golden">Zlato</string>
     <string name="pesdk_overlay_asset_lightleak1">Uhajanje svetlobe 1</string>
     <string name="pesdk_overlay_asset_mosaic">Mozaik</string>
@@ -320,19 +320,19 @@
     <string name="pesdk_common_title_transparentColor">Prosojno</string>
     <string name="pesdk_common_title_whiteColor">White</string>
     <string name="pesdk_common_title_grayColor">Sivo</string>
-    <string name="pesdk_common_title_blackColor">Black</string>
+    <string name="pesdk_common_title_blackColor">Črno</string>
     <string name="pesdk_common_title_lightBlueColor">Svetlo modro</string>
-    <string name="pesdk_common_title_blueColor">Blue</string>
+    <string name="pesdk_common_title_blueColor">Modro</string>
     <string name="pesdk_common_title_purpleColor">Vijolično</string>
     <string name="pesdk_common_title_orchidColor">Orhideja</string>
     <string name="pesdk_common_title_pinkColor">Roza</string>
-    <string name="pesdk_common_title_redColor">Red</string>
-    <string name="pesdk_common_title_orangeColor">Orange</string>
-    <string name="pesdk_common_title_goldColor">Gold</string>
+    <string name="pesdk_common_title_redColor">Rdeče</string>
+    <string name="pesdk_common_title_orangeColor">Oranžno</string>
+    <string name="pesdk_common_title_goldColor">Zlato</string>
     <string name="pesdk_common_title_yellowColor">Rumeno</string>
     <string name="pesdk_common_title_oliveColor">Olivno</string>
-    <string name="pesdk_common_title_greenColor">Green</string>
-    <string name="pesdk_common_title_aquamarinColor">Aquamarin</string>
+    <string name="pesdk_common_title_greenColor">Zeleno</string>
+    <string name="pesdk_common_title_aquamarinColor">Mornarsko modro</string>
     <string name="pesdk_common_title_pipettableColor">Pipetiraj barvo</string>
     <string name="vesdk_video_trim_title_name">Obreži</string>
     <!-- FAQ -->
@@ -361,16 +361,16 @@
     <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto\?</string>
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
     <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem\?</string>
-    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
+    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrito\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazna \".nomedia\" datoteka v izbrani mapi, ki jo tudi lahko odstranite s katerimkoli urejevalnikom datotek. Upoštevajte, da skrivanje deluje rekurzivno. Ko skrijete mapo, bodo skrite tudi vse podmape. Torej, če želite odkriti podmape, morate odkriti nadrejeno mapo.</string>
     <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora\?</string>
-    <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se vštevajo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
+    <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se štejejo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="faq_16_text">Od sistema Android 11 naprej ne morete več skriti ali odkriti datotek ali map, zaradi sistemskih omejitev pa tudi ne morete videti skritih datotek ali map v aplikacijah galerije. Za to boste morali uporabiti kakšnega upravitelja datotek.</string>
     <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
     <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
     <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">Zakaj vidim reklame med predvajanjem videa\?</string>
+    <string name="faq_18_text">Naše aplikacije so brez reklam! Če jih vidite med predvajanjem videa, potem sigurno uporabljate nek drug video predvajalnik. Poskusite poiskati privzeti video predvajalnik v nastavitvah naprave. Nato v njenih opcijah pritisnite \"Počisti privzete nastavitve\". Ko boste naslednjič nameravali odpreti video, se bo prikazal poziv za izbiro aplikacije, kjer izberete željeno.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
