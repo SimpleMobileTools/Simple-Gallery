@@ -5,7 +5,7 @@
     <string name="edit">Rediger</string>
     <string name="open_camera">Åpne kamera</string>
     <string name="hidden">(skjult)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ekskludert)</string>
     <string name="pin_folder">Fest mappe</string>
     <string name="unpin_folder">Løsne mappe</string>
     <string name="pin_to_the_top">Fest til toppen</string>
@@ -71,8 +71,8 @@
     <string name="invalid_values">Oppfør en gyldig oppløsning</string>
     <!-- Editor -->
     <string name="editor">Redigering</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Enkel redigering</string>
+    <string name="advanced_editor">Avansert redigering</string>
     <string name="rotate">Roter</string>
     <string name="invalid_image_path">Ugyldig bildebane</string>
     <string name="invalid_video_path">Ugyldig videobane</string>
@@ -92,9 +92,9 @@
     <string name="rotate_left">Roter til venstre</string>
     <string name="rotate_right">Roter til høyre</string>
     <string name="rotate_one_eighty">Roter med 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformer</string>
+    <string name="crop">Beskjær</string>
+    <string name="draw">Tegn</string>
     <string name="flip">Speilvend</string>
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
@@ -200,10 +200,10 @@
     <string name="limit_folder_title">Begrens lange mappetitler til 1 linje</string>
     <string name="square">Firkantet</string>
     <string name="rounded_corners">Avrundede hjørner</string>
-    <string name="export_favorite_paths">Eksporter favorittfilbaner</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
+    <string name="export_favorite_paths">Eksporter favoritter</string>
+    <string name="import_favorite_paths">Importer favoritter</string>
+    <string name="paths_imported_successfully">Filbaner importert</string>
+    <string name="media_management_prompt">For å være sikker på at alle filoperasjoner fungerer pålitelig, gjør denne appen til en mediaadministrasjonsapp i enhetsinnstillingene.</string>
     <string name="password_protect_excluded">Passordbeskytt synlighet for ekskludert mappe</string>
     <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
     <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
@@ -211,8 +211,8 @@
     <string name="alternative_media_access">Alternativt kan du kun tillate tilgang til mediafiler. I dette tilfellet vil du riktignok ikke kunne arbeide med skjulte filer.</string>
     <string name="media_only">Kun media</string>
     <string name="all_files">Alle filer</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="search_all_files">Søk alle filer istedenfor mapper på hovedskjermen</string>
+    <string name="show_all_folders">Vis en menyknapp for å raskt slå av/på \"Vis alle mappers innhold\"</string>
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
     <string name="fullscreen_media">Mediavisning</string>

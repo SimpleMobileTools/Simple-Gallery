@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.26.7 *(2023-04-11)*
+----------------------------
+
+ * Updated the advanced photo and video editor
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.6 *(2023-03-22)*
 ----------------------------
 
