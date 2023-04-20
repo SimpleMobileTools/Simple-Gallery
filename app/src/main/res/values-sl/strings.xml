@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Enostavna galerija</string>
     <string name="app_launcher_name">Galerija</string>
     <string name="edit">Uredi</string>
     <string name="open_camera">Zaženi fotoaparat</string>
@@ -112,8 +112,8 @@
     <string name="portrait_aspect_ratio">Pokončno razmerje stranic</string>
     <string name="landscape_aspect_ratio">Ležeče razmerje stranic</string>
     <string name="home_screen">Domači zaslon</string>
-    <string name="lock_screen">Zaklenjeni zaslon</string>
-    <string name="home_and_lock_screen">Domači in zaklenjeni zaslon</string>
+    <string name="lock_screen">Zaklenjen zaslon</string>
+    <string name="home_and_lock_screen">Domač in zaklenjen zaslon</string>
     <string name="allow_changing_aspect_ratio">Omogočite spreminjanje razmerja stranic</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaprojekcija</string>
@@ -136,12 +136,12 @@
     <string name="group_by">Združi po</string>
     <string name="do_not_group_files">Ne združuj datotek</string>
     <string name="by_folder">Mapa</string>
-    <string name="by_last_modified">Zadnjič spremenjeno</string>
-    <string name="by_last_modified_daily">Zadnjič spremenjeno (dnevno)</string>
-    <string name="by_last_modified_monthly">Zadnjič spremenjeno (mesečno)</string>
-    <string name="by_date_taken">Datum zajema</string>
-    <string name="by_date_taken_daily">Datum zajema (dnevno)</string>
-    <string name="by_date_taken_monthly">Datum zajema (mesečno)</string>
+    <string name="by_last_modified">Nazadnje spremenjeno</string>
+    <string name="by_last_modified_daily">Nazadnje spremenjeno (dnevno)</string>
+    <string name="by_last_modified_monthly">Nazadnje spremenjeno (mesečno)</string>
+    <string name="by_date_taken">Datum nastanka</string>
+    <string name="by_date_taken_daily">Datum nastanka (dnevno)</string>
+    <string name="by_date_taken_monthly">Datum nastanka (mesečno)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
     <string name="show_file_count_section_header">Prikažite število datotek v glavi razdelka</string>
@@ -175,7 +175,7 @@
     <string name="allow_deep_zooming_images">Dovoli globoko povečavo slik</string>
     <string name="hide_extended_details">Skrij razširjene podrobnosti, ko je statusna vrstica skrita</string>
     <string name="show_at_bottom">Prikaži določene akcijske gumbe na dnu zaslona</string>
-    <string name="show_recycle_bin">Prikaži Koš na zaslonih map</string>
+    <string name="show_recycle_bin">Prikaži Koš na zaslonu z mapami</string>
     <string name="deep_zoomable_images">Globoko povečljive slike</string>
     <string name="show_highest_quality">Prikaži slike v največji možni kvaliteti</string>
     <string name="show_recycle_bin_last">Prikaži Koš kot zadnji element na glavnem zaslonu</string>
@@ -244,13 +244,13 @@
     <string name="pesdk_adjustments_button_sharpnessTool">Ostrina</string>
     <string name="pesdk_adjustments_button_reset">Reset</string>
     <string name="pesdk_focus_title_name">Fokus</string>
-    <string name="pesdk_focus_title_disabled">None</string>
+    <string name="pesdk_focus_title_disabled">Brez</string>
     <string name="pesdk_focus_button_radial">Radialno</string>
-    <string name="pesdk_focus_button_linear">Linear</string>
+    <string name="pesdk_focus_button_linear">Linearno</string>
     <string name="pesdk_focus_button_mirrored">Zrcalno</string>
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_text_title_input">Dodaj besedilo</string>
-    <string name="pesdk_text_title_name">Text</string>
+    <string name="pesdk_text_title_name">Besedilo</string>
     <string name="pesdk_text_title_options">Možnosti besedila</string>
     <string name="pesdk_text_title_textColor">Barva besedila</string>
     <string name="pesdk_text_title_font">Pisava</string>
@@ -258,18 +258,18 @@
     <string name="pesdk_text_button_edit">Uredi</string>
     <string name="pesdk_text_button_straighten">Ravnost</string>
     <string name="pesdk_text_button_font">Pisava</string>
-    <string name="pesdk_text_button_color">Color</string>
+    <string name="pesdk_text_button_color">Barva</string>
     <string name="pesdk_text_button_backgroundColor">Barva ozadja</string>
     <string name="pesdk_text_button_alignment">Poravnava</string>
     <string name="pesdk_text_button_bringToFront">V ospredje</string>
-    <string name="pesdk_text_button_delete">Delete</string>
+    <string name="pesdk_text_button_delete">Briši</string>
     <string name="pesdk_text_text_editTextPlaceholder">Vaše besedilo</string>
     <string name="pesdk_brush_title_name">Čopič</string>
     <string name="pesdk_brush_button_color">Barva</string>
     <string name="pesdk_brush_button_size">Velikost</string>
     <string name="pesdk_brush_button_hardness">Trdota</string>
     <string name="pesdk_brush_button_bringToFront">V ospredje</string>
-    <string name="pesdk_brush_button_delete">Delete</string>
+    <string name="pesdk_brush_button_delete">Briši</string>
     <string name="pesdk_brush_title_brushColor">Barva čopiča</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Zapri urejevalnik\?</string>
@@ -318,7 +318,7 @@
     <string name="pesdk_common_button_redo">Uveljavi</string>
     <string name="pesdk_common_title_colorPicker">Izbira barve</string>
     <string name="pesdk_common_title_transparentColor">Prosojno</string>
-    <string name="pesdk_common_title_whiteColor">White</string>
+    <string name="pesdk_common_title_whiteColor">Belo</string>
     <string name="pesdk_common_title_grayColor">Sivo</string>
     <string name="pesdk_common_title_blackColor">Črno</string>
     <string name="pesdk_common_title_lightBlueColor">Svetlo modro</string>
@@ -343,7 +343,7 @@
     <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu\?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke\?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
+    <string name="faq_4_text">To lahko storite tako, da dvakrat pritisnete stranski del zaslona ali pritisnete besedilo o trenutnem ali največjem trajanju v bližini iskalne vrstice. Če v nastavitvah aplikacije omogočite odpiranje videoposnetkov na ločenem zaslonu, lahko uporabite tudi vodoravne geste.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape\?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk\?</string>
@@ -364,11 +364,11 @@
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrito\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazna \".nomedia\" datoteka v izbrani mapi, ki jo tudi lahko odstranite s katerimkoli urejevalnikom datotek. Upoštevajte, da skrivanje deluje rekurzivno. Ko skrijete mapo, bodo skrite tudi vse podmape. Torej, če želite odkriti podmape, morate odkriti nadrejeno mapo.</string>
     <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora\?</string>
     <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se štejejo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
+    <string name="faq_16_title">Kaj se je zgodi s skrivanjem datotek in map ter zakaj ne morem več videti skritih elementov\?</string>
     <string name="faq_16_text">Od sistema Android 11 naprej ne morete več skriti ali odkriti datotek ali map, zaradi sistemskih omejitev pa tudi ne morete videti skritih datotek ali map v aplikacijah galerije. Za to boste morali uporabiti kakšnega upravitelja datotek.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
+    <string name="faq_16_text_extra">V nastavitvah naprave lahko tej galeriji omogočite tudi dostop do vseh datotek, kar bo omogočilo prikazovanje skritih elementov in na splošno zanesljivejše delovanje z datotekami.</string>
+    <string name="faq_17_title">Zakaj ne morem več vključiti manjkajočih map\?</string>
+    <string name="faq_17_text">To je prenehalo delovati zaradi sistemskih sprememb, ki jih je tudi prinesel Android 11. Aplikacija ne more več brskati po pravih mapah, temveč se pri pridobivanju podatkov zanaša na tako imenovano MediaStore.</string>
     <string name="faq_18_title">Zakaj vidim reklame med predvajanjem videa\?</string>
     <string name="faq_18_text">Naše aplikacije so brez reklam! Če jih vidite med predvajanjem videa, potem sigurno uporabljate nek drug video predvajalnik. Poskusite poiskati privzeti video predvajalnik v nastavitvah naprave. Nato v njenih opcijah pritisnite \"Počisti privzete nastavitve\". Ko boste naslednjič nameravali odpreti video, se bo prikazal poziv za izbiro aplikacije, kjer izberete željeno.</string>
     <!--
