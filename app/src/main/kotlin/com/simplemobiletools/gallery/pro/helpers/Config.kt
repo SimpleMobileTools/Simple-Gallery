@@ -437,7 +437,10 @@ class Config(context: Context) : BaseConfig(context) {
         "$internalStoragePath/WhatsApp/Media/WhatsApp Images/Sent",
         "$internalStoragePath/WhatsApp/Media/WhatsApp Video",
         "$internalStoragePath/WhatsApp/Media/WhatsApp Video/Sent",
-        "$internalStoragePath/WhatsApp/Media/.Statuses"
+        "$internalStoragePath/WhatsApp/Media/.Statuses",
+        "$internalStoragePath/Android/media/com.whatsapp/WhatsApp/Media",
+        "$internalStoragePath/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images",
+        "$internalStoragePath/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Video"
     )
 
     var showRecycleBinAtFolders: Boolean
