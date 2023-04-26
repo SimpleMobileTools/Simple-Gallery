@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:925e7f9bd7'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:b1f0bf8dc1'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
@@ -92,8 +92,8 @@ dependencies {
     implementation 'com.github.tibbi:gestureviews:a8e8fa8d27'
     implementation 'com.github.tibbi:subsampling-scale-image-view:80efdaa570'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'com.github.penfeizhou.android.animation:awebp:2.17.0'
-    implementation 'com.github.penfeizhou.android.animation:apng:2.17.0'
+    implementation 'com.github.penfeizhou.android.animation:awebp:2.25.0'
+    implementation 'com.github.penfeizhou.android.animation:apng:2.25.0'
     implementation 'com.squareup.okio:okio:3.0.0'
     implementation('com.squareup.picasso:picasso:2.71828') {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
