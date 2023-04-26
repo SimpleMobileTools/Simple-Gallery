@@ -5,7 +5,7 @@
     <string name="edit">Uredi</string>
     <string name="open_camera">Otvori kameru</string>
     <string name="hidden">(skrivene)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(isključene)</string>
     <string name="pin_folder">Prikvači mapu</string>
     <string name="unpin_folder">Otkvači mapu</string>
     <string name="pin_to_the_top">Prikvači na vrh</string>
@@ -71,8 +71,8 @@
     <string name="invalid_values">Upiši valjanu rezoluciju</string>
     <!-- Editor -->
     <string name="editor">Uređivač</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Osnovni uređivač</string>
+    <string name="advanced_editor">Napredni uređivač</string>
     <string name="rotate">Okreni</string>
     <string name="invalid_image_path">Neispravna putanja slike</string>
     <string name="invalid_video_path">Neispravna putanja videa</string>
@@ -92,9 +92,9 @@
     <string name="rotate_left">Okreni nalijevo</string>
     <string name="rotate_right">Okreni nadesno</string>
     <string name="rotate_one_eighty">Okreni za 180 º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Transformiraj</string>
+    <string name="crop">Obreži</string>
+    <string name="draw">Crtaj</string>
     <string name="flip">Preokreni</string>
     <string name="flip_horizontally">Preokreni vodoravno</string>
     <string name="flip_vertically">Preokreni okomito</string>
@@ -211,7 +211,7 @@
     <string name="alternative_media_access">Alternativno, možete dopustiti pristup samo medijskim datotekama. U tom slučaju nećete moći raditi sa skrivenim datotekama.</string>
     <string name="media_only">Samo mediji</string>
     <string name="all_files">Sve datoteke</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
+    <string name="search_all_files">Pretraži sve datoteke umjesto mapa u glavnom ekranu</string>
     <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
