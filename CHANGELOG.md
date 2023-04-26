@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.26.8 *(2023-04-26)*
+----------------------------
+
+ * Try displaying some WhatsApp folders by default
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.7 *(2023-04-11)*
 ----------------------------
 
