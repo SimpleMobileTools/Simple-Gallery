@@ -200,8 +200,8 @@
     <string name="limit_folder_title">Περιορισμός μεγάλων τίτλων φακέλων σε 1 γραμμή</string>
     <string name="square">Τετράγωνο</string>
     <string name="rounded_corners">Στρογγυλεμένες γωνίες</string>
-    <string name="export_favorite_paths">Εξαγωγή διαδρομών αρχείων Αγαπημένων</string>
-    <string name="import_favorite_paths">Εισαγωγή διαδρομών αρχείων Αγαπημένων</string>
+    <string name="export_favorite_paths">Εξαγωγή αγαπημένων</string>
+    <string name="import_favorite_paths">Εισαγωγή αγαπημένων</string>
     <string name="paths_imported_successfully">Οι Διαδρομές εισήχθησαν με επιτυχία</string>
     <string name="media_management_prompt">Για να βεβαιωθείτε ότι όλες οι λειτουργίες αρχείων λειτουργούν αξιόπιστα, παρακαλούμε ορίστε την, \"Εφαρμογή Διαχείρισης Πολυμέσων\" στις ρυθμίσεις της συσκευής σας.</string>
     <string name="password_protect_excluded">Προστασία ορατότητας αποκλεισμένου φακέλου με κωδικό</string>
