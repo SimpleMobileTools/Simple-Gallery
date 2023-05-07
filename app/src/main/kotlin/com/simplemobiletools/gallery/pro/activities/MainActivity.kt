@@ -498,7 +498,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     mWasDefaultFolderChecked = true
                 }
 
-                if (!mWasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+                if (isPackageInstalled("com.simplemobiletools.gallery")) {
                     ConfirmationDialog(this, "", R.string.upgraded_from_free_gallery, R.string.ok, 0, false) {}
                 }
 

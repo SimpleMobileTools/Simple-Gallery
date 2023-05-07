@@ -103,9 +103,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (mShowAll) {
             registerFileUpdateListener()
 
-            if (!mWasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
-                ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0, false) {}
-                mWasUpgradedFromFreeShown = true
+            if (isPackageInstalled("com.simplemobiletools.gallery")) {
+                ConfirmationDialog(this, "", R.string.upgraded_from_free_gallery, R.string.ok, 0, false) {}
             }
         }
 
