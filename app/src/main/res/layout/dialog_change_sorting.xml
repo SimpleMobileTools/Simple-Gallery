@@ -95,16 +95,14 @@
             android:id="@+id/sorting_dialog_numeric_sorting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
+            android:minHeight="@dimen/min_radio_checkbox_height"
             android:text="@string/sort_numeric_parts" />
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/sorting_dialog_use_for_this_folder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
+            android:minHeight="@dimen/min_radio_checkbox_height"
             android:text="@string/use_for_this_folder" />
 
         <com.simplemobiletools.commons.views.MyTextView
