@@ -16,7 +16,7 @@ Keine Sorge mehr, dass ein versehentlich gelöschtes, wertvolles Foto oder Video
 SCHUTZ FÜR PRIVATE FOTOS, VIDEOS & DATEIEN
 Sicher bleibt, das Fotoalbum ist sicher. Mit den ausgefeilten Sicherheitsfunktionen von Schlichte Galerie kann man eine PIN, ein Muster oder den Fingerabdruck-Scanner verwenden, um einzuschränken, wer bestimmte Fotos und Videos ansehen oder bearbeiten darf oder Zugriff auf wichtige Dateien erhält. Selbst die App selbst kann geschützt oder spezielle Funktionen der Dateiverwaltung mit Schlössern versehen werden.
 
-s kommt mit Material-Design und einem dunklen Thema standardmäßig, bietet eine großartige Benutzererfahrung für die einfache Verwendung. Der fehlende Internetzugang bietet Ihnen mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
+Die App ist standardmäßig mit Material-Design und einem dunklen Thema ausgestattet, bietet eine großartige Benutzererfahrung für die einfache Verwendung. Der fehlende Internetzugang bietet Ihnen mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
 
 Enthält keine Werbung oder unnötige Berechtigungen. Ist komplett Open-Source und bietet anpassbare Farben.
 
