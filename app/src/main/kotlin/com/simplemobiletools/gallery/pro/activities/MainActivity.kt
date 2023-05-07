@@ -499,8 +499,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 if (!mWasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
-                    ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0, false) {}
-                    mWasUpgradedFromFreeShown = true
+                    ConfirmationDialog(this, "", R.string.upgraded_from_free_gallery, R.string.ok, 0, false) {}
                 }
 
                 checkOTGPath()
