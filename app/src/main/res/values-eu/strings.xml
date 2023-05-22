@@ -5,7 +5,7 @@
     <string name="edit">Editatu</string>
     <string name="open_camera">Ireki kamera</string>
     <string name="hidden">(ezkutatuta)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(baztertuta)</string>
     <string name="pin_folder">Ainguratu karpeta</string>
     <string name="unpin_folder">Kendu aingura karpetari</string>
     <string name="pin_to_the_top">Ainguratu goian</string>
@@ -33,7 +33,7 @@
     <string name="unset_as_default_folder">Kendu karpeta lehenetsitako karpeta gisa</string>
     <string name="reorder_by_dragging">Berrordenatu karpetak arrastatuz</string>
     <string name="reorder_by_dragging_pro">Berrordenatu karpetak arrastatuz (Pro)</string>
-    <string name="restore_to_path">Restoring to \'%s\'</string>
+    <string name="restore_to_path">\'%s\'-ra leheneratzen</string>
     <!-- Filter -->
     <string name="filter_media">Iragazi multimedia</string>
     <string name="images">Irudiak</string>
@@ -54,7 +54,7 @@
     <string name="hidden_folders">Ezkutatutako karpetak</string>
     <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
     <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Ezkutuko fitxategiak ikusteko Fitxategi guztiak sarbidea eman behar diozu aplikazioari, bestela ezin izango du funtzionatu.</string>
     <!-- Include folders -->
     <string name="include_folders">Sartutako karpetak</string>
     <string name="manage_included_folders">Kudeatu sartutako karpetak</string>
@@ -71,8 +71,8 @@
     <string name="invalid_values">Sartu baliozko bereizmena</string>
     <!-- Editor -->
     <string name="editor">Editorea</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Oinarrizko editorea</string>
+    <string name="advanced_editor">Editore aurreratua</string>
     <string name="rotate">Biratu</string>
     <string name="invalid_image_path">Irudiaren bide-izen baliogabea</string>
     <string name="invalid_video_path">Bideoaren bide-izen baliogabea</string>
@@ -92,9 +92,9 @@
     <string name="rotate_left">Biratu ezkerrera</string>
     <string name="rotate_right">Biratu eskuinera</string>
     <string name="rotate_one_eighty">Biratu 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Eraldatu</string>
+    <string name="crop">Moztu</string>
+    <string name="draw">Marraztu</string>
     <string name="flip">Irauli</string>
     <string name="flip_horizontally">Irauli horizontalki</string>
     <string name="flip_vertically">Irauli bertikalki</string>
@@ -114,7 +114,7 @@
     <string name="home_screen">Hasierako pantaila</string>
     <string name="lock_screen">Blokeatutako pantaila</string>
     <string name="home_and_lock_screen">Hasierako eta blokeatutako pantaila</string>
-    <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
+    <string name="allow_changing_aspect_ratio">Baimendu aspektu-erlazioa aldatzea</string>
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Tartea</string>
@@ -144,8 +144,8 @@
     <string name="by_date_taken_monthly">Ateratze-data (hilero)</string>
     <string name="by_file_type">Fitxategi mota</string>
     <string name="by_extension">Luzapena</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
-    <string name="grouping_and_sorting">Kontuan hartu taldekatzea eta ordenatzea bi eremu independente direla.</string>
+    <string name="show_file_count_section_header">Erakutsi fitxategien kopurua atalen goiburuetan</string>
+    <string name="grouping_and_sorting">Kontuan hartu taldekatzea eta ordenatzea bi eremu independente direla</string>
     <!-- Widgets -->
     <string name="folder_on_widget">Trepetan erakutsitako karpeta:</string>
     <string name="show_folder_name">Erakutsi karpetaren izena</string>
@@ -157,7 +157,7 @@
     <string name="max_brightness">Gehienezko distira multimedia pantaila osoan ikustean</string>
     <string name="crop_thumbnails">Moztu iruditxoak karratutan</string>
     <string name="show_thumbnail_video_duration">Erakutsi bideoen iraupena</string>
-    <string name="screen_rotation_by">Biratu pantaila osoko multimedia:</string>
+    <string name="screen_rotation_by">Biratu pantaila osoko multimedia honen bidez</string>
     <string name="screen_rotation_system_setting">Sistemaren ezarpena</string>
     <string name="screen_rotation_device_rotation">Gailu-biratzea</string>
     <string name="screen_rotation_aspect_ratio">Aspektu-erlazioa</string>
@@ -192,7 +192,7 @@
     <string name="allow_zooming_videos">Baimendu bideoen zooma birritan ukitzean</string>
     <string name="folder_thumbnail_style">Karpeta-iruditxoaren estiloa</string>
     <string name="file_thumbnail_style">Fitxategi-iruditxoaren estiloa</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">Markatu gogoko elementuak</string>
     <string name="thumbnail_spacing">Iruditxoen arteko tartea</string>
     <string name="show_file_count_line">Erakutsi fitxategi kopurua beste lerro batean</string>
     <string name="show_file_count_brackets">Erakutsi fitxategi kopurua parentesi artean</string>
@@ -200,19 +200,19 @@
     <string name="limit_folder_title">Mugatu karpeten izenburu luzeak lerro batera</string>
     <string name="square">Karratua</string>
     <string name="rounded_corners">Ertz biribilduak</string>
-    <string name="export_favorite_paths">Esportatu gogoko fitxategi-bideak</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="export_favorite_paths">Esportatu gogokoak</string>
+    <string name="import_favorite_paths">Inportatu gogokoak</string>
+    <string name="paths_imported_successfully">Bideak behar bezala inportatu dira</string>
+    <string name="media_management_prompt">Fitxategien eragiketa guztiek modu fidagarrian funtzionatzen dutela ziurtatzeko, egin ezazu aplikazio hau Multimedia kudeatzeko aplikazio bat gailuaren ezarpenetan.</string>
+    <string name="password_protect_excluded">Babestu pasahitzez baztertutako karpetaren ikusgaitasuna</string>
+    <string name="media_management_manual">Arazoren bat izan da. Sartu zure gailuaren Ezarpenak &gt; Aplikazioak &gt; Aplikazioetarako sarbide berezia &gt; Multimedia kudeatzeko aplikazioak eta baimendu aplikazio honi multimedia kudeatzeko.</string>
+    <string name="media_management_note">Birbideratzeak funtzionatzen ez badu, mesedez sartu zure gailuaren Ezarpenak - Aplikazioak - Aplikazioetarako sarbide berezia - Multimedia kudeatzeko aplikazioak eta baimendu aplikazio honi multimedia kudeatzeko.</string>
+    <string name="media_management_alternative">Hori egin nahi ez baduzu, zure gailuaren Ezarpenak - Aplikazioak - Aplikazioetarako sarbide berezia - Multimedia kudeatzeko aplikazioak ere joan zaitezke eta aplikazio honi multimedia kudeatzeko baimena eman.</string>
+    <string name="alternative_media_access">Bestela, multimedia fitxategiak soilik atzitzea baimendu dezakezu. Kasu horretan, ezin izango duzu ezkutuko fitxategiekin lan egin.</string>
+    <string name="media_only">Multimediak bakarrik</string>
+    <string name="all_files">Fitxategi guztiak</string>
+    <string name="search_all_files">Bilatu fitxategi guztiak karpetak ordez hasierako pantailan</string>
+    <string name="show_all_folders">Erakutsi menu-botoia Erakutsi karpeta guztien edukira azkar aldatzeko</string>
     <!-- Setting sections -->
     <string name="thumbnails">Iruditxoak</string>
     <string name="fullscreen_media">Pantaila osoko multimedia</string>
@@ -336,41 +336,41 @@
     <string name="pesdk_common_title_pipettableColor">Hautatu kolorea (pipeta)</string>
     <string name="vesdk_video_trim_title_name">Moztu</string>
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery\?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\". The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do\?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top\?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast forward videos\?</string>
-    <string name="faq_4_text">You can do it by double tapping the side of the screen, or tapping the current or max duration texts near the seekbar. If you enable opening videos on a separate screen in the app settings, you can use horizontal gestures too.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder\?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up\?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do\?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible\?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders. That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_10_title">Can I crop images with this app\?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails\?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space\?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
-    <string name="faq_16_text">Starting with Android 11 you cannot hide or unhide files or folders anymore, you cannot see the hidden ones in gallery apps either. You will have to use some file manager for that.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_1_title">Nola egin dezaket Simple Gallery gailuen galeria lehenetsia\?</string>
+    <string name="faq_1_text">Lehenik eta behin, orain lehenetsitako galeria aplikazioa aurkitu behar duzu zure gailuaren ezarpenetako Aplikazioak atalean, bilatu \"Ireki lehenespenez\" bezalako zerbait dioen botoi bat, egin klik gainean eta hautatu \"Garbitu lehenetsiak\". Irudi edo bideo bat irekitzen saiatuko zaren hurrengoan aplikazio-hautatzaile bat ikusiko duzu, non Simple Gallery hauta dezakezu eta aplikazio lehenetsia izan dezakezu.</string>
+    <string name="faq_2_title">Aplikazioa pasahitz batez blokeatu dut, baina ahaztu egin zait. Zer egin dezaket\?</string>
+    <string name="faq_2_text">Bi modutan konpondu dezakezu: aplikazioa berriro instala dezakezu edo aplikazioa zure gailuaren ezarpenetan aurkitu eta \"Garbitu datuak\" aukeratu. Zure ezarpen guztiak berrezarriko ditu, ez du multimedia fitxategirik kenduko.</string>
+    <string name="faq_3_title">Nola egin dezaket album bat beti goian agertzeko\?</string>
+    <string name="faq_3_text">Nahi duzun albuma luze sakatu eta Pin ikonoa hauta dezakezu ekintzen menuan, eta horrek goian finkatuko du. Karpeta anitz ere ainguratu ditzakezu, ainguratutako elementuak ordenatzeko metodo lehenetsiaren arabera ordenatuko dira.</string>
+    <string name="faq_4_title">Nola aurreratu ditzaket bideoak azkar\?</string>
+    <string name="faq_4_text">Pantailaren alboa bitan sakatuz edo bilaketa-barratik gertu dauden uneko edo gehienezko iraupeneko testuak sakatuz egin dezakezu. Aplikazioaren ezarpenetan bideoak pantaila bereizi batean irekitzea gaitzen baduzu, keinu horizontalak ere erabil ditzakezu.</string>
+    <string name="faq_5_title">Zein da karpeta bat ezkutatzearen eta baztertzearen arteko aldea\?</string>
+    <string name="faq_5_text">Baztertzeak karpeta Simple Galleryn soilik bistaratzea eragozten du, Ezkutatu sisteman funtzionatzen duen bitartean eta karpeta beste galerietatik ere ezkutatzen du. Emandako karpetan \".nomedia\" fitxategi huts bat sortuz funtzionatzen du, eta gero edozein fitxategi-kudeatzailerekin ere kendu dezakezu. Kontuan izan gailu batzuek ez dutela onartzen Kamera, Pantaila-argazkiak eta Deskargak bezalako karpetak ezkutatzen.</string>
+    <string name="faq_6_title">Zergatik agertzen dira musikaren azala edo eranskailuak dituzten karpetak\?</string>
+    <string name="faq_6_text">Gerta daiteke ezohiko album batzuk agertzea. Erraz bazter ditzakezu luze sakatuz eta Baztertu hautatuz. Hurrengo elkarrizketa-koadroan karpeta nagusia hauta dezakezu, litekeena da erlazionatutako beste albumak ere agertzea eragotziko duela.</string>
+    <string name="faq_7_title">Irudiak dituen karpeta bat ez da agertzen edo ez ditu elementu guztiak erakusten. Zer egin dezaket\?</string>
+    <string name="faq_7_text">Horrek hainbat arrazoi izan ditzake, baina konpontzea erraza da. Joan Ezarpenak -&gt; Kudeatu sartutako karpetak, hautatu Plus eta joan behar den karpetara.</string>
+    <string name="faq_8_title">Zer gertatzen da karpeta jakin batzuk ikusgai nahi baditut\?</string>
+    <string name="faq_8_text">Karpeta bat gehitzeak ez du automatikoki ezer baztertzen. Egin dezakezuna Ezarpenak -&gt; Kudeatu Baztertutako Karpetak atalera joan da, \"/\" erroko karpeta baztertu, gero gehitu nahi dituzun karpetak Ezarpenak -&gt; Kudeatu Sartutako Karpetak atalean. Horrek hautatutako karpetak soilik ikusgai jarriko ditu, baztertzea eta barne hartzea errekurtsiboak baitira eta karpeta bat baztertuta eta sartzen bada, agertuko da.</string>
+    <string name="faq_10_title">Irudiak moztu ditzaket aplikazio honekin\?</string>
+    <string name="faq_10_text">Bai, irudiak moztu ditzakezu editorean, irudien ertzak arrastatuz. Editorera irits zaitezke irudiaren miniatura luze sakatuz eta Editatu hautatuz, edo Editatu hautatuta pantaila osoko ikuspegitik.</string>
+    <string name="faq_11_title">Taldekatul ditzaket nolabait multimedia fitxategien miniaturak\?</string>
+    <string name="faq_11_text">Noski, erabili \"Taldekatu honen arabera\" menu-elementua koadro txikien ikuspegian dagoen bitartean. Fitxategiak hainbat irizpideren arabera taldeka ditzakezu, hartutako data barne. \"Erakutsi karpeta guztiak edukia\" funtzioa erabiltzen baduzu, karpetetan ere taldeka ditzakezu.</string>
+    <string name="faq_12_title">Sortze dataren arabera ordenatzeak ez du behar bezala funtzionatzen, nola konpondu dezaket\?</string>
+    <string name="faq_12_text">Litekeena da fitxategiak nonbaitetik kopiatzen ari direlako. Konpon dezakezu fitxategien miniaturak hautatuz eta \"Konpondu sortze-dataren balioa\" hautatuz.</string>
+    <string name="faq_13_title">Irudietan kolore-banda batzuk ikusten ditut. Nola hobetu dezaket kalitatea\?</string>
+    <string name="faq_13_text">Irudiak bistaratzeko uneko irtenbideak ondo funtzionatzen du kasu gehienetan, baina irudi-kalitate hobea nahi baduzu, \"Erakutsi irudiak ahalik eta kalitate handienean\" gaitu dezakezu aplikazioaren ezarpenetan, \"Zoom bidez handitu daitezkeen irudiak\" atalean. .</string>
+    <string name="faq_14_title">Fitxategi/karpeta bat ezkutatu dut. Nola bistaratu dezaket\?</string>
+    <string name="faq_14_text">Pantaila nagusian \"Erakutsi ezkutuko elementuak aldi baterako\" menu-elementua sakatu dezakezu edo aplikazioaren ezarpenetan \"Erakutsi ezkutuko elementuak\" alda dezakezu, ezkutuko elementua ikusteko. Ezkutatu nahi baduzu, sakatu luze eta hautatu \"Ezkutatu\". Karpetak ezkutatzen dira \".nomedia\" fitxategi ezkutuan gehituz, fitxategia edozein fitxategi kudeatzailerekin ere ezaba dezakezu. Kontuan izan ezkutatzeak modu errekurtsiboan funtzionatzen duela, beraz, karpeta bat ezkutatzen baduzu, azpikarpeta guztiak ere ezkutatu egingo dira. Beraz, azpikarpetak ezkutatzeko karpeta nagusia agerian utzi behar duzu.</string>
+    <string name="faq_15_title">Zergatik hartzen du hainbeste leku aplikazioak\?</string>
+    <string name="faq_15_text">Aplikazioen cache-ak 250 MB har ditzake, irudiak azkarrago kargatzea bermatzen du. Aplikazioak are leku gehiago hartzen badu, ziurrenik elementuak Birziklapen-ontzian edukitzea izango da. Fitxategi horiek aplikazioaren tamainarako balio dute. Zaborrontzia garbi dezakezu irekiz eta fitxategi guztiak ezabatuz edo aplikazioaren ezarpenetatik. Zaborrontziko fitxategi guztiak automatikoki ezabatzen dira 30 egun igaro ondoren.</string>
+    <string name="faq_16_title">Zer gertatu da fitxategiak eta karpetak ezkutatzearekin eta zergatik ezin ditut gehiago ikusi ezkutuko elementuak\?</string>
+    <string name="faq_16_text">Android 11-rekin hasita, ezin dituzu fitxategiak edo karpetak ezkutatu edo erakutsi, ezin dituzu galeriako aplikazioetan ezkutatuta daudenak ikusi sistemaren murrizketak direla eta. Fitxategi kudeatzaile batzuk erabili beharko dituzu horretarako.</string>
+    <string name="faq_16_text_extra">Edo galeria honi Fitxategi guztietarako sarbidea ere eman diezaiokezu zure gailuaren ezarpenen bidez, ezkutuko elementuak erakusteko eta, oro har, fitxategien eragiketak fidagarriagoak izateko.</string>
+    <string name="faq_17_title">Zergatik ezin ditut sartu falta diren karpetak\?</string>
+    <string name="faq_17_text">Horrek funtzionatzeari utzi zion Android 11rekin ere etorri ziren sistema aldaketen ondorioz, aplikazioak ezin ditu jada benetako karpetak arakatu, MediaStore izenekoan oinarritzen da datuak eskuratzeko.</string>
+    <string name="faq_18_title">Zergatik ikusten ditut iragarkiak bideoa erreproduzitzean\?</string>
+    <string name="faq_18_text">Gure aplikazioek ez dute iragarkirik. Bideoak erreproduzitzerakoan ikusten badituzu, beste aplikazio batzuk erabili behar dituzu bideo-erreproduzitzailea. Saiatu zure bideo-erreproduzitzaile lehenetsia aurkitzen gailuaren ezarpenetan, eta egin ezazu \"Garbitu lehenetsiak\". Bideo-asmoren bat deitzen duzun hurrengoan aplikazio-hautatzaile baten gonbita ikusiko duzu, non erabili nahi duzun aplikazioa hauta dezakezun.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
