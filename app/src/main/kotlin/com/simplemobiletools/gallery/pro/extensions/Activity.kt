@@ -823,33 +823,35 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
 }
 
 fun BaseSimpleActivity.resizeImage(path: String, size: Point, callback: (success: Boolean) -> Unit) {
-    var oldExif: ExifInterface? = null
-    if (isNougatPlus()) {
-        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(path)))
-        oldExif = ExifInterface(inputStream!!)
-    }
+    ensureBackgroundThread {
+        var oldExif: ExifInterface? = null
+        if (isNougatPlus()) {
+            val inputStream = contentResolver.openInputStream(Uri.fromFile(File(path)))
+            oldExif = ExifInterface(inputStream!!)
+        }
 
-    val newBitmap = Glide.with(applicationContext).asBitmap().load(path).submit(size.x, size.y).get()
+        val newBitmap = Glide.with(applicationContext).asBitmap().load(path).submit(size.x, size.y).get()
 
-    val newFile = File(path)
-    val newFileDirItem = FileDirItem(path, path.getFilenameFromPath())
-    getFileOutputStream(newFileDirItem, true) { out ->
-        if (out != null) {
-            out.use {
-                try {
-                    newBitmap.compress(newFile.absolutePath.getCompressionFormat(), 90, out)
+        val newFile = File(path)
+        val newFileDirItem = FileDirItem(path, path.getFilenameFromPath())
+        getFileOutputStream(newFileDirItem, true) { out ->
+            if (out != null) {
+                out.use {
+                    try {
+                        newBitmap.compress(newFile.absolutePath.getCompressionFormat(), 90, out)
 
-                    if (isNougatPlus()) {
-                        val newExif = ExifInterface(newFile.absolutePath)
-                        oldExif?.copyNonDimensionAttributesTo(newExif)
+                        if (isNougatPlus()) {
+                            val newExif = ExifInterface(newFile.absolutePath)
+                            oldExif?.copyNonDimensionAttributesTo(newExif)
+                        }
+                    } catch (ignored: Exception) {
                     }
-                } catch (ignored: Exception) {
-                }
 
-                callback(true)
+                    callback(true)
+                }
+            } else {
+                callback(false)
             }
-        } else {
-            callback(false)
         }
     }
 }
