@@ -69,15 +69,15 @@
     <string name="height">Výška</string>
     <string name="keep_aspect_ratio">Zachovať pomer strán</string>
     <string name="invalid_values">Prosím zadajte platné rozlíšenie</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Zmeniť veľkosť obrázkov</string>
+    <string name="resize_factor">Faktor zmeny veľkosti</string>
+    <string name="resize_factor_info">Zmeniť veľkosť obrázkov na dané percento, hodnota musí byť medzi 10 a 90.</string>
+    <string name="resize_factor_error">Zadajte číslo medzi 10 a 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Nepodarilo sa zmeniť veľkosť %d obrázku</item>
+        <item quantity="other">Nepodarilo sa zmeniť veľkosť %d obrázkov</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Veľkosť obrázkov bola zmenená úspešne</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="basic_editor">Základný editor</string>
