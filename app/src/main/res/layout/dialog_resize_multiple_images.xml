@@ -14,27 +14,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.simplemobiletools.commons.views.MyTextView
-        android:id="@+id/resize_factor_info"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/big_margin"
-        android:layout_marginTop="@dimen/normal_margin"
-        android:text="@string/resize_factor_info"
-        android:textSize="@dimen/normal_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/resize_progress" />
-
     <com.simplemobiletools.commons.views.MyTextInputLayout
         android:id="@+id/resize_factor_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/big_margin"
-        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/normal_margin"
         android:hint="@string/resize_factor"
         app:errorEnabled="true"
-        app:layout_constraintTop_toBottomOf="@id/resize_factor_info"
+        app:helperText="Resize images to the given percentage, value must be within 10 and 90"
+        app:helperTextEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/resize_progress"
         app:suffixText="%">
 
         <com.google.android.material.textfield.TextInputEditText

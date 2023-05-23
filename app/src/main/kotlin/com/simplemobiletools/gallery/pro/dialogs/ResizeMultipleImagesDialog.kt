@@ -1,11 +1,7 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
 import android.graphics.Point
-import android.os.Handler
-import android.os.Looper
-import android.view.View
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.doAfterTextChanged
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -14,13 +10,11 @@ import com.simplemobiletools.gallery.pro.extensions.ensureWriteAccess
 import com.simplemobiletools.gallery.pro.extensions.rescanPathsAndUpdateLastModified
 import com.simplemobiletools.gallery.pro.extensions.resizeImage
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_edit_text
-import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_info
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_input_layout
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_progress
 import kotlin.math.roundToInt
 
 private const val DEFAULT_RESIZE_FACTOR = "75"
-private const val RESIZE_FACTOR_ERROR_DELAY = 800L
 
 class ResizeMultipleImagesDialog(
     private val activity: BaseSimpleActivity,
@@ -35,7 +29,12 @@ class ResizeMultipleImagesDialog(
     private val resizeFactorEditText = view.resize_factor_edit_text
 
     init {
-        setupViews(view)
+        resizeFactorEditText.setText(DEFAULT_RESIZE_FACTOR)
+        progressView.apply {
+            max = imagePaths.size
+            setIndicatorColor(activity.getProperPrimaryColor())
+        }
+
         activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, null)
             .setNegativeButton(R.string.cancel, null)
@@ -48,19 +47,15 @@ class ResizeMultipleImagesDialog(
                     val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
                     positiveButton.setOnClickListener {
                         val resizeFactorText = resizeFactorEditText.text?.toString()
-                        val resizeFactor = try {
-                            resizeFactorText?.toFloat()?.div(100)
-                        } catch (e: Exception) {
-                            null
-                        }
-
-                        if (resizeFactor == null) {
+                        if (resizeFactorText.isNullOrEmpty() || resizeFactorText.toInt() !in 10..90) {
                             activity.toast(R.string.resize_factor_error)
                             return@setOnClickListener
                         }
 
+                        val resizeFactor = resizeFactorText.toFloat().div(100)
+
                         alertDialog.setCanceledOnTouchOutside(false)
-                        arrayOf(view.resize_factor_input_layout, view.resize_factor_info, positiveButton, negativeButton).forEach {
+                        arrayOf(view.resize_factor_input_layout, positiveButton, negativeButton).forEach {
                             it.isEnabled = false
                             it.alpha = 0.6f
                         }
@@ -118,31 +113,6 @@ class ResizeMultipleImagesDialog(
                     }
                 }
             }
-        }
-    }
-
-    private fun setupViews(view: View) {
-        val handler = Handler(Looper.getMainLooper())
-        val resizeFactorInputLayout = view.resize_factor_input_layout
-        view.resize_factor_edit_text.apply {
-            setText(DEFAULT_RESIZE_FACTOR)
-            doAfterTextChanged {
-                resizeFactorInputLayout.error = null
-                handler.removeCallbacksAndMessages(null)
-                handler.postDelayed({
-                    val factorText = it?.toString()
-                    if (factorText.isNullOrEmpty() || factorText.toInt() !in 10..90) {
-                        resizeFactorInputLayout.error = activity.getString(R.string.resize_factor_error)
-                    } else {
-                        resizeFactorInputLayout.error = null
-                    }
-                }, RESIZE_FACTOR_ERROR_DELAY)
-            }
-        }
-
-        progressView.apply {
-            max = imagePaths.size
-            setIndicatorColor(activity.getProperPrimaryColor())
         }
     }
 }
