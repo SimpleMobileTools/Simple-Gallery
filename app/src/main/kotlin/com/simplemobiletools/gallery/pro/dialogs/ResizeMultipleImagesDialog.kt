@@ -67,18 +67,18 @@ class ResizeMultipleImagesDialog(
 
     private fun resizeImages(factor: Float) {
         progressView.show()
-        ensureBackgroundThread {
-            with(activity) {
-                val newSizes = imageSizes.map {
-                    val width = (it.x * factor).roundToInt()
-                    val height = (it.y * factor).roundToInt()
-                    Point(width, height)
-                }
+        with(activity) {
+            val newSizes = imageSizes.map {
+                val width = (it.x * factor).roundToInt()
+                val height = (it.y * factor).roundToInt()
+                Point(width, height)
+            }
 
-                val parentPath = imagePaths.first().getParentPath()
-                val pathsToRescan = arrayListOf<String>()
+            val parentPath = imagePaths.first().getParentPath()
+            val pathsToRescan = arrayListOf<String>()
 
-                ensureWriteAccess(parentPath) {
+            ensureWriteAccess(parentPath) {
+                ensureBackgroundThread {
                     for (i in imagePaths.indices) {
                         val path = imagePaths[i]
                         val size = newSizes[i]
