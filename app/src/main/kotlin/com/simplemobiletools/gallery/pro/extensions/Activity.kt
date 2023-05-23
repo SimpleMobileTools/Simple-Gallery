@@ -774,18 +774,22 @@ fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
 
 @TargetApi(Build.VERSION_CODES.N)
 fun BaseSimpleActivity.launchResizeMultipleImagesDialog(paths: List<String>, callback: (() -> Unit)? = null) {
-    val imagePaths = mutableListOf<String>()
-    val imageSizes = mutableListOf<Point>()
-    for (path in paths) {
-        val size = path.getImageResolution(this)
-        if (size != null) {
-            imagePaths.add(path)
-            imageSizes.add(size)
+    ensureBackgroundThread {
+        val imagePaths = mutableListOf<String>()
+        val imageSizes = mutableListOf<Point>()
+        for (path in paths) {
+            val size = path.getImageResolution(this)
+            if (size != null) {
+                imagePaths.add(path)
+                imageSizes.add(size)
+            }
         }
-    }
 
-    ResizeMultipleImagesDialog(this, imagePaths, imageSizes) {
-        callback?.invoke()
+        runOnUiThread {
+            ResizeMultipleImagesDialog(this, imagePaths, imageSizes) {
+                callback?.invoke()
+            }
+        }
     }
 }
 
