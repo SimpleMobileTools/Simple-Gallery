@@ -73,7 +73,10 @@
     <string name="resize_factor">Resize factor</string>
     <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
     <string name="resize_factor_error">Enter a number between 10 and 90</string>
-    <string name="failed_to_resize_images">Failed to resize %d images</string>
+    <plurals name="failed_to_resize_images">
+        <item quantity="one">Failed to resize %d image</item>
+        <item quantity="other">Failed to resize %d images</item>
+    </plurals>
     <string name="images_resized_successfully">Images resized successfully</string>
     <!-- Editor -->
     <string name="editor">সম্পাদক</string>
