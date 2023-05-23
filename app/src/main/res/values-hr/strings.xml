@@ -9,7 +9,7 @@
     <string name="pin_folder">Prikvači mapu</string>
     <string name="unpin_folder">Otkvači mapu</string>
     <string name="pin_to_the_top">Prikvači na vrh</string>
-    <string name="show_all">Prikaži cijeli sadržaj mape</string>
+    <string name="show_all">Prikaži sadržaj svih mapa</string>
     <string name="all_folders">Sve mape</string>
     <string name="folder_view">Prijeđi na prikaz mape</string>
     <string name="other_folder">Ostale mape</string>
@@ -221,7 +221,7 @@
     <string name="media_only">Samo mediji</string>
     <string name="all_files">Sve datoteke</string>
     <string name="search_all_files">Pretraži sve datoteke umjesto mapa u glavnom ekranu</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="show_all_folders">Pokaži gumb izbornika za brzo uključivanje i isključivanje „Prikaži sadržaj svih mapa”</string>
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji u cjeloekranskom prikazu</string>
@@ -364,7 +364,7 @@
     <string name="faq_10_title">Mogu li obrezati slike pomoću ove aplikacije\?</string>
     <string name="faq_10_text">Da, slike možeš obrezati u uređivaču povlačenjem uglova. Pokreni uređivač dugim pritiskom na sličicu i odaberi „Uredi” ili odaberi „Uredi” u cjeloekranskom prikazu.</string>
     <string name="faq_11_title">Mogu li nekako grupirati sličice medijskih datoteka\?</string>
-    <string name="faq_11_text">Naravno, u izborniku odaberi „Grupiraj prema” u prikazu sličica. Datoteke možeš grupirati prema više kriterija, uključujući datum snimanja. Ako koristiš funkciju „Prikaži sav sadržaj mape”, možeš ih grupirati i prema mapama.</string>
+    <string name="faq_11_text">Naravno, u izborniku odaberi „Grupiraj prema” u prikazu sličica. Datoteke možeš grupirati na osnovi više kriterija, uključujući datum snimanja. Ako koristiš funkciju „Prikaži sadržaj svih mapa”, možeš ih grupirati i prema mapama.</string>
     <string name="faq_12_title">Razvrstavanje prema datumu snimanja nije točno, kako to mogu ispraviti\?</string>
     <string name="faq_12_text">Vjerojatan uzrok tome je da su slike kopirane s drugih mjesta. Dodirni dugo sličice datoteka i odaberi funkciju „Ispravi vrijednost datuma snimanja”.</string>
     <string name="faq_13_title">Vidim nekakvo preklapanje boja na slikama. Kako mogu poboljšati kvalitetu\?</string>
