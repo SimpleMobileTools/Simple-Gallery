@@ -16,7 +16,6 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -47,7 +46,6 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
-import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -1050,34 +1048,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     @TargetApi(Build.VERSION_CODES.N)
     private fun resizeImage() {
         val oldPath = getCurrentPath()
-        val originalSize = oldPath.getImageResolution(this) ?: return
-        ResizeWithPathDialog(this, originalSize, oldPath) { newSize, newPath ->
-            ensureBackgroundThread {
-                try {
-                    var oldExif: ExifInterface? = null
-                    if (isNougatPlus()) {
-                        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(oldPath)))
-                        oldExif = ExifInterface(inputStream!!)
-                    }
-
-                    val newBitmap = Glide.with(applicationContext).asBitmap().load(oldPath).submit(newSize.x, newSize.y).get()
-
-                    val newFile = File(newPath)
-                    val newFileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
-                    getFileOutputStream(newFileDirItem, true) {
-                        if (it != null) {
-                            saveBitmap(newFile, newBitmap, it, oldExif, File(oldPath).lastModified())
-                        } else {
-                            toast(R.string.image_editing_failed)
-                        }
-                    }
-                } catch (e: OutOfMemoryError) {
-                    toast(R.string.out_of_memory_error)
-                } catch (e: Exception) {
-                    showErrorToast(e)
-                }
-            }
-        }
+        launchResizeImageDialog(oldPath)
     }
 
     @TargetApi(Build.VERSION_CODES.N)

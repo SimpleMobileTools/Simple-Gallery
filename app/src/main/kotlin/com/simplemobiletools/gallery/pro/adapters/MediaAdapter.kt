@@ -144,6 +144,7 @@ class MediaAdapter(
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_edit).isVisible = isOneItemSelected
             findItem(R.id.cab_set_as).isVisible = isOneItemSelected
+            findItem(R.id.cab_resize).isVisible = selectedItems.all { it.isImage() }
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
             findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
@@ -179,6 +180,7 @@ class MediaAdapter(
             R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
             R.id.cab_set_as -> setAs()
+            R.id.cab_resize -> resize()
             R.id.cab_delete -> checkDeleteConfirmation()
         }
     }
@@ -284,6 +286,20 @@ class MediaAdapter(
     private fun setAs() {
         val path = getFirstSelectedItemPath() ?: return
         activity.setAs(path)
+    }
+
+    private fun resize() {
+        val paths = getSelectedPaths()
+        if (isOneItemSelected()) {
+            val path = paths.first()
+            activity.launchResizeImageDialog(path) {
+                finishActMode()
+            }
+        } else {
+            activity.launchResizeMultipleImagesDialog(paths) {
+                finishActMode()
+            }
+        }
     }
 
     private fun toggleFileVisibility(hide: Boolean) {

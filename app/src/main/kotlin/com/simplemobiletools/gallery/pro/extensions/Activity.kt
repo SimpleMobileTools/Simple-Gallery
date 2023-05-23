@@ -8,6 +8,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.net.Uri
@@ -39,6 +40,8 @@ import com.simplemobiletools.gallery.pro.activities.SettingsActivity
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
 import com.simplemobiletools.gallery.pro.dialogs.AllFilesPermissionDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
+import com.simplemobiletools.gallery.pro.dialogs.ResizeMultipleImagesDialog
+import com.simplemobiletools.gallery.pro.dialogs.ResizeWithPathDialog
 import com.simplemobiletools.gallery.pro.helpers.DIRECTORY
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.DateTaken
@@ -731,6 +734,124 @@ fun BaseSimpleActivity.copyFile(source: String, destination: String) {
     } finally {
         inputStream?.close()
         out?.close()
+    }
+}
+
+fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
+    when {
+        isRestrictedSAFOnlyRoot(path) -> {
+            handleAndroidSAFDialog(path) {
+                if (!it) {
+                    return@handleAndroidSAFDialog
+                }
+                callback.invoke()
+            }
+        }
+        needsStupidWritePermissions(path) -> {
+            handleSAFDialog(path) {
+                if (!it) {
+                    return@handleSAFDialog
+                }
+                callback()
+            }
+        }
+        isAccessibleWithSAFSdk30(path) -> {
+            handleSAFDialogSdk30(path) {
+                if (!it) {
+                    return@handleSAFDialogSdk30
+                }
+                callback()
+            }
+        }
+        else -> {
+            callback()
+        }
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.N)
+fun BaseSimpleActivity.launchResizeMultipleImagesDialog(paths: List<String>, callback: (() -> Unit)? = null) {
+    val imagePaths = mutableListOf<String>()
+    val imageSizes = mutableListOf<Point>()
+    for (path in paths) {
+        val size = path.getImageResolution(this)
+        if (size != null) {
+            imagePaths.add(path)
+            imageSizes.add(size)
+        }
+    }
+
+    ResizeMultipleImagesDialog(this, imagePaths, imageSizes) {
+        callback?.invoke()
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.N)
+fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Unit)? = null) {
+    val originalSize = path.getImageResolution(this) ?: return
+    ResizeWithPathDialog(this, originalSize, path) { newSize, newPath ->
+        ensureBackgroundThread {
+            try {
+                resizeImage(newPath, newSize) { success ->
+                    if (success) {
+                        toast(R.string.file_saved)
+
+                        val file = File(path)
+                        val lastModified = file.lastModified()
+                        val paths = arrayListOf(file.absolutePath)
+                        rescanPaths(paths) {
+                            fixDateTaken(paths, false)
+                            if (config.keepLastModified && lastModified != 0L) {
+                                File(file.absolutePath).setLastModified(lastModified)
+                                updateLastModified(file.absolutePath, lastModified)
+                            }
+                        }
+
+                        runOnUiThread {
+                            callback?.invoke()
+                        }
+                    } else {
+                        toast(R.string.image_editing_failed)
+                    }
+                }
+            } catch (e: OutOfMemoryError) {
+                toast(R.string.out_of_memory_error)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }
+    }
+}
+
+fun BaseSimpleActivity.resizeImage(path: String, size: Point, callback: (success: Boolean) -> Unit) {
+    var oldExif: ExifInterface? = null
+    if (isNougatPlus()) {
+        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(path)))
+        oldExif = ExifInterface(inputStream!!)
+    }
+
+    val newBitmap = Glide.with(applicationContext).asBitmap().load(path).submit(size.x, size.y).get()
+
+    val newFile = File(path)
+    val newFileDirItem = FileDirItem(path, path.getFilenameFromPath())
+    getFileOutputStream(newFileDirItem, true) { out ->
+        if (out != null) {
+            out.use {
+                try {
+                    newBitmap.compress(newFile.absolutePath.getCompressionFormat(), 90, out)
+
+                    if (isNougatPlus()) {
+                        val newExif = ExifInterface(newFile.absolutePath)
+                        oldExif?.copyNonDimensionAttributesTo(newExif)
+                    }
+                } catch (ignored: Exception) {
+                }
+
+                callback(true)
+            }
+        } else {
+            callback(false)
+        }
     }
 }
 

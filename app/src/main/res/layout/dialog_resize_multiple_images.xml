@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/resize_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/normal_margin"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/resize_factor_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/big_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:text="@string/resize_factor_info"
+        android:textSize="@dimen/normal_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resize_progress" />
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/resize_factor_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/big_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:hint="@string/resize_factor"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/resize_factor_info"
+        app:suffixText="%">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/resize_factor_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/bigger_text_size" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
