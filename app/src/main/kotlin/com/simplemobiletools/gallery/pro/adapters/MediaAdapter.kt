@@ -302,9 +302,11 @@ class MediaAdapter(
         if (!selectionContainsImages) {
             return false
         }
-        val parentPath = selectedItems.first { it.isImage() }.path.getParentPath()
+
+        val parentPath = selectedItems.first { it.isImage() }.parentPath
+        val isCommonParent = selectedItems.all { parentPath == it.parentPath }
         val isRestrictedDir = activity.isRestrictedWithSAFSdk30(parentPath)
-        return !isRestrictedDir
+        return isExternalStorageManager() || (isCommonParent && !isRestrictedDir)
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
