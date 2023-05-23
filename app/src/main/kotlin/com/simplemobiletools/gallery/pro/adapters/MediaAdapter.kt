@@ -30,14 +30,9 @@ import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
-import kotlinx.android.synthetic.main.photo_item_grid.view.*
-import kotlinx.android.synthetic.main.thumbnail_section.view.*
+import kotlinx.android.synthetic.main.photo_item_grid.view.file_type
+import kotlinx.android.synthetic.main.thumbnail_section.view.thumbnail_section
 import kotlinx.android.synthetic.main.video_item_grid.view.*
-import kotlinx.android.synthetic.main.video_item_grid.view.favorite
-import kotlinx.android.synthetic.main.video_item_grid.view.media_item_holder
-import kotlinx.android.synthetic.main.video_item_grid.view.medium_check
-import kotlinx.android.synthetic.main.video_item_grid.view.medium_name
-import kotlinx.android.synthetic.main.video_item_grid.view.medium_thumbnail
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -144,7 +139,7 @@ class MediaAdapter(
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_edit).isVisible = isOneItemSelected
             findItem(R.id.cab_set_as).isVisible = isOneItemSelected
-            findItem(R.id.cab_resize).isVisible = selectedItems.all { it.isImage() }
+            findItem(R.id.cab_resize).isVisible = canResize(selectedItems)
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
             findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
@@ -289,7 +284,7 @@ class MediaAdapter(
     }
 
     private fun resize() {
-        val paths = getSelectedPaths()
+        val paths = getSelectedItems().filter { it.isImage() }.map { it.path }
         if (isOneItemSelected()) {
             val path = paths.first()
             activity.launchResizeImageDialog(path) {
@@ -300,6 +295,16 @@ class MediaAdapter(
                 finishActMode()
             }
         }
+    }
+
+    private fun canResize(selectedItems: ArrayList<Medium>): Boolean {
+        val selectionContainsImages = selectedItems.any { it.isImage() }
+        if (!selectionContainsImages) {
+            return false
+        }
+        val parentPath = selectedItems.first { it.isImage() }.path.getParentPath()
+        val isRestrictedDir = activity.isRestrictedWithSAFSdk30(parentPath)
+        return !isRestrictedDir
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
