@@ -69,6 +69,11 @@
     <string name="height">உயரம்</string>
     <string name="keep_aspect_ratio">கூறுவிகிதத்தை வைத்திரு</string>
     <string name="invalid_values">செல்லத்தக்க தீர்மானத்தை உள்ளிடவும்</string>
+    <string name="resize_multiple_images">Resize multiple images</string>
+    <string name="resize_factor">Resize factor</string>
+    <string name="resize_factor_info">Please enter a number between 10 and 90 to specify the percentage factor by which the image resolution will be reduced.</string>
+    <string name="failed_to_resize_images">Failed to resize %d images</string>
+    <string name="images_resized_successfully">Images resized successfully</string>
     <!-- Editor -->
     <string name="editor">திருத்தி</string>
     <string name="basic_editor">Basic Editor</string>
