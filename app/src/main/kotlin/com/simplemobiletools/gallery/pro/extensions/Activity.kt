@@ -747,6 +747,7 @@ fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
                 callback.invoke()
             }
         }
+
         needsStupidWritePermissions(path) -> {
             handleSAFDialog(path) {
                 if (!it) {
@@ -755,6 +756,7 @@ fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
                 callback()
             }
         }
+
         isAccessibleWithSAFSdk30(path) -> {
             handleSAFDialogSdk30(path) {
                 if (!it) {
@@ -763,6 +765,7 @@ fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
                 callback()
             }
         }
+
         else -> {
             callback()
         }
@@ -797,16 +800,8 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
                         toast(R.string.file_saved)
 
                         val file = File(path)
-                        val lastModified = file.lastModified()
                         val paths = arrayListOf(file.absolutePath)
-                        rescanPaths(paths) {
-                            fixDateTaken(paths, false)
-                            if (config.keepLastModified && lastModified != 0L) {
-                                File(file.absolutePath).setLastModified(lastModified)
-                                updateLastModified(file.absolutePath, lastModified)
-                            }
-                        }
-
+                        rescanPathsAndUpdateLastModified(paths)
                         runOnUiThread {
                             callback?.invoke()
                         }
@@ -851,6 +846,20 @@ fun BaseSimpleActivity.resizeImage(path: String, size: Point, callback: (success
             }
         } else {
             callback(false)
+        }
+    }
+}
+
+fun BaseSimpleActivity.rescanPathsAndUpdateLastModified(paths: ArrayList<String>) {
+    rescanPaths(paths) {
+        fixDateTaken(paths, false)
+        for (path in paths) {
+            val file = File(path)
+            val lastModified = file.lastModified()
+            if (config.keepLastModified && lastModified != 0L) {
+                File(file.absolutePath).setLastModified(lastModified)
+                updateLastModified(file.absolutePath, lastModified)
+            }
         }
     }
 }

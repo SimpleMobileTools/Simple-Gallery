@@ -10,15 +10,13 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.ensureWriteAccess
-import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
+import com.simplemobiletools.gallery.pro.extensions.rescanPathsAndUpdateLastModified
 import com.simplemobiletools.gallery.pro.extensions.resizeImage
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_edit_text
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_info
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_input_layout
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_progress
-import java.io.File
 import kotlin.math.roundToInt
 
 private const val DEFAULT_RESIZE_FACTOR = "75"
@@ -113,17 +111,7 @@ class ResizeMultipleImagesDialog(
                         toast(R.string.images_resized_successfully)
                     }
 
-                    rescanPaths(pathsToRescan) {
-                        fixDateTaken(pathsToRescan, false)
-                        for (path in pathsToRescan) {
-                            val file = File(path)
-                            val lastModified = file.lastModified()
-                            if (config.keepLastModified && lastModified != 0L) {
-                                File(file.absolutePath).setLastModified(lastModified)
-                                updateLastModified(file.absolutePath, lastModified)
-                            }
-                        }
-                    }
+                    rescanPathsAndUpdateLastModified(pathsToRescan)
                     activity.runOnUiThread {
                         dialog?.dismiss()
                         callback.invoke()
