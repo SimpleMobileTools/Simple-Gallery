@@ -772,7 +772,6 @@ fun BaseSimpleActivity.ensureWriteAccess(path: String, callback: () -> Unit) {
     }
 }
 
-@TargetApi(Build.VERSION_CODES.N)
 fun BaseSimpleActivity.launchResizeMultipleImagesDialog(paths: List<String>, callback: (() -> Unit)? = null) {
     ensureBackgroundThread {
         val imagePaths = mutableListOf<String>()
@@ -793,7 +792,6 @@ fun BaseSimpleActivity.launchResizeMultipleImagesDialog(paths: List<String>, cal
     }
 }
 
-@TargetApi(Build.VERSION_CODES.N)
 fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Unit)? = null) {
     val originalSize = path.getImageResolution(this) ?: return
     ResizeWithPathDialog(this, originalSize, path) { newSize, newPath ->

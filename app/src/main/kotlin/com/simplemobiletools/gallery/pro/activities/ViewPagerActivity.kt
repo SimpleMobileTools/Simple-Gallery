@@ -1045,35 +1045,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.N)
     private fun resizeImage() {
         val oldPath = getCurrentPath()
         launchResizeImageDialog(oldPath)
-    }
-
-    @TargetApi(Build.VERSION_CODES.N)
-    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, oldExif: ExifInterface?, lastModified: Long) {
-        try {
-            bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
-
-            if (isNougatPlus()) {
-                val newExif = ExifInterface(file.absolutePath)
-                oldExif?.copyNonDimensionAttributesTo(newExif)
-            }
-        } catch (e: Exception) {
-        }
-
-        toast(R.string.file_saved)
-        val paths = arrayListOf(file.absolutePath)
-        rescanPaths(paths) {
-            fixDateTaken(paths, false)
-
-            if (config.keepLastModified && lastModified != 0L) {
-                File(file.absolutePath).setLastModified(lastModified)
-                updateLastModified(file.absolutePath, lastModified)
-            }
-        }
-        out.close()
     }
 
     private fun checkDeleteConfirmation() {
