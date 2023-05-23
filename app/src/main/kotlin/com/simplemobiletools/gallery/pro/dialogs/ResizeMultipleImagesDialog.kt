@@ -101,7 +101,7 @@ class ResizeMultipleImagesDialog(
 
                     val failureCount = imagePaths.size - pathsToRescan.size
                     if (failureCount > 0) {
-                        toast(getString(R.string.failed_to_resize_images, failureCount))
+                        toast(resources.getQuantityString(R.plurals.failed_to_resize_images, failureCount, failureCount))
                     } else {
                         toast(R.string.images_resized_successfully)
                     }
