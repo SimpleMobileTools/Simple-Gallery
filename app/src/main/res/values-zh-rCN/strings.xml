@@ -69,15 +69,15 @@
     <string name="height">高度</string>
     <string name="keep_aspect_ratio">保持高宽比</string>
     <string name="invalid_values">请输入有效的分辨率</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">调整多张图片尺寸</string>
+    <string name="resize_factor">调整比率</string>
+    <string name="resize_factor_info">将图片尺寸调整到给定比例，值须在 10 到 90 以内。</string>
+    <string name="resize_factor_error">输入 10 到 90之间的数字</string>
     <plurals name="failed_to_resize_images">
         <item quantity="one">Failed to resize %d image</item>
         <item quantity="other">Failed to resize %d images</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">成功调整了图片尺寸</string>
     <!-- Editor -->
     <string name="editor">编辑器</string>
     <string name="basic_editor">基础编辑器</string>
