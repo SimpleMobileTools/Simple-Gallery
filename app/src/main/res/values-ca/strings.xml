@@ -69,15 +69,15 @@
     <string name="height">Alçada</string>
     <string name="keep_aspect_ratio">Mantén la relació d\'aspecte</string>
     <string name="invalid_values">Introduïu una resolució vàlida</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Canvia la mida de diverses imatges</string>
+    <string name="resize_factor">Factor de canvi de mida</string>
+    <string name="resize_factor_info">Canvia la mida de les imatges al percentatge indicat, el valor ha d\'estar entre 10 i 90.</string>
+    <string name="resize_factor_error">Introduïu un número entre 10 i 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Ha fallat en canviar de mida %d imatge</item>
+        <item quantity="other">Ha fallat en canviar de mida %d imatges</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Les imatges s\'han canviat de mida correctament</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="basic_editor">Editor bàsic</string>
