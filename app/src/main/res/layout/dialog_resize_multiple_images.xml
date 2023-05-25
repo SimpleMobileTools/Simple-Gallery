@@ -22,7 +22,7 @@
         android:layout_marginTop="@dimen/normal_margin"
         android:hint="@string/resize_factor"
         app:errorEnabled="true"
-        app:helperText="Resize images to the given percentage, value must be within 10 and 90"
+        app:helperText="@string/resize_factor_info"
         app:helperTextEnabled="true"
         app:layout_constraintTop_toBottomOf="@id/resize_progress"
         app:suffixText="%">
