@@ -69,19 +69,19 @@
     <string name="height">الارتفاع</string>
     <string name="keep_aspect_ratio">الحفاظ على نسبة الأبعاد</string>
     <string name="invalid_values">يرجى إدخال دقة صالحة</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">تغيير حجم صور متعددة</string>
+    <string name="resize_factor">عامل تغيير الحجم</string>
+    <string name="resize_factor_info">تغيير حجم الصور إلى النسبة المئوية المحددة ، يجب أن تكون القيمة في حدود 10 و 90.</string>
+    <string name="resize_factor_error">أدخل رقما بين 10 و90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="zero">Failed to resize %d image</item>
-        <item quantity="one">Failed to resize %d images</item>
-        <item quantity="two">Failed to resize %d images</item>
-        <item quantity="few">Failed to resize %d images</item>
-        <item quantity="many">Failed to resize %d images</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="zero">فشل في تغيير حجم صور %d</item>
+        <item quantity="one">فشل في تغيير حجم صور %d</item>
+        <item quantity="two">فشل في تغيير حجم صور %d</item>
+        <item quantity="few">فشل في تغيير حجم الصور %d</item>
+        <item quantity="many">فشل في تغيير حجم الصور %d</item>
+        <item quantity="other">فشل في تغيير حجم الصور %d</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">تم تغيير حجم الصور بنجاح</string>
     <!-- Editor -->
     <string name="editor">تعديل</string>
     <string name="basic_editor">المحرر الأساسي</string>
