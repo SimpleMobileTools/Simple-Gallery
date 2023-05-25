@@ -289,10 +289,12 @@ class MediaAdapter(
             val path = paths.first()
             activity.launchResizeImageDialog(path) {
                 finishActMode()
+                listener?.refreshItems()
             }
         } else {
             activity.launchResizeMultipleImagesDialog(paths) {
                 finishActMode()
+                listener?.refreshItems()
             }
         }
     }
