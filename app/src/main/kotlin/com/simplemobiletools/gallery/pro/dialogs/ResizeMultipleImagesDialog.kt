@@ -12,6 +12,7 @@ import com.simplemobiletools.gallery.pro.extensions.resizeImage
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_edit_text
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_factor_input_layout
 import kotlinx.android.synthetic.main.dialog_resize_multiple_images.view.resize_progress
+import java.io.File
 import kotlin.math.roundToInt
 
 private const val DEFAULT_RESIZE_FACTOR = "75"
@@ -76,17 +77,20 @@ class ResizeMultipleImagesDialog(
 
             val parentPath = imagePaths.first().getParentPath()
             val pathsToRescan = arrayListOf<String>()
+            val pathLastModifiedMap = mutableMapOf<String, Long>()
 
             ensureWriteAccess(parentPath) {
                 ensureBackgroundThread {
                     for (i in imagePaths.indices) {
                         val path = imagePaths[i]
                         val size = newSizes[i]
+                        val lastModified = File(path).lastModified()
 
                         try {
                             resizeImage(path, size) {
                                 if (it) {
                                     pathsToRescan.add(path)
+                                    pathLastModifiedMap[path] = lastModified
                                     runOnUiThread {
                                         progressView.progress = i + 1
                                     }
@@ -106,10 +110,11 @@ class ResizeMultipleImagesDialog(
                         toast(R.string.images_resized_successfully)
                     }
 
-                    rescanPathsAndUpdateLastModified(pathsToRescan)
-                    activity.runOnUiThread {
-                        dialog?.dismiss()
-                        callback.invoke()
+                    rescanPathsAndUpdateLastModified(pathsToRescan, pathLastModifiedMap) {
+                        activity.runOnUiThread {
+                            dialog?.dismiss()
+                            callback.invoke()
+                        }
                     }
                 }
             }

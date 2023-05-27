@@ -796,16 +796,18 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
     val originalSize = path.getImageResolution(this) ?: return
     ResizeWithPathDialog(this, originalSize, path) { newSize, newPath ->
         ensureBackgroundThread {
+            val file = File(newPath)
+            val pathLastModifiedMap = mapOf(file.absolutePath to file.lastModified())
             try {
                 resizeImage(newPath, newSize) { success ->
                     if (success) {
                         toast(R.string.file_saved)
 
-                        val file = File(path)
                         val paths = arrayListOf(file.absolutePath)
-                        rescanPathsAndUpdateLastModified(paths)
-                        runOnUiThread {
-                            callback?.invoke()
+                        rescanPathsAndUpdateLastModified(paths, pathLastModifiedMap) {
+                            runOnUiThread {
+                                callback?.invoke()
+                            }
                         }
                     } else {
                         toast(R.string.image_editing_failed)
@@ -852,18 +854,17 @@ fun BaseSimpleActivity.resizeImage(path: String, size: Point, callback: (success
     }
 }
 
-fun BaseSimpleActivity.rescanPathsAndUpdateLastModified(paths: ArrayList<String>) {
-    rescanPaths(paths) {
-        fixDateTaken(paths, false)
-        for (path in paths) {
-            val file = File(path)
-            val lastModified = file.lastModified()
-            if (config.keepLastModified && lastModified != 0L) {
-                File(file.absolutePath).setLastModified(lastModified)
-                updateLastModified(file.absolutePath, lastModified)
-            }
+fun BaseSimpleActivity.rescanPathsAndUpdateLastModified(paths: ArrayList<String>, pathLastModifiedMap: Map<String, Long>, callback: () -> Unit) {
+    fixDateTaken(paths, false)
+    for (path in paths) {
+        val file = File(path)
+        val lastModified = pathLastModifiedMap[path]
+        if (config.keepLastModified && lastModified != null && lastModified != 0L) {
+            File(file.absolutePath).setLastModified(lastModified)
+            updateLastModified(file.absolutePath, lastModified)
         }
     }
+    rescanPaths(paths, callback)
 }
 
 fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream, degrees: Int) {
