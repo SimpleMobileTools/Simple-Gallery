@@ -207,8 +207,11 @@ class PhotoFragment : ViewPagerFragment() {
         loadImage()
         initExtendedDetails()
         mWasInit = true
-        checkIfPanorama()
         updateInstantSwitchWidths()
+
+        ensureBackgroundThread {
+            checkIfPanorama()
+        }
 
         return mView
     }
