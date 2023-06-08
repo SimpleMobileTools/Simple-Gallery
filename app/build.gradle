@@ -78,10 +78,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:11f9bfd8b4'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:4d2a8db66f'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
