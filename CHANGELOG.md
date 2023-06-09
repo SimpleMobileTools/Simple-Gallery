@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.26.9 *(2023-06-09)*
+----------------------------
+
+ * Allow resizing multiple images at once
+ * Try harder at keeping last modified values at some file operations
+ * Allow changing the apps language on Android 13+
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.8 *(2023-04-26)*
 ----------------------------
 
