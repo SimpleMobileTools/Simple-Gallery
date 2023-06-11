@@ -759,9 +759,11 @@ class PhotoFragment : ViewPagerFragment() {
             false
         }
 
-        mView.panorama_outline.beVisibleIf(mIsPanorama)
-        if (mIsFullscreen) {
-            mView.panorama_outline.alpha = 0f
+        activity?.runOnUiThread {
+            mView.panorama_outline?.beVisibleIf(mIsPanorama)
+            if (mIsFullscreen) {
+                mView.panorama_outline?.alpha = 0f
+            }
         }
     }
 
