@@ -960,6 +960,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         if (dirs.map { it.path }.contains(FAVORITES)) {
+
             if (mediaDB.getFavoritesCount() > 0) {
                 val favorites = Directory().apply {
                     path = FAVORITES

@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.Config.Companion.SORT_BY_FAVORITE
 import java.io.File
 import java.io.Serializable
 import java.util.*
@@ -61,6 +62,7 @@ data class Medium(
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context, dateFormat, timeFormat)
         sorting and SORT_BY_RANDOM != 0 -> name
+        sorting and SORT_BY_FAVORITE != 0 -> if (isFavorite) "favorite" else "not favorite"
         else -> taken.formatDate(context)
     }
 

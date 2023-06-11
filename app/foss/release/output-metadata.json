@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.simplemobiletools.gallery.pro",
+  "variantName": "fossRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 388,
+      "versionName": "6.26.7",
+      "outputFile": "gallery-388-foss-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

@@ -13,6 +13,7 @@ import java.util.*
 class Config(context: Context) : BaseConfig(context) {
     companion object {
         fun newInstance(context: Context) = Config(context)
+        const val SORT_BY_FAVORITE = 524288
     }
 
     var directorySorting: Int

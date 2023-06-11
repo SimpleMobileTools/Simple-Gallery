@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.extensions
 
 import android.annotation.TargetApi
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.ContentProviderOperation
 import android.content.ContentValues
 import android.content.Intent
@@ -13,6 +14,7 @@ import android.graphics.drawable.LayerDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import android.os.TransactionTooLargeException
 import android.provider.MediaStore
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
@@ -47,8 +49,39 @@ import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+fun Activity.sharePathIntentAsCR2(path: String, applicationId: String) {
+    ensureBackgroundThread {
+        val newUri = getFinalUriFromPath(path, applicationId) ?: return@ensureBackgroundThread
+        Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_STREAM, newUri)
+            type = "image/x-canon-cr2"
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            grantUriPermission("android", newUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+            try {
+                startActivity(Intent.createChooser(this, getString(R.string.share_via)))
+            } catch (e: ActivityNotFoundException) {
+                toast(R.string.no_app_found)
+            } catch (e: RuntimeException) {
+                if (e.cause is TransactionTooLargeException) {
+                    toast(R.string.maximum_share_reached)
+                } else {
+                    showErrorToast(e)
+                }
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }
+    }
+}
+
 fun Activity.sharePath(path: String) {
-    sharePathIntent(path, BuildConfig.APPLICATION_ID)
+    if (path.lowercase().endsWith(".cr3")) {
+        sharePathIntentAsCR2(path, BuildConfig.APPLICATION_ID)
+    } else {
+        sharePathIntent(path, BuildConfig.APPLICATION_ID)
+    }
 }
 
 fun Activity.sharePaths(paths: ArrayList<String>) {

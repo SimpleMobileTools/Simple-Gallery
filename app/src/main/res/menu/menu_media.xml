@@ -3,6 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AppCompatResource">
+
+    <item
+        android:id="@+id/check"
+        android:icon="@drawable/baseline_check_box_24"
+        android:title="@string/check"
+        app:showAsAction="always">
+
+        <menu>
+            <item android:id="@+id/select_all" android:title="@string/select_all" android:icon="@drawable/baseline_add_circle_24" />
+            <item android:id="@+id/select_favorites"  android:title="@string/select_favorites" android:icon="@drawable/baseline_star_black_24" />
+            <item android:id="@+id/select_not_favorites" android:title="@string/select_not_favorites" android:icon="@drawable/baseline_star_border_black_24" />
+        </menu>
+
+    </item>
+
     <item
         android:id="@+id/toggle_filename"
         android:icon="@drawable/ic_label_vector"

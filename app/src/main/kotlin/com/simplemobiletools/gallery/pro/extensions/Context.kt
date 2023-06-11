@@ -8,17 +8,22 @@ import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
+import android.net.Uri
 import android.os.Process
 import android.provider.MediaStore.Files
 import android.provider.MediaStore.Images
+import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.load.resource.bitmap.Rotate
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
@@ -32,6 +37,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.Config.Companion.SORT_BY_FAVORITE
 import com.simplemobiletools.gallery.pro.interfaces.*
 import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
@@ -42,6 +48,7 @@ import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.collections.set
+import com.homesoft.photo.libraw.LibRaw
 
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -58,7 +65,7 @@ val Context.mediaDB: MediumDao get() = GalleryDatabase.getInstance(applicationCo
 
 val Context.directoryDB: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
 
-val Context.favoritesDB: FavoritesDao get() = GalleryDatabase.getInstance(applicationContext).FavoritesDao()
+val Context.favoritesDB: FavoritesProxy get() = FavoritesProxy(GalleryDatabase.getInstance(applicationContext).FavoritesDao())
 
 val Context.dateTakensDB: DateTakensDao get() = GalleryDatabase.getInstance(applicationContext).DateTakensDao()
 
@@ -535,23 +542,31 @@ fun Context.loadJpg(
     signature: ObjectKey,
     skipMemoryCacheAtPaths: ArrayList<String>? = null
 ) {
-    val options = RequestOptions()
+    val orientation = getImageOrientationInDegrees(path)
+    var options = RequestOptions()
         .signature(signature)
-        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+//        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .priority(Priority.LOW)
         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    if (cropThumbnails) options = options.centerCrop() else options = options.fitCenter()
+
     var builder = Glide.with(applicationContext)
         .load(path)
         .apply(options)
         .transition(DrawableTransitionOptions.withCrossFade())
 
+    val transformations = mutableListOf<Transformation<Bitmap>>(Rotate(orientation))
+    if (cropThumbnails) {
+        transformations.add(CenterCrop())
+    }
     if (roundCorners != ROUNDED_CORNERS_NONE) {
         val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
         val cornerRadius = resources.getDimension(cornerSize).toInt()
-        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
+        transformations.add(RoundedCorners(cornerRadius))
     }
+    builder = builder.transform(*transformations.toTypedArray())
 
     builder.into(target)
 }
@@ -791,7 +806,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
                         mediaDB.deleteMedia(*mediaToDelete.toTypedArray())
 
                         mediaToDelete.filter { it.isFavorite }.forEach {
-                            favoritesDB.deleteFavoritePath(it.path)
+                            //favoritesDB.deleteFavoritePath(it.path)
                         }
                     } catch (ignored: Exception) {
                     }
@@ -851,12 +866,12 @@ fun Context.getFavoritePaths(): ArrayList<String> {
     }
 }
 
-fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
+
 
 fun Context.updateFavorite(path: String, isFavorite: Boolean) {
     try {
         if (isFavorite) {
-            favoritesDB.insert(getFavoriteFromPath(path))
+            favoritesDB.insert(FavoritesProxy.getFavoriteFromPath(path))
         } else {
             favoritesDB.deleteFavoritePath(path)
         }
@@ -1032,6 +1047,7 @@ fun Context.getDirectorySortingValue(media: ArrayList<Medium>, path: String, nam
         sorting and SORT_BY_SIZE != 0 -> return size.toString()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> media.sortedBy { it.modified }
         sorting and SORT_BY_DATE_TAKEN != 0 -> media.sortedBy { it.taken }
+        sorting and SORT_BY_FAVORITE != 0 -> media.sortedBy { it.isFavorite }
         else -> media
     }
 
@@ -1105,3 +1121,41 @@ fun Context.getFileDateTaken(path: String): Long {
 
     return 0L
 }
+
+fun Context.getExifImageOrientation(path: String): Int {
+    val uri = if (path.startsWith("content://")) {
+        Uri.parse(path)
+    } else {
+        Uri.fromFile(File(path))
+    }
+
+    try {
+        val pfd = contentResolver.openFileDescriptor(
+            uri, "r", null
+        ) ?: return 0
+
+        val libRaw = LibRaw.newInstance()
+
+        libRaw.use {
+            val fd = pfd.detachFd()
+            val result = libRaw.openFd(fd)
+            val orientation = libRaw.orientation
+            pfd.close()
+            if (result != 0) {
+                return 0
+            }
+            return orientation
+        }
+
+    } catch (e: Exception) {
+        Log.e("ERROR", e.toString())
+        return 0
+    }
+
+}
+
+fun Context.getImageOrientationInDegrees(path: String): Int {
+    val orientation = getExifImageOrientation(path)
+    return LibRaw.toDegrees(orientation)
+}
+

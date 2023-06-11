@@ -428,7 +428,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val filename = mPath.getFilenameFromPath()
                     val parent = mPath.getParentPath()
                     val type = getTypeFromPath(mPath)
-                    val isFavorite = favoritesDB.isFavorite(mPath)
+                    val isFavorite = false
                     val duration = if (type == TYPE_VIDEOS) getDuration(mPath) ?: 0 else 0
                     val ts = System.currentTimeMillis()
                     val medium = Medium(null, filename, mPath, parent, ts, ts, File(mPath).length(), type, duration, isFavorite, 0, 0L)
@@ -1064,13 +1064,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                     val newFile = File(newPath)
                     val newFileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
-                    getFileOutputStream(newFileDirItem, true) {
-                        if (it != null) {
-                            saveBitmap(newFile, newBitmap, it, oldExif, File(oldPath).lastModified())
-                        } else {
-                            toast(R.string.image_editing_failed)
-                        }
-                    }
+                    //getFileOutputStream(newFileDirItem, true) {
+                    //    if (it != null) {
+                    //        saveBitmap(newFile, newBitmap, it, oldExif, File(oldPath).lastModified())
+                    //    } else {
+                    //        toast(R.string.image_editing_failed)
+                    //    }
+                    //}
                 } catch (e: OutOfMemoryError) {
                     toast(R.string.out_of_memory_error)
                 } catch (e: Exception) {

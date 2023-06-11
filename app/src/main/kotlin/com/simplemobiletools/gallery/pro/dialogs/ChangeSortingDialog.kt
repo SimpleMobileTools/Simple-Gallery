@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.helpers.Config.Companion.SORT_BY_FAVORITE
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
@@ -58,6 +59,7 @@ class ChangeSortingDialog(
         }
 
         val sortBtn = when {
+            currSorting and SORT_BY_FAVORITE != 0 -> sortingRadio.sorting_dialog_radio_favorite
             currSorting and SORT_BY_PATH != 0 -> sortingRadio.sorting_dialog_radio_path
             currSorting and SORT_BY_SIZE != 0 -> sortingRadio.sorting_dialog_radio_size
             currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortingRadio.sorting_dialog_radio_last_modified
@@ -82,6 +84,7 @@ class ChangeSortingDialog(
     override fun onClick(dialog: DialogInterface, which: Int) {
         val sortingRadio = view.sorting_dialog_radio_sorting
         var sorting = when (sortingRadio.checkedRadioButtonId) {
+            R.id.sorting_dialog_radio_favorite -> SORT_BY_FAVORITE
             R.id.sorting_dialog_radio_name -> SORT_BY_NAME
             R.id.sorting_dialog_radio_path -> SORT_BY_PATH
             R.id.sorting_dialog_radio_size -> SORT_BY_SIZE

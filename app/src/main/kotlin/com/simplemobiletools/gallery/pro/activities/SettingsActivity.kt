@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.FavoritesProxy.Companion.getFavoriteFromPath
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.io.File

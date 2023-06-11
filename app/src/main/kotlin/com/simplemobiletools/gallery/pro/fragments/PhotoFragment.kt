@@ -14,11 +14,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.exifinterface.media.ExifInterface
 import androidx.exifinterface.media.ExifInterface.*
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
@@ -38,7 +40,6 @@ import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.github.penfeizhou.animation.apng.APNGDrawable
 import com.github.penfeizhou.animation.webp.WebPDrawable
-import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isRPlus
@@ -49,14 +50,13 @@ import com.simplemobiletools.gallery.pro.activities.PhotoVideoActivity
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.adapters.PortraitPhotosAdapter
 import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.saveRotatedImageToFile
+import com.simplemobiletools.gallery.pro.extensions.getImageOrientationInDegrees
 import com.simplemobiletools.gallery.pro.extensions.sendFakeClick
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import org.apache.sanselan.common.byteSources.ByteSourceInputStream
 import org.apache.sanselan.formats.jpeg.JpegImageParser
@@ -179,20 +179,16 @@ class PhotoFragment : ViewPagerFragment() {
             if (mMedium.path.isEmpty()) {
                 var out: FileOutputStream? = null
                 try {
-                    var inputStream = requireContext().contentResolver.openInputStream(Uri.parse(mOriginalPath))
-                    val exif = ExifInterface()
-                    exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                    val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
-                    val orientation = tag?.getValueAsInt(-1) ?: -1
-                    inputStream = requireContext().contentResolver.openInputStream(Uri.parse(mOriginalPath))
+                    val degrees = requireContext().getImageOrientationInDegrees(mMedium.path)
+                    val inputStream = requireContext().contentResolver.openInputStream(Uri.parse(mOriginalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
-                    val rotated = rotateViaMatrix(original, orientation)
-                    exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
-                    exif.removeCompressedThumbnail()
+                    val rotated = rotateViaMatrix(original, degrees)
 
                     val file = File(requireContext().externalCacheDir, Uri.parse(mOriginalPath).lastPathSegment)
                     out = FileOutputStream(file)
-                    rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                    ensureBackgroundThread {
+                       rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                    }
                     mMedium.path = file.absolutePath
                 } catch (e: Exception) {
                     requireActivity().toast(R.string.unknown_error_occurred)
@@ -269,7 +265,7 @@ class PhotoFragment : ViewPagerFragment() {
         if (mCurrentRotationDegrees != 0) {
             ensureBackgroundThread {
                 val path = mMedium.path
-                (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
+//                (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
             }
         }
     }
@@ -369,7 +365,8 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         ensureBackgroundThread {
-            mImageOrientation = getImageOrientation()
+            mImageOrientation = requireContext().getImageOrientationInDegrees(getFilePathToShow())
+            mCurrentRotationDegrees = mImageOrientation
             activity?.runOnUiThread {
                 when {
                     mMedium.isGIF() -> loadGif()
@@ -448,11 +445,8 @@ class PhotoFragment : ViewPagerFragment() {
             .priority(priority)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             .fitCenter()
-
-        if (mCurrentRotationDegrees != 0) {
-            options.transform(Rotate(mCurrentRotationDegrees))
-            options.diskCacheStrategy(DiskCacheStrategy.NONE)
-        }
+            .transform(Rotate(mCurrentRotationDegrees))
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
 
         Glide.with(requireContext())
             .load(path)
@@ -760,36 +754,6 @@ class PhotoFragment : ViewPagerFragment() {
         if (mIsFullscreen) {
             mView.panorama_outline.alpha = 0f
         }
-    }
-
-    private fun getImageOrientation(): Int {
-        val defaultOrientation = -1
-        var orient = defaultOrientation
-
-        try {
-            val path = getFilePathToShow()
-            orient = if (path.startsWith("content:/")) {
-                val inputStream = requireContext().contentResolver.openInputStream(Uri.parse(path))
-                val exif = ExifInterface()
-                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
-                tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
-            } else {
-                val exif = androidx.exifinterface.media.ExifInterface(path)
-                exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
-            }
-
-            if (orient == defaultOrientation || requireContext().isPathOnOTG(getFilePathToShow())) {
-                val uri = if (path.startsWith("content:/")) Uri.parse(path) else Uri.fromFile(File(path))
-                val inputStream = requireContext().contentResolver.openInputStream(uri)
-                val exif2 = ExifInterface()
-                exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
-            }
-        } catch (ignored: Exception) {
-        } catch (ignored: OutOfMemoryError) {
-        }
-        return orient
     }
 
     private fun getDoubleTapZoomScale(width: Int, height: Int): Float {

@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 33
         versionCode 388
         versionName "6.26.7"
@@ -23,6 +23,12 @@ android {
     }
 
     signingConfigs {
+        release {
+            storeFile file('/Users/nightrain/StudioProjects/Gallery-pro/release_keystore')
+            storePassword 'GalleryRaw'
+            keyAlias 'GalleryRaw'
+            keyPassword 'GalleryRaw'
+        }
         if (keystorePropertiesFile.exists()) {
             release {
                 keyAlias keystoreProperties['keyAlias']
@@ -80,7 +86,7 @@ android {
 dependencies {
     implementation 'com.github.SimpleMobileTools:Simple-Commons:925e7f9bd7'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
-    implementation 'it.sephiroth.android.exif:library:1.0.1'
+    implementation 'androidx.exifinterface:exifinterface:1.3.6'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
@@ -99,7 +105,7 @@ dependencies {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
     compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
-
+    implementation project(path: ':libraw')
     kapt 'com.github.bumptech.glide:compiler:4.13.2'
 
     kapt 'androidx.room:room-compiler:2.4.3'

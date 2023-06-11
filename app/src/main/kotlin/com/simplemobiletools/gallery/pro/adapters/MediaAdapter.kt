@@ -6,9 +6,8 @@ import android.content.pm.ShortcutManager
 import android.graphics.drawable.Icon
 import android.os.Handler
 import android.os.Looper
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
@@ -22,6 +21,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.activities.MediaActivity
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -70,6 +70,7 @@ class MediaAdapter(
     var sorting = config.getFolderSorting(if (config.showAll) SHOW_ALL else path)
     var dateFormat = config.dateFormat
     var timeFormat = activity.getTimeFormat()
+    private var menu: Menu? = null
 
     init {
         setupDragListener(true)
@@ -132,7 +133,7 @@ class MediaAdapter(
         if (selectedItems.isEmpty()) {
             return
         }
-
+        this.menu = menu
         val isOneItemSelected = isOneItemSelected()
         val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
         val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
@@ -180,6 +181,52 @@ class MediaAdapter(
             R.id.cab_fix_date_taken -> fixDateTaken()
             R.id.cab_set_as -> setAs()
             R.id.cab_delete -> checkDeleteConfirmation()
+            R.id.check -> checkItems()
+        }
+    }
+
+    fun selectAllItems() {
+        if (getSelectedItems().size == 0) {
+            if (!actModeCallback.isSelectable) {
+                activity.startActionMode(actModeCallback)
+                selectAll()
+            }
+        } else {
+            val cnt = itemCount - positionOffset
+            for (i in 0 until cnt) {
+                toggleItemSelection(false, i, false)
+            }
+        }
+    }
+    fun selectFavorites(selection: Boolean) {
+        if (!actModeCallback.isSelectable) {
+            activity.startActionMode(object: ActionMode.Callback  {
+                override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
+                    return actModeCallback.onCreateActionMode(actionMode, menu)
+                }
+
+                override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
+                    val cnt = itemCount - positionOffset
+                    for (i in 0 until cnt) {
+                        if (media[i] is Medium) {
+                            if ((media[i] as Medium).isFavorite) {
+                                toggleItemSelection(selection, i, true)
+                            } else {
+                                toggleItemSelection(!selection, i, true)
+                            }
+                        }
+                    }
+                    return actModeCallback.onPrepareActionMode(actionMode, menu)
+                }
+
+                override fun onActionItemClicked(actionMode: ActionMode?, menuItem: MenuItem?): Boolean {
+                    return actModeCallback.onActionItemClicked(actionMode, menuItem)
+                }
+
+                override fun onDestroyActionMode(actionMode: ActionMode?) {
+                    return actModeCallback.onDestroyActionMode(actionMode)
+                }
+            })
         }
     }
 
@@ -332,8 +379,8 @@ class MediaAdapter(
         activity.toast(R.string.saving)
         ensureBackgroundThread {
             paths.forEach {
-                rotatedImagePaths.add(it)
-                activity.saveRotatedImageToFile(it, it, degrees, true) {
+                rotatedImagePaths.add("rotated_" + it)
+                activity.saveRotatedImageToFile(it, "rotated_" + it, degrees, true) {
                     fileCnt--
                     if (fileCnt == 0) {
                         activity.runOnUiThread {
@@ -525,7 +572,7 @@ class MediaAdapter(
         }
     }
 
-    private fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Medium>
+    fun getSelectedItems() = selectedKeys.mapNotNull { getItemWithKey(it) } as ArrayList<Medium>
 
     private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
 
@@ -677,5 +724,9 @@ class MediaAdapter(
         }
 
         return (media[realIndex] as? Medium)?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: ""
+    }
+
+    fun checkItems() {
+        Log.d("", "")
     }
 }

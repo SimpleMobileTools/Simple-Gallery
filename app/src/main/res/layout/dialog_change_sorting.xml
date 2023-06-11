@@ -20,6 +20,12 @@
             android:layout_marginBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/sorting_dialog_radio_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/favorites" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

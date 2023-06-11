@@ -4,6 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="AppCompatResource,AlwaysShowAction">
     <item
+        android:id="@+id/cab_add_to_favorites"
+        android:icon="@drawable/ic_star_vector"
+        android:title="@string/add_to_favorites"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/cab_remove_from_favorites"
+        android:icon="@drawable/ic_star_outline_vector"
+        android:title="@string/remove_from_favorites"
+        app:showAsAction="always" />
+
+
+    <item
         android:id="@+id/cab_confirm_selection"
         android:icon="@drawable/ic_check_vector"
         android:showAsAction="always"
@@ -87,16 +99,6 @@
         android:id="@+id/cab_edit"
         android:icon="@drawable/ic_edit_vector"
         android:title="@string/edit"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/cab_add_to_favorites"
-        android:icon="@drawable/ic_star_outline_vector"
-        android:title="@string/add_to_favorites"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/cab_remove_from_favorites"
-        android:icon="@drawable/ic_star_vector"
-        android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_restore_recycle_bin_files"

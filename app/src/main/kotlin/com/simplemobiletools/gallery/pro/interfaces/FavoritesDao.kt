@@ -17,8 +17,8 @@ interface FavoritesDao {
     @Query("SELECT favorites.full_path FROM favorites INNER JOIN media ON favorites.full_path = media.full_path WHERE media.deleted_ts = 0")
     fun getValidFavoritePaths(): List<String>
 
-    @Query("SELECT id FROM favorites WHERE full_path = :path COLLATE NOCASE")
-    fun isFavorite(path: String): Boolean
+    @Query("SELECT id FROM favorites WHERE filename = :filename AND last_modified = :lastModified COLLATE NOCASE")
+    fun isFavorite(filename: String, lastModified: Long): Boolean
 
     @Query("UPDATE OR REPLACE favorites SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateFavorite(newFilename: String, newFullPath: String, newParentPath: String, oldPath: String)

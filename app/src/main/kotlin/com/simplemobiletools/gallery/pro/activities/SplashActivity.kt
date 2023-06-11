@@ -5,8 +5,8 @@ import com.simplemobiletools.commons.activities.BaseSplashActivity
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.favoritesDB
-import com.simplemobiletools.gallery.pro.extensions.getFavoriteFromPath
 import com.simplemobiletools.gallery.pro.extensions.mediaDB
+import com.simplemobiletools.gallery.pro.helpers.FavoritesProxy
 import com.simplemobiletools.gallery.pro.models.Favorite
 
 class SplashActivity : BaseSplashActivity() {
@@ -24,7 +24,7 @@ class SplashActivity : BaseSplashActivity() {
                     val favorites = ArrayList<Favorite>()
                     val favoritePaths = mediaDB.getFavorites().map { it.path }.toMutableList() as ArrayList<String>
                     favoritePaths.forEach {
-                        favorites.add(getFavoriteFromPath(it))
+                        favorites.add(FavoritesProxy.getFavoriteFromPath(it))
                     }
                     favoritesDB.insertAll(favorites)
 

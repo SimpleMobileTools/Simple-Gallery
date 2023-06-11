@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.helpers.Config.Companion.SORT_BY_FAVORITE
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
@@ -415,7 +416,7 @@ class MediaFetcher(val context: Context) {
                     else -> TYPE_IMAGES
                 }
 
-                val isFavorite = favoritePaths.contains(path)
+                val isFavorite = favoritePaths.contains(path) && file.exists()
                 val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L, 0L)
                 media.add(medium)
             }
@@ -786,6 +787,7 @@ class MediaFetcher(val context: Context) {
                 }
                 sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
                 sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
+                sorting and SORT_BY_FAVORITE != 0 -> o1.isFavorite.compareTo(o2.isFavorite)
                 else -> o1.taken.compareTo(o2.taken)
             }
 

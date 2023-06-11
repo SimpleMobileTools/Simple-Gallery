@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.view.ActionMode
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
@@ -235,6 +236,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
+    override fun onActionModeFinished(mode: ActionMode?) {
+        refreshMenuItems()
+        super.onActionModeFinished(mode)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
@@ -248,6 +254,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun refreshMenuItems() {
         val isDefaultFolder = !config.defaultFolder.isEmpty() && File(config.defaultFolder).compareTo(File(mPath)) == 0
 
+        val hasFavorites = mMedia.filterIsInstance<Medium>().any{ it.isFavorite }
+        val hasNotFavorites = mMedia.filterIsInstance<Medium>().any{ !it.isFavorite }
         media_menu.getToolbar().menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
@@ -270,6 +278,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
             findItem(R.id.column_count).isVisible = viewType == VIEW_TYPE_GRID
             findItem(R.id.toggle_filename).isVisible = viewType == VIEW_TYPE_GRID
+
+            findItem(R.id.select_favorites).isVisible = hasFavorites
+            findItem(R.id.select_not_favorites).isVisible = hasNotFavorites
         }
     }
 
@@ -306,6 +317,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 R.id.slideshow -> startSlideshow()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
+                R.id.select_all -> selectAll()
+                R.id.select_favorites -> selectFavorites()
+                R.id.select_not_favorites -> selectNotFavorites()
                 else -> return@setOnMenuItemClickListener false
             }
             return@setOnMenuItemClickListener true
@@ -368,6 +382,18 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             } catch (ignored: Exception) {
             }
         }
+    }
+
+    private fun selectFavorites() {
+        getMediaAdapter()?.selectFavorites(true)
+    }
+
+    private fun selectNotFavorites() {
+        getMediaAdapter()?.selectFavorites(false)
+    }
+
+    private fun selectAll() {
+        getMediaAdapter()?.selectAllItems()
     }
 
     private fun tryLoadGallery() {
@@ -438,7 +464,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         } else {
             searchQueryChanged(mLastSearchedText)
         }
-
         setupScrollDirection()
     }
 
@@ -593,7 +618,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     val newPaths = newMedia.mapNotNull { it as? Medium }.map { it.path }
                     oldMedia.mapNotNull { it as? Medium }.filter { !newPaths.contains(it.path) }.forEach {
                         if (mPath == FAVORITES && getDoesFilePathExist(it.path)) {
-                            favoritesDB.deleteFavoritePath(it.path)
+                            //favoritesDB.deleteFavoritePath(it.path)
                             mediaDB.updateFavorite(it.path, false)
                         } else {
                             mediaDB.deleteMediumPath(it.path)
@@ -871,6 +896,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
             media_fastscroller.beVisibleIf(media_empty_text_placeholder.isGone())
             setupAdapter()
+            refreshMenuItems()
         }
 
         mLatestMediaId = getLatestMediaId()

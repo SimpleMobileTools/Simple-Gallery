@@ -1,0 +1,118 @@
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/nightrain/StudioProjects/Gallery-pro/release_keystore')
+            storePassword 'GalleryRaw'
+            keyAlias 'GalleryRaw'
+            keyPassword 'GalleryRaw'
+        }
+    }
+    compileSdk 33
+//ndkVersion "22.1.7171670"
+    //Required for __fp16 support
+    //ndkVersion "23.0.7599858"
+    ndkVersion "23.1.7779620"
+    defaultConfig {
+        //Has to be 24 for 64-bit functions
+        minSdk 24
+        targetSdk 31
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        externalNativeBuild {
+            cmake {
+                arguments "-DLIBRAW_PATH=${projectDir}/src/main/cpp/LibRaw/",
+                        //Hack to allow building LibRaw26
+                        "-DANDROID_PLATFORM=26",
+                        // You can manually include openMP by renameing jniLibsBak to jniLibs and commenting the entry below.
+                        // I noticed not performance increase, so I disabled it to reduce APK size
+                        // Also, the openMP build is broken, so it seems like it's fate.
+                        "-DENABLE_OPENMP=OFF",
+                        //Disable Jasper (JPEG 2000)
+                        "-DENABLE_JASPER=OFF"
+            }
+        }
+    }
+
+    //Exclude the thread safe version - TODO figure out how not to compile them
+    packagingOptions {
+        exclude 'lib/**/libraw_r.so'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version '3.18.1'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+def injectDependenciesInPom(pom) {
+    pom.withXml {
+        def dependenciesNode = asNode().appendNode('dependencies')
+
+        configurations.implementation.allDependencies.each { dependency ->
+            if (!dependency.version.equals("unspecified") &&
+                    !dependency.group.equals("unspecified") &&
+                    !dependency.name.equals("unspecified")) {
+                def dependencyNode = dependenciesNode.appendNode('dependency')
+                dependencyNode.appendNode('groupId', dependency.group)
+                dependencyNode.appendNode('artifactId', dependency.name)
+                dependencyNode.appendNode('version', dependency.version)
+            }
+        }
+    }
+}
+//Install to local maven repo
+//gradlew libraw:publishToMavenLocal
+
+publishing {
+    publications {
+        libRaw(MavenPublication) {
+            groupId = "${rootProject.ext.groupId}"
+            artifactId = "${rootProject.ext.artifactId}"
+            version "${rootProject.ext.artifactVersion}"
+            artifact("$buildDir/outputs/aar/${rootProject.ext.artifactId}-release.aar")
+
+            injectDependenciesInPom(pom)
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            /** Configure path of your package repository on Github
+             ** Replace GITHUB_USERID with your/organisation Github userID
+             ** and REPOSITORY with the repository name on GitHub
+             */
+            url = uri("https://maven.pkg.github.com/dburckh/AndroidLibRaw")
+            credentials {
+                /** Create github.properties in root project folder file with
+                 ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN
+                 ** Set env variable GPR_USER & GPR_API_KEY if not adding a properties file**/
+
+                username = System.getenv("GPR_USER")
+                password = System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.annotation:annotation:1.3.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
