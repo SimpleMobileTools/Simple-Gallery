@@ -1,0 +1,4 @@
+ * Allow resizing multiple images at once
+ * Try harder at keeping last modified values at some file operations
+ * Allow changing the apps language on Android 13+
+ * Added some translation, stability, UX and UI improvements
