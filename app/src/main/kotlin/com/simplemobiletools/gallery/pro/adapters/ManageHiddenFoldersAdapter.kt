@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.extensions.isPathOnSD
+import com.simplemobiletools.commons.extensions.setupViewBackground
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
@@ -60,6 +61,7 @@ class ManageHiddenFoldersAdapter(
 
     private fun setupView(view: View, folder: String) {
         view.apply {
+            setupViewBackground(activity)
             manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
             manage_folder_title.apply {
                 text = folder

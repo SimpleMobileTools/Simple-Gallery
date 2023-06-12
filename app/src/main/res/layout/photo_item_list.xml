@@ -4,6 +4,7 @@
     android:id="@+id/media_item_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/tiny_margin"
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
@@ -24,9 +25,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/smaller_margin"
-        android:padding="@dimen/tiny_margin"
-        android:gravity="end"
         android:background="@drawable/circle_black_background"
+        android:gravity="end"
+        android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_star_vector"
         android:visibility="gone" />
 
