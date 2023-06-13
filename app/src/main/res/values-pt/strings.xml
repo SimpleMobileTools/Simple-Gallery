@@ -69,15 +69,16 @@
     <string name="height">Altura</string>
     <string name="keep_aspect_ratio">Manter proporção</string>
     <string name="invalid_values">Introduza uma resolução válida</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
+    <string name="resize_multiple_images">Redimensionar várias imagens</string>
+    <string name="resize_factor">Fator de escala</string>
     <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_factor_error">Introduza um número entre 10 e 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Falha ao redimensionar %d imagem</item>
+        <item quantity="many">Falha ao redimensionar %d imagens</item>
+        <item quantity="other">Falha ao redimensionar %d imagens</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Imagens redimensionadas com sucesso</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="basic_editor">Editor básico</string>
