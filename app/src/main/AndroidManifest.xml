@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.simplemobiletools.gallery.pro"
+    package="com.gallery.raw"
     android:installLocation="auto">
 
     <!-- override the android:maxSdkVersion="28" from PhotoEditorSDK with some higher number -->
@@ -35,8 +35,8 @@
     <uses-sdk tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano" />
 
     <queries>
-        <package android:name="com.simplemobiletools.gallery.debug" />
-        <package android:name="com.simplemobiletools.gallery" />
+        <package android:name="com.gallery.raw.debug" />
+        <package android:name="com.gallery.raw" />
     </queries>
 
     <uses-feature
@@ -44,7 +44,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name="com.gallery.raw.App"
         android:allowBackup="true"
         android:appCategory="image"
         android:icon="@mipmap/ic_launcher"
@@ -56,7 +56,7 @@
         tools:replace="android:label">
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.gallery.raw.activities.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
 
@@ -68,7 +68,7 @@
         </activity>
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.gallery.raw.activities.MainActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:resizeableActivity="true">
@@ -97,24 +97,24 @@
         </activity>
 
         <activity
-            android:name=".activities.MediaActivity"
+            android:name="com.gallery.raw.activities.MediaActivity"
             android:configChanges="orientation"
             android:exported="false"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName="com.gallery.raw.activities.MainActivity" />
 
         <activity
-            android:name=".activities.SearchActivity"
+            android:name="com.gallery.raw.activities.SearchActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/search"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName="com.gallery.raw.activities.MainActivity"
             android:resizeableActivity="true" />
 
         <activity
-            android:name=".activities.ViewPagerActivity"
+            android:name="com.gallery.raw.activities.ViewPagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
-            android:parentActivityName=".activities.MediaActivity"
+            android:parentActivityName="com.gallery.raw.activities.MediaActivity"
             android:theme="@style/TranslucentTheme">
 
             <intent-filter>
@@ -140,21 +140,21 @@
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName="com.gallery.raw.activities.MainActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
-            android:parentActivityName=".activities.SettingsActivity" />
+            android:parentActivityName="com.gallery.raw.activities.SettingsActivity" />
 
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name="com.gallery.raw.activities.SettingsActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/settings"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName="com.gallery.raw.activities.MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
@@ -163,53 +163,53 @@
         </activity>
 
         <activity
-            android:name=".activities.PhotoVideoActivity"
+            android:name="com.gallery.raw.activities.PhotoVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:theme="@style/TranslucentTheme" />
 
         <activity
-            android:name=".activities.VideoPlayerActivity"
+            android:name="com.gallery.raw.activities.VideoPlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
-            android:parentActivityName=".activities.MediaActivity"
+            android:parentActivityName="com.gallery.raw.activities.MediaActivity"
             android:theme="@style/TranslucentTheme" />
 
         <activity
-            android:name=".activities.PanoramaPhotoActivity"
+            android:name="com.gallery.raw.activities.PanoramaPhotoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:theme="@style/FullScreenTheme" />
 
         <activity
-            android:name=".activities.PanoramaVideoActivity"
+            android:name="com.gallery.raw.activities.PanoramaVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:theme="@style/FullScreenTheme" />
 
         <activity
-            android:name=".activities.IncludedFoldersActivity"
+            android:name="com.gallery.raw.activities.IncludedFoldersActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/include_folders"
-            android:parentActivityName=".activities.SettingsActivity" />
+            android:parentActivityName="com.gallery.raw.activities.SettingsActivity" />
 
         <activity
-            android:name=".activities.ExcludedFoldersActivity"
+            android:name="com.gallery.raw.activities.ExcludedFoldersActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/excluded_folders"
-            android:parentActivityName=".activities.SettingsActivity" />
+            android:parentActivityName="com.gallery.raw.activities.SettingsActivity" />
 
         <activity
-            android:name=".activities.HiddenFoldersActivity"
+            android:name="com.gallery.raw.activities.HiddenFoldersActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/hidden_folders"
-            android:parentActivityName=".activities.SettingsActivity" />
+            android:parentActivityName="com.gallery.raw.activities.SettingsActivity" />
 
         <activity
-            android:name=".activities.PhotoActivity"
+            android:name="com.gallery.raw.activities.PhotoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
@@ -223,7 +223,7 @@
         </activity>
 
         <activity
-            android:name=".activities.VideoActivity"
+            android:name="com.gallery.raw.activities.VideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
             <intent-filter>
@@ -237,7 +237,7 @@
         </activity>
 
         <activity
-            android:name=".activities.EditActivity"
+            android:name="com.gallery.raw.activities.EditActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/basic_editor">
@@ -261,7 +261,7 @@
         </activity>
 
         <activity
-            android:name=".activities.SetWallpaperActivity"
+            android:name="com.gallery.raw.activities.SetWallpaperActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/simple_wallpaper">
@@ -278,7 +278,7 @@
         </activity>
 
         <activity
-            android:name=".activities.WidgetConfigureActivity"
+            android:name="com.gallery.raw.activities.WidgetConfigureActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/MyWidgetConfigTheme">
@@ -298,7 +298,7 @@
         </provider>
 
         <receiver
-            android:name=".receivers.RefreshMediaReceiver"
+            android:name="com.gallery.raw.receivers.RefreshMediaReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.simplemobiletools.REFRESH_MEDIA" />
@@ -306,7 +306,7 @@
         </receiver>
 
         <receiver
-            android:name=".helpers.MyWidgetProvider"
+            android:name="com.gallery.raw.helpers.MyWidgetProvider"
             android:exported="true"
             android:icon="@drawable/img_widget_preview"
             android:label="@string/folder">
@@ -320,7 +320,7 @@
         </receiver>
 
         <receiver
-            android:name=".receivers.BootCompletedReceiver"
+            android:name="com.gallery.raw.receivers.BootCompletedReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -330,7 +330,7 @@
         </receiver>
 
         <service
-            android:name=".jobs.NewPhotoFetcher"
+            android:name="com.gallery.raw.jobs.NewPhotoFetcher"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
