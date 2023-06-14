@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancel">Annuleren</string>
+    <string name="back">Terug</string>
+    <string name="nothing">Niets</string>
+    <string name="later">Later</string>
+    <string name="save_as">Opslaan als</string>
+    <string name="file_saved">Bestand opgeslagen</string>
+    <string name="invalid_file_format">Ongeldig bestandsformaat</string>
+    <string name="out_of_memory_error">Onvoldoende geheugen</string>
+    <string name="an_error_occurred">Fout opgetreden: %s</string>
+    <string name="error">Fout: %s</string>
+    <string name="open_with">Openen met</string>
+    <string name="edit_with">Bewerken met</string>
+    <string name="edit">Bewerken</string>
+    <string name="no_app_found">Geen geldige app gevonden</string>
+    <string name="no_browser_found">Geen browser gevonden</string>
+    <string name="no_email_client_found">Geen e-mailapp gevonden</string>
+    <string name="set_as">Instellen als</string>
+    <string name="copy_to_clipboard">Naar klembord kopiëren</string>
+    <string name="copy_number_to_clipboard">Nummer naar klembord kopiëren</string>
+    <string name="value_copied_to_clipboard">Waarde gekopieerd naar klembord</string>
+    <string name="value_copied_to_clipboard_show">Gekopieerd naar klembord:\n%s</string>
+    <string name="dial_number">Nummer bellen</string>
+    <string name="unknown">Onbekend</string>
+    <string name="always">Altijd</string>
+    <string name="never">Nooit</string>
+    <string name="details">Details</string>
+    <string name="notes">Notities</string>
+    <string name="deleting_folder">Map \'%s\' verwijderen</string>
+    <string name="none">Geen</string>
+    <string name="label">Label</string>
+    <string name="transparent">Transparant</string>
+    <string name="transparent_color">Transparante kleur</string>
+    <string name="select_a_different_color">Een andere kleur kiezen</string>
+    <string name="download">Downloaden</string>
+    <string name="notification">Melding</string>
+    <string name="notifications">Meldingen</string>
+    <string name="email">E-mail</string>
+    <string name="previous">Vorige</string>
+    <string name="playpause">Afspelen / Pauzeren</string>
+    <string name="next">Volgende</string>
+    <string name="number">Nummer</string>
+    <string name="no_contacts_found">Geen contacten gevonden</string>
+    <string name="request_the_required_permissions">Vereiste rechten vragen</string>
+    <string name="no_access_to_contacts">De app heeft geen toegang tot de contactenlijst</string>
+    <string name="no_phone_call_permission">App heeft geen recht om telefoongesprekken te starten, verleen het in de systeeminstellingen</string>
+    <string name="insert_text_here">Tekst hier invoegen</string>
+    <string name="call_person">%s bellen</string>
+    <string name="confirm_calling_person">%s bellen\?</string>
+    <string name="zero">Nul</string>
+    <string name="one">Eén</string>
+    <string name="two">Twee</string>
+    <string name="three">Drie</string>
+    <string name="four">Vier</string>
+    <string name="five">Vijf</string>
+    <string name="six">Zes</string>
+    <string name="seven">Zeven</string>
+    <string name="eight">Acht</string>
+    <string name="nine">Negen</string>
+    <string name="value">Waarde</string>
+    <string name="value_cannot_be_empty">Dit veld mag niet leeg zijn</string>
+    <string name="create_new_contact">Nieuw contact aanmaken</string>
+    <string name="add_to_existing_contact">Aan bestaand contact toevoegen</string>
+    <string name="app_corrupt">App corrupt</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="take_photo">Foto nemen</string>
+    <string name="choose_photo">Foto kiezen</string>
+    <string name="choose_video">Video kiezen</string>
+    <string name="choose_contact">Contact kiezen</string>
+    <string name="choose_file">Bestand kiezen</string>
+    <string name="record_audio">Geluid opnemen</string>
+    <string name="record_video">Video opnemen</string>
+    <string name="updating">Bijwerken…</string>
+    <string name="phone_storage">Telefoonopslag</string>
+    <string name="phone_storage_hidden">Telefoonopslag (niet zichtbaar voor andere apps)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">Verjaardag</string>
+    <string name="anniversary">Jubileum</string>
+    <!-- Emails -->
+    <string name="home">Thuis</string>
+    <string name="work">Werk</string>
+    <!-- Phone numbers -->
+    <string name="mobile">Mobiel</string>
+    <string name="main_number">Standaard</string>
+    <string name="work_fax">Fax Werk</string>
+    <string name="home_fax">Fax Thuis</string>
+    <string name="pager">Semafoon</string>
+    <string name="no_phone_number_found">Geen telefoonnummer gevonden</string>
+    <!-- View types -->
+    <string name="change_view_type">Weergave wijzigen</string>
+    <string name="grid">Raster</string>
+    <string name="grid_pro">Raster (Pro)</string>
+    <string name="uneven_grid">Ongelijk raster</string>
+    <string name="list">Lijst</string>
+    <string name="increase_column_count">Meer kolommen</string>
+    <string name="reduce_column_count">Minder kolommen</string>
+    <string name="column_count">Aantal kolommen</string>
+    <string name="portrait_column_count">Aantal kolommen in portretmodus</string>
+    <string name="landscape_column_count">Aantal kolommen in landschapsmodus</string>
+    <string name="change_cover_image">Omslagafbeelding wijzigen</string>
+    <string name="select_photo">Foto selecteren</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d kolom</item>
+        <item quantity="other">%d kolommen</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">Geblokkeerde nummers beheren</string>
+    <string name="not_blocking_anyone">Er worden geen nummers geblokkeerd.</string>
+    <string name="add_a_blocked_number">Een geblokkeerd nummer toevoegen</string>
+    <string name="block_number">Nummer blokkeren</string>
+    <string name="block_numbers">Nummers blokkeren</string>
+    <string name="blocked_numbers">Geblokkeerde nummers</string>
+    <string name="export_blocked_numbers">Geblokkeerde nummers exporteren</string>
+    <string name="import_blocked_numbers">Geblokkeerde nummers importeren</string>
+    <string name="must_make_default_dialer">Maak van deze app de standaard telefoon-app om nummers te kunnen blokkeren.</string>
+    <string name="set_as_default">Als standaard instellen</string>
+    <string name="block_confirmation">Nummer \"%s\" echt blokkeren\?</string>
+    <string name="block_unknown_calls">Oproepen van onopgeslagen contacten blokkeren</string>
+    <string name="block_unknown_messages">Berichten van onopgeslagen contacten blokkeren</string>
+    <string name="add_blocked_number_helper_text">Voer een nummer of patroon in (bijv. *12345*, +31*8888) om alle oproepen en berichten te blokkeren van nummers die overeenkomen met het patroon.</string>
+    <string name="must_make_default_caller_id_app">Kan onbekende nummers niet blokkeren zonder toegang tot beller-ID\'s.</string>
+    <!-- Favorites -->
+    <string name="favorites">Favorieten</string>
+    <string name="add_favorites">Favorieten toevoegen</string>
+    <string name="add_to_favorites">Aan favorieten toevoegen</string>
+    <string name="remove_from_favorites">Uit favorieten verwijderen</string>
+    <!-- Search -->
+    <string name="search">Zoeken</string>
+    <string name="search_in_placeholder">Zoeken in %s</string>
+    <string name="type_2_characters">Vul tenminste 2 tekens in om de zoekopdracht te starten.</string>
+    <string name="search_contacts">Contact zoeken</string>
+    <string name="search_favorites">Favoriet zoeken</string>
+    <string name="search_apps">App zoeken</string>
+    <string name="search_events">Afspraak zoeken</string>
+    <string name="search_groups">Groep zoeken</string>
+    <string name="search_history">Geschiedenis doorzoeken</string>
+    <string name="search_calls">Gesprek zoeken</string>
+    <string name="search_files">Bestand zoeken</string>
+    <string name="search_folders">Map zoeken</string>
+    <string name="search_files_and_folders">Bestanden en mappen zoeken</string>
+    <string name="search_playlists">Afspeellijst zoeken</string>
+    <string name="search_artists">Artiest zoeken</string>
+    <string name="search_albums">Album zoeken</string>
+    <string name="search_tracks">Nummer zoeken</string>
+    <string name="search_text">Tekst zoeken</string>
+    <string name="search_conversations">Gesprek zoeken</string>
+    <string name="search_recordings">Opname zoeken</string>
+    <!-- Filters -->
+    <string name="filter">Filter</string>
+    <string name="filter_pro">Filteren (Pro)</string>
+    <string name="no_items_found">Geen items gevonden.</string>
+    <string name="change_filter">Filter wijzigen</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">Recht voor opslag is vereist</string>
+    <string name="no_contacts_permission">Recht voor contacten is vereist</string>
+    <string name="no_camera_permissions">Recht voor camera is vereist</string>
+    <string name="no_audio_permissions">Recht voor audio is vereist</string>
+    <string name="no_permission">Geen toegang</string>
+    <string name="allow_notifications_reminders">Deze app heeft het recht om meldingen te tonen nodig om herinneringen te kunnen laten zien.</string>
+    <string name="allow_notifications_files">Deze app heeft het recht om meldingen te tonen nodig om een voortgangsindicator te kunnen weergeven.</string>
+    <string name="allow_notifications_music_player">Deze app heeft het recht om meldingen te tonen nodig om nummers te kunnen afspelen.</string>
+    <string name="allow_notifications_voice_recorder">Deze app heeft het recht om meldingen te tonen nodig om geluid te kunnen opnemen.</string>
+    <string name="allow_notifications_incoming_calls">Deze app heeft het recht om meldingen te tonen nodig om te kunnen waarschuwen bij inkomende gesprekken.</string>
+    <string name="allow_notifications_incoming_messages">Deze app heeft het recht om meldingen te tonen nodig om te kunnen waarschuwen bij nieuwe berichten.</string>
+    <string name="grant_permission">Toestemming geven</string>
+    <string name="permission_required">Toestemming vereist</string>
+    <!-- Renaming -->
+    <string name="rename_file">Bestand hernoemen</string>
+    <string name="rename_folder">Map hernoemen</string>
+    <string name="rename_file_error">Kon bestandsnaam niet wijzigen</string>
+    <string name="rename_folder_error">Kon naam van map niet wijzigen</string>
+    <string name="rename_folder_empty">Mapnaam mag niet leeg zijn</string>
+    <string name="rename_folder_exists">Er bestaat al een map met die naam</string>
+    <string name="rename_folder_root">Kan de naam van de hoofdmap van een opslag niet wijzigen</string>
+    <string name="rename_folder_ok">Naamwijziging is geslaagd</string>
+    <string name="renaming_folder">Map hernoemen</string>
+    <string name="filename_cannot_be_empty">Bestandsnaam mag niet leeg zijn</string>
+    <string name="filename_invalid_characters">Bestandsnaam bevat ongeldige tekens</string>
+    <string name="filename_invalid_characters_placeholder">Bestandsnaam \'%s\' bevat ongeldige tekens</string>
+    <string name="extension_cannot_be_empty">Extensie mag niet leeg zijn</string>
+    <string name="source_file_doesnt_exist">Bronbestand %s bestaat niet</string>
+    <string name="prepend_filenames">Tekst voor bestandsnaam invoegen</string>
+    <string name="append_filenames">Tekst na bestandsnaam invoegen</string>
+    <string name="simple_renaming">Eenvoudig hernoemen</string>
+    <string name="pattern_renaming">Patroon</string>
+    <string name="string_to_add">Toe te voegen tekst</string>
+    <string name="rename_date_time_pattern">%Y - jaar\n%M - maand\n%D - dag\n%h - uur\n%m - minuut\n%s - seconde\n%i - getal oplopend vanaf 1</string>
+    <string name="filename_without_txt">Bestandsnaam (zonder .txt)</string>
+    <string name="filename_without_json">Bestandsnaam (zonder .json)</string>
+    <string name="filename_without_zip">Bestandsnaam (zonder .zip)</string>
+    <string name="cannot_hide_files">Vanaf Android 11 is het niet meer mogelijk om op deze manier bestanden of mappen te verbergen</string>
+    <!-- Copy / Move -->
+    <string name="copy">Kopiëren</string>
+    <string name="move">Verplaatsen</string>
+    <string name="copy_move">Kopiëren / Verplaatsen</string>
+    <string name="copy_to">Kopiëren naar</string>
+    <string name="move_to">Verplaatsen naar</string>
+    <string name="source">Bron</string>
+    <string name="destination">Doel</string>
+    <string name="select_destination">Doel kiezen</string>
+    <string name="click_select_destination">Hier klikken om doel te kiezen</string>
+    <string name="invalid_destination">Schrijven naar gekozen doel lukt niet</string>
+    <string name="please_select_destination">Doel kiezen</string>
+    <string name="source_and_destination_same">Bron en doel kunnen niet gelijk zijn</string>
+    <string name="copy_failed">Bestanden kopiëren lukt niet</string>
+    <string name="copying">Kopiëren…</string>
+    <string name="copying_success">Bestanden zijn gekopieerd</string>
+    <string name="copying_success_one">Bestand is gekopieerd</string>
+    <string name="copy_move_failed">Fout opgetreden</string>
+    <string name="moving">Verplaatsen…</string>
+    <string name="moving_success">Bestanden zijn verplaatst</string>
+    <string name="moving_success_one">Bestand is verplaatst</string>
+    <string name="moving_success_partial">Verplaatsen van sommige bestanden is niet gelukt</string>
+    <string name="copying_success_partial">Kopiëren van sommige bestanden is niet gelukt</string>
+    <string name="no_files_selected">Geen bestanden geselecteerd</string>
+    <string name="saving">Opslaan…</string>
+    <string name="could_not_create_folder">Map %s aanmaken is niet gelukt</string>
+    <string name="could_not_create_file">Bestand %s aanmaken is niet gelukt</string>
+    <string name="no_new_items">Geen nieuwe items gevonden</string>
+    <string name="no_space">Er is onvoldoende ruimte beschikbaar op de bestemming.\nVereist %1$s, beschikbaar %2$s</string>
+    <string name="system_service_disabled">De systeemservice voor het selecteren van bestanden en mappen is niet beschikbaar</string>
+    <!-- Create new -->
+    <string name="create_new">Nieuw</string>
+    <string name="folder">Map</string>
+    <string name="file">Bestand</string>
+    <string name="create_new_folder">Nieuwe map aanmaken</string>
+    <string name="name_taken">Bestand of map met deze naam bestaat al</string>
+    <string name="invalid_name">Naam bevat ongeldige tekens</string>
+    <string name="empty_name">Voer een naam in</string>
+    <string name="unknown_error_occurred">Een onbekende fout is opgetreden</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">Bestand \"%s\" bestaat al</string>
+    <string name="file_already_exists_overwrite">Bestand \"%s\" bestaat al. Overschrijven\?</string>
+    <string name="folder_already_exists">Map \"%s\" bestaat al</string>
+    <string name="merge">Samenvoegen</string>
+    <string name="keep_both">Beide behouden</string>
+    <string name="overwrite">Overschrijven</string>
+    <string name="skip">Overslaan</string>
+    <string name="append">Voeg \'_1\' toe</string>
+    <string name="apply_to_all">Toepassen op alle</string>
+    <string name="system_folder_restriction">Het systeem staat de bewerking in deze map niet toe, kies een andere map</string>
+    <string name="system_folder_copy_restriction">Het systeem staat het kopiëren naar deze map niet toe</string>
+    <string name="rename_in_sd_card_system_restriction">Het systeem staat niet toe om in deze map namen te wijzigen</string>
+    <string name="rename_internal_system_restriction">Kan hoofdmappen op de interne opslag niet hernoemen, alleen submappen</string>
+    <string name="cannot_rename_folder">Kan deze map niet hernoemen</string>
+    <!-- File picker -->
+    <string name="select_folder">Kies een map</string>
+    <string name="select_file">Kies een bestand</string>
+    <string name="confirm_storage_access_title">Toegang tot externe opslag bevestigen</string>
+    <string name="confirm_folder_access_title">Toegang tot map bevestigen</string>
+    <string name="confirm_storage_access_text">Op het volgende scherm schrijfrecht verlenen op de hoofdmap van de SD-kaart</string>
+    <string name="confirm_storage_access_text_sd">Probeer het volgende als de SD-kaart niet wordt getoond</string>
+    <string name="confirm_storage_access_android_text">Verleen de app toegang tot de gekozen map door in het volgende scherm op \'Deze map gebruiken\' te klikken.</string>
+    <string name="confirm_storage_access_android_text_specific">Geef toegang tot \'&lt;b&gt;%s&lt;/b&gt;\' door onderaan in het volgende scherm op \'&lt;b&gt;Deze map gebruiken&lt;/b&gt;\' te drukken.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Druk in het volgende scherm onderaan op \'&lt;b&gt;Opslaan&lt;/b&gt;\' om de nieuwe map aan te maken.</string>
+    <string name="confirm_selection">Keuze bevestigen</string>
+    <string name="loading">Laden…</string>
+    <string name="access_storage_prompt">Geef toestemming aan de app om alle bestanden op het apparaat te benaderen om er zeker van te zijn dat deze app probleemloos werkt.</string>
+    <plurals name="items">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="one">%d item verwijderen</item>
+        <item quantity="other">%d items verwijderen</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">%d contact</item>
+        <item quantity="other">%d contacten</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">Opslag kiezen</string>
+    <string name="storage">Opslag</string>
+    <string name="internal">Interne opslag</string>
+    <string name="sd_card">SD-kaart</string>
+    <string name="root">Hoofdmap</string>
+    <string name="wrong_root_selected">Verkeerde map: kies de hoofdmap van de SD-kaart</string>
+    <string name="sd_card_usb_same">Paden van SD-kaart en USB-apparaat kunnen niet gelijk zijn</string>
+    <string name="app_on_sd_card">Het lijkt erop dat de app is geïnstalleerd op een SD-kaart. Dit zorgt ervoor dat Android de widgets van deze app blokkeert. Dit is een beperking van het systeem en alleen het verplaatsen van de app naar het interne geheugen zal de widgets beschikbaar maken.</string>
+    <string name="wrong_folder_selected">De verkeerde map is gekozen. Kies de map \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">Eigenschappen</string>
+    <string name="path">Pad</string>
+    <string name="items_selected">Geselecteerde items</string>
+    <string name="direct_children_count">Direct onderliggende items tellen mee</string>
+    <string name="files_count">Totaal aantal bestanden</string>
+    <string name="resolution">Resolutie</string>
+    <string name="duration">Looptijd</string>
+    <string name="artist">Artiest</string>
+    <string name="album">Album</string>
+    <string name="focal_length">Brandpuntsafstand</string>
+    <string name="exposure_time">Sluitertijd</string>
+    <string name="iso_speed">ISO-waarde</string>
+    <string name="f_number">Diafragmagetal</string>
+    <string name="camera">Camera</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">Titel van het nummer</string>
+    <string name="gps_coordinates">GPS-coördinaten</string>
+    <string name="altitude">Hoogte</string>
+    <string name="remove_exif">EXIF verwijderen</string>
+    <string name="remove_exif_confirmation">De EXIF-gegevens (zoals GPS-coördinaten, cameramodel enz.) verwijderen\?</string>
+    <string name="exif_removed">De EXIF-gegevens zijn verwijderd</string>
+    <!-- Color customization -->
+    <string name="background_color">Achtergrondkleur</string>
+    <string name="text_color">Tekstkleur</string>
+    <string name="primary_color">Primaire kleur</string>
+    <string name="accent_color_white">Accentkleur van wit thema</string>
+    <string name="accent_color_black_and_white">Accentkleur van zwart-wit thema</string>
+    <string name="foreground_color">Voorgrondkleur</string>
+    <string name="app_icon_color">Kleur app-pictogram</string>
+    <string name="bottom_navigation_bar_color">Kleur onderste navigatiebalk</string>
+    <string name="restore_defaults">Standaardinstellingen herstellen</string>
+    <string name="use_default">Gebruik standaard</string>
+    <string name="default_color">Standaard</string>
+    <string name="change_color">Kleur wijzigen</string>
+    <string name="theme">Thema</string>
+    <string name="changing_color_description">Als een kleur wordt gewijzigd, zal het Aangepaste thema worden gebruikt</string>
+    <string name="save">Opslaan</string>
+    <string name="discard">Negeren</string>
+    <string name="undo_changes">Wijzigingen ongedaan maken</string>
+    <string name="undo_changes_confirmation">Wijzigingen inderdaad ongedaan maken\?</string>
+    <string name="cannot_be_undone">Deze bewerking kan niet ongedaan worden gemaakt.</string>
+    <string name="save_before_closing">Er zijn niet opgeslagen wijzigingen. Opslaan voor het afsluiten\?</string>
+    <string name="apply_to_all_apps">Kleuren toepassen op al onze apps</string>
+    <string name="app_icon_color_warning">WAARSCHUWING: Sommige launchers kunnen niet goed omgaan met aangepaste app-iconen. Als het icoon verdwijnt, probeer de app dan te starten via de Play Store of een widget. Zodra de app gestart is kan het icoon middels de standaardkleur #F57C00 worden hersteld. In het ergste geval dient de app opnieuw te worden geïnstalleerd.</string>
+    <string name="share_colors_success">Kleuren gewijzigd. Gebruik het nieuwe thema \'Gedeeld\' om de kleuren voor al onze apps aan te passen.</string>
+    <string name="shared_theme_note">Ook bij gebruik van de Pro-versie van deze app komt de app Eenvoudig Bedankje nog van pas, omdat het de synchronisatie van het gemeenschappelijk thema verzorgt.</string>
+    <string name="purchase_thank_you">Om deze functie te gebruiken en om verdere ontwikkeling te ondersteunen graag &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Eenvoudig Bedankje&lt;/a&gt; aanschaffen. Alvast bedankt!</string>
+    <!-- Themes -->
+    <string name="light_theme">Licht</string>
+    <string name="dark_theme">Donker</string>
+    <string name="auto_theme">Automatisch</string>
+    <string name="auto_light_dark_theme">Automatisch licht/donker</string>
+    <string name="solarized">Solariseren</string>
+    <string name="dark_red">Donkerrood</string>
+    <string name="white">Wit</string>
+    <string name="black_white">Zwart-wit</string>
+    <string name="custom">Aangepast</string>
+    <string name="shared">Gedeeld</string>
+    <string name="system_default">System default</string>
+    <!-- What's new -->
+    <string name="whats_new">Wat is er nieuw</string>
+    <string name="whats_new_disclaimer">* alleen de grotere veranderingen staan hier vermeld, er zijn ook altijd wat kleinere verbeteringen</string>
+    <!-- Actionbar items -->
+    <string name="delete">Verwijderen</string>
+    <string name="remove">Verwijderen</string>
+    <string name="rename">Hernoemen</string>
+    <string name="share">Delen</string>
+    <string name="share_via">Delen via</string>
+    <string name="resize">Grootte aanpassen</string>
+    <string name="select_all">Alles selecteren</string>
+    <string name="select_text">Tekst selecteren</string>
+    <string name="hide">Verbergen</string>
+    <string name="unhide">Zichtbaar maken</string>
+    <string name="hide_folder">Map verbergen</string>
+    <string name="unhide_folder">Map zichtbaar maken</string>
+    <string name="temporarily_show_hidden">Verborgen items tijdelijk tonen</string>
+    <string name="stop_showing_hidden">Stop met tonen van verborgen media</string>
+    <string name="maximum_share_reached">Zoveel inhoud tegelijk delen kan niet</string>
+    <string name="empty_and_disable_recycle_bin">Prullenbak legen en uitschakelen</string>
+    <string name="undo">Ongedaan maken</string>
+    <string name="redo">Opnieuw</string>
+    <string name="print">Afdrukken</string>
+    <string name="print_pro">Afdrukken (Pro)</string>
+    <string name="shortcut">Snelkoppeling</string>
+    <string name="create_shortcut">Snelkoppeling maken</string>
+    <string name="create_shortcut_pro">Snelkoppeling maken (Pro)</string>
+    <string name="add_number_to_contact">Nummer toevoegen aan contact</string>
+    <string name="view_contact_details">Contactgegevens bekijken</string>
+    <string name="call_from_sim_1">Met SIM 1 bellen</string>
+    <string name="call_from_sim_2">Met SIM 2 bellen</string>
+    <string name="toggle_filename">Bestandsnaam tonen aan/uit</string>
+    <string name="move_to_top">Bovenaan zetten</string>
+    <string name="move_to_bottom">Onderaan zetten</string>
+    <string name="pin_item">Vastpinnen</string>
+    <string name="unpin_item">Losmaken</string>
+    <string name="send_sms">SMS versturen</string>
+    <string name="send_email">E-mail sturen</string>
+    <string name="call">Bellen</string>
+    <string name="contact_details">Contactgegevens</string>
+    <string name="add_contact">Contact toevoegen</string>
+    <string name="wallpapers">Achtergronden</string>
+    <!-- Sorting -->
+    <string name="sort_by">Sorteren op</string>
+    <string name="name">Naam</string>
+    <string name="size">Grootte</string>
+    <string name="last_modified">Laatst gewijzigd</string>
+    <string name="date_created">Datum gemaakt</string>
+    <string name="date_taken">Datum opname</string>
+    <string name="title">Titel</string>
+    <string name="filename">Bestandsnaam</string>
+    <string name="extension">Extensie</string>
+    <string name="random">Willekeurig</string>
+    <string name="sort_randomly">Willekeurige volgorde</string>
+    <string name="ascending">Oplopend</string>
+    <string name="descending">Aflopend</string>
+    <string name="use_for_this_folder">Alleen voor deze map gebruiken</string>
+    <string name="sort_numeric_parts">Numerieke items op daadwerkelijke waarde sorteren</string>
+    <string name="first_name">Voornaam</string>
+    <string name="middle_name">Tweede voornaam</string>
+    <string name="surname">Achternaam</string>
+    <string name="full_name">Volledige naam</string>
+    <string name="use_custom_sorting">Aangepast sorteren</string>
+    <string name="change_order">Volgorde aanpassen</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Deze items verwijderen\?</string>
+    <string name="deletion_confirmation">%s verwijderen\?</string>
+    <string name="deletion_confirmation_short">%s verwijderen\?</string>
+    <!-- Are you sure you want to delete 5 items? -->
+    <string name="move_to_recycle_bin_confirmation">%s verplaatsen naar de prullenbak\?</string>
+    <!-- Are you sure you want to move 3 items into the Recycle Bin? -->
+    <string name="are_you_sure_delete">Item verwijderen\?</string>
+    <string name="are_you_sure_recycle_bin">Item verplaatsen naar de prullenbak\?</string>
+    <string name="do_not_ask_again">Onthouden voor deze sessie</string>
+    <string name="do_not_show_again">Niet opnieuw weergeven</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
+    <string name="maybe">Misschien</string>
+    <plurals name="delete_warning">
+        <item quantity="one">WAARSCHUWING: %d map zal worden verwijderd</item>
+        <item quantity="other">WAARSCHUWING: %d mappen zullen worden verwijderd</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">Pincode</string>
+    <string name="enter_pin">Pincode invoeren</string>
+    <string name="please_enter_pin">Graag pincode invoeren</string>
+    <string name="wrong_pin">Verkeerde pincode</string>
+    <string name="repeat_pin">Pincode herhalen</string>
+    <string name="pattern">Patroon</string>
+    <string name="insert_pattern">Patroon invoeren</string>
+    <string name="wrong_pattern">Verkeerd patroon</string>
+    <string name="repeat_pattern">Patroon herhalen</string>
+    <string name="biometrics">Biometrie</string>
+    <string name="fingerprint">Vingerafdruk</string>
+    <string name="add_fingerprint">Vingerafdruk toevoegen</string>
+    <string name="place_finger">Plaats een vinger op de sensor</string>
+    <string name="open_biometric_dialog">Venster biometrische ID-verificatie openen</string>
+    <string name="authenticate">Verificatie</string>
+    <string name="authentication_failed">Verificatie mislukt</string>
+    <string name="authentication_blocked">Verificatie geblokkeerd, probeer het opnieuw</string>
+    <string name="no_fingerprints_registered">Er zijn geen vingerafdrukken geregistreerd. Voeg deze toe via de systeeminstellingen.</string>
+    <string name="go_to_settings">Ga naar Instellingen</string>
+    <string name="protection_setup_successfully">Wachtwoord succesvol ingesteld. App opnieuw installeren als het wachtwoord kwijt is.</string>
+    <string name="fingerprint_setup_successfully">Bescherming instellen is gelukt. App opnieuw installeren bij problemen met het terugzetten.</string>
+    <string name="lock_folder">Map vergrendelen</string>
+    <string name="lock_folder_pro">Map vergrendelen (Pro)</string>
+    <string name="unlock_folder">Map ontgrendelen</string>
+    <string name="lock_folder_notice">Deze bescherming werkt alleen in deze app, het is niet de bedoeling dat het een echte systeembrede mapversleuteling vervangt.</string>
+    <!-- Times -->
+    <string name="yesterday">Gisteren</string>
+    <string name="today">Vandaag</string>
+    <string name="tomorrow">Morgen</string>
+    <string name="every_day">Dagelijks</string>
+    <string name="hide_year">Jaartal verbergen</string>
+    <string name="seconds_raw">seconden</string>
+    <string name="minutes_raw">minuten</string>
+    <string name="hours_raw">uren</string>
+    <string name="days_raw">dagen</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">u</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d seconden</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d uur</item>
+        <item quantity="other">%d uren</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagen</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weken</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">%d maand</item>
+        <item quantity="other">%d maanden</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="one">%d jaar</item>
+        <item quantity="other">%d jaren</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d seconden</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="one">%d uur</item>
+        <item quantity="other">%d uren</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagen</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weken</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="one">%d maand</item>
+        <item quantity="other">%d maanden</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="one">%d jaar</item>
+        <item quantity="other">%d jaren</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="one">%d seconde eerder</item>
+        <item quantity="other">%d seconden eerder</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="one">%d minuut eerder</item>
+        <item quantity="other">%d minuten eerder</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="one">%d uur eerder</item>
+        <item quantity="other">%d uren eerder</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="one">%d dag eerder</item>
+        <item quantity="other">%d dagen eerder</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="one">%d week eerder</item>
+        <item quantity="other">%d weken eerder</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="one">%d maand eerder</item>
+        <item quantity="other">%d maanden eerder</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="one">%d jaar eerder</item>
+        <item quantity="other">%d jaren eerder</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d seconden</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="one">%d uur</item>
+        <item quantity="other">%d uren</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dagen</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weken</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="one">%d maand</item>
+        <item quantity="other">%d maanden</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="one">%d jaar</item>
+        <item quantity="other">%d jaren</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Het alarm zal afgaan over\n%s</string>
+    <string name="reminder_triggers_in">De herinnering zal worden getoond over\n%s</string>
+    <string name="time_remaining">Resterende tijd:\n%s</string>
+    <string name="alarm_warning">Eerst controleren of het alarm goed werkt. Er kunnen zich problemen voordoen door de batterijbesparing van Android.</string>
+    <string name="reminder_warning">Kijk eerst of de herinneringen betrouwbaar werken. Controleer de systeeminstellingen voor batterijoptimalisatie en meldingen om zeker van te zijn dat de app op de achtergrond niet wordt afgesloten of dat de meldingen worden geblokkeerd.</string>
+    <string name="notifications_disabled">Meldingen van deze app zijn uitgeschakeld. Ga naar de systeeminstellingen voor deze app om ze in te schakelen.</string>
+    <!-- Alarms -->
+    <string name="alarm">Alarm</string>
+    <string name="snooze">Sluimeren</string>
+    <string name="dismiss">Afwijzen</string>
+    <string name="no_reminder">Geen herinnering</string>
+    <string name="at_start">Bij aanvang</string>
+    <string name="system_sounds">Systeemgeluiden</string>
+    <string name="your_sounds">Eigen geluiden</string>
+    <string name="add_new_sound">Nieuw geluid toevoegen</string>
+    <string name="no_sound">Geen geluid</string>
+    <string name="during_day_at_hh_mm">Overdag om uu:mm</string>
+    <string name="during_day_at">Overdag om %02d.%02du</string>
+    <!-- Settings -->
+    <string name="settings">Instellingen</string>
+    <string name="purchase_simple_thank_you">Eenvoudig Bedankje kopen</string>
+    <string name="general_settings">Algemeen</string>
+    <string name="color_customization">Kleuren aanpassen</string>
+    <string name="improved_color_customization">Verbeterde aanpassing van kleuren</string>
+    <string name="customize_colors">Kleuren aanpassen</string>
+    <string name="customize_colors_locked">Kleuren aanpassen (vergrendeld)</string>
+    <string name="feature_locked">Vergrendeld</string>
+    <string name="customize_widget_colors">Widgetkleuren aanpassen</string>
+    <string name="customize_notifications">Meldingen aanpassen</string>
+    <string name="notification_sound">Meldingsgeluid</string>
+    <string name="use_english_language">Use English language</string>
+    <string name="language">Taal</string>
+    <string name="show_hidden_items">Verborgen items tonen</string>
+    <string name="font_size">Lettergrootte</string>
+    <string name="small">Klein</string>
+    <string name="medium">Normaal</string>
+    <string name="large">Groot</string>
+    <string name="extra_large">Extra groot</string>
+    <string name="password_protect_hidden_items">Verborgen items met wachtwoord beveiligen</string>
+    <string name="password_protect_whole_app">Hele app met wachtwoord beveiligen</string>
+    <string name="password_protect_file_deletion">Bestandsbewerkingen Verwijderen en Verplaatsen met wachtwoord beveiligen</string>
+    <string name="keep_last_modified">Datum laatst gewijzigd na bestandsbewerkingen behouden</string>
+    <string name="show_info_bubble">Bij slepen van schuifbalk extra informatie tonen</string>
+    <string name="prevent_phone_from_sleeping">Slaapstand voorkomen wanneer de app actief is</string>
+    <string name="skip_delete_confirmation">Niet om bevestiging vragen bij verwijderen</string>
+    <string name="enable_pull_to_refresh">Verversen door vegen vanaf de bovenkant inschakelen</string>
+    <string name="use_24_hour_time_format">24-uurs tijdnotatie gebruiken</string>
+    <string name="change_date_and_time_format">Datum- en tijdnotatie wijzigen</string>
+    <string name="sunday_first">Week op zondag beginnen</string>
+    <string name="widgets">Widgets</string>
+    <string name="use_same_snooze">Altijd dezelfde sluimertijd gebruiken</string>
+    <string name="snooze_time">Interval bij sluimertijd</string>
+    <string name="vibrate_on_button_press">Trillen bij het indrukken van toetsen</string>
+    <string name="move_items_into_recycle_bin">Items niet verwijderen, maar verplaatsen naar de prullenbak</string>
+    <string name="recycle_bin_cleaning_interval">Interval prullenbak leegmaken</string>
+    <string name="empty_recycle_bin">Prullenbak leegmaken</string>
+    <string name="force_portrait_mode">Portretmodus forceren</string>
+    <string name="export_settings">Instellingen exporteren</string>
+    <string name="import_settings">Instellingen importeren</string>
+    <string name="settings_exported_successfully">Instellingen geëxporteerd</string>
+    <string name="settings_imported_successfully">Instellingen geïmporteerd</string>
+    <string name="start_name_with_surname">Achternaam eerst</string>
+    <string name="clear_cache">Cache opschonen</string>
+    <string name="show_call_confirmation_dialog">Om bevestiging vragen voor het bellen</string>
+    <!-- Setting sections -->
+    <string name="visibility">Opmaak</string>
+    <string name="security">Beveiliging</string>
+    <string name="scrolling">Scrollen</string>
+    <string name="file_operations">Bestandsbewerkingen</string>
+    <string name="recycle_bin">Prullenbak</string>
+    <string name="saving_label">Slaat op</string>
+    <string name="startup">Opstarten</string>
+    <string name="text">Tekst</string>
+    <string name="migrating">Migreert</string>
+    <string name="quality">Kwaliteit</string>
+    <string name="main_screen">Hoofdscherm</string>
+    <string name="thumbnails">Miniaturen</string>
+    <string name="list_view">Lijstweergave</string>
+    <!-- Excluding -->
+    <string name="exclude">Uitsluiten</string>
+    <string name="exclude_folder">Map uitsluiten</string>
+    <string name="excluded_folders">Uitgesloten mappen</string>
+    <string name="excluded">(uitgesloten)</string>
+    <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
+    <string name="remove_all">Alles verwijderen</string>
+    <string name="remove_all_description">De lijst van uitgesloten mappen wissen. Dit zal de mappen zelf niet verwijderen.</string>
+    <string name="temporarily_show_excluded">Uitgesloten mappen tijdelijk tonen</string>
+    <string name="stop_showing_excluded">Uitgesloten mappen verbergen</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">Tabs tonen/verbergen</string>
+    <string name="default_tab_to_open">Tab openen bij start</string>
+    <string name="contacts_tab">Contacten</string>
+    <string name="favorites_tab">Favorieten</string>
+    <string name="call_history_tab">Gespreksgeschiedenis</string>
+    <string name="groups_tab">Groepen</string>
+    <string name="last_used_tab">Laatst gebruikt</string>
+    <string name="files_tab">Bestanden</string>
+    <string name="recent_files_tab">Recente bestanden</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">Bestand herstellen</string>
+    <string name="restore_selected_files">Selectie terugzetten</string>
+    <string name="restore_all_files">Alle bestanden terugzetten</string>
+    <string name="recycle_bin_emptied">Prullenbak is geleegd</string>
+    <string name="files_restored_successfully">Bestanden zijn teruggezet</string>
+    <string name="empty_recycle_bin_confirmation">Prullenbak inderdaad leegmaken\? De bestanden zullen permanent verwijderd worden.</string>
+    <string name="recycle_bin_empty">Prullenbak is leeg</string>
+    <string name="moving_recycle_bin_items_disabled">Items uit de prullenbak verplaatsen is niet toegestaan. Gebruik de opdracht Herstellen.</string>
+    <string name="show_the_recycle_bin">De prullenbak tonen</string>
+    <string name="hide_the_recycle_bin">De prullenbak verbergen</string>
+    <string name="open_the_recycle_bin">Prullenbak openen</string>
+    <string name="skip_the_recycle_bin">Bestanden niet naar de prullenbak verplaatsen, maar direct verwijderen</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="one">%d item naar de prullenbak verplaatsen</item>
+        <item quantity="other">%d items naar de prullenbak verplaatsen</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">Importeren…</string>
+    <string name="exporting">Exporteren…</string>
+    <string name="importing_successful">Importeren voltooid</string>
+    <string name="exporting_successful">Exporteren voltooid</string>
+    <string name="importing_failed">Importeren mislukt</string>
+    <string name="exporting_failed">Exporteren mislukt</string>
+    <string name="importing_some_entries_failed">Het importeren van sommige items is mislukt</string>
+    <string name="exporting_some_entries_failed">Het exporteren van sommige items is mislukt</string>
+    <string name="no_entries_for_importing">Er zijn geen items gevonden om te importeren</string>
+    <string name="no_new_entries_for_importing">Er zijn geen nieuwe items gevonden om te importeren</string>
+    <string name="no_entries_for_exporting">Er zijn geen items gevonden om te exporteren</string>
+    <string name="backups">Back-ups</string>
+    <string name="enable_automatic_backups">Automatisch back-ups maken</string>
+    <string name="manage_automatic_backups">Automatische back-ups beheren</string>
+    <string name="date_time_pattern_info">De volgende patronen worden ondersteund voor de bestandsnamen:
+\n
+\n%Y - jaar
+\n%M - maand
+\n%D - dag
+\n%h - uren
+\n%m - minuten
+\n%s - seconden</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">USB-apparaat gedetecteerd. Om de bestanden op dit apparaat te kunnen tonen heeft de app aanvullende rechten nodig.</string>
+    <string name="confirm_usb_storage_access_text">Selecteer in het volgende scherm de hoofdmap van het USB-apparaat</string>
+    <string name="wrong_root_selected_usb">Verkeerde map geselecteerd, kies de hoofdmap van het USB-apparaat</string>
+    <!-- Dates -->
+    <string name="january">Januari</string>
+    <string name="february">Februari</string>
+    <string name="march">Maart</string>
+    <string name="april">April</string>
+    <string name="may">Mei</string>
+    <string name="june">Juni</string>
+    <string name="july">Juli</string>
+    <string name="august">Augustus</string>
+    <string name="september">September</string>
+    <string name="october">Oktober</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">apr</string>
+    <string name="may_short">mei</string>
+    <string name="june_short">juni</string>
+    <string name="july_short">juli</string>
+    <string name="august_short">aug</string>
+    <string name="september_short">sept</string>
+    <string name="october_short">okt</string>
+    <string name="november_short">nov</string>
+    <string name="december_short">dec</string>
+    <!-- in January -->
+    <string name="in_january">in januari</string>
+    <string name="in_february">in februari</string>
+    <string name="in_march">in maart</string>
+    <string name="in_april">in april</string>
+    <string name="in_may">in mei</string>
+    <string name="in_june">in juni</string>
+    <string name="in_july">in juli</string>
+    <string name="in_august">in augustus</string>
+    <string name="in_september">in september</string>
+    <string name="in_october">in oktober</string>
+    <string name="in_november">in november</string>
+    <string name="in_december">in december</string>
+    <string name="monday">Maandag</string>
+    <string name="tuesday">Dinsdag</string>
+    <string name="wednesday">Woensdag</string>
+    <string name="thursday">Donderdag</string>
+    <string name="friday">Vrijdag</string>
+    <string name="saturday">Zaterdag</string>
+    <string name="sunday">Zondag</string>
+    <string name="monday_letter">M</string>
+    <string name="tuesday_letter">D</string>
+    <string name="wednesday_letter">W</string>
+    <string name="thursday_letter">D</string>
+    <string name="friday_letter">V</string>
+    <string name="saturday_letter">Z</string>
+    <string name="sunday_letter">Z</string>
+    <string name="monday_short">Ma</string>
+    <string name="tuesday_short">Di</string>
+    <string name="wednesday_short">Wo</string>
+    <string name="thursday_short">Do</string>
+    <string name="friday_short">Vr</string>
+    <string name="saturday_short">Za</string>
+    <string name="sunday_short">Zo</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Deze app zal niet langer worden bijgewerkt. Upgrade naar de Pro-versie om gebruik te kunnen maken van nieuwe functies en verbeteringen.</string>
+    <string name="upgrade_to_pro_long_click">Deze app zal niet langer worden bijgewerkt. Klik hier om te upgraden naar de Pro-versie en gebruik te maken van nieuwe functies en verbeteringen.</string>
+    <string name="it_is_free">Het is gratis tot: %s. Als het voordien is gedownload, is het voor altijd gratis te gebruiken.</string>
+    <string name="more_info">Meer informatie</string>
+    <string name="upgrade">Upgraden</string>
+    <string name="upgrade_calendar">Lokaal opgeslagen agenda\'s migreren kan alleen door exporteren naar een .ics bestand, en dan weer importeren. Deze functies zijn te vinden in het menu van de app.</string>
+    <string name="upgraded_from_free_gallery">De gratis versie van deze app is ook (nog) geïnstalleerd. Als de Pro-versie bevalt en de instellingen en favorieten zijn overgezet, dan kan de gratis versie worden verwijderd.</string>
+    <string name="upgraded_to_pro_gallery">De Pro-versie van deze app is ook al geïnstalleerd. Als de Pro-versie bevalt en de instellingen en favorieten (indien gewenst) zijn overgezet vanuit deze versie, dan kan deze app worden verwijderd.</string>
+    <string name="upgraded_from_free">De gratis versie van deze app is ook (nog) geïnstalleerd. Als de Pro-versie bevalt en de gegevens zijn overgezet, dan kan de gratis versie worden verwijderd.</string>
+    <string name="upgraded_to_pro">De Pro-versie van deze app is ook al geïnstalleerd. Als de Pro-versie bevalt en de app-gegevens (indien gewenst) zijn overgezet vanuit deze versie, dan kan deze app worden verwijderd.</string>
+    <string name="upgraded_from_free_calendar">De gratis versie van deze app is ook (nog) geïnstalleerd. Lokaal opgeslagen afspraken uit de gratis versie zullen handmatig moeten worden overgezet door ze eerst te exporteren naar een .ics-bestand en ze vervolgens weer te importeren in de Pro-versie. Beide functies zijn te vinden in het menu.
+\n
+\nAls de Pro-versie bevalt, kan de gratis versie worden verwijderd.</string>
+    <string name="upgraded_from_free_contacts">De gratis versie van deze app is ook (nog) geïnstalleerd. Eventueel opgeslagen contacten in \"%s\" zullen handmatig moeten worden overgezet door ze eerst te exporteren naar een .vcf-bestand en ze vervolgens weer te importeren in de Pro-versie. Beide functies zijn te vinden in het menu.
+\n
+\nAls de Pro-versie bevalt, kan de gratis versie worden verwijderd.</string>
+    <string name="upgraded_from_free_notes">De gratis versie van deze app is ook (nog) geïnstalleerd. De notities uit de gratis versie zullen handmatig moeten worden overgezet door ze eerst te exporteren naar een bestand en ze vervolgens weer te importeren in de Pro-versie. Beide functies zijn te vinden in het menu.
+\n
+\nAls de Pro-versie bevalt, kan de gratis versie worden verwijderd.</string>
+    <!-- About -->
+    <string name="about">Over</string>
+    <string name="website">Website</string>
+    <string name="website_label">Bezoek voor de broncodes</string>
+    <string name="email_label">Stuur reacties of suggesties naar</string>
+    <string name="upgrade_to_pro">Upgraden naar Pro-versie</string>
+    <string name="more_apps">Meer apps</string>
+    <string name="more_apps_from_us">Meer apps van ons</string>
+    <string name="invite_friends">Vrienden uitnodigen</string>
+    <string name="share_text">Hé, bekijk %1$s eens op %2$s</string>
+    <string name="invite_via">Uitnodigen via</string>
+    <string name="rate_us">Beoordeel ons</string>
+    <string name="rate">Beoordelen</string>
+    <string name="donate">Doneren</string>
+    <string name="follow_us">Volg ons</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="support">Ondersteuning</string>
+    <string name="help_us">Help ons</string>
+    <string name="social">Sociale media</string>
+    <string name="other">Overig</string>
+    <string name="privacy_policy">Privacyverklaring</string>
+    <string name="version_placeholder">Versie %s</string>
+    <string name="hello">Hallo :)</string>
+    <string name="about_footer">Met ❤️ gemaakt in Slowakije</string>
+    <string name="additional_info">Extra informatie</string>
+    <string name="app_version">Versie: %s</string>
+    <string name="device_os">Besturingssysteem: %s</string>
+    <string name="donate_please">
+        <![CDATA[
+            Hallo,<br><br>
+            Hopelijk vindt u dit een fijne app. Het bevat geen advertenties, maar u kunt de verdere ontwikkeling wel ondersteunen door de app <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Eenvoudig Bedankje</a> aan te schaffen. Dit zal ook voorkomen dat dit venster nog eens verschijnt.<br><br>
+            Dank u wel!
+        ]]>
+    </string>
+    <string name="donate_new">Hallo,&lt;br&gt;&lt;br&gt;Hopelijk gebruik je deze app met veel plezier. Het bevat geen advertenties en we verzamelen totaal geen gegevens. Je kunt de ontwikkeling ondersteunen door &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Eenvoudig Bedankje&lt;/a&gt; aan te schaffen. Hiermee ontgrendel je alle functies in onze apps en kun je de kleuren voor alle apps aanpassen.&lt;br&gt;&lt;br&gt;Dankjewel!</string>
+    <string name="donate_short">Ondersteun ons door de app &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Eenvoudig Bedankje&lt;/a&gt; aan te schaffen. Dit zal alle functionaliteit in de apps ontgrendelen.</string>
+    <string name="purchase">Kopen</string>
+    <string name="get_simple_phone">Eenvoudige Telefoon downloaden</string>
+    <string name="update_thank_you">Update Eenvoudig Bedankje naar de nieuwste versie</string>
+    <string name="before_asking_question_read_faq">Controleer bij problemen eerst de instellingen van de app en neem de Veelgestelde vragen door. Misschien staat de oplossing daar.</string>
+    <string name="before_rate_read_faq">Controleer eerst de app-instellingen en lees de veelgestelde vragen voordat u ons beoordeelt. Als er problemen zijn, staat de oplossing misschien daar.</string>
+    <string name="make_sure_latest">Zorg er ook voor dat de laatste versie van de app is geïnstalleerd.</string>
+    <string name="make_sure_upgrade">Let erop dat deze app niet meer wordt doorontwikkeld. Installeer de Pro-versie voor nieuwe functies en verbeteringen.</string>
+    <string name="read_it">Nu lezen</string>
+    <string name="read_faq">Veelgestelde vragen</string>
+    <string name="rate_us_prompt">Hallo,
+\n
+\nhet lijkt erop dat u deze app al een tijdje gebruikt, dat waarderen wij enorm.
+\n
+\nMogen we zo vrij zijn om u te vragen ons een beoordeling te geven op Google Play\? Daarmee helpt u ons enorm.
+\n
+\nDit bericht wordt maar een keer getoond, ongeacht welke keuze u nu maakt.
+\n
+\nHartelijk dank!</string>
+    <string name="rate_our_app">Beoordeel onze app! :)</string>
+    <string name="thank_you">Bedankt!</string>
+    <string name="widget_locked_pro">De widget is vergrendeld.\nUpgrade naar de Pro-versie om te ontgrendelen.</string>
+    <string name="features_locked">Deze functie is vergrendeld. Overweeg het aanschaffen van &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Eenvoudig Bedankje&lt;/a&gt; om alle functies in deze app te kunnen gebruiken.&lt;br&gt;&lt;br&gt;Dit is een eenmalige aanschaf met een niet-goed-geld-teruggarantie.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">
+        <![CDATA[
+            Hallo,<br><br>
+            Er zijn recentelijk nieuwe apps uitgebracht:<br><br>
+            <a href="%1$s">%2$s</a><br><br>
+            <a href="%3$s">%4$s</a><br><br>
+            <a href="%5$s">%6$s</a><br><br>
+            Download de app door op de naam hierboven te klikken.<br><br>
+            Bedankt!
+        ]]>
+    </string>
+    <string name="simple_app_launcher">Eenvoudige App Launcher</string>
+    <string name="simple_calculator">Eenvoudige Rekenmachine</string>
+    <string name="simple_calendar">Eenvoudige Agenda</string>
+    <string name="simple_camera">Eenvoudige Camera</string>
+    <string name="simple_clock">Eenvoudige Klok</string>
+    <string name="simple_contacts">Eenvoudig Adresboek</string>
+    <string name="simple_dialer">Eenvoudige Telefoon</string>
+    <string name="simple_draw">Eenvoudig Tekenen</string>
+    <string name="simple_file_manager">Eenvoudig Bestandsbeheer</string>
+    <string name="simple_flashlight">Eenvoudige Zaklamp</string>
+    <string name="simple_gallery">Eenvoudige Galerij</string>
+    <string name="simple_keyboard">Eenvoudig Toetsenbord</string>
+    <string name="simple_launcher">Eenvoudige Launcher</string>
+    <string name="simple_music_player">Eenvoudige Muziekspeler</string>
+    <string name="simple_notes">Eenvoudige Notities</string>
+    <string name="simple_sms_messenger">Eenvoudig Berichtenbeheer (SMS)</string>
+    <string name="simple_thank_you">Eenvoudig Bedankje</string>
+    <string name="simple_voice_recorder">Eenvoudige Voicerecorder</string>
+    <string name="app_launcher_short">App-launcher</string>
+    <string name="calculator_short">Rekenmachine</string>
+    <string name="calendar_short">Agenda</string>
+    <string name="camera_short">Camera</string>
+    <string name="clock_short">Klok</string>
+    <string name="contacts_short">Contacten</string>
+    <string name="dialer_short">Telefoon</string>
+    <string name="draw_short">Tekenen</string>
+    <string name="file_manager_short">Bestandsbeheer</string>
+    <string name="flashlight_short">Zaklamp</string>
+    <string name="gallery_short">Galerij</string>
+    <string name="keyboard_short">Toetsenbord</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">Muziek</string>
+    <string name="notes_short">Notities</string>
+    <string name="sms_messenger_short">Berichten</string>
+    <string name="thank_you_short">Bedankt!</string>
+    <string name="voice_recorder_short">Geluidsrecorder</string>
+    <string name="sideloaded_app">Het lijkt erop dat deze versie van de app corrupt is. Download de originele versie &lt;a href=%s&gt;hier&lt;/a&gt;.</string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">Veelgestelde vragen</string>
+    <string name="before_asking_question">Lees vóór het insturen van een vraag eerst de</string>
+    <string name="faq_1_title_commons">Waarom zie ik de widget van deze app niet in de lijst met widgets?</string>
+    <string name="faq_1_text_commons">Waarschijnlijk is de app verplaatst naar de SD-kaart. Android verbergt widgets van apps die zich bevinden op de SD-kaart. De enige oplossing is het verplaatsen van de app naar de Interne Opslag via de instellingen van Android.</string>
+    <string name="faq_2_title_commons">Ik wil een bijdrage leveren, maar ik kan geen geld doneren. Kan ik iets anders doen?</string>
+    <string name="faq_2_text_commons">
+        <![CDATA[
+            Maar natuurlijk! Vertel anderen over deze apps of geef feedback en beoordelingen. Ook het vertalen van de apps in een nieuwe taal of het bijwerken van bestaande vertalingen wordt gewaardeerd.
+            Een handleiding voor vertaling is te vinden op <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">deze website</a>, of stuur een bericht naar <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> voor hulp.
+        ]]>
+    </string>
+    <string name="faq_3_title_commons">Ik heb per ongeluk bestanden verwijderd, hoe kan ik deze herstellen?</string>
+    <string name="faq_3_text_commons">Helaas kan dat niet. Bestanden worden onmiddellijk na het bevestigingen verwijderd, er is geen prullenbak beschikbaar.</string>
+    <string name="faq_4_title_commons">Ik vind de kleuren van de widgets niet mooi, kan ik ze veranderen?</string>
+    <string name="faq_4_text_commons">Ja, bij het plaatsen van een widget naar uw hoofdscherm, verschijnt een widgetconfiguratiescherm. Je ziet gekleurde vierkanten in de linkerbenedenhoek, druk erop om een nieuwe kleur te kiezen. De schuifregelaar is voor de transparantie.</string>
+    <string name="faq_5_title_commons">Kan ik verwijderde bestanden terugzetten\?</string>
+    <string name="faq_5_text_commons">Niet als de bestanden daadwerkelijk zijn verwijderd. Bestanden kunnen worden teruggezet als de prullenbak is ingeschakeld (dat is standaard het geval, zie Instellingen).</string>
+    <string name="faq_6_title_commons">Het icoon voor de app is verdwenen uit mijn launcher. Wat moet ik doen\?</string>
+    <string name="faq_6_text_commons">Dit wordt veroorzaakt doordat de launcher het aanpassen van pictogrammen niet goed ondersteunt. Probeer de app te starten via Google Play of een widget, indien beschikbaar. Zodra de app gestart is, kan het icoon met het kiezen van de oranje standaardkleur worden teruggezet. In het ergste geval dient de app opnieuw te worden geïnstalleerd.</string>
+    <string name="faq_7_title_commons">Het geld is afgeschreven van mijn rekening, maar ik kan de app nog niet downloaden. Wat moet ik doen?</string>
+    <string name="faq_7_text_commons">Betalingen worden verwerkt door Google, maar dit systeem vertoont soms wat problemen. Leeg de cache van de Google Play Store app en start daarna het apparaat opnieuw. Probeer vervolgens nogmaals de app te downloaden.</string>
+    <string name="faq_8_title_commons">Waarom zou ik upgraden naar de Pro-versie?</string>
+    <string name="faq_8_text_commons">Omdat deze versie van de app niet meer zal worden bijgewerkt, zullen eventuele fouten nooit meer worden opgelost. Ook zullen er geen nieuwe functies meer worden toegevoegd. De Pro-versie is voor een bescheiden bedrag te vinden in de Google Play Store. Dit bedrag hoeft maar een keer te worden betaald, daarna nooit meer. Ook niet voor nieuwe apparaten. Als de Pro-versie toch niet bevalt, verwijder de app dan binnen enkele uren en het bedrag zal worden teruggestort. Ook een latere restitutie is nog mogelijk. Neem hiervoor contact op via hello@simplemobiletools.com en het geld zal alsnog worden teruggestort.</string>
+    <string name="faq_9_title_commons">Hoe kan ik meerdere items tegelijk selecteren?</string>
+    <string name="faq_9_text_commons">Dit kan op verschillende manieren. De eerste is door met een lange druk op een enkel item de selectiemodus in te schakelen, waarna kort klikken op andere items de selectie zal uitbreiden. De tweede manier is vergelijkbaar met het selecteren van items op een PC met de muis:
+        druk lang op een item en sleep vervolgens over andere items om ook die te selecteren. De derde manier is door lang te drukken op het eerste item en vervolgens ook lang te drukken op het laatste item, waarna alle items ertussen zullen worden geselecteerd. Om alle
+        items te selecteren kan na het lang drukken op een item geklikt worden op de teller in de linkerbovenhoek. Dit zal alle items selecteren of de gehele selectie ongedaan maken.</string>
+    <string name="faq_10_title_commons">Ik heb de app aangeschaft, maar ik kan deze niet downloaden op een ander toestel.</string>
+    <string name="faq_10_text_commons">Probeer uw Google Play app-cache te legen en het toestel opnieuw op te starten. Het is een Google Play probleem, niet gerelateerd aan de app zelf.</string>
+    <!-- Contributors -->
+    <string name="contributors">Bijdragers</string>
+    <string name="translation">Vertaling</string>
+    <string name="development">Ontwikkeling</string>
+    <string name="other_help">Andere hulp</string>
+    <string name="contributors_label">Deze lijst bevat de namen van iedereen die aan een app binnen de Simple Mobile Tools suite heeft bijgedragen. Vertalingen worden gedaan door vrijwilligers, dus laat het ons weten als je ook wilt helpen. Lees de instructies &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt;op deze website&lt;/a&gt;, of stuur bij vragen een bericht naar &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt;. Bedankt voor alle bijdragen en andere ondersteuning!</string>
+    <string name="translation_arabic">Arabisch</string>
+    <string name="translation_azerbaijani">Azerbeidjaans</string>
+    <string name="translation_bengali">Bengaals</string>
+    <string name="translation_breton">Bretons</string>
+    <string name="translation_bulgarian">Bulgaars</string>
+    <string name="translation_catalan">Catalaans</string>
+    <string name="translation_czech">Tsjechisch</string>
+    <string name="translation_welsh">Welsh</string>
+    <string name="translation_danish">Deens</string>
+    <string name="translation_english">Engels</string>
+    <string name="translation_german">Duits</string>
+    <string name="translation_greek">Grieks</string>
+    <string name="translation_spanish">Spaans</string>
+    <string name="translation_basque">Baskisch</string>
+    <string name="translation_persian">Farsi</string>
+    <string name="translation_finnish">Fins</string>
+    <string name="translation_french">Frans</string>
+    <string name="translation_galician">Galicisch</string>
+    <string name="translation_hindi">Hindi</string>
+    <string name="translation_croatian">Kroatisch</string>
+    <string name="translation_hungarian">Hongaars</string>
+    <string name="translation_indonesian">Indonesisch</string>
+    <string name="translation_italian">Italiaans</string>
+    <string name="translation_hebrew">Hebreeuws</string>
+    <string name="translation_japanese">Japans</string>
+    <string name="translation_korean">Koreaans</string>
+    <string name="translation_lithuanian">Litouws</string>
+    <string name="translation_nepali">Nepals</string>
+    <string name="translation_norwegian">Noors</string>
+    <string name="translation_dutch">Nederlands</string>
+    <string name="translation_polish">Pools</string>
+    <string name="translation_portuguese">Portugees</string>
+    <string name="translation_romanian">Roemeens</string>
+    <string name="translation_russian">Russisch</string>
+    <string name="translation_slovak">Slovaaks</string>
+    <string name="translation_slovenian">Sloveens</string>
+    <string name="translation_serbian">Servisch</string>
+    <string name="translation_swedish">Zweeds</string>
+    <string name="translation_tamil">Tamil</string>
+    <string name="translation_turkish">Turks</string>
+    <string name="translation_ukrainian">Oekraïens</string>
+    <string name="translation_vietnamese">Vietnamees</string>
+    <string name="translation_chinese_hk">Chinees (Hong Kong)</string>
+    <string name="translation_chinese_cn">Chinees (Vereenvoudigd)</string>
+    <string name="translation_chinese_tw">Chinees (Traditioneel)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Stap nu over naar de Pro-versie!</string>
+    <string name="why_upgrade_basic_version">Standaard</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">Geen advertenties</string>
+    <string name="why_upgrade_no_internet_access">Geen internettoegang</string>
+    <string name="why_upgrade_footer">100% Niet-goed-geld-teruggarantie</string>
+    <string name="why_upgrade_footer_one_time_payment">Eenmalige betaling</string>
+    <string name="why_upgrade_improved_design">Verbeterd ontwerp</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Geavanceerde fotobewerking</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Geavanceerde foto- en videobewerking</string>
+    <string name="why_upgrade_heic_support">Ondersteuning voor HEIC/HEIF</string>
+    <string name="why_upgrade_batch_renaming">Geavanceerd batch-bestanden hernoemen</string>
+    <string name="why_upgrade_folder_locking">Afzonderlijke mappen vergrendelen</string>
+    <string name="why_upgrade_printing_support">Ondersteuning voor afdrukken</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Ondersteuning voor tijdzones</string>
+    <string name="why_upgrade_attendees_emails">Uitnodigingen en e-mailherinneringen</string>
+    <string name="why_upgrade_easy_event_importing">Eenvoudig gebeurtenissen importeren</string>
+    <string name="why_upgrade_new_widgets">Nieuwe widgets</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Verbeterd samenvoegen van dubbele contacten</string>
+    <string name="why_upgrade_font_size_customization">Lettergrootte aanpassen</string>
+    <string name="why_upgrade_private_contact_sharing">Naar keuze de privécontacten binnen onze apps delen</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Aanpasbare beltonen voor contacten</string>
+    <string name="why_upgrade_contact_filtering">Contacten filteren</string>
+    <string name="why_upgrade_contact_private_contacts">Privécontacten</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Controlelijsten</string>
+    <string name="why_upgrade_different_note_per_widget">Verschillende notities en kleuren per widget</string>
+    <string name="why_upgrade_note_locking">Notities vergrendelen</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Datum- en tijdnotatie aanpassen</string>
+    <string name="why_upgrade_shortcuts">Snelkoppelingen op het startscherm</string>
+    <string name="why_upgrade_file_compression">Ondersteuning voor bestandscompressie</string>
+    <string name="why_upgrade_recents_tab">Tab met recente bestanden</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Achtergrondkleur aanpassen</string>
+    <string name="why_upgrade_file_importing">Ondersteuning voor het importeren van bestanden</string>
+    <string name="why_upgrade_zooming">Zoomen</string>
+    <!-- License -->
+    <string name="notice">Deze app gebruikt de volgende bibliotheken van derden om het leven gemakkelijker te maken. Dank hiervoor.</string>
+    <string name="third_party_licences">Licenties van derden</string>
+    <string name="kotlin_title">Kotlin (programmeertaal)</string>
+    <string name="subsampling_title">Subsampling Scale Image View (zoomable imageviews)</string>
+    <string name="glide_title">Glide (image loading and caching)</string>
+    <string name="picasso_title">Picasso (image loading and caching)</string>
+    <string name="cropper_title">Android Image Cropper (image crop and rotate)</string>
+    <string name="rtl_viewpager_title">RtlViewPager (right to left swiping)</string>
+    <string name="joda_title">Joda-Time (Java date replacement)</string>
+    <string name="stetho_title">Stetho (debugging databases)</string>
+    <string name="otto_title">Otto (event bus)</string>
+    <string name="photoview_title">PhotoView (zoomable GIFs)</string>
+    <string name="pattern_title">PatternLockView (pattern protection)</string>
+    <string name="reprint_title">Reprint (fingerprint protection)</string>
+    <string name="gif_drawable_title">Gif Drawable (loading GIFs)</string>
+    <string name="autofittextview_title">AutoFitTextView (resizing text)</string>
+    <string name="robolectric_title">Robolectric (testing framework)</string>
+    <string name="espresso_title">Espresso (testing helper)</string>
+    <string name="gson_title">Gson (JSON parser)</string>
+    <string name="leak_canary_title">Leak Canary (memory leak detector)</string>
+    <string name="number_picker_title">Number Picker (customizable number picker)</string>
+    <string name="exoplayer_title">ExoPlayer (video player)</string>
+    <string name="panorama_view_title">VR Panorama View (displaying panoramas)</string>
+    <string name="sanselan_title">Apache Sanselan (reading image metadata)</string>
+    <string name="filters_title">Android Photo Filters (image filters)</string>
+    <string name="gesture_views_title">Gesture Views (zoomable images)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (letters on scrollbar)</string>
+    <string name="event_bus_title">Event Bus (communication within the app)</string>
+    <string name="audio_record_view_title">Audio Record View (audio visualization)</string>
+    <string name="sms_mms_title">SMS MMS (SMS and MMS handling)</string>
+    <string name="apng_title">APNG Android (animated WebP support)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (PDF viewer)</string>
+    <string name="m3u_parser_title">M3U Parser (m3u playlist file handling)</string>
+    <string name="android_lame_title">AndroidLame (mp3 encoder)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Proefperiode verlopen</string>
+    <string name="start_free_trial">Start gratis proefperiode</string>
+    <string name="trial_expires_soon">De proefperiode verloopt binnenkort.</string>
+    <string name="unlock_for_one_final_day">Voor nog 1 dag deze app volledig ontgrendelen</string>
+    <string name="welcome_to_app_name">Welkom bij %s!</string>
+    <string name="trial_start_description">Bedankt voor de interesse in onze app! Deze proefversie is te gebruiken voor <font color="#FFFFFF">%d dagen</font>. Als de proefperiode is afgelopen, overweeg dan een upgrade naar de Pro-versie. Het bevat geen advertenties en heeft een enorme hoeveelheid nieuwe functies, een modern ontwerp en vele andere verbeteringen.
+\n
+\nWij vragen om een kleine eenmalige betaling, die eenvoudig is terug te draaien indien de Pro-versie niet bevalt.
+\n
+\nVeel plezier! :)</string>
+    <string name="trial_end_description">Om van alle mogelijkheden die deze app biedt gebruik te kunnen maken, is een upgrade naar de Pro-versie aanbevolen.
+\n
+\nWij vragen om een kleine eenmalige betaling, die eenvoudig is terug te draaien indien de Pro-versie niet bevalt.
+\n
+\nProbeer het meteen! :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Deze proefversie verloopt over %d dag.</item>
+        <item quantity="other">Deze proefversie verloopt over %d dagen.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">VEROUDERD: Deze versie van de app wordt niet meer onderhouden. De Pro-versie is te vinden op https://play.google.com/store/apps/details\?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Bij het verwijderen van de app binnen 2 uur na aanschaf wordt het aankoopbedrag automatisch teruggestort. Wilt u op een later tijdstip een terugbetaling, neem dan contact op via hello@simplemobiletools.com en het wordt geregeld. Zodoende blijft het gemakkelijk om de app uit te proberen :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">Een verzameling eenvoudige open-source Android-apps met widgets, zonder advertenties of onnodige rechten.</string>
+</resources>

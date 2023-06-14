@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.commons.views.PatternTab
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pattern_lock_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/pattern_lock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/insert_pattern"/>
+
+    <com.andrognito.patternlockview.PatternLockView
+        android:id="@+id/pattern_lock_view"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_below="@+id/pattern_lock_title"
+        android:layout_centerInParent="true"/>
+
+</com.simplemobiletools.commons.views.PatternTab>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:background="?selectableItemBackgroundBorderless"
+    android:contentDescription="@null"
+    android:minWidth="@dimen/cab_item_min_width"
+    android:padding="@dimen/normal_margin"
+    tools:src="@drawable/ic_rename_vector"
+    tools:tint="@color/color_primary" />

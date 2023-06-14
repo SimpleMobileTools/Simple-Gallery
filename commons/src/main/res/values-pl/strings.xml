@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancel">Anuluj</string>
+    <string name="back">Wstecz</string>
+    <string name="nothing">Nic</string>
+    <string name="later">Później</string>
+    <string name="save_as">Zapisz jako</string>
+    <string name="file_saved">Plik został zapisany</string>
+    <string name="invalid_file_format">Nieprawidłowy format pliku</string>
+    <string name="out_of_memory_error">Błąd braku pamięci</string>
+    <string name="an_error_occurred">Wystąpił błąd: %s</string>
+    <string name="error">Błąd: %s</string>
+    <string name="open_with">Otwórz w</string>
+    <string name="edit_with">Edytuj w</string>
+    <string name="edit">Edytuj</string>
+    <string name="no_app_found">Nie znaleziono odpowiedniej aplikacji</string>
+    <string name="no_browser_found">Nie znaleziono przeglądarki</string>
+    <string name="no_email_client_found">Nie znaleziono klienta poczty e-mail</string>
+    <string name="set_as">Ustaw jako</string>
+    <string name="copy_to_clipboard">Kopiuj do schowka</string>
+    <string name="copy_number_to_clipboard">Skopiuj numer do schowka</string>
+    <string name="value_copied_to_clipboard">Wartość skopiowano do schowka</string>
+    <string name="value_copied_to_clipboard_show">Wartość skopiowano do schowka:\n%s</string>
+    <string name="dial_number">Wybierz numer</string>
+    <string name="unknown">Nieznane</string>
+    <string name="always">Zawsze</string>
+    <string name="never">Nigdy</string>
+    <string name="details">Szczegóły</string>
+    <string name="notes">Notatki</string>
+    <string name="deleting_folder">Usuwanie folderu „%s”</string>
+    <string name="none">Brak</string>
+    <string name="label">Etykieta</string>
+    <string name="transparent">Przezroczysty</string>
+    <string name="transparent_color">Przezroczysty kolor</string>
+    <string name="select_a_different_color">Wybierz inny kolor</string>
+    <string name="download">Pobierz</string>
+    <string name="notification">Powiadomienie</string>
+    <string name="notifications">Powiadomienia</string>
+    <string name="email">E-mail</string>
+    <string name="previous">Poprzedni</string>
+    <string name="playpause">Odtwórz/Wstrzymaj</string>
+    <string name="next">Następny</string>
+    <string name="number">Numer</string>
+    <string name="no_contacts_found">Nie znaleziono kontaktów</string>
+    <string name="request_the_required_permissions">Poproś o wymagane uprawnienia</string>
+    <string name="no_access_to_contacts">Aplikacja nie mogła uzyskać dostępu do Twoich kontaktów</string>
+    <string name="no_phone_call_permission">Aplikacja nie ma uprawnienia do nawiązywania połączeń telefonicznych. Nadaj je w ustawieniach urządzenia.</string>
+    <string name="insert_text_here">Tutaj wstaw tekst</string>
+    <string name="call_person">Zadzwoń do %s</string>
+    <string name="confirm_calling_person">Potwierdź połączenie z %s</string>
+    <string name="zero">Zero</string>
+    <string name="one">Jeden</string>
+    <string name="two">Dwa</string>
+    <string name="three">Trzy</string>
+    <string name="four">Cztery</string>
+    <string name="five">Pięć</string>
+    <string name="six">Sześć</string>
+    <string name="seven">Siedem</string>
+    <string name="eight">Osiem</string>
+    <string name="nine">Dziewięć</string>
+    <string name="value">Wartość</string>
+    <string name="value_cannot_be_empty">Wartość nie może być pusta</string>
+    <string name="create_new_contact">Utwórz nowy kontakt</string>
+    <string name="add_to_existing_contact">Dodaj do istniejącego kontaktu</string>
+    <string name="app_corrupt">Aplikacja uszkodzona</string>
+    <string name="disclaimer">Uwaga</string>
+    <string name="take_photo">Zrób zdjęcie</string>
+    <string name="choose_photo">Wybierz zdjęcie</string>
+    <string name="choose_video">Wybierz wideo</string>
+    <string name="choose_contact">Wybierz kontakt</string>
+    <string name="choose_file">Wybierz plik</string>
+    <string name="record_audio">Nagraj dźwięk</string>
+    <string name="record_video">Nagraj wideo</string>
+    <string name="updating">Aktualizowanie…</string>
+    <string name="phone_storage">Pamięć telefonu</string>
+    <string name="phone_storage_hidden">Pamięć telefonu (niewidoczne dla innych aplikacji)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">Urodziny</string>
+    <string name="anniversary">Rocznica</string>
+    <!-- Emails -->
+    <string name="home">Domowy</string>
+    <string name="work">Służbowy</string>
+    <!-- Phone numbers -->
+    <string name="mobile">Komórkowy</string>
+    <string name="main_number">Główny</string>
+    <string name="work_fax">Faks służbowy</string>
+    <string name="home_fax">Faks domowy</string>
+    <string name="pager">Pager</string>
+    <string name="no_phone_number_found">Nie znaleziono numeru telefonu</string>
+    <!-- View types -->
+    <string name="change_view_type">Zmień typ widoku</string>
+    <string name="grid">Siatka</string>
+    <string name="grid_pro">Siatka (Pro)</string>
+    <string name="uneven_grid">Nierówna siatka</string>
+    <string name="list">Lista</string>
+    <string name="increase_column_count">Zwiększ liczbę kolumn</string>
+    <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
+    <string name="column_count">Liczba kolumn</string>
+    <string name="portrait_column_count">Liczba kolumn w trybie pionowym</string>
+    <string name="landscape_column_count">Liczba kolumn w trybie poziomym</string>
+    <string name="change_cover_image">Zmień okładkę</string>
+    <string name="select_photo">Wybierz zdjęcie</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d kolumna</item>
+        <item quantity="few">%d kolumny</item>
+        <item quantity="many">%d kolumn</item>
+        <item quantity="other">%d kolumn</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">Zarządzaj zablokowanymi numerami</string>
+    <string name="not_blocking_anyone">Nie blokujesz nikogo.</string>
+    <string name="add_a_blocked_number">Dodaj numer do blokowania</string>
+    <string name="block_number">Zablokuj numer</string>
+    <string name="block_numbers">Zablokuj numery</string>
+    <string name="blocked_numbers">Zablokowane numery</string>
+    <string name="export_blocked_numbers">Eksportuj zablokowane numery</string>
+    <string name="import_blocked_numbers">Importuj zablokowane numery</string>
+    <string name="must_make_default_dialer">Musisz ustawić tę aplikację jako domyślną aplikację telefonu, aby blokować numery.</string>
+    <string name="set_as_default">Ustaw jako domyślną</string>
+    <string name="block_confirmation">Czy zablokować „%s”\?</string>
+    <string name="block_unknown_calls">Blokuj połączenia od niezapisanych kontaktów</string>
+    <string name="block_unknown_messages">Blokuj wiadomości od niezapisanych kontaktów</string>
+    <string name="add_blocked_number_helper_text">Wprowadź numer lub wzorzec (np. *12345*, +48*8888), aby blokować wszystkie połączenia i wiadomości z numerów pasujących do wzorca</string>
+    <string name="must_make_default_caller_id_app">Nie można blokować nieznanych numerów bez uprawnienia do identyfikacji rozmówcy</string>
+    <!-- Favorites -->
+    <string name="favorites">Ulubione</string>
+    <string name="add_favorites">Dodaj ulubione</string>
+    <string name="add_to_favorites">Dodaj do ulubionych</string>
+    <string name="remove_from_favorites">Usuń z ulubionych</string>
+    <!-- Search -->
+    <string name="search">Szukaj</string>
+    <string name="search_in_placeholder">Szukaj w %s</string>
+    <string name="type_2_characters">Wpisz co najmniej 2 znaki, aby rozpocząć wyszukiwanie.</string>
+    <string name="search_contacts">Szukaj kontaktów</string>
+    <string name="search_favorites">Szukaj ulubionych</string>
+    <string name="search_apps">Szukaj aplikacji</string>
+    <string name="search_events">Szukaj wydarzeń</string>
+    <string name="search_groups">Szukaj grup</string>
+    <string name="search_history">Szukaj w historii</string>
+    <string name="search_calls">Szukaj połączeń</string>
+    <string name="search_files">Szukaj plików</string>
+    <string name="search_folders">Szukaj folderów</string>
+    <string name="search_files_and_folders">Szukaj plików i folderów</string>
+    <string name="search_playlists">Szukaj playlist</string>
+    <string name="search_artists">Szukaj artystów</string>
+    <string name="search_albums">Szukaj albumów</string>
+    <string name="search_tracks">Szukaj utworów</string>
+    <string name="search_text">Szukaj tekstu</string>
+    <string name="search_conversations">Szukaj rozmów</string>
+    <string name="search_recordings">Szukaj nagrań</string>
+    <!-- Filters -->
+    <string name="filter">Filtruj</string>
+    <string name="filter_pro">Filtruj (Pro)</string>
+    <string name="no_items_found">Nic nie znaleziono.</string>
+    <string name="change_filter">Zmień filtr</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">Wymagane jest uprawnienie „Pamięć”</string>
+    <string name="no_contacts_permission">Wymagane jest uprawnienie „Kontakty”</string>
+    <string name="no_camera_permissions">Wymagane jest uprawnienie „Aparat”</string>
+    <string name="no_audio_permissions">Wymagane jest uprawnienie „Mikrofon”</string>
+    <string name="no_permission">Brak uprawnienia</string>
+    <string name="allow_notifications_reminders">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła wyświetlać przypomnień.</string>
+    <string name="allow_notifications_files">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła wyświetlać paska postępu.</string>
+    <string name="allow_notifications_music_player">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła odtwarzać utworów.</string>
+    <string name="allow_notifications_voice_recorder">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła nagrywać dźwięku.</string>
+    <string name="allow_notifications_incoming_calls">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła wyświetlać połączeń przychodzących.</string>
+    <string name="allow_notifications_incoming_messages">Musisz zezwolić aplikacji na wyświetlanie powiadomień, w przeciwnym razie nie będzie mogła wyświetlać wiadomości przychodzących.</string>
+    <string name="grant_permission">Nadaj uprawnienie</string>
+    <string name="permission_required">Wymagane uprawnienie</string>
+    <!-- Renaming -->
+    <string name="rename_file">Zmień nazwę pliku</string>
+    <string name="rename_folder">Zmień nazwę folderu</string>
+    <string name="rename_file_error">Nie udało się zmienić nazwy pliku</string>
+    <string name="rename_folder_error">Nie udało się zmienić nazwy folderu</string>
+    <string name="rename_folder_empty">Nazwa folderu nie może być pusta</string>
+    <string name="rename_folder_exists">Folder o tej nazwie już istnieje</string>
+    <string name="rename_folder_root">Nie można zmienić nazwy folderu głównego</string>
+    <string name="rename_folder_ok">Nazwa folderu została zmieniona</string>
+    <string name="renaming_folder">Zmienianie nazwy folderu</string>
+    <string name="filename_cannot_be_empty">Nazwa pliku nie może być pusta</string>
+    <string name="filename_invalid_characters">Nazwa pliku zawiera niedozwolone znaki</string>
+    <string name="filename_invalid_characters_placeholder">Nazwa „%s” zawiera niedozwolone znaki</string>
+    <string name="extension_cannot_be_empty">Rozszerzenie nie może być puste</string>
+    <string name="source_file_doesnt_exist">Plik źródłowy %s nie istnieje</string>
+    <string name="prepend_filenames">Poprzedź nazwy plików</string>
+    <string name="append_filenames">Dołącz do nazw plików</string>
+    <string name="simple_renaming">Prosta zmiana nazwy</string>
+    <string name="pattern_renaming">Wzorzec</string>
+    <string name="string_to_add">Ciąg do dodania</string>
+    <string name="rename_date_time_pattern">%Y — rok\n%M — miesiąc\n%D — dzień\n%h — godzina\n%m — minuta\n%s — sekunda\n%i — numer rosnący od 1</string>
+    <string name="filename_without_txt">Nazwa pliku (bez .txt)</string>
+    <string name="filename_without_json">Nazwa pliku (bez .json)</string>
+    <string name="filename_without_zip">Nazwa pliku (bez .zip)</string>
+    <string name="cannot_hide_files">Począwszy od Androida 11 nie można już ukrywać plików i folderów w ten sposób</string>
+    <!-- Copy / Move -->
+    <string name="copy">Kopiuj</string>
+    <string name="move">Przenieś</string>
+    <string name="copy_move">Kopiuj/Przenieś</string>
+    <string name="copy_to">Kopiuj do</string>
+    <string name="move_to">Przenieś do</string>
+    <string name="source">Źródło</string>
+    <string name="destination">Cel</string>
+    <string name="select_destination">Wybierz miejsce docelowe</string>
+    <string name="click_select_destination">Naciśnij tutaj, aby wybrać miejsce docelowe</string>
+    <string name="invalid_destination">Nie udało się zapisać w wybranym miejscu</string>
+    <string name="please_select_destination">Wybierz cel</string>
+    <string name="source_and_destination_same">Miejsca źródłowe i docelowe nie mogą być takie same</string>
+    <string name="copy_failed">Nie udało się skopiować plików</string>
+    <string name="copying">Kopiowanie…</string>
+    <string name="copying_success">Pliki zostały skopiowane</string>
+    <string name="copying_success_one">Plik został skopiowany</string>
+    <string name="copy_move_failed">Wystąpił błąd</string>
+    <string name="moving">Przenoszenie…</string>
+    <string name="moving_success">Pliki zostały przeniesione</string>
+    <string name="moving_success_one">Plik został przeniesiony</string>
+    <string name="moving_success_partial">Nie udało się przenieść niektórych plików</string>
+    <string name="copying_success_partial">Nie udało się skopiować niektórych plików</string>
+    <string name="no_files_selected">Nie wybrano żadnych plików</string>
+    <string name="saving">Zapisywanie…</string>
+    <string name="could_not_create_folder">Nie udało się utworzyć folderu %s</string>
+    <string name="could_not_create_file">Nie udało się utworzyć pliku %s</string>
+    <string name="no_new_items">Nie znaleziono nowych elementów</string>
+    <string name="no_space">Miejsce docelowe nie ma wystarczającej ilości wolnego miejsca.\nWymagane %1$s, dostępne %2$s</string>
+    <string name="system_service_disabled">Usługa systemowa do wybierania plików i folderów jest niedostępna</string>
+    <!-- Create new -->
+    <string name="create_new">Utwórz nowy</string>
+    <string name="folder">Folder</string>
+    <string name="file">Plik</string>
+    <string name="create_new_folder">Utwórz nowy folder</string>
+    <string name="name_taken">Plik lub folder o tej nazwie już istnieje</string>
+    <string name="invalid_name">Nazwa zawiera niedozwolone znaki</string>
+    <string name="empty_name">Wpisz nazwę</string>
+    <string name="unknown_error_occurred">Wystąpił nieznany błąd</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">Plik „%s” już istnieje</string>
+    <string name="file_already_exists_overwrite">Plik „%s” już istnieje. Czy go nadpisać?</string>
+    <string name="folder_already_exists">Folder „%s” już istnieje</string>
+    <string name="merge">Połącz</string>
+    <string name="keep_both">Zachowaj oba</string>
+    <string name="overwrite">Nadpisz</string>
+    <string name="skip">Pomiń</string>
+    <string name="append">Dodaj końcówkę „_1”</string>
+    <string name="apply_to_all">Zastosuj do wszystkich</string>
+    <string name="system_folder_restriction">System nie pozwala na operację w tym folderze, wybierz inny</string>
+    <string name="system_folder_copy_restriction">System nie pozwala na kopiowanie do tego folderu, wybierz inny</string>
+    <string name="rename_in_sd_card_system_restriction">System nie pozwala na zmianę nazwy w tym folderze</string>
+    <string name="rename_internal_system_restriction">Nie można zmieniać nazw folderów bezpośrednio w pamięci wewnętrznej, tylko podfolderów</string>
+    <string name="cannot_rename_folder">Nie można zmienić nazwy tego folderu</string>
+    <!-- File picker -->
+    <string name="select_folder">Wybierz folder</string>
+    <string name="select_file">Wybierz plik</string>
+    <string name="confirm_storage_access_title">Potwierdź dostęp do pamięci zewnętrznej</string>
+    <string name="confirm_folder_access_title">Potwierdź dostęp do folderu</string>
+    <string name="confirm_storage_access_text">Wybierz folder główny karty pamięci na następnym ekranie, aby przyznać dostęp.</string>
+    <string name="confirm_storage_access_text_sd">Jeśli nie widzisz karty pamięci, spróbuj tego:</string>
+    <string name="confirm_storage_access_android_text">Zezwól na dostęp do wybranej pamięci na następnym ekranie, naciskając „Użyj tego folderu” na dole.</string>
+    <string name="confirm_storage_access_android_text_specific">Zezwól na dostęp do „&lt;b&gt;%s&lt;/b&gt;” na następnym ekranie, naciskając „&lt;b&gt;Użyj tego folderu&lt;/b&gt;” na dole.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Naciśnij „&lt;b&gt;Zapisz&lt;/b&gt;” na dole następnego ekranu, aby utworzyć nowy folder.</string>
+    <string name="confirm_selection">Potwierdź wybór</string>
+    <string name="loading">Ładowanie…</string>
+    <string name="access_storage_prompt">Przyznaj naszej aplikacji dostęp do wszystkich swoich plików. Bez niego może nie działać dobrze.</string>
+    <plurals name="items">
+        <item quantity="one">%d element</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementów</item>
+        <item quantity="other">%d elementów</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="one">%d element</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementów</item>
+        <item quantity="other">%d elementów</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="one">Usuwanie %d elementu</item>
+        <item quantity="few">Usuwanie %d elementów</item>
+        <item quantity="many">Usuwanie %d elementów</item>
+        <item quantity="other">Usuwanie %d elementów</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">%d kontakt</item>
+        <item quantity="few">%d kontakty</item>
+        <item quantity="many">%d kontaktów</item>
+        <item quantity="other">%d kontaktów</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">Wybierz pamięć</string>
+    <string name="storage">Pamięć</string>
+    <string name="internal">Wewnętrzna</string>
+    <string name="sd_card">Karta pamięci</string>
+    <string name="root">Folder główny</string>
+    <string name="wrong_root_selected">Wybrano nieprawidłowy folder. Wybierz folder główny karty pamięci.</string>
+    <string name="sd_card_usb_same">Ścieżki do karty pamięci i pamięci USB nie mogą być takie same</string>
+    <string name="app_on_sd_card">Wygląda na to, że aplikacja jest zainstalowana na karcie pamięci, przez co widżety aplikacji są niedostępne. Nie zobaczysz ich nawet na liście dostępnych widżetów. Jest to ograniczenie systemu, więc jeśli chcesz ich używać, musisz przenieść aplikację z powrotem do pamięci wewnętrznej.</string>
+    <string name="wrong_folder_selected">Wybrano nieprawidłowy folder, wybierz ścieżkę „%s”</string>
+    <!-- File properties -->
+    <string name="properties">Właściwości</string>
+    <string name="path">Ścieżka</string>
+    <string name="items_selected">Wybrane elementy</string>
+    <string name="direct_children_count">Liczba elementów bezpośrednio w folderze</string>
+    <string name="files_count">Liczba wszystkich elementów</string>
+    <string name="resolution">Rozdzielczość</string>
+    <string name="duration">Czas trwania</string>
+    <string name="artist">Artysta</string>
+    <string name="album">Album</string>
+    <string name="focal_length">Ogniskowa</string>
+    <string name="exposure_time">Czas ekspozycji</string>
+    <string name="iso_speed">Czułość ISO</string>
+    <string name="f_number">Wartość przysłony</string>
+    <string name="camera">Aparat</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">Tytuł utworu</string>
+    <string name="gps_coordinates">Współrzędne GPS</string>
+    <string name="altitude">Wysokość</string>
+    <string name="remove_exif">Usuń dane EXIF</string>
+    <string name="remove_exif_confirmation">Czy usunąć dane EXIF, takie jak współrzędne GPS, model aparatu itp.\?</string>
+    <string name="exif_removed">Dane EXIF zostały usunięte</string>
+    <!-- Color customization -->
+    <string name="background_color">Kolor tła</string>
+    <string name="text_color">Kolor tekstu</string>
+    <string name="primary_color">Kolor wiodący</string>
+    <string name="accent_color_white">Kolor akcentujący białego motywu</string>
+    <string name="accent_color_black_and_white">Kolor akcentujący czarno-białego motywu</string>
+    <string name="foreground_color">Kolor pierwszoplanowy</string>
+    <string name="app_icon_color">Kolor ikony aplikacji</string>
+    <string name="bottom_navigation_bar_color">Kolor dolnego paska nawigacyjnego</string>
+    <string name="restore_defaults">Przywróć domyślne</string>
+    <string name="use_default">Użyj domyślnego</string>
+    <string name="default_color">Domyślny</string>
+    <string name="change_color">Zmień kolor</string>
+    <string name="theme">Motyw</string>
+    <string name="changing_color_description">Zmiana koloru spowoduje przełączenie motywu na własny</string>
+    <string name="save">Zapisz</string>
+    <string name="discard">Odrzuć</string>
+    <string name="undo_changes">Cofnij zmiany</string>
+    <string name="undo_changes_confirmation">Czy cofnąć zmiany\?</string>
+    <string name="cannot_be_undone">Tej akcji nie można cofnąć.</string>
+    <string name="save_before_closing">Masz niezapisane zmiany. Czy zapisać je przed wyjściem?</string>
+    <string name="apply_to_all_apps">Zastosuj kolory we wszystkich Prostych aplikacjach</string>
+    <string name="app_icon_color_warning">UWAGA: Niektóre launchery nie obsługują prawidłowo zmiany ikon aplikacji. Jeśli ona zniknie, uruchom aplikację przez Sklep Google Play lub przez widżet, jeśli jest dostępny.
+        Po uruchomieniu aplikacji ustaw domyślny kolor ikony (#F57C00). W najgorszym przypadku konieczne może być przeinstalowanie aplikacji.</string>
+    <string name="share_colors_success">Kolory zostały zmienione. Dodano nowy motyw o nazwie „wspólny” — użyj go do aktualizacji kolorystyki we wszystkich Prostych aplikacjach w przyszłości.</string>
+    <string name="shared_theme_note">Pamiętaj, że nawet jeśli używasz wersji Pro aplikacji, nadal potrzebujesz aplikacji „Proste podziękowanie” z powodów technicznych. Zajmuje się ona synchronizacją kolorów.</string>
+    <string name="purchase_thank_you">Aby odblokować tę funkcję (i przy okazji wesprzeć rozwój niniejszej aplikacji), kup aplikację &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Proste podziękowanie&lt;/a&gt;. Dzięki!</string>
+    <!-- Themes -->
+    <string name="light_theme">Jasny</string>
+    <string name="dark_theme">Ciemny</string>
+    <string name="auto_theme">Automatyczny</string>
+    <string name="auto_light_dark_theme">Automatyczny jasny/ciemny</string>
+    <string name="solarized">Solaryzacja</string>
+    <string name="dark_red">Ciemnoczerwony</string>
+    <string name="white">Biały</string>
+    <string name="black_white">Czarno-biały</string>
+    <string name="custom">Własny</string>
+    <string name="shared">Wspólny</string>
+    <string name="system_default">Domyślny systemowy</string>
+    <!-- What's new -->
+    <string name="whats_new">Co nowego</string>
+    <string name="whats_new_disclaimer">* Tutaj wymienione są tylko większe aktualizacje, ale zawsze są też mniejsze usprawnienia.</string>
+    <!-- Actionbar items -->
+    <string name="delete">Usuń</string>
+    <string name="remove">Usuń</string>
+    <string name="rename">Zmień nazwę</string>
+    <string name="share">Udostępnij</string>
+    <string name="share_via">Udostępnij w</string>
+    <string name="resize">Zmień rozmiar</string>
+    <string name="select_all">Zaznacz wszystko</string>
+    <string name="select_text">Zaznacz tekst</string>
+    <string name="hide">Ukryj</string>
+    <string name="unhide">Odkryj</string>
+    <string name="hide_folder">Ukryj folder</string>
+    <string name="unhide_folder">Odkryj folder</string>
+    <string name="temporarily_show_hidden">Tymczasowo pokaż ukryte elementy</string>
+    <string name="stop_showing_hidden">Przestań pokazywać ukryte elementy</string>
+    <string name="maximum_share_reached">Nie możesz udostępniać tak wielu danych naraz</string>
+    <string name="empty_and_disable_recycle_bin">Opróżnij i wyłącz kosz</string>
+    <string name="undo">Cofnij</string>
+    <string name="redo">Ponów</string>
+    <string name="print">Drukuj</string>
+    <string name="print_pro">Drukuj (Pro)</string>
+    <string name="shortcut">Skrót</string>
+    <string name="create_shortcut">Utwórz skrót</string>
+    <string name="create_shortcut_pro">Utwórz skrót (Pro)</string>
+    <string name="add_number_to_contact">Dodaj numer do kontaktu</string>
+    <string name="view_contact_details">Wyświetl szczegóły kontaktu</string>
+    <string name="call_from_sim_1">Zadzwoń z karty SIM 1</string>
+    <string name="call_from_sim_2">Zadzwoń z karty SIM 2</string>
+    <string name="toggle_filename">Pokaż/Ukryj nazwy plików</string>
+    <string name="move_to_top">Przesuń na górę</string>
+    <string name="move_to_bottom">Przesuń na dół</string>
+    <string name="pin_item">Przypnij element</string>
+    <string name="unpin_item">Odepnij element</string>
+    <string name="send_sms">Wyślij SMS-a</string>
+    <string name="send_email">Wyślij e-mail</string>
+    <string name="call">Zadzwoń</string>
+    <string name="contact_details">Szczegóły kontaktu</string>
+    <string name="add_contact">Dodaj kontakt</string>
+    <string name="wallpapers">Tapety</string>
+    <!-- Sorting -->
+    <string name="sort_by">Sortuj według</string>
+    <string name="name">Nazwa</string>
+    <string name="size">Rozmiar</string>
+    <string name="last_modified">Data modyfikacji</string>
+    <string name="date_created">Data utworzenia</string>
+    <string name="date_taken">Data wykonania</string>
+    <string name="title">Tytuł</string>
+    <string name="filename">Nazwa pliku</string>
+    <string name="extension">Rozszerzenie</string>
+    <string name="random">Losowo</string>
+    <string name="sort_randomly">Sortuj losowo</string>
+    <string name="ascending">Rosnąco</string>
+    <string name="descending">Malejąco</string>
+    <string name="use_for_this_folder">Tylko w tym folderze</string>
+    <string name="sort_numeric_parts">Sortuj części liczbowe według rzeczywistej wartości</string>
+    <string name="first_name">Pierwsze imię</string>
+    <string name="middle_name">Drugie imię</string>
+    <string name="surname">Nazwisko</string>
+    <string name="full_name">Pełna nazwa</string>
+    <string name="use_custom_sorting">Użyj własnego sortowania</string>
+    <string name="change_order">Zmień kolejność</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Czy kontynuować usuwanie\?</string>
+    <string name="deletion_confirmation">Czy usunąć %s\?</string>
+    <string name="deletion_confirmation_short">Czy usunąć %s\?</string>
+    <!-- Are you sure you want to delete 5 items? -->
+    <string name="move_to_recycle_bin_confirmation">Czy przenieść %s do kosza\?</string>
+    <!-- Are you sure you want to move 3 items into the Recycle Bin? -->
+    <string name="are_you_sure_delete">Czy usunąć ten element\?</string>
+    <string name="are_you_sure_recycle_bin">Czy przenieść ten element do kosza\?</string>
+    <string name="do_not_ask_again">Nie pytaj więcej w tej sesji</string>
+    <string name="do_not_show_again">Nie pokazuj ponownie</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+    <string name="maybe">Być może</string>
+    <plurals name="delete_warning">
+        <item quantity="one">UWAGA: Usuwasz %d folder</item>
+        <item quantity="few">UWAGA: Usuwasz %d foldery</item>
+        <item quantity="many">UWAGA: Usuwasz %d folderów</item>
+        <item quantity="other">UWAGA: Usuwasz %d folderów</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="enter_pin">Wprowadź PIN</string>
+    <string name="please_enter_pin">Wprowadź PIN</string>
+    <string name="wrong_pin">Nieprawidłowy PIN</string>
+    <string name="repeat_pin">Wprowadź PIN ponownie</string>
+    <string name="pattern">Wzór</string>
+    <string name="insert_pattern">Wprowadź wzór</string>
+    <string name="wrong_pattern">Nieprawidłowy wzór</string>
+    <string name="repeat_pattern">Wprowadź wzór ponownie</string>
+    <string name="biometrics">Biometria</string>
+    <string name="fingerprint">Odcisk palca</string>
+    <string name="add_fingerprint">Dodaj odcisk palca</string>
+    <string name="place_finger">Przyłóż palec do czytnika</string>
+    <string name="open_biometric_dialog">Otwórz okno weryfikacji biometrycznej</string>
+    <string name="authenticate">Uwierzytelnij</string>
+    <string name="authentication_failed">Uwierzytelnianie nie powiodło się</string>
+    <string name="authentication_blocked">Uwierzytelnianie zablokowane. Spróbuj ponownie za chwilę.</string>
+    <string name="no_fingerprints_registered">Nie masz zarejestrowanych odcisków palców. Dodaj je w ustawieniach swojego urządzenia.</string>
+    <string name="go_to_settings">Przejdź do ustawień</string>
+    <string name="protection_setup_successfully">Hasło zostało ustawione. Jeśli je zapomnisz, przeinstaluj aplikację.</string>
+    <string name="fingerprint_setup_successfully">Zabezpieczenie zostało ustawione. W razie problemów z jego zresetowaniem przeinstaluj aplikację.</string>
+    <string name="lock_folder">Zablokuj folder</string>
+    <string name="lock_folder_pro">Zablokuj folder (Pro)</string>
+    <string name="unlock_folder">Odblokuj folder</string>
+    <string name="lock_folder_notice">Ta ochrona działa tylko w tej aplikacji i nie ma zastępować prawdziwego szyfrowania folderów w całym systemie.</string>
+    <!-- Times -->
+    <string name="yesterday">Wczoraj</string>
+    <string name="today">Dzisiaj</string>
+    <string name="tomorrow">Jutro</string>
+    <string name="every_day">Codziennie</string>
+    <string name="hide_year">Ukryj rok</string>
+    <string name="seconds_raw">sekundy</string>
+    <string name="minutes_raw">minuty</string>
+    <string name="hours_raw">godziny</string>
+    <string name="days_raw">dni</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
+    <string name="week_number_short">tydz.</string>
+    <plurals name="seconds">
+        <item quantity="one">%d sekunda</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="many">%d sekund</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d godzina</item>
+        <item quantity="few">%d godziny</item>
+        <item quantity="many">%d godzin</item>
+        <item quantity="other">%d godzin</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d dzień</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">%d tydzień</item>
+        <item quantity="few">%d tygodnie</item>
+        <item quantity="many">%d tygodni</item>
+        <item quantity="other">%d tygodni</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">%d miesiąc</item>
+        <item quantity="few">%d miesiące</item>
+        <item quantity="many">%d miesięcy</item>
+        <item quantity="other">%d miesięcy</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="one">%d rok</item>
+        <item quantity="few">%d lata</item>
+        <item quantity="many">%d lat</item>
+        <item quantity="other">%d lat</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="one">%d sekundę</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="many">%d sekund</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="one">%d minutę</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="one">%d godzinę</item>
+        <item quantity="few">%d godziny</item>
+        <item quantity="many">%d godzin</item>
+        <item quantity="other">%d godzin</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="one">%d dzień</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="one">%d tydzień</item>
+        <item quantity="few">%d tygodnie</item>
+        <item quantity="many">%d tygodni</item>
+        <item quantity="other">%d tygodni</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="one">%d miesiąc</item>
+        <item quantity="few">%d miesiące</item>
+        <item quantity="many">%d miesięcy</item>
+        <item quantity="other">%d miesięcy</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="one">%d rok</item>
+        <item quantity="few">%d lata</item>
+        <item quantity="many">%d lat</item>
+        <item quantity="other">%d lat</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="one">%d sekundę przed</item>
+        <item quantity="few">%d sekundy przed</item>
+        <item quantity="many">%d sekund przed</item>
+        <item quantity="other">%d sekund przed</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="one">%d minutę przed</item>
+        <item quantity="few">%d minuty przed</item>
+        <item quantity="many">%d minut przed</item>
+        <item quantity="other">%d minut przed</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="one">%d godzinę przed</item>
+        <item quantity="few">%d godziny przed</item>
+        <item quantity="many">%d godzin przed</item>
+        <item quantity="other">%d godzin przed</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="one">%d dzień przed</item>
+        <item quantity="few">%d dni przed</item>
+        <item quantity="many">%d dni przed</item>
+        <item quantity="other">%d dni przed</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="one">%d tydzień przed</item>
+        <item quantity="few">%d tygodnie przed</item>
+        <item quantity="many">%d tygodni przed</item>
+        <item quantity="other">%d tygodni przed</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="one">%d miesiąc przed</item>
+        <item quantity="few">%d miesiące przed</item>
+        <item quantity="many">%d miesięcy przed</item>
+        <item quantity="other">%d miesięcy przed</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="one">%d rok przed</item>
+        <item quantity="few">%d lata przed</item>
+        <item quantity="many">%d lat przed</item>
+        <item quantity="other">%d lat przed</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="one">%d sekundę</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="many">%d sekund</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="one">%d minutę</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="many">%d minut</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="one">%d godzinę</item>
+        <item quantity="few">%d godziny</item>
+        <item quantity="many">%d godzin</item>
+        <item quantity="other">%d godzin</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="one">%d dzień</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="many">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="one">%d tydzień</item>
+        <item quantity="few">%d tygodnie</item>
+        <item quantity="many">%d tygodni</item>
+        <item quantity="other">%d tygodni</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="one">%d miesiąc</item>
+        <item quantity="few">%d miesiące</item>
+        <item quantity="many">%d miesięcy</item>
+        <item quantity="other">%d miesięcy</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="one">%d rok</item>
+        <item quantity="few">%d lata</item>
+        <item quantity="many">%d lat</item>
+        <item quantity="other">%d lat</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Czas pozostały do aktywacji alarmu:\n%s</string>
+    <string name="reminder_triggers_in">Czas pozostały do aktywacji przypomnienia:\n%s</string>
+    <string name="time_remaining">Pozostały czas:\n%s</string>
+    <string name="alarm_warning">Upewnij się, że alarm działa prawidłowo, zanim zaczniesz na nim polegać. Przez ograniczenia związane m.in. z oszczędzaniem baterii coś może nie zadziałać.</string>
+    <string name="reminder_warning">Upewnij się, że przypomnienia działają prawidłowo, zanim zaczniesz na nich polegać. Sprawdź ustawienia baterii i powiadomień w swoim urządzeniu, czy nic nie blokuje przypomnień lub nie wyłącza aplikacji w tle.</string>
+    <string name="notifications_disabled">Powiadomienia tej aplikacji są wyłączone. Przejdź do ustawień urządzenia, aby je włączyć.</string>
+    <!-- Alarms -->
+    <string name="alarm">Alarm</string>
+    <string name="snooze">Drzemka</string>
+    <string name="dismiss">Odrzuć</string>
+    <string name="no_reminder">Brak przypomnienia</string>
+    <string name="at_start">Przy rozpoczęciu</string>
+    <string name="system_sounds">Dźwięki systemowe</string>
+    <string name="your_sounds">Dźwięki użytkownika</string>
+    <string name="add_new_sound">Dodaj nowy dźwięk</string>
+    <string name="no_sound">Brak dźwięku</string>
+    <string name="during_day_at_hh_mm">W ciągu dnia o hh:mm</string>
+    <string name="during_day_at">W ciągu dnia o %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">Ustawienia</string>
+    <string name="purchase_simple_thank_you">Kup aplikację „Proste podziękowanie”</string>
+    <string name="general_settings">Ogólne</string>
+    <string name="color_customization">Dostosowywanie kolorów</string>
+    <string name="improved_color_customization">Ulepszone dostosowywanie kolorów</string>
+    <string name="customize_colors">Dostosuj kolory aplikacji</string>
+    <string name="customize_colors_locked">Dostosuj kolory aplikacji (Zablokowane)</string>
+    <string name="feature_locked">Zablokowane</string>
+    <string name="customize_widget_colors">Dostosuj kolory widżetu</string>
+    <string name="customize_notifications">Dostosuj powiadomienia</string>
+    <string name="notification_sound">Dźwięk powiadomienia</string>
+    <string name="use_english_language">Wymuszaj używanie przez aplikację języka angielskiego</string>
+    <string name="language">Język</string>
+    <string name="show_hidden_items">Pokazuj ukryte elementy</string>
+    <string name="font_size">Rozmiar czcionki</string>
+    <string name="small">Mała</string>
+    <string name="medium">Średnia</string>
+    <string name="large">Duża</string>
+    <string name="extra_large">Bardzo duża</string>
+    <string name="password_protect_hidden_items">Chroń hasłem widoczność ukrytych elementów</string>
+    <string name="password_protect_whole_app">Chroń hasłem dostęp do całej aplikacji</string>
+    <string name="password_protect_file_deletion">Chroń hasłem usuwanie i przenoszenie elementów</string>
+    <string name="keep_last_modified">Utrzymuj starą datę modyfikacji po operacjach na plikach</string>
+    <string name="show_info_bubble">Pokazuj dodatkowe informacje o elementach przy przeciąganiu paska przewijania</string>
+    <string name="prevent_phone_from_sleeping">Zapobiegaj przechodzeniu urządzenia w tryb uśpienia, gdy aplikacja jest aktywna</string>
+    <string name="skip_delete_confirmation">Nie pokazuj okna potwierdzenia usunięcia elementów</string>
+    <string name="enable_pull_to_refresh">Włącz gest pociągnięcia ekranu od góry w celu odświeżenia widoku</string>
+    <string name="use_24_hour_time_format">Używaj 24-godzinnego formatu czasu</string>
+    <string name="change_date_and_time_format">Zmień format daty i godziny</string>
+    <string name="sunday_first">Rozpoczynaj tydzień od niedzieli</string>
+    <string name="widgets">Widżety</string>
+    <string name="use_same_snooze">Zawsze używaj tego samego czasu trwania drzemki</string>
+    <string name="snooze_time">Czas trwania drzemki</string>
+    <string name="vibrate_on_button_press">Wibracja przy naciśnięciu przycisku</string>
+    <string name="move_items_into_recycle_bin">Przenoś elementy do kosza zamiast je usuwać</string>
+    <string name="recycle_bin_cleaning_interval">Przedział czasowy czyszczenia kosza</string>
+    <string name="empty_recycle_bin">Opróżnij kosz</string>
+    <string name="force_portrait_mode">Wymuszaj tryb pionowy</string>
+    <string name="export_settings">Eksportuj ustawienia</string>
+    <string name="import_settings">Importuj ustawienia</string>
+    <string name="settings_exported_successfully">Ustawienia zostały wyeksportowane</string>
+    <string name="settings_imported_successfully">Ustawienia zostały zaimportowane</string>
+    <string name="start_name_with_surname">Zaczynaj nazwę od nazwiska</string>
+    <string name="clear_cache">Wyczyść pamięć podręczną</string>
+    <string name="show_call_confirmation_dialog">Pokazuj okno potwierdzenia przed nawiązaniem połączenia</string>
+    <!-- Setting sections -->
+    <string name="visibility">Widoczność</string>
+    <string name="security">Bezpieczeństwo</string>
+    <string name="scrolling">Przewijanie</string>
+    <string name="file_operations">Operacje na plikach</string>
+    <string name="recycle_bin">Kosz</string>
+    <string name="saving_label">Zapisywanie</string>
+    <string name="startup">Uruchamianie</string>
+    <string name="text">Tekst</string>
+    <string name="migrating">Migracja</string>
+    <string name="quality">Jakość</string>
+    <string name="main_screen">Ekran główny</string>
+    <string name="thumbnails">Miniaturki</string>
+    <string name="list_view">Widok listy</string>
+    <!-- Excluding -->
+    <string name="exclude">Wyklucz</string>
+    <string name="exclude_folder">Wyklucz folder</string>
+    <string name="excluded_folders">Wykluczone foldery</string>
+    <string name="excluded">(wykluczone)</string>
+    <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
+    <string name="remove_all">Usuń wszystko</string>
+    <string name="remove_all_description">Czy usunąć wszystkie foldery z listy wykluczonych\? Nie spowoduje to fizycznego usunięcia folderów.</string>
+    <string name="temporarily_show_excluded">Tymczasowo pokaż wykluczone foldery</string>
+    <string name="stop_showing_excluded">Przestań pokazywać wykluczone foldery</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">Zarządzaj pokazywanymi kartami</string>
+    <string name="default_tab_to_open">Karta otwierana przy uruchomieniu aplikacji</string>
+    <string name="contacts_tab">Kontakty</string>
+    <string name="favorites_tab">Ulubione</string>
+    <string name="call_history_tab">Historia połączeń</string>
+    <string name="groups_tab">Grupy</string>
+    <string name="last_used_tab">Ostatnio używana</string>
+    <string name="files_tab">Pliki</string>
+    <string name="recent_files_tab">Ostatnie pliki</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">Przywróć ten plik</string>
+    <string name="restore_selected_files">Przywróć wybrane pliki</string>
+    <string name="restore_all_files">Przywróć wszystkie pliki</string>
+    <string name="recycle_bin_emptied">Kosz został opróżniony</string>
+    <string name="files_restored_successfully">Pliki zostały przywrócone</string>
+    <string name="empty_recycle_bin_confirmation">Czy opróżnić kosz\? Pliki zostaną utracone bezpowrotnie.</string>
+    <string name="recycle_bin_empty">Kosz jest pusty</string>
+    <string name="moving_recycle_bin_items_disabled">Przenoszenie elementów z kosza jest wyłączone, użyj przywracania</string>
+    <string name="show_the_recycle_bin">Pokaż kosz</string>
+    <string name="hide_the_recycle_bin">Ukryj kosz</string>
+    <string name="open_the_recycle_bin">Otwórz kosz</string>
+    <string name="skip_the_recycle_bin">Pomiń kosz, usuń pliki bezpośrednio</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="one">Przenoszenie %d elementu do kosza</item>
+        <item quantity="few">Przenoszenie %d elementów do kosza</item>
+        <item quantity="many">Przenoszenie %d elementów do kosza</item>
+        <item quantity="other">Przenoszenie %d elementów do kosza</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">Importowanie…</string>
+    <string name="exporting">Eksportowanie…</string>
+    <string name="importing_successful">Importowanie zakończone</string>
+    <string name="exporting_successful">Eksportowanie zakończone</string>
+    <string name="importing_failed">Importowanie nie powiodło się</string>
+    <string name="exporting_failed">Eksportowanie nie powiodło się</string>
+    <string name="importing_some_entries_failed">Importowanie niektórych wpisów nie powiodło się</string>
+    <string name="exporting_some_entries_failed">Eksportowanie niektórych wpisów nie powiodło się</string>
+    <string name="no_entries_for_importing">Nie znaleziono żadnych wpisów do zaimportowania</string>
+    <string name="no_new_entries_for_importing">Nie znaleziono nowych wpisów do zaimportowania</string>
+    <string name="no_entries_for_exporting">Nie znaleziono żadnych wpisów do wyeksportowania</string>
+    <string name="backups">Kopie zapasowe</string>
+    <string name="enable_automatic_backups">Włącz automatyczne kopie zapasowe</string>
+    <string name="manage_automatic_backups">Zarządzaj automatycznymi kopiami zapasowymi</string>
+    <string name="date_time_pattern_info">Możesz użyć następujących wzorców, aby automatycznie nazywać swój plik:
+\n
+\n%Y — rok
+\n%M — miesiąc
+\n%D — dzień
+\n%h — godzina
+\n%m — minuta
+\n%s — sekunda</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">Wygląda na to, że masz podpiętą pamięć USB. Aby mieć pewność, że pliki na niej będą poprawnie widoczne, przyznaj aplikacji dodatkowe uprawnienia.</string>
+    <string name="confirm_usb_storage_access_text">Wybierz folder główny pamięci USB na następnym ekranie, aby przyznać dostęp.</string>
+    <string name="wrong_root_selected_usb">Wybrano nieprawidłowy folder. Wybierz folder główny pamięci USB.</string>
+    <!-- Dates -->
+    <string name="january">Styczeń</string>
+    <string name="february">Luty</string>
+    <string name="march">Marzec</string>
+    <string name="april">Kwiecień</string>
+    <string name="may">Maj</string>
+    <string name="june">Czerwiec</string>
+    <string name="july">Lipiec</string>
+    <string name="august">Sierpień</string>
+    <string name="september">Wrzesień</string>
+    <string name="october">Październik</string>
+    <string name="november">Listopad</string>
+    <string name="december">Grudzień</string>
+    <!-- Short months -->
+    <string name="january_short">sty</string>
+    <string name="february_short">lut</string>
+    <string name="march_short">mar</string>
+    <string name="april_short">kwi</string>
+    <string name="may_short">maj</string>
+    <string name="june_short">cze</string>
+    <string name="july_short">lip</string>
+    <string name="august_short">sie</string>
+    <string name="september_short">wrz</string>
+    <string name="october_short">paź</string>
+    <string name="november_short">lis</string>
+    <string name="december_short">gru</string>
+    <!-- in January -->
+    <string name="in_january">w styczniu</string>
+    <string name="in_february">w lutym</string>
+    <string name="in_march">w marcu</string>
+    <string name="in_april">w kwietniu</string>
+    <string name="in_may">w maju</string>
+    <string name="in_june">w czerwcu</string>
+    <string name="in_july">w lipcu</string>
+    <string name="in_august">w sierpniu</string>
+    <string name="in_september">we wrześniu</string>
+    <string name="in_october">w październiku</string>
+    <string name="in_november">w listopadzie</string>
+    <string name="in_december">w grudniu</string>
+    <string name="monday">Poniedziałek</string>
+    <string name="tuesday">Wtorek</string>
+    <string name="wednesday">Środa</string>
+    <string name="thursday">Czwartek</string>
+    <string name="friday">Piątek</string>
+    <string name="saturday">Sobota</string>
+    <string name="sunday">Niedziela</string>
+    <string name="monday_letter">PN</string>
+    <string name="tuesday_letter">W</string>
+    <string name="wednesday_letter">Ś</string>
+    <string name="thursday_letter">C</string>
+    <string name="friday_letter">PT</string>
+    <string name="saturday_letter">S</string>
+    <string name="sunday_letter">N</string>
+    <string name="monday_short">pon.</string>
+    <string name="tuesday_short">wt.</string>
+    <string name="wednesday_short">śr.</string>
+    <string name="thursday_short">czw.</string>
+    <string name="friday_short">pt.</string>
+    <string name="saturday_short">sob.</string>
+    <string name="sunday_short">niedz.</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Twoja wersja aplikacji nie będzie już aktualizowana. Uaktualnij do wersji Pro, aby otrzymywać nowe poprawki i inne ulepszenia.</string>
+    <string name="upgrade_to_pro_long_click">Twoja wersja aplikacji nie będzie już aktualizowana. Uaktualnij do wersji Pro, aby otrzymywać nowe poprawki i inne ulepszenia, naciskając tutaj.</string>
+    <string name="it_is_free">Aplikacja jest darmowa do %s. Jeśli pobierzesz ją do tego czasu, będziesz mieć ją za darmo na zawsze.</string>
+    <string name="more_info">Więcej informacji</string>
+    <string name="upgrade">Uaktualnij</string>
+    <string name="upgrade_calendar">Musisz przenieść przechowywane lokalnie wydarzenia ręcznie przez wyeksportowanie ich do pliku .ics, a następnie ich zaimportowanie. Oba służące do tego przyciski znajdziesz w menu na ekranie głównym.</string>
+    <string name="upgraded_from_free_gallery">Witaj,
+\n
+\nWygląda na to, że właśnie uaktualniłeś(-aś) darmową aplikację do płatnej. Gdy będziesz z niej zadowolony(-a) i być może przeniesiesz swoje ustawienia i ulubione, możesz odinstalować starą darmową, aby uniknąć przypadkowego jej uruchomienia, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_to_pro_gallery">Witaj,
+\n
+\nWygląda na to, że masz już także wersję Pro aplikacji. Gdy będziesz z niej zadowolony(-a) i być może przeniesiesz swoje ustawienia i ulubione, możesz odinstalować tę, aby uniknąć przypadkowego uruchomienia, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_from_free">Witaj,
+\n
+\nWygląda na to, że właśnie uaktualniłeś(-aś) darmową aplikację do płatnej. Gdy będziesz z niej zadowolony(-a) i być może przeniesiesz swoje dane, możesz odinstalować starą darmową, aby uniknąć przypadkowego jej uruchomienia, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_to_pro">Witaj,
+\n
+\nWygląda na to, że masz już także wersję Pro aplikacji. Gdy będziesz z niej zadowolony(-a) i być może przeniesiesz swoje dane, możesz odinstalować tę, aby uniknąć przypadkowego uruchomienia, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_from_free_calendar">Witaj,
+\n
+\nWygląda na to, że właśnie uaktualniłeś(-aś) darmową aplikację do płatnej. Jeśli chcesz przenieść przechowywane lokalnie wydarzenia, musisz zrobić to ręcznie, eksportując je do pliku .ics w darmowej wersji aplikacji i importując tutaj przez górne menu.
+\n
+\nGdy będziesz zadowolony(-a) z konfiguracji w wersji Pro, możesz odinstalować starą darmową wersję, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_from_free_contacts">Witaj,
+\n
+\nWygląda na to, że właśnie uaktualniłeś(-aś) darmową aplikację do płatnej. Jeśli masz jakieś kontakty przechowywane w „%s”, musisz przenieść je ręcznie, eksportując do pliku .vcf w darmowej wersji aplikacji i importując tutaj przez górne menu.
+\n
+\nGdy będziesz zadowolony(-a) z konfiguracji w wersji Pro, możesz odinstalować starą darmową wersję, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <string name="upgraded_from_free_notes">Witaj,
+\n
+\nWygląda na to, że właśnie uaktualniłeś(-aś) darmową aplikację do płatnej. Jeśli chcesz przenieść swoje notatki, musisz zrobić to ręcznie, eksportując je do pliku w darmowej wersji aplikacji i importując tutaj przez górne menu.
+\n
+\nGdy będziesz zadowolony(-a) z konfiguracji w wersji Pro, możesz odinstalować starą darmową wersję, ponieważ nie będziesz jej już potrzebować.
+\n
+\nDzięki!</string>
+    <!-- About -->
+    <string name="about">O aplikacji</string>
+    <string name="website">Strona internetowa</string>
+    <string name="website_label">Kod źródłowy można znaleźć na stronie</string>
+    <string name="email_label">Wyślij swoje uwagi lub sugestie na:</string>
+    <string name="upgrade_to_pro">Uaktualnij do Pro</string>
+    <string name="more_apps">Więcej aplikacji</string>
+    <string name="more_apps_from_us">Więcej naszych aplikacji</string>
+    <string name="invite_friends">Zaproponuj aplikację znajomym</string>
+    <string name="share_text">Hej! Sprawdź aplikację %1$s na %2$s</string>
+    <string name="invite_via">Zaproś za pomocą:</string>
+    <string name="rate_us">Oceń aplikację</string>
+    <string name="rate">Oceń</string>
+    <string name="donate">Przekaż datek</string>
+    <string name="follow_us">Śledź nas</string>
+    <string name="copyright">Wersja %1$s\n© Simple Mobile Tools %2$d</string>
+    <string name="support">Wsparcie</string>
+    <string name="help_us">Pomóż nam</string>
+    <string name="social">Portale społecznościowe</string>
+    <string name="other">Inne</string>
+    <string name="privacy_policy">Polityka prywatności</string>
+    <string name="version_placeholder">Wersja %s</string>
+    <string name="hello">Cześć :)</string>
+    <string name="about_footer">Zrobione z ❤️ na Słowacji</string>
+    <string name="additional_info">Dodatkowe informacje</string>
+    <string name="app_version">Wersja aplikacji: %s</string>
+    <string name="device_os">System: %s</string>
+    <string name="donate_please">Witaj,&lt;br&gt;&lt;br&gt; Mamy nadzieję, że aplikacja przypadła Ci do gustu. Jak można zauważyć, nie zawiera reklam, prosimy więc o wsparcie jej rozwoju przez zakup specjalnej aplikacji &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Proste podziękowanie&lt;/a&gt;, co poskutkuje również wyłączeniem tego komunikatu.&lt;br&gt;&lt;br&gt; Dziękujemy!</string>
+    <string name="donate_new">Witaj,&lt;br&gt;&lt;br&gt;Mamy nadzieję, że aplikacja przypadła Ci do gustu. Nie zawiera reklam oraz nie zbieramy Twoich danych, dlatego wesprzyj jej rozwój, kupując &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Proste podziękowanie&lt;/a&gt;. Będziesz także mieć odblokowane wszystkie funkcje aplikacji, w tym dostosowywanie kolorów.&lt;br&gt;&lt;br&gt;Dziękujemy!</string>
+    <string name="donate_short">Wesprzyj nas, kupując &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Proste podziękowanie&lt;/a&gt;, co również odblokuje wszystkie funkcje aplikacji, w tym dostosowywanie kolorów.</string>
+    <string name="purchase">Kup</string>
+    <string name="get_simple_phone">Zamów urządzenie Prosty Telefon</string>
+    <string name="update_thank_you">Zaktualizuj aplikację Proste podziękowanie do najnowszej wersji</string>
+    <string name="before_asking_question_read_faq">Zanim zadasz pytanie, najpierw sprawdź ustawienia aplikacji i przeczytaj często zadawane pytania. Może znajduje się tam rozwiązanie.</string>
+    <string name="before_rate_read_faq">Zanim nas ocenisz, sprawdź ustawienia aplikacji i przeczytaj często zadawane pytania. Jeśli masz jakieś problemy, może jest tam rozwiązanie.</string>
+    <string name="make_sure_latest">Upewnij się też, że używasz najnowszej wersji aplikacji.</string>
+    <string name="make_sure_upgrade">Pamiętaj również, że ta wersja aplikacji nie jest już rozwijana. Pobierz wersję Pro, aby uzyskać wiele ulepszeń.</string>
+    <string name="read_it">Przeczytaj to</string>
+    <string name="read_faq">Przeczytaj FAQ</string>
+    <string name="rate_us_prompt">Witaj!
+\n
+\nWygląda na to, że używasz tej aplikacji już od dłuższego czasu, i naprawdę to doceniamy.
+\n
+\nJeśli możemy poprosić Cię o przysługę, oceń nas w Google Play. To by nam naprawdę bardzo pomogło.
+\n
+\nBez względu na to, jak zdecydujesz, nie zobaczysz tego komunikatu ponownie.
+\n
+\nDzięki!</string>
+    <string name="rate_our_app">Oceń naszą aplikację :)</string>
+    <string name="thank_you">Dziękujemy</string>
+    <string name="widget_locked_pro">Widżet jest zablokowany.\nUaktualnij do wersji Pro, aby go odblokować.</string>
+    <string name="features_locked">Ta funkcja jest zablokowana. Kup &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Proste podziękowanie&lt;/a&gt;, aby odblokować pełną wersję aplikacji.&lt;br&gt;&lt;br&gt;Jest to płatność jednorazowa, a jeśli nie będziesz zadowolony(-a), możemy Ci zwrócić pieniądze.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">Cześć!&lt;br&gt;&lt;br&gt; Dajemy Ci znać, że ostatnio zostało wydanych kilka nowych aplikacji:&lt;br&gt;&lt;br&gt; &lt;a href=%1$s&gt;%2$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%3$s&gt;%4$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%5$s&gt;%6$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; Możesz je pobrać, naciskając ich nazwy lub ikony.&lt;br&gt;&lt;br&gt; Dzięki!</string>
+    <string name="simple_app_launcher">Prosty launcher aplikacji</string>
+    <string name="simple_calculator">Prosty kalkulator</string>
+    <string name="simple_calendar">Prosty kalendarz</string>
+    <string name="simple_camera">Prosty aparat</string>
+    <string name="simple_clock">Prosty zegar</string>
+    <string name="simple_contacts">Proste kontakty</string>
+    <string name="simple_dialer">Prosty telefon</string>
+    <string name="simple_draw">Prosty szkicownik</string>
+    <string name="simple_file_manager">Prosty menedżer plików</string>
+    <string name="simple_flashlight">Prosta latarka</string>
+    <string name="simple_gallery">Prosta galeria</string>
+    <string name="simple_keyboard">Prosta klawiatura</string>
+    <string name="simple_launcher">Prosty launcher</string>
+    <string name="simple_music_player">Prosty odtwarzacz muzyki</string>
+    <string name="simple_notes">Proste notatki</string>
+    <string name="simple_sms_messenger">Proste wiadomości SMS</string>
+    <string name="simple_thank_you">Proste podziękowanie</string>
+    <string name="simple_voice_recorder">Prosty rejestrator głosu</string>
+    <string name="app_launcher_short">Launcher aplikacji</string>
+    <string name="calculator_short">Kalkulator</string>
+    <string name="calendar_short">Kalendarz</string>
+    <string name="camera_short">Aparat</string>
+    <string name="clock_short">Zegar</string>
+    <string name="contacts_short">Kontakty</string>
+    <string name="dialer_short">Telefon</string>
+    <string name="draw_short">Szkicownik</string>
+    <string name="file_manager_short">Menedżer plików</string>
+    <string name="flashlight_short">Latarka</string>
+    <string name="gallery_short">Galeria</string>
+    <string name="keyboard_short">Klawiatura</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">Odtwarzacz muzyki</string>
+    <string name="notes_short">Notatki</string>
+    <string name="sms_messenger_short">Wiadomości SMS</string>
+    <string name="thank_you_short">Podziękowanie</string>
+    <string name="voice_recorder_short">Rejestrator głosu</string>
+    <string name="sideloaded_app">
+        <![CDATA[
+            Wygląda na to, że Twoja wersja aplikacji jest uszkodzona/zmodyfikowana. Pobierz <a href="%s">stąd</a> oryginalną wersję.
+        ]]>
+    </string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">Często zadawane pytania (FAQ)</string>
+    <string name="before_asking_question">Zanim zadasz pytanie, przeczytaj najpierw</string>
+    <string name="faq_1_title_commons">Dlaczego nie widzę widżetu tej aplikacji na liście widżetów\?</string>
+    <string name="faq_1_text_commons">Jest to najprawdopodobniej spowodowane przeniesieniem aplikacji na kartę pamięci. Istnieje ograniczenie systemu Android, które w takim przypadku ukrywa widżety danej aplikacji. Jedynym rozwiązaniem jest przeniesienie aplikacji z powrotem do pamięci wewnętrznej za pomocą ustawień urządzenia.</string>
+    <string name="faq_2_title_commons">Chcę Was wesprzeć, ale nie mam jak wpłacić pieniędzy. Czy mogę zrobić coś innego?</string>
+    <string name="faq_2_text_commons">
+        <![CDATA[
+            Oczywiście. Możesz powiedzieć światu o naszych aplikacjach lub podzielić się opinią i oceną w Sklepie Google Play. Możesz też pomóc, tłumacząc aplikacje na nowy język lub po prostu zaktualizować istniejące tłumaczenia.
+            Instrukcja jak tłumaczyć znajduje się na <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">tej stronie</a>, albo po prostu skontaktuj się z nami pod adresem <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a>, jeśli masz jakiekolwiek pytania.
+        ]]>
+    </string>
+    <string name="faq_3_title_commons">Przypadkowo usunąłem kilka plików. Mogę je jakoś odzyskać?</string>
+    <string name="faq_3_text_commons">Niestety, nie możesz. Pliki są usuwane natychmiast po potwierdzeniu w oknie dialogowym. System Android nie ma wbudowanego kosza.</string>
+    <string name="faq_4_title_commons">Nie podobają mi się kolory widżetów. Czy mogę je zmienić\?</string>
+    <string name="faq_4_text_commons">Tak. Po przeciągnięciu widżetu na ekran główny pojawia się okno jego konfiguracji. Zobaczysz na nim kolorowe kółka w lewym dolnym rogu, za pomocą których możesz wybrać nowe kolory. Możesz też użyć suwaka do ustawienia poziomu przezroczystości.</string>
+    <string name="faq_5_title_commons">Czy mogę jakoś odzyskać usunięte pliki?</string>
+    <string name="faq_5_text_commons">Jeśli faktycznie zostały usunięte, to już nie możesz. Jednakże domyślnie jest włączony kosz, dzięki czemu pliki zostaną przeniesione do niego zamiast zostać usunięte.</string>
+    <string name="faq_6_title_commons">Z launchera zniknęła ikona aplikacji. Co mogę zrobić?</string>
+    <string name="faq_6_text_commons">Niektóre launchery nie obsługują prawidłowo zmiany ikon aplikacji. Uruchom aplikację przez Sklep Google Play lub przez widżet, jeśli jest dostępny. Po uruchomieniu aplikacji ustaw domyślny kolor ikony (#F57C00). W najgorszym przypadku konieczne może być przeinstalowanie aplikacji.</string>
+    <string name="faq_7_title_commons">Pieniądze zostały odjęte z mojego konta bankowego, ale nie mogę pobrać aplikacji. Co mogę zrobić?</string>
+    <string name="faq_7_text_commons">Płatności są w pełni obsługiwane przez Google, ich system szwankuje od czasu do czasu. Wystarczy wyczyścić pamięć podręczną aplikacji Google Play i zrestartować urządzenie, a następnie ponowić próbę pobrania.</string>
+    <string name="faq_8_title_commons">Dlaczego powinienem uaktualnić do wersji Pro?</string>
+    <string name="faq_8_text_commons">Ponieważ Twoja wersja aplikacji nie jest już aktualizowana, błędy, które być może zauważyłeś(-aś), nigdy nie zostaną naprawione. Nie zostaną również dodane żadne nowe funkcje. Możesz kupić wersję Pro w Google Play za niewielką sumę pieniędzy. Jest to jednorazowa płatność, co oznacza, że po zakupie nigdy nie będziesz musiał(a) płacić ponownie, nawet po wymianie urządzenia. Jeśli nie spodoba Ci się wersja Pro, możesz ją po prostu odinstalować w ciągu kilku godzin, a automatycznie otrzymasz swoje pieniądze z powrotem. Jeśli chcesz zwrotu pieniędzy w dowolnym momencie, po prostu skontaktuj się z nami na hello@simplemobiletools.com, a go otrzymasz.</string>
+    <string name="faq_9_title_commons">Jak mogę wybrać wiele elementów jednocześnie?</string>
+    <string name="faq_9_text_commons">Można to zrobić na wiele sposobów. Pierwszym z nich jest uruchomienie trybu wyboru przez długie naciśnięcie jednego elementu, a następnie krótkie naciśnięcie innych, aby je wybrać. Drugi sposób jest podobny do wybierania elementów na komputerach PC za pomocą myszy. Wystarczy uruchomić tryb zaznaczania przez długie naciśnięcie jednego elementu, a następnie z przyciśniętym palcem przeciągnąć go przez inne elementy do zaznaczenia. Trzeci sposób zaznaczania wielu elementów to długie naciśnięcie jednego elementu, a następnie długie naciśnięcie innego, żeby wszystko pomiędzy zostało zaznaczone. Jeśli chcesz zaznaczyć wszystkie elementy, naciśnij długo jeden element, a następnie naciśnij licznik wybranych elementów w lewym górnym rogu. To zaznaczy lub odznaczy wszystko.</string>
+    <string name="faq_10_title_commons">Zakupiłem aplikację, ale nie mogę jej pobrać na inne urządzenie.</string>
+    <string name="faq_10_text_commons">Spróbuj wyczyścić pamięć podręczną aplikacji Google Play i zrestartować urządzenie. Jest to jakaś usterka Google Play, nie do końca związana z samą aplikacją.</string>
+    <!-- Contributors -->
+    <string name="contributors">Współtwórcy</string>
+    <string name="translation">Tłumaczenie</string>
+    <string name="development">Rozwój</string>
+    <string name="other_help">Inna pomoc</string>
+    <string name="contributors_label">
+        <![CDATA[
+            Ta lista zawiera wszystkich, którzy zauważalnie pomogli przy którejkolwiek z prostych aplikacji od Simple Mobile Tools, nie tylko przy tej. Tłumaczeniami zajmują się wolontariusze;
+            daj nam znać, jeśli też chcesz pomóc. Instrukcja jak tłumaczyć znajduje się na <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">tej stronie</a>, albo po prostu skontaktuj się z nami pod adresem <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a>, jeśli masz jakiekolwiek pytania.
+            Dziękuję wszystkim współtwórcom i innym wspierającym!
+        ]]>
+    </string>
+    <string name="translation_arabic">arabski</string>
+    <string name="translation_azerbaijani">azerski</string>
+    <string name="translation_bengali">bengalski</string>
+    <string name="translation_breton">bretoński</string>
+    <string name="translation_bulgarian">bułgarski</string>
+    <string name="translation_catalan">kataloński</string>
+    <string name="translation_czech">czeski</string>
+    <string name="translation_welsh">walijski</string>
+    <string name="translation_danish">duński</string>
+    <string name="translation_english">angielski</string>
+    <string name="translation_german">niemiecki</string>
+    <string name="translation_greek">grecki</string>
+    <string name="translation_spanish">hiszpański</string>
+    <string name="translation_basque">baskijski</string>
+    <string name="translation_persian">perski</string>
+    <string name="translation_finnish">fiński</string>
+    <string name="translation_french">francuski</string>
+    <string name="translation_galician">galicyjski</string>
+    <string name="translation_hindi">hindi</string>
+    <string name="translation_croatian">chorwacki</string>
+    <string name="translation_hungarian">węgierski</string>
+    <string name="translation_indonesian">indonezyjski</string>
+    <string name="translation_italian">włoski</string>
+    <string name="translation_hebrew">hebrajski</string>
+    <string name="translation_japanese">japoński</string>
+    <string name="translation_korean">koreański</string>
+    <string name="translation_lithuanian">litewski</string>
+    <string name="translation_nepali">nepalski</string>
+    <string name="translation_norwegian">norweski</string>
+    <string name="translation_dutch">niderlandzki</string>
+    <string name="translation_polish">polski</string>
+    <string name="translation_portuguese">portugalski</string>
+    <string name="translation_romanian">rumuński</string>
+    <string name="translation_russian">rosyjski</string>
+    <string name="translation_slovak">słowacki</string>
+    <string name="translation_slovenian">słoweński</string>
+    <string name="translation_serbian">serbski</string>
+    <string name="translation_swedish">szwedzki</string>
+    <string name="translation_tamil">tamilski</string>
+    <string name="translation_turkish">turecki</string>
+    <string name="translation_ukrainian">ukraiński</string>
+    <string name="translation_vietnamese">wietnamski</string>
+    <string name="translation_chinese_hk">chiński (Hongkong)</string>
+    <string name="translation_chinese_cn">chiński (uproszczony)</string>
+    <string name="translation_chinese_tw">chiński (tradycyjny)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Pobierz wersję Pro już teraz!</string>
+    <string name="why_upgrade_basic_version">Podstawowa</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">Brak reklam</string>
+    <string name="why_upgrade_no_internet_access">Bez dostępu do Internetu</string>
+    <string name="why_upgrade_footer">100% gwarancja zwrotu pieniędzy</string>
+    <string name="why_upgrade_footer_one_time_payment">Jednorazowa płatność</string>
+    <string name="why_upgrade_improved_design">Udoskonalony wygląd</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Zaawansowany edytor zdjęć</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Zaawansowany edytor zdjęć i wideo</string>
+    <string name="why_upgrade_heic_support">Obsługa plików HEIC/HEIF</string>
+    <string name="why_upgrade_batch_renaming">Zaawansowana wsadowa zmiana nazw plików</string>
+    <string name="why_upgrade_folder_locking">Blokowanie poszczególnych folderów</string>
+    <string name="why_upgrade_printing_support">Obsługa drukowania</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Obsługa stref czasowych</string>
+    <string name="why_upgrade_attendees_emails">Uczestnicy i przypomnienia e-mail</string>
+    <string name="why_upgrade_easy_event_importing">Łatwe importowanie wydarzeń</string>
+    <string name="why_upgrade_new_widgets">Nowe widżety</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Ulepszone scalanie powielonych kontaktów</string>
+    <string name="why_upgrade_font_size_customization">Dostosowywanie rozmiaru czcionki</string>
+    <string name="why_upgrade_private_contact_sharing">Opcjonalne udostępnianie prywatnych kontaktów w naszych aplikacjach</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Konfigurowalne dzwonki kontaktów</string>
+    <string name="why_upgrade_contact_filtering">Filtrowanie kontaktów</string>
+    <string name="why_upgrade_contact_private_contacts">Kontakty przechowywane prywatnie</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Listy kontrolne</string>
+    <string name="why_upgrade_different_note_per_widget">Różne notatki i kolory w widżetach</string>
+    <string name="why_upgrade_note_locking">Blokowanie notatek</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Dostosowywanie formatu daty i godziny</string>
+    <string name="why_upgrade_shortcuts">Skróty ekranu głównego</string>
+    <string name="why_upgrade_file_compression">Obsługa kompresji plików</string>
+    <string name="why_upgrade_recents_tab">Karta z ostatnimi plikami</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Dostosowywanie koloru tła</string>
+    <string name="why_upgrade_file_importing">Obsługa importowania plików</string>
+    <string name="why_upgrade_zooming">Powiększanie</string>
+    <!-- License -->
+    <string name="notice">Aplikacja korzysta z następujących bibliotek innych firm, aby ułatwić mi życie. Dziękuję.</string>
+    <string name="third_party_licences">Licencje innych firm</string>
+    <string name="kotlin_title">Kotlin (język programowania)</string>
+    <string name="subsampling_title">Subsampling Scale Image View (przybliżanie obrazów)</string>
+    <string name="glide_title">Glide (ładowanie obrazów i ich przechowywanie w pamięci podręcznej)</string>
+    <string name="picasso_title">Picasso (ładowanie obrazów i ich przechowywanie w pamięci podręcznej)</string>
+    <string name="cropper_title">Android Image Cropper (kadrowanie i obracanie obrazów)</string>
+    <string name="rtl_viewpager_title">RtlViewPager (przeciąganie ekranu od prawej do lewej strony)</string>
+    <string name="joda_title">Joda-Time (zamiennik obsługi dat w Javie)</string>
+    <string name="stetho_title">Stetho (debugowanie baz danych)</string>
+    <string name="otto_title">Otto (szyna zdarzeń)</string>
+    <string name="photoview_title">PhotoView (przybliżanie GIF-ów)</string>
+    <string name="pattern_title">PatternLockView (ochrona danych wzorem)</string>
+    <string name="reprint_title">Reprint (ochrona danych odciskiem palca)</string>
+    <string name="gif_drawable_title">Gif Drawable (ładowanie GIF-ów)</string>
+    <string name="autofittextview_title">AutoFitTextView (zmiana rozmiaru tekstu)</string>
+    <string name="robolectric_title">Robolectric (testowanie aplikacji)</string>
+    <string name="espresso_title">Espresso (testowanie aplikacji)</string>
+    <string name="gson_title">Gson (parser JSON)</string>
+    <string name="leak_canary_title">Leak Canary (wykrywanie wycieków pamięci)</string>
+    <string name="number_picker_title">Number Picker (konfigurowalny selektor liczb)</string>
+    <string name="exoplayer_title">ExoPlayer (odtwarzacz wideo)</string>
+    <string name="panorama_view_title">VR Panorama View (wyświetlanie panoram)</string>
+    <string name="sanselan_title">Apache Sanselan (odczytywanie metadanych obrazów)</string>
+    <string name="filters_title">Android Photo Filters (filtry obrazów)</string>
+    <string name="gesture_views_title">Gesture Views (przybliżanie obrazów)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (litery na pasku przewijania)</string>
+    <string name="event_bus_title">Event Bus (komunikacja w aplikacji)</string>
+    <string name="audio_record_view_title">Audio Record View (wizualizacja audio)</string>
+    <string name="sms_mms_title">SMS MMS (obsługa SMS-ów i MMS-ów)</string>
+    <string name="apng_title">APNG Android (obsługa animowanych WebP)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (czytnik PDF)</string>
+    <string name="m3u_parser_title">M3U Parser (obsługa plików playlist M3U)</string>
+    <string name="android_lame_title">AndroidLame (koder MP3)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Okres próbny wygasł</string>
+    <string name="start_free_trial">Rozpocznij darmowy okres próbny</string>
+    <string name="trial_expires_soon">Twój okres próbny wkrótce wygaśnie.</string>
+    <string name="unlock_for_one_final_day">Odblokuj aplikację na jeszcze jeden dzień</string>
+    <string name="welcome_to_app_name">Witaj w %s!</string>
+    <string name="trial_start_description">Dziękujemy za korzystanie z naszej aplikacji. Możesz używać tej odblokowanej wersji przez <font color="#FFFFFF">%d dni</font>. Po zakończeniu okresu próbnego rozważ uaktualnienie do wersji Pro. Ma ona ogromną liczbę nowych funkcji, nowoczesny wygląd, brak reklam i wiele innych ulepszeń.
+\n
+\nWystarczy, że zapłacisz za nią tylko raz w życiu, a jeśli nie będziesz zadowolony(-a), możesz ją odinstalować i otrzymać zwrot pieniędzy.
+\n
+\nMamy nadzieję, że Ci się spodoba :)</string>
+    <string name="trial_end_description">Uaktualnij do wersji Pro, aby w pełni korzystać z aplikacji.
+\n
+\nWystarczy, że zapłacisz za nią tylko raz w życiu, a jeśli nie będziesz zadowolony(-a), możesz ją odinstalować i otrzymać zwrot pieniędzy.
+\n
+\nDo zobaczenia :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Twój okres próbny wygasa za %d dzień.</item>
+        <item quantity="few">Twój okres próbny wygasa za %d dni.</item>
+        <item quantity="many">Twój okres próbny wygasa za %d dni.</item>
+        <item quantity="other">Twój okres próbny wygasa za %d dni.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">PRZESTARZAŁA: Ta wersja aplikacji nie jest już utrzymywana. Pobierz wersję Pro z https://play.google.com/store/apps/details\?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Pamiętaj, że jeśli odinstalujesz którąkolwiek z płatnych aplikacji w ciągu 2 godzin, automatycznie otrzymasz zwrot pieniędzy. Jeśli chcesz zwrotu pieniędzy w dowolnym momencie później, wystarczy skontaktować się z nami na hello@simplemobiletools.com, a go otrzymasz. To sprawia, że aplikacje są łatwe do wypróbowania :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">Zestaw prostych, otwartoźródłowych aplikacji na Androida z konfigurowalnymi widżetami, bez reklam i zbędnych uprawnień.</string>
+</resources>

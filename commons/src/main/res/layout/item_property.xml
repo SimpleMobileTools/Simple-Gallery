@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/property_holder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/property_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:textSize="@dimen/normal_text_size"
+        android:alpha="0.6"
+        tools:text="@string/date_taken" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/property_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:textSize="@dimen/bigger_text_size"
+        tools:text="01.01.2021" />
+
+</LinearLayout>

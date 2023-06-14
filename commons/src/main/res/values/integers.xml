@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="default_sorting">1</integer>
+    <integer name="default_font_size">1</integer>
+    <integer name="default_viewpager_page">0</integer>
+</resources>

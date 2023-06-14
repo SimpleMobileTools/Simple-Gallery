@@ -1,0 +1,63 @@
+<resources>
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="tiny_margin">2dp</dimen>
+    <dimen name="small_margin">4dp</dimen>
+    <dimen name="smaller_margin">6dp</dimen>
+    <dimen name="medium_margin">8dp</dimen>
+    <dimen name="normal_margin">12dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="bigger_margin">20dp</dimen>
+    <dimen name="big_margin">24dp</dimen>
+    <dimen name="section_margin">32dp</dimen>
+    <dimen name="label_start_margin">72dp</dimen>
+    <dimen name="settings_label_start_margin">22dp</dimen>
+    <dimen name="min_radio_checkbox_height">44dp</dimen>
+
+    <dimen name="material_dialog_corner_radius">28dp</dimen>
+    <dimen name="material_button_corner_radius">24dp</dimen>
+    <dimen name="social_logo">40dp</dimen>
+    <dimen name="color_sample_size">34dp</dimen>
+    <dimen name="shortcut_size">64dp</dimen>
+    <dimen name="colorpicker_size">240dp</dimen>
+    <dimen name="colorpicker_size_with_padding">272dp</dimen>
+    <dimen name="colorpicker_hue_width">30dp</dimen>
+    <dimen name="colorpicker_items_height">30dp</dimen>
+    <dimen name="colorpicker_color_width">70dp</dimen>
+
+    <dimen name="normal_icon_size">48dp</dimen>
+    <dimen name="fingerprint_icon_size">72dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="secondary_fab_bottom_margin">76dp</dimen>
+    <dimen name="file_picker_icon_size">54dp</dimen>
+    <dimen name="list_avatar_size">40dp</dimen>
+    <dimen name="min_row_height">60dp</dimen>
+    <dimen name="top_shadow_height">100dp</dimen>
+    <dimen name="rounded_corner_radius_small">4dp</dimen>
+    <dimen name="rounded_corner_radius_big">10dp</dimen>
+    <dimen name="bottom_sheet_corner_radius">24dp</dimen>
+    <dimen name="breadcrumbs_layout_height">48dp</dimen>
+    <dimen name="simple_list_item_height">56dp</dimen>
+
+    <dimen name="dragselect_hotspot_height">56dp</dimen>
+    <dimen name="selection_check_size">26dp</dimen>
+    <dimen name="widget_colorpicker_size">50dp</dimen>
+    <dimen name="line_color_picker_height">80dp</dimen>
+    <dimen name="line_color_picker_margin">10dp</dimen>
+    <dimen name="line_color_picker_app_icon_size">64dp</dimen>
+
+    <dimen name="tiny_text_size">8sp</dimen>
+    <dimen name="small_text_size">10sp</dimen>
+    <dimen name="smaller_text_size">12sp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="medium_text_size">15sp</dimen>
+    <dimen name="bigger_text_size">16sp</dimen>
+    <dimen name="middle_text_size">17sp</dimen>
+    <dimen name="big_text_size">18sp</dimen>
+    <dimen name="actionbar_text_size">21sp</dimen>
+    <dimen name="extra_big_text_size">22sp</dimen>
+
+    <dimen name="cab_popup_menu_min_width">168dp</dimen>
+    <dimen name="cab_item_min_width">85dp</dimen>
+    <dimen name="popup_menu_elevation">4dp</dimen>
+    <dimen name="divider_height">2px</dimen>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_margin">
+
+    <ImageView
+        android:id="@+id/call_confirm_phone"
+        android:layout_width="@dimen/fingerprint_icon_size"
+        android:layout_height="@dimen/fingerprint_icon_size"
+        android:layout_centerInParent="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
+        android:src="@drawable/ic_phone_vector" />
+
+</RelativeLayout>

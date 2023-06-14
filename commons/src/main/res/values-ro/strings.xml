@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">OK</string>
+    <string name="cancel">Anulează</string>
+    <string name="back">Back</string>
+    <string name="nothing">Nimic</string>
+    <string name="later">Mai târziu</string>
+    <string name="save_as">Salvează ca</string>
+    <string name="file_saved">Fişier salvat cu succes</string>
+    <string name="invalid_file_format">Format de fişier invalid</string>
+    <string name="out_of_memory_error">Eroare de lipsă de memorie</string>
+    <string name="an_error_occurred">S-a produs o eroare: %s</string>
+    <string name="error">Eroare: %s</string>
+    <string name="open_with">Deschide cu</string>
+    <string name="edit_with">Editează cu</string>
+    <string name="edit">Editaţi</string>
+    <string name="no_app_found">Nu s-a găsit nicio aplicaţie validă</string>
+    <string name="no_browser_found">Nici un browser găsit</string>
+    <string name="no_email_client_found">Niciun client de e-mail găsit</string>
+    <string name="set_as">Setează ca</string>
+    <string name="copy_to_clipboard">Copiază în clipboard</string>
+    <string name="copy_number_to_clipboard">Copiază numărul în clipboard</string>
+    <string name="value_copied_to_clipboard">Valoare copiată în clipboard</string>
+    <string name="value_copied_to_clipboard_show">Valoare copiată în clipboard:\n%s</string>
+    <string name="dial_number">Formați numărul</string>
+    <string name="unknown">Necunoscut</string>
+    <string name="always">Întotdeauna</string>
+    <string name="never">Niciodată</string>
+    <string name="details">Detalii</string>
+    <string name="notes">Note</string>
+    <string name="deleting_folder">Şterge folderul \'%s\'</string>
+    <string name="none">Niciunul</string>
+    <string name="label">Etichetă</string>
+    <string name="transparent">Transparent</string>
+    <string name="transparent_color">Culoare transparentă</string>
+    <string name="select_a_different_color">Selectează o culoare diferită</string>
+    <string name="download">Descarcă</string>
+    <string name="notification">Notificare</string>
+    <string name="notifications">Notificări</string>
+    <string name="email">E-mail</string>
+    <string name="previous">Precedent</string>
+    <string name="playpause">Redare / Pauză</string>
+    <string name="next">Următor</string>
+    <string name="number">Număr</string>
+    <string name="no_contacts_found">Niciun contact găsit</string>
+    <string name="request_the_required_permissions">Solicită permisiunile necesare</string>
+    <string name="no_access_to_contacts">Aplicaţia nu a putut accesa contactele dumneavoastră</string>
+    <string name="no_phone_call_permission">Aplicația nu are permisiunea de a iniția apeluri telefonice, vă rugăm să o acordați în setările dispozitivului</string>
+    <string name="insert_text_here">Introduceţi textul aici</string>
+    <string name="call_person">Sună pe %s</string>
+    <string name="confirm_calling_person">Confirm calling %s</string>
+    <string name="zero">Zero</string>
+    <string name="one">Unu</string>
+    <string name="two">Doi</string>
+    <string name="three">Trei</string>
+    <string name="four">Patru</string>
+    <string name="five">Cinci</string>
+    <string name="six">Șase</string>
+    <string name="seven">Șapte</string>
+    <string name="eight">Opt</string>
+    <string name="nine">Nouă</string>
+    <string name="value">Valoare</string>
+    <string name="value_cannot_be_empty">Valoarea nu poate fi goală</string>
+    <string name="create_new_contact">Creați un nou contact</string>
+    <string name="add_to_existing_contact">Adăugaţi la un contact existent</string>
+    <string name="app_corrupt">Aplicație coruptă</string>
+    <string name="disclaimer">Declinarea responsabilității</string>
+    <string name="take_photo">Faceți o fotografie</string>
+    <string name="choose_photo">Alegeți o fotografie</string>
+    <string name="choose_video">Choose video</string>
+    <string name="choose_contact">Choose contact</string>
+    <string name="choose_file">Choose file</string>
+    <string name="record_audio">Record audio</string>
+    <string name="record_video">Record video</string>
+    <string name="updating">Actualizare…</string>
+    <string name="phone_storage">Stocarea telefonului</string>
+    <string name="phone_storage_hidden">Stocarea telefonului (nu este vizibilă de către alte aplicații)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">Ziua de naștere</string>
+    <string name="anniversary">Aniversare</string>
+    <!-- Emails -->
+    <string name="home">Acasă</string>
+    <string name="work">Muncă</string>
+    <!-- Phone numbers -->
+    <string name="mobile">Mobil</string>
+    <string name="main_number">Principal</string>
+    <string name="work_fax">Fax de muncă</string>
+    <string name="home_fax">Fax de acasă</string>
+    <string name="pager">Pager</string>
+    <string name="no_phone_number_found">Nu a fost găsit niciun număr de telefon</string>
+    <!-- View types -->
+    <string name="change_view_type">Schimbaţi tipul de vizualizare</string>
+    <string name="grid">Grilă</string>
+    <string name="grid_pro">Grilă (Pro)</string>
+    <string name="uneven_grid">Grilă neuniformă</string>
+    <string name="list">Listă</string>
+    <string name="increase_column_count">Creşte numărul de coloane</string>
+    <string name="reduce_column_count">Reduce numărul de coloane</string>
+    <string name="column_count">Număr de coloane</string>
+    <string name="portrait_column_count">Număr de coloane în mod portret</string>
+    <string name="landscape_column_count">Număr de coloane în mod peisaj</string>
+    <string name="change_cover_image">Schimbă imaginea de copertă</string>
+    <string name="select_photo">Selectaţi fotografia</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d column</item>
+        <item quantity="other">%d columns</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">Gestionaţi numerele blocate</string>
+    <string name="not_blocking_anyone">Nu blochezi pe nimeni.</string>
+    <string name="add_a_blocked_number">Adăugaţi un număr blocat</string>
+    <string name="block_number">Blochează numărul</string>
+    <string name="block_numbers">Blochează numerele</string>
+    <string name="blocked_numbers">Numere blocate</string>
+    <string name="export_blocked_numbers">Exportă numerele blocate</string>
+    <string name="import_blocked_numbers">Importă numerele blocate</string>
+    <string name="must_make_default_dialer">Trebuie să setaţi aceasta aplicaţie ca aplicaţie implicită de apelare pentru a putea beneficia de funcţia de blocare de numere.</string>
+    <string name="set_as_default">Setează ca implicit</string>
+    <string name="block_confirmation">Eşti sigur că vrei să îl/o blochezi pe \"%s\"\?</string>
+    <string name="block_unknown_calls">Blocați apelurile de la contacte care nu sunt stocate</string>
+    <string name="block_unknown_messages">Blocați mesajele de la contactele care nu sunt stocate</string>
+    <string name="add_blocked_number_helper_text">Introduceți un număr sau un model (de exemplu, *12345*, +1*8888) pentru a bloca toate apelurile și mesajele de la numere care corespund modelului.</string>
+    <string name="must_make_default_caller_id_app">Can\'t block unknown numbers without caller ID permission.</string>
+    <!-- Favorites -->
+    <string name="favorites">Favorite</string>
+    <string name="add_favorites">Adaugă favorite</string>
+    <string name="add_to_favorites">Adaugă la favorite</string>
+    <string name="remove_from_favorites">Elimină din favorite</string>
+    <!-- Search -->
+    <string name="search">Căutare</string>
+    <string name="search_in_placeholder">Search in %s</string>
+    <string name="type_2_characters">Introduceţi cel puţin 2 caractere pentru a începe căutarea.</string>
+    <string name="search_contacts">Search contacts</string>
+    <string name="search_favorites">Search favorites</string>
+    <string name="search_apps">Search apps</string>
+    <string name="search_events">Search events</string>
+    <string name="search_groups">Search groups</string>
+    <string name="search_history">Search history</string>
+    <string name="search_calls">Search calls</string>
+    <string name="search_files">Search files</string>
+    <string name="search_folders">Search folders</string>
+    <string name="search_files_and_folders">Search files and folders</string>
+    <string name="search_playlists">Search playlists</string>
+    <string name="search_artists">Search artists</string>
+    <string name="search_albums">Search albums</string>
+    <string name="search_tracks">Search tracks</string>
+    <string name="search_text">Search text</string>
+    <string name="search_conversations">Search conversations</string>
+    <string name="search_recordings">Search recordings</string>
+    <!-- Filters -->
+    <string name="filter">Filtru</string>
+    <string name="filter_pro">Filtru (Pro)</string>
+    <string name="no_items_found">Nu s-a găsit niciun element.</string>
+    <string name="change_filter">Schimbaţi filtrul</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">Este necesară permisiunea la stocare</string>
+    <string name="no_contacts_permission">Este necesară permisiunea la contacte</string>
+    <string name="no_camera_permissions">Este necesară permisiunea la cameră</string>
+    <string name="no_audio_permissions">Este necesară permisiunea la audio</string>
+    <string name="no_permission">No permission</string>
+    <string name="allow_notifications_reminders">You must allow the app displaying notifications, else it cannot show reminders.</string>
+    <string name="allow_notifications_files">You must allow the app displaying notifications, else it cannot show the progress bar.</string>
+    <string name="allow_notifications_music_player">You must allow the app displaying notifications, else it cannot play songs.</string>
+    <string name="allow_notifications_voice_recorder">You must allow the app displaying notifications, else it cannot record audio.</string>
+    <string name="allow_notifications_incoming_calls">You must allow the app displaying notifications, else it cannot show incoming calls.</string>
+    <string name="allow_notifications_incoming_messages">You must allow the app displaying notifications, else it cannot show incoming messages.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_required">Permission Required</string>
+    <!-- Renaming -->
+    <string name="rename_file">Redenumire fişierul</string>
+    <string name="rename_folder">Redenumire dosar</string>
+    <string name="rename_file_error">Nu s-a putut redenumi fişierul</string>
+    <string name="rename_folder_error">Nu s-a putut redenumi dosarul</string>
+    <string name="rename_folder_empty">Numele dosarului nu trebuie să fie gol</string>
+    <string name="rename_folder_exists">Există deja un dosar cu acest nume</string>
+    <string name="rename_folder_root">Nu se poate redenumi dosarul rădăcină al spaţiului de stocare</string>
+    <string name="rename_folder_ok">Dosar redenumit cu succes</string>
+    <string name="renaming_folder">Redenumire dosar</string>
+    <string name="filename_cannot_be_empty">Numele fişierului nu poate fi gol</string>
+    <string name="filename_invalid_characters">Numele fişierului conţine caractere invalide</string>
+    <string name="filename_invalid_characters_placeholder">Numele fişierului \'%s\' conţine caractere invalide</string>
+    <string name="extension_cannot_be_empty">Extensia nu poate fi goală</string>
+    <string name="source_file_doesnt_exist">Fişierul sursă %s nu există</string>
+    <string name="prepend_filenames">Adaugă înainte de numele fişierelor</string>
+    <string name="append_filenames">Adaugă după finalul numelor fişierelor</string>
+    <string name="simple_renaming">Redenumire simplă</string>
+    <string name="pattern_renaming">Model</string>
+    <string name="string_to_add">Şir de caractere de adăugat</string>
+    <string name="rename_date_time_pattern">%Y - an\n%M - lună\n%D - zi\n%h - oră\n%m - minut\n%s - secondă\n%i - numărul crescând de la 1</string>
+    <string name="filename_without_txt">Numele fişierului (fără .txt)</string>
+    <string name="filename_without_json">Numele fişierului (fără .json)</string>
+    <string name="filename_without_zip">Numele fişierului (fără .zip)</string>
+    <string name="cannot_hide_files">Începând cu Android 11 nu mai poți ascunde fișiere și dosare astfel</string>
+    <!-- Copy / Move -->
+    <string name="copy">Copiază</string>
+    <string name="move">Mută</string>
+    <string name="copy_move">Copiază / Mută</string>
+    <string name="copy_to">Copiază la</string>
+    <string name="move_to">Mută la</string>
+    <string name="source">Sursă</string>
+    <string name="destination">Destinaţie</string>
+    <string name="select_destination">Selectează destinaţia</string>
+    <string name="click_select_destination">Faceţi clic aici pentru a selecta destinaţia</string>
+    <string name="invalid_destination">Nu s-a putut scrie la destinaţia selectată</string>
+    <string name="please_select_destination">Selectaţi o destinaţie</string>
+    <string name="source_and_destination_same">Sursa şi destinaţia nu pot fi identice</string>
+    <string name="copy_failed">Nu s-au putut copia fișierele</string>
+    <string name="copying">Copiere…</string>
+    <string name="copying_success">Fişiere copiate cu succes</string>
+    <string name="copying_success_one">Fişier copiat cu succes</string>
+    <string name="copy_move_failed">S-a produs o eroare</string>
+    <string name="moving">Mutare…</string>
+    <string name="moving_success">Fișiere mutate cu succes</string>
+    <string name="moving_success_one">Fișier mutat cu succes</string>
+    <string name="moving_success_partial">Unele fișiere nu au putut fi mutate</string>
+    <string name="copying_success_partial">Unele fișiere nu au putut fi copiate</string>
+    <string name="no_files_selected">Niciun fişier selectat</string>
+    <string name="saving">Salvare…</string>
+    <string name="could_not_create_folder">Nu s-a putut crea dosarul %s</string>
+    <string name="could_not_create_file">Nu s-a putut crea fişierul %s</string>
+    <string name="no_new_items">Nu au fost găsite elemente noi</string>
+    <string name="no_space">Destinaţia nu are suficient spaţiu disponibil.\nNecesar %1$s, disponibil %2$s</string>
+    <string name="system_service_disabled">Serviciul de sistem pentru selectarea fișierelor și dosarelor nu este disponibil</string>
+    <!-- Create new -->
+    <string name="create_new">Crează nou</string>
+    <string name="folder">Dosar</string>
+    <string name="file">Fişier</string>
+    <string name="create_new_folder">Crează un dosar nou</string>
+    <string name="name_taken">Există deja un fişier sau un dosar cu acest nume</string>
+    <string name="invalid_name">Numele conţine caractere invalide</string>
+    <string name="empty_name">Introduceţi un nume</string>
+    <string name="unknown_error_occurred">A apărut o eroare necunoscută</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">Fişierul \"%s\" există deja</string>
+    <string name="file_already_exists_overwrite">Fişierul\"%s\" există deja. Suprascrieți?</string>
+    <string name="folder_already_exists">Dosarul \"%s\" există deja</string>
+    <string name="merge">Combină</string>
+    <string name="keep_both">Păstrează ambele</string>
+    <string name="overwrite">Suprascrieți</string>
+    <string name="skip">Sari peste</string>
+    <string name="append">Adăugaţi cu \'_1\'</string>
+    <string name="apply_to_all">Se aplică tuturor</string>
+    <string name="system_folder_restriction">Sistemul nu permite operarea în acest dosar, vă rugăm să alegeți un alt dosar</string>
+    <string name="system_folder_copy_restriction">Sistemul nu permite copierea în acest dosar, vă rugăm să alegeți un alt dosar</string>
+    <string name="rename_in_sd_card_system_restriction">Sistemul nu permite redenumirea în acest dosar</string>
+    <string name="rename_internal_system_restriction">Nu se pot redenumi dosarele directe de pe memoria internă, ci doar subdosarele</string>
+    <string name="cannot_rename_folder">Nu se poate redenumi acest dosar</string>
+    <!-- File picker -->
+    <string name="select_folder">Selectaţi un dosar</string>
+    <string name="select_file">Selectaţi un dosar</string>
+    <string name="confirm_storage_access_title">Confirmaţi accesul la memoria externă</string>
+    <string name="confirm_folder_access_title">Confirmați accesul la dosar</string>
+    <string name="confirm_storage_access_text">Vă rugăm să alegeţi dosarul rădăcină a cardului SD în ecranul următor, pentru a acorda acces la scriere</string>
+    <string name="confirm_storage_access_text_sd">Dacă nu vedeţi cardul SD, încercaţi următoarele</string>
+    <string name="confirm_storage_access_android_text">Vă rugăm să permiteți aplicației să acceseze spațiul de stocare selectat în ecranul următor, apăsând \'Utilizați acest dosar\' în partea de jos.</string>
+    <string name="confirm_storage_access_android_text_specific">Vă rugăm să permiteţi accesul la \'<b>%s</b>\' pe următorul ecran prin apăsarea butonului \'<b>Folosiţi acest dosar</b>\' aflat în partea de jos a ecranului.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Vă rugăm să apăsați \' <b>Salvare</b>\' în partea de jos a ecranului următor pentru a crea noul dosar.</string>
+    <string name="confirm_selection">Confirmă selectarea</string>
+    <string name="loading">Încărcare…</string>
+    <string name="access_storage_prompt">Vă rugăm să acordați aplicației noastre acces la toate fișierele dvs., deoarece s-ar putea să nu funcționeze bine fără acest lucru.</string>
+    <plurals name="items">
+        <item quantity="one">%d articol</item>
+        <item quantity="few">%d articole</item>
+        <item quantity="other">%d articole</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="one">%d articol</item>
+        <item quantity="few">%d articole</item>
+        <item quantity="other">%d articole</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="one">Ştergere %d articol</item>
+        <item quantity="few">Ştergere %d articole</item>
+        <item quantity="other">Ştergere %d articole</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">%d contact</item>
+        <item quantity="few">%d contacte</item>
+        <item quantity="other">%d contacte</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">Selectați spațiul de stocare</string>
+    <string name="storage">Stocare</string>
+    <string name="internal">Intern</string>
+    <string name="sd_card">Card SD</string>
+    <string name="root">Rădăcină</string>
+    <string name="wrong_root_selected">Dosarul selectat este greșit, vă rugăm să selectați dosarul principal al cardului SD</string>
+    <string name="sd_card_usb_same">Căile cardului SD și ale dispozitivului USB nu pot fi aceleași</string>
+    <string name="app_on_sd_card">Se pare că aplicația este instalată pe un card SD, ceea ce face ca widgeturile aplicației să nu fie disponibile. Nu le veți vedea nici măcar în lista de widgeturi disponibile.
+        Este o limitare a sistemului, așa că, dacă doriți să folosiți widgeturile, trebuie să mutați aplicația înapoi în memoria internă.</string>
+    <string name="wrong_folder_selected">A fost selectat un dosar greșit, vă rugăm să selectați calea \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">Proprietăţi</string>
+    <string name="path">Calea de acces</string>
+    <string name="items_selected">Articole selectate</string>
+    <string name="direct_children_count">Numărătoarea copiilor direcţi</string>
+    <string name="files_count">Numărul total de fișiere</string>
+    <string name="resolution">Rezoluţie</string>
+    <string name="duration">Durată</string>
+    <string name="artist">Artist</string>
+    <string name="album">Album</string>
+    <string name="focal_length">Distanță focală</string>
+    <string name="exposure_time">Timp de expunere</string>
+    <string name="iso_speed">viteza ISO</string>
+    <string name="f_number">numărul F</string>
+    <string name="camera">Cameră</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">Titlu melodie</string>
+    <string name="gps_coordinates">coordonate GPS</string>
+    <string name="altitude">Altitudine</string>
+    <string name="remove_exif">Eliminați EXIF</string>
+    <string name="remove_exif_confirmation">Sunteți sigur că doriți să eliminați valorile EXIF, cum ar fi coordonatele GPS, modelul camerei etc.\?</string>
+    <string name="exif_removed">Valorile EXIF au fost eliminate cu succes</string>
+    <!-- Color customization -->
+    <string name="background_color">Culoare de fundal</string>
+    <string name="text_color">Culoarea textului</string>
+    <string name="primary_color">Culoarea primară</string>
+    <string name="accent_color_white">Accentul de culoare al temei albe</string>
+    <string name="accent_color_black_and_white">Accentul de culoare pentru tema Negru şi Alb</string>
+    <string name="foreground_color">Culoare de prim-plan</string>
+    <string name="app_icon_color">Culoarea pictogramei aplicației</string>
+    <string name="bottom_navigation_bar_color">Culoarea barei de navigare de jos</string>
+    <string name="restore_defaults">Restaurați valorile implicite</string>
+    <string name="use_default">Utilizați valorile implicite</string>
+    <string name="default_color">Implicit</string>
+    <string name="change_color">Schimbă culoarea</string>
+    <string name="theme">Temă</string>
+    <string name="changing_color_description">Schimbarea unei culori va face ca aceasta să devină o tema personalizată</string>
+    <string name="save">Salvaţi</string>
+    <string name="discard">Renunţă</string>
+    <string name="undo_changes">Anulează modificările</string>
+    <string name="undo_changes_confirmation">Sunteți sigur că vreţi să anulați modificările?</string>
+    <string name="cannot_be_undone">This action cannot be undone.</string>
+    <string name="save_before_closing">Aveți modificări nesalvate. Salvați înainte de a ieși?</string>
+    <string name="apply_to_all_apps">Aplicaţi culorile pentru toate aplicaţiile Simple Apps</string>
+    <string name="app_icon_color_warning">AVERTISMENT: Unele lansatoare nu gestionează corect personalizarea pictogramelor aplicațiilor. În cazul în care pictograma va dispărea, încercați să lansați aplicația prin Google Play sau prin intermediul unui widget, dacă este posibil. Odată lansată, pur şi simplu setaţi din nou culoarea pictogramei portocalie #F57C00. În cel mai rău caz s-ar putea să fie nevoie să reinstalaţi aplicatia.</string>
+    <string name="share_colors_success">Culorile au fost actualizate cu succes. A fost adăugată o nouă temă numită \'Partajată\', vă rugăm să o folosiți pentru actualizarea tuturor culorilor aplicației în viitor.</string>
+    <string name="shared_theme_note">Rețineți că, chiar dacă utilizați versiunea Pro a aplicației, aveți nevoie de Simple Thank You din motive tehnice. Acesta se ocupă de sincronizarea culorilor.</string>
+    <string name="purchase_thank_you">
+        <![CDATA[
+            Vă rugăm cumpăraţi <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a> pentru a debloca această funcţie şi pentru a sprijini dezvoltatorii. Vă mulţumim!
+        ]]>
+    </string>
+    <!-- Themes -->
+    <string name="light_theme">Luminoasă</string>
+    <string name="dark_theme">Întunecată</string>
+    <string name="auto_theme">Automatic</string>
+    <string name="auto_light_dark_theme">Schimbare automată a modului luminos / întunecat</string>
+    <string name="solarized">Solarizat</string>
+    <string name="dark_red">Roşu închis</string>
+    <string name="white">Alb</string>
+    <string name="black_white">Negru &amp; Alb</string>
+    <string name="custom">Personalizată</string>
+    <string name="shared">Partajată</string>
+    <string name="system_default">Sistem implicit</string>
+    <!-- What's new -->
+    <string name="whats_new">Ce este nou</string>
+    <string name="whats_new_disclaimer">* aici sunt listate doar actualizările majore, dar întotdeauna există şi unele îmbunătăţiri mai mici</string>
+    <!-- Actionbar items -->
+    <string name="delete">Şterge</string>
+    <string name="remove">Elimină</string>
+    <string name="rename">Redenumeşte</string>
+    <string name="share">Distribuie</string>
+    <string name="share_via">Distribuie prin</string>
+    <string name="resize">Redimensionați</string>
+    <string name="select_all">Selectați tot</string>
+    <string name="select_text">Selectați textul</string>
+    <string name="hide">Ascundeți</string>
+    <string name="unhide">Dezvăluiți</string>
+    <string name="hide_folder">Ascundeţi dosarul</string>
+    <string name="unhide_folder">Dezvăluiți dosarul</string>
+    <string name="temporarily_show_hidden">Afişează temporar elementele ascunse</string>
+    <string name="stop_showing_hidden">Opreşte afişarea elementelor ascunse</string>
+    <string name="maximum_share_reached">Nu puteți distribui atât de mult conținut deodată</string>
+    <string name="empty_and_disable_recycle_bin">Goleşte și dezactivează coșul de reciclare</string>
+    <string name="undo">Anulaţi</string>
+    <string name="redo">Reveniţi</string>
+    <string name="print">Printează</string>
+    <string name="print_pro">Printează (Pro)</string>
+    <string name="shortcut">Scurtătură</string>
+    <string name="create_shortcut">Creați o scurtătură</string>
+    <string name="create_shortcut_pro">Creați o scurtătură (Pro)</string>
+    <string name="add_number_to_contact">Adăugați numărul la contact</string>
+    <string name="view_contact_details">Vezi detalii de contact</string>
+    <string name="call_from_sim_1">Apelaţi folosind SIM 1</string>
+    <string name="call_from_sim_2">Apelaţi folosind SIM 2</string>
+    <string name="toggle_filename">Comutaţi vizibilitatea numelui de fișier</string>
+    <string name="move_to_top">Mutaţi în partea de sus</string>
+    <string name="move_to_bottom">Mutaţi în partea de jos</string>
+    <string name="pin_item">Fixează elementul</string>
+    <string name="unpin_item">Anulează fixarea unui element</string>
+    <string name="send_sms">Trimiteți SMS</string>
+    <string name="send_email">Trimiteți e-mail</string>
+    <string name="call">Sunați</string>
+    <string name="contact_details">Detaliile de contact</string>
+    <string name="add_contact">Adaugă contact</string>
+    <string name="wallpapers">Wallpapers</string>
+    <!-- Sorting -->
+    <string name="sort_by">Sortează după</string>
+    <string name="name">Nume</string>
+    <string name="size">Dimensiune</string>
+    <string name="last_modified">Ultima modificare</string>
+    <string name="date_created">Data creării</string>
+    <string name="date_taken">Data realizării</string>
+    <string name="title">Titlu</string>
+    <string name="filename">Nume de fişier</string>
+    <string name="extension">Extensie</string>
+    <string name="random">Aleatoriu</string>
+    <string name="sort_randomly">Sortează aleatoriu</string>
+    <string name="ascending">Ascendent</string>
+    <string name="descending">Descendent</string>
+    <string name="use_for_this_folder">A se utiliza numai pentru acest dosar</string>
+    <string name="sort_numeric_parts">Sortează părțile numerice după valoarea reală</string>
+    <string name="first_name">Prenume</string>
+    <string name="middle_name">Numele mijlociu</string>
+    <string name="surname">Numele de familie</string>
+    <string name="full_name">Numele complet</string>
+    <string name="use_custom_sorting">Utilizați o sortare personalizată</string>
+    <string name="change_order">Ordin de modificare</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Sunteți sigur că doriți să continuaţi cu ștergerea?</string>
+    <string name="deletion_confirmation">Ești sigur că vrei să ștergi %s\?</string>
+    <string name="deletion_confirmation_short">Delete %s?</string>
+    <!-- Are you sure you want to delete 5 items? -->
+    <string name="move_to_recycle_bin_confirmation">Eşti sigur că vrei să muţi %s în coșul de reciclare?</string>
+    <!-- Are you sure you want to move 3 items into the Recycle Bin? -->
+    <string name="are_you_sure_delete">Sunteți sigur că doriți să ștergeți acest element?</string>
+    <string name="are_you_sure_recycle_bin">Sunteți sigur că doriți să mutați acest element în coșul de reciclare?</string>
+    <string name="do_not_ask_again">Nu întreba din nou în această sesiune</string>
+    <string name="do_not_show_again">Nu întreba din nou</string>
+    <string name="yes">Da</string>
+    <string name="no">Nu</string>
+    <string name="maybe">Poate</string>
+    <plurals name="delete_warning">
+        <item quantity="one">AVERTISMENT: Ștergeți dosarul %d</item>
+        <item quantity="few">AVERTISMENT: Ștergeți %d dosare</item>
+        <item quantity="other">AVERTISMENT: Ștergeți %d dosare</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="enter_pin">Introduceţi PIN-ul</string>
+    <string name="please_enter_pin">Vă rugăm introduceți un PIN</string>
+    <string name="wrong_pin">PIN Greşit</string>
+    <string name="repeat_pin">Repetaţi PIN-ul</string>
+    <string name="pattern">Model</string>
+    <string name="insert_pattern">Introduceți modelul</string>
+    <string name="wrong_pattern">Modelul greşit</string>
+    <string name="repeat_pattern">Repetaţi modelul</string>
+    <string name="biometrics">Biometrice</string>
+    <string name="fingerprint">Amprentă digitală</string>
+    <string name="add_fingerprint">Adaugă amprentă digitală</string>
+    <string name="place_finger">Vă rugăm să plasați degetul pe senzorul de amprentă digitală</string>
+    <string name="open_biometric_dialog">Deschideți dialogul de verificare a identificării biometrice</string>
+    <string name="authenticate">Autentificare</string>
+    <string name="authentication_failed">Autentificare eșuată</string>
+    <string name="authentication_blocked">Autentificare blocată, vă rugăm să încercați din nou într-un moment</string>
+    <string name="no_fingerprints_registered">Nu aveți nicio amprentă digitală înregistrată, vă rugăm să adăugați câteva în setările dispozitivului dumneavoastră</string>
+    <string name="go_to_settings">Mergeți la Setări</string>
+    <string name="protection_setup_successfully">Configurarea parolei a fost efectuată cu succes. Vă rugăm să reinstalați aplicația în cazul în care o uitați.</string>
+    <string name="fingerprint_setup_successfully">Configurarea protecției a fost efectuată cu succes. Vă rugăm să reinstalați aplicația în cazul în care aveți probleme cu resetarea acesteia.</string>
+    <string name="lock_folder">Blocare dosar</string>
+    <string name="lock_folder_pro">Blocare dosar (Pro)</string>
+    <string name="unlock_folder">Deblocare dosar</string>
+    <string name="lock_folder_notice">Această protecție funcționează doar în această aplicație, ea nu ar trebui să înlocuiască o criptare reală a dosarelor la nivel de sistem.</string>
+    <!-- Times -->
+    <string name="yesterday">Ieri</string>
+    <string name="today">Astăzi</string>
+    <string name="tomorrow">Mâine</string>
+    <string name="every_day">În fiecare zi</string>
+    <string name="hide_year">Ascunde anul</string>
+    <string name="seconds_raw">secunde</string>
+    <string name="minutes_raw">minute</string>
+    <string name="hours_raw">ore</string>
+    <string name="days_raw">zile</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="one">%d secundă</item>
+        <item quantity="few">%d secunde</item>
+        <item quantity="other">%d secunde</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">%d săptămână</item>
+        <item quantity="few">%d săptămâni</item>
+        <item quantity="other">%d săptămâni</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">%d lună</item>
+        <item quantity="few">%d luni</item>
+        <item quantity="other">%d luni</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="one">%d an</item>
+        <item quantity="few">%d ani</item>
+        <item quantity="other">%d ani</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="one">%d secundă</item>
+        <item quantity="few">%d secunde</item>
+        <item quantity="other">%d secunde</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="one">%d săptămână</item>
+        <item quantity="few">%d săptămâni</item>
+        <item quantity="other">%d săptămâni</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="one">%d lună</item>
+        <item quantity="few">%d luni</item>
+        <item quantity="other">%d luni</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="one">%d an</item>
+        <item quantity="few">%d ani</item>
+        <item quantity="other">%d ani</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="one">%d secundă înainte</item>
+        <item quantity="few">%d secunde înainte</item>
+        <item quantity="other">%d secunde înainte</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="one">%d minut înainte</item>
+        <item quantity="few">%d minute înainte</item>
+        <item quantity="other">%d minute înainte</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="one">%d oră înainte</item>
+        <item quantity="few">%d ore înainte</item>
+        <item quantity="other">%d ore înainte</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="one">%d zi înainte</item>
+        <item quantity="few">%d zile înainte</item>
+        <item quantity="other">%d zile înainte</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="one">%d săptămână înainte</item>
+        <item quantity="few">%d săptămâni înainte</item>
+        <item quantity="other">%d săptămâni înainte</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="one">%d lună înainte</item>
+        <item quantity="few">%d luni înainte</item>
+        <item quantity="other">%d luni înainte</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="one">%d an înainte</item>
+        <item quantity="few">%d ani înainte</item>
+        <item quantity="other">%d ani înainte</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="one">%d secundă</item>
+        <item quantity="few">%d secunde</item>
+        <item quantity="other">%d secunde</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="one">%d săptămână</item>
+        <item quantity="few">%d săptămâni</item>
+        <item quantity="other">%d săptămâni</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="one">%d lună</item>
+        <item quantity="few">%d luni</item>
+        <item quantity="other">%d luni</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="one">%d an</item>
+        <item quantity="few">%d ani</item>
+        <item quantity="other">%d ani</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Timpul rămas până la declanșarea alarmei:\n%s</string>
+    <string name="reminder_triggers_in">Timpul rămas până la declanșarea atenționării:\n%s</string>
+    <string name="time_remaining">Timp rămas:
+\n%s</string>
+    <string name="alarm_warning">Vă rugăm să vă asigurați că alarma funcționează corespunzător înainte de a vă baza pe ea. S-ar putea să se comporte necorespunzător din cauza restricțiilor de sistem legate de economisirea bateriei.</string>
+    <string name="reminder_warning">Vă rugăm să vă asigurați că memento-urile funcționează corect înainte de a vă baza pe ele. Verificați setările bateriei dispozitivului, precum și setările de notificare. Unele telefoane au funcţii care pot bloca memento-urile sau pot să elimine procesul de fundal al aplicaţiei.</string>
+    <string name="notifications_disabled">Notificările privind această aplicație sunt dezactivate. Vă rugăm să accesați setările dispozitivului pentru a le activa.</string>
+    <!-- Alarms -->
+    <string name="alarm">Alarmă</string>
+    <string name="snooze">Amânăţi</string>
+    <string name="dismiss">Opriți</string>
+    <string name="no_reminder">Nici un memento</string>
+    <string name="at_start">La început</string>
+    <string name="system_sounds">Sunete de sistem</string>
+    <string name="your_sounds">Sunetele tale</string>
+    <string name="add_new_sound">Adaugă un sunet nou</string>
+    <string name="no_sound">Nici un sunet</string>
+    <string name="during_day_at_hh_mm">În timpul zilei la hh:mm</string>
+    <string name="during_day_at">În timpul zilei la %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">Setări</string>
+    <string name="purchase_simple_thank_you">Cumpără Simple Thank You</string>
+    <string name="general_settings">General</string>
+    <string name="color_customization">Personalizarea culorilor</string>
+    <string name="improved_color_customization">Improved color customization</string>
+    <string name="customize_colors">Personalizați culorile</string>
+    <string name="customize_colors_locked">Personalizați culorile (Blocat)</string>
+    <string name="feature_locked">Blocat</string>
+    <string name="customize_widget_colors">Personalizați culorile widgetului</string>
+    <string name="customize_notifications">Personalizați notificările</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="use_english_language">Utilizați limba engleză</string>
+    <string name="language">Limbă</string>
+    <string name="show_hidden_items">Afișați elementele ascunse</string>
+    <string name="font_size">Dimensiunea fontului</string>
+    <string name="small">Mic</string>
+    <string name="medium">Medie</string>
+    <string name="large">Mare</string>
+    <string name="extra_large">Foarte Mare</string>
+    <string name="password_protect_hidden_items">Protejați vizibilitatea elementelor ascunse cu o parolă</string>
+    <string name="password_protect_whole_app">Protejați întreaga aplicație cu o parolă</string>
+    <string name="password_protect_file_deletion">Protejați ștergerea și mutarea fișierelor cu o parolă</string>
+    <string name="keep_last_modified">Păstrați valoarea veche a ultimei modificări în urma operației cu fișiere</string>
+    <string name="show_info_bubble">Afișarea unei bule de informații la derularea elementelor prin tragerea barei de derulare</string>
+    <string name="prevent_phone_from_sleeping">Împiedicați ecranul telefonul să se închidă în timp ce aplicația este în prim-plan</string>
+    <string name="skip_delete_confirmation">Întotdeauna săriţi peste dialogul de confirmare a ștergerii</string>
+    <string name="enable_pull_to_refresh">Activați glisarea din partea de sus a ecranului pentru reîmprospătare</string>
+    <string name="use_24_hour_time_format">Utilizați formatul de timp de 24 de ore</string>
+    <string name="change_date_and_time_format">Modifică formatul de dată și oră</string>
+    <string name="sunday_first">Începeţi săptămâna cu ziua de Duminică</string>
+    <string name="widgets">Widgeturi</string>
+    <string name="use_same_snooze">Utilizați întotdeauna aceeaşi durată de timp pentru amânare</string>
+    <string name="snooze_time">Durata de timp pentru amânare</string>
+    <string name="vibrate_on_button_press">Vibrează la apăsarea butoanelor</string>
+    <string name="move_items_into_recycle_bin">Mutați elementele în coșul de reciclare în loc să le ștergeți</string>
+    <string name="recycle_bin_cleaning_interval">Intervalul de timp pentru curățarea automată a coșului de reciclare</string>
+    <string name="empty_recycle_bin">Goleşte coșul de reciclare</string>
+    <string name="force_portrait_mode">Forțează modul portret</string>
+    <string name="export_settings">Exportă setările</string>
+    <string name="import_settings">Importă setările</string>
+    <string name="settings_exported_successfully">Setări exportate cu succes</string>
+    <string name="settings_imported_successfully">Setări importate cu succes</string>
+    <string name="start_name_with_surname">Începeți numele cu numele de familie</string>
+    <string name="clear_cache">Ștergeți memoria cache</string>
+    <string name="show_call_confirmation_dialog">Afișarea unui dialog de confirmare a apelului înainte de inițierea unui apel</string>
+    <!-- Setting sections -->
+    <string name="visibility">Vizibilitate</string>
+    <string name="security">Securitate</string>
+    <string name="scrolling">Derulare</string>
+    <string name="file_operations">Operațiuni de fișier</string>
+    <string name="recycle_bin">Coş de reciclare</string>
+    <string name="saving_label">Salvare</string>
+    <string name="startup">Pornire</string>
+    <string name="text">Text</string>
+    <string name="migrating">Migrare</string>
+    <string name="quality">Calitate</string>
+    <string name="main_screen">Ecran principal</string>
+    <string name="thumbnails">Miniaturi</string>
+    <string name="list_view">List view</string>
+    <!-- Excluding -->
+    <string name="exclude">Excludeți</string>
+    <string name="exclude_folder">Exclude folder</string>
+    <string name="excluded_folders">Dosare excluse</string>
+    <string name="excluded">(exclus)</string>
+    <string name="manage_excluded_folders">Gestionează dosarele excluse</string>
+    <string name="remove_all">Elimină tot</string>
+    <string name="remove_all_description">Elimini toate dosarele din lista de dosare excluse\? Acest lucru nu va șterge dosarele.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">Gestionați filele afișate</string>
+    <string name="default_tab_to_open">Fila implicită cu care se deschide aplicația</string>
+    <string name="contacts_tab">Contacte</string>
+    <string name="favorites_tab">Favorite</string>
+    <string name="call_history_tab">Istoriclul apelurilor</string>
+    <string name="groups_tab">Grupuri</string>
+    <string name="last_used_tab">Ultimul folosit</string>
+    <string name="files_tab">Fișiere</string>
+    <string name="recent_files_tab">Fișiere recente</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">Restaurați acest fișier</string>
+    <string name="restore_selected_files">Restaurați fișierele selectate</string>
+    <string name="restore_all_files">Restaurați toate fișierele</string>
+    <string name="recycle_bin_emptied">Coșul de reciclare a fost golit cu succes</string>
+    <string name="files_restored_successfully">Fișierele au fost restaurate cu succes</string>
+    <string name="empty_recycle_bin_confirmation">Sunteți sigur că doriți să goliți coșul de reciclare? Fișierele vor fi pierdute definitiv.</string>
+    <string name="recycle_bin_empty">Coșul de reciclare este gol</string>
+    <string name="moving_recycle_bin_items_disabled">Deplasarea elementelor din coșul de reciclare este dezactivată, vă rugăm să utilizați functia de restaurare</string>
+    <string name="show_the_recycle_bin">Afișați coșul de reciclare</string>
+    <string name="hide_the_recycle_bin">Ascundeţi coșul de reciclare</string>
+    <string name="open_the_recycle_bin">Open the Recycle Bin</string>
+    <string name="skip_the_recycle_bin">Skip the Recycle Bin, delete files directly</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="one">Mutarea elementului %d în coşul de recilare</item>
+        <item quantity="few">Mutarea elementelor %d în coşul de recilare</item>
+        <item quantity="other">Mutarea elementelor %d în coşul de recilare</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">Importare…</string>
+    <string name="exporting">Exportare…</string>
+    <string name="importing_successful">Importare realizată cu succes</string>
+    <string name="exporting_successful">Exportare realizată cu succes</string>
+    <string name="importing_failed">Importarea a eşuat</string>
+    <string name="exporting_failed">Exportarea a eşuat</string>
+    <string name="importing_some_entries_failed">Importul unor intrări a eșuat</string>
+    <string name="exporting_some_entries_failed">Exportul unor intrări a eșuat</string>
+    <string name="no_entries_for_importing">Nu au fost găsite intrări ce pot fi importate</string>
+    <string name="no_new_entries_for_importing">Nu au fost găsite intrări noi pentru import</string>
+    <string name="no_entries_for_exporting">Nu au fost găsite intrări ce pot fi exportate</string>
+    <string name="backups">Backups</string>
+    <string name="enable_automatic_backups">Enable automatic backups</string>
+    <string name="manage_automatic_backups">Manage automatic backups</string>
+    <string name="date_time_pattern_info">You can use the following patterns to name your file automatically:\n\n%Y - year\n%M - month\n%D - day\n%h - hour\n%m - minute\n%s - second</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">Se pare că aveți un dispozitiv USB atașat la dispozitiv. Pentru a vă asigura că fișierele acestuia apar corect, trebuie să acordați permisiuni suplimentare.</string>
+    <string name="confirm_usb_storage_access_text">Vă rugăm să alegeți dosarul rădăcină al dispozitivului USB în ecranul următor, pentru a acorda acces</string>
+    <string name="wrong_root_selected_usb">Ați selectat un folder greșit, selectați folderul principal al dispozitivului USB</string>
+    <!-- Dates -->
+    <string name="january">Ianuarie</string>
+    <string name="february">Februarie</string>
+    <string name="march">Martie</string>
+    <string name="april">Aprilie</string>
+    <string name="may">Mai</string>
+    <string name="june">Iunie</string>
+    <string name="july">Iulie</string>
+    <string name="august">August</string>
+    <string name="september">Septembrie</string>
+    <string name="october">Octombrie</string>
+    <string name="november">Noiembrie</string>
+    <string name="december">Decembrie</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">Apr</string>
+    <string name="may_short">May</string>
+    <string name="june_short">June</string>
+    <string name="july_short">July</string>
+    <string name="august_short">Aug</string>
+    <string name="september_short">Sept</string>
+    <string name="october_short">Oct</string>
+    <string name="november_short">Nov</string>
+    <string name="december_short">Dec</string>
+    <!-- in January -->
+    <string name="in_january">în Ianuarie</string>
+    <string name="in_february">în Februarie</string>
+    <string name="in_march">în Martie</string>
+    <string name="in_april">în Aprilie</string>
+    <string name="in_may">în Mai</string>
+    <string name="in_june">în Iunie</string>
+    <string name="in_july">în Iulie</string>
+    <string name="in_august">în August</string>
+    <string name="in_september">în Septembrie</string>
+    <string name="in_october">în Octombrie</string>
+    <string name="in_november">în Noiembrie</string>
+    <string name="in_december">în Decembrie</string>
+    <string name="monday">Luni</string>
+    <string name="tuesday">Marţi</string>
+    <string name="wednesday">Miercuri</string>
+    <string name="thursday">Joi</string>
+    <string name="friday">Vineri</string>
+    <string name="saturday">Sâmbătă</string>
+    <string name="sunday">Duminică</string>
+    <string name="monday_letter">L</string>
+    <string name="tuesday_letter">M</string>
+    <string name="wednesday_letter">M</string>
+    <string name="thursday_letter">J</string>
+    <string name="friday_letter">V</string>
+    <string name="saturday_letter">S</string>
+    <string name="sunday_letter">D</string>
+    <string name="monday_short">Lun</string>
+    <string name="tuesday_short">Mar</string>
+    <string name="wednesday_short">Mie</string>
+    <string name="thursday_short">Joi</string>
+    <string name="friday_short">Vin</string>
+    <string name="saturday_short">Sâm</string>
+    <string name="sunday_short">Dum</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Versiunea aplicației dvs. nu va mai fi actualizată. Vă rugăm să treceți la versiunea Pro pentru a primi noi remedieri și alte îmbunătățiri.</string>
+    <string name="upgrade_to_pro_long_click">Versiunea aplicației dvs. nu va mai fi actualizată. Vă rugăm să faceți upgrade la versiunea Pro pentru a primi noi corecturi și alte îmbunătățiri, făcând clic aici.</string>
+    <string name="it_is_free">Este gratis până la: %s. Dacă o descărcați până atunci, o veți putea folosi gratuit pentru totdeauna.</string>
+    <string name="more_info">Mai multe informaţii</string>
+    <string name="upgrade">Actualizează la Pro</string>
+    <string name="upgrade_calendar">Trebuie să migrați manual evenimentele stocate la nivel local prin export într-un fișier .ics, apoi prin import. Puteți găsi ambele butoane de export/import în meniul ecranului principal.</string>
+    <string name="upgraded_from_free_gallery">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your settings and favorites over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro_gallery">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your settings and favorites over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your data over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your data over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_calendar">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your locally stored events over, you have to do it manually by exporting them into an .ics file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_contacts">Hello,\n\nseems like you just upgraded from the free version. If you had any contacts stored under \"%s\", you have to migrate them manually by exporting in a .vcf file from the free app version and importing here through the top menu.\n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_notes">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your notes over, you have to do it manually by exporting them into a file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <!-- About -->
+    <string name="about">Despre</string>
+    <string name="website">Website</string>
+    <string name="website_label">Pentru codurile sursă, vizitați</string>
+    <string name="email_label">Puteţi trimite părerile sau sugestiile dumneavoastră la</string>
+    <string name="upgrade_to_pro">Actualizează la Pro</string>
+    <string name="more_apps">Alte aplicaţii</string>
+    <string name="more_apps_from_us">Alte aplicații de la noi</string>
+    <string name="invite_friends">Invitați prieteni</string>
+    <string name="share_text">Hei, vino să vezi %1$s la %2$s</string>
+    <string name="invite_via">Invită prin</string>
+    <string name="rate_us">Evaluați-ne</string>
+    <string name="rate">Evaluează</string>
+    <string name="donate">Donează</string>
+    <string name="follow_us">Urmăriți-ne</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="support">Support</string>
+    <string name="help_us">Ajutaţi-ne</string>
+    <string name="social">Social</string>
+    <string name="other">Altele</string>
+    <string name="privacy_policy">Politică de confidențialitate</string>
+    <string name="version_placeholder">Version %s</string>
+    <string name="hello">Salut :)</string>
+    <string name="about_footer">Realizat cu ❤️ în Slovacia</string>
+    <string name="additional_info">Informații suplimentare</string>
+    <string name="app_version">Versiunea aplicației: %s</string>
+    <string name="device_os">Dispozitivul OS: %s</string>
+    <string name="donate_please">
+        <![CDATA[
+            Salut,<br><br>
+            Sper că vă bucurați de aplicație. Nu conține reclame, vă rugăm să sprijiniți dezvoltarea sa prin achiziționarea aplicației <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a>, de asemenea, va împiedica ca acest dialog să mais apară din nou.<br><br>
+            Thank you!
+        ]]>
+    </string>
+    <string name="donate_new">Salut,&lt;br&gt;&lt;br&gt;sper că vă bucurați de aplicație. Nu conține reclame și nici nu vă colectăm datele, vă rugăm să susțineți dezvoltarea ei prin cumpărarea aplicației &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;. De asemenea, veți avea deblocate toate funcțiile aplicației precum și personalizarea culorilor.&lt;br&gt;&lt;br&gt;Vă mulțumesc!</string>
+    <string name="donate_short">Support us by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; please, it will also unlock all app features including color customization.</string>
+    <string name="purchase">Cumpără</string>
+    <string name="get_simple_phone">Get Simple Phone</string>
+    <string name="update_thank_you">Vă rugăm să actualizați Simple Thank You la cea mai recentă versiune</string>
+    <string name="before_asking_question_read_faq">Înainte de a pune o întrebare, vă rugăm să verificați setările aplicației și să citiți mai întâi Întrebările frecvente. Este posibil ca soluția să se afle acolo.</string>
+    <string name="before_rate_read_faq">Înainte de a ne evalua, vă rugăm să verificați setările aplicației și să citiți mai întâi Întrebările frecvente. Dacă aveți probleme, este posibil ca soluția să se afle acolo.</string>
+    <string name="make_sure_latest">De asemenea, asigurați-vă că utilizați cea mai recentă versiune a aplicației.</string>
+    <string name="make_sure_upgrade">De asemenea, rețineți că această versiune a aplicației nu mai este în curs de dezvoltare, obțineți versiunea Pro pentru multe îmbunătățiri.</string>
+    <string name="read_it">Citeşte</string>
+    <string name="read_faq">Citeşte FAQ</string>
+    <string name="rate_us_prompt">Salut,\n\nse pare că folosiți această aplicație de ceva timp deja și apreciem acest lucru.\n\n Dacă vă putem cere o favoare, vă rugăm să ne evaluați pe Google Play. Asta ne-ar ajuta foarte mult.\n\nIndiferent de decizia pe care o veți lua, nu veți mai vedea acest mesaj.\n\nÎţi mulţumesc!</string>
+    <string name="rate_our_app">Vă rugăm să ne evaluaţi aplicaţia :)</string>
+    <string name="thank_you">Îţi mulţumesc</string>
+    <string name="widget_locked_pro">Widgetul este blocat.\nVă rugăm să faceți upgrade la versiunea Pro pentru a debloca această funcţie.</string>
+    <string name="features_locked">Această funcție este blocată, vă rugăm să achiziționați &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; pentru a debloca aplicația completă.&lt;br&gt;&lt;br&gt;Este o plată unică și dacă nu sunteți mulțumit, putem oferi rambursare.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">
+        <![CDATA[
+            Hey,<br><br>
+            vă anunțam doar că au fost lansate recent câteva aplicații noi:<br><br>
+            <a href="%1$s">%2$s</a><br><br>
+            <a href="%3$s">%4$s</a><br><br>
+            <a href="%5$s">%6$s</a><br><br>
+            Le puteți descărca apăsând pe titlurile sau pictogramele acestora.<br><br>
+            Îţi mulţumesc
+        ]]>
+    </string>
+    <string name="simple_app_launcher">Lansator de Aplicații Simplu</string>
+    <string name="simple_calculator">Calculator Simplu</string>
+    <string name="simple_calendar">Calendar Simplu</string>
+    <string name="simple_camera">Cameră Simplă</string>
+    <string name="simple_clock">Ceas Simplu</string>
+    <string name="simple_contacts">Contacte Simple</string>
+    <string name="simple_dialer">Telefon Simplu</string>
+    <string name="simple_draw">Desenează Simplu</string>
+    <string name="simple_file_manager">Manager de Fișiere Simplu</string>
+    <string name="simple_flashlight">Lanternă Simplă</string>
+    <string name="simple_gallery">Galerie Simplă</string>
+    <string name="simple_keyboard">Tastatură simplă</string>
+    <string name="simple_launcher">Simple Launcher</string>
+    <string name="simple_music_player">Player Muzical Simplu</string>
+    <string name="simple_notes">Note Simple</string>
+    <string name="simple_sms_messenger">SMS Messenger Simplu</string>
+    <string name="simple_thank_you">Mulțumesc Simplu</string>
+    <string name="simple_voice_recorder">Înregistrări Vocale Simple</string>
+    <string name="app_launcher_short">Lansator aplicaţii</string>
+    <string name="calculator_short">Calculator</string>
+    <string name="calendar_short">Calendar</string>
+    <string name="camera_short">Cameră</string>
+    <string name="clock_short">Ceas</string>
+    <string name="contacts_short">Contacte</string>
+    <string name="dialer_short">Telefon</string>
+    <string name="draw_short">Desenează</string>
+    <string name="file_manager_short">Manager de fișiere</string>
+    <string name="flashlight_short">Lanternă</string>
+    <string name="gallery_short">Galerie</string>
+    <string name="keyboard_short">Tastatură</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">Player muzical</string>
+    <string name="notes_short">Note</string>
+    <string name="sms_messenger_short">Mesaje</string>
+    <string name="thank_you_short">Îţi mulţumesc</string>
+    <string name="voice_recorder_short">Înregistrare vocală</string>
+    <string name="sideloaded_app">
+        <![CDATA[
+            Se pare că versiunea aplicației dvs. este coruptă. Vă rugăm să descărcați versiunea originală <a href="%s">aici</a>.
+        ]]>
+    </string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">Întrebări frecvente</string>
+    <string name="before_asking_question">Înainte de a pune o întrebare, vă rugăm să citiți mai întâi</string>
+    <string name="faq_1_title_commons">Cum se face că nu văd widgetul corespunzător aplicaţiei în lista de widgeturi?</string>
+    <string name="faq_1_text_commons">Cel mai probabil se datorează faptului că ați mutat aplicația pe un card SD. Este o limitare a sistemului Android care ascunde widget-urile aplicației.
+        Singura soluție este să mutați aplicația înapoi în memoria internă prin intermediul setărilor dispozitivului.</string>
+    <string name="faq_2_title_commons">Vreau să te sprijin, dar nu pot dona bani. Pot să fac altceva?</string>
+    <string name="faq_2_text_commons">
+        <![CDATA[
+            Da, bineînțeles. Puteți să răspândiți vestea despre aplicațiile Simple sau să oferiți feedback și evaluări bune pe magaziul Google Play. De asemenea, puteți ajuta prin traducerea aplicațiilor într-o limbă nouă sau doar prin actualizarea unor traduceri existente.
+            Ghidul de traducere se găsește la <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">acest site</a>, sau pur și simplu contactați-ne la <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> dacă aveți întrebări.
+        ]]>
+    </string>
+    <string name="faq_3_title_commons">Am șters niște fișiere din greșeală, cum pot să le recuperez?</string>
+    <string name="faq_3_text_commons">Din păcate, nu se poate. Fișierele sunt șterse instantaneu după dialogul de confirmare, nu există nici un coș de gunoi disponibil.</string>
+    <string name="faq_4_title_commons">Nu-mi plac culorile widget-urilor, pot să le schimb?</string>
+    <string name="faq_4_text_commons">Da, atunci când trageți un widget pe ecranul principal, apare un ecran de configurare a widgeturilor. Veți vedea pătrate colorate în colțul din stânga jos, pe care trebuie doar să le apăsați pentru a alege o nouă culoare. Puteți folosi cursorul pentru a ajusta transparenţa.</string>
+    <string name="faq_5_title_commons">Pot să restaurez cumva fișierele șterse?</string>
+    <string name="faq_5_text_commons">Dacă au fost șterse cu adevărat, nu se poate. Cu toate acestea, există un coș de reciclare activat în mod implicit, care va face ca fișierele să fie mutate în coșul de reciclare în loc să fie șterse.</string>
+    <string name="faq_6_title_commons">Pictograma lansatorului de aplicații a dispărut. Ce pot să fac?</string>
+    <string name="faq_6_text_commons">Acest lucru este cauzat de faptul că lansatorul nu acceptă în mod corespunzător personalizarea pictogramelor. Încercați să lansați aplicația prin Google Play sau prin intermediul unui widget, dacă este disponibil.
+        Odată lansat, trebuie doar să setați înapoi culoarea pictogramei la valoarea implicită portocaliu #F57C00. În cel mai rău caz, s-ar putea să trebuiască să reinstalați aplicația.</string>
+    <string name="faq_7_title_commons">Banii au fost decontați din contul meu bancar, dar nu pot descărca aplicația. Ce pot face?</string>
+    <string name="faq_7_text_commons">Plățile sunt gestionate în totalitate de Google, dar sistemul lor are probleme din când în când. Pur și simplu ștergeți memoria cache a aplicației Google Play și reporniți dispozitivul, apoi încercați din nou să o descărcați.</string>
+    <string name="faq_8_title_commons">De ce ar trebui să trec la versiunea Pro?</string>
+    <string name="faq_8_text_commons">Deoarece versiunea aplicației dvs. nu mai este actualizată, erorile pe care poate le-ați detectat nu vor fi rezolvate niciodată. De asemenea, nu vor fi adăugate funcții noi. Puteți achiziționa versiunea Pro de pe Google Play pentru o sumă modestă de bani.
+        Este o plată unică, ceea ce înseamnă că, odată ce ați cumpărat-o, nu va trebui să mai plătiți niciodată. Nici măcar după ce vă achiziționați un nou dispozitiv. Dacă nu vă place versiunea Pro, puteți să o dezinstalați în câteva ore și vă veți primi automat banii înapoi.
+        Dacă doriți o rambursare în orice moment ulterior, contactați-ne la hello@simplemobiletools.com și o veți obține.</string>
+    <string name="faq_9_title_commons">Cum pot selecta mai multe elemente simultan?</string>
+    <string name="faq_9_text_commons">Există mai multe modalități de a face acest lucru. Prima este pornirea modului de selectare prin apăsarea lungă a unui element, apoi prin apăsarea scurtă pe celelalte pentru a le selecta. Al doilea mod este similar cu selectarea elementelor de pe PC-uri cu ajutorul mouse-ului,
+        porniți modul de selecție prin apăsarea lungă a unui element, apoi, cu degetul încă apăsat, trageți-l peste alte elemente pentru a le selecta. Al treilea mod de a selecta mai multe elemente este apăsarea lungă a unui element, apoi apăsarea lungă a altui element și tot ce se află între ele este selectat. Dacă
+        doriți să selectați toate elementele, trebuie doar să apăsați lung pe un element, apoi faceți clic pe contorul de elemente selectate din colțul din stânga sus. Astfel, veți selecta sau deselecta totul.</string>
+    <string name="faq_10_title_commons">Am achiziționat aplicația, dar nu o pot descărca pe un alt dispozitiv.</string>
+    <string name="faq_10_text_commons">Încercați să ștergeți memoria cache a aplicației Google Play și să reporniți dispozitivul. Este vorba de o eroare Google Play, care nu are legătură cu aplicația în sine.</string>
+    <!-- Contributors -->
+    <string name="contributors">Contribuitori</string>
+    <string name="translation">Traducere</string>
+    <string name="development">Dezvoltare</string>
+    <string name="other_help">Alte ajutoare</string>
+    <string name="contributors_label">Această listă conține pe toți cei care au ajutat în mod vizibil orice aplicație din suita Simple Mobile Tools, nu numai aceasta. Traducerile sunt efectuate de voluntari, anunțați-ne dacă doriți să ajutați și dumneavoastră. Ghidul de traducere este la &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt;this website&lt;/a&gt;, sau pur și simplu contactați-ne la &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt; dacă aveți întrebări. Mulțumim tuturor contribuitorilor și celorlalți susținători!</string>
+    <string name="translation_arabic">Arabică</string>
+    <string name="translation_azerbaijani">Azeră</string>
+    <string name="translation_bengali">Bengală</string>
+    <string name="translation_breton">Bretonă</string>
+    <string name="translation_bulgarian">Bulgarian</string>
+    <string name="translation_catalan">Catalană</string>
+    <string name="translation_czech">Cehă</string>
+    <string name="translation_welsh">Galeză</string>
+    <string name="translation_danish">Daneză</string>
+    <string name="translation_english">English</string>
+    <string name="translation_german">Germană</string>
+    <string name="translation_greek">Greacă</string>
+    <string name="translation_spanish">Spaniolă</string>
+    <string name="translation_basque">Bască</string>
+    <string name="translation_persian">Persană</string>
+    <string name="translation_finnish">Finlandeză</string>
+    <string name="translation_french">Franceză</string>
+    <string name="translation_galician">Galiciană</string>
+    <string name="translation_hindi">Hindi</string>
+    <string name="translation_croatian">Croată</string>
+    <string name="translation_hungarian">Ungară</string>
+    <string name="translation_indonesian">Indoneziană</string>
+    <string name="translation_italian">Italiană</string>
+    <string name="translation_hebrew">Ebraică</string>
+    <string name="translation_japanese">Japoneză</string>
+    <string name="translation_korean">Koreană</string>
+    <string name="translation_lithuanian">Lituaniană</string>
+    <string name="translation_nepali">Nepaleză</string>
+    <string name="translation_norwegian">Norvegiană</string>
+    <string name="translation_dutch">Olandeză</string>
+    <string name="translation_polish">Poloneză</string>
+    <string name="translation_portuguese">Portugheză</string>
+    <string name="translation_romanian">Română</string>
+    <string name="translation_russian">Rusă</string>
+    <string name="translation_slovak">Slovacă</string>
+    <string name="translation_slovenian">Slovenă</string>
+    <string name="translation_serbian">Sârbă</string>
+    <string name="translation_swedish">Suedeză</string>
+    <string name="translation_tamil">Tamilă</string>
+    <string name="translation_turkish">Turcă</string>
+    <string name="translation_ukrainian">Ucraineană</string>
+    <string name="translation_vietnamese">Vietnameză</string>
+    <string name="translation_chinese_hk">Chineză (Hong Kong)</string>
+    <string name="translation_chinese_cn">Chineză (Simplificată)</string>
+    <string name="translation_chinese_tw">Chineză (Tradiţională)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Obțineți versiunea Pro acum!</string>
+    <string name="why_upgrade_basic_version">De bază</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">Fără reclame</string>
+    <string name="why_upgrade_no_internet_access">Fără acces la internet</string>
+    <string name="why_upgrade_footer">Garanția de 100% a returnării banilor</string>
+    <string name="why_upgrade_footer_one_time_payment">O singură plată</string>
+    <string name="why_upgrade_improved_design">Design îmbunătățit</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Editor foto avansat</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Advanced photo &amp; video editor</string>
+    <string name="why_upgrade_heic_support">Suport pentru fișiere HEIC/HEIF</string>
+    <string name="why_upgrade_batch_renaming">Redenumire avansată a fișierelor pe loturi</string>
+    <string name="why_upgrade_folder_locking">Blocarea dosarelor individuale</string>
+    <string name="why_upgrade_printing_support">Suport pentru imprimare</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Suport pentru fus orar</string>
+    <string name="why_upgrade_attendees_emails">Participanți și memento-uri prin e-mail</string>
+    <string name="why_upgrade_easy_event_importing">Importarea ușoară a evenimentelor</string>
+    <string name="why_upgrade_new_widgets">Noi widget-uri</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Îmbinare îmbunătățită a contactelor duplicate</string>
+    <string name="why_upgrade_font_size_customization">Personalizarea dimensiunii fontului</string>
+    <string name="why_upgrade_private_contact_sharing">Partajarea opțională a contactelor private în cadrul aplicațiilor noastre</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Tonuri de apel personalizabile în funcţie de contact</string>
+    <string name="why_upgrade_contact_filtering">Filtrarea contactelor</string>
+    <string name="why_upgrade_contact_private_contacts">Contacte stocate în mod privat</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Liste de verificare</string>
+    <string name="why_upgrade_different_note_per_widget">Culori şi note diferite prentru fiecare widget</string>
+    <string name="why_upgrade_note_locking">Blocarea notelor</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Personalizarea formatului de dată și oră</string>
+    <string name="why_upgrade_shortcuts">Comenzi rapide pentru ecranul principal</string>
+    <string name="why_upgrade_file_compression">Suport pentru comprimarea fișierelor</string>
+    <string name="why_upgrade_recents_tab">Filă cu fișiere recente</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Personalizarea culorii de fundal</string>
+    <string name="why_upgrade_file_importing">Suport pentru importul de fișiere</string>
+    <string name="why_upgrade_zooming">Mărire</string>
+    <!-- License -->
+    <string name="notice">Această aplicație utilizează următoarele biblioteci terțe pentru a îmi face viața mai ușoară. Îţi  mulțumesc.</string>
+    <string name="third_party_licences">Licențe ale părţilor terți</string>
+    <string name="kotlin_title">Kotlin (Limbaj de programare)</string>
+    <string name="subsampling_title">Subsampling Scale Image View (Vizualizări de imagini cu zoom)</string>
+    <string name="glide_title">Glide (Încărcarea și memorarea în cache a imaginilor)</string>
+    <string name="picasso_title">Picasso (Încărcarea și memorarea în cache a imaginilor)</string>
+    <string name="cropper_title">Android Image Cropper (Tăierea și rotirea imaginii)</string>
+    <string name="rtl_viewpager_title">RtlViewPager (Glisarea de la dreapta la stânga)</string>
+    <string name="joda_title">Joda-Time (Înlocuirea datei în java)</string>
+    <string name="stetho_title">Stetho (Depanarea bazelor de date)</string>
+    <string name="otto_title">Otto (bus de evenimente)</string>
+    <string name="photoview_title">PhotoView (GIF-uri cu zoom)</string>
+    <string name="pattern_title">PatternLockView (protecția modelului)</string>
+    <string name="reprint_title">Reprint (protecția amprentelor digitale)</string>
+    <string name="gif_drawable_title">Gif Drawable (încărcarea GIF-urilor)</string>
+    <string name="autofittextview_title">AutoFitTextView (redimensionarea textului)</string>
+    <string name="robolectric_title">Robolectric (cadru de testare)</string>
+    <string name="espresso_title">Espresso (ajutor de testare)</string>
+    <string name="gson_title">Gson (JSON parser)</string>
+    <string name="leak_canary_title">Leak Canary (detector de scurgeri de memorie)</string>
+    <string name="number_picker_title">Number Picker (selector de numere personalizabil)</string>
+    <string name="exoplayer_title">ExoPlayer (player video)</string>
+    <string name="panorama_view_title">VR Panorama View (afișarea de panorame)</string>
+    <string name="sanselan_title">Apache Sanselan (citirea metadatelor imaginii)</string>
+    <string name="filters_title">Android Photo Filters (filtre de imagine)</string>
+    <string name="gesture_views_title">Gesture Views (imagini cu zoom)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (litere pe bara de derulare)</string>
+    <string name="event_bus_title">Event Bus (comunicare în cadrul aplicației)</string>
+    <string name="audio_record_view_title">Audio Record View (vizualizare audio)</string>
+    <string name="sms_mms_title">SMS MMS (Gestionarea SMS și MMS)</string>
+    <string name="apng_title">APNG Android (suport WebP animat)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (PDF viewer)</string>
+    <string name="m3u_parser_title">M3U Parser (m3u playlist file handling)</string>
+    <string name="android_lame_title">AndroidLame (mp3 encoder)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Trial expired</string>
+    <string name="start_free_trial">Start free trial</string>
+    <string name="trial_expires_soon">Your trial expires soon.</string>
+    <string name="unlock_for_one_final_day">Unlock the app for one final day</string>
+    <string name="welcome_to_app_name">Welcome to %s!</string>
+    <string name="trial_start_description">Thank you for using our app. You can use this unlocked version for &lt;font color=\'#FFFFFF\'>%d days&lt;/font>. Once the trial ends, please consider upgrading to the Pro version. It has a huge amount of new features, modern design, no ads and many other improvements.
+        \n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nHope you\'ll like it :)</string>
+    <string name="trial_end_description">Please upgrade to the Pro version to enjoy the app to the fullest.\n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nSee you there :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Your trial expires in %d day.</item>
+        <item quantity="other">Your trial expires in %d days.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">DEPRECIAT: Această versiune a aplicației nu mai este întreținută, obțineți versiunea Pro la https://play.google.com/store/apps/details?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Nu uitați că, dacă dezinstalați orice aplicație plătită în termen de 2 ore, veți fi rambursat automat. Dacă doriți o rambursare oricând mai târziu, contactați-ne la hello@simplemobiletools.com și o veți obține. Astfel, este ușor să o încercați. :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">Un grup de aplicații Android simple, open source, cu widget-uri personalizabile, fără reclame și permisiuni inutile.</string>
+</resources>

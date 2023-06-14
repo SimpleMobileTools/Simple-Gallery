@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.commons.views.MyTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/upgrade_to_pro"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:lineSpacingExtra="3dp"
+    android:paddingLeft="@dimen/bigger_margin"
+    android:paddingTop="@dimen/bigger_margin"
+    android:paddingRight="@dimen/bigger_margin"
+    android:paddingBottom="@dimen/normal_margin"
+    android:text="@string/upgrade_to_pro_long"
+    android:textSize="@dimen/bigger_text_size"/>

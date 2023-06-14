@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.commons.views.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/dialog_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/dialog_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/dialog_tab_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/simple_renaming" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/dialog_tab_pattern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pattern_renaming" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <com.simplemobiletools.commons.views.MyViewPager
+            android:id="@+id/dialog_tab_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_tab_layout" />
+
+    </RelativeLayout>
+</com.simplemobiletools.commons.views.MyScrollView>

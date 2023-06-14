@@ -1,0 +1,1167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">Добра</string>
+    <string name="cancel">Скасаваць</string>
+    <string name="back">Назад</string>
+    <string name="nothing">нічога</string>
+    <string name="later">Пазней</string>
+    <string name="save_as">Захаваць як</string>
+    <string name="file_saved">Файл паспяхова захаваны</string>
+    <string name="invalid_file_format">Няправільны фармат файла</string>
+    <string name="out_of_memory_error">Памылка недахопу памяці</string>
+    <string name="an_error_occurred">Адбылася памылка: %s</string>
+    <string name="error">Памылка: %s</string>
+    <string name="open_with">Адкрыць у…</string>
+    <string name="edit_with">Рэдагаваць у…</string>
+    <string name="edit">Рэдагаваць</string>
+    <string name="no_app_found">Не знойдзена сапраўднае прыкладанне</string>
+    <string name="no_browser_found">Браўзер не знойдзены</string>
+    <string name="no_email_client_found">Паштовы кліент не знойдзены</string>
+    <string name="set_as">Ўсталяваць у якасці</string>
+    <string name="copy_to_clipboard">Капіяваць у буфер абмену</string>
+    <string name="copy_number_to_clipboard">Капіяваць нумар у буфер абмену</string>
+    <string name="value_copied_to_clipboard">Значэнне скапіявана ў буфер абмену</string>
+    <string name="value_copied_to_clipboard_show">Значэнне скапіявана ў буфер абмену:\n%s</string>
+    <string name="dial_number">Набраць нумар</string>
+    <string name="unknown">Невядомы</string>
+    <string name="always">Заўжды</string>
+    <string name="never">Ніколі</string>
+    <string name="details">Звесткі</string>
+    <string name="notes">Нататкі</string>
+    <string name="deleting_folder">Выдаленне папкі \'%s\'</string>
+    <string name="none">Няма</string>
+    <string name="label">Метка</string>
+    <string name="transparent">Празрысты</string>
+    <string name="transparent_color">Празрысты колер</string>
+    <string name="select_a_different_color">Выберыце іншы колер</string>
+    <string name="download">Спампаваць</string>
+    <string name="notification">Апавяшчэнне</string>
+    <string name="notifications">Апавяшчэння</string>
+    <string name="email">Электронная пошта</string>
+    <string name="previous">Папярэдняя</string>
+    <string name="playpause">Прайграванне / Паўза</string>
+    <string name="next">Наступная</string>
+    <string name="number">Нумар</string>
+    <string name="no_contacts_found">Кантакты не знойдзены</string>
+    <string name="request_the_required_permissions">Запытайце неабходныя дазволы</string>
+    <string name="no_access_to_contacts">Праграма не можа атрымаць доступ да вашых кантактаў</string>
+    <string name="no_phone_call_permission">Прыкладанне не мае дазволу ініцыяваць тэлефонныя званкі, дайце яго ў наладах прылады</string>
+    <string name="insert_text_here">Устаўце сюды тэкст</string>
+    <string name="call_person">Выклік %s</string>
+    <string name="confirm_calling_person">Пацвердзіце выклік %s</string>
+    <string name="zero">Нуль</string>
+    <string name="one">Адзін</string>
+    <string name="two">Два</string>
+    <string name="three">Тры</string>
+    <string name="four">Чатыры</string>
+    <string name="five">Пяць</string>
+    <string name="six">Шесць</string>
+    <string name="seven">Сем</string>
+    <string name="eight">Восем</string>
+    <string name="nine">Дзевяць</string>
+    <string name="value">Значэнне</string>
+    <string name="value_cannot_be_empty">Значэнне не можа быць пустым</string>
+    <string name="create_new_contact">Стварыць новы кантакт</string>
+    <string name="add_to_existing_contact">Дадаць да існуючага кантакту</string>
+    <string name="app_corrupt">Прыкладанне пашкоджана</string>
+    <string name="disclaimer">Адмова ад адказнасці</string>
+    <string name="take_photo">Зрабіць фота</string>
+    <string name="choose_photo">Выбраць фота</string>
+    <string name="choose_video">Выберыце відэа</string>
+    <string name="choose_contact">Выберыце кантакт</string>
+    <string name="choose_file">Выберыце файл</string>
+    <string name="record_audio">Запіс аўдыё</string>
+    <string name="record_video">Запісаць відэа</string>
+    <string name="updating">Абнаўленне…</string>
+    <string name="phone_storage">Сховішча тэлефона</string>
+    <string name="phone_storage_hidden">Сховішча тэлефона (не бачна іншым праграмам)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">Дзень нараджэння</string>
+    <string name="anniversary">Гадавіна</string>
+    <!-- Emails -->
+    <string name="home">Хатні</string>
+    <string name="work">Працоўны</string>
+    <!-- Phone numbers -->
+    <string name="mobile">Мабільны</string>
+    <string name="main_number">Галоўны</string>
+    <string name="work_fax">Працоўны факс</string>
+    <string name="home_fax">Хатні факс</string>
+    <string name="pager">Пейджар</string>
+    <string name="no_phone_number_found">Нумар тэлефона не знойдзены</string>
+    <!-- View types -->
+    <string name="change_view_type">Выгляд</string>
+    <string name="grid">Табліца</string>
+    <string name="grid_pro">Табліца (Pro)</string>
+    <string name="uneven_grid">Няроўная сетка</string>
+    <string name="list">Спіс</string>
+    <string name="increase_column_count">Павялічыць колькасць слупкоў</string>
+    <string name="reduce_column_count">Паменьшіць колькасць слупкоў</string>
+    <string name="column_count">Колькасць слупкоў</string>
+    <string name="portrait_column_count">Колькасць слупкоў у партрэтным рэжыме</string>
+    <string name="landscape_column_count">Колькасць слупкоў у ландшафтным рэжыме</string>
+    <string name="change_cover_image">Змяніць вокладку</string>
+    <string name="select_photo">Выбраць фота</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d слупок</item>
+        <item quantity="few">%d слупкі</item>
+        <item quantity="many">%d слупкоў</item>
+        <item quantity="other">%d слупкоў</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">Кіраванне заблакаванымі нумарамі</string>
+    <string name="not_blocking_anyone">Заблакаваныя нумары не знойдзены.</string>
+    <string name="add_a_blocked_number">Дадаць заблакаваны нумар</string>
+    <string name="block_number">Блакаваць нумар</string>
+    <string name="block_numbers">Блакаваць нумары</string>
+    <string name="blocked_numbers">Заблакаваныя нумары</string>
+    <string name="export_blocked_numbers">Экспартаваць заблакаваныя нумары</string>
+    <string name="import_blocked_numbers">Імпартаваць заблакаваныя нумары</string>
+    <string name="must_make_default_dialer">Вы павінны зрабіць гэта дадатак стандартным дадаткам дазвону, каб выкарыстоўваць заблакіраваныя нумары.</string>
+    <string name="set_as_default">Ўсталяваць па змаўчанні</string>
+    <string name="block_confirmation">Заблакаваць \"%s\"\?</string>
+    <string name="block_unknown_calls">Блакаваць выклікі ад невядомых кантактаў</string>
+    <string name="block_unknown_messages">Блакаваць паведамленні ад невядомых кантактаў</string>
+    <string name="add_blocked_number_helper_text">Увядзіце нумар або шаблон (напрыклад, *12345*, +1*8888), каб заблакіраваць усе выклікі і паведамленні з нумароў, якія адпавядаюць шаблону.</string>
+    <string name="must_make_default_caller_id_app">Немагчыма заблакіраваць невядомыя нумары без дазволу ідэнтыфікатара абанента.</string>
+    <!-- Favorites -->
+    <string name="favorites">Абраныя</string>
+    <string name="add_favorites">Дадаць абранае</string>
+    <string name="add_to_favorites">Дадаць у абранае</string>
+    <string name="remove_from_favorites">Выдаліць з абранага</string>
+    <!-- Search -->
+    <string name="search">Пошук</string>
+    <string name="search_in_placeholder">Пошук у %s</string>
+    <string name="type_2_characters">Каб пачаць пошук, увядзіце мінімум 2 сімвалы.</string>
+    <string name="search_contacts">Пошук кантактаў</string>
+    <string name="search_favorites">Пошук абраных</string>
+    <string name="search_apps">Пошук праграм</string>
+    <string name="search_events">Пошук падзей</string>
+    <string name="search_groups">Пошук груп</string>
+    <string name="search_history">Гісторыя пошуку</string>
+    <string name="search_calls">Пошук званкоў</string>
+    <string name="search_files">Пошук файлаў</string>
+    <string name="search_folders">Пошук тэчак</string>
+    <string name="search_files_and_folders">Пошук файлаў і тэчак</string>
+    <string name="search_playlists">Пошук па плэйлістах</string>
+    <string name="search_artists">Пошук выканаўцаў</string>
+    <string name="search_albums">Пошук альбомаў</string>
+    <string name="search_tracks">Пошук трэкаў</string>
+    <string name="search_text">Пошук тэксту</string>
+    <string name="search_conversations">Пошук размоў</string>
+    <string name="search_recordings">Пошук запісаў</string>
+    <!-- Filters -->
+    <string name="filter">Фільтр</string>
+    <string name="filter_pro">Фільтр (Pro)</string>
+    <string name="no_items_found">Нічога не знойдзена.</string>
+    <string name="change_filter">Змяніць фільтр</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">Патрабуецца дазвол на доступ да сховішча</string>
+    <string name="no_contacts_permission">Патрабуецца дазвол на доступ да кантактаў</string>
+    <string name="no_camera_permissions">Патрабуецца дазвол на доступ да камеры</string>
+    <string name="no_audio_permissions">Патрабуецца дазвол на доступ да мікрафону</string>
+    <string name="no_permission">Няма дазволу</string>
+    <string name="allow_notifications_reminders">Вы павінны дазволіць праграме паказваць апавяшчэнні, інакш яна не можа паказваць напаміны.</string>
+    <string name="allow_notifications_files">Вы павінны дазволіць праграме паказваць апавяшчэнні, у адваротным выпадку яна не можа паказваць панэль прагрэсу.</string>
+    <string name="allow_notifications_music_player">Вы павінны дазволіць праграме паказ апавяшчэнняў, інакш яна не можа прайграваць песні.</string>
+    <string name="allow_notifications_voice_recorder">Вы павінны дазволіць праграме паказ апавяшчэнняў, у адваротным выпадку яна не можа запісваць аўдыя.</string>
+    <string name="allow_notifications_incoming_calls">Вы павінны дазволіць праграме паказваць апавяшчэнні, інакш яна не зможа паказваць ўваходныя выклікі.</string>
+    <string name="allow_notifications_incoming_messages">Вы павінны дазволіць праграме паказваць апавяшчэнні, у адваротным выпадку яна не можа паказваць ўваходныя паведамленні.</string>
+    <string name="grant_permission">Даць дазвол</string>
+    <string name="permission_required">Патрабуецца дазвол</string>
+    <!-- Renaming -->
+    <string name="rename_file">Перайменаваць файл</string>
+    <string name="rename_folder">Перайменаваць папку</string>
+    <string name="rename_file_error">Не атрымалася перайменаваць файл</string>
+    <string name="rename_folder_error">Не атрымалася перайменаваць папку</string>
+    <string name="rename_folder_empty">Назва папкі не можа быць пустой</string>
+    <string name="rename_folder_exists">Папка з такой назвай ужо існуе</string>
+    <string name="rename_folder_root">Немагчыма перайменаваць каранёвую папку</string>
+    <string name="rename_folder_ok">Папка паспяхова перайменавана</string>
+    <string name="renaming_folder">Перайменаванне папкі</string>
+    <string name="filename_cannot_be_empty">Назва файла не можа быць пустой</string>
+    <string name="filename_invalid_characters">Імя файла змяшчае недапушчальныя сімвалы</string>
+    <string name="filename_invalid_characters_placeholder">Імя файла\'%s\' змяшчае недапушчальныя сімвалы</string>
+    <string name="extension_cannot_be_empty">Пашырэнне не можа быць пустым</string>
+    <string name="source_file_doesnt_exist">Зыходны файл %s не існуе</string>
+    <string name="prepend_filenames">Перад назвай файла</string>
+    <string name="append_filenames">Пасля назвы файла</string>
+    <string name="simple_renaming">Простае перайменаванне</string>
+    <string name="pattern_renaming">Шаблон</string>
+    <string name="string_to_add">Радок для дадання</string>
+    <string name="rename_date_time_pattern">%Y - год
+\n%M - месяц
+\n%D - дзень
+\n%h - гадзіна
+\n%m - хвіліна
+\n%s - секунда
+\n%i - парадкавы нумар з 1</string>
+    <string name="filename_without_txt">Назва файла (без .txt)</string>
+    <string name="filename_without_json">Назва файла (без .json)</string>
+    <string name="filename_without_zip">Назва файла (без .zip)</string>
+    <string name="cannot_hide_files">Пачынаючы з Android 11 вы больш не можаце такім чынам хаваць файлы і тэчкі</string>
+    <!-- Copy / Move -->
+    <string name="copy">Капіяваць</string>
+    <string name="move">Перамясціць</string>
+    <string name="copy_move">Капіяваць/перамясціць</string>
+    <string name="copy_to">Капіяваць у…</string>
+    <string name="move_to">Перамясціць у…</string>
+    <string name="source">Крыніца</string>
+    <string name="destination">Мэта</string>
+    <string name="select_destination">Выберыце пункт прызначэння</string>
+    <string name="click_select_destination">Націсніце тут, каб выбраць пункт прызначэння</string>
+    <string name="invalid_destination">Немагчыма запісаць у выбраны пункт прызначэння</string>
+    <string name="please_select_destination">Выберыце пункт прызначэння</string>
+    <string name="source_and_destination_same">Крыніца і пункт прызначэння не могуць быць аднолькавымі</string>
+    <string name="copy_failed">Не атрымалася скапіяваць файлы</string>
+    <string name="copying">Капіяванне…</string>
+    <string name="copying_success">Капіяванне файлаў паспяхова выканана</string>
+    <string name="copying_success_one">Капіяванне файла паспяхова выканана</string>
+    <string name="copy_move_failed">Адбылася памылка</string>
+    <string name="moving">Перамяшчэнне…</string>
+    <string name="moving_success">Перамяшчэнне файлаў паспяхова выканана</string>
+    <string name="moving_success_one">Перамяшчэнне файла паспяхова выканана</string>
+    <string name="moving_success_partial">Не атрымалася перамясціць некаторыя файлы</string>
+    <string name="copying_success_partial">Не атрымалася скапіяваць некаторыя файлы</string>
+    <string name="no_files_selected">Файлы не выбраны</string>
+    <string name="saving">Захаванне…</string>
+    <string name="could_not_create_folder">Не атрымалася стварыць папку %s</string>
+    <string name="could_not_create_file">Не атрымалася стварыць файл %s</string>
+    <string name="no_new_items">Новых элементаў не знойдзена</string>
+    <string name="no_space">У пункце прызначэння недастаткова месца.\nабавязковы%1$s, даступны%2$s</string>
+    <string name="system_service_disabled">Сістэмная служба выбару файлаў і тэчак недаступная</string>
+    <!-- Create new -->
+    <string name="create_new">Стварыць</string>
+    <string name="folder">Папка</string>
+    <string name="file">Файл</string>
+    <string name="create_new_folder">Стварыць новую папку</string>
+    <string name="name_taken">Папка альбо файл з такой назвай ужо існуе</string>
+    <string name="invalid_name">Імя змяшчае недапушчальныя сімвалы</string>
+    <string name="empty_name">Увядзіце назву</string>
+    <string name="unknown_error_occurred">Адбылася невядомая памылка</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">Файл \"%s\" ужо існуе</string>
+    <string name="file_already_exists_overwrite">Файл \"%s\" ужо існуе. Перазапісаць\?</string>
+    <string name="folder_already_exists">Папка \"%s\" ужо існуе</string>
+    <string name="merge">Аб\'яднаць</string>
+    <string name="keep_both">Захаваць абодва</string>
+    <string name="overwrite">Перазапісаць</string>
+    <string name="skip">Прамінуць</string>
+    <string name="append">Далучыць \'_1\' да назвы</string>
+    <string name="apply_to_all">Ужыць да ўсіх</string>
+    <string name="system_folder_restriction">Сістэма не дазваляе аперацыю ў гэтай папцы, абярыце іншую папку</string>
+    <string name="system_folder_copy_restriction">Сістэма не дазваляе капіяванне ў гэту папку, абярыце іншую папку</string>
+    <string name="rename_in_sd_card_system_restriction">Сістэма не дазваляе перайменаванне ў гэтай папцы</string>
+    <string name="rename_internal_system_restriction">Немагчыма перайменаваць папкі непасрэдна ва ўнутранай памяці, толькі падпапкі</string>
+    <string name="cannot_rename_folder">Немагчыма перайменаваць гэту тэчку</string>
+    <!-- File picker -->
+    <string name="select_folder">Выбраць папку</string>
+    <string name="select_file">Выбраць файл</string>
+    <string name="confirm_storage_access_title">Пацвердзіце доступ да вонкавага сховішча</string>
+    <string name="confirm_folder_access_title">Пацвердзіце доступ да папкі</string>
+    <string name="confirm_storage_access_text">Выберыце верхнюю папку SD-карты на наступным экране, каб даць доступ для запісу</string>
+    <string name="confirm_storage_access_text_sd">Калі вы не бачыце SD-карту, паспрабуйце гэта</string>
+    <string name="confirm_storage_access_android_text">Калі ласка, дазвольце праграме доступ да выбранага сховішча на наступным экране, націснуўшы \"Выкарыстоўваць гэту тэчку\" ўнізе.</string>
+    <string name="confirm_storage_access_android_text_specific">Калі ласка, дазвольце доступ \'<b>%s</b>\' на наступным экране, націснуўшы \'<b>Выкарыстоўвайце гэтую тэчку</b>\' на дне.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Калі ласка, націсніце \'<b>Захаваць</b>\' унізе наступнага экрана, каб стварыць новую тэчку.</string>
+    <string name="confirm_selection">Пацвердзіце выбар</string>
+    <string name="loading">Загрузка…</string>
+    <string name="access_storage_prompt">Дайце нашаму прылажэнню доступ да ўсіх вашых файлаў, без гэтага яно можа працаваць дрэнна.</string>
+    <plurals name="items">
+        <item quantity="one">%d элемент</item>
+        <item quantity="few">%d элемента</item>
+        <item quantity="many">%d элементаў</item>
+        <item quantity="other">%d элементаў</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="one">%d элемент</item>
+        <item quantity="few">%d элемента</item>
+        <item quantity="many">%d элементаў</item>
+        <item quantity="other">%d элементаў</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="one">Выдаленне %d элемента</item>
+        <item quantity="few">Выдаленне %d элементаў</item>
+        <item quantity="many">Выдаленне %d элементаў</item>
+        <item quantity="other">Выдаленне %d элементаў</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">%d кантакт</item>
+        <item quantity="few">%d кантакта</item>
+        <item quantity="many">%d кантактаў</item>
+        <item quantity="other">%d кантактаў</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">Выбраць сховішча</string>
+    <string name="storage">Сховішча</string>
+    <string name="internal">Унутраны</string>
+    <string name="sd_card">SD-карта</string>
+    <string name="root">Корань</string>
+    <string name="wrong_root_selected">Выбрана няправільная папка, абярыце галоўную папку вашай SD-карты</string>
+    <string name="sd_card_usb_same">Шляхі SD-карты і USB-прылад не могуць супадаць</string>
+    <string name="app_on_sd_card">Здаецца, у вас усталявана праграма на SD-карце, што робіць віджэты праграмы недаступнымі. Вы нават не ўбачыце іх у спісе даступных віджэтаў. Гэта сістэмнае абмежаванне, таму, калі вы хочаце выкарыстоўваць віджэты, вам трэба перанесці праграму назад ва ўнутраную памяць.</string>
+    <string name="wrong_folder_selected">Выбрана няправільная папка, выберыце шлях \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">Уласцівасці</string>
+    <string name="path">шлях</string>
+    <string name="items_selected">Элементы выбраны</string>
+    <string name="direct_children_count">Прамы падлік дзяцей</string>
+    <string name="files_count">Агульная колькасць файлаў</string>
+    <string name="resolution">Разрозненне</string>
+    <string name="duration">Працягласць</string>
+    <string name="artist">Выканаўца</string>
+    <string name="album">Альбом</string>
+    <string name="focal_length">Фокусная адлегласць</string>
+    <string name="exposure_time">Вытрымка</string>
+    <string name="iso_speed">Святлоадчувальнасць</string>
+    <string name="f_number">Адносная адтуліна</string>
+    <string name="camera">Камера</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">Назва кампазіцыі</string>
+    <string name="gps_coordinates">Каардынаты GPS</string>
+    <string name="altitude">Вышыня над узроўнем мора</string>
+    <string name="remove_exif">Выдаліць EXIF</string>
+    <string name="remove_exif_confirmation">Вы ўпэўнены, што жадаеце выдаліць значэнні EXIF, такія як каардынаты GPS, мадэль камеры і г.д.\?</string>
+    <string name="exif_removed">Даныя EXIF паспяхова выдалены</string>
+    <!-- Color customization -->
+    <string name="background_color">Колер фону</string>
+    <string name="text_color">Колер тэксту</string>
+    <string name="primary_color">Асноўны колер</string>
+    <string name="accent_color_white">Акцэнтны колер белай тэмы</string>
+    <string name="accent_color_black_and_white">Чорны акцэнтны колер</string>
+    <string name="foreground_color">Колер пярэдняга плана</string>
+    <string name="app_icon_color">Колер значка праграмы</string>
+    <string name="bottom_navigation_bar_color">Колер ніжняй панэлі навігацыі</string>
+    <string name="restore_defaults">Аднавіць значэнні па змаўчанні</string>
+    <string name="use_default">Выкарыстоўваць па змаўчанні</string>
+    <string name="default_color">Па змаўчанні</string>
+    <string name="change_color">Змяніць колер</string>
+    <string name="theme">Тэма</string>
+    <string name="changing_color_description">Пры змене колеру ён пераключыцца на карыстальніцкую тэму</string>
+    <string name="save">Захаваць</string>
+    <string name="discard">Адкідаць</string>
+    <string name="undo_changes">Адмяніць змены</string>
+    <string name="undo_changes_confirmation">Вы ўпэўнены, што хочаце адмяніць зробленыя змены\?</string>
+    <string name="cannot_be_undone">Гэта дзеянне нельга адмяніць.</string>
+    <string name="save_before_closing">У вас ёсць незахаваныя змены. Захаваць перад выхадам\?</string>
+    <string name="apply_to_all_apps">Прымяніць колеры да ўсіх простых праграм</string>
+    <string name="app_icon_color_warning">Папярэджаньне: некаторыя пускавыя ўстаноўкі няправільна апрацоўваюць наладу значкоў прыкладанняў. У выпадку, калі значок знікне, паспрабуйце запусціць прыкладанне праз Google Play або якой-небудзь віджэт, калі ён даступны. Пасля запуску проста вярніце аранжавы значок па змаўчанні #F57C00. У горшым выпадку вам, магчыма, прыйдзецца пераўсталяваць дадатак.</string>
+    <string name="share_colors_success">Колеры паспяхова абноўлены. Была дададзена новая тэма пад назвай \"Агульны доступ\", выкарыстоўвайце яе для абнаўлення ўсіх колераў праграм у будучыні.</string>
+    <string name="shared_theme_note">Звярніце ўвагу, што нават калі вы карыстаецеся версіяй праграмы Pro, вам усё роўна патрэбны Simple Thank You па тэхнічных прычынах. Ён клапоціцца аб сінхранізацыі колеру.</string>
+    <string name="purchase_thank_you">Купіце &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;, каб разблакіраваць гэту функцыю і падтрымаць распрацоўку. Дзякуй!</string>
+    <!-- Themes -->
+    <string name="light_theme">Светлая</string>
+    <string name="dark_theme">Цёмная</string>
+    <string name="auto_theme">Аўто</string>
+    <string name="auto_light_dark_theme">Аўтаматычны свет / цёмны</string>
+    <string name="solarized">Сонечная</string>
+    <string name="dark_red">Цёмна-чырвоная</string>
+    <string name="white">Белая</string>
+    <string name="black_white">Чорна-белая</string>
+    <string name="custom">Карыстальніцкая</string>
+    <string name="shared">Агульная</string>
+    <string name="system_default">Сістэма па змаўчанні</string>
+    <!-- What's new -->
+    <string name="whats_new">Што новага</string>
+    <string name="whats_new_disclaimer">* Тут пералічаны толькі больш буйныя абнаўленні, заўсёды ёсць некаторыя меншыя паляпшэнні</string>
+    <!-- Actionbar items -->
+    <string name="delete">Выдаліць</string>
+    <string name="remove">Зняць</string>
+    <string name="rename">Перайменаваць</string>
+    <string name="share">Абагуліць</string>
+    <string name="share_via">Абагуліць праз…</string>
+    <string name="resize">Змяніць памер</string>
+    <string name="select_all">Выбраць усё</string>
+    <string name="select_text">Выбраць тэкст</string>
+    <string name="hide">Схаваць</string>
+    <string name="unhide">Паказаць</string>
+    <string name="hide_folder">Схаваць папку</string>
+    <string name="unhide_folder">Паказаць папку</string>
+    <string name="temporarily_show_hidden">Часова паказаць схаванае</string>
+    <string name="stop_showing_hidden">Спыніць паказ схаваных мультымедыя</string>
+    <string name="maximum_share_reached">Вы не можаце абагуліць столькі змесціва адначасова</string>
+    <string name="empty_and_disable_recycle_bin">Ачысціце і адключыце кошык</string>
+    <string name="undo">Адрабіць</string>
+    <string name="redo">Узнавіць</string>
+    <string name="print">Друкаваць</string>
+    <string name="print_pro">Друкаваць (Pro)</string>
+    <string name="shortcut">Ярлык</string>
+    <string name="create_shortcut">Стварыць ярлык</string>
+    <string name="create_shortcut_pro">Стварыць ярлык (Pro)</string>
+    <string name="add_number_to_contact">Дадаць нумар да кантакту</string>
+    <string name="view_contact_details">Паказаць звесткі аб кантакце</string>
+    <string name="call_from_sim_1">Выклік з SIM 1</string>
+    <string name="call_from_sim_2">Выклік з SIM 2</string>
+    <string name="toggle_filename">Пераключыць бачнасць імя файла</string>
+    <string name="move_to_top">Перамясціць уверх</string>
+    <string name="move_to_bottom">Перамясціць уніз</string>
+    <string name="pin_item">Замацаваць элемент</string>
+    <string name="unpin_item">Адмацаваць элемент</string>
+    <string name="send_sms">Даслаць SMS</string>
+    <string name="send_email">Даслаць ліст</string>
+    <string name="call">Выклік</string>
+    <string name="contact_details">Contact details</string>
+    <string name="add_contact">Add contact</string>
+    <string name="wallpapers">Шпалеры</string>
+    <!-- Sorting -->
+    <string name="sort_by">Сартаваць па…</string>
+    <string name="name">Назва</string>
+    <string name="size">Памер</string>
+    <string name="last_modified">Апошні раз зменена</string>
+    <string name="date_created">Дата стварэння</string>
+    <string name="date_taken">Дата ўзяцця</string>
+    <string name="title">Назва</string>
+    <string name="filename">Назва файла</string>
+    <string name="extension">Пашырэнне</string>
+    <string name="random">Выпадкова</string>
+    <string name="sort_randomly">Сартаваць выпадковым чынам</string>
+    <string name="ascending">Па ўзрастанні</string>
+    <string name="descending">Па змяншэнні</string>
+    <string name="use_for_this_folder">Выкарыстоўвайце толькі для гэтай папкі</string>
+    <string name="sort_numeric_parts">Сартаванне лікавых частак па фактычным значэнні</string>
+    <string name="first_name">Імя</string>
+    <string name="middle_name">Імя па бацьку</string>
+    <string name="surname">Прозвішча</string>
+    <string name="full_name">Поўнае імя</string>
+    <string name="use_custom_sorting">Выкарыстоўвайце карыстацкую сартаванне</string>
+    <string name="change_order">Змяніць парадак</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Вы ўпэўнены, што хочаце працягнуць выдаленне\?</string>
+    <string name="deletion_confirmation">Выдаліць %s\?</string>
+    <string name="deletion_confirmation_short">Delete %s?</string>
+    <string name="move_to_recycle_bin_confirmation">Перамясціць %s у сметніцу\?</string>
+    <string name="are_you_sure_delete">Выдаліць гэты элемент\?</string>
+    <string name="are_you_sure_recycle_bin">Перамясціць гэты элемент у сметніцу\?</string>
+    <string name="do_not_ask_again">Больш не пытацца ў гэтым сеансе</string>
+    <string name="do_not_show_again">Больш не паказваць</string>
+    <string name="yes">Так</string>
+    <string name="no">Не</string>
+    <string name="maybe">Магчыма</string>
+    <plurals name="delete_warning">
+        <item quantity="one">ПАПЯРЭДЖАННЕ: Вы выдаляеце %d папку</item>
+        <item quantity="few">ПАПЯРЭДЖАННЕ: Вы выдаляеце %d папкі</item>
+        <item quantity="many">ПАПЯРЭДЖАННЕ: Вы выдаляеце %d папак</item>
+        <item quantity="other">ПАПЯРЭДЖАННЕ: Вы выдаляеце %d папак</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">PIN-код</string>
+    <string name="enter_pin">Увядзіце PIN-код</string>
+    <string name="please_enter_pin">Увядзіце PIN-код</string>
+    <string name="wrong_pin">Няправільны PIN-код</string>
+    <string name="repeat_pin">Паўтарыце PIN-код</string>
+    <string name="pattern">Графічны ключ</string>
+    <string name="insert_pattern">Намалюйце графічны ключ</string>
+    <string name="wrong_pattern">Няправільны графічны ключ</string>
+    <string name="repeat_pattern">Паўтарыце графічны ключ</string>
+    <string name="biometrics">Біяметрыя</string>
+    <string name="fingerprint">Адбітак пальца</string>
+    <string name="add_fingerprint">Дадаць адбітак пальца</string>
+    <string name="place_finger">Пакладзіце палец на датчык адбіткаў пальцаў</string>
+    <string name="open_biometric_dialog">Адкрыць дыялогавае акно праверкі біяметрычнай асобы</string>
+    <string name="authenticate">Аўтэнтыфікаваць</string>
+    <string name="authentication_failed">Памылка аўтэнтыфікацыі</string>
+    <string name="authentication_blocked">Аўтэнтыфікацыя заблакіравана, паўтарыце спробу праз хвіліну</string>
+    <string name="no_fingerprints_registered">У вас няма зарэгістраваных адбіткаў пальцаў, дадайце іх у наладах вашай прылады</string>
+    <string name="go_to_settings">Перайдзіце ў Налады</string>
+    <string name="protection_setup_successfully">Ўстаноўка пароля прайшла паспяхова. Калі ласка, пераўсталюеце прыкладанне на выпадак, калі вы яго забудзецеся.</string>
+    <string name="fingerprint_setup_successfully">Налада абароны выканана паспяхова. Калі ласка, пераўсталюеце прыкладанне ў выпадку ўзнікнення праблем з яго скідам.</string>
+    <string name="lock_folder">Заблакіраваць тэчку</string>
+    <string name="lock_folder_pro">Заблакіраваць тэчку (Pro)</string>
+    <string name="unlock_folder">Разблакіраваць тэчку</string>
+    <string name="lock_folder_notice">Гэтая абарона працуе толькі ў гэтым дадатку, яна не павінна замяняць сапраўднае агульнасістэмнае шыфраванне папак.</string>
+    <!-- Times -->
+    <string name="yesterday">Учора</string>
+    <string name="today">Сёння</string>
+    <string name="tomorrow">Заўтра</string>
+    <string name="every_day">Кожны дзень</string>
+    <string name="hide_year">Схаваць год</string>
+    <string name="seconds_raw">секунд</string>
+    <string name="minutes_raw">хвілін</string>
+    <string name="hours_raw">гадзін</string>
+    <string name="days_raw">дзён</string>
+    <string name="seconds_letter">с</string>
+    <string name="minutes_letter">х</string>
+    <string name="hours_letter">г</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="one">%d секунда</item>
+        <item quantity="few">%d секунды</item>
+        <item quantity="many">%d секунд</item>
+        <item quantity="other">%d секунд</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">%d хвіліна</item>
+        <item quantity="few">%d хвіліны</item>
+        <item quantity="many">%d хвілін</item>
+        <item quantity="other">%d хвілін</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">%d гадзіна</item>
+        <item quantity="few">%d гадзіны</item>
+        <item quantity="many">%d гадзін</item>
+        <item quantity="other">%d гадзін</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">%d тыдзень</item>
+        <item quantity="few">%d тыдні</item>
+        <item quantity="many">%d тыдняў</item>
+        <item quantity="other">%d тыдняў</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">%d месяц</item>
+        <item quantity="few">%d месяцы</item>
+        <item quantity="many">%d месяцаў</item>
+        <item quantity="other">%d месяцаў</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="one">%d год</item>
+        <item quantity="few">%d гады</item>
+        <item quantity="many">%d гадоў</item>
+        <item quantity="other">%d гадоў</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="one">%d секунду</item>
+        <item quantity="few">%d секунды</item>
+        <item quantity="many">%d секунд</item>
+        <item quantity="other">%d секунд</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="one">%d хвіліну</item>
+        <item quantity="few">%d хвіліны</item>
+        <item quantity="many">%d хвілін</item>
+        <item quantity="other">%d хвілін</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="one">%d гадзіну</item>
+        <item quantity="few">%d гадзіны</item>
+        <item quantity="many">%d гадзін</item>
+        <item quantity="other">%d гадзін</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="one">%d тыдзень</item>
+        <item quantity="few">%d тыдні</item>
+        <item quantity="many">%d тыдняў</item>
+        <item quantity="other">%d тыдняў</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="one">%d месяц</item>
+        <item quantity="few">%d месяцы</item>
+        <item quantity="many">%d месяцаў</item>
+        <item quantity="other">%d месяцаў</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="one">%d год</item>
+        <item quantity="few">%d гады</item>
+        <item quantity="many">%d гадоў</item>
+        <item quantity="other">%d гадоў</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="one">%d секунда да падзеі</item>
+        <item quantity="few">%d секунды да падзеі</item>
+        <item quantity="many">%d секунд да падзеі</item>
+        <item quantity="other">%d секунд да падзеі</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="one">%d хвіліна да падзеі</item>
+        <item quantity="few">%d хвіліны да падзеі</item>
+        <item quantity="many">%d хвілін да падзеі</item>
+        <item quantity="other">%d хвілін да падзеі</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="one">%d гадзіна да падзеі</item>
+        <item quantity="few">%d гадзіны да падзеі</item>
+        <item quantity="many">%d гадзін да падзеі</item>
+        <item quantity="other">%d гадзін да падзеі</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="one">%d дзень да падзеі</item>
+        <item quantity="few">%d дні да падзеі</item>
+        <item quantity="many">%d дзён да падзеі</item>
+        <item quantity="other">%d дзён да падзеі</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="one">%d тыдзень да падзеі</item>
+        <item quantity="few">%d тыдні да падзеі</item>
+        <item quantity="many">%d тыдняў да падзеі</item>
+        <item quantity="other">%d тыдняў да падзеі</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="one">%d месяц да падзеі</item>
+        <item quantity="few">%d месяца да падзеі</item>
+        <item quantity="many">%d месяцаў да падзеі</item>
+        <item quantity="other">%d месяцаў да падзеі</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="one">%d год да падзеі</item>
+        <item quantity="few">%d гады да падзеі</item>
+        <item quantity="many">%d гадоў да падзеі</item>
+        <item quantity="other">%d гадоў да падзеі</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="one">%d секунду</item>
+        <item quantity="few">%d секунды</item>
+        <item quantity="many">%d секунду</item>
+        <item quantity="other">%d секунду</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="one">%d хвіліну</item>
+        <item quantity="few">%d хвіліны</item>
+        <item quantity="many">%d хвілін</item>
+        <item quantity="other">%d хвілін</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="one">%d гадзіну</item>
+        <item quantity="few">%d гадзіны</item>
+        <item quantity="many">%d гадзін</item>
+        <item quantity="other">%d гадзін</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="one">%d тыдзень</item>
+        <item quantity="few">%d тыдні</item>
+        <item quantity="many">%d тыдняў</item>
+        <item quantity="other">%d тыдняў</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="one">%d месяц</item>
+        <item quantity="few">%d месяца</item>
+        <item quantity="many">%d месяцаў</item>
+        <item quantity="other">%d месяцаў</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="one">%d год</item>
+        <item quantity="few">%d гады</item>
+        <item quantity="many">%d гадоў</item>
+        <item quantity="other">%d гадоў</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Час, застаўшыйся да спрацоўвання будзільніка:\n%s</string>
+    <string name="reminder_triggers_in">Час, застаўшыйся да спрацоўвання напаміна:\n%s</string>
+    <string name="time_remaining">Пакінуты час:\n%s</string>
+    <string name="alarm_warning">Пераканайцеся, што будзільнік працуе правільна, перш чым спадзявацца на яго. Ён можа не працаваць належным чынам з-за сістэмных абмежаванняў, звязаных з эканоміяй батарэі.</string>
+    <string name="reminder_warning">Калі ласка, пераканайцеся, што напамінкі працуюць належным чынам, перш чым спадзявацца на іх. Праверце зарад батарэі вашага прылады і налады апавяшчэнняў, калі нішто не блакуе нагадванні ці не адключае прыкладанне ў фонавым рэжыме.</string>
+    <string name="notifications_disabled">Апавяшчэння гэтага прыкладання адключаныя. Калі ласка, зайдзіце ў Налады вашага прылады, каб уключыць іх.</string>
+    <!-- Alarms -->
+    <string name="alarm">Будзільнік</string>
+    <string name="snooze">Адкласці</string>
+    <string name="dismiss">Адхіліць</string>
+    <string name="no_reminder">Без напаміна</string>
+    <string name="at_start">На пачатку</string>
+    <string name="system_sounds">Сістэмныя гукі</string>
+    <string name="your_sounds">Твае гукі</string>
+    <string name="add_new_sound">Дадаць новы гук</string>
+    <string name="no_sound">Без гуку</string>
+    <string name="during_day_at_hh_mm">На працягу дня ў гг:хх</string>
+    <string name="during_day_at">На працягу дня ў %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">Налады</string>
+    <string name="purchase_simple_thank_you">Purchase Simple Дзякуй</string>
+    <string name="general_settings">Генерал</string>
+    <string name="color_customization">Налады колераў</string>
+    <string name="improved_color_customization">Палепшаная налада колеру</string>
+    <string name="customize_colors">Наладзіць колеры</string>
+    <string name="customize_colors_locked">Наладзіць колеры (заблакавана)</string>
+    <string name="feature_locked">Заблакавана</string>
+    <string name="customize_widget_colors">Наладзіць колеры віджэтаў</string>
+    <string name="customize_notifications">Наладзіць апавяшчэнні</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="use_english_language">Выкарыстоўваць англійскую мову</string>
+    <string name="language">Мова</string>
+    <string name="show_hidden_items">Паказваць схаваныя элементы</string>
+    <string name="font_size">Памер шрыфта</string>
+    <string name="small">Малы</string>
+    <string name="medium">Сярэдні</string>
+    <string name="large">Вялікі</string>
+    <string name="extra_large">Вялізарны</string>
+    <string name="password_protect_hidden_items">Абарона паролем бачнасці схаваных элементаў</string>
+    <string name="password_protect_whole_app">Абарона паролем усяго прыкладання</string>
+    <string name="password_protect_file_deletion">Абарона паролем выдалення і перамяшчэння файлаў</string>
+    <string name="keep_last_modified">Захоўваць старое апошняе мадыфікаванае значэнне пры аперацыях з файламі</string>
+    <string name="show_info_bubble">Паказваць інфармацыйную бурбалку пры пракрутцы элементаў шляхам перацягвання паласы пракруткі</string>
+    <string name="prevent_phone_from_sleeping">Забараніць тэлефону пераходзіць у рэжым сну, калі праграма працуе на пярэднім плане</string>
+    <string name="skip_delete_confirmation">Заўсёды прапускаць дыялогавае акно пацверджання выдалення</string>
+    <string name="enable_pull_to_refresh">Уключыце пацягніце для абнаўлення зверху</string>
+    <string name="use_24_hour_time_format">Выкарыстоўвайце 24-гадзінны фармат часу</string>
+    <string name="change_date_and_time_format">Змяніць фармат даты і часу</string>
+    <string name="sunday_first">Пачатак тыдня ў нядзелю</string>
+    <string name="widgets">Віджэты</string>
+    <string name="use_same_snooze">Заўсёды выкарыстоўвайце аднолькавы час адкладання</string>
+    <string name="snooze_time">Час адкладання</string>
+    <string name="vibrate_on_button_press">Вібраваць пры націску на кнопкі</string>
+    <string name="move_items_into_recycle_bin">Перамяшчайце элементы ў кошык замест выдалення</string>
+    <string name="recycle_bin_cleaning_interval">Інтэрвал ачысткі кошыка</string>
+    <string name="empty_recycle_bin">Ачысціць сметніцу</string>
+    <string name="force_portrait_mode">Прымусовы партрэтны рэжым</string>
+    <string name="export_settings">Экспартаваць налады</string>
+    <string name="import_settings">Імпартаваць налады</string>
+    <string name="settings_exported_successfully">Налады паспяхова экспартаваны</string>
+    <string name="settings_imported_successfully">Налады паспяхова імпартаваны</string>
+    <string name="start_name_with_surname">Імя пачынаць з прозвішча</string>
+    <string name="clear_cache">Ачысціць кэш</string>
+    <string name="show_call_confirmation_dialog">Паказаць дыялогавае акно пацверджання выкліку перад пачаткам выкліку</string>
+    <!-- Setting sections -->
+    <string name="visibility">Бачнасць</string>
+    <string name="security">Бяспека</string>
+    <string name="scrolling">Пракрутка</string>
+    <string name="file_operations">Файлавыя аперацыі</string>
+    <string name="recycle_bin">Сметніца</string>
+    <string name="saving_label">Захаванне</string>
+    <string name="startup">Запуск</string>
+    <string name="text">Тэкст</string>
+    <string name="migrating">Міграцыя</string>
+    <string name="quality">Якасць</string>
+    <string name="main_screen">Галоўны экран</string>
+    <string name="thumbnails">Эскізы</string>
+    <string name="list_view">Спіс</string>
+    <!-- Excluding -->
+    <string name="exclude">Выключыць</string>
+    <string name="exclude_folder">Выключыць тэчку</string>
+    <string name="excluded_folders">Выключаныя тэчкі</string>
+    <string name="excluded">(выключана)</string>
+    <string name="manage_excluded_folders">Кіраванне выключанымі папкамі</string>
+    <string name="remove_all">Выдаліць усе</string>
+    <string name="remove_all_description">Выдаліць усе тэчкі з спісу выключаных\? Гэта не прывядзе да выдалення тэчак.</string>
+    <string name="temporarily_show_excluded">Паказ часова выключаны</string>
+    <string name="stop_showing_excluded">Спыніць паказ выключаны</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">Кіраванне ўкладкамі, якія адлюстроўваюцца</string>
+    <string name="default_tab_to_open">Укладка, якая адкрываецца пры запуску</string>
+    <string name="contacts_tab">Кантакты</string>
+    <string name="favorites_tab">Абраныя</string>
+    <string name="call_history_tab">Журнал выклікаў</string>
+    <string name="groups_tab">Групы</string>
+    <string name="last_used_tab">Апошні выкарыстоўваны</string>
+    <string name="files_tab">Файлы</string>
+    <string name="recent_files_tab">Апошнія файлы</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">Аднавіць гэты файл</string>
+    <string name="restore_selected_files">Аднавіць выбраныя файлы</string>
+    <string name="restore_all_files">Аднавіць усе файлы</string>
+    <string name="recycle_bin_emptied">Сметніца паспяхова ачышчана</string>
+    <string name="files_restored_successfully">Файлы паспяхова адноўлены</string>
+    <string name="empty_recycle_bin_confirmation">Вы ўпэўненыя, што жадаеце ачысціць сметнік\? Файлы будуць незваротна страчаныя.</string>
+    <string name="recycle_bin_empty">Сметніца пустая</string>
+    <string name="moving_recycle_bin_items_disabled">Перамяшчэнне элементаў кошыка адключана, скарыстайцеся аднаўленнем</string>
+    <string name="show_the_recycle_bin">Паказаць сметніцу</string>
+    <string name="hide_the_recycle_bin">Схаваць сметніцу</string>
+    <string name="open_the_recycle_bin">Адкрыць кошык</string>
+    <string name="skip_the_recycle_bin">Прапусціце кошык, выдаліце файлы непасрэдна</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="one">%d элемент перамяшчаецца ў сметніцу</item>
+        <item quantity="few">%d элемента перамяшчаюцца ў сметніцу</item>
+        <item quantity="many">%d элементаў перамяшчаюцца ў сметніцу</item>
+        <item quantity="other">%d элементаў перамяшчаюцца ў сметніцу</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">Імпартаванне…</string>
+    <string name="exporting">Экспартаванне…</string>
+    <string name="importing_successful">Імпартаванне паспяхова выканана</string>
+    <string name="exporting_successful">Экспартаванне паспяхова выканана</string>
+    <string name="importing_failed">Не атрымалася выканаць імпартаванне</string>
+    <string name="exporting_failed">Не атрымалася выканаць экспартаванне</string>
+    <string name="importing_some_entries_failed">Не атрымалася імпартаваць некаторыя элементы</string>
+    <string name="exporting_some_entries_failed">Не атрымалася экспартаваць некаторыя элементы</string>
+    <string name="no_entries_for_importing">Элементы для імпартавання не знойдзены</string>
+    <string name="no_new_entries_for_importing">Новыя элементы для імпартавання не знойдзены</string>
+    <string name="no_entries_for_exporting">Элементы для экспартавання не знойдзены</string>
+    <string name="backups">Рэзервовыя копіі</string>
+    <string name="enable_automatic_backups">Уключыць аўтаматычнае рэзервовае капіраванне</string>
+    <string name="manage_automatic_backups">Кіраванне аўтаматычным рэзервовым капіраваннем</string>
+    <string name="date_time_pattern_info">Вы можаце выкарыстоўваць наступныя шаблоны, каб аўтаматычна назваць файл:
+\n
+\n%Y - год
+\n%M - месяц
+\n%D - дзень
+\n%h - гадзіна
+\n%m - хвіліна
+\n%s - другі</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">Падобна на тое, да вашага прылады падлучанае USB-прылада. Каб пераканацца, што яго файлы адлюстроўваюцца правільна, вам неабходна прадаставіць дадатковыя дазволу.</string>
+    <string name="confirm_usb_storage_access_text">Калі ласка, абярыце верхнюю тэчку USB-прылады на наступным экране, каб даць доступ</string>
+    <string name="wrong_root_selected_usb">Выбрана няправільная папка, выберыце асноўную папку вашай USB-прылады</string>
+    <!-- Dates -->
+    <string name="january">Студзень</string>
+    <string name="february">Люты</string>
+    <string name="march">Сакавік</string>
+    <string name="april">Красавік</string>
+    <string name="may">Травень</string>
+    <string name="june">Чэрвень</string>
+    <string name="july">Ліпень</string>
+    <string name="august">Жнівень</string>
+    <string name="september">Верасень</string>
+    <string name="october">Кастрычнік</string>
+    <string name="november">Лістапад</string>
+    <string name="december">Снежань</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">Apr</string>
+    <string name="may_short">May</string>
+    <string name="june_short">June</string>
+    <string name="july_short">July</string>
+    <string name="august_short">Aug</string>
+    <string name="september_short">Sept</string>
+    <string name="october_short">Oct</string>
+    <string name="november_short">Nov</string>
+    <string name="december_short">Dec</string>
+    <!-- in January -->
+    <string name="in_january">у студні</string>
+    <string name="in_february">у лютым</string>
+    <string name="in_march">у сакавіку</string>
+    <string name="in_april">у красавіку</string>
+    <string name="in_may">у траўні</string>
+    <string name="in_june">у чэрвені</string>
+    <string name="in_july">у ліпені</string>
+    <string name="in_august">у жніўні</string>
+    <string name="in_september">у верасні</string>
+    <string name="in_october">у кастрычніку</string>
+    <string name="in_november">у лістападзе</string>
+    <string name="in_december">у снежні</string>
+    <string name="monday">Панядзелак</string>
+    <string name="tuesday">Аўторак</string>
+    <string name="wednesday">Серада</string>
+    <string name="thursday">Чацвер</string>
+    <string name="friday">Пятніца</string>
+    <string name="saturday">Субота</string>
+    <string name="sunday">Нядзеля</string>
+    <string name="monday_letter">Пн</string>
+    <string name="tuesday_letter">Аў</string>
+    <string name="wednesday_letter">Ср</string>
+    <string name="thursday_letter">Чц</string>
+    <string name="friday_letter">Пт</string>
+    <string name="saturday_letter">Сб</string>
+    <string name="sunday_letter">Нд</string>
+    <string name="monday_short">Пан</string>
+    <string name="tuesday_short">Аўт</string>
+    <string name="wednesday_short">Срд</string>
+    <string name="thursday_short">Чцв</string>
+    <string name="friday_short">Пят</string>
+    <string name="saturday_short">Суб</string>
+    <string name="sunday_short">Няд</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Версія вашага прыкладання больш не будзе абнаўляцца. Калі ласка, абнавіць да версіі Pro, каб атрымаць новыя выпраўлення і іншыя паляпшэння.</string>
+    <string name="upgrade_to_pro_long_click">Версія вашага прыкладання больш не будзе абнаўляцца. Калі ласка, абнавіць да версіі Pro, каб атрымаць новыя выпраўлення і іншыя паляпшэння, націснуўшы тут.</string>
+    <string name="it_is_free">Гэта бясплатна да %s. Калі вы спампуеце яго да таго часу, вы зможаце выкарыстоўваць яго бясплатна назаўжды.</string>
+    <string name="more_info">Дадатковая інфармацыя</string>
+    <string name="upgrade">Абнаўленне</string>
+    <string name="upgrade_calendar">Вы павінны перанесці лакальна захаваныя падзеі ўручную шляхам экспарту ў файл .ics, а затым імпарту. Вы можаце знайсці абедзве кнопкі экспарту/імпарту ў галоўным меню экрана.</string>
+    <string name="upgraded_from_free_gallery">Добры дзень,
+\n
+\nздаецца, вы толькі што перайшлі з бясплатнай версіі. Калі вы задаволены гэтым і, магчыма, перанясеце свае налады і абранае, вы можаце выдаліць старую бясплатную праграму, каб пазбегнуць яе выпадковага запуску, бо яна вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_to_pro_gallery">Добры дзень,
+\n
+\nздаецца, у вас ужо ёсць версія праграмы Pro. Калі вы задаволены ім і, магчыма, перанясеце свае налады і абранае, вы можаце выдаліць яго, каб пазбегнуць яго выпадковага запуску, бо ён вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_from_free">Добры дзень,
+\n
+\nздаецца, вы толькі што перайшлі з бясплатнай версіі. Калі вы будзеце задаволены гэтым і, магчыма, перанясеце свае даныя, вы можаце выдаліць старую бясплатную праграму, каб пазбегнуць яе выпадковага запуску, бо яна вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_to_pro">Добры дзень,
+\n
+\nздаецца, у вас ужо ёсць версія праграмы Pro. Калі вы задаволеныя ім і, магчыма, перанеслі свае даныя, вы можаце выдаліць яго, каб пазбегнуць выпадковага запуску, бо ён вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_from_free_calendar">Добры дзень,
+\n
+\nздаецца, вы толькі што перайшлі з бясплатнай версіі. Калі вы хочаце перанесці свае лакальна захаваныя падзеі, вам трэба зрабіць гэта ўручную, экспартаваўшы іх у файл .ics у бясплатнай версіі праграмы і імпартаваўшы сюды праз верхняе меню.
+\n
+\nКалі вы будзеце задаволены сваімі наладамі ў версіі Pro, вы можаце выдаліць старую бясплатную версію, бо яна вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_from_free_contacts">Добры дзень,
+\n
+\nздаецца, вы толькі што перайшлі з бясплатнай версіі. Калі ў вас былі якія-небудзь кантакты, захаваныя ў \"%s\", вы павінны перанесці іх уручную, экспартаваўшы ў файл .vcf з бясплатнай версіі праграмы і імпартаваўшы сюды праз верхняе меню.
+\n
+\nКалі вы будзеце задаволены сваімі наладамі ў версіі Pro, вы можаце выдаліць старую бясплатную версію, бо яна вам больш не спатрэбіцца.
+\n
+\nДзякуй!</string>
+    <string name="upgraded_from_free_notes">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your notes over, you have to do it manually by exporting them into a file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <!-- About -->
+    <string name="about">Аб</string>
+    <string name="website">Сайт</string>
+    <string name="website_label">Для атрымання зыходных кодаў наведайце</string>
+    <string name="email_label">Дасылайце свае водгукі або прапановы на</string>
+    <string name="upgrade_to_pro">Абнаўленне да Pro</string>
+    <string name="more_apps">Больш прыкладанняў</string>
+    <string name="more_apps_from_us">Больш праграм ад нас</string>
+    <string name="invite_friends">Запрашайце сяброў</string>
+    <string name="share_text">Гэй, выпісвайся %1$s у%2$s</string>
+    <string name="invite_via">Запрасіць праз</string>
+    <string name="rate_us">Ацаніце нас</string>
+    <string name="rate">Стаўка</string>
+    <string name="donate">Ахвяраваць</string>
+    <string name="follow_us">Сачыце за намі</string>
+    <string name="copyright">Версія %1$s
+\nАўтарскае права © Simple Mobile Tools %2$d</string>
+    <string name="support">Падтрымка</string>
+    <string name="help_us">Дапамажы нам</string>
+    <string name="social">Сацыяльны</string>
+    <string name="other">Іншае</string>
+    <string name="privacy_policy">Палітыка прыватнасці</string>
+    <string name="version_placeholder">Версія %s</string>
+    <string name="hello">Прывітанне :)</string>
+    <string name="about_footer">Зроблена з ❤️ у Славакіі</string>
+    <string name="additional_info">Дадатковая інфармацыя</string>
+    <string name="app_version">Версія праграмы: %s</string>
+    <string name="device_os">АС прылады: %s</string>
+    <string name="donate_please">Прывітанне,&lt;br&gt; &lt; br&gt; спадзяюся, вам спадабаецца прыкладанне. Ён не ўтрымлівае рэкламы, калі ласка, падтрымайце яго распрацоўку, купіўшы &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.дзякуй&gt; простае прыкладанне Дзякуй&lt;/a&gt;, яно таксама прадухіліць паўторнае адлюстраванне гэтага дыялогавага акна.&lt;br&gt; &lt; br&gt; Дзякуй!</string>
+    <string name="donate_new">Hello,&lt;br&gt;&lt;br&gt;hope you are enjoying the app. It contains no ads and we aren\'t collecting your data either, please support its development by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;. You will also have all app features including color customization unlocked.&lt;br&gt;&lt;br&gt;Thank you!</string>
+    <string name="donate_short">Support us by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; please, it will also unlock all app features including color customization.</string>
+    <string name="purchase">Купіць</string>
+    <string name="get_simple_phone">Атрымаць Simple Phone</string>
+    <string name="update_thank_you">Калі ласка, абнавіце Simple Thank You да апошняй версіі</string>
+    <string name="before_asking_question_read_faq">Перш чым задаць пытанне, праверце налады праграмы і спачатку прачытайце раздзел \"Часта задаюць пытанні\". Магчыма, рашэнне ёсць.</string>
+    <string name="before_rate_read_faq">Перш чым ацэньваць нас, праверце налады праграмы і спачатку прачытайце раздзел \"Часта задаюць пытанні\". Калі ў вас ёсць якія-небудзь праблемы, магчыма, рашэнне ёсць.</string>
+    <string name="make_sure_latest">Таксама пераканайцеся, што вы выкарыстоўваеце апошнюю версію праграмы.</string>
+    <string name="make_sure_upgrade">Таксама звярніце ўвагу, што гэтая версія праграмы больш не распрацоўваецца, купіце версію Pro для многіх паляпшэнняў.</string>
+    <string name="read_it">Прачытаць</string>
+    <string name="read_faq">Прачытаць FAQ</string>
+    <string name="rate_us_prompt">Квітнець,
+\n
+\nпадобна на тое, вы карыстаецеся гэтым дадаткам ўжо даволі даўно, і мы вельмі цэнім гэта.
+\n
+\nКалі мы можам папрасіць вас аб ласцы, калі ласка, ацаніце нас у Google Play. Гэта сапраўды вельмі дапамагло б нам.
+\n
+\nНезалежна ад таго, як вы вырашыце, вы больш не ўбачыце гэта паведамленне.
+\n
+\nДзякуй!</string>
+    <string name="rate_our_app">Калі ласка, ацаніце наша дадатак :)</string>
+    <string name="thank_you">Дзякуй</string>
+    <string name="widget_locked_pro">Віджэт заблакіраваны.\nАбнавіце яго да версіі Pro, каб разблакіраваць яго.</string>
+    <string name="features_locked">Гэта функцыя заблакіравана, купіце &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Просты дзякуй&lt;/a&gt; за разблакіроўку поўнай праграмы. &lt;br&gt;&lt;br&gt;Гэта аднаразовая аплата, і калі вы не будзеце задаволены, мы можам вярнуць вам грошы.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">Гэй,&lt;br&gt;&lt;br&gt;проста паведамляю вам, што нядаўна былі выпушчаны некаторыя новыя праграмы:&lt;br&gt;&lt;br&gt; &lt;a href=%1$s&gt;%2$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%3$s&gt;%4$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%5$s&gt;%6$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; Вы можаце загрузіць іх, націснуўшы іх загалоўкі або значкі.&lt;br&gt;&lt;br&gt; дзякуй</string>
+    <string name="simple_app_launcher">Simple App Launcher</string>
+    <string name="simple_calculator">Simple Calculator</string>
+    <string name="simple_calendar">Simple Calendar</string>
+    <string name="simple_camera">Simple Camera</string>
+    <string name="simple_clock">Simple Clock</string>
+    <string name="simple_contacts">Simple Contacts</string>
+    <string name="simple_dialer">Simple Dialer</string>
+    <string name="simple_draw">Simple Draw</string>
+    <string name="simple_file_manager">Simple File Manager</string>
+    <string name="simple_flashlight">Simple Flashlight</string>
+    <string name="simple_gallery">Simple Gallery</string>
+    <string name="simple_keyboard">Simple Keyboard</string>
+    <string name="simple_launcher">Simple Launcher</string>
+    <string name="simple_music_player">Simple Music Player</string>
+    <string name="simple_notes">Simple Notes</string>
+    <string name="simple_sms_messenger">Simple SMS Messenger</string>
+    <string name="simple_thank_you">Simple Thank You</string>
+    <string name="simple_voice_recorder">Simple Voice Recorder</string>
+    <string name="app_launcher_short">Працоўны стол</string>
+    <string name="calculator_short">Калькулятар</string>
+    <string name="calendar_short">Каляндар</string>
+    <string name="camera_short">Камера</string>
+    <string name="clock_short">Гадзіннік</string>
+    <string name="contacts_short">Кантакты</string>
+    <string name="dialer_short">Тэлефон</string>
+    <string name="draw_short">Малюнкі</string>
+    <string name="file_manager_short">Файлавы менеджар</string>
+    <string name="flashlight_short">Ліхтарык</string>
+    <string name="gallery_short">Галерэя</string>
+    <string name="keyboard_short">Клавіятура</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">Музычны прайгравальнік</string>
+    <string name="notes_short">Нататкі</string>
+    <string name="sms_messenger_short">Паведамленні</string>
+    <string name="thank_you_short">Падзяка</string>
+    <string name="voice_recorder_short">Дыктафон</string>
+    <string name="sideloaded_app">Падобна на тое, што версія вашага прыкладання пашкоджана. Калі ласка, запампуйце арыгінальную версію &lt;a href=%s&gt;тут&lt;/a&gt;.</string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">Часта задаюць пытанні</string>
+    <string name="before_asking_question">Перш чым задаць пытанне, прачытайце</string>
+    <string name="faq_1_title_commons">Чаму я не бачу гэты віджэт праграм у спісе віджэтаў\?</string>
+    <string name="faq_1_text_commons">Хутчэй за ўсё, гэта звязана з тым, што вы перамясцілі прыкладанне на SD-карту. У гэтым выпадку існуе сістэмнае абмежаванне Android, якое хавае дадзеныя фішкі прыкладання. Адзінае рашэнне-перамясціць прыкладанне назад ва ўнутранае сховішча праз налады вашага прылады.</string>
+    <string name="faq_2_title_commons">Я хачу падтрымаць вас, але я не магу ахвяраваць грошы. Ці магу я яшчэ што-небудзь зрабіць\?</string>
+    <string name="faq_2_text_commons">Ды, вядома. Вы можаце распавесці аб прыкладаннях ці даць добрыя водгукі і ацэнкі. Вы таксама можаце дапамагчы, перавядучы прыкладання на новую мову ці проста абнавіўшы некаторыя існуючыя пераклады. Кіраўніцтва па перакладзе знаходзіцца на &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt;гэты сайт &lt;/a&gt;, або проста звяжыцеся з намі па адрасе &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt; калі ў вас ёсць якія-небудзь пытанні.</string>
+    <string name="faq_3_title_commons">Я памылкова выдаліў некаторыя файлы, як я магу іх аднавіць\?</string>
+    <string name="faq_3_text_commons">На жаль, вы не можаце гэтага зрабіць. Файлы выдаляюцца імгненна пасля дыялогавага акна пацверджання, кошык для смецця недаступная.</string>
+    <string name="faq_4_title_commons">Мне не падабаюцца колеры віджэтаў, ці магу я іх змяніць\?</string>
+    <string name="faq_4_text_commons">Так, калі вы перацягнуць віджэт на галоўны экран, з\'яўляецца экран налады фішкі. Вы ўбачыце каляровыя квадраты ў левым ніжнім куце, проста націсніце на іх, каб выбраць новы колер. Вы таксама можаце выкарыстоўваць паўзунок для налады альфа-сігналу.</string>
+    <string name="faq_5_title_commons">Ці магу я неяк аднавіць выдаленыя файлы\?</string>
+    <string name="faq_5_text_commons">Калі яны сапраўды былі выдалены, вы не можаце. Тым не менш, кошык уключаны па змаўчанні, гэта прывядзе да таго, што файлы проста перамяшчаюцца ў кошык, а не выдаляюцца.</string>
+    <string name="faq_6_title_commons">Значок запуску прыкладання знік. Што я магу зрабіць\?</string>
+    <string name="faq_6_text_commons">Гэта выклікана тым, што ваш запуску не падтрымлівае правільную наладу значкоў. Паспрабуйце запусціць прыкладанне праз Google Play або які-небудзь віджэт, калі такі маецца. Пасля запуску проста вярніце аранжавы значок па змаўчанні #F57C00. У горшым выпадку вам, магчыма, прыйдзецца пераўсталяваць дадатак.</string>
+    <string name="faq_7_title_commons">Грошы былі зняты з майго банкаўскага рахунку, але я не магу спампаваць праграму. Што я магу зрабіць\?</string>
+    <string name="faq_7_text_commons">Плацяжы цалкам апрацоўваюцца Google, у іх сістэме час ад часу даюцца збоі. Проста ачысціце кэш праграмы Google Play і перазапусціце прыладу, а затым паўтарыце спробу загрузкі.</string>
+    <string name="faq_8_title_commons">Чаму я павінен перайсці на версію Pro\?</string>
+    <string name="faq_8_text_commons">Паколькі версія вашага прыкладання больш не абнаўляецца, памылкі, якія вы, магчыма, заўважылі, ніколі не будуць выпраўленыя. Таксама не будзе дададзена ніякіх новых функцый. Вы можаце набыць Pro-версію ў Google Play за невялікую суму грошай. Гэта аднаразовы плацёж, а гэта значыць, што як толькі вы яго купіце, вам больш ніколі не прыйдзецца плаціць. Нават пасля атрымання новага прылады. Калі вам не падабаецца Pro-версія, вы можаце проста выдаліць яе на працягу некалькіх гадзін, і вы аўтаматычна атрымаеце свае грошы назад. Калі вы хочаце вярнуць грошы ў любы час пазней, проста звяжыцеся з намі па адрасе hello@simplemobiletools.com і вы гэта атрымаеце.</string>
+    <string name="faq_9_title_commons">Як я магу выбраць некалькі элементаў адначасова\?</string>
+    <string name="faq_9_text_commons">Ёсць некалькі спосабаў зрабіць гэта. Першы з іх заключаецца ў запуску рэжыму выбару шляхам працяглага націску на адзін элемент, а затым кароткага націску на іншыя, каб выбраць іх. Другі спосаб аналагічны выбару элементаў на ПК з дапамогай мышы, проста запусціце рэжым выбару, доўга націскаючы на адзін элемент, затым, усё яшчэ утрымліваючы палец націснутым, правядзіце ім па іншых элементах для выбару. Трэці спосаб выбару некалькіх элементаў-доўгі націск на адзін элемент, затым доўгі націск на іншы, і выбіраецца ўсё, што знаходзіцца паміж імі. Калі вы хочаце выбраць усе тавары, проста доўга націсніце на адзін тавар, а затым пстрыкніце на лічыльніку выбраных тавараў у левым верхнім куце. Гэта дазволіць выбраць або адмяніць выбар усяго.</string>
+    <string name="faq_10_title_commons">Я набыў праграму, але не магу загрузіць яе на іншую прыладу.</string>
+    <string name="faq_10_text_commons">Паспрабуйце ачысціць кэш праграмы Google Play і перазагрузіць прыладу. Гэта нейкі збой Google Play, які насамрэч не звязаны з самім дадаткам.</string>
+    <!-- Contributors -->
+    <string name="contributors">Укладальнікі</string>
+    <string name="translation">Пераклад</string>
+    <string name="development">Распрацоўка</string>
+    <string name="other_help">Іншая дапамога</string>
+    <string name="contributors_label">У гэтым спісе ёсць усе, хто прыкметна дапамог любому дадатку ў наборы Simple Mobile Tools, не толькі гэтаму. Tперакладам займаюцца валанцёры, дайце нам ведаць, калі вы таксама хочаце дапамагчы. Кіраўніцтва па перакладзе знаходзіцца на &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt; гэты сайт&lt;/a&gt;, або проста звяжыцеся з намі па адрасе &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt; калі ў вас ёсць якія-небудзь пытанні. Дзякуй усім удзельнікам і іншым прыхільнікам!</string>
+    <string name="translation_arabic">Arabic</string>
+    <string name="translation_azerbaijani">Azerbaijani</string>
+    <string name="translation_bengali">Bengali</string>
+    <string name="translation_breton">Breton</string>
+    <string name="translation_bulgarian">Bulgarian</string>
+    <string name="translation_catalan">Catalan</string>
+    <string name="translation_czech">Czech</string>
+    <string name="translation_welsh">Welsh</string>
+    <string name="translation_danish">Danish</string>
+    <string name="translation_english">English</string>
+    <string name="translation_german">German</string>
+    <string name="translation_greek">Greek</string>
+    <string name="translation_spanish">Spanish</string>
+    <string name="translation_basque">Basque</string>
+    <string name="translation_persian">Persian</string>
+    <string name="translation_finnish">Finnish</string>
+    <string name="translation_french">French</string>
+    <string name="translation_galician">Galician</string>
+    <string name="translation_hindi">Hindi</string>
+    <string name="translation_croatian">Croatian</string>
+    <string name="translation_hungarian">Hungarian</string>
+    <string name="translation_indonesian">Indonesian</string>
+    <string name="translation_italian">Italian</string>
+    <string name="translation_hebrew">Hebrew</string>
+    <string name="translation_japanese">Japanese</string>
+    <string name="translation_korean">Korean</string>
+    <string name="translation_lithuanian">Lithuanian</string>
+    <string name="translation_nepali">Nepali</string>
+    <string name="translation_norwegian">Norwegian</string>
+    <string name="translation_dutch">Dutch</string>
+    <string name="translation_polish">Polish</string>
+    <string name="translation_portuguese">Portuguese</string>
+    <string name="translation_romanian">Romanian</string>
+    <string name="translation_russian">Russian</string>
+    <string name="translation_slovak">Slovak</string>
+    <string name="translation_slovenian">Slovenian</string>
+    <string name="translation_serbian">Serbian</string>
+    <string name="translation_swedish">Swedish</string>
+    <string name="translation_tamil">Tamil</string>
+    <string name="translation_turkish">Turkish</string>
+    <string name="translation_ukrainian">Ukrainian</string>
+    <string name="translation_vietnamese">Vietnamese</string>
+    <string name="translation_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="translation_chinese_cn">Chinese (Simplified)</string>
+    <string name="translation_chinese_tw">Chinese (Traditional)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Атрымайце версію Pro зараз!</string>
+    <string name="why_upgrade_basic_version">Базавы</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">Без рэкламы</string>
+    <string name="why_upgrade_no_internet_access">Няма доступу ў інтэрнэт</string>
+    <string name="why_upgrade_footer">100% Гарантыя Вяртання Грошай</string>
+    <string name="why_upgrade_footer_one_time_payment">Аднаразовая аплата</string>
+    <string name="why_upgrade_improved_design">Палепшаны дызайн</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Пашыраны рэдактар фатаграфій</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Advanced photo &amp; video editor</string>
+    <string name="why_upgrade_heic_support">Падтрымка файлаў HEIC/HEIF</string>
+    <string name="why_upgrade_batch_renaming">Пашыранае перайменаванне пакетнага файла</string>
+    <string name="why_upgrade_folder_locking">Індывідуальнае блакаванне папак</string>
+    <string name="why_upgrade_printing_support">Падтрымка друку</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Падтрымка гадзінных паясоў</string>
+    <string name="why_upgrade_attendees_emails">Удзельнікі і напаміны па электроннай пошце</string>
+    <string name="why_upgrade_easy_event_importing">Лёгкі імпарт падзей</string>
+    <string name="why_upgrade_new_widgets">Новыя віджэты</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Палепшана аб\'яднанне дублікатаў кантактаў</string>
+    <string name="why_upgrade_font_size_customization">Настройка памеру шрыфта</string>
+    <string name="why_upgrade_private_contact_sharing">Неабавязковы прыватны абмен кантактамі ў нашых праграмах</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Наладжвальныя рынгтоны для кантактаў</string>
+    <string name="why_upgrade_contact_filtering">Фільтраванне кантактаў</string>
+    <string name="why_upgrade_contact_private_contacts">Кантакты, якія захоўваюцца ў прыватным парадку</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Кантрольныя спісы</string>
+    <string name="why_upgrade_different_note_per_widget">Розныя нататкі і колеры для кожнага віджэта</string>
+    <string name="why_upgrade_note_locking">Блакаванне нататак</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Настройка фармату даты і часу</string>
+    <string name="why_upgrade_shortcuts">Ярлыкі на галоўным экране</string>
+    <string name="why_upgrade_file_compression">File compression support</string>
+    <string name="why_upgrade_recents_tab">Укладка з апошнімі файламі</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Настройка колеру фону</string>
+    <string name="why_upgrade_file_importing">Падтрымка імпарту файлаў</string>
+    <string name="why_upgrade_zooming">Zooming</string>
+    <!-- License -->
+    <string name="notice">Гэта дадатак выкарыстоўвае наступныя іншыя бібліятэкі, каб палегчыць мне жыццё. Дзякуй.</string>
+    <string name="third_party_licences">Ліцэнзіі трэціх асоб</string>
+    <string name="kotlin_title">Kotlin (мова праграмавання)</string>
+    <string name="subsampling_title">Шкала падвыбаркі. Прагляд выявы (прагляды малюнкаў з магчымасцю маштабавання)</string>
+    <string name="glide_title">Glide (загрузка малюнкаў і кэшаванне)</string>
+    <string name="picasso_title">Пікаса (загрузка і кэшаванне малюнкаў)</string>
+    <string name="cropper_title">Android Image Cropper (абрэзка і паварот выявы)</string>
+    <string name="rtl_viewpager_title">RtlViewPager (правядзенне справа налева)</string>
+    <string name="joda_title">Joda-Time (Замена даты Java)</string>
+    <string name="stetho_title">Stetho (адладка баз дадзеных)</string>
+    <string name="otto_title">Otto (аўтобус мерапрыемства)</string>
+    <string name="photoview_title">PhotoView(GIF-файлы з магчымасцю маштабавання)</string>
+    <string name="pattern_title">PatternLockView (абарона шаблону)</string>
+    <string name="reprint_title">Reprint (абарона адбіткаў пальцаў)</string>
+    <string name="gif_drawable_title">Gif Drawable (загрузка GIF-файлаў)</string>
+    <string name="autofittextview_title">AutoFitTextView (змена памеру тэксту)</string>
+    <string name="robolectric_title">Robolectric (тэставая структура)</string>
+    <string name="espresso_title">Espresso (памочнік тэсціравання)</string>
+    <string name="gson_title">Gson (парсер JSON)</string>
+    <string name="leak_canary_title">Leak Canary (дэтэктар уцечкі памяці)</string>
+    <string name="number_picker_title">Number Picker (наладжвальны выбар нумара)</string>
+    <string name="exoplayer_title">ExoPlayer (відэаплэер)</string>
+    <string name="panorama_view_title">VR Panorama View(паказ панарам)</string>
+    <string name="sanselan_title">Apache Sanselan (чытанне метаданых выявы)</string>
+    <string name="filters_title">Android Photo Filters (фільтры малюнкаў)</string>
+    <string name="gesture_views_title">Gesture Views(маштабаваныя малюнкі)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (літары на паласе пракруткі)</string>
+    <string name="event_bus_title">Event Bus(сувязь у дадатку)</string>
+    <string name="audio_record_view_title">Audio Record View(аўдыявізуалізацыя)</string>
+    <string name="sms_mms_title">SMS MMS (Апрацоўка SMS і MMS)</string>
+    <string name="apng_title">APNG Android (аніміраваная падтрымка WebP)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (Прагляд PDF)</string>
+    <string name="m3u_parser_title">M3U Parser (апрацоўка файла спісу прайгравання m3u)</string>
+    <string name="android_lame_title">AndroidLame (кадавальнік mp3)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Trial expired</string>
+    <string name="start_free_trial">Start free trial</string>
+    <string name="trial_expires_soon">Your trial expires soon.</string>
+    <string name="unlock_for_one_final_day">Unlock the app for one final day</string>
+    <string name="welcome_to_app_name">Welcome to %s!</string>
+    <string name="trial_start_description">Thank you for using our app. You can use this unlocked version for &lt;font color=\'#FFFFFF\'&gt;%d days&lt;/font&gt;. Once the trial ends, please consider upgrading to the Pro version. It has a huge amount of new features, modern design, no ads and many other improvements.
+        \n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nHope you\'ll like it :)</string>
+    <string name="trial_end_description">Please upgrade to the Pro version to enjoy the app to the fullest.\n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nSee you there :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Your trial expires in %d day.</item>
+        <item quantity="other">Your trial expires in %d days.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">САСТАРЕЛА: гэтая версія праграмы больш не падтрымліваецца, атрымайце версію Pro па адрасе https://play.google.com/store/apps/details\?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Не забывайце, што калі вы выдаліце любую платную праграму на працягу 2 гадзін, вам аўтаматычна вернуць грошы. Калі вы хочаце вярнуць грошы ў любы час пазней, проста звяжыцеся з намі па адрасе hello@simplemobiletools.com, і вы атрымаеце іх. Гэта дазваляе лёгка паспрабаваць :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">Група простых праграм для Android з адкрытым зыходным кодам і віджэтамі, якія можна наладзіць, без рэкламы і непатрэбных дазволаў.</string>
+</resources>

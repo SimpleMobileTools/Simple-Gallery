@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/tiny_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/breadcrumb_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/medium_margin"
+        android:textSize="@dimen/normal_text_size" />
+
+</FrameLayout>

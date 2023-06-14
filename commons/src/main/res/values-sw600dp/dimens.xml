@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="social_logo">50dp</dimen>
+    <dimen name="colorpicker_color_width">80dp</dimen>
+    <dimen name="colorpicker_items_height">40dp</dimen>
+
+    <dimen name="selection_check_size">38dp</dimen>
+
+    <dimen name="normal_text_size">18sp</dimen>
+    <dimen name="big_text_size">22sp</dimen>
+    <dimen name="extra_big_text_size">26sp</dimen>
+</resources>

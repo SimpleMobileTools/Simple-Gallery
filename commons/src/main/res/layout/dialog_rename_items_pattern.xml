@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rename_items_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/rename_items_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IMG_%Y%M%D_%h%m%s.jpg"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rename_items_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/normal_text_size" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/rename_items_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rename_items_hint"
+        android:alpha="0.8"
+        android:text="@string/rename_date_time_pattern"
+        android:textSize="@dimen/normal_text_size" />
+
+</RelativeLayout>

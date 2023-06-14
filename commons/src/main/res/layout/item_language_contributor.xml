@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contributor_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/bigger_margin">
+
+    <ImageView
+        android:id="@+id/language_icon"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:contentDescription="@null"
+        android:padding="@dimen/medium_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_flag_arabic_vector" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/language_label"
+        style="@style/MaterialListTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/language_icon"
+        android:layout_toEndOf="@+id/language_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/language_icon"
+        tools:text="@string/translation_arabic" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/language_contributors"
+        style="@style/MaterialListTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.95"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/language_label"
+        tools:text="@string/translators_arabic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="you_status_bar_color">@android:color/system_accent2_800</color>
+    <color name="you_contextual_status_bar_color">@android:color/system_accent1_700</color>
+    <color name="you_background_color">@android:color/system_neutral1_900</color>
+    <color name="you_bottom_bar_color">@android:color/system_neutral1_800</color>   <!-- bigger pieces of surface like in SMS Messenger -->
+    <color name="you_neutral_text_color">@android:color/system_accent1_10</color>
+    <color name="you_primary_color">@android:color/system_accent1_400</color>
+    <color name="you_primary_dark_color">@android:color/system_accent1_600</color>
+    <color name="you_dialog_background_color">@android:color/system_accent2_800</color>
+    <color name="you_surface_color">@android:color/system_neutral1_700</color>
+</resources>

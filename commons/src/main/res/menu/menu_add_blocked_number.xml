@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_blocked_number"
+        android:icon="@drawable/ic_plus_vector"
+        android:title="@string/add_a_blocked_number"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/import_blocked_numbers"
+        android:title="@string/import_blocked_numbers"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/export_blocked_numbers"
+        android:title="@string/export_blocked_numbers"
+        app:showAsAction="never" />
+
+</menu>

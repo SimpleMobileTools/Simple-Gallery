@@ -33,6 +33,12 @@ buildscript {
     }
 }
 
+ext {
+    groupId = 'com.homesoft.android'
+    artifactId = 'libraw'
+    artifactVersion = '2.0.4'
+}
+
 allprojects {
     repositories {
         google()
@@ -47,3 +53,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+

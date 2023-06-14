@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/shortcut_plus_background">
+        <shape android:shape="oval">
+            <solid android:color="@color/color_primary"/>
+        </shape>
+    </item>
+    <item android:bottom="@dimen/medium_margin" android:drawable="@drawable/ic_plus_vector" android:left="@dimen/medium_margin" android:right="@dimen/medium_margin" android:top="@dimen/medium_margin"/>
+</layer-list>

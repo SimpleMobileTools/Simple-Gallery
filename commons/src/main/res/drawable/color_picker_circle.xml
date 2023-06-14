@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="ring" android:thicknessRatio="1" android:useLevel="false">
+            <stroke android:width="4px" android:color="@android:color/white"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="ring" android:thicknessRatio="1" android:useLevel="false">
+            <stroke android:width="2px" android:color="@android:color/black"/>
+        </shape>
+    </item>
+</layer-list>

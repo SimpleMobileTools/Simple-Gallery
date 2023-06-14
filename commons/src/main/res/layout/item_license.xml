@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/license_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/activity_margin"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/medium_margin"
+    app:strokeColor="@color/divider_grey">
+
+    <LinearLayout
+        android:id="@+id/license_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/normal_margin">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/license_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_text_size" />
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/license_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/normal_text_size" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

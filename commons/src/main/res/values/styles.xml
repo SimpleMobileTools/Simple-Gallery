@@ -1,0 +1,3120 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme.Base" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+        <item name="buttonStyle">@style/MyTransparentButton</item>
+        <item name="android:buttonStyle">@style/MyTransparentButton</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenu.Overflow.Dark</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:actionModeCloseDrawable">@drawable/ic_arrow_left_vector</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="windowActionModeOverlay">true</item>    <!-- replace casual top menu with contextual menu after long pressing an item -->
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+        <item name="android:radioButtonStyle">@style/MyRadioButtonStyle</item>
+        <item name="radioButtonStyle">@style/MyRadioButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.Base.Core" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenu.Overflow.Dark</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="AppTheme.Base.System" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/you_primary_color</item>
+        <item name="colorPrimaryDark">@color/you_primary_dark_color</item>
+        <item name="colorAccent">@color/you_primary_color</item>
+        <item name="colorPrimaryContainer">@color/you_primary_color</item>
+        <item name="colorOnPrimaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorSecondaryContainer">@color/you_primary_color</item>
+        <item name="colorOnSecondaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorTertiaryContainer">@color/you_primary_color</item>
+        <item name="colorOnTertiaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorSurfaceVariant">@color/you_surface_color</item>
+        <item name="colorSurface">@color/you_dialog_background_color</item>
+        <item name="colorOnSurfaceVariant">@color/you_neutral_text_color</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenuYou</item>
+        <item name="actionBarPopupTheme">@style/TopPopupMenuTextYou</item>
+        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="actionModeStyle">@style/AppTheme.ActionMode</item>
+        <item name="bottomSheetDialogTheme">@style/AppTheme.Material3.BottomSheetDialogTheme</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+        <item name="android:radioButtonStyle">@style/MyRadioButtonStyle</item>
+        <item name="radioButtonStyle">@style/MyRadioButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.Base.System.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/you_primary_color</item>
+        <item name="colorPrimaryDark">@color/you_primary_dark_color</item>
+        <item name="colorAccent">@color/you_primary_color</item>
+        <item name="colorPrimaryContainer">@color/you_primary_color</item>
+        <item name="colorOnPrimaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorSecondaryContainer">@color/you_primary_color</item>
+        <item name="colorOnSecondaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorTertiaryContainer">@color/you_primary_color</item>
+        <item name="colorOnTertiaryContainer">@color/you_neutral_text_color</item>
+        <item name="colorSurfaceVariant">@color/you_surface_color</item>
+        <item name="colorSurface">@color/you_dialog_background_color</item>
+        <item name="colorOnSurfaceVariant">@color/you_neutral_text_color</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenuYou</item>
+        <item name="actionBarPopupTheme">@style/TopPopupMenuTextYou</item>
+        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="bottomSheetDialogTheme">@style/AppTheme.Material3.BottomSheetDialogTheme</item>
+        <item name="actionModeStyle">@style/AppTheme.ActionMode</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+        <item name="android:itemTextAppearance">@style/MenuTextAppearance</item>
+        <item name="android:radioButtonStyle">@style/MyRadioButtonStyle</item>
+        <item name="radioButtonStyle">@style/MyRadioButtonStyle</item>
+    </style>
+
+    <!-- remove the shadow under actionBar, keep it there around Overflow menu that appears at pressing the 3 dots -->
+    <style name="AppTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:outlineProvider">none</item>
+    </style>
+
+    <!-- material dialogs -->
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/you_dialog_background_color</item>
+        <item name="colorSecondary">@color/you_dialog_background_color</item>
+        <item name="colorSurface">@color/you_dialog_background_color</item>
+        <item name="colorOnSurface">@color/you_primary_color</item>
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/you_primary_color</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/you_primary_color</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/material_dialog_corner_radius</item>
+    </style>
+
+    <style name="ActionMenuOverflowIcon" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/md_grey_white</item>
+    </style>
+
+    <!-- text color of top menu items appearing after pressing 3 dots -->
+    <style name="MenuTextAppearance">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <!-- contextual action mode -->
+    <style name="AppTheme.ActionMode" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="android:outlineProvider">none</item>
+        <item name="background">@color/you_contextual_status_bar_color</item>
+        <item name="actionOverflowButtonStyle">@style/TopPopupMenuYou</item>
+    </style>
+
+    <style name="TopPopupMenuYou" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:popupBackground">@drawable/dialog_you_background</item>
+        <item name="android:dropDownHorizontalOffset">-10dp</item>
+        <item name="android:popupElevation">@dimen/popup_menu_elevation</item>
+    </style>
+
+    <style name="TopPopupMenuTextYou">
+        <item name="android:textColor">@color/you_neutral_text_color</item>
+    </style>
+
+    <style name="TranslucentTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenu.Overflow.Dark</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="MyWidgetConfigTheme" parent="@style/AppTheme.Base">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowShowWallpaper">true</item>
+    </style>
+
+    <style name="MyWidgetConfigSaveStyle">
+        <item name="android:background">@drawable/widget_config_seekbar_background</item>
+        <item name="android:paddingStart">@dimen/activity_margin</item>
+        <item name="android:paddingEnd">@dimen/activity_margin</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="MyRadioButtonStyle" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="minHeight">@dimen/min_radio_checkbox_height</item>
+        <item name="android:minHeight">@dimen/min_radio_checkbox_height</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.TitleTextStyle">
+        <item name="android:textSize">@dimen/actionbar_text_size</item>
+    </style>
+
+    <style name="SpinnerItem" parent="@android:style/Widget.TextView">
+        <item name="android:paddingRight">@dimen/activity_margin</item>
+    </style>
+
+    <style name="SpinnerItem.DropDownItem" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/medium_margin</item>
+        <item name="android:paddingBottom">@dimen/medium_margin</item>
+        <item name="android:paddingLeft">@dimen/activity_margin</item>
+        <item name="android:paddingRight">@dimen/activity_margin</item>
+    </style>
+
+    <style name="MyTransparentButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="background">@drawable/transparent_button</item>
+        <item name="android:background">@drawable/transparent_button</item>
+    </style>
+
+    <!-- EditText inside MyTextInputLayout, when the value shouldnt be edited by inserting text manually -->
+    <style name="UnclickableEditText">
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">textNoSuggestions|textMultiLine</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="Theme.Material3.Light.Dialog">
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="android:windowBackground">@color/theme_light_background_color</item>
+        <item name="android:textColor">@color/theme_light_text_color</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/DialogButtonStyle</item>
+    </style>
+
+    <style name="MyDialogTheme.Dark" parent="Theme.Material3.Dark.Dialog">
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="android:windowBackground">@color/theme_dark_background_color</item>
+        <item name="android:textColor">@color/theme_dark_text_color</item>
+
+        <item name="android:buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/DialogButtonStyle</item>
+    </style>
+
+    <style name="DialogButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+
+    <style name="MaterialDialogButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/you_primary_color</item>
+    </style>
+
+    <!-- Used at dark Material You Time picker. Some of its parts cannot be customized through themes, we use these hacky ways. -->
+    <style name="MyTimePickerMaterialTheme.Dark" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="colorAccent">@color/you_primary_color</item>
+        <item name="android:colorAccent">@color/you_primary_color</item>
+        <item name="android:windowBackground">@drawable/dialog_you_background</item>
+        <item name="android:textColor">@color/you_primary_color</item>
+        <item name="android:textColorSecondary">@color/you_neutral_text_color</item>
+        <item name="android:textColorPrimary">@color/you_neutral_text_color</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/MaterialDialogButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/MaterialDialogButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/MaterialDialogButtonStyle</item>
+    </style>
+
+    <!-- Used at both dark and light Material You Date pickers and light Time Picker, as otherwise it glitches -->
+    <style name="MyDateTimePickerMaterialTheme" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/you_primary_color</item>
+        <item name="android:colorAccent">@color/you_primary_color</item>
+        <item name="android:windowBackground">@drawable/dialog_you_background</item>
+        <item name="android:textColor">@color/you_primary_color</item>
+        <item name="android:textColorPrimary">@color/you_neutral_text_color</item>
+        <item name="android:textColorSecondary">@color/you_neutral_text_color</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/MaterialDialogButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/MaterialDialogButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/MaterialDialogButtonStyle</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+    </style>
+
+    <style name="PinNumberStyle.Base">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/small_margin</item>
+        <item name="android:textSize">@dimen/big_text_size</item>
+    </style>
+
+    <style name="PinNumberStyle" parent="PinNumberStyle.Base">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="ColoredButtonStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/bigger_text_size</item>
+        <item name="android:paddingStart">@dimen/big_margin</item>
+        <item name="android:paddingEnd">@dimen/big_margin</item>
+        <item name="android:paddingTop">@dimen/normal_margin</item>
+        <item name="android:paddingBottom">@dimen/normal_margin</item>
+        <item name="android:background">@drawable/button_background_rounded</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="StrokeButtonStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:paddingStart">@dimen/bigger_margin</item>
+        <item name="android:paddingEnd">@dimen/bigger_margin</item>
+        <item name="android:paddingTop">@dimen/activity_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_margin</item>
+        <item name="android:background">@drawable/button_background_stroke</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="Base.Widget.AppCompat.ActionMode" parent="">
+        <item name="background">@drawable/actionmenu_background</item>
+        <item name="backgroundSplit">?attr/actionModeSplitBackground</item>
+        <item name="height">?attr/actionBarSize</item>
+        <item name="titleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle</item>
+        <item name="closeItemLayout">@layout/abc_action_mode_close_item_material</item>
+    </style>
+
+    <style name="LightActionBarItems" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorHint">@color/hint_white</item>
+    </style>
+
+    <style name="DarkActionBarItems" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorAccent">@color/dark_grey</item>
+        <item name="android:textColorHint">@color/hint_black</item>
+    </style>
+
+    <style name="TopPopupMenu.Overflow.Light" parent="@style/Widget.MaterialComponents.PopupMenu.Overflow">
+        <item name="android:popupBackground">@drawable/top_popup_menu_bg_light</item>
+    </style>
+
+    <style name="TopPopupMenu.Overflow.Dark" parent="@style/Widget.MaterialComponents.PopupMenu.Overflow">
+        <item name="android:popupBackground">@drawable/top_popup_menu_bg_dark</item>
+    </style>
+
+    <style name="OverflowMenuIconStyle">
+        <item name="srcCompat">@drawable/ic_three_dots_vector</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:paddingStart">@dimen/activity_margin</item>
+        <item name="android:paddingTop">@dimen/normal_margin</item>
+        <item name="android:paddingEnd">@dimen/activity_margin</item>
+        <item name="android:paddingBottom">@dimen/normal_margin</item>
+    </style>
+
+    <style name="OverflowMenuAnchorStyle">
+        <item name="android:layout_width">@dimen/one_dp</item>
+        <item name="android:layout_height">@dimen/one_dp</item>
+        <item name="android:layout_marginEnd">@dimen/activity_margin</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="AppTheme.YouPopupMenuStyle" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:popupMenuStyle">@style/AppTheme.YouPopupMenu</item>
+        <item name="android:itemTextAppearance">@style/AppTheme.YouItemTextStyle</item>
+    </style>
+
+    <style name="AppTheme.YouItemTextStyle" parent="TextAppearance.AppCompat.Light.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/you_neutral_text_color</item>
+    </style>
+
+    <style name="AppTheme.YouPopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@drawable/popup_menu_bg_you</item>
+        <item name="android:popupElevation">@dimen/popup_menu_elevation</item>
+    </style>
+
+    <style name="AppTheme.PopupMenuDarkStyle" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:popupMenuStyle">@style/AppTheme.PopupMenuDark</item>
+    </style>
+
+    <style name="AppTheme.PopupMenuDark" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@drawable/top_popup_menu_bg_dark</item>
+        <item name="android:popupElevation">@dimen/popup_menu_elevation</item>
+    </style>
+
+    <style name="AppTheme.PopupMenuLightStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:popupMenuStyle">@style/AppTheme.PopupMenuLight</item>
+    </style>
+
+    <style name="AppTheme.PopupMenuLight" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">@drawable/top_popup_menu_bg_light</item>
+        <item name="android:popupElevation">@dimen/popup_menu_elevation</item>
+    </style>
+
+    <style name="AppTheme.Material3.BottomSheetDialogTheme" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:backgroundDimAmount">0.32</item>
+        <item name="bottomSheetStyle">@style/AppTheme.Material3.BottomSheetModalStyle</item>
+        <item name="elevationOverlayEnabled">true</item>
+        <item name="android:navigationBarColor">@color/you_status_bar_color</item>
+        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">@color/you_status_bar_color</item>
+    </style>
+
+    <style name="AppTheme.Material3.BottomSheetModalStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/you_background_color</item>
+        <item name="shapeAppearanceOverlay">@style/BottomSheetShapeAppearanceOverlay</item>
+    </style>
+
+    <style name="BottomSheetShapeAppearanceOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeTopLeft">@dimen/corner_radius</item>
+        <item name="cornerSizeTopRight">@dimen/corner_radius</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:backgroundDimAmount">0.32</item>
+        <item name="bottomSheetStyle">@style/BottomSheetModalStyle</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+    </style>
+
+    <style name="BottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="SettingsSectionLabelStyle" parent="@style/MaterialSectionLabelStyle">
+        <item name="android:layout_marginStart">@dimen/settings_label_start_margin</item>
+    </style>
+
+    <style name="MaterialSectionLabelStyle">
+        <item name="android:layout_marginStart">@dimen/label_start_margin</item>
+        <item name="android:paddingTop">@dimen/big_margin</item>
+        <item name="android:paddingBottom">@dimen/medium_margin</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="MaterialListTextStyle">
+        <item name="android:layout_marginStart">@dimen/label_start_margin</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:paddingEnd">@dimen/bigger_margin</item>
+    </style>
+
+    <style name="SettingsCheckboxStyle">
+        <item name="android:background">@null</item>
+        <item name="android:clickable">false</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:paddingStart">@dimen/medium_margin</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="SettingsTextLabelStyle">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="SettingsTextValueStyle">
+        <item name="android:alpha">0.6</item>
+        <item name="android:textFontWeight">300</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="SettingsHolderCheckboxStyle">
+        <item name="android:paddingStart">@dimen/settings_label_start_margin</item>
+        <item name="android:paddingTop">@dimen/medium_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_label_start_margin</item>
+        <item name="android:paddingBottom">@dimen/medium_margin</item>
+        <item name="android:background">@drawable/ripple_background</item>
+    </style>
+
+    <style name="SettingsHolderTextViewStyle">
+        <item name="android:paddingStart">@dimen/settings_label_start_margin</item>
+        <item name="android:paddingTop">@dimen/activity_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_label_start_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_margin</item>
+        <item name="android:background">@drawable/ripple_background</item>
+    </style>
+
+    <style name="SettingsHolderTextViewOneLinerStyle" parent="@style/SettingsHolderTextViewStyle">
+        <item name="android:paddingTop">@dimen/bigger_margin</item>
+        <item name="android:paddingBottom">@dimen/bigger_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_label_start_margin</item>
+        <item name="android:paddingStart">@dimen/settings_label_start_margin</item>
+        <item name="android:background">@drawable/ripple_background</item>
+    </style>
+
+    <style name="DragHandleIconStyle">
+        <item name="android:src">@drawable/ic_drag_handle_vector</item>
+        <item name="android:layout_width">@dimen/normal_icon_size</item>
+        <item name="android:layout_height">@dimen/normal_icon_size</item>
+        <item name="android:paddingTop">@dimen/normal_margin</item>
+        <item name="android:paddingBottom">@dimen/normal_margin</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- App themes -->
+    <!-- White -->
+    <style name="AppTheme.White" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_white</item>
+        <item name="colorPrimaryDark">@color/md_grey_white_dark</item>
+        <item name="colorAccent">@color/md_grey_white</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenu.Overflow.Light</item>
+        <item name="android:itemTextAppearance">@style/AppTheme.White.TextStyle</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="android:colorControlActivated">@color/dark_grey</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+    </style>
+
+    <style name="AppTheme.White.LightTextColor" parent="AppTheme.White">
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.White.TextStyle">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="AppTheme.White.NoActionBar" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/md_grey_white</item>
+        <item name="colorPrimaryDark">@color/md_grey_white_dark</item>
+        <item name="colorAccent">@color/md_grey_white</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="android:colorControlActivated">@color/dark_grey</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+    </style>
+
+    <style name="AppTheme.BlackAndWhite" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_black</item>
+        <item name="colorPrimaryDark">@color/md_grey_black_dark</item>
+        <item name="colorAccent">@color/md_grey_black</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+        <item name="actionOverflowMenuStyle">@style/TopPopupMenu.Overflow.Dark</item>
+        <item name="android:itemTextAppearance">@style/AppTheme.BlackAndWhite.TextStyle</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="android:colorControlActivated">@color/md_grey_white</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+    </style>
+
+    <style name="AppTheme.BlackAndWhite.DarkTextColor" parent="AppTheme.BlackAndWhite">
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.BlackAndWhite.TextStyle">
+        <item name="android:textColor">@color/md_grey_white</item>
+    </style>
+
+    <style name="AppTheme.BlackAndWhite.NoActionBar" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/md_grey_black</item>
+        <item name="colorPrimaryDark">@color/md_grey_black_dark</item>
+        <item name="colorAccent">@color/md_grey_black</item>
+        <item name="android:colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="colorControlHighlight">@color/activated_item_foreground</item>
+        <item name="android:colorControlActivated">@color/md_grey_white</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
+        <item name="android:actionOverflowButtonStyle">@style/ActionMenuOverflowIcon</item>
+    </style>
+
+    <style name="AppTheme.Red_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_100</item>
+        <item name="colorPrimaryDark">@color/md_red_100_dark</item>
+        <item name="colorAccent">@color/md_red_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_200</item>
+        <item name="colorPrimaryDark">@color/md_red_200_dark</item>
+        <item name="colorAccent">@color/md_red_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_300</item>
+        <item name="colorPrimaryDark">@color/md_red_300_dark</item>
+        <item name="colorAccent">@color/md_red_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_400</item>
+        <item name="colorPrimaryDark">@color/md_red_400_dark</item>
+        <item name="colorAccent">@color/md_red_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_500</item>
+        <item name="colorPrimaryDark">@color/md_red_500_dark</item>
+        <item name="colorAccent">@color/md_red_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_600</item>
+        <item name="colorPrimaryDark">@color/md_red_600_dark</item>
+        <item name="colorAccent">@color/md_red_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_700</item>
+        <item name="colorPrimaryDark">@color/md_red_700_dark</item>
+        <item name="colorAccent">@color/md_red_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_800</item>
+        <item name="colorPrimaryDark">@color/md_red_800_dark</item>
+        <item name="colorAccent">@color/md_red_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Red_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_red_900</item>
+        <item name="colorPrimaryDark">@color/md_red_900_dark</item>
+        <item name="colorAccent">@color/md_red_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_100</item>
+        <item name="colorPrimaryDark">@color/md_pink_100_dark</item>
+        <item name="colorAccent">@color/md_pink_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_200</item>
+        <item name="colorPrimaryDark">@color/md_pink_200_dark</item>
+        <item name="colorAccent">@color/md_pink_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_300</item>
+        <item name="colorPrimaryDark">@color/md_pink_300_dark</item>
+        <item name="colorAccent">@color/md_pink_300</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_400</item>
+        <item name="colorPrimaryDark">@color/md_pink_400_dark</item>
+        <item name="colorAccent">@color/md_pink_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_500</item>
+        <item name="colorPrimaryDark">@color/md_pink_500_dark</item>
+        <item name="colorAccent">@color/md_pink_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_600</item>
+        <item name="colorPrimaryDark">@color/md_pink_600_dark</item>
+        <item name="colorAccent">@color/md_pink_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_700</item>
+        <item name="colorPrimaryDark">@color/md_pink_700_dark</item>
+        <item name="colorAccent">@color/md_pink_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_800</item>
+        <item name="colorPrimaryDark">@color/md_pink_800_dark</item>
+        <item name="colorAccent">@color/md_pink_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Pink_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_pink_900</item>
+        <item name="colorPrimaryDark">@color/md_pink_900_dark</item>
+        <item name="colorAccent">@color/md_pink_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_100</item>
+        <item name="colorPrimaryDark">@color/md_purple_100_dark</item>
+        <item name="colorAccent">@color/md_purple_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_200</item>
+        <item name="colorPrimaryDark">@color/md_purple_200_dark</item>
+        <item name="colorAccent">@color/md_purple_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_300</item>
+        <item name="colorPrimaryDark">@color/md_purple_300_dark</item>
+        <item name="colorAccent">@color/md_purple_300</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_400</item>
+        <item name="colorPrimaryDark">@color/md_purple_400_dark</item>
+        <item name="colorAccent">@color/md_purple_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_purple_500_dark</item>
+        <item name="colorAccent">@color/md_purple_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_600</item>
+        <item name="colorPrimaryDark">@color/md_purple_600_dark</item>
+        <item name="colorAccent">@color/md_purple_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_700</item>
+        <item name="colorPrimaryDark">@color/md_purple_700_dark</item>
+        <item name="colorAccent">@color/md_purple_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_800</item>
+        <item name="colorPrimaryDark">@color/md_purple_800_dark</item>
+        <item name="colorAccent">@color/md_purple_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Purple_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_purple_900</item>
+        <item name="colorPrimaryDark">@color/md_purple_900_dark</item>
+        <item name="colorAccent">@color/md_purple_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_100</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_100_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_200</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_200_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_300</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_300_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_300</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_400</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_400_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_500_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_600</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_600_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_700</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_700_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_800</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_800_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_purple_900</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_900_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_100</item>
+        <item name="colorPrimaryDark">@color/md_indigo_100_dark</item>
+        <item name="colorAccent">@color/md_indigo_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_200</item>
+        <item name="colorPrimaryDark">@color/md_indigo_200_dark</item>
+        <item name="colorAccent">@color/md_indigo_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_300</item>
+        <item name="colorPrimaryDark">@color/md_indigo_300_dark</item>
+        <item name="colorAccent">@color/md_indigo_300</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_400</item>
+        <item name="colorPrimaryDark">@color/md_indigo_400_dark</item>
+        <item name="colorAccent">@color/md_indigo_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_500</item>
+        <item name="colorPrimaryDark">@color/md_indigo_500_dark</item>
+        <item name="colorAccent">@color/md_indigo_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_600</item>
+        <item name="colorPrimaryDark">@color/md_indigo_600_dark</item>
+        <item name="colorAccent">@color/md_indigo_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_700</item>
+        <item name="colorPrimaryDark">@color/md_indigo_700_dark</item>
+        <item name="colorAccent">@color/md_indigo_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_800</item>
+        <item name="colorPrimaryDark">@color/md_indigo_800_dark</item>
+        <item name="colorAccent">@color/md_indigo_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Indigo_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_indigo_900</item>
+        <item name="colorPrimaryDark">@color/md_indigo_900_dark</item>
+        <item name="colorAccent">@color/md_indigo_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_100</item>
+        <item name="colorPrimaryDark">@color/md_blue_100_dark</item>
+        <item name="colorAccent">@color/md_blue_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_200</item>
+        <item name="colorPrimaryDark">@color/md_blue_200_dark</item>
+        <item name="colorAccent">@color/md_blue_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_300</item>
+        <item name="colorPrimaryDark">@color/md_blue_300_dark</item>
+        <item name="colorAccent">@color/md_blue_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_400</item>
+        <item name="colorPrimaryDark">@color/md_blue_400_dark</item>
+        <item name="colorAccent">@color/md_blue_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_500_dark</item>
+        <item name="colorAccent">@color/md_blue_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_600</item>
+        <item name="colorPrimaryDark">@color/md_blue_600_dark</item>
+        <item name="colorAccent">@color/md_blue_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_700</item>
+        <item name="colorPrimaryDark">@color/md_blue_700_dark</item>
+        <item name="colorAccent">@color/md_blue_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_800</item>
+        <item name="colorPrimaryDark">@color/md_blue_800_dark</item>
+        <item name="colorAccent">@color/md_blue_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_900</item>
+        <item name="colorPrimaryDark">@color/md_blue_900_dark</item>
+        <item name="colorAccent">@color/md_blue_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_100</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_100_dark</item>
+        <item name="colorAccent">@color/md_light_blue_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_200</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_200_dark</item>
+        <item name="colorAccent">@color/md_light_blue_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_300</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_300_dark</item>
+        <item name="colorAccent">@color/md_light_blue_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_400</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_400_dark</item>
+        <item name="colorAccent">@color/md_light_blue_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_500_dark</item>
+        <item name="colorAccent">@color/md_light_blue_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_600</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_600_dark</item>
+        <item name="colorAccent">@color/md_light_blue_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_700</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_700_dark</item>
+        <item name="colorAccent">@color/md_light_blue_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_800</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_800_dark</item>
+        <item name="colorAccent">@color/md_light_blue_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_blue_900</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_900_dark</item>
+        <item name="colorAccent">@color/md_light_blue_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_100</item>
+        <item name="colorPrimaryDark">@color/md_cyan_100_dark</item>
+        <item name="colorAccent">@color/md_cyan_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_200</item>
+        <item name="colorPrimaryDark">@color/md_cyan_200_dark</item>
+        <item name="colorAccent">@color/md_cyan_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_300</item>
+        <item name="colorPrimaryDark">@color/md_cyan_300_dark</item>
+        <item name="colorAccent">@color/md_cyan_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_400</item>
+        <item name="colorPrimaryDark">@color/md_cyan_400_dark</item>
+        <item name="colorAccent">@color/md_cyan_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_500</item>
+        <item name="colorPrimaryDark">@color/md_cyan_500_dark</item>
+        <item name="colorAccent">@color/md_cyan_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_600</item>
+        <item name="colorPrimaryDark">@color/md_cyan_600_dark</item>
+        <item name="colorAccent">@color/md_cyan_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_700</item>
+        <item name="colorPrimaryDark">@color/md_cyan_700_dark</item>
+        <item name="colorAccent">@color/md_cyan_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_800</item>
+        <item name="colorPrimaryDark">@color/md_cyan_800_dark</item>
+        <item name="colorAccent">@color/md_cyan_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Cyan_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_cyan_900</item>
+        <item name="colorPrimaryDark">@color/md_cyan_900_dark</item>
+        <item name="colorAccent">@color/md_cyan_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_100</item>
+        <item name="colorPrimaryDark">@color/md_teal_100_dark</item>
+        <item name="colorAccent">@color/md_teal_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_200</item>
+        <item name="colorPrimaryDark">@color/md_teal_200_dark</item>
+        <item name="colorAccent">@color/md_teal_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_300</item>
+        <item name="colorPrimaryDark">@color/md_teal_300_dark</item>
+        <item name="colorAccent">@color/md_teal_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_400</item>
+        <item name="colorPrimaryDark">@color/md_teal_400_dark</item>
+        <item name="colorAccent">@color/md_teal_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_500</item>
+        <item name="colorPrimaryDark">@color/md_teal_500_dark</item>
+        <item name="colorAccent">@color/md_teal_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_600</item>
+        <item name="colorPrimaryDark">@color/md_teal_600_dark</item>
+        <item name="colorAccent">@color/md_teal_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_700</item>
+        <item name="colorPrimaryDark">@color/md_teal_700_dark</item>
+        <item name="colorAccent">@color/md_teal_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_800</item>
+        <item name="colorPrimaryDark">@color/md_teal_800_dark</item>
+        <item name="colorAccent">@color/md_teal_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Teal_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_teal_900</item>
+        <item name="colorPrimaryDark">@color/md_teal_900_dark</item>
+        <item name="colorAccent">@color/md_teal_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_100</item>
+        <item name="colorPrimaryDark">@color/md_green_100_dark</item>
+        <item name="colorAccent">@color/md_green_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_200</item>
+        <item name="colorPrimaryDark">@color/md_green_200_dark</item>
+        <item name="colorAccent">@color/md_green_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_300</item>
+        <item name="colorPrimaryDark">@color/md_green_300_dark</item>
+        <item name="colorAccent">@color/md_green_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_400</item>
+        <item name="colorPrimaryDark">@color/md_green_400_dark</item>
+        <item name="colorAccent">@color/md_green_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_500</item>
+        <item name="colorPrimaryDark">@color/md_green_500_dark</item>
+        <item name="colorAccent">@color/md_green_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_600</item>
+        <item name="colorPrimaryDark">@color/md_green_600_dark</item>
+        <item name="colorAccent">@color/md_green_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_700</item>
+        <item name="colorPrimaryDark">@color/md_green_700_dark</item>
+        <item name="colorAccent">@color/md_green_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_800</item>
+        <item name="colorPrimaryDark">@color/md_green_800_dark</item>
+        <item name="colorAccent">@color/md_green_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Green_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_green_900</item>
+        <item name="colorPrimaryDark">@color/md_green_900_dark</item>
+        <item name="colorAccent">@color/md_green_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_100</item>
+        <item name="colorPrimaryDark">@color/md_light_green_100_dark</item>
+        <item name="colorAccent">@color/md_light_green_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_200</item>
+        <item name="colorPrimaryDark">@color/md_light_green_200_dark</item>
+        <item name="colorAccent">@color/md_light_green_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_300</item>
+        <item name="colorPrimaryDark">@color/md_light_green_300_dark</item>
+        <item name="colorAccent">@color/md_light_green_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_400</item>
+        <item name="colorPrimaryDark">@color/md_light_green_400_dark</item>
+        <item name="colorAccent">@color/md_light_green_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_500</item>
+        <item name="colorPrimaryDark">@color/md_light_green_500_dark</item>
+        <item name="colorAccent">@color/md_light_green_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_600</item>
+        <item name="colorPrimaryDark">@color/md_light_green_600_dark</item>
+        <item name="colorAccent">@color/md_light_green_600</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_700</item>
+        <item name="colorPrimaryDark">@color/md_light_green_700_dark</item>
+        <item name="colorAccent">@color/md_light_green_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_800</item>
+        <item name="colorPrimaryDark">@color/md_light_green_800_dark</item>
+        <item name="colorAccent">@color/md_light_green_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_light_green_900</item>
+        <item name="colorPrimaryDark">@color/md_light_green_900_dark</item>
+        <item name="colorAccent">@color/md_light_green_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_100</item>
+        <item name="colorPrimaryDark">@color/md_lime_100_dark</item>
+        <item name="colorAccent">@color/md_lime_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_200</item>
+        <item name="colorPrimaryDark">@color/md_lime_200_dark</item>
+        <item name="colorAccent">@color/md_lime_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_300</item>
+        <item name="colorPrimaryDark">@color/md_lime_300_dark</item>
+        <item name="colorAccent">@color/md_lime_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_400</item>
+        <item name="colorPrimaryDark">@color/md_lime_400_dark</item>
+        <item name="colorAccent">@color/md_lime_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_500</item>
+        <item name="colorPrimaryDark">@color/md_lime_500_dark</item>
+        <item name="colorAccent">@color/md_lime_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_600</item>
+        <item name="colorPrimaryDark">@color/md_lime_600_dark</item>
+        <item name="colorAccent">@color/md_lime_600</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_700</item>
+        <item name="colorPrimaryDark">@color/md_lime_700_dark</item>
+        <item name="colorAccent">@color/md_lime_700</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_800</item>
+        <item name="colorPrimaryDark">@color/md_lime_800_dark</item>
+        <item name="colorAccent">@color/md_lime_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Lime_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_lime_900</item>
+        <item name="colorPrimaryDark">@color/md_lime_900_dark</item>
+        <item name="colorAccent">@color/md_lime_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_100</item>
+        <item name="colorPrimaryDark">@color/md_yellow_100_dark</item>
+        <item name="colorAccent">@color/md_yellow_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_200</item>
+        <item name="colorPrimaryDark">@color/md_yellow_200_dark</item>
+        <item name="colorAccent">@color/md_yellow_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_300</item>
+        <item name="colorPrimaryDark">@color/md_yellow_300_dark</item>
+        <item name="colorAccent">@color/md_yellow_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_400</item>
+        <item name="colorPrimaryDark">@color/md_yellow_400_dark</item>
+        <item name="colorAccent">@color/md_yellow_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_500</item>
+        <item name="colorPrimaryDark">@color/md_yellow_500_dark</item>
+        <item name="colorAccent">@color/md_yellow_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_600</item>
+        <item name="colorPrimaryDark">@color/md_yellow_600_dark</item>
+        <item name="colorAccent">@color/md_yellow_600</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_700</item>
+        <item name="colorPrimaryDark">@color/md_yellow_700_dark</item>
+        <item name="colorAccent">@color/md_yellow_700</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_800</item>
+        <item name="colorPrimaryDark">@color/md_yellow_800_dark</item>
+        <item name="colorAccent">@color/md_yellow_800</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Yellow_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_yellow_900</item>
+        <item name="colorPrimaryDark">@color/md_yellow_900_dark</item>
+        <item name="colorAccent">@color/md_yellow_900</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_100</item>
+        <item name="colorPrimaryDark">@color/md_amber_100_dark</item>
+        <item name="colorAccent">@color/md_amber_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_200</item>
+        <item name="colorPrimaryDark">@color/md_amber_200_dark</item>
+        <item name="colorAccent">@color/md_amber_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_300</item>
+        <item name="colorPrimaryDark">@color/md_amber_300_dark</item>
+        <item name="colorAccent">@color/md_amber_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_400</item>
+        <item name="colorPrimaryDark">@color/md_amber_400_dark</item>
+        <item name="colorAccent">@color/md_amber_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_500</item>
+        <item name="colorPrimaryDark">@color/md_amber_500_dark</item>
+        <item name="colorAccent">@color/md_amber_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_600</item>
+        <item name="colorPrimaryDark">@color/md_amber_600_dark</item>
+        <item name="colorAccent">@color/md_amber_600</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_700</item>
+        <item name="colorPrimaryDark">@color/md_amber_700_dark</item>
+        <item name="colorAccent">@color/md_amber_700</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_800</item>
+        <item name="colorPrimaryDark">@color/md_amber_800_dark</item>
+        <item name="colorAccent">@color/md_amber_800</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Amber_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_amber_900</item>
+        <item name="colorPrimaryDark">@color/md_amber_900_dark</item>
+        <item name="colorAccent">@color/md_amber_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_100</item>
+        <item name="colorPrimaryDark">@color/md_orange_100_dark</item>
+        <item name="colorAccent">@color/md_orange_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_200</item>
+        <item name="colorPrimaryDark">@color/md_orange_200_dark</item>
+        <item name="colorAccent">@color/md_orange_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_300</item>
+        <item name="colorPrimaryDark">@color/md_orange_300_dark</item>
+        <item name="colorAccent">@color/md_orange_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_400</item>
+        <item name="colorPrimaryDark">@color/md_orange_400_dark</item>
+        <item name="colorAccent">@color/md_orange_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_orange_500_dark</item>
+        <item name="colorAccent">@color/md_orange_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_600</item>
+        <item name="colorPrimaryDark">@color/md_orange_600_dark</item>
+        <item name="colorAccent">@color/md_orange_600</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_700</item>
+        <item name="colorPrimaryDark">@color/md_orange_700_dark</item>
+        <item name="colorAccent">@color/md_orange_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_800</item>
+        <item name="colorPrimaryDark">@color/md_orange_800_dark</item>
+        <item name="colorAccent">@color/md_orange_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Orange_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_orange_900</item>
+        <item name="colorPrimaryDark">@color/md_orange_900_dark</item>
+        <item name="colorAccent">@color/md_orange_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_100</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_100_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_200</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_200_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_300</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_300_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_400</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_400_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_500_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_600</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_600_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_700</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_700_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_800</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_800_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_deep_orange_900</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_900_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_100</item>
+        <item name="colorPrimaryDark">@color/md_brown_100_dark</item>
+        <item name="colorAccent">@color/md_brown_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_200</item>
+        <item name="colorPrimaryDark">@color/md_brown_200_dark</item>
+        <item name="colorAccent">@color/md_brown_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_300</item>
+        <item name="colorPrimaryDark">@color/md_brown_300_dark</item>
+        <item name="colorAccent">@color/md_brown_300</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_400</item>
+        <item name="colorPrimaryDark">@color/md_brown_400_dark</item>
+        <item name="colorAccent">@color/md_brown_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_500</item>
+        <item name="colorPrimaryDark">@color/md_brown_500_dark</item>
+        <item name="colorAccent">@color/md_brown_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_600</item>
+        <item name="colorPrimaryDark">@color/md_brown_600_dark</item>
+        <item name="colorAccent">@color/md_brown_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_700</item>
+        <item name="colorPrimaryDark">@color/md_brown_700_dark</item>
+        <item name="colorAccent">@color/md_brown_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_800</item>
+        <item name="colorPrimaryDark">@color/md_brown_800_dark</item>
+        <item name="colorAccent">@color/md_brown_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Brown_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_brown_900</item>
+        <item name="colorPrimaryDark">@color/md_brown_900_dark</item>
+        <item name="colorAccent">@color/md_brown_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_100</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_100_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_100</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_200</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_200_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_300</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_300_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_400</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_400_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_400</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_500_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_500</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_600</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_600_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_700</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_700_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_800</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_800_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_blue_grey_900</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_900_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_900</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_100" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_white</item>
+        <item name="colorPrimaryDark">@color/md_grey_white_dark</item>
+        <item name="colorAccent">@color/md_grey_white</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_200" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_200</item>
+        <item name="colorPrimaryDark">@color/md_grey_200_dark</item>
+        <item name="colorAccent">@color/md_grey_200</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_300" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_300</item>
+        <item name="colorPrimaryDark">@color/md_grey_300_dark</item>
+        <item name="colorAccent">@color/md_grey_300</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_400" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_400</item>
+        <item name="colorPrimaryDark">@color/md_grey_400_dark</item>
+        <item name="colorAccent">@color/md_grey_400</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_500" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_grey_500_dark</item>
+        <item name="colorAccent">@color/md_grey_500</item>
+        <item name="actionBarTheme">@style/DarkActionBarItems</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorPrimary">@color/theme_dark_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_600" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_600</item>
+        <item name="colorPrimaryDark">@color/md_grey_600_dark</item>
+        <item name="colorAccent">@color/md_grey_600</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_700" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_700</item>
+        <item name="colorPrimaryDark">@color/md_grey_700_dark</item>
+        <item name="colorAccent">@color/md_grey_700</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_800" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_800</item>
+        <item name="colorPrimaryDark">@color/md_grey_800_dark</item>
+        <item name="colorAccent">@color/md_grey_800</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <style name="AppTheme.Grey_900" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/md_grey_black</item>
+        <item name="colorPrimaryDark">@color/md_grey_black_dark</item>
+        <item name="colorAccent">@color/md_grey_black</item>
+        <item name="actionBarTheme">@style/LightActionBarItems</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/theme_light_background_color</item>
+    </style>
+
+    <!-- themes with using transparent top action and status bars -->
+    <style name="AppTheme.Red_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_100</item>
+        <item name="colorPrimaryDark">@color/md_red_100_dark</item>
+        <item name="colorAccent">@color/md_red_100</item>
+    </style>
+
+    <style name="AppTheme.Red_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_200</item>
+        <item name="colorPrimaryDark">@color/md_red_200_dark</item>
+        <item name="colorAccent">@color/md_red_200</item>
+    </style>
+
+    <style name="AppTheme.Red_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_300</item>
+        <item name="colorPrimaryDark">@color/md_red_300_dark</item>
+        <item name="colorAccent">@color/md_red_300</item>
+    </style>
+
+    <style name="AppTheme.Red_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_400</item>
+        <item name="colorPrimaryDark">@color/md_red_400_dark</item>
+        <item name="colorAccent">@color/md_red_400</item>
+        md_grey_white
+    </style>
+
+    <style name="AppTheme.Red_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_500</item>
+        <item name="colorPrimaryDark">@color/md_red_500_dark</item>
+        <item name="colorAccent">@color/md_red_500</item>
+    </style>
+
+    <style name="AppTheme.Red_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_600</item>
+        <item name="colorPrimaryDark">@color/md_red_600_dark</item>
+        <item name="colorAccent">@color/md_red_600</item>
+    </style>
+
+    <style name="AppTheme.Red_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_700</item>
+        <item name="colorPrimaryDark">@color/md_red_700_dark</item>
+        <item name="colorAccent">@color/md_red_700</item>
+    </style>
+
+    <style name="AppTheme.Red_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_800</item>
+        <item name="colorPrimaryDark">@color/md_red_800_dark</item>
+        <item name="colorAccent">@color/md_red_800</item>
+    </style>
+
+    <style name="AppTheme.Red_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_red_900</item>
+        <item name="colorPrimaryDark">@color/md_red_900_dark</item>
+        <item name="colorAccent">@color/md_red_900</item>
+    </style>
+
+    <style name="AppTheme.Pink_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_100</item>
+        <item name="colorPrimaryDark">@color/md_pink_100_dark</item>
+        <item name="colorAccent">@color/md_pink_100</item>
+    </style>
+
+    <style name="AppTheme.Pink_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_200</item>
+        <item name="colorPrimaryDark">@color/md_pink_200_dark</item>
+        <item name="colorAccent">@color/md_pink_200</item>
+    </style>
+
+    <style name="AppTheme.Pink_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_300</item>
+        <item name="colorPrimaryDark">@color/md_pink_300_dark</item>
+        <item name="colorAccent">@color/md_pink_300</item>
+    </style>
+
+    <style name="AppTheme.Pink_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_400</item>
+        <item name="colorPrimaryDark">@color/md_pink_400_dark</item>
+        <item name="colorAccent">@color/md_pink_400</item>
+    </style>
+
+    <style name="AppTheme.Pink_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_500</item>
+        <item name="colorPrimaryDark">@color/md_pink_500_dark</item>
+        <item name="colorAccent">@color/md_pink_500</item>
+    </style>
+
+    <style name="AppTheme.Pink_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_600</item>
+        <item name="colorPrimaryDark">@color/md_pink_600_dark</item>
+        <item name="colorAccent">@color/md_pink_600</item>
+    </style>
+
+    <style name="AppTheme.Pink_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_700</item>
+        <item name="colorPrimaryDark">@color/md_pink_700_dark</item>
+        <item name="colorAccent">@color/md_pink_700</item>
+    </style>
+
+    <style name="AppTheme.Pink_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_800</item>
+        <item name="colorPrimaryDark">@color/md_pink_800_dark</item>
+        <item name="colorAccent">@color/md_pink_800</item>
+    </style>
+
+    <style name="AppTheme.Pink_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_pink_900</item>
+        <item name="colorPrimaryDark">@color/md_pink_900_dark</item>
+        <item name="colorAccent">@color/md_pink_900</item>
+    </style>
+
+    <style name="AppTheme.Purple_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_100</item>
+        <item name="colorPrimaryDark">@color/md_purple_100_dark</item>
+        <item name="colorAccent">@color/md_purple_100</item>
+    </style>
+
+    <style name="AppTheme.Purple_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_200</item>
+        <item name="colorPrimaryDark">@color/md_purple_200_dark</item>
+        <item name="colorAccent">@color/md_purple_200</item>
+    </style>
+
+    <style name="AppTheme.Purple_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_300</item>
+        <item name="colorPrimaryDark">@color/md_purple_300_dark</item>
+        <item name="colorAccent">@color/md_purple_300</item>
+    </style>
+
+    <style name="AppTheme.Purple_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_400</item>
+        <item name="colorPrimaryDark">@color/md_purple_400_dark</item>
+        <item name="colorAccent">@color/md_purple_400</item>
+    </style>
+
+    <style name="AppTheme.Purple_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_purple_500_dark</item>
+        <item name="colorAccent">@color/md_purple_500</item>
+    </style>
+
+    <style name="AppTheme.Purple_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_600</item>
+        <item name="colorPrimaryDark">@color/md_purple_600_dark</item>
+        <item name="colorAccent">@color/md_purple_600</item>
+    </style>
+
+    <style name="AppTheme.Purple_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_700</item>
+        <item name="colorPrimaryDark">@color/md_purple_700_dark</item>
+        <item name="colorAccent">@color/md_purple_700</item>
+    </style>
+
+    <style name="AppTheme.Purple_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_800</item>
+        <item name="colorPrimaryDark">@color/md_purple_800_dark</item>
+        <item name="colorAccent">@color/md_purple_800</item>
+    </style>
+
+    <style name="AppTheme.Purple_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_purple_900</item>
+        <item name="colorPrimaryDark">@color/md_purple_900_dark</item>
+        <item name="colorAccent">@color/md_purple_900</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_100</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_100_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_100</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_200</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_200_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_200</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_300</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_300_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_300</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_400</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_400_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_400</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_500_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_500</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_600</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_600_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_600</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_700</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_700_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_700</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_800</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_800_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_800</item>
+    </style>
+
+    <style name="AppTheme.Deep_Purple_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_purple_900</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_900_dark</item>
+        <item name="colorAccent">@color/md_deep_purple_900</item>
+    </style>
+
+    <style name="AppTheme.Indigo_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_100</item>
+        <item name="colorPrimaryDark">@color/md_indigo_100_dark</item>
+        <item name="colorAccent">@color/md_indigo_100</item>
+    </style>
+
+    <style name="AppTheme.Indigo_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_200</item>
+        <item name="colorPrimaryDark">@color/md_indigo_200_dark</item>
+        <item name="colorAccent">@color/md_indigo_200</item>
+    </style>
+
+    <style name="AppTheme.Indigo_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_300</item>
+        <item name="colorPrimaryDark">@color/md_indigo_300_dark</item>
+        <item name="colorAccent">@color/md_indigo_300</item>
+    </style>
+
+    <style name="AppTheme.Indigo_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_400</item>
+        <item name="colorPrimaryDark">@color/md_indigo_400_dark</item>
+        <item name="colorAccent">@color/md_indigo_400</item>
+    </style>
+
+    <style name="AppTheme.Indigo_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_500</item>
+        <item name="colorPrimaryDark">@color/md_indigo_500_dark</item>
+        <item name="colorAccent">@color/md_indigo_500</item>
+    </style>
+
+    <style name="AppTheme.Indigo_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_600</item>
+        <item name="colorPrimaryDark">@color/md_indigo_600_dark</item>
+        <item name="colorAccent">@color/md_indigo_600</item>
+    </style>
+
+    <style name="AppTheme.Indigo_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_700</item>
+        <item name="colorPrimaryDark">@color/md_indigo_700_dark</item>
+        <item name="colorAccent">@color/md_indigo_700</item>
+    </style>
+
+    <style name="AppTheme.Indigo_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_800</item>
+        <item name="colorPrimaryDark">@color/md_indigo_800_dark</item>
+        <item name="colorAccent">@color/md_indigo_800</item>
+    </style>
+
+    <style name="AppTheme.Indigo_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_indigo_900</item>
+        <item name="colorPrimaryDark">@color/md_indigo_900_dark</item>
+        <item name="colorAccent">@color/md_indigo_900</item>
+    </style>
+
+    <style name="AppTheme.Blue_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_100</item>
+        <item name="colorPrimaryDark">@color/md_blue_100_dark</item>
+        <item name="colorAccent">@color/md_blue_100</item>
+    </style>
+
+    <style name="AppTheme.Blue_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_200</item>
+        <item name="colorPrimaryDark">@color/md_blue_200_dark</item>
+        <item name="colorAccent">@color/md_blue_200</item>
+    </style>
+
+    <style name="AppTheme.Blue_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_300</item>
+        <item name="colorPrimaryDark">@color/md_blue_300_dark</item>
+        <item name="colorAccent">@color/md_blue_300</item>
+    </style>
+
+    <style name="AppTheme.Blue_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_400</item>
+        <item name="colorPrimaryDark">@color/md_blue_400_dark</item>
+        <item name="colorAccent">@color/md_blue_400</item>
+    </style>
+
+    <style name="AppTheme.Blue_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_500_dark</item>
+        <item name="colorAccent">@color/md_blue_500</item>
+    </style>
+
+    <style name="AppTheme.Blue_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_600</item>
+        <item name="colorPrimaryDark">@color/md_blue_600_dark</item>
+        <item name="colorAccent">@color/md_blue_600</item>
+    </style>
+
+    <style name="AppTheme.Blue_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_700</item>
+        <item name="colorPrimaryDark">@color/md_blue_700_dark</item>
+        <item name="colorAccent">@color/md_blue_700</item>
+    </style>
+
+    <style name="AppTheme.Blue_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_800</item>
+        <item name="colorPrimaryDark">@color/md_blue_800_dark</item>
+        <item name="colorAccent">@color/md_blue_800</item>
+    </style>
+
+    <style name="AppTheme.Blue_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_900</item>
+        <item name="colorPrimaryDark">@color/md_blue_900_dark</item>
+        <item name="colorAccent">@color/md_blue_900</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_100</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_100_dark</item>
+        <item name="colorAccent">@color/md_light_blue_100</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_200</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_200_dark</item>
+        <item name="colorAccent">@color/md_light_blue_200</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_300</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_300_dark</item>
+        <item name="colorAccent">@color/md_light_blue_300</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_400</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_400_dark</item>
+        <item name="colorAccent">@color/md_light_blue_400</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_500_dark</item>
+        <item name="colorAccent">@color/md_light_blue_500</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_600</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_600_dark</item>
+        <item name="colorAccent">@color/md_light_blue_600</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_700</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_700_dark</item>
+        <item name="colorAccent">@color/md_light_blue_700</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_800</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_800_dark</item>
+        <item name="colorAccent">@color/md_light_blue_800</item>
+    </style>
+
+    <style name="AppTheme.Light_Blue_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_blue_900</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_900_dark</item>
+        <item name="colorAccent">@color/md_light_blue_900</item>
+    </style>
+
+    <style name="AppTheme.Cyan_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_100</item>
+        <item name="colorPrimaryDark">@color/md_cyan_100_dark</item>
+        <item name="colorAccent">@color/md_cyan_100</item>
+    </style>
+
+    <style name="AppTheme.Cyan_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_200</item>
+        <item name="colorPrimaryDark">@color/md_cyan_200_dark</item>
+        <item name="colorAccent">@color/md_cyan_200</item>
+    </style>
+
+    <style name="AppTheme.Cyan_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_300</item>
+        <item name="colorPrimaryDark">@color/md_cyan_300_dark</item>
+        <item name="colorAccent">@color/md_cyan_300</item>
+    </style>
+
+    <style name="AppTheme.Cyan_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_400</item>
+        <item name="colorPrimaryDark">@color/md_cyan_400_dark</item>
+        <item name="colorAccent">@color/md_cyan_400</item>
+    </style>
+
+    <style name="AppTheme.Cyan_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_500</item>
+        <item name="colorPrimaryDark">@color/md_cyan_500_dark</item>
+        <item name="colorAccent">@color/md_cyan_500</item>
+    </style>
+
+    <style name="AppTheme.Cyan_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_600</item>
+        <item name="colorPrimaryDark">@color/md_cyan_600_dark</item>
+        <item name="colorAccent">@color/md_cyan_600</item>
+    </style>
+
+    <style name="AppTheme.Cyan_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_700</item>
+        <item name="colorPrimaryDark">@color/md_cyan_700_dark</item>
+        <item name="colorAccent">@color/md_cyan_700</item>
+    </style>
+
+    <style name="AppTheme.Cyan_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_800</item>
+        <item name="colorPrimaryDark">@color/md_cyan_800_dark</item>
+        <item name="colorAccent">@color/md_cyan_800</item>
+    </style>
+
+    <style name="AppTheme.Cyan_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_cyan_900</item>
+        <item name="colorPrimaryDark">@color/md_cyan_900_dark</item>
+        <item name="colorAccent">@color/md_cyan_900</item>
+    </style>
+
+    <style name="AppTheme.Teal_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_100</item>
+        <item name="colorPrimaryDark">@color/md_teal_100_dark</item>
+        <item name="colorAccent">@color/md_teal_100</item>
+    </style>
+
+    <style name="AppTheme.Teal_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_200</item>
+        <item name="colorPrimaryDark">@color/md_teal_200_dark</item>
+        <item name="colorAccent">@color/md_teal_200</item>
+    </style>
+
+    <style name="AppTheme.Teal_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_300</item>
+        <item name="colorPrimaryDark">@color/md_teal_300_dark</item>
+        <item name="colorAccent">@color/md_teal_300</item>
+    </style>
+
+    <style name="AppTheme.Teal_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_400</item>
+        <item name="colorPrimaryDark">@color/md_teal_400_dark</item>
+        <item name="colorAccent">@color/md_teal_400</item>
+    </style>
+
+    <style name="AppTheme.Teal_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_500</item>
+        <item name="colorPrimaryDark">@color/md_teal_500_dark</item>
+        <item name="colorAccent">@color/md_teal_500</item>
+    </style>
+
+    <style name="AppTheme.Teal_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_600</item>
+        <item name="colorPrimaryDark">@color/md_teal_600_dark</item>
+        <item name="colorAccent">@color/md_teal_600</item>
+    </style>
+
+    <style name="AppTheme.Teal_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_700</item>
+        <item name="colorPrimaryDark">@color/md_teal_700_dark</item>
+        <item name="colorAccent">@color/md_teal_700</item>
+    </style>
+
+    <style name="AppTheme.Teal_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_800</item>
+        <item name="colorPrimaryDark">@color/md_teal_800_dark</item>
+        <item name="colorAccent">@color/md_teal_800</item>
+    </style>
+
+    <style name="AppTheme.Teal_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_teal_900</item>
+        <item name="colorPrimaryDark">@color/md_teal_900_dark</item>
+        <item name="colorAccent">@color/md_teal_900</item>
+    </style>
+
+    <style name="AppTheme.Green_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_100</item>
+        <item name="colorPrimaryDark">@color/md_green_100_dark</item>
+        <item name="colorAccent">@color/md_green_100</item>
+    </style>
+
+    <style name="AppTheme.Green_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_200</item>
+        <item name="colorPrimaryDark">@color/md_green_200_dark</item>
+        <item name="colorAccent">@color/md_green_200</item>
+    </style>
+
+    <style name="AppTheme.Green_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_300</item>
+        <item name="colorPrimaryDark">@color/md_green_300_dark</item>
+        <item name="colorAccent">@color/md_green_300</item>
+    </style>
+
+    <style name="AppTheme.Green_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_400</item>
+        <item name="colorPrimaryDark">@color/md_green_400_dark</item>
+        <item name="colorAccent">@color/md_green_400</item>
+    </style>
+
+    <style name="AppTheme.Green_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_500</item>
+        <item name="colorPrimaryDark">@color/md_green_500_dark</item>
+        <item name="colorAccent">@color/md_green_500</item>
+    </style>
+
+    <style name="AppTheme.Green_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_600</item>
+        <item name="colorPrimaryDark">@color/md_green_600_dark</item>
+        <item name="colorAccent">@color/md_green_600</item>
+    </style>
+
+    <style name="AppTheme.Green_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_700</item>
+        <item name="colorPrimaryDark">@color/md_green_700_dark</item>
+        <item name="colorAccent">@color/md_green_700</item>
+    </style>
+
+    <style name="AppTheme.Green_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_800</item>
+        <item name="colorPrimaryDark">@color/md_green_800_dark</item>
+        <item name="colorAccent">@color/md_green_800</item>
+    </style>
+
+    <style name="AppTheme.Green_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_green_900</item>
+        <item name="colorPrimaryDark">@color/md_green_900_dark</item>
+        <item name="colorAccent">@color/md_green_900</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_100</item>
+        <item name="colorPrimaryDark">@color/md_light_green_100_dark</item>
+        <item name="colorAccent">@color/md_light_green_100</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_200</item>
+        <item name="colorPrimaryDark">@color/md_light_green_200_dark</item>
+        <item name="colorAccent">@color/md_light_green_200</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_300</item>
+        <item name="colorPrimaryDark">@color/md_light_green_300_dark</item>
+        <item name="colorAccent">@color/md_light_green_300</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_400</item>
+        <item name="colorPrimaryDark">@color/md_light_green_400_dark</item>
+        <item name="colorAccent">@color/md_light_green_400</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_500</item>
+        <item name="colorPrimaryDark">@color/md_light_green_500_dark</item>
+        <item name="colorAccent">@color/md_light_green_500</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_600</item>
+        <item name="colorPrimaryDark">@color/md_light_green_600_dark</item>
+        <item name="colorAccent">@color/md_light_green_600</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_700</item>
+        <item name="colorPrimaryDark">@color/md_light_green_700_dark</item>
+        <item name="colorAccent">@color/md_light_green_700</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_800</item>
+        <item name="colorPrimaryDark">@color/md_light_green_800_dark</item>
+        <item name="colorAccent">@color/md_light_green_800</item>
+    </style>
+
+    <style name="AppTheme.Light_Green_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_light_green_900</item>
+        <item name="colorPrimaryDark">@color/md_light_green_900_dark</item>
+        <item name="colorAccent">@color/md_light_green_900</item>
+    </style>
+
+    <style name="AppTheme.Lime_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_100</item>
+        <item name="colorPrimaryDark">@color/md_lime_100_dark</item>
+        <item name="colorAccent">@color/md_lime_100</item>
+    </style>
+
+    <style name="AppTheme.Lime_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_200</item>
+        <item name="colorPrimaryDark">@color/md_lime_200_dark</item>
+        <item name="colorAccent">@color/md_lime_200</item>
+    </style>
+
+    <style name="AppTheme.Lime_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_300</item>
+        <item name="colorPrimaryDark">@color/md_lime_300_dark</item>
+        <item name="colorAccent">@color/md_lime_300</item>
+    </style>
+
+    <style name="AppTheme.Lime_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_400</item>
+        <item name="colorPrimaryDark">@color/md_lime_400_dark</item>
+        <item name="colorAccent">@color/md_lime_400</item>
+    </style>
+
+    <style name="AppTheme.Lime_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_500</item>
+        <item name="colorPrimaryDark">@color/md_lime_500_dark</item>
+        <item name="colorAccent">@color/md_lime_500</item>
+    </style>
+
+    <style name="AppTheme.Lime_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_600</item>
+        <item name="colorPrimaryDark">@color/md_lime_600_dark</item>
+        <item name="colorAccent">@color/md_lime_600</item>
+    </style>
+
+    <style name="AppTheme.Lime_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_700</item>
+        <item name="colorPrimaryDark">@color/md_lime_700_dark</item>
+        <item name="colorAccent">@color/md_lime_700</item>
+    </style>
+
+    <style name="AppTheme.Lime_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_800</item>
+        <item name="colorPrimaryDark">@color/md_lime_800_dark</item>
+        <item name="colorAccent">@color/md_lime_800</item>
+    </style>
+
+    <style name="AppTheme.Lime_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_lime_900</item>
+        <item name="colorPrimaryDark">@color/md_lime_900_dark</item>
+        <item name="colorAccent">@color/md_lime_900</item>
+    </style>
+
+    <style name="AppTheme.Yellow_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_100</item>
+        <item name="colorPrimaryDark">@color/md_yellow_100_dark</item>
+        <item name="colorAccent">@color/md_yellow_100</item>
+    </style>
+
+    <style name="AppTheme.Yellow_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_200</item>
+        <item name="colorPrimaryDark">@color/md_yellow_200_dark</item>
+        <item name="colorAccent">@color/md_yellow_200</item>
+    </style>
+
+    <style name="AppTheme.Yellow_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_300</item>
+        <item name="colorPrimaryDark">@color/md_yellow_300_dark</item>
+        <item name="colorAccent">@color/md_yellow_300</item>
+    </style>
+
+    <style name="AppTheme.Yellow_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_400</item>
+        <item name="colorPrimaryDark">@color/md_yellow_400_dark</item>
+        <item name="colorAccent">@color/md_yellow_400</item>
+    </style>
+
+    <style name="AppTheme.Yellow_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_500</item>
+        <item name="colorPrimaryDark">@color/md_yellow_500_dark</item>
+        <item name="colorAccent">@color/md_yellow_500</item>
+    </style>
+
+    <style name="AppTheme.Yellow_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_600</item>
+        <item name="colorPrimaryDark">@color/md_yellow_600_dark</item>
+        <item name="colorAccent">@color/md_yellow_600</item>
+    </style>
+
+    <style name="AppTheme.Yellow_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_700</item>
+        <item name="colorPrimaryDark">@color/md_yellow_700_dark</item>
+        <item name="colorAccent">@color/md_yellow_700</item>
+    </style>
+
+    <style name="AppTheme.Yellow_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_800</item>
+        <item name="colorPrimaryDark">@color/md_yellow_800_dark</item>
+        <item name="colorAccent">@color/md_yellow_800</item>
+    </style>
+
+    <style name="AppTheme.Yellow_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_yellow_900</item>
+        <item name="colorPrimaryDark">@color/md_yellow_900_dark</item>
+        <item name="colorAccent">@color/md_yellow_900</item>
+    </style>
+
+    <style name="AppTheme.Amber_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_100</item>
+        <item name="colorPrimaryDark">@color/md_amber_100_dark</item>
+        <item name="colorAccent">@color/md_amber_100</item>
+    </style>
+
+    <style name="AppTheme.Amber_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_200</item>
+        <item name="colorPrimaryDark">@color/md_amber_200_dark</item>
+        <item name="colorAccent">@color/md_amber_200</item>
+    </style>
+
+    <style name="AppTheme.Amber_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_300</item>
+        <item name="colorPrimaryDark">@color/md_amber_300_dark</item>
+        <item name="colorAccent">@color/md_amber_300</item>
+    </style>
+
+    <style name="AppTheme.Amber_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_400</item>
+        <item name="colorPrimaryDark">@color/md_amber_400_dark</item>
+        <item name="colorAccent">@color/md_amber_400</item>
+    </style>
+
+    <style name="AppTheme.Amber_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_500</item>
+        <item name="colorPrimaryDark">@color/md_amber_500_dark</item>
+        <item name="colorAccent">@color/md_amber_500</item>
+    </style>
+
+    <style name="AppTheme.Amber_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_600</item>
+        <item name="colorPrimaryDark">@color/md_amber_600_dark</item>
+        <item name="colorAccent">@color/md_amber_600</item>
+    </style>
+
+    <style name="AppTheme.Amber_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_700</item>
+        <item name="colorPrimaryDark">@color/md_amber_700_dark</item>
+        <item name="colorAccent">@color/md_amber_700</item>
+    </style>
+
+    <style name="AppTheme.Amber_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_800</item>
+        <item name="colorPrimaryDark">@color/md_amber_800_dark</item>
+        <item name="colorAccent">@color/md_amber_800</item>
+    </style>
+
+    <style name="AppTheme.Amber_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_amber_900</item>
+        <item name="colorPrimaryDark">@color/md_amber_900_dark</item>
+        <item name="colorAccent">@color/md_amber_900</item>
+    </style>
+
+    <style name="AppTheme.Orange_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_100</item>
+        <item name="colorPrimaryDark">@color/md_orange_100_dark</item>
+        <item name="colorAccent">@color/md_orange_100</item>
+    </style>
+
+    <style name="AppTheme.Orange_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_200</item>
+        <item name="colorPrimaryDark">@color/md_orange_200_dark</item>
+        <item name="colorAccent">@color/md_orange_200</item>
+    </style>
+
+    <style name="AppTheme.Orange_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_300</item>
+        <item name="colorPrimaryDark">@color/md_orange_300_dark</item>
+        <item name="colorAccent">@color/md_orange_300</item>
+    </style>
+
+    <style name="AppTheme.Orange_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_400</item>
+        <item name="colorPrimaryDark">@color/md_orange_400_dark</item>
+        <item name="colorAccent">@color/md_orange_400</item>
+    </style>
+
+    <style name="AppTheme.Orange_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_orange_500_dark</item>
+        <item name="colorAccent">@color/md_orange_500</item>
+    </style>
+
+    <style name="AppTheme.Orange_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_600</item>
+        <item name="colorPrimaryDark">@color/md_orange_600_dark</item>
+        <item name="colorAccent">@color/md_orange_600</item>
+    </style>
+
+    <style name="AppTheme.Orange_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_700</item>
+        <item name="colorPrimaryDark">@color/md_orange_700_dark</item>
+        <item name="colorAccent">@color/md_orange_700</item>
+    </style>
+
+    <style name="AppTheme.Orange_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_800</item>
+        <item name="colorPrimaryDark">@color/md_orange_800_dark</item>
+        <item name="colorAccent">@color/md_orange_800</item>
+    </style>
+
+    <style name="AppTheme.Orange_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_orange_900</item>
+        <item name="colorPrimaryDark">@color/md_orange_900_dark</item>
+        <item name="colorAccent">@color/md_orange_900</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_100</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_100_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_100</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_200</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_200_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_200</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_300</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_300_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_300</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_400</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_400_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_400</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_500_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_500</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_600</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_600_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_600</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_700</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_700_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_700</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_800</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_800_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_800</item>
+    </style>
+
+    <style name="AppTheme.Deep_Orange_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_deep_orange_900</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_900_dark</item>
+        <item name="colorAccent">@color/md_deep_orange_900</item>
+    </style>
+
+    <style name="AppTheme.Brown_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_100</item>
+        <item name="colorPrimaryDark">@color/md_brown_100_dark</item>
+        <item name="colorAccent">@color/md_brown_100</item>
+    </style>
+
+    <style name="AppTheme.Brown_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_200</item>
+        <item name="colorPrimaryDark">@color/md_brown_200_dark</item>
+        <item name="colorAccent">@color/md_brown_200</item>
+    </style>
+
+    <style name="AppTheme.Brown_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_300</item>
+        <item name="colorPrimaryDark">@color/md_brown_300_dark</item>
+        <item name="colorAccent">@color/md_brown_300</item>
+    </style>
+
+    <style name="AppTheme.Brown_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_400</item>
+        <item name="colorPrimaryDark">@color/md_brown_400_dark</item>
+        <item name="colorAccent">@color/md_brown_400</item>
+    </style>
+
+    <style name="AppTheme.Brown_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_500</item>
+        <item name="colorPrimaryDark">@color/md_brown_500_dark</item>
+        <item name="colorAccent">@color/md_brown_500</item>
+    </style>
+
+    <style name="AppTheme.Brown_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_600</item>
+        <item name="colorPrimaryDark">@color/md_brown_600_dark</item>
+        <item name="colorAccent">@color/md_brown_600</item>
+    </style>
+
+    <style name="AppTheme.Brown_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_700</item>
+        <item name="colorPrimaryDark">@color/md_brown_700_dark</item>
+        <item name="colorAccent">@color/md_brown_700</item>
+    </style>
+
+    <style name="AppTheme.Brown_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_800</item>
+        <item name="colorPrimaryDark">@color/md_brown_800_dark</item>
+        <item name="colorAccent">@color/md_brown_800</item>
+    </style>
+
+    <style name="AppTheme.Brown_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_brown_900</item>
+        <item name="colorPrimaryDark">@color/md_brown_900_dark</item>
+        <item name="colorAccent">@color/md_brown_900</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_100</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_100_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_100</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_200</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_200_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_200</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_300</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_300_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_300</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_400</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_400_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_400</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_500_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_500</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_600</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_600_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_600</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_700</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_700_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_700</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_800</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_800_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_800</item>
+    </style>
+
+    <style name="AppTheme.Blue_Grey_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_blue_grey_900</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_900_dark</item>
+        <item name="colorAccent">@color/md_blue_grey_900</item>
+    </style>
+
+    <style name="AppTheme.Grey_100_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_white</item>
+        <item name="colorPrimaryDark">@color/md_grey_white_dark</item>
+        <item name="colorAccent">@color/md_grey_white</item>
+    </style>
+
+    <style name="AppTheme.Grey_200_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_200</item>
+        <item name="colorPrimaryDark">@color/md_grey_200_dark</item>
+        <item name="colorAccent">@color/md_grey_200</item>
+    </style>
+
+    <style name="AppTheme.Grey_300_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_300</item>
+        <item name="colorPrimaryDark">@color/md_grey_300_dark</item>
+        <item name="colorAccent">@color/md_grey_300</item>
+    </style>
+
+    <style name="AppTheme.Grey_400_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_400</item>
+        <item name="colorPrimaryDark">@color/md_grey_400_dark</item>
+        <item name="colorAccent">@color/md_grey_400</item>
+    </style>
+
+    <style name="AppTheme.Grey_500_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_grey_500_dark</item>
+        <item name="colorAccent">@color/md_grey_500</item>
+    </style>
+
+    <style name="AppTheme.Grey_600_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_600</item>
+        <item name="colorPrimaryDark">@color/md_grey_600_dark</item>
+        <item name="colorAccent">@color/md_grey_600</item>
+    </style>
+
+    <style name="AppTheme.Grey_700_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_700</item>
+        <item name="colorPrimaryDark">@color/md_grey_700_dark</item>
+        <item name="colorAccent">@color/md_grey_700</item>
+    </style>
+
+    <style name="AppTheme.Grey_800_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_800</item>
+        <item name="colorPrimaryDark">@color/md_grey_800_dark</item>
+        <item name="colorAccent">@color/md_grey_800</item>
+    </style>
+
+    <style name="AppTheme.Grey_900_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/md_grey_black</item>
+        <item name="colorPrimaryDark">@color/md_grey_black_dark</item>
+        <item name="colorAccent">@color/md_grey_black</item>
+    </style>
+
+</resources>

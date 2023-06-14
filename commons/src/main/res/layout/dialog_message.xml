@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/message_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/small_margin"
+        android:paddingLeft="@dimen/big_margin"
+        android:paddingTop="@dimen/big_margin"
+        android:paddingRight="@dimen/big_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        android:textSize="@dimen/bigger_text_size" />
+
+</ScrollView>

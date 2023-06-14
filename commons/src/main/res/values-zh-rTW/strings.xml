@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
+    <string name="back">Back</string>
+    <string name="nothing">Nothing</string>
+    <string name="later">Later</string>
+    <string name="save_as">儲存</string>
+    <string name="file_saved">成功儲存檔案</string>
+    <string name="invalid_file_format">無效的檔案格式</string>
+    <string name="out_of_memory_error">記憶體不足</string>
+    <string name="an_error_occurred">發生錯誤: %s</string>
+    <string name="error">Error: %s</string>
+    <string name="open_with">以其他應用程式開啟</string>
+    <string name="edit_with">用其他程式編輯</string>
+    <string name="edit">Edit</string>
+    <string name="no_app_found">找不到應用程式</string>
+    <string name="no_browser_found">No browser found</string>
+    <string name="no_email_client_found">No email client found</string>
+    <string name="set_as">設為</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="copy_number_to_clipboard">Copy number to clipboard</string>
+    <string name="value_copied_to_clipboard">數值複製到剪貼簿</string>
+    <string name="value_copied_to_clipboard_show">數值複製到剪貼簿:\n%s</string>
+    <string name="dial_number">Dial number</string>
+    <string name="unknown">未知的</string>
+    <string name="always">總是</string>
+    <string name="never">從不</string>
+    <string name="details">詳細資訊</string>
+    <string name="notes">筆記</string>
+    <string name="deleting_folder">資料夾 \'%s\' 刪除中</string>
+    <string name="none">無</string>
+    <string name="label">標籤</string>
+    <string name="transparent">透明</string>
+    <string name="transparent_color">透明顏色</string>
+    <string name="select_a_different_color">選取不同的顏色</string>
+    <string name="download">下載</string>
+    <string name="notification">通知</string>
+    <string name="notifications">Notifications</string>
+    <string name="email">電子信箱</string>
+    <string name="previous">上一首</string>
+    <string name="playpause">播放 / 暫停</string>
+    <string name="next">下一首</string>
+    <string name="number">號碼</string>
+    <string name="no_contacts_found">未發現聯絡人</string>
+    <string name="request_the_required_permissions">請求必要的權限</string>
+    <string name="no_access_to_contacts">The app could not access your contacts</string>
+    <string name="no_phone_call_permission">App does not have the permission to initiate phone calls, please grant it in the device settings</string>
+    <string name="insert_text_here">Insert text here</string>
+    <string name="call_person">打電話給 %s</string>
+    <string name="confirm_calling_person">Confirm calling %s</string>
+    <string name="zero">Zero</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="five">Five</string>
+    <string name="six">Six</string>
+    <string name="seven">Seven</string>
+    <string name="eight">Eight</string>
+    <string name="nine">Nine</string>
+    <string name="value">Value</string>
+    <string name="value_cannot_be_empty">Value cannot be empty</string>
+    <string name="create_new_contact">建立新聯絡人</string>
+    <string name="add_to_existing_contact">添加至已存在的聯絡人</string>
+    <string name="app_corrupt">App Corrupt</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="take_photo">拍照</string>
+    <string name="choose_photo">選擇相片</string>
+    <string name="choose_video">Choose video</string>
+    <string name="choose_contact">Choose contact</string>
+    <string name="choose_file">Choose file</string>
+    <string name="record_audio">Record audio</string>
+    <string name="record_video">Record video</string>
+    <string name="updating">更新中…</string>
+    <string name="phone_storage">手機空間</string>
+    <string name="phone_storage_hidden">手機空間 (其他程式不可見)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">生日</string>
+    <string name="anniversary">紀念日</string>
+    <!-- Emails -->
+    <string name="home">住家</string>
+    <string name="work">工作</string>
+    <!-- Phone numbers -->
+    <string name="mobile">手機</string>
+    <string name="main_number">主用</string>
+    <string name="work_fax">工作傳真</string>
+    <string name="home_fax">住家傳真</string>
+    <string name="pager">呼叫器</string>
+    <string name="no_phone_number_found">未發現電話號碼</string>
+    <!-- View types -->
+    <string name="change_view_type">改變瀏覽類型</string>
+    <string name="grid">格狀</string>
+    <string name="grid_pro">格狀 (Pro)</string>
+    <string name="uneven_grid">Uneven Grid</string>
+    <string name="list">列表</string>
+    <string name="increase_column_count">增加欄數</string>
+    <string name="reduce_column_count">減少欄數</string>
+    <string name="column_count">Column count</string>
+    <string name="portrait_column_count">Portrait column count</string>
+    <string name="landscape_column_count">Landscape column count</string>
+    <string name="change_cover_image">更換封面圖片</string>
+    <string name="select_photo">選擇相片</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d column</item>
+        <item quantity="other">%d columns</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">管理黑名單</string>
+    <string name="not_blocking_anyone">你沒有封鎖任何人</string>
+    <string name="add_a_blocked_number">添加封鎖的號碼</string>
+    <string name="block_number">封鎖號碼</string>
+    <string name="block_numbers">封鎖號碼</string>
+    <string name="blocked_numbers">黑名單</string>
+    <string name="export_blocked_numbers">Export blocked numbers</string>
+    <string name="import_blocked_numbers">Import blocked numbers</string>
+    <string name="must_make_default_dialer">你必須將這應用程式設為預設的撥號程式來使用黑名單。</string>
+    <string name="set_as_default">設為預設</string>
+    <string name="block_confirmation">Are you sure you want to block \"%s\"?</string>
+    <string name="block_unknown_calls">Block calls from not stored contacts</string>
+    <string name="block_unknown_messages">Block messages from not stored contacts</string>
+    <string name="add_blocked_number_helper_text">Enter a number or a pattern (e.g. *12345*, +1*8888) to block all calls and messages from numbers matching the pattern.</string>
+    <string name="must_make_default_caller_id_app">Can\'t block unknown numbers without caller ID permission.</string>
+    <!-- Favorites -->
+    <string name="favorites">我的最愛</string>
+    <string name="add_favorites">添加我的最愛</string>
+    <string name="add_to_favorites">加入我的最愛</string>
+    <string name="remove_from_favorites">移除我的最愛</string>
+    <!-- Search -->
+    <string name="search">搜尋</string>
+    <string name="search_in_placeholder">Search in %s</string>
+    <string name="type_2_characters">輸入兩個字以上來開始搜尋。</string>
+    <string name="search_contacts">Search contacts</string>
+    <string name="search_favorites">Search favorites</string>
+    <string name="search_apps">Search apps</string>
+    <string name="search_events">Search events</string>
+    <string name="search_groups">Search groups</string>
+    <string name="search_history">Search history</string>
+    <string name="search_calls">Search calls</string>
+    <string name="search_files">Search files</string>
+    <string name="search_folders">Search folders</string>
+    <string name="search_files_and_folders">Search files and folders</string>
+    <string name="search_playlists">Search playlists</string>
+    <string name="search_artists">Search artists</string>
+    <string name="search_albums">Search albums</string>
+    <string name="search_tracks">Search tracks</string>
+    <string name="search_text">Search text</string>
+    <string name="search_conversations">Search conversations</string>
+    <string name="search_recordings">Search recordings</string>
+    <!-- Filters -->
+    <string name="filter">篩選</string>
+    <string name="filter_pro">篩選 (Pro)</string>
+    <string name="no_items_found">未發現項目</string>
+    <string name="change_filter">更改篩選條件</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">儲存空間權限是必要的</string>
+    <string name="no_contacts_permission">聯絡人權限是必要的</string>
+    <string name="no_camera_permissions">相機權限是必要的</string>
+    <string name="no_audio_permissions">音訊權限是必要的</string>
+    <string name="no_permission">No permission</string>
+    <string name="allow_notifications_reminders">You must allow the app displaying notifications, else it cannot show reminders.</string>
+    <string name="allow_notifications_files">You must allow the app displaying notifications, else it cannot show the progress bar.</string>
+    <string name="allow_notifications_music_player">You must allow the app displaying notifications, else it cannot play songs.</string>
+    <string name="allow_notifications_voice_recorder">You must allow the app displaying notifications, else it cannot record audio.</string>
+    <string name="allow_notifications_incoming_calls">You must allow the app displaying notifications, else it cannot show incoming calls.</string>
+    <string name="allow_notifications_incoming_messages">You must allow the app displaying notifications, else it cannot show incoming messages.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_required">Permission Required</string>
+    <!-- Renaming -->
+    <string name="rename_file">重新命名檔案</string>
+    <string name="rename_folder">重新命名資料夾</string>
+    <string name="rename_file_error">無法重新命名檔案</string>
+    <string name="rename_folder_error">無法重新命名資料夾</string>
+    <string name="rename_folder_empty">資料夾名稱不得空白</string>
+    <string name="rename_folder_exists">已經存在這名稱的資料夾</string>
+    <string name="rename_folder_root">無法重新命名根目錄</string>
+    <string name="rename_folder_ok">成功重新命名資料夾</string>
+    <string name="renaming_folder">資料夾重新命名中</string>
+    <string name="filename_cannot_be_empty">檔名不得空白</string>
+    <string name="filename_invalid_characters">檔名包含無效字元</string>
+    <string name="filename_invalid_characters_placeholder">檔名 \'%s\' 包含無效字元</string>
+    <string name="extension_cannot_be_empty">副檔名不得空白</string>
+    <string name="source_file_doesnt_exist">原始檔案 %s 不存在</string>
+    <string name="prepend_filenames">檔名前綴</string>
+    <string name="append_filenames">附加檔名</string>
+    <string name="simple_renaming">簡易重新命名</string>
+    <string name="pattern_renaming">格式重新命名</string>
+    <string name="string_to_add">添加文字</string>
+    <string name="rename_date_time_pattern">%Y - 年\n%M - 月\n%D - 日\n%h - 小時\n%m - 分鐘\n%s - 秒鐘\n%i - 數字從1增加起</string>
+    <string name="filename_without_txt">Filename (without .txt)</string>
+    <string name="filename_without_json">Filename (without .json)</string>
+    <string name="filename_without_zip">Filename (without .zip)</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
+    <!-- Copy / Move -->
+    <string name="copy">複製</string>
+    <string name="move">移動</string>
+    <string name="copy_move">複製 / 移動</string>
+    <string name="copy_to">複製</string>
+    <string name="move_to">移動</string>
+    <string name="source">來源</string>
+    <string name="destination">目標</string>
+    <string name="select_destination">選擇目標</string>
+    <string name="click_select_destination">點此選擇目標</string>
+    <string name="invalid_destination">無法寫入選擇的目標</string>
+    <string name="please_select_destination">請選擇目標</string>
+    <string name="source_and_destination_same">目標跟來源不能相同</string>
+    <string name="copy_failed">無法複製檔案</string>
+    <string name="copying">複製中…</string>
+    <string name="copying_success">成功複製檔案</string>
+    <string name="copying_success_one">File copied successfully</string>
+    <string name="copy_move_failed">發生錯誤</string>
+    <string name="moving">移動中…</string>
+    <string name="moving_success">成功移動檔案</string>
+    <string name="moving_success_one">File moved successfully</string>
+    <string name="moving_success_partial">部分檔案無法被移動</string>
+    <string name="copying_success_partial">部分檔案無法被複製</string>
+    <string name="no_files_selected">未選擇檔案</string>
+    <string name="saving">儲存中…</string>
+    <string name="could_not_create_folder">無法建立資料夾 %s</string>
+    <string name="could_not_create_file">無法建立檔案 %s</string>
+    <string name="no_new_items">未發現新的項目</string>
+    <string name="no_space">目標沒有足夠的可用空間。\n需求 %1$s, 可用 %2$s</string>
+    <string name="system_service_disabled">System service for selecting files and folders is unavailable</string>
+    <!-- Create new -->
+    <string name="create_new">新增</string>
+    <string name="folder">資料夾</string>
+    <string name="file">檔案</string>
+    <string name="create_new_folder">新增資料夾</string>
+    <string name="name_taken">已經存在相同名稱的檔案或資料夾</string>
+    <string name="invalid_name">名稱包含無效的字元</string>
+    <string name="empty_name">請輸入一個名稱</string>
+    <string name="unknown_error_occurred">發生未知的錯誤</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">檔案 \"%s\" 已經存在</string>
+    <string name="file_already_exists_overwrite">檔案 \"%s\" 已經存在。 要覆蓋嗎?</string>
+    <string name="folder_already_exists">資料夾 \"%s\" 已經存在</string>
+    <string name="merge">合併</string>
+    <string name="keep_both">雙方皆保留</string>
+    <string name="overwrite">覆蓋</string>
+    <string name="skip">跳過</string>
+    <string name="append">附加 \'_1\'</string>
+    <string name="apply_to_all">添加到全部衝突</string>
+    <string name="system_folder_restriction">The system does not allow the operation in this folder, please pick another one</string>
+    <string name="system_folder_copy_restriction">The system does not allow copying into this folder, please pick another one</string>
+    <string name="rename_in_sd_card_system_restriction">The system does not allow renaming in this folder</string>
+    <string name="rename_internal_system_restriction">Cannot rename folders directly on internal storage, only subfolders</string>
+    <string name="cannot_rename_folder">Cannot rename this folder</string>
+    <!-- File picker -->
+    <string name="select_folder">選擇資料夾</string>
+    <string name="select_file">選擇檔案</string>
+    <string name="confirm_storage_access_title">確認外部儲存空間存取權限</string>
+    <string name="confirm_folder_access_title">Confirm folder access</string>
+    <string name="confirm_storage_access_text">請在下個畫面選擇SD卡的根目錄，以授予存取權限</string>
+    <string name="confirm_storage_access_text_sd">"如果看不到SD卡，試試這個"</string>
+    <string name="confirm_storage_access_android_text">Please allow the app accessing the selected storage on the next screen by pressing \'Use this folder\' at the bottom.</string>
+    <string name="confirm_storage_access_android_text_specific">Please allow accessing \'&lt;b&gt;%s&lt;/b&gt;\' on the next screen by pressing \'&lt;b&gt;Use this folder&lt;/b&gt;\' at the bottom.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Please press \'&lt;b&gt;Save&lt;/b&gt;\' at the bottom of the next screen to create the new folder.</string>
+    <string name="confirm_selection">確認選擇</string>
+    <string name="loading">Loading…</string>
+    <string name="access_storage_prompt">請授予我們的 app 對所有檔案的存取權，否則其可能無法正常運作。</string>
+    <plurals name="items">
+        <item quantity="other">%d個項目</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="other">%d個項目</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="other">%d個項目刪除中</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">%d個聯絡人</item>
+        <item quantity="other">%d個聯絡人</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">選擇儲存空間</string>
+    <string name="storage">Storage</string>
+    <string name="internal">內部儲存空間</string>
+    <string name="sd_card">SD卡</string>
+    <string name="root">根目錄</string>
+    <string name="wrong_root_selected">選擇了錯誤的資料夾，請選擇SD卡的根目錄</string>
+    <string name="sd_card_usb_same">SD卡和USB裝置的路徑不能相同</string>
+    <string name="app_on_sd_card">你似乎將應用程式安裝在SD卡，那會造成應用程式小工具無法使用。你甚至不會在可用的小工具列表中見到它們。
+        那是個系統限制，所以如果你想要使用小工具，你必須把應用程式移動回內部儲存空間。</string>
+    <string name="wrong_folder_selected">Wrong folder selected, please select path \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">屬性</string>
+    <string name="path">路徑</string>
+    <string name="items_selected">選擇的項目</string>
+    <string name="direct_children_count">子目錄數</string>
+    <string name="files_count">總檔案數</string>
+    <string name="resolution">解析度</string>
+    <string name="duration">時間長度</string>
+    <string name="artist">演唱者</string>
+    <string name="album">專輯</string>
+    <string name="focal_length">焦距</string>
+    <string name="exposure_time">曝光時間</string>
+    <string name="iso_speed">ISO速度</string>
+    <string name="f_number">光圈</string>
+    <string name="camera">相機</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">歌名</string>
+    <string name="gps_coordinates">GPS座標</string>
+    <string name="altitude">海拔高度</string>
+    <string name="remove_exif">Remove EXIF</string>
+    <string name="remove_exif_confirmation">Are you sure you want to remove EXIF values like GPS coordinates, camera model etc?</string>
+    <string name="exif_removed">EXIF values removed successfully</string>
+    <!-- Color customization -->
+    <string name="background_color">背景顏色</string>
+    <string name="text_color">文字顏色</string>
+    <string name="primary_color">主體顏色</string>
+    <string name="accent_color_white">Accent color of white theme</string>
+    <string name="accent_color_black_and_white">Accent color of Black &amp; White theme</string>
+    <string name="foreground_color">前景顏色</string>
+    <string name="app_icon_color">應用程式圖標顏色</string>
+    <string name="bottom_navigation_bar_color">底部導航列顏色</string>
+    <string name="restore_defaults">恢復預設</string>
+    <string name="use_default">使用預設</string>
+    <string name="default_color">預設</string>
+    <string name="change_color">改變顏色</string>
+    <string name="theme">主題</string>
+    <string name="changing_color_description">改變顏色將切換成[自訂]主題</string>
+    <string name="save">儲存</string>
+    <string name="discard">丟棄</string>
+    <string name="undo_changes">恢復變更</string>
+    <string name="undo_changes_confirmation">確定要恢復變更嗎?</string>
+    <string name="cannot_be_undone">此操作無法撤消。</string>
+    <string name="save_before_closing">尚未儲存變更。離開前是否儲存?</string>
+    <string name="apply_to_all_apps">將顏色套用於[簡易]系列全部應用程式</string>
+    <string name="app_icon_color_warning">警告:部分啟動器無法正確地處理應用程式圖標自訂化。要是圖標消失了，如果可以，試著透過Google Play或某些小工具來啟動應用程式。
+        一旦啟動了，只要設回預設的橘色圖標 #F57C00 即可。最糟的情況，你可能必須重新安裝應用程式。</string>
+    <string name="share_colors_success">顏色更新成功。新增了一個名為 \'Shared\' 的新主題，以後請使用那個來更新全部應用程式顏色。</string>
+    <string name="shared_theme_note">Note that even though you are using the Pro app version, you still need Simple Thank You for technical reasons. It takes care of the color synchronization.</string>
+    <string name="purchase_thank_you">
+        <![CDATA[
+            請購買 <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a> 來解鎖此功能及支持開發者。謝謝!
+        ]]>
+    </string>
+    <!-- Themes -->
+    <string name="light_theme">明亮主題</string>
+    <string name="dark_theme">灰暗主題</string>
+    <string name="auto_theme">Auto</string>
+    <string name="auto_light_dark_theme">Auto light / dark</string>
+    <string name="solarized">Solarized</string>
+    <string name="dark_red">深紅主題</string>
+    <string name="white">White</string>
+    <string name="black_white">黑白主題</string>
+    <string name="custom">自訂</string>
+    <string name="shared">分享</string>
+    <string name="system_default">System default</string>
+    <!-- What's new -->
+    <string name="whats_new">更新了什麼</string>
+    <string name="whats_new_disclaimer">*此處僅列出大更新，尚有一些小改善</string>
+    <!-- Actionbar items -->
+    <string name="delete">刪除</string>
+    <string name="remove">移除</string>
+    <string name="rename">重新命名</string>
+    <string name="share">分享</string>
+    <string name="share_via">分享方式</string>
+    <string name="resize">縮放</string>
+    <string name="select_all">全選</string>
+    <string name="select_text">Select text</string>
+    <string name="hide">隱藏</string>
+    <string name="unhide">取消隱藏</string>
+    <string name="hide_folder">隱藏資料夾</string>
+    <string name="unhide_folder">取消隱藏資料夾</string>
+    <string name="temporarily_show_hidden">暫時顯示隱藏的檔案</string>
+    <string name="stop_showing_hidden">停止顯示隱藏的檔案</string>
+    <string name="maximum_share_reached">你不能一次分享這麼多內容</string>
+    <string name="empty_and_disable_recycle_bin">清空並停用回收桶</string>
+    <string name="undo">復原</string>
+    <string name="redo">取消復原</string>
+    <string name="print">列印</string>
+    <string name="print_pro">列印 (Pro)</string>
+    <string name="shortcut">Shortcut</string>
+    <string name="create_shortcut">建立捷徑</string>
+    <string name="create_shortcut_pro">建立捷徑 (Pro)</string>
+    <string name="add_number_to_contact">Add number to contact</string>
+    <string name="view_contact_details">View contact details</string>
+    <string name="call_from_sim_1">Call from SIM 1</string>
+    <string name="call_from_sim_2">Call from SIM 2</string>
+    <string name="toggle_filename">顯示檔案名稱</string>
+    <string name="move_to_top">Move to the top</string>
+    <string name="move_to_bottom">Move to the bottom</string>
+    <string name="pin_item">Pin item</string>
+    <string name="unpin_item">Unpin item</string>
+    <string name="send_sms">傳送簡訊</string>
+    <string name="send_email">Send email</string>
+    <string name="call">Call</string>
+    <string name="contact_details">Contact details</string>
+    <string name="add_contact">Add contact</string>
+    <string name="wallpapers">Wallpapers</string>
+    <!-- Sorting -->
+    <string name="sort_by">排序</string>
+    <string name="name">名稱</string>
+    <string name="size">大小</string>
+    <string name="last_modified">最後修改</string>
+    <string name="date_created">Date created</string>
+    <string name="date_taken">拍照日期</string>
+    <string name="title">標題</string>
+    <string name="filename">檔案名稱</string>
+    <string name="extension">副檔名</string>
+    <string name="random">隨機</string>
+    <string name="sort_randomly">隨機排序</string>
+    <string name="ascending">遞增</string>
+    <string name="descending">遞減</string>
+    <string name="use_for_this_folder">僅套用於此資料夾</string>
+    <string name="sort_numeric_parts">以實際值來排序數字部分</string>
+    <string name="first_name">名字</string>
+    <string name="middle_name">中間名</string>
+    <string name="surname">姓氏</string>
+    <string name="full_name">Full name</string>
+    <string name="use_custom_sorting">Use custom sorting</string>
+    <string name="change_order">Change order</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">確定要進行刪除嗎?</string>
+    <string name="deletion_confirmation">你確定要刪除%s嗎?</string>
+    <string name="deletion_confirmation_short">Delete %s?</string>
+    <!-- Are you sure you want to delete 5 items? -->
+    <string name="move_to_recycle_bin_confirmation">你確定要把%s移到回收桶嗎?</string>
+    <!-- Are you sure you want to move 3 items into Recycle Bin? -->
+    <string name="are_you_sure_delete">你確定要刪除這個項目嗎?</string>
+    <string name="are_you_sure_recycle_bin">你確定要把這個項目移到回收桶嗎?</string>
+    <string name="do_not_ask_again">這情況不再詢問</string>
+    <string name="do_not_show_again">Do not show again</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="maybe">或許</string>
+    <plurals name="delete_warning">
+        <item quantity="other">注意: 你正在刪除%d個資料夾</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">PIN碼</string>
+    <string name="enter_pin">輸入PIN碼</string>
+    <string name="please_enter_pin">請輸入PIN碼</string>
+    <string name="wrong_pin">PIN碼錯誤</string>
+    <string name="repeat_pin">再次輸入PIN碼</string>
+    <string name="pattern">圖形</string>
+    <string name="insert_pattern">畫出解鎖圖形</string>
+    <string name="wrong_pattern">解鎖圖形錯誤</string>
+    <string name="repeat_pattern">再次畫出解鎖圖形</string>
+    <string name="biometrics">Biometrics</string>
+    <string name="fingerprint">指紋</string>
+    <string name="add_fingerprint">添加指紋</string>
+    <string name="place_finger">請將您的手指放置在指紋感應器上</string>
+    <string name="open_biometric_dialog">Open biometric ID verification dialog</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="authentication_failed">驗證失敗</string>
+    <string name="authentication_blocked">驗證被限制，請稍後再重試</string>
+    <string name="no_fingerprints_registered">你尚未有登錄的指紋，請在裝置的[設定]內添加</string>
+    <string name="go_to_settings">前往[設定]</string>
+    <string name="protection_setup_successfully">密碼設置成功。若遺忘了，請重新安裝應用程式。</string>
+    <string name="fingerprint_setup_successfully">保護設置成功。若再次設置時發生問題，請重新安裝應用程式。</string>
+    <string name="lock_folder">上鎖資料夾</string>
+    <string name="lock_folder_pro">上鎖資料夾 (Pro)</string>
+    <string name="unlock_folder">解鎖資料夾</string>
+    <string name="lock_folder_notice">這保護僅限作用於此應用程式，並不該用來取代真正系統級的資料夾加密。</string>
+    <!-- Times -->
+    <string name="yesterday">昨天</string>
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
+    <string name="every_day">Every day</string>
+    <string name="hide_year">Hide year</string>
+    <string name="seconds_raw">秒鐘</string>
+    <string name="minutes_raw">分鐘</string>
+    <string name="hours_raw">小時</string>
+    <string name="days_raw">天</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="other">%d秒鐘</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">%d分鐘</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="other">%d小時</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="other">%d天</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="other">%d週</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="other">%d個月</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="other">%d年</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="other">%d秒鐘內</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="other">%d分鐘內</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="other">%d小時內</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="other">%d天內</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="other">%d週內</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="other">%d個月內</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="other">%d年內</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="other">%d秒鐘前</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="other">%d分鐘前</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="other">%d小時前</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="other">%d天前</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="other">%d週前</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="other">%d個月前</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="other">%d年前</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="other">%d秒鐘</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="other">%d分鐘</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="other">%d小時</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="other">%d天</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="other">%d週</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="other">%d個月</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="other">%d年</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">鬧鐘響起剩餘時間:\n%s</string>
+    <string name="reminder_triggers_in">提醒觸發剩餘時間:\n%s</string>
+    <string name="time_remaining">Time remaining:\n%s</string>
+    <string name="alarm_warning">依靠鬧鐘功能之前，請先確認是否正常運作，有可能因為省電相關的系統限制而導致失靈。</string>
+    <string name="reminder_warning">依靠提醒功能之前，請先確認是否正常運作，有可能因為省電相關的系統限制而導致失靈。</string>
+    <string name="notifications_disabled">這應用程式的通知被停用了。請到你的裝置設定中去啟用。</string>
+    <!-- Alarms -->
+    <string name="alarm">鬧鐘</string>
+    <string name="snooze">延遲</string>
+    <string name="dismiss">關閉</string>
+    <string name="no_reminder">不提醒</string>
+    <string name="at_start">準時</string>
+    <string name="system_sounds">系統音效</string>
+    <string name="your_sounds">你的音效</string>
+    <string name="add_new_sound">添加新的音效</string>
+    <string name="no_sound">無音效</string>
+    <string name="during_day_at_hh_mm">During the day at hh:mm</string>
+    <string name="during_day_at">During the day at %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">設定</string>
+    <string name="purchase_simple_thank_you">購買Simple Thank You</string>
+    <string name="general_settings">General</string>
+    <string name="color_customization">Color customization</string>
+    <string name="improved_color_customization">Improved color customization</string>
+    <string name="customize_colors">自訂顏色</string>
+    <string name="customize_colors_locked">自訂顏色 (Locked)</string>
+    <string name="feature_locked">Locked</string>
+    <string name="customize_widget_colors">自訂小工具顏色</string>
+    <string name="customize_notifications">Customize notifications</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="use_english_language">強制使用英語</string>
+    <string name="language">Language</string>
+    <string name="show_hidden_items">顯示隱藏的項目</string>
+    <string name="font_size">字體大小</string>
+    <string name="small">小</string>
+    <string name="medium">中</string>
+    <string name="large">大</string>
+    <string name="extra_large">特大</string>
+    <string name="password_protect_hidden_items">用密碼保護隱藏的物件</string>
+    <string name="password_protect_whole_app">用密碼保護整個應用程式</string>
+    <string name="password_protect_file_deletion">用密碼保護檔案刪除或移動</string>
+    <string name="keep_last_modified">當檔案操作時，保留舊的[最後修改]數值</string>
+    <string name="show_info_bubble">拖曳滾動條時，顯示訊息氣泡</string>
+    <string name="prevent_phone_from_sleeping">當程式在前景使用時，防止手機進入睡眠</string>
+    <string name="skip_delete_confirmation">刪除不再進行確認</string>
+    <string name="enable_pull_to_refresh">啟用頂端下拉更新</string>
+    <string name="use_24_hour_time_format">使用24小時制</string>
+    <string name="change_date_and_time_format">更改日期和時間格式</string>
+    <string name="sunday_first">每周由星期日開始</string>
+    <string name="widgets">小工具</string>
+    <string name="use_same_snooze">總是使用相同延遲間隔</string>
+    <string name="snooze_time">延遲時間</string>
+    <string name="vibrate_on_button_press">按下按鈕時震動</string>
+    <string name="move_items_into_recycle_bin">將項目移入回收桶取代刪除</string>
+    <string name="recycle_bin_cleaning_interval">回收桶清理間隔</string>
+    <string name="empty_recycle_bin">清空回收桶</string>
+    <string name="force_portrait_mode">強制直向模式</string>
+    <string name="export_settings">匯出設定</string>
+    <string name="import_settings">匯入設定</string>
+    <string name="settings_exported_successfully">設定匯出成功</string>
+    <string name="settings_imported_successfully">設定匯入成功</string>
+    <string name="start_name_with_surname">姓氏在前</string>
+    <string name="clear_cache">Clear cache</string>
+    <string name="show_call_confirmation_dialog">開始通話前顯示通話確認框</string>
+    <!-- Setting sections -->
+    <string name="visibility">可見度</string>
+    <string name="security">安全性</string>
+    <string name="scrolling">滑動</string>
+    <string name="file_operations">檔案操作</string>
+    <string name="recycle_bin">回收桶</string>
+    <string name="saving_label">儲存中</string>
+    <string name="startup">啟動</string>
+    <string name="text">文字</string>
+    <string name="migrating">搬移</string>
+    <string name="quality">Quality</string>
+    <string name="main_screen">Main screen</string>
+    <string name="thumbnails">Thumbnails</string>
+    <string name="list_view">List view</string>
+    <!-- Excluding -->
+    <string name="exclude">排除</string>
+    <string name="exclude_folder">Exclude folder</string>
+    <string name="excluded_folders">排除資料夾</string>
+    <string name="excluded">(排除)</string>
+    <string name="manage_excluded_folders">管理排除資料夾</string>
+    <string name="remove_all">移除全部</string>
+    <string name="remove_all_description">是否將排除列表中的所有資料夾都移除？這不會刪除資料夾。</string>
+    <string name="temporarily_show_excluded">暫時顯示已排除的項目</string>
+    <string name="stop_showing_excluded">停止顯示已排除的項目</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">管理顯示的頁面</string>
+    <string name="default_tab_to_open">Tab to open at app start</string>
+    <string name="contacts_tab">Contacts</string>
+    <string name="favorites_tab">Favorites</string>
+    <string name="call_history_tab">Call History</string>
+    <string name="groups_tab">Groups</string>
+    <string name="last_used_tab">Last used one</string>
+    <string name="files_tab">Files</string>
+    <string name="recent_files_tab">Recent files</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">還原這個檔案</string>
+    <string name="restore_selected_files">還原選擇的檔案</string>
+    <string name="restore_all_files">還原全部檔案</string>
+    <string name="recycle_bin_emptied">回收桶已成功清空</string>
+    <string name="files_restored_successfully">檔案已成功還原</string>
+    <string name="empty_recycle_bin_confirmation">你確定要清空回收桶嗎?檔案將會永久消失。</string>
+    <string name="recycle_bin_empty">回收桶是空的</string>
+    <string name="moving_recycle_bin_items_disabled">移動回收桶項目的功能已停用，請使用復原</string>
+    <string name="show_the_recycle_bin">顯示回收桶</string>
+    <string name="hide_the_recycle_bin">隱藏回收桶</string>
+    <string name="open_the_recycle_bin">Open the Recycle Bin</string>
+    <string name="skip_the_recycle_bin">Skip the Recycle Bin, delete files directly</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="other">正在移動%d個項目進回收桶</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">正在匯入…</string>
+    <string name="exporting">正在匯出…</string>
+    <string name="importing_successful">匯入成功</string>
+    <string name="exporting_successful">匯出成功</string>
+    <string name="importing_failed">匯入成功</string>
+    <string name="exporting_failed">匯出失敗</string>
+    <string name="importing_some_entries_failed">部分項目匯入失敗</string>
+    <string name="exporting_some_entries_failed">部分項目匯出失敗</string>
+    <string name="no_entries_for_importing">未發現供匯入的項目</string>
+    <string name="no_new_entries_for_importing">No new entries for importing have been found</string>
+    <string name="no_entries_for_exporting">未發現供匯出的項目</string>
+    <string name="backups">Backups</string>
+    <string name="enable_automatic_backups">Enable automatic backups</string>
+    <string name="manage_automatic_backups">Manage automatic backups</string>
+    <string name="date_time_pattern_info">You can use the following patterns to name your file automatically:\n\n%Y - year\n%M - month\n%D - day\n%h - hour\n%m - minute\n%s - second</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">似乎有USB裝置接上了你的裝置。為確保檔案正確顯示，你必須授予額外的權限。</string>
+    <string name="confirm_usb_storage_access_text">請在下個畫面選擇USB裝置的根目錄，以授予存取權限</string>
+    <string name="wrong_root_selected_usb">選擇到錯誤資料夾，請選擇你USB裝置的根目錄</string>
+    <!-- Dates -->
+    <string name="january">一月</string>
+    <string name="february">二月</string>
+    <string name="march">三月</string>
+    <string name="april">四月</string>
+    <string name="may">五月</string>
+    <string name="june">六月</string>
+    <string name="july">七月</string>
+    <string name="august">八月</string>
+    <string name="september">九月</string>
+    <string name="october">十月</string>
+    <string name="november">十一月</string>
+    <string name="december">十二月</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">Apr</string>
+    <string name="may_short">May</string>
+    <string name="june_short">June</string>
+    <string name="july_short">July</string>
+    <string name="august_short">Aug</string>
+    <string name="september_short">Sept</string>
+    <string name="october_short">Oct</string>
+    <string name="november_short">Nov</string>
+    <string name="december_short">Dec</string>
+    <!-- in January -->
+    <string name="in_january">在一月</string>
+    <string name="in_february">在二月</string>
+    <string name="in_march">在三月</string>
+    <string name="in_april">在四月</string>
+    <string name="in_may">在五月</string>
+    <string name="in_june">在六月</string>
+    <string name="in_july">在七月</string>
+    <string name="in_august">在八月</string>
+    <string name="in_september">在九月</string>
+    <string name="in_october">在十月</string>
+    <string name="in_november">在十一月</string>
+    <string name="in_december">在十二月</string>
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thursday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期日</string>
+    <string name="monday_letter">一</string>
+    <string name="tuesday_letter">二</string>
+    <string name="wednesday_letter">三</string>
+    <string name="thursday_letter">四</string>
+    <string name="friday_letter">五</string>
+    <string name="saturday_letter">六</string>
+    <string name="sunday_letter">日</string>
+    <string name="monday_short">週一</string>
+    <string name="tuesday_short">週二</string>
+    <string name="wednesday_short">週三</string>
+    <string name="thursday_short">週四</string>
+    <string name="friday_short">週五</string>
+    <string name="saturday_short">週六</string>
+    <string name="sunday_short">週日</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">你的應用程式版本將不再更新。請更新到專業版以獲得新的修復和其他改善。</string>
+    <string name="upgrade_to_pro_long_click">你的應用程式版本將不再更新。請點擊這裡，更新到專業版以獲得新的修復和其他改善。</string>
+    <string name="it_is_free">它在此日期前免費：%s。如果您在到期前下載，將能夠永久免費使用。</string>
+    <string name="more_info">更多資訊</string>
+    <string name="upgrade">升級</string>
+    <string name="upgrade_calendar">你必須手動搬移儲存在本機端的活動，透過匯出.ics檔案再接著匯入。你可以在主畫面選單中，找到 匯出/匯入 兩個按鈕。</string>
+    <string name="upgraded_from_free_gallery">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your settings and favorites over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro_gallery">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your settings and favorites over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your data over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your data over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_calendar">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your locally stored events over, you have to do it manually by exporting them into an .ics file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_contacts">Hello,\n\nseems like you just upgraded from the free version. If you had any contacts stored under \"%s\", you have to migrate them manually by exporting in a .vcf file from the free app version and importing here through the top menu.\n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_notes">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your notes over, you have to do it manually by exporting them into a file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <!-- About -->
+    <string name="about">關於</string>
+    <string name="website">Website</string>
+    <string name="website_label">觀看原始碼</string>
+    <string name="email_label">傳送您的反饋或建議</string>
+    <string name="upgrade_to_pro">升級至專業版</string>
+    <string name="more_apps">更多應用程式</string>
+    <string name="more_apps_from_us">更多我們的應用程式</string>
+    <string name="invite_friends">邀請朋友</string>
+    <string name="share_text">嘿，來試試看「%1$s」吧！ %2$s</string>
+    <string name="invite_via">邀請</string>
+    <string name="rate_us">為我們評分</string>
+    <string name="rate">評分</string>
+    <string name="donate">捐贈</string>
+    <string name="follow_us">追蹤我們</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="support">Support</string>
+    <string name="help_us">Help us</string>
+    <string name="social">Social</string>
+    <string name="other">Other</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="version_placeholder">Version %s</string>
+    <string name="hello">Hello :)</string>
+    <string name="about_footer">Made with ❤️ in Slovakia</string>
+    <string name="additional_info">進階資訊</string>
+    <string name="app_version">應用程式版本: %s</string>
+    <string name="device_os">裝置系統: %s</string>
+    <string name="donate_please">
+        <![CDATA[
+            哈囉 <br><br>
+            希望您喜愛這應用程式。 它不含廣告，所以請購買應用程式 <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a> 來支持開發者，這對話框也不會再出現。<br><br>
+            感謝!
+        ]]>
+    </string>
+    <string name="donate_new">Hello,&lt;br&gt;&lt;br&gt;hope you are enjoying the app. It contains no ads and we aren\'t collecting your data either, please support its development by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;. You will also have all app features including color customization unlocked.&lt;br&gt;&lt;br&gt;Thank you!</string>
+    <string name="donate_short">Support us by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; please, it will also unlock all app features including color customization.</string>
+    <string name="purchase">購買</string>
+    <string name="get_simple_phone">Get Simple Phone</string>
+    <string name="update_thank_you">請更新[Simple Thank You]至最新版本</string>
+    <string name="before_asking_question_read_faq">在您發問前，請先檢查程式設定及閱讀[常見問題]。或許解決方法就在那裡。</string>
+    <string name="before_rate_read_faq">在您給我們評價前，請先檢查程式設定及閱讀[常見問題]。如果您遇到任何困難，或許解決方法就在那裡。</string>
+    <string name="make_sure_latest">並且確保您正使用最新的應用程式版本。</string>
+    <string name="make_sure_upgrade">Also note that this app version is no longer being developed, get the Pro one for many improvements.</string>
+    <string name="read_it">讀它</string>
+    <string name="read_faq">閱讀FAQ</string>
+    <string name="rate_us_prompt">哈囉\n\n您似乎已經使用這應用程式一段時間了，我們相當感激。\n\n如果我們能請您幫個忙，請在Google Play上為我們評分。這對我們很有幫助。\n\n無論您的決定如何，都不會再看到這則訊息。\n\n感謝!</string>
+    <string name="rate_our_app">請給我們的應用程式評分 :)</string>
+    <string name="thank_you">感謝</string>
+    <string name="widget_locked_pro">The widget is locked.\nPlease upgrade to the Pro version to unlock it.</string>
+    <string name="features_locked">This feature is locked, please purchase &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; for unlocking the full app.&lt;br&gt;&lt;br&gt;It is a one time payment only and if you won\'t be satisfied, we can refund you.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">
+        <![CDATA[
+            嗨，<br><br>
+            告訴你最近有一個新的應用程式剛發布:<br><br>
+            <a href="%1$s">%2$s</a><br><br>
+            <a href="%3$s">%4$s</a><br><br>
+            <a href="%5$s">%6$s</a><br><br>
+            點標題下載來試試看吧<br><br>
+            謝謝
+        ]]>
+    </string>
+    <string name="simple_app_launcher">Simple App Launcher</string>
+    <string name="simple_calculator">Simple Calculator</string>
+    <string name="simple_calendar">Simple Calendar</string>
+    <string name="simple_camera">Simple Camera</string>
+    <string name="simple_clock">Simple Clock</string>
+    <string name="simple_contacts">Simple Contacts</string>
+    <string name="simple_dialer">Simple Dialer</string>
+    <string name="simple_draw">Simple Draw</string>
+    <string name="simple_file_manager">Simple File Manager</string>
+    <string name="simple_flashlight">Simple Flashlight</string>
+    <string name="simple_gallery">Simple Gallery</string>
+    <string name="simple_keyboard">Simple Keyboard</string>
+    <string name="simple_launcher">Simple Launcher</string>
+    <string name="simple_music_player">Simple Music Player</string>
+    <string name="simple_notes">Simple Notes</string>
+    <string name="simple_sms_messenger">Simple SMS Messenger</string>
+    <string name="simple_thank_you">Simple Thank You</string>
+    <string name="simple_voice_recorder">Simple Voice Recorder</string>
+    <string name="app_launcher_short">App Launcher</string>
+    <string name="calculator_short">計算機</string>
+    <string name="calendar_short">行事曆</string>
+    <string name="camera_short">相機</string>
+    <string name="clock_short">簡易時鐘</string>
+    <string name="contacts_short">通訊錄</string>
+    <string name="dialer_short">Dialer</string>
+    <string name="draw_short">繪圖</string>
+    <string name="file_manager_short">檔案管理器</string>
+    <string name="flashlight_short">手電筒</string>
+    <string name="gallery_short">相簿</string>
+    <string name="keyboard_short">Keyboard</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">音樂播放器</string>
+    <string name="notes_short">筆記</string>
+    <string name="sms_messenger_short">SMS Messenger</string>
+    <string name="thank_you_short">Thank You</string>
+    <string name="voice_recorder_short">Voice Recorder</string>
+    <string name="sideloaded_app">
+        <![CDATA[
+            你的應用程式版本似乎是損壞的。請從 <a href="%s">這裡</a> 下載原始版本。
+        ]]>
+    </string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">常見問題</string>
+    <string name="before_asking_question">在你發問之前，請先閱讀</string>
+    <string name="faq_1_title_commons">為什麼我在小工具列表中沒看到這應用程式的小工具?</string>
+    <string name="faq_1_text_commons">這很可能是因為你把應用程式移動到SD卡。那樣的話，有個隱藏特定程式小工具的Android系統限制存在。
+	    只有一個解決方法，就是經由你的裝置設定，把應用程式移動回內部儲存空間。</string>
+    <string name="faq_2_title_commons">我想要支持您，但我無法捐款。還有什麼我能做的嗎?</string>
+    <string name="faq_2_text_commons">
+        <![CDATA[
+            Yes, of course. You can spread the word about the apps or give good feedback and ratings. You can also help by translating the apps in a new language, or just update some existing translations.
+            The guide to translating is at <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">this website</a>, or just contact us at <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> if you have any questions.
+        ]]>
+    </string>
+    <string name="faq_3_title_commons">我誤刪了一些檔案，如何復原?</string>
+    <string name="faq_3_text_commons">不幸地，沒有辦法。檔案經確認後就立即刪除了，沒有垃圾筒可用。</string>
+    <string name="faq_4_title_commons">我不喜歡小工具的顏色，我能更改嗎?</string>
+    <string name="faq_4_text_commons">可啊，當你在主畫面拖動小工具時，會出現小工具設置畫面。你會在左下角看到顏色方塊，點下去再挑個新顏色就好了。你也能用拉條來調整透明度。</string>
+    <string name="faq_5_title_commons">我有辦法恢復被刪除的檔案嗎?</string>
+    <string name="faq_5_text_commons">如果它們確實被刪除了，那沒辦法。然而，預設情況下啟用了回收桶，使得檔案並沒有被刪除，只是被移動到桶內。</string>
+    <string name="faq_6_title_commons">應用程式啟動器上的圖標消失了。我該怎麼辦?</string>
+    <string name="faq_6_text_commons">這是由於你的啟動器無法正確地支援圖標自訂。如果可以，試著透過Google Play或某些小工具來啟動應用程式。
+        一旦啟動，只要設回預設的橘色圖標 #F57C00 即可。最糟的情況，你可能必須重新安裝應用程式。</string>
+    <string name="faq_7_title_commons">錢已經從我的銀行帳戶扣除，但我無法下載這應用程式。我能怎麼做?</string>
+    <string name="faq_7_text_commons">支付完全交由Google處理，他們的系統偶爾會發生故障。只要清除您的Google Play應用程式快取並重新啟動裝置，然後再次嘗試下載。</string>
+    <string name="faq_8_title_commons">為什麼我應該升級到專業版?</string>
+    <string name="faq_8_text_commons">由於你的程式版本不再更新，將永遠不會修復可能遇到的錯誤，也不會再添加新功能。你可以在Google Play上用一小筆錢購買專業版。
+        這是一次性付款。也就是說，一旦你購買了將不必再次付費，即使之後有新裝置也不用。如果你不喜歡專業版，則可以在幾個小時內解除安裝，將自動拿回你的錢。
+        之後如果何時想退款，只要你以 hello@simplemobiletools.com 聯絡我們然後就能獲得退款了。</string>
+    <string name="faq_9_title_commons">How can I select multiple items at once?</string>
+    <string name="faq_9_text_commons">There are multiple ways of doing that. The first one is starting the selection mode by long pressing one item, then short clicking on others to select them. The second way is similar to selecting items on PCs with a mouse,
+        just start the selection mode by long pressing one item, then with your finger still down drag it across other items for selecting. The third way of selecting multiple items is long pressing one item, then long pressing another one and everything in between gets selected. If you
+        want to select all items, just long press one item, then click at the selected item counter at the top left corner. That will select or unselect all everything.</string>
+    <string name="faq_10_title_commons">I have purchased the app, but I cannot download it on another device.</string>
+    <string name="faq_10_text_commons">Try clearing your Google Play app cache and restarting your device. It is some Google Play glitch, not really related to the app itself.</string>
+    <!-- Contributors -->
+    <string name="contributors">Contributors</string>
+    <string name="translation">Translation</string>
+    <string name="development">Development</string>
+    <string name="other_help">Other help</string>
+    <string name="contributors_label">
+        <![CDATA[
+            This list contains everyone that noticeably helped any app within the Simple Mobile Tools suite, not only this one. Translations are handled by volunteers,
+            let us know if you want to help too. The guide to translating is at <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">this website</a>, or just contact us at <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> if you have any questions.
+            Thanks to all contributors and other supporters!
+        ]]>
+    </string>
+    <string name="translation_arabic">Arabic</string>
+    <string name="translation_azerbaijani">Azerbaijani</string>
+    <string name="translation_bengali">Bengali</string>
+    <string name="translation_breton">Breton</string>
+    <string name="translation_bulgarian">Bulgarian</string>
+    <string name="translation_catalan">Catalan</string>
+    <string name="translation_czech">Czech</string>
+    <string name="translation_welsh">Welsh</string>
+    <string name="translation_danish">Danish</string>
+    <string name="translation_english">English</string>
+    <string name="translation_german">German</string>
+    <string name="translation_greek">Greek</string>
+    <string name="translation_spanish">Spanish</string>
+    <string name="translation_basque">Basque</string>
+    <string name="translation_persian">Persian</string>
+    <string name="translation_finnish">Finnish</string>
+    <string name="translation_french">French</string>
+    <string name="translation_galician">Galician</string>
+    <string name="translation_hindi">Hindi</string>
+    <string name="translation_croatian">Croatian</string>
+    <string name="translation_hungarian">Hungarian</string>
+    <string name="translation_indonesian">Indonesian</string>
+    <string name="translation_italian">Italian</string>
+    <string name="translation_hebrew">Hebrew</string>
+    <string name="translation_japanese">Japanese</string>
+    <string name="translation_korean">Korean</string>
+    <string name="translation_lithuanian">Lithuanian</string>
+    <string name="translation_nepali">Nepali</string>
+    <string name="translation_norwegian">Norwegian</string>
+    <string name="translation_dutch">Dutch</string>
+    <string name="translation_polish">Polish</string>
+    <string name="translation_portuguese">Portuguese</string>
+    <string name="translation_romanian">Romanian</string>
+    <string name="translation_russian">Russian</string>
+    <string name="translation_slovak">Slovak</string>
+    <string name="translation_slovenian">Slovenian</string>
+    <string name="translation_serbian">Serbian</string>
+    <string name="translation_swedish">Swedish</string>
+    <string name="translation_tamil">Tamil</string>
+    <string name="translation_turkish">Turkish</string>
+    <string name="translation_ukrainian">Ukrainian</string>
+    <string name="translation_vietnamese">Vietnamese</string>
+    <string name="translation_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="translation_chinese_cn">Chinese (Simplified)</string>
+    <string name="translation_chinese_tw">Chinese (Traditional)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Get the Pro version now!</string>
+    <string name="why_upgrade_basic_version">Basic</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">No ads</string>
+    <string name="why_upgrade_no_internet_access">No internet access</string>
+    <string name="why_upgrade_footer">100% Money Back Guarantee</string>
+    <string name="why_upgrade_footer_one_time_payment">One time payment</string>
+    <string name="why_upgrade_improved_design">Improved design</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Advanced photo editor</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Advanced photo &amp; video editor</string>
+    <string name="why_upgrade_heic_support">HEIC/HEIF file support</string>
+    <string name="why_upgrade_batch_renaming">Advanced batch file renaming</string>
+    <string name="why_upgrade_folder_locking">Individual folder locking</string>
+    <string name="why_upgrade_printing_support">Printing support</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Time zone support</string>
+    <string name="why_upgrade_attendees_emails">Attendees and email reminders</string>
+    <string name="why_upgrade_easy_event_importing">Easy event importing</string>
+    <string name="why_upgrade_new_widgets">New widgets</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Improved duplicate contact merging</string>
+    <string name="why_upgrade_font_size_customization">Font size customization</string>
+    <string name="why_upgrade_private_contact_sharing">Optional private contact sharing within our apps</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Customizable contact ringtones</string>
+    <string name="why_upgrade_contact_filtering">Contact filtering</string>
+    <string name="why_upgrade_contact_private_contacts">Privately stored contacts</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Checklists</string>
+    <string name="why_upgrade_different_note_per_widget">Different note and colors per widget</string>
+    <string name="why_upgrade_note_locking">Note locking</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Date and time format customization</string>
+    <string name="why_upgrade_shortcuts">Home screen shortcuts</string>
+    <string name="why_upgrade_file_compression">File compression support</string>
+    <string name="why_upgrade_recents_tab">Tab with recent files</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Background color customization</string>
+    <string name="why_upgrade_file_importing">File importing support</string>
+    <string name="why_upgrade_zooming">Zooming</string>
+    <!-- License -->
+    <string name="notice">這程式使用了下列的第三方函式庫來讓我工作簡化。感謝。</string>
+    <string name="third_party_licences">第三方授權</string>
+    <string name="kotlin_title">Kotlin（程式語言）</string>
+    <string name="subsampling_title">Subsampling Scale Image View（可縮放圖片檢視）</string>
+    <string name="glide_title">Glide（圖片載入與快取）</string>
+    <string name="picasso_title">Picasso（圖片載入與快取）</string>
+    <string name="cropper_title">Android Image Cropper（圖片裁切與旋轉）</string>
+    <string name="rtl_viewpager_title">RtlViewPager（由右向左滑）</string>
+    <string name="joda_title">Joda-Time（Java 日期取代）</string>
+    <string name="stetho_title">Stetho（除錯資料庫）</string>
+    <string name="otto_title">Otto（事件匯流排）</string>
+    <string name="photoview_title">PhotoView（可縮放的 GIF）</string>
+    <string name="pattern_title">PatternLockView（模式保護）</string>
+    <string name="reprint_title">Reprint（指紋保護）</string>
+    <string name="gif_drawable_title">Gif Drawable（載入 GIF）</string>
+    <string name="autofittextview_title">AutoFitTextView（調整文字大小）</string>
+    <string name="robolectric_title">Robolectric（測試框架）</string>
+    <string name="espresso_title">Espresso（測試助理程式）</string>
+    <string name="gson_title">Gson（JSON 解析器）</string>
+    <string name="leak_canary_title">Leak Canary（記憶體洩露偵測器）</string>
+    <string name="number_picker_title">Number Picker（可自訂的號碼挑選器）</string>
+    <string name="exoplayer_title">ExoPlayer（影片播放器）</string>
+    <string name="panorama_view_title">VR Panorama View（顯示全景）</string>
+    <string name="sanselan_title">Apache Sanselan（讀取圖片詮釋資料）</string>
+    <string name="filters_title">Android Photo Filters（圖片過濾器）</string>
+    <string name="gesture_views_title">Gesture Views (可縮放的圖片)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (滾動條上字母)</string>
+    <string name="event_bus_title">Event Bus (應用程式溝通)</string>
+    <string name="audio_record_view_title">Audio Record View (音訊視覺化)</string>
+    <string name="sms_mms_title">SMS MMS (SMS and MMS handling)</string>
+    <string name="apng_title">APNG Android (animated WebP support)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (PDF viewer)</string>
+    <string name="m3u_parser_title">M3U Parser (m3u playlist file handling)</string>
+    <string name="android_lame_title">AndroidLame (mp3 encoder)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Trial expired</string>
+    <string name="start_free_trial">Start free trial</string>
+    <string name="trial_expires_soon">Your trial expires soon.</string>
+    <string name="unlock_for_one_final_day">Unlock the app for one final day</string>
+    <string name="welcome_to_app_name">Welcome to %s!</string>
+    <string name="trial_start_description">Thank you for using our app. You can use this unlocked version for &lt;font color=\'#FFFFFF\'&gt;%d days&lt;/font&gt;. Once the trial ends, please consider upgrading to the Pro version. It has a huge amount of new features, modern design, no ads and many other improvements.
+        \n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nHope you\'ll like it :)</string>
+    <string name="trial_end_description">Please upgrade to the Pro version to enjoy the app to the fullest.\n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nSee you there :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Your trial expires in %d day.</item>
+        <item quantity="other">Your trial expires in %d days.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">已捨棄: 這版本的應用程式不再維護，在這取得專業版  https://play.google.com/store/apps/details?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">別忘記如果您在2小時內解除安裝任何付費應用程式，將會自動被退款。若您在之後隨時想退款，只要透過 @simplemobiletools.com 聯絡我們，即可收到退款。這麼一來輕鬆就能試用了 :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">A group of simple, open source Android apps with customizable widgets, without ads and unnecessary permissions.</string>
+</resources>

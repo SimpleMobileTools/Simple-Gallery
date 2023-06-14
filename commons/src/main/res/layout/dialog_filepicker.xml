@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/filepicker_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/filepicker_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/filepicker_files_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.simplemobiletools.commons.views.Breadcrumbs
+                android:id="@+id/filepicker_breadcrumbs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingTop="@dimen/small_margin"
+                android:paddingEnd="@dimen/small_margin"
+                android:paddingBottom="@dimen/small_margin" />
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/filepicker_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/filepicker_breadcrumbs"
+                android:layout_centerHorizontal="true"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingEnd="@dimen/activity_margin"
+                android:text="@string/loading"
+                android:textSize="@dimen/bigger_text_size"
+                android:textStyle="italic" />
+
+            <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+                android:id="@+id/filepicker_fastscroller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/filepicker_breadcrumbs">
+
+                <com.simplemobiletools.commons.views.MyRecyclerView
+                    android:id="@+id/filepicker_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layoutAnimation="@anim/layout_animation"
+                    android:scrollbars="none"
+                    app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+
+            </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/filepicker_favorites_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/filepicker_favorites_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:padding="@dimen/activity_margin"
+                android:text="@string/favorites"
+                android:textSize="@dimen/bigger_text_size" />
+
+            <com.simplemobiletools.commons.views.MyRecyclerView
+                android:id="@+id/filepicker_favorites_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/filepicker_favorites_label"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:scrollbars="none"
+                app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/filepicker_fabs_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:orientation="vertical">
+
+        <com.simplemobiletools.commons.views.MyFloatingActionButton
+            android:id="@+id/filepicker_fab_show_favorites"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:layout_marginEnd="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:src="@drawable/ic_star_vector" />
+
+        <com.simplemobiletools.commons.views.MyFloatingActionButton
+            android:id="@+id/filepicker_fab_show_hidden"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:layout_marginEnd="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:src="@drawable/ic_unhide_vector" />
+
+    </LinearLayout>
+
+    <com.simplemobiletools.commons.views.MyFloatingActionButton
+        android:id="@+id/filepicker_fab"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/activity_margin"
+        android:src="@drawable/ic_plus_vector"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

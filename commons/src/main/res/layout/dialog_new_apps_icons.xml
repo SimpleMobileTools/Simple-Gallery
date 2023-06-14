@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/new_apps_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:textColorHighlight="@color/disabled_text_color_highlight"
+        android:textSize="@dimen/bigger_text_size" />
+
+    <ImageView
+        android:id="@+id/new_apps_dialer"
+        android:layout_width="@dimen/min_row_height"
+        android:layout_height="@dimen/min_row_height"
+        android:layout_below="@+id/new_apps_text"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@mipmap/ic_dialer" />
+
+    <ImageView
+        android:id="@+id/new_apps_sms_messenger"
+        android:layout_width="@dimen/min_row_height"
+        android:layout_height="@dimen/min_row_height"
+        android:layout_below="@+id/new_apps_text"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:layout_toEndOf="@+id/new_apps_dialer"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@mipmap/ic_sms_messenger" />
+
+    <ImageView
+        android:id="@+id/new_apps_voice_recorder"
+        android:layout_width="@dimen/min_row_height"
+        android:layout_height="@dimen/min_row_height"
+        android:layout_below="@+id/new_apps_text"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:layout_toEndOf="@+id/new_apps_sms_messenger"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@mipmap/ic_voice_recorder" />
+
+</RelativeLayout>

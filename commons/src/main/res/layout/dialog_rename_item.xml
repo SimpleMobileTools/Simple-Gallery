@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rename_item_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/rename_item_title_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rename_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/normal_text_size" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/rename_item_extension_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/extension">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/rename_item_extension"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/normal_text_size" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+</LinearLayout>

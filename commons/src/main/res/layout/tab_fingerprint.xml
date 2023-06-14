@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.commons.views.FingerprintTab
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fingerprint_lock_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/fingerprint_lock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/add_fingerprint"/>
+
+    <ImageView
+        android:id="@+id/fingerprint_image"
+        android:layout_width="@dimen/fingerprint_icon_size"
+        android:layout_height="@dimen/fingerprint_icon_size"
+        android:layout_below="@+id/fingerprint_lock_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:src="@drawable/ic_fingerprint_vector"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/fingerprint_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fingerprint_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/activity_margin"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:gravity="center"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/place_finger"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/fingerprint_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fingerprint_label"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background"
+        android:padding="@dimen/normal_margin"
+        android:text="@string/go_to_settings"/>
+
+</com.simplemobiletools.commons.views.FingerprintTab>

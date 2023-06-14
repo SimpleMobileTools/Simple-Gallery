@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionbar_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical|start"
+    android:paddingEnd="@dimen/medium_margin"
+    android:textColor="@android:color/white"
+    android:textSize="@dimen/actionbar_text_size" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.commons.views.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cab_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/listChoiceBackgroundIndicator"
+    android:contentDescription="@null"
+    android:drawablePadding="@dimen/medium_margin"
+    android:gravity="center_vertical"
+    android:padding="@dimen/normal_margin"
+    android:textSize="@dimen/bigger_text_size"
+    tools:drawableStart="@drawable/ic_rename_vector"
+    tools:drawableTint="@color/color_primary"
+    tools:text="@string/delete" />

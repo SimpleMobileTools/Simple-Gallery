@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="default_vibrate_on_press">false</bool>          <!-- used in some apps like Calculator -->
+    <bool name="show_donate_in_about">false</bool>              <!-- we cannot show Donate in the Google Play version as we aren't a charity -->
+    <bool name="hide_google_relations">false</bool>             <!-- hide everything related to Google, used in cases when our apps are preinstalled -->
+    <bool name="hide_all_external_links">false</bool>           <!-- also used in cases when our apps are preinstalled on a device -->
+    <bool name="pretend_thank_you_installed">false</bool>       <!-- do not require Thank You for color customization and widgets -->
+</resources>

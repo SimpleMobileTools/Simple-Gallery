@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_app_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_marginStart="@dimen/activity_margin"
+    android:layout_marginEnd="@dimen/activity_margin">
+
+    <RelativeLayout
+        android:id="@+id/top_toolbar_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/search_menu_background">
+
+        <ImageView
+            android:id="@+id/top_toolbar_search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingStart="@dimen/activity_margin"
+            android:src="@drawable/ic_search_vector" />
+
+        <EditText
+            android:id="@+id/top_toolbar_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/top_toolbar"
+            android:layout_toEndOf="@+id/top_toolbar_search_icon"
+            android:background="@null"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:hint="@string/search"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="@dimen/activity_margin"
+            android:singleLine="true"
+            android:textSize="@dimen/big_text_size" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/top_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/small_margin"
+            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    </RelativeLayout>
+</com.google.android.material.appbar.AppBarLayout>

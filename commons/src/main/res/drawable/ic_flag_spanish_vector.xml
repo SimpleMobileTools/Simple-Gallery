@@ -1,0 +1,23 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="512" android:viewportHeight="512">
+    <group>
+        <clip-path android:pathData="M0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0"/>
+        <path android:fillColor="#d80027" android:pathData="M0 0h512v512H0z"/>
+        <path android:fillColor="#ffda44" android:pathData="M0 128h512v256H0z"/>
+        <path android:fillColor="#eee" android:pathData="M144 304h-16v-80h16zm128 0h16v-80h-16zm-112-8a48 32 0 1 0 96 0 48 32 0 1 0-96 0z"/>
+        <path android:fillColor="#d80027" android:pathData="M136 192a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8 8 8 0 0 1-8-8v-8a8 8 0 0 1 8-8zm144 0a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8 8 8 0 0 1-8-8v-8a8 8 0 0 1 8-8zm-72 80v24a24 24 0 0 0 24 24 24 24 0 0 0 24-24v-24h-24z"/>
+        <path android:fillColor="#ff9811" android:pathData="M128 208h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8zm144 0h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8zm-144 96h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8zm144 0h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8zm-112-32v24a24 24 0 0 0 24 24 24 24 0 0 0 24-24v-24h-24z"/>
+        <path android:fillColor="#FF000000" android:pathData="M122 252h172m-172 24h28m116 0h28"/>
+        <path android:fillColor="#d80027" android:pathData="M122 248a4 4 0 0 0-4 4 4 4 0 0 0 4 4h172a4 4 0 0 0 4-4 4 4 0 0 0-4-4zm0 24a4 4 0 0 0-4 4 4 4 0 0 0 4 4h28a4 4 0 0 0 4-4 4 4 0 0 0-4-4zm144 0a4 4 0 0 0-4 4 4 4 0 0 0 4 4h28a4 4 0 0 0 4-4 4 4 0 0 0-4-4z"/>
+        <path android:fillColor="#eee" android:pathData="M196 168c-7 0-13 5-15 11l-5-1c-9 0-16 7-16 16s7 16 16 16c7 0 13-4 15-11a16 16 0 0 0 17-4 16 16 0 0 0 17 4 16 16 0 1 0 10-20 16 16 0 0 0-27-5c-3-4-7-6-12-6zm0 8c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-8 0-4 4-8 8-8zm24 0c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-8 0-4 4-8 8-8zm-44 10l4 1 4 8c0 4-4 7-8 7s-8-3-8-8c0-4 4-8 8-8zm64 0c5 0 8 4 8 8 0 5-3 8-8 8-4 0-8-3-8-7l4-8 4-1z"/>
+        <path android:fillColor="#ff9811" android:pathData="M200 160h16v32h-16z"/>
+        <path android:fillColor="#eee" android:pathData="M208 224h48v48h-48z"/>
+        <path android:fillColor="#d80027" android:pathData="M248 208l-8 8h-64l-8-8c0-13 18-24 40-24s40 11 40 24zm-88 16h48v48h-48zm72 8a10 10 0 0 1 10 10v12a10 10 0 0 1-10 10 10 10 0 0 1-10-10v-12a10 10 0 0 1 10-10z"/>
+        <group>
+            <clip-path android:pathData="M160 272v24a24 24 0 0 0 24 24 24 24 0 0 0 24-24v-24h-24z"/>
+            <path android:fillColor="#d80027" android:pathData="M170 272h10v48h-10zm19 0h10v48h-10z"/>
+        </group>
+        <path android:fillColor="#ff9811" android:pathData="M168 232v8h8v16h-8v8h32v-8h-8v-16h8v-8zm8-16h64v8h-64z"/>
+        <path android:fillColor="#ffda44" android:pathData="M180 202a6 6 0 1 1 12 0 6 6 0 1 1-12 0m22 0a6 6 0 1 1 12 0 6 6 0 1 1-12 0m22 0a6 6 0 1 1 12 0 6 6 0 1 1-12 0"/>
+        <path android:fillColor="#338af3" android:pathData="M192 272a16 16 0 1 1 32 0 16 16 0 1 1-32 0m80 48h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8zm-144 0h16a8 8 0 0 1 8 8 8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8 8 8 0 0 1 8-8z"/>
+    </group>
+</vector>

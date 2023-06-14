@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_contact_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="@drawable/selector">
+
+    <RelativeLayout
+        android:id="@+id/item_contact_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingEnd="@dimen/activity_margin"
+        android:paddingBottom="@dimen/medium_margin">
+
+        <ImageView
+            android:id="@+id/item_contact_image"
+            android:layout_width="@dimen/normal_icon_size"
+            android:layout_height="@dimen/normal_icon_size"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/small_margin"
+            android:padding="@dimen/tiny_margin"
+            android:src="@drawable/ic_person_vector" />
+
+        <TextView
+            android:id="@+id/item_contact_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/drag_handle_icon"
+            android:layout_toEndOf="@+id/item_contact_image"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:textDirection="locale"
+            android:textSize="@dimen/big_text_size"
+            tools:text="John Doe" />
+
+        <TextView
+            android:id="@+id/item_contact_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_contact_name"
+            android:layout_alignStart="@+id/item_contact_name"
+            android:layout_toStartOf="@+id/drag_handle_icon"
+            android:layout_toEndOf="@+id/item_contact_image"
+            android:alpha="0.6"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:textSize="@dimen/normal_text_size"
+            tools:text="0123 456 789" />
+
+        <ImageView
+            android:id="@+id/drag_handle_icon"
+            style="@style/DragHandleIconStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+</FrameLayout>

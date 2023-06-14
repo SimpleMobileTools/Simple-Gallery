@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/color_picker_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/activity_margin"
+    android:layout_marginBottom="@dimen/activity_margin">
+
+    <RelativeLayout
+        android:id="@+id/color_picker_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recent_colors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/activity_margin">
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/recent_colors_flow"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:flow_horizontalAlign="start"
+                app:flow_horizontalGap="@dimen/activity_margin"
+                app:flow_horizontalStyle="packed"
+                app:flow_maxElementsWrap="5"
+                app:flow_verticalGap="@dimen/medium_margin"
+                app:flow_wrapMode="chain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/color_picker_top_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/colorpicker_size_with_padding"
+            android:layout_below="@+id/recent_colors"
+            android:gravity="center_horizontal">
+
+            <com.simplemobiletools.commons.views.ColorPickerSquare
+                android:id="@+id/color_picker_square"
+                android:layout_width="@dimen/colorpicker_size"
+                android:layout_height="@dimen/colorpicker_size"
+                android:layout_centerVertical="true"
+                android:layerType="software" />
+
+            <ImageView
+                android:id="@+id/color_picker_hue"
+                android:layout_width="@dimen/colorpicker_hue_width"
+                android:layout_height="@dimen/colorpicker_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_toEndOf="@id/color_picker_square"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_color_picker_hue" />
+
+            <ImageView
+                android:id="@+id/color_picker_hue_cursor"
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_chevron_right_unpadded_vector" />
+
+            <ImageView
+                android:id="@+id/color_picker_cursor"
+                android:layout_width="@dimen/activity_margin"
+                android:layout_height="@dimen/activity_margin"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/color_picker_circle" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/color_picker_hex_codes_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/color_picker_top_holder">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/color_picker_old_hex"
+                android:layout_width="@dimen/colorpicker_color_width"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_toStartOf="@+id/color_picker_hex_arrow"
+                android:gravity="center"
+                android:textSize="@dimen/normal_text_size" />
+
+            <ImageView
+                android:id="@+id/color_picker_hex_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/color_picker_new_hex"
+                android:layout_alignBottom="@+id/color_picker_new_hex"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_right_vector" />
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/color_picker_new_hex_label"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/colorpicker_items_height"
+                android:layout_alignTop="@+id/color_picker_new_hex"
+                android:layout_alignBottom="@+id/color_picker_new_hex"
+                android:layout_toEndOf="@+id/color_picker_hex_arrow"
+                android:gravity="center"
+                android:text="#"
+                android:textSize="@dimen/normal_text_size" />
+
+            <com.simplemobiletools.commons.views.MyEditText
+                android:id="@+id/color_picker_new_hex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/color_picker_new_hex_label"
+                android:digits="0123456789ABCDEFabcdef"
+                android:ems="5"
+                android:gravity="start"
+                android:lines="1"
+                android:maxLength="6"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/normal_text_size" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/color_picker_bottom_holder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/colorpicker_items_height"
+            android:layout_below="@id/color_picker_hex_codes_holder"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/medium_margin">
+
+            <ImageView
+                android:id="@+id/color_picker_old_color"
+                android:layout_width="@dimen/colorpicker_items_height"
+                android:layout_height="@dimen/colorpicker_items_height"
+                android:layout_toStartOf="@+id/color_picker_arrow"
+                android:background="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/color_picker_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_right_vector" />
+
+            <ImageView
+                android:id="@+id/color_picker_new_color"
+                android:layout_width="@dimen/colorpicker_items_height"
+                android:layout_height="@dimen/colorpicker_items_height"
+                android:layout_toEndOf="@+id/color_picker_arrow"
+                android:background="@android:color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

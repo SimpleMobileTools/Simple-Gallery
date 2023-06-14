@@ -1,0 +1,213 @@
+<resources>
+    <string name="package_name">com.simplemobiletools.commons</string>
+    <string name="pro">Pro</string>
+    <string name="simple_commons">Simple Commons</string>
+    <string name="progress">%1$s / %2$s</string>
+    <string name="donate_url">https://www.simplemobiletools.com/donate#paypal</string>
+    <string name="thank_you_url">https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou</string>
+    <string name="a_m">am</string>
+    <string name="p_m">pm</string>
+    <string name="material_you">Material You</string>
+
+    <!-- About -->
+    <string name="two_string_placeholder">%1$s%2$s</string>
+    <string name="my_website">\nhttps://simplemobiletools.com</string>
+    <string name="my_email">elvero.studio@gmail.com</string>
+    <string name="my_fake_email">noreply@gmail.com</string>
+    <string name="facebook">Facebook</string>
+    <string name="reddit">Reddit</string>
+    <string name="telegram">Telegram</string>
+    <string name="github">GitHub</string>
+    <string name="viber">Viber</string>
+
+    <!-- Contributors -->
+    <string name="contributors_developers">Aga-C, AlbertoPellitteri, Alfavio, connyduck, correia55, dagkalis, DaPa, ForgottenUmbrella, KryptKode, Naveen3Singh, qwertyfinger</string>
+    <string name="contributors_other_help"></string>
+    <string name="translators_arabic">karmac2015, unofficial-hima</string>
+    <string name="translators_azerbaijani">Gozzwip</string>
+    <string name="translators_basque">avtkal</string>
+    <string name="translators_bengali">kabirnayeem99</string>
+    <string name="translators_breton"></string>
+    <string name="translators_catalan">Solatec</string>
+    <string name="translators_chinese_cn">dadaewq, fiepi, KrasnayaPloshchad, linsui, Pzqqt, waldens, WanderMax, xiaomingyan</string>
+    <string name="translators_chinese_hk">1552980358</string>
+    <string name="translators_chinese_tw">abc0922001, fricyo, KrasnayaPloshchad, s8321414, Vdragon, zica87</string>
+    <string name="translators_croatian">dugi991</string>
+    <string name="translators_czech">Filda6, herkul-s, novas78, pcpepik</string>
+    <string name="translators_danish">10cents, chreddy, HJMVR</string>
+    <string name="translators_dutch">alpenblauwtje, Joppla, ltGuillaume</string>
+    <string name="translators_finnish">matiasblomqvist, Nekromanser, teemue</string>
+    <string name="translators_french">AlbatorV, AO-LocLab, Aur36, canou, Charles-770, KevinMinions, ldmpub, Pierre49, Poussinou, xinxinxinxinxin</string>
+    <string name="translators_galician">aluaces, davidre345, susosl, xmgz</string>
+    <string name="translators_german">fscholdei, GithubUser699, Honk2, jokay, kniddl, MartinGSch, michaelof, mklopp, mueller-ma, NicoHood, nopeppermint, Phoenix1747, rak-rak, sodewe, wistein</string>
+    <string name="translators_greek">spkprs</string>
+    <string name="translators_hebrew">xdavidel</string>
+    <string name="translators_hindi">DhruvaSambrani</string>
+    <string name="translators_hungarian">hevesij</string>
+    <string name="translators_indonesian">siswonugroho, zmni, Zxc-40</string>
+    <string name="translators_italian">bellingeri, gcalzo, igor-cali, mastu, Mek101, pyvirus, random4545454, unbranched</string>
+    <string name="translators_japanese">AioiLight, crusepath, naofum, ray4423, ScratchBuild</string>
+    <string name="translators_korean">hanjoongcho, yclee126</string>
+    <string name="translators_lithuanian">VGumbakis</string>
+    <string name="translators_nepali">dipenSan</string>
+    <string name="translators_norwegian">comradekingu, FTno</string>
+    <string name="translators_persian">eshagh79</string>
+    <string name="translators_polish">Aga-C, CompGame356, gregory678, jacklul, kryger, ONLAN-PL</string>
+    <string name="translators_portuguese">ailmcoll, floppyD, hugomg, lnux-usr, marciozomb13, matheusvictor, RodolfoCandido, rodymacedo, smarquespt</string>
+    <string name="translators_romanian">melintemarian</string>
+    <string name="translators_russian">antonv6, AVM77, macbaze, solokot, trubitsyn</string>
+    <string name="translators_serbian"></string>
+    <string name="translators_slovak">tibbi</string>
+    <string name="translators_slovenian">franga2000, rmajc</string>
+    <string name="translators_spanish">FredMan95, Guzleon, MarcAbonce, mlopezgva, Yngvar-Skjaldulfsson</string>
+    <string name="translators_swedish">en2sv</string>
+    <string name="translators_tamil">GobinathAL</string>
+    <string name="translators_turkish">akcansoft, ersen0, Fatih-BaKeR</string>
+    <string name="translators_ukrainian">bac1, motomoto7, sawka6630</string>
+    <string name="translators_vietnamese"></string>
+    <string name="translators_welsh">Cymrodor</string>
+
+    <!-- License -->
+    <string name="kotlin_text">Copyright 2010 - 2018 JetBrains s.r.o.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="kotlin_url">https://github.com/JetBrains/kotlin</string>
+    <string name="subsampling_text">Copyright 2018 David Morrissey\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="subsampling_url">https://github.com/davemorrissey/subsampling-scale-image-view</string>
+    <string name="glide_text">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="glide_url">https://github.com/bumptech/glide</string>
+    <string name="picasso_text">Copyright 2013 Square, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="picasso_url">https://github.com/square/picasso</string>
+    <string name="cropper_text">Copyright 2016, Arthur Teplitzki, 2013, Edmodo, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="cropper_url">https://github.com/ArthurHub/Android-Image-Cropper</string>
+    <string name="rtl_viewpager_text">Copyright 2016 Duolingo\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="rtl_viewpager_url">https://github.com/duolingo/rtl-viewpager</string>
+    <string name="joda_text">Copyright 2013 JodaOrg\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="joda_url">https://github.com/JodaOrg/joda-time</string>
+    <string name="stetho_text">BSD License\n\nFor Stetho software\n\nCopyright (c) 2015, Facebook, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n\n * Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n * Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n * Neither the name Facebook nor the names of its contributors may be used to\n   endorse or promote products derived from this software without specific\n   prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND\nANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\nANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\nANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="stetho_url">https://github.com/facebook/stetho</string>
+    <string name="otto_text">Copyright 2012 Square, Inc.\nCopyright 2010 Google, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="otto_url">https://github.com/square/otto</string>
+    <string name="photoview_text">Copyright 2017 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="photoview_url">https://github.com/chrisbanes/PhotoView</string>
+    <string name="pattern_text">Copyright 2017 aritraroy\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="pattern_url">https://github.com/aritraroy/PatternLockView</string>
+    <string name="reprint_text">Copyright 2015 - 2017 AJ Alt\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="reprint_url">https://github.com/ajalt/reprint</string>
+    <string name="gif_drawable_text">The MIT License (MIT)\n\nCopyright (c) 2016 Karol Wrótniak, Droids on Roids\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="gif_drawable_url">https://github.com/koral--/android-gif-drawable</string>
+    <string name="autofittextview_text">Copyright 2014 Grantland Chew\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="autofittextview_url">https://github.com/grantland/android-autofittextview</string>
+    <string name="robolectric_text">The MIT License\n\nCopyright (c) 2010 Xtreme Labs and Pivotal Labs\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="robolectric_url">https://github.com/robolectric/robolectric</string>
+    <string name="espresso_text">Copyright 2014 The Android Open Source Project\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="espresso_url">https://developer.android.com/training/testing/espresso/index.html</string>
+    <string name="gson_text">Copyright 2008 Google Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="gson_url">https://github.com/google/gson</string>
+    <string name="leakcanary_text">Copyright 2015 Square, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="leakcanary_url">https://github.com/square/leakcanary</string>
+    <string name="number_picker_text">The MIT License (MIT)\n\nCopyright (c) 2018 ShawnLin013\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="number_picker_url">https://github.com/ShawnLin013/NumberPicker</string>
+    <string name="exoplayer_text">Copyright 2014 Google, Inc. All rights reserved.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="exoplayer_url">https://github.com/google/ExoPlayer</string>
+    <string name="panorama_view_text">Copyright 2016 Google, Inc. All rights reserved.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="panorama_view_url">https://github.com/googlevr/gvr-android-sdk</string>
+    <string name="sanselan_text">Copyright 2016 The Apache Software Foundation\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="sanselan_url">https://mvnrepository.com/artifact/org.apache.sanselan/sanselan/0.97-incubator</string>
+    <string name="filters_text">Copyright 2016 ravi8x\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="filters_url">https://github.com/ravi8x/AndroidPhotoFilters</string>
+    <string name="gesture_views_text">Copyright 2018 alexvasilkov\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="gesture_views_url">https://github.com/alexvasilkov/GestureViews</string>
+    <string name="indicator_fast_scroll_text">The MIT License (MIT)\n\nCopyright (c) 2018 Reddit\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="indicator_fast_scroll_url">https://github.com/reddit/IndicatorFastScroll</string>
+    <string name="event_bus_text">Copyright (C) 2012-2020 Markus Junginger, greenrobot\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="event_bus_url">https://github.com/greenrobot/EventBus</string>
+    <string name="audio_record_view_text">Copyright (C) 2020 Armen Gevorgyan\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="audio_record_view_url">https://github.com/Armen101/AudioRecordView</string>
+    <string name="sms_mms_text">Copyright (C) 2017 Jacob Klinker\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="sms_mms_url">https://github.com/klinker41/android-smsmms</string>
+    <string name="apng_text">Copyright (C) 2019 Zhou Pengfei\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="apng_url">https://github.com/penfeizhou/APNG4Android</string>
+    <string name="pdf_view_pager_text">Copyright 2016 Olmo Gallegos Hernández\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttps://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="pdf_view_pager_url">https://github.com/voghDev/PdfViewPager</string>
+    <string name="m3u_parser_text">MIT License\n\nCopyright (c) 2022 Björn Petersen\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="m3u_parser_url">https://github.com/BjoernPetersen/m3u-parser</string>
+    <string name="android_lame_text">Copyright (C) 2015 Naman Dwivedi\n\nThis is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nThis software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this app. If not, see https://www.gnu.org/licenses/.</string>
+    <string name="android_lame_url">https://github.com/naman14/TAndroidLame</string>
+
+    <!-- Message digest algorithms -->
+    <string name="md5">MD5</string>
+
+    <string-array name="months">
+        <item>@string/january</item>
+        <item>@string/february</item>
+        <item>@string/march</item>
+        <item>@string/april</item>
+        <item>@string/may</item>
+        <item>@string/june</item>
+        <item>@string/july</item>
+        <item>@string/august</item>
+        <item>@string/september</item>
+        <item>@string/october</item>
+        <item>@string/november</item>
+        <item>@string/december</item>
+    </string-array>
+
+    <string-array name="months_short">
+        <item>@string/january_short</item>
+        <item>@string/february_short</item>
+        <item>@string/march_short</item>
+        <item>@string/april_short</item>
+        <item>@string/may_short</item>
+        <item>@string/june_short</item>
+        <item>@string/july_short</item>
+        <item>@string/august_short</item>
+        <item>@string/september_short</item>
+        <item>@string/october_short</item>
+        <item>@string/november_short</item>
+        <item>@string/december_short</item>
+    </string-array>
+
+    <string-array name="in_months">
+        <item>@string/in_january</item>
+        <item>@string/in_february</item>
+        <item>@string/in_march</item>
+        <item>@string/in_april</item>
+        <item>@string/in_may</item>
+        <item>@string/in_june</item>
+        <item>@string/in_july</item>
+        <item>@string/in_august</item>
+        <item>@string/in_september</item>
+        <item>@string/in_october</item>
+        <item>@string/in_november</item>
+        <item>@string/in_december</item>
+    </string-array>
+
+    <string-array name="week_days">
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+        <item>@string/sunday</item>
+    </string-array>
+
+    <array name="week_day_letters">
+        <item>@string/monday_letter</item>
+        <item>@string/tuesday_letter</item>
+        <item>@string/wednesday_letter</item>
+        <item>@string/thursday_letter</item>
+        <item>@string/friday_letter</item>
+        <item>@string/saturday_letter</item>
+        <item>@string/sunday_letter</item>
+    </array>
+
+    <array name="week_days_short">
+        <item>@string/monday_short</item>
+        <item>@string/tuesday_short</item>
+        <item>@string/wednesday_short</item>
+        <item>@string/thursday_short</item>
+        <item>@string/friday_short</item>
+        <item>@string/saturday_short</item>
+        <item>@string/sunday_short</item>
+    </array>
+</resources>

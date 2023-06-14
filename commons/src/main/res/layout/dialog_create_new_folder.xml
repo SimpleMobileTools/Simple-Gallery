@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/folder_path_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:hint="@string/folder">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/folder_path"
+            style="@style/UnclickableEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+
+    <com.simplemobiletools.commons.views.MyTextInputLayout
+        android:id="@+id/folder_name_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/folder_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/bigger_text_size" />
+
+    </com.simplemobiletools.commons.views.MyTextInputLayout>
+</LinearLayout>

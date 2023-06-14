@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conflict_dialog_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/conflict_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        tools:text="File already exists" />
+
+    <RadioGroup
+        android:id="@+id/conflict_dialog_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_margin">
+
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
+            android:id="@+id/conflict_dialog_radio_skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:paddingTop="@dimen/normal_margin"
+            android:paddingBottom="@dimen/normal_margin"
+            android:text="@string/skip" />
+
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
+            android:id="@+id/conflict_dialog_radio_overwrite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/normal_margin"
+            android:paddingBottom="@dimen/normal_margin"
+            android:text="@string/overwrite" />
+
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
+            android:id="@+id/conflict_dialog_radio_merge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/normal_margin"
+            android:paddingBottom="@dimen/normal_margin"
+            android:text="@string/merge" />
+
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
+            android:id="@+id/conflict_dialog_radio_keep_both"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/normal_margin"
+            android:paddingBottom="@dimen/normal_margin"
+            android:text="@string/keep_both" />
+
+    </RadioGroup>
+
+    <include
+        android:id="@+id/conflict_dialog_divider"
+        layout="@layout/divider" />
+
+    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        android:id="@+id/conflict_dialog_apply_to_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
+        android:text="@string/apply_to_all" />
+
+</LinearLayout>

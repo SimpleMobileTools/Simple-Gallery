@@ -1,0 +1,1235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">Iawn</string>
+    <string name="cancel">Diddymu</string>
+    <string name="back">Back</string>
+    <string name="nothing">Nothing</string>
+    <string name="later">Later</string>
+    <string name="save_as">Cadw fel</string>
+    <string name="file_saved">Cadwyd y ffeil yn llwyddiannus</string>
+    <string name="invalid_file_format">Fformat ffeil annilys</string>
+    <string name="out_of_memory_error">Gwall allan o gof</string>
+    <string name="an_error_occurred">Bu gwall: %s</string>
+    <string name="error">Error: %s</string>
+    <string name="open_with">Agor gyda</string>
+    <string name="edit_with">Golygu gyda</string>
+    <string name="edit">Edit</string>
+    <string name="no_app_found">Ni chanfuwyd ap dilys</string>
+    <string name="no_browser_found">No browser found</string>
+    <string name="no_email_client_found">No email client found</string>
+    <string name="set_as">Gosod fel</string>
+    <string name="copy_to_clipboard">Copy to clipboard</string>
+    <string name="copy_number_to_clipboard">Copy number to clipboard</string>
+    <string name="value_copied_to_clipboard">Copïwyd y gwerth i\'r clipfwrdd</string>
+    <string name="value_copied_to_clipboard_show">Copïwyd y gwerth i\'r clipfwrdd:\n%s</string>
+    <string name="dial_number">Dial number</string>
+    <string name="unknown">Anhysbys</string>
+    <string name="always">Pob tro</string>
+    <string name="never">Byth</string>
+    <string name="details">Manylion</string>
+    <string name="notes">Nodiadau</string>
+    <string name="deleting_folder">Yn dileu\'r ffolder \'%s\'</string>
+    <string name="none">Dim</string>
+    <string name="label">Label</string>
+    <string name="transparent">Tryloyw</string>
+    <string name="transparent_color">Lliw tryloyw</string>
+    <string name="select_a_different_color">Dewis lliw gwahanol</string>
+    <string name="download">Lawrlwytho</string>
+    <string name="notification">Notification</string>
+    <string name="notifications">Notifications</string>
+    <string name="email">Email</string>
+    <string name="previous">Previous</string>
+    <string name="playpause">Play / Pause</string>
+    <string name="next">Next</string>
+    <string name="number">Rhif</string>
+    <string name="no_contacts_found">Ni chanfuwyd unrhyw gysylltiadau</string>
+    <string name="request_the_required_permissions">Gofyn am y caniatâd sydd ei angen</string>
+    <string name="no_access_to_contacts">The app could not access your contacts</string>
+    <string name="no_phone_call_permission">App does not have the permission to initiate phone calls, please grant it in the device settings</string>
+    <string name="insert_text_here">Insert text here</string>
+    <string name="call_person">Galw %s</string>
+    <string name="confirm_calling_person">Confirm calling %s</string>
+    <string name="zero">Zero</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="five">Five</string>
+    <string name="six">Six</string>
+    <string name="seven">Seven</string>
+    <string name="eight">Eight</string>
+    <string name="nine">Nine</string>
+    <string name="value">Value</string>
+    <string name="value_cannot_be_empty">Value cannot be empty</string>
+    <string name="create_new_contact">Creu cyswllt newydd</string>
+    <string name="add_to_existing_contact">Ychwanegu at gyswllt sy\'n bodoli</string>
+    <string name="app_corrupt">App Corrupt</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="take_photo">Tynnu llun</string>
+    <string name="choose_photo">Dewis llun</string>
+    <string name="choose_video">Choose video</string>
+    <string name="choose_contact">Choose contact</string>
+    <string name="choose_file">Choose file</string>
+    <string name="record_audio">Record audio</string>
+    <string name="record_video">Record video</string>
+    <string name="updating">Yn diweddaru…</string>
+    <string name="phone_storage">Storfa ddyfais</string>
+    <string name="phone_storage_hidden">Storfa ddyfais (dim i\'w weld gan apiau eraill)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">Pen-blwydd</string>
+    <string name="anniversary">Pen-blwydd achlysur</string>
+    <!-- Emails -->
+    <string name="home">Cartref</string>
+    <string name="work">Gwaith</string>
+    <!-- Phone numbers -->
+    <string name="mobile">Symudol</string>
+    <string name="main_number">Prif</string>
+    <string name="work_fax">Ffacs gwaith</string>
+    <string name="home_fax">Ffacs cartref</string>
+    <string name="pager">Peiriant galw</string>
+    <string name="no_phone_number_found">Ni chanfuwyd rif ffôn</string>
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="grid_pro">Grid (Pro)</string>
+    <string name="uneven_grid">Uneven Grid</string>
+    <string name="list">List</string>
+    <string name="increase_column_count">Increase column count</string>
+    <string name="reduce_column_count">Reduce column count</string>
+    <string name="column_count">Column count</string>
+    <string name="portrait_column_count">Portrait column count</string>
+    <string name="landscape_column_count">Landscape column count</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <plurals name="column_counts">
+        <item quantity="zero">%d column</item>
+        <item quantity="one">%d columns</item>
+        <item quantity="two">%d columns</item>
+        <item quantity="few">%d columns</item>
+        <item quantity="many">%d columns</item>
+        <item quantity="other">%d columns</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">Rheoli rhifau wedi\'u rhwystro</string>
+    <string name="not_blocking_anyone">Nid wyt yn rhwystro unrhyw un.</string>
+    <string name="add_a_blocked_number">Ychwanegu rif i\'w rwystro</string>
+    <string name="block_number">Rhwystro rhif</string>
+    <string name="block_numbers">Rhwystro rhifau</string>
+    <string name="blocked_numbers">Rhifau wedi\'u rhwystro</string>
+    <string name="export_blocked_numbers">Export blocked numbers</string>
+    <string name="import_blocked_numbers">Import blocked numbers</string>
+    <string name="must_make_default_dialer">Rhaid gwneud yr ap hwn yr ap deialu rhagosodedig er mwyn defnyddio rhifau wedi\'u rhwystro.</string>
+    <string name="set_as_default">Defnyddio fel y rhagosodedig</string>
+    <string name="block_confirmation">Are you sure you want to block \"%s\"?</string>
+    <string name="block_unknown_calls">Block calls from not stored contacts</string>
+    <string name="block_unknown_messages">Block messages from not stored contacts</string>
+    <string name="add_blocked_number_helper_text">Enter a number or a pattern (e.g. *12345*, +1*8888) to block all calls and messages from numbers matching the pattern.</string>
+    <string name="must_make_default_caller_id_app">Can\'t block unknown numbers without caller ID permission.</string>
+    <!-- Favorites -->
+    <string name="favorites">Ffefrynnau</string>
+    <string name="add_favorites">Ychwanegu ffefryn</string>
+    <string name="add_to_favorites">Ychwanegu at ffefrynnau</string>
+    <string name="remove_from_favorites">Tynnu o ffefrynnau</string>
+    <!-- Search -->
+    <string name="search">Chwilio</string>
+    <string name="search_in_placeholder">Search in %s</string>
+    <string name="type_2_characters">Rho o leiaf dau nod i chwilio.</string>
+    <string name="search_contacts">Search contacts</string>
+    <string name="search_favorites">Search favorites</string>
+    <string name="search_apps">Search apps</string>
+    <string name="search_events">Search events</string>
+    <string name="search_groups">Search groups</string>
+    <string name="search_history">Search history</string>
+    <string name="search_calls">Search calls</string>
+    <string name="search_files">Search files</string>
+    <string name="search_folders">Search folders</string>
+    <string name="search_files_and_folders">Search files and folders</string>
+    <string name="search_playlists">Search playlists</string>
+    <string name="search_artists">Search artists</string>
+    <string name="search_albums">Search albums</string>
+    <string name="search_tracks">Search tracks</string>
+    <string name="search_text">Search text</string>
+    <string name="search_conversations">Search conversations</string>
+    <string name="search_recordings">Search recordings</string>
+    <!-- Filters -->
+    <string name="filter">Hidlo</string>
+    <string name="filter_pro">Hidlo (Pro)</string>
+    <string name="no_items_found">Ni chanfuwyd eitemau.</string>
+    <string name="change_filter">Newid hidlydd</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">Rhaid cael caniatâd storfa</string>
+    <string name="no_contacts_permission">Rhaid cael caniatâd cysylltiadau</string>
+    <string name="no_camera_permissions">Rhaid cael caniatâd camera</string>
+    <string name="no_audio_permissions">Rhaid cael caniatâd sain</string>
+    <string name="no_permission">No permission</string>
+    <string name="allow_notifications_reminders">You must allow the app displaying notifications, else it cannot show reminders.</string>
+    <string name="allow_notifications_files">You must allow the app displaying notifications, else it cannot show the progress bar.</string>
+    <string name="allow_notifications_music_player">You must allow the app displaying notifications, else it cannot play songs.</string>
+    <string name="allow_notifications_voice_recorder">You must allow the app displaying notifications, else it cannot record audio.</string>
+    <string name="allow_notifications_incoming_calls">You must allow the app displaying notifications, else it cannot show incoming calls.</string>
+    <string name="allow_notifications_incoming_messages">You must allow the app displaying notifications, else it cannot show incoming messages.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_required">Permission Required</string>
+    <!-- Renaming -->
+    <string name="rename_file">Ailenwi ffeil</string>
+    <string name="rename_folder">Ailenwi ffolder</string>
+    <string name="rename_file_error">Methwyd ailenwi\'r ffeil</string>
+    <string name="rename_folder_error">Methwyd ailenwi\'r ffolder</string>
+    <string name="rename_folder_empty">Ni all enw\'r ffolder fod yn wag</string>
+    <string name="rename_folder_exists">Mae eisoes ffolder gyda\'r enw yna</string>
+    <string name="rename_folder_root">Methu ailenwi ffolder craidd storfa</string>
+    <string name="rename_folder_ok">Ail-enwyd y ffolder yn llwyddiannus</string>
+    <string name="renaming_folder">Yn ail-enwi ffolder</string>
+    <string name="filename_cannot_be_empty">Ni all enw\'r ffeil fod yn wag</string>
+    <string name="filename_invalid_characters">Mae\'r enw yn cynnwys nodau annilys</string>
+    <string name="filename_invalid_characters_placeholder">Mae\'r enw ffeil \'%s\' yn cynnwys nodau annilys</string>
+    <string name="extension_cannot_be_empty">Ni all yr estyniad fod yn wag</string>
+    <string name="source_file_doesnt_exist">Dyw\'r ffeil tarddiad %s ddim yn bodoli</string>
+    <string name="prepend_filenames">Rhagddodi enwau ffeiliau</string>
+    <string name="append_filenames">Ôl-ddodi enwau ffeiliau</string>
+    <string name="simple_renaming">Simple renaming</string>
+    <string name="pattern_renaming">Pattern</string>
+    <string name="string_to_add">String to add</string>
+    <string name="rename_date_time_pattern">%Y - year\n%M - month\n%D - day\n%h - hour\n%m - minute\n%s - second\n%i - number increasing from 1</string>
+    <string name="filename_without_txt">Filename (without .txt)</string>
+    <string name="filename_without_json">Filename (without .json)</string>
+    <string name="filename_without_zip">Filename (without .zip)</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
+    <!-- Copy / Move -->
+    <string name="copy">Copïo</string>
+    <string name="move">Symud</string>
+    <string name="copy_move">Copïo / Symud</string>
+    <string name="copy_to">Copïo i</string>
+    <string name="move_to">Symud i</string>
+    <string name="source">Tarddiad</string>
+    <string name="destination">Cyrchfan</string>
+    <string name="select_destination">Dewisa gyrchfan</string>
+    <string name="click_select_destination">Clicia yma i ddewis gyrchfan</string>
+    <string name="invalid_destination">Methwyd ag ysgrifennu i\'r gyrchfan a ddewiswyd</string>
+    <string name="please_select_destination">Dewisa gyrchfan</string>
+    <string name="source_and_destination_same">Ni all y tarddiad a\'r gyrchfan bod yr un lle</string>
+    <string name="copy_failed">Methwyd â chopïo\'r ffeiliau</string>
+    <string name="copying">Yn copïo…</string>
+    <string name="copying_success">Copïwyd y ffeiliau\'n llwyddiannus</string>
+    <string name="copying_success_one">File copied successfully</string>
+    <string name="copy_move_failed">Bu gwall</string>
+    <string name="moving">Yn symud…</string>
+    <string name="moving_success">Symudwyd y ffeiliau\'n llwyddiannus</string>
+    <string name="moving_success_one">File moved successfully</string>
+    <string name="moving_success_partial">Methwyd â symud rhai ffeiliau</string>
+    <string name="copying_success_partial">Methwyd â chopïo rhai ffeiliau</string>
+    <string name="no_files_selected">Dim ffeiliau wedi\'u dewis</string>
+    <string name="saving">Yn cadw…</string>
+    <string name="could_not_create_folder">Methwyd â chreu\'r ffolder %s</string>
+    <string name="could_not_create_file">Methwyd â chreu\'r ffeil %s</string>
+    <string name="no_new_items">No new items have been found</string>
+    <string name="no_space">The destination does not have enough space available.\nRequired %1$s, available %2$s</string>
+    <string name="system_service_disabled">System service for selecting files and folders is unavailable</string>
+    <!-- Create new -->
+    <string name="create_new">Creu newydd</string>
+    <string name="folder">Ffolder</string>
+    <string name="file">Ffeil</string>
+    <string name="create_new_folder">Creu ffolder newydd</string>
+    <string name="name_taken">Mae ffeil neu ffolder eisoes yn bodoli gyda\'r enw yna</string>
+    <string name="invalid_name">Mae\'r enw yn cynnwys nodau annilys</string>
+    <string name="empty_name">Rho enw</string>
+    <string name="unknown_error_occurred">Bu gwall anhysbys</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">Mae\'r ffeil \"%s\" eisoes yn bodoli</string>
+    <string name="file_already_exists_overwrite">Mae\'r ffeil \"%s\" eisoes yn bodoli. Trosysgrifo?</string>
+    <string name="folder_already_exists">Mae\'r ffolder \"%s\" eisoes yn bodoli</string>
+    <string name="merge">Cyfuno</string>
+    <string name="keep_both">Cadw\'r ddau</string>
+    <string name="overwrite">Trosysgrifo</string>
+    <string name="skip">Neidio</string>
+    <string name="append">Ychwanegu \'_1\' i\'r diwedd</string>
+    <string name="apply_to_all">Gweithredu ar y cwbl</string>
+    <string name="system_folder_restriction">The system does not allow the operation in this folder, please pick another one</string>
+    <string name="system_folder_copy_restriction">The system does not allow copying into this folder, please pick another one</string>
+    <string name="rename_in_sd_card_system_restriction">The system does not allow renaming in this folder</string>
+    <string name="rename_internal_system_restriction">Cannot rename folders directly on internal storage, only subfolders</string>
+    <string name="cannot_rename_folder">Cannot rename this folder</string>
+    <!-- File picker -->
+    <string name="select_folder">Dewisa ffolder</string>
+    <string name="select_file">Dewisa ffeil</string>
+    <string name="confirm_storage_access_title">Cadarnha mynediad at storfa allanol</string>
+    <string name="confirm_folder_access_title">Confirm folder access</string>
+    <string name="confirm_storage_access_text">Dewisa ffolder craidd y cerdyn SD ar y sgrin nesaf i roi hawl ysgrifennu</string>
+    <string name="confirm_storage_access_text_sd">Os nad wyt yn gweld y cerdyn SD, rho gynnig ar hyn</string>
+    <string name="confirm_storage_access_android_text">Please allow the app accessing the selected storage on the next screen by pressing \'Use this folder\' at the bottom.</string>
+    <string name="confirm_storage_access_android_text_specific">Please allow accessing \'&lt;b&gt;%s&lt;/b&gt;\' on the next screen by pressing \'&lt;b&gt;Use this folder&lt;/b&gt;\' at the bottom.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Please press \'&lt;b&gt;Save&lt;/b&gt;\' at the bottom of the next screen to create the new folder.</string>
+    <string name="confirm_selection">Cadarnhau dewis</string>
+    <string name="loading">Loading…</string>
+    <string name="access_storage_prompt">Please grant our app access to all your files, it might not work well without it.</string>
+    <plurals name="items">
+        <item quantity="zero">%d eitemau</item>
+        <item quantity="one">%d eitem</item>
+        <item quantity="two">%d eitem</item>
+        <item quantity="few">%d eitem</item>
+        <item quantity="many">%d eitem</item>
+        <item quantity="other">%d eitem</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="zero">%d eitemau</item>
+        <item quantity="one">%d eitem</item>
+        <item quantity="two">%d eitem</item>
+        <item quantity="few">%d eitem</item>
+        <item quantity="many">%d eitem</item>
+        <item quantity="other">%d eitem</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="zero">Yn dileu %d eitemau</item>
+        <item quantity="one">Yn dileu %d eitem</item>
+        <item quantity="two">Yn dileu %d eitem</item>
+        <item quantity="few">Yn dileu %d eitem</item>
+        <item quantity="many">Yn dileu %d eitem</item>
+        <item quantity="other">Yn dileu %d eitem</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="zero">%d contact</item>
+        <item quantity="one">%d contacts</item>
+        <item quantity="two">%d contacts</item>
+        <item quantity="few">%d contacts</item>
+        <item quantity="many">%d contacts</item>
+        <item quantity="other">%d contacts</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">Dewisa storfa</string>
+    <string name="storage">Storage</string>
+    <string name="internal">Mewnol</string>
+    <string name="sd_card">Cerdyn SD</string>
+    <string name="root">Craidd</string>
+    <string name="wrong_root_selected">Dewiswyd y ffolder anghywir. Dewisa ffolder craidd dy gerdyn SD</string>
+    <string name="sd_card_usb_same">Rhaid bod llwybrau\'r cerdyn SD a\'r ddyfais USB yn wahanol</string>
+    <string name="app_on_sd_card">Mae\'n ymddangos dy fod wedi gosod yr ap ar gerdyn SD, gan olygu nad yw teclynnau\'r ap ar gael. Ni fyddan nhw hyd yn oed ymddangos ar y rhestr o declynnau ar gael.
+        Mae hyn yn gyfyngiad gan y system, felly os wyt eisiau defnyddio\'r teclynnau, rhaid symud yr ap i storfa fewnol dy ddyfais.</string>
+    <string name="wrong_folder_selected">Wrong folder selected, please select path \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">Priodweddau</string>
+    <string name="path">Llwybr</string>
+    <string name="items_selected">Eitemau a ddewiswyd</string>
+    <string name="direct_children_count">Cyfrif is-ffolderi uniongyrchol</string>
+    <string name="files_count">Cyfrif cyfanswm ffeiliau</string>
+    <string name="resolution">Cydraniad</string>
+    <string name="duration">Hyd</string>
+    <string name="artist">Artist</string>
+    <string name="album">Casgliad</string>
+    <string name="focal_length">Hyd ffocal</string>
+    <string name="exposure_time">Amser amlygiad</string>
+    <string name="iso_speed">Cyflymder ISO</string>
+    <string name="f_number">F-rif</string>
+    <string name="camera">Camera</string>
+    <string name="exif">EXIF</string>
+    <string name="song_title">Teitl trac</string>
+    <string name="gps_coordinates">GPS coordinates</string>
+    <string name="altitude">Altitude</string>
+    <string name="remove_exif">Remove EXIF</string>
+    <string name="remove_exif_confirmation">Are you sure you want to remove EXIF values like GPS coordinates, camera model etc?</string>
+    <string name="exif_removed">EXIF values removed successfully</string>
+    <!-- Color customization -->
+    <string name="background_color">Lliw cefndir</string>
+    <string name="text_color">Lliw testun</string>
+    <string name="primary_color">Prif liw</string>
+    <string name="accent_color_white">Accent color of white theme</string>
+    <string name="accent_color_black_and_white">Accent color of Black &amp; White theme</string>
+    <string name="foreground_color">Lliw blaendir</string>
+    <string name="app_icon_color">Lliw eicon yr ap</string>
+    <string name="bottom_navigation_bar_color">Lliw bar llywio gwaelod</string>
+    <string name="restore_defaults">Adfer rhagosodiadau</string>
+    <string name="use_default">Use default</string>
+    <string name="default_color">Default</string>
+    <string name="change_color">Newid lliw</string>
+    <string name="theme">Thema</string>
+    <string name="changing_color_description">Bydd newid lliw yn achosi newid i\'r thema addasedig</string>
+    <string name="save">Cadw</string>
+    <string name="discard">Gwaredu</string>
+    <string name="undo_changes">Dad-wneud newidiadau</string>
+    <string name="undo_changes_confirmation">Wyt ti yn bendant eisiau dad-wneud a cholli dy newidiadau?</string>
+    <string name="cannot_be_undone">This action cannot be undone.</string>
+    <string name="save_before_closing">Mae gennyt newidiadau heb eu cadw. Cadw cyn gadael?</string>
+    <string name="apply_to_all_apps">Rhoi\'r lliwiau ar waith ym mhob ap Simple</string>
+    <string name="app_icon_color_warning">RHYBUDD: Mae rhai lansiwyr yn methu ag ymdrin addasiadau i apiau yn gywir. Yn yr achos bod yr eicon yn diflannu, rho gynnig ar lansio\'r ap trwy Google Play neu ryw declyn, os ar gael.
+        Unwaith y bydd wedi lansio, ail-osoda\'r eicon oren rhagosodedig #F57C00. Yn yr achos gwaethaf, bydd rhaid ail-osod yr ap.</string>
+    <string name="share_colors_success">Diweddarwyd y lliwiau yn llwyddiannus. Mae thema newydd o\'r enw \'Rhennir\' wedi ei ychwanegu. Defnyddia honno i ddiweddaru lliwiau pob ap yn y dyfodol.</string>
+    <string name="shared_theme_note">Note that even though you are using the Pro app version, you still need Simple Thank You for technical reasons. It takes care of the color synchronization.</string>
+    <string name="purchase_thank_you">
+        <![CDATA[
+            Pryna <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a> i ddatgloi’r nodwedd hon a chefnogi datblygiad, os gweli’n dda. Diolch!
+        ]]>
+    </string>
+    <!-- Themes -->
+    <string name="light_theme">Golau</string>
+    <string name="dark_theme">Tywyll</string>
+    <string name="auto_theme">Auto</string>
+    <string name="auto_light_dark_theme">Auto light / dark</string>
+    <string name="solarized">Solareiddiwyd</string>
+    <string name="dark_red">Coch tywyll</string>
+    <string name="white">White</string>
+    <string name="black_white">Du a Gwyn</string>
+    <string name="custom">Addasedig</string>
+    <string name="shared">Rhennir</string>
+    <string name="system_default">System default</string>
+    <!-- What's new -->
+    <string name="whats_new">Beth sy\'n newydd</string>
+    <string name="whats_new_disclaimer">* nodir y newidiadau mwyaf yma; mae rhai gwelliannau bychain hefyd fel arfer</string>
+    <!-- Actionbar items -->
+    <string name="delete">Dileu</string>
+    <string name="remove">Tynnu</string>
+    <string name="rename">Ail-enwi</string>
+    <string name="share">Rhannu</string>
+    <string name="share_via">Rhannu gyda</string>
+    <string name="resize">Resize</string>
+    <string name="select_all">Dewis y cwbl</string>
+    <string name="select_text">Select text</string>
+    <string name="hide">Cuddio</string>
+    <string name="unhide">Datguddio</string>
+    <string name="hide_folder">Cuddio ffolder</string>
+    <string name="unhide_folder">Datguddio ffolder</string>
+    <string name="temporarily_show_hidden">Dangos eitemau cudd dros dro</string>
+    <string name="stop_showing_hidden">Stopio dangos cyfryngau cuddiedig</string>
+    <string name="maximum_share_reached">Ni ellir rannu cymaint a hyn o gynnwys ar un tro</string>
+    <string name="empty_and_disable_recycle_bin">Gwagio ac analluogi\'r Bin Sbwriel</string>
+    <string name="undo">Dad-wneud</string>
+    <string name="redo">Ail-wneud</string>
+    <string name="print">Argraffu</string>
+    <string name="print_pro">Argraffu (Pro)</string>
+    <string name="shortcut">Shortcut</string>
+    <string name="create_shortcut">Create shortcut</string>
+    <string name="create_shortcut_pro">Create shortcut (Pro)</string>
+    <string name="add_number_to_contact">Add number to contact</string>
+    <string name="view_contact_details">View contact details</string>
+    <string name="call_from_sim_1">Call from SIM 1</string>
+    <string name="call_from_sim_2">Call from SIM 2</string>
+    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="move_to_top">Move to the top</string>
+    <string name="move_to_bottom">Move to the bottom</string>
+    <string name="pin_item">Pin item</string>
+    <string name="unpin_item">Unpin item</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="send_email">Send email</string>
+    <string name="call">Call</string>
+    <string name="contact_details">Contact details</string>
+    <string name="add_contact">Add contact</string>
+    <string name="wallpapers">Wallpapers</string>
+    <!-- Sorting -->
+    <string name="sort_by">Trefnu yn ôl</string>
+    <string name="name">Enw</string>
+    <string name="size">Maint</string>
+    <string name="last_modified">Newidiwyd diwethaf</string>
+    <string name="date_created">Date created</string>
+    <string name="date_taken">Dyddiad tynnwyd</string>
+    <string name="title">Teitl</string>
+    <string name="filename">Enw ffeil</string>
+    <string name="extension">Estyniad</string>
+    <string name="random">Ar hap</string>
+    <string name="sort_randomly">Trefnu ar hap</string>
+    <string name="ascending">Esgynnol</string>
+    <string name="descending">Disgynnol</string>
+    <string name="use_for_this_folder">Defnyddio i\'r ffolder hon yn unig</string>
+    <string name="sort_numeric_parts">Sort numeric parts by actual value</string>
+    <string name="first_name">Enw cyntaf</string>
+    <string name="middle_name">Enw canol</string>
+    <string name="surname">Cyfenw</string>
+    <string name="full_name">Full name</string>
+    <string name="use_custom_sorting">Use custom sorting</string>
+    <string name="change_order">Change order</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Wyt ti\'n bendant am barhau i ddileu?</string>
+    <string name="deletion_confirmation">Wyt ti\'n bendant eisiau dileu %s?</string>
+    <string name="deletion_confirmation_short">Delete %s?</string>
+    <!-- Are you sure you want to delete 5 items? -->
+    <string name="move_to_recycle_bin_confirmation">Wyt ti\'n bendant eisiau symud %s i\'r Bin Ailgylchu?</string>
+    <!-- Are you sure you want to move 3 items into the Recycle Bin? -->
+    <string name="are_you_sure_delete">Wyt ti\'n bendant eisiau dileu\'r eitem hon?</string>
+    <string name="are_you_sure_recycle_bin">Wyt ti\'n bendant eisiau symud yr eitem hon i\'r Bin Ailgylchu?</string>
+    <string name="do_not_ask_again">Peidio â gofyn eto yn y sesiwn hon</string>
+    <string name="do_not_show_again">Do not show again</string>
+    <string name="yes">Ydw</string>
+    <string name="no">Nac ydw</string>
+    <string name="maybe">Maybe</string>
+    <plurals name="delete_warning">
+        <item quantity="zero">WARNING: You are deleting %d folder</item>
+        <item quantity="one">WARNING: You are deleting %d folders</item>
+        <item quantity="two">WARNING: You are deleting %d folders</item>
+        <item quantity="few">WARNING: You are deleting %d folders</item>
+        <item quantity="many">WARNING: You are deleting %d folders</item>
+        <item quantity="other">WARNING: You are deleting %d folders</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="enter_pin">Rho PIN</string>
+    <string name="please_enter_pin">Rho PIN, plîs.</string>
+    <string name="wrong_pin">PIN anghywir</string>
+    <string name="repeat_pin">Rho\'r PIN eto</string>
+    <string name="pattern">Patrwm</string>
+    <string name="insert_pattern">Rho batrwm</string>
+    <string name="wrong_pattern">Patrwm anghywir</string>
+    <string name="repeat_pattern">Rho\'r patrwm eto</string>
+    <string name="biometrics">Biometrics</string>
+    <string name="fingerprint">Ôl byd</string>
+    <string name="add_fingerprint">Ychwanegu ôl bys</string>
+    <string name="place_finger">Gosoda dy fys ar y synhwyrydd olion bysedd</string>
+    <string name="open_biometric_dialog">Open biometric ID verification dialog</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="authentication_failed">Methodd y dilysiad</string>
+    <string name="authentication_blocked">Rhwystrwyd y dilysiad. Rho gynnig arall arni mewn eiliad</string>
+    <string name="no_fingerprints_registered">Does dim olion bysedd wedi\'u cofrestru. Ychwanega rai yn Gosodiadau dy ddyfais.</string>
+    <string name="go_to_settings">Mynd i\'r Gosodiadau</string>
+    <string name="protection_setup_successfully">Gosodwyd cyfrinair yn llwyddiannus. Ailosoda\'r ap os wyt yn ei anghofio.</string>
+    <string name="fingerprint_setup_successfully">Gosodwyd diogelwch yn llwyddiannus. Ailosoda\'r ap os wyt yn cael problemau yn ei ailosod.</string>
+    <string name="lock_folder">Lock folder</string>
+    <string name="lock_folder_pro">Lock folder (Pro)</string>
+    <string name="unlock_folder">Unlock folder</string>
+    <string name="lock_folder_notice">This protection works in this app only, it is not supposed to replace a real systemwide folder encryption.</string>
+    <!-- Times -->
+    <string name="yesterday">Ddoe</string>
+    <string name="today">Heddiw</string>
+    <string name="tomorrow">Yfory</string>
+    <string name="every_day">Every day</string>
+    <string name="hide_year">Hide year</string>
+    <string name="seconds_raw">eiliadau</string>
+    <string name="minutes_raw">munudau</string>
+    <string name="hours_raw">oriau</string>
+    <string name="days_raw">dyddiau</string>
+    <string name="seconds_letter">s</string>
+    <string name="minutes_letter">m</string>
+    <string name="hours_letter">h</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="zero">%d eiliadau</item>
+        <item quantity="one">%d eiliad</item>
+        <item quantity="two">%d eiliad</item>
+        <item quantity="few">%d eiliad</item>
+        <item quantity="many">%d eiliad</item>
+        <item quantity="other">%d eiliad</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="zero">%d munudau</item>
+        <item quantity="one">%d munud</item>
+        <item quantity="two">%d funud</item>
+        <item quantity="few">%d munud</item>
+        <item quantity="many">%d munud</item>
+        <item quantity="other">%d munud</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="zero">%d oriau</item>
+        <item quantity="one">%d awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+        <item quantity="other">%d awr</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="zero">%d diwrnodau</item>
+        <item quantity="one">%d diwrnod</item>
+        <item quantity="two">%d ddiwrnod</item>
+        <item quantity="few">%d diwrnod</item>
+        <item quantity="many">%d diwrnod</item>
+        <item quantity="other">%d diwrnod</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="zero">%d wythnosau</item>
+        <item quantity="one">%d wythnos</item>
+        <item quantity="two">%d wythnos</item>
+        <item quantity="few">%d wythnos</item>
+        <item quantity="many">%d wythnos</item>
+        <item quantity="other">%d wythnos</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="zero">%d misoedd</item>
+        <item quantity="one">%d mis</item>
+        <item quantity="two">%d fis</item>
+        <item quantity="few">%d mis</item>
+        <item quantity="many">%d mis</item>
+        <item quantity="other">%d mis</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="zero">%d blynyddoedd</item>
+        <item quantity="one">%d flwyddyn</item>
+        <item quantity="two">%d flynedd</item>
+        <item quantity="few">%d blynedd</item>
+        <item quantity="many">%d blynedd</item>
+        <item quantity="other">%d mlynedd</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="zero">%d eiliadau</item>
+        <item quantity="one">%d eiliad</item>
+        <item quantity="two">%d eiliad</item>
+        <item quantity="few">%d eiliad</item>
+        <item quantity="many">%d eiliad</item>
+        <item quantity="other">%d eiliad</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="zero">%d munudau</item>
+        <item quantity="one">%d munud</item>
+        <item quantity="two">%d funud</item>
+        <item quantity="few">%d munud</item>
+        <item quantity="many">%d munud</item>
+        <item quantity="other">%d munud</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="zero">%d oriau</item>
+        <item quantity="one">%d awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+        <item quantity="other">%d awr</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="zero">%d diwrnodau</item>
+        <item quantity="one">%d diwrnod</item>
+        <item quantity="two">%d ddiwrnod</item>
+        <item quantity="few">%d diwrnod</item>
+        <item quantity="many">%d diwrnod</item>
+        <item quantity="other">%d diwrnod</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="zero">%d wythnosau</item>
+        <item quantity="one">%d wythnos</item>
+        <item quantity="two">%d wythnos</item>
+        <item quantity="few">%d wythnos</item>
+        <item quantity="many">%d wythnos</item>
+        <item quantity="other">%d wythnos</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="zero">%d misoedd</item>
+        <item quantity="one">%d mis</item>
+        <item quantity="two">%d fis</item>
+        <item quantity="few">%d mis</item>
+        <item quantity="many">%d mis</item>
+        <item quantity="other">%d mis</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="zero">%d blynyddoedd</item>
+        <item quantity="one">%d flwyddyn</item>
+        <item quantity="two">%d flynedd</item>
+        <item quantity="few">%d blynedd</item>
+        <item quantity="many">%d blynedd</item>
+        <item quantity="other">%d mlynedd</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="zero">%d eiliadau ymlaen llaw</item>
+        <item quantity="one">%d eiliad ymlaen llaw</item>
+        <item quantity="two">%d eiliad ymlaen llaw</item>
+        <item quantity="few">%d eiliad ymlaen llaw</item>
+        <item quantity="many">%d eiliad ymlaen llaw</item>
+        <item quantity="other">%d eiliad ymlaen llaw</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="zero">%d munudau ymlaen llaw</item>
+        <item quantity="one">%d munud ymlaen llaw</item>
+        <item quantity="two">%d funud ymlaen llaw</item>
+        <item quantity="few">%d munud ymlaen llaw</item>
+        <item quantity="many">%d munud ymlaen llaw</item>
+        <item quantity="other">%d munud ymlaen llaw</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="zero">%d oriau ymlaen llaw</item>
+        <item quantity="one">%d awr ymlaen llaw</item>
+        <item quantity="two">%d awr ymlaen llaw</item>
+        <item quantity="few">%d awr ymlaen llaw</item>
+        <item quantity="many">%d awr ymlaen llaw</item>
+        <item quantity="other">%d awr ymlaen llaw</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="zero">%d diwrnodau ymlaen llaw</item>
+        <item quantity="one">%d diwrnod ymlaen llaw</item>
+        <item quantity="two">%d ddiwrnod ymlaen llaw</item>
+        <item quantity="few">%d diwrnod ymlaen llaw</item>
+        <item quantity="many">%d diwrnod ymlaen llaw</item>
+        <item quantity="other">%d diwrnod ymlaen llaw</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="zero">%d wythnosau ymlaen llaw</item>
+        <item quantity="one">%d wythnos ymlaen llaw</item>
+        <item quantity="two">%d wythnos ymlaen llaw</item>
+        <item quantity="few">%d wythnos ymlaen llaw</item>
+        <item quantity="many">%d wythnos ymlaen llaw</item>
+        <item quantity="other">%d wythnos ymlaen llaw</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="zero">%d misoedd ymlaen llaw</item>
+        <item quantity="one">%d mis ymlaen llaw</item>
+        <item quantity="two">%d fis ymlaen llaw</item>
+        <item quantity="few">%d mis ymlaen llaw</item>
+        <item quantity="many">%d mis ymlaen llaw</item>
+        <item quantity="other">%d mis ymlaen llaw</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="zero">%d blynyddoedd ymlaen llaw</item>
+        <item quantity="one">%d flwyddyn ymlaen llaw</item>
+        <item quantity="two">%d flynedd ymlaen llaw</item>
+        <item quantity="few">%d blynedd ymlaen llaw</item>
+        <item quantity="many">%d blynedd ymlaen llaw</item>
+        <item quantity="other">%d mlynedd ymlaen llaw</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="zero">%d eiliadau</item>
+        <item quantity="one">%d eiliad</item>
+        <item quantity="two">%d eiliad</item>
+        <item quantity="few">%d eiliad</item>
+        <item quantity="many">%d eiliad</item>
+        <item quantity="other">%d eiliad</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="zero">%d munudau</item>
+        <item quantity="one">%d munud</item>
+        <item quantity="two">%d funud</item>
+        <item quantity="few">%d munud</item>
+        <item quantity="many">%d munud</item>
+        <item quantity="other">%d munud</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="zero">%d oriau</item>
+        <item quantity="one">%d awr</item>
+        <item quantity="two">%d awr</item>
+        <item quantity="few">%d awr</item>
+        <item quantity="many">%d awr</item>
+        <item quantity="other">%d awr</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="zero">%d diwrnodau</item>
+        <item quantity="one">%d diwrnod</item>
+        <item quantity="two">%d ddiwrnod</item>
+        <item quantity="few">%d diwrnod</item>
+        <item quantity="many">%d diwrnod</item>
+        <item quantity="other">%d diwrnod</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="zero">%d wythnosau</item>
+        <item quantity="one">%d wythnos</item>
+        <item quantity="two">%d wythnos</item>
+        <item quantity="few">%d wythnos</item>
+        <item quantity="many">%d wythnos</item>
+        <item quantity="other">%d wythnos</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="zero">%d misoedd</item>
+        <item quantity="one">%d mis</item>
+        <item quantity="two">%d fis</item>
+        <item quantity="few">%d mis</item>
+        <item quantity="many">%d mis</item>
+        <item quantity="other">%d mis</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="zero">%d blynyddoedd</item>
+        <item quantity="one">%d flwyddyn</item>
+        <item quantity="two">%d flynedd</item>
+        <item quantity="few">%d blynedd</item>
+        <item quantity="many">%d blynedd</item>
+        <item quantity="other">%d mlynedd</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Amser yn weddill nes bod y larwm yn canu:\n%s</string>
+    <string name="reminder_triggers_in">Amser yn weddill nes dy fod yn cael dy atgoffa:\n%s</string>
+    <string name="time_remaining">Time remaining:\n%s</string>
+    <string name="alarm_warning">Sicrha bod y larwm yn gweithio\'n iawn cyn dibynnu arno. Gall gamymddwyn o herwydd rhwystrau\'r system yn ymwneud ag arbed batri.</string>
+    <string name="reminder_warning">Sicrha bod atgoffa yn gweithio yn iawn cyn dibynnu arnyn nhw. Gellir camymddwyn oherwydd rhwystrau\'r system yn ymwneud ag arbed batri.</string>
+    <string name="notifications_disabled">Mae hysbysiadau\'r ap hwn wedi\'u hanalluogi. Galluoga nhw yng ngosodiadau dy ddyfais.</string>
+    <!-- Alarms -->
+    <string name="alarm">Larwm</string>
+    <string name="snooze">Hepian</string>
+    <string name="dismiss">Diystyr</string>
+    <string name="no_reminder">Dim atgoffa</string>
+    <string name="at_start">Ar y dechrau</string>
+    <string name="system_sounds">Synau\'r system</string>
+    <string name="your_sounds">Dy synau di</string>
+    <string name="add_new_sound">Ychwanegu sŵn newydd</string>
+    <string name="no_sound">Dim sŵn</string>
+    <string name="during_day_at_hh_mm">During the day at hh:mm</string>
+    <string name="during_day_at">During the day at %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">Gosodiadau</string>
+    <string name="purchase_simple_thank_you">Prynu Simple Thank You</string>
+    <string name="general_settings">General</string>
+    <string name="color_customization">Color customization</string>
+    <string name="improved_color_customization">Improved color customization</string>
+    <string name="customize_colors">Addasu lliwiau</string>
+    <string name="customize_colors_locked">Addasu lliwiau (Locked)</string>
+    <string name="feature_locked">Locked</string>
+    <string name="customize_widget_colors">Addasu lliwiau teclyn</string>
+    <string name="customize_notifications">Customize notifications</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="use_english_language">Defnyddio Saesneg</string>
+    <string name="language">Language</string>
+    <string name="show_hidden_items">Dangos eitemau cudd</string>
+    <string name="font_size">Maint ffont</string>
+    <string name="small">Bach</string>
+    <string name="medium">Canolig</string>
+    <string name="large">Mawr</string>
+    <string name="extra_large">Mawr iawn</string>
+    <string name="password_protect_hidden_items">Gwarchod eitemau cudd â chyfrinair rhag cael eu dangos</string>
+    <string name="password_protect_whole_app">Gwarchod yr ap cyfan â chyfrinair</string>
+    <string name="password_protect_file_deletion">Gwarchod ffeiliau â chyfrinair rhag eu dileu neu symud</string>
+    <string name="keep_last_modified">Cadw\'r gwerth diwethaf i\'w addasu yng ngweithrediadau ffeiliau</string>
+    <string name="show_info_bubble">Dangos swigen gwybodaeth ar eitemau sgrolio wrth lusgo\'r bar sgrolio</string>
+    <string name="prevent_phone_from_sleeping">Atal y ffôn rhag cysgu tra bod yr ap yn y blaen</string>
+    <string name="skip_delete_confirmation">Peidio â dangos y deialog cadarnhau cyn dileu</string>
+    <string name="enable_pull_to_refresh">Galluogi tynnu-i-ail-lwytho o\'r top</string>
+    <string name="use_24_hour_time_format">Defnyddio fformat amser 24 awr</string>
+    <string name="change_date_and_time_format">Newid fformat dyddiad ac amser</string>
+    <string name="sunday_first">Dechrau\'r wythnos ar ddydd Sul</string>
+    <string name="widgets">Teclynnau</string>
+    <string name="use_same_snooze">Defnyddio\'r un amser hepian o hyd</string>
+    <string name="snooze_time">Amser hepian</string>
+    <string name="vibrate_on_button_press">Dirgrynu wrth wasgu botwm</string>
+    <string name="move_items_into_recycle_bin">Symud eitemau i\'r Bin Ailgylchu yn hytrach na\'u dileu</string>
+    <string name="recycle_bin_cleaning_interval">Cyfnod glanhau\'r Bin Ailgylchu</string>
+    <string name="empty_recycle_bin">Gwagio\'r Bin Ailgylchu</string>
+    <string name="force_portrait_mode">Gorfodi modd darlun</string>
+    <string name="export_settings">Allforio gosodiadau</string>
+    <string name="import_settings">Mewnforio gosodiadau</string>
+    <string name="settings_exported_successfully">Allforiwyd gosodiadau yn llwyddiannus</string>
+    <string name="settings_imported_successfully">Mewnforiwyd gosodiadau yn llwyddiannus</string>
+    <string name="start_name_with_surname">Dangos enw gyda\'r cyfenw gyntaf</string>
+    <string name="clear_cache">Clear cache</string>
+    <string name="show_call_confirmation_dialog">Dangos deialog i gadarnhau cyn gwneud galwad</string>
+    <!-- Setting sections -->
+    <string name="visibility">Gweladwyedd</string>
+    <string name="security">Diogelwch</string>
+    <string name="scrolling">Sgrolio</string>
+    <string name="file_operations">Gweithrediadau ffeiliau</string>
+    <string name="recycle_bin">Bin Ailgylchu</string>
+    <string name="saving_label">Cadw</string>
+    <string name="startup">Cychwyn</string>
+    <string name="text">Testun</string>
+    <string name="migrating">Mudo</string>
+    <string name="quality">Quality</string>
+    <string name="main_screen">Main screen</string>
+    <string name="thumbnails">Thumbnails</string>
+    <string name="list_view">List view</string>
+    <!-- Excluding -->
+    <string name="exclude">Exclude</string>
+    <string name="exclude_folder">Exclude folder</string>
+    <string name="excluded_folders">Excluded folders</string>
+    <string name="excluded">(excluded)</string>
+    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="remove_all">Remove all</string>
+    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">Rheoli pa dabiau sy\'n cael eu dangos</string>
+    <string name="default_tab_to_open">Tab to open at app start</string>
+    <string name="contacts_tab">Contacts</string>
+    <string name="favorites_tab">Favorites</string>
+    <string name="call_history_tab">Call History</string>
+    <string name="groups_tab">Groups</string>
+    <string name="last_used_tab">Last used one</string>
+    <string name="files_tab">Files</string>
+    <string name="recent_files_tab">Recent files</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">Adfer y ffeil hon</string>
+    <string name="restore_selected_files">Adfer y ffeiliau a ddewiswyd</string>
+    <string name="restore_all_files">Adfer pob ffeil</string>
+    <string name="recycle_bin_emptied">Gwagiwyd y Bin Ailgylchu yn llwyddiannus</string>
+    <string name="files_restored_successfully">Adferwyd ffeiliau yn llwyddiannus</string>
+    <string name="empty_recycle_bin_confirmation">Wyt ti yn bendant eisiau gwagio\'r Bin Sbwriel? Caiff y ffeiliau eu colli am byth.</string>
+    <string name="recycle_bin_empty">Mae\'r Bin Ailgylchu yn wag</string>
+    <string name="moving_recycle_bin_items_disabled">Analluogwyd symud eitemau o\'r Bin Ailgylchu. Defnyddia Adfer</string>
+    <string name="show_the_recycle_bin">Dangos y Bin Ailgylchu</string>
+    <string name="hide_the_recycle_bin">Cuddio\'r Bin Ailgylchu</string>
+    <string name="open_the_recycle_bin">Open the Recycle Bin</string>
+    <string name="skip_the_recycle_bin">Skip the Recycle Bin, delete files directly</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="zero">Moving %d item into the Recycle Bin</item>
+        <item quantity="one">Moving %d items into the Recycle Bin</item>
+        <item quantity="two">Moving %d items into the Recycle Bin</item>
+        <item quantity="few">Moving %d items into the Recycle Bin</item>
+        <item quantity="many">Moving %d items into the Recycle Bin</item>
+        <item quantity="other">Moving %d items into the Recycle Bin</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">Yn mewnforio…</string>
+    <string name="exporting">Yn allforio…</string>
+    <string name="importing_successful">Mewnforiwyd yn llwyddiannus</string>
+    <string name="exporting_successful">Allforiwyd yn llwyddiannus</string>
+    <string name="importing_failed">Methodd y mewnforio</string>
+    <string name="exporting_failed">Methodd yr allforio</string>
+    <string name="importing_some_entries_failed">Methwyd mewnforio rhai cofnodion</string>
+    <string name="exporting_some_entries_failed">Methwyd allforio rhai cofnodion</string>
+    <string name="no_entries_for_importing">Ni chanfuwyd unrhyw gofnodion i\'w mewnforio</string>
+    <string name="no_new_entries_for_importing">No new entries for importing have been found</string>
+    <string name="no_entries_for_exporting">Ni chanfuwyd unrhyw gofnodion i\'w hallforio</string>
+    <string name="backups">Backups</string>
+    <string name="enable_automatic_backups">Enable automatic backups</string>
+    <string name="manage_automatic_backups">Manage automatic backups</string>
+    <string name="date_time_pattern_info">You can use the following patterns to name your file automatically:\n\n%Y - year\n%M - month\n%D - day\n%h - hour\n%m - minute\n%s - second</string>
+    <!-- OTG devices -->
+    <string name="usb">USB</string>
+    <string name="usb_detected">Mae’n ymddangos bod dyfais USB wedi’i chysylltu â dy ddyfais. I sicrhau bod ei ffeiliau yn ymddangos yn gywir, rhaid rhoi caniatâd ychwanegol.</string>
+    <string name="confirm_usb_storage_access_text">Dewisa ffolder craidd y ddyfais USB ar y sgrin nesaf i roi caniatâd</string>
+    <string name="wrong_root_selected_usb">Dewiswyd y ffolder anghywir. Dewisa ffolder craidd dy ddyfais USB</string>
+    <!-- Dates -->
+    <string name="january">Ionawr</string>
+    <string name="february">Chwefror</string>
+    <string name="march">Mawrth</string>
+    <string name="april">Ebrill</string>
+    <string name="may">Mai</string>
+    <string name="june">Mehefin</string>
+    <string name="july">Gorffennaf</string>
+    <string name="august">Awst</string>
+    <string name="september">Medi</string>
+    <string name="october">Hydref</string>
+    <string name="november">Tachwedd</string>
+    <string name="december">Rhagfyr</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">Apr</string>
+    <string name="may_short">May</string>
+    <string name="june_short">June</string>
+    <string name="july_short">July</string>
+    <string name="august_short">Aug</string>
+    <string name="september_short">Sept</string>
+    <string name="october_short">Oct</string>
+    <string name="november_short">Nov</string>
+    <string name="december_short">Dec</string>
+    <!-- in Ionawr -->
+    <string name="in_january">yn Ionawr</string>
+    <string name="in_february">yn Chwefror</string>
+    <string name="in_march">yn Mawrth</string>
+    <string name="in_april">yn Ebrill</string>
+    <string name="in_may">yn Mai</string>
+    <string name="in_june">yn Mehefin</string>
+    <string name="in_july">yn Gorffennaf</string>
+    <string name="in_august">yn Awst</string>
+    <string name="in_september">yn Medi</string>
+    <string name="in_october">yn Hydref</string>
+    <string name="in_november">yn Tachwedd</string>
+    <string name="in_december">yn Rhagfyr</string>
+    <string name="monday">Llun</string>
+    <string name="tuesday">Mawrth</string>
+    <string name="wednesday">Mercher</string>
+    <string name="thursday">Iau</string>
+    <string name="friday">Gwener</string>
+    <string name="saturday">Sadwrn</string>
+    <string name="sunday">Sul</string>
+    <string name="monday_letter">Ll</string>
+    <string name="tuesday_letter">M</string>
+    <string name="wednesday_letter">M</string>
+    <string name="thursday_letter">I</string>
+    <string name="friday_letter">G</string>
+    <string name="saturday_letter">S</string>
+    <string name="sunday_letter">S</string>
+    <string name="monday_short">Llun</string>
+    <string name="tuesday_short">Maw</string>
+    <string name="wednesday_short">Mer</string>
+    <string name="thursday_short">Iau</string>
+    <string name="friday_short">Gwe</string>
+    <string name="saturday_short">Sad</string>
+    <string name="sunday_short">Sul</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Your app version will not be updated anymore. Please upgrade to the Pro version to receive new fixes and other improvements.</string>
+    <string name="upgrade_to_pro_long_click">Your app version will not be updated anymore. Please upgrade to the Pro version to receive new fixes and other improvements by clicking here.</string>
+    <string name="it_is_free">Mae am ddim tan: %s. Os wyt yn ei lawrlwytho cyn hynny, bydd yn bosib ei ddefnydido am ddim am byth.</string>
+    <string name="more_info">Mwy o wybodaeth</string>
+    <string name="upgrade">Uwchraddio</string>
+    <string name="upgrade_calendar">You have to migrate locally stored events manually via exporting in an .ics file, then importing. You can find both export/import buttons at the main screen menu.</string>
+    <string name="upgraded_from_free_gallery">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your settings and favorites over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro_gallery">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your settings and favorites over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your data over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your data over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_calendar">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your locally stored events over, you have to do it manually by exporting them into an .ics file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_contacts">Hello,\n\nseems like you just upgraded from the free version. If you had any contacts stored under \"%s\", you have to migrate them manually by exporting in a .vcf file from the free app version and importing here through the top menu.\n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_notes">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your notes over, you have to do it manually by exporting them into a file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <!-- About -->
+    <string name="about">Ynghylch</string>
+    <string name="website">Website</string>
+    <string name="website_label">Am y ffynonellau, gweler</string>
+    <string name="email_label">Anfona dy adborth neu awgrymiadau at</string>
+    <string name="upgrade_to_pro">Uwchraddio i Pro</string>
+    <string name="more_apps">Rhagor o apiau</string>
+    <string name="more_apps_from_us">More apps from us</string>
+    <string name="invite_friends">Gwahodd ffrindiau</string>
+    <string name="share_text">Hei, cymer olwg ar %1$s a %2$s</string>
+    <string name="invite_via">Gwahodd trwy</string>
+    <string name="rate_us">Sgorio ni</string>
+    <string name="rate">Rate</string>
+    <string name="donate">Rhoddi</string>
+    <string name="follow_us">Dilyn ni</string>
+    <string name="copyright">f %1$s\nHawlfraint © Simple Mobile Tools %2$d</string>
+    <string name="support">Support</string>
+    <string name="help_us">Help us</string>
+    <string name="social">Social</string>
+    <string name="other">Other</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="version_placeholder">Version %s</string>
+    <string name="hello">Hello :)</string>
+    <string name="about_footer">Made with ❤️ in Slovakia</string>
+    <string name="additional_info">Gwybodaeth ychwanegol</string>
+    <string name="app_version">Fersiwn ap: %s</string>
+    <string name="device_os">System y ddyfais: %s</string>
+    <string name="donate_please">
+        <![CDATA[
+            S\'mae<br><br>
+            Gobeithio dy fod yn mwynhau\'r ap. Nid yw\'n cynnwys unrhyw hysbysebion, felly a fyddi di mor garedig â chefnogi ei ddatblygiad gan brynu ap <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a>. Mi fydd hefyd yn stopio\'r neges hon ymddangos eto.<br><br>
+            Diolch!
+        ]]>
+    </string>
+    <string name="donate_new">Hello,&lt;br&gt;&lt;br&gt;hope you are enjoying the app. It contains no ads and we aren\'t collecting your data either, please support its development by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;. You will also have all app features including color customization unlocked.&lt;br&gt;&lt;br&gt;Thank you!</string>
+    <string name="donate_short">Support us by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; please, it will also unlock all app features including color customization.</string>
+    <string name="purchase">Prynu</string>
+    <string name="get_simple_phone">Get Simple Phone</string>
+    <string name="update_thank_you">Diweddara Simple Thank You i\'r fersiwn diweddaraf</string>
+    <string name="before_asking_question_read_faq">Cyn gofyn cwestiwn, gwiria osodiadau\'r ap a\'r atebion i Gwestiynau Cyffredin yn gyntaf. Gall fod y datrysiad yno.</string>
+    <string name="before_rate_read_faq">Before you rate us, please check the app settings and read the Frequently Asked Questions first. If you have any problems, maybe the solution is there.</string>
+    <string name="make_sure_latest">Also make sure that you are using the latest app version.</string>
+    <string name="make_sure_upgrade">Also note that this app version is no longer being developed, get the Pro one for many improvements.</string>
+    <string name="read_it">Read it</string>
+    <string name="read_faq">Read FAQ</string>
+    <string name="rate_us_prompt">Hello,\n\nit looks like you are using this app for quite a while already, and we really appreciate it.\n\nIf we can ask you a favor, please rate us on Google Play. That would really help us a lot.\n\nNo matter how you decide, you will not see this message again.\n\nThanks!</string>
+    <string name="rate_our_app">Rate our app please :)</string>
+    <string name="thank_you">Thank you</string>
+    <string name="widget_locked_pro">The widget is locked.\nPlease upgrade to the Pro version to unlock it.</string>
+    <string name="features_locked">This feature is locked, please purchase &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; for unlocking the full app.&lt;br&gt;&lt;br&gt;It is a one time payment only and if you won\'t be satisfied, we can refund you.</string>
+    <!-- New app (do not translate anything on the 4th line) -->
+    <string name="new_app">
+        <![CDATA[
+            S\'mae,<br><br>
+            Jyst yn rhoi gwybod i ti am ap newydd wedi\'i ryddhau yn ddiweddar:<br><br>
+            <a href="%1$s">%2$s</a><br><br>
+            <a href="%3$s">%4$s</a><br><br>
+            <a href="%5$s">%6$s</a><br><br>
+            Gellir ei lawrlwytho gan glicio\'r teitl.<br><br>
+            Hwyl.
+        ]]>
+    </string>
+    <string name="simple_app_launcher">Simple App Launcher</string>
+    <string name="simple_calculator">Simple Calculator</string>
+    <string name="simple_calendar">Simple Calendar</string>
+    <string name="simple_camera">Simple Camera</string>
+    <string name="simple_clock">Simple Clock</string>
+    <string name="simple_contacts">Simple Contacts</string>
+    <string name="simple_dialer">Simple Dialer</string>
+    <string name="simple_draw">Simple Draw</string>
+    <string name="simple_file_manager">Simple File Manager</string>
+    <string name="simple_flashlight">Simple Flashlight</string>
+    <string name="simple_gallery">Simple Gallery</string>
+    <string name="simple_keyboard">Simple Keyboard</string>
+    <string name="simple_launcher">Simple Launcher</string>
+    <string name="simple_music_player">Simple Music Player</string>
+    <string name="simple_notes">Simple Notes</string>
+    <string name="simple_sms_messenger">Simple SMS Messenger</string>
+    <string name="simple_thank_you">Simple Thank You</string>
+    <string name="simple_voice_recorder">Simple Voice Recorder</string>
+    <string name="app_launcher_short">App Launcher</string>
+    <string name="calculator_short">Calculator</string>
+    <string name="calendar_short">Calendar</string>
+    <string name="camera_short">Camera</string>
+    <string name="clock_short">Clock</string>
+    <string name="contacts_short">Contacts</string>
+    <string name="dialer_short">Dialer</string>
+    <string name="draw_short">Draw</string>
+    <string name="file_manager_short">File Manager</string>
+    <string name="flashlight_short">Flashlight</string>
+    <string name="gallery_short">Gallery</string>
+    <string name="keyboard_short">Keyboard</string>
+    <string name="launcher_short">Launcher</string>
+    <string name="music_player_short">Music Player</string>
+    <string name="notes_short">Notes</string>
+    <string name="sms_messenger_short">SMS Messenger</string>
+    <string name="thank_you_short">Thank You</string>
+    <string name="voice_recorder_short">Voice Recorder</string>
+    <string name="sideloaded_app">
+        <![CDATA[
+            Mae\'n ymddangos bod fersiwn dy ap yn llwgr. Lawrlwytha\'r fersiwn gwreiddiol <a href="%s">yma</a>.
+        ]]>
+    </string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">Cwestiynau cyffredin</string>
+    <string name="before_asking_question">Cyn ofyn cwestiwn, gweler y</string>
+    <string name="faq_1_title_commons">Pam nad ydw i\'n gweld teclyn yr ap hwn yn y rhestr teclynnau?</string>
+    <string name="faq_1_text_commons">Mwyaf debyg wyt wedi symud yr ap i gerdyn SD. Mae rhwystr yn system Android sy\'n cuddio teclynnau apiau sydd ar y cerdyn SD. Yr unig datrysiad yw mynd i osodiadau dy ddyfais a symud yr ap nôl i\'r storfa fewnol.</string>
+    <string name="faq_2_title_commons">Dw i eisiau cefnogi, ond dw i methu rhoi arian. Oes rhywbeth arall galla\'i wneud?</string>
+    <string name="faq_2_text_commons">
+        <![CDATA[
+            Yes, of course. You can spread the word about the apps or give good feedback and ratings. You can also help by translating the apps in a new language, or just update some existing translations.
+            The guide to translating is at <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">this website</a>, or just contact us at <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> if you have any questions.
+        ]]>
+    </string>
+    <string name="faq_3_title_commons">Dw i wedi dileu ffeiliau ar gam. Sut ydw i\'n eu hadfer nhw?</string>
+    <string name="faq_3_text_commons">Yn anffodus, nid yw\'n bosib. Mae ffeiliau yn cael eu dileu ar unwaith ar ôl y deialog cadarnhau. Does dim bin sbwriel.</string>
+    <string name="faq_4_title_commons">Dw i\'m yn hoffi lliwiau\'r teclyn. Ga\'i newid nhw?</string>
+    <string name="faq_4_text_commons">Cei. Wrth i ti lusgo teclyn ar dy sgrin gartref mae sgrin addasu\'r teclyn yn ymddangos. Gweli sgwariau lliwiau yn y gornel gwaelod chwith. Gwasga fanno i ddewis lliw newydd. Gellir defnyddio\'r llithrydd i addasu\'r alffa hefyd.</string>
+    <string name="faq_5_title_commons">Ydy\'n bosib adfer ffeiliau wedi\'u dileu?</string>
+    <string name="faq_5_text_commons">If they were really deleted, you cannot. However, there is a Recycle Bin enabled by default, it will cause the files just be moved in the Bin instead of deleting them.</string>
+    <string name="faq_6_title_commons">Mae eicon lansio\'r ap wedi diflannu. Beth alla\'i wneud?</string>
+    <string name="faq_6_text_commons">Mae hyn am nad yw dy lansiwr yn cefnogi addasu eiconau yn iawn. Rho gynnig ar lansio\'r ap o Google Play neu ryw declyn, os ar gael.
+        Ar ôl iddo lansio, gosoda eicon yr ap nôl i\'r lliw oren rhagosodedig #F57C00. Os nad yw hyn yn bosib neu\'n gweithio, bydd rhaid ailosod yr ap.</string>
+    <string name="faq_7_title_commons">The money has been deducted from my bank account, but I cannot download the app. What can I do?</string>
+    <string name="faq_7_text_commons">Payments are fully handled by Google, their system glitches from time to time. Just clear your Google Play app cache and restart your device, then retry downloading it.</string>
+    <string name="faq_8_title_commons">Why should I upgrade to the Pro version?</string>
+    <string name="faq_8_text_commons">As your app version is no longer updated, the bugs you have maybe spotted will never be fixed. There will also be no new functions added. You can purchase the Pro version on Google Play for a small sum of money.
+        It is a one time payment, which means that once you purchase it, you will never have to pay again. Not even after getting a new device. If you won\'t like the Pro version, you can just uninstall it within a few hours and you will automatically get your money back.
+        If you want a refund anytime later, just contact us at hello@simplemobiletools.com and you will get it.</string>
+    <string name="faq_9_title_commons">How can I select multiple items at once?</string>
+    <string name="faq_9_text_commons">There are multiple ways of doing that. The first one is starting the selection mode by long pressing one item, then short clicking on others to select them. The second way is similar to selecting items on PCs with a mouse,
+        just start the selection mode by long pressing one item, then with your finger still down drag it across other items for selecting. The third way of selecting multiple items is long pressing one item, then long pressing another one and everything in between gets selected. If you
+        want to select all items, just long press one item, then click at the selected item counter at the top left corner. That will select or unselect all everything.</string>
+    <string name="faq_10_title_commons">I have purchased the app, but I cannot download it on another device.</string>
+    <string name="faq_10_text_commons">Try clearing your Google Play app cache and restarting your device. It is some Google Play glitch, not really related to the app itself.</string>
+    <!-- Contributors -->
+    <string name="contributors">Contributors</string>
+    <string name="translation">Translation</string>
+    <string name="development">Development</string>
+    <string name="other_help">Other help</string>
+    <string name="contributors_label">
+        <![CDATA[
+            This list contains everyone that noticeably helped any app within the Simple Mobile Tools suite, not only this one. Translations are handled by volunteers,
+            let us know if you want to help too. The guide to translating is at <a href="https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file">this website</a>, or just contact us at <a href="mailto:hello@simplemobiletools.com">hello@simplemobiletools.com</a> if you have any questions.
+            Thanks to all contributors and other supporters!
+        ]]>
+    </string>
+    <string name="translation_arabic">Arabic</string>
+    <string name="translation_azerbaijani">Azerbaijani</string>
+    <string name="translation_bengali">Bengali</string>
+    <string name="translation_breton">Breton</string>
+    <string name="translation_bulgarian">Bulgarian</string>
+    <string name="translation_catalan">Catalan</string>
+    <string name="translation_czech">Czech</string>
+    <string name="translation_welsh">Welsh</string>
+    <string name="translation_danish">Danish</string>
+    <string name="translation_english">English</string>
+    <string name="translation_german">German</string>
+    <string name="translation_greek">Greek</string>
+    <string name="translation_spanish">Spanish</string>
+    <string name="translation_basque">Basque</string>
+    <string name="translation_persian">Persian</string>
+    <string name="translation_finnish">Finnish</string>
+    <string name="translation_french">French</string>
+    <string name="translation_galician">Galician</string>
+    <string name="translation_hindi">Hindi</string>
+    <string name="translation_croatian">Croatian</string>
+    <string name="translation_hungarian">Hungarian</string>
+    <string name="translation_indonesian">Indonesian</string>
+    <string name="translation_italian">Italian</string>
+    <string name="translation_hebrew">Hebrew</string>
+    <string name="translation_japanese">Japanese</string>
+    <string name="translation_korean">Korean</string>
+    <string name="translation_lithuanian">Lithuanian</string>
+    <string name="translation_nepali">Nepali</string>
+    <string name="translation_norwegian">Norwegian</string>
+    <string name="translation_dutch">Dutch</string>
+    <string name="translation_polish">Polish</string>
+    <string name="translation_portuguese">Portuguese</string>
+    <string name="translation_romanian">Romanian</string>
+    <string name="translation_russian">Russian</string>
+    <string name="translation_slovak">Slovak</string>
+    <string name="translation_slovenian">Slovenian</string>
+    <string name="translation_serbian">Serbian</string>
+    <string name="translation_swedish">Swedish</string>
+    <string name="translation_tamil">Tamil</string>
+    <string name="translation_turkish">Turkish</string>
+    <string name="translation_ukrainian">Ukrainian</string>
+    <string name="translation_vietnamese">Vietnamese</string>
+    <string name="translation_chinese_hk">Chinese (Hong Kong)</string>
+    <string name="translation_chinese_cn">Chinese (Simplified)</string>
+    <string name="translation_chinese_tw">Chinese (Traditional)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">Get the Pro version now!</string>
+    <string name="why_upgrade_basic_version">Basic</string>
+    <string name="why_upgrade_pro_version">Pro</string>
+    <string name="why_upgrade_no_ads">No ads</string>
+    <string name="why_upgrade_no_internet_access">No internet access</string>
+    <string name="why_upgrade_footer">100% Money Back Guarantee</string>
+    <string name="why_upgrade_footer_one_time_payment">One time payment</string>
+    <string name="why_upgrade_improved_design">Improved design</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">Advanced photo editor</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Advanced photo &amp; video editor</string>
+    <string name="why_upgrade_heic_support">HEIC/HEIF file support</string>
+    <string name="why_upgrade_batch_renaming">Advanced batch file renaming</string>
+    <string name="why_upgrade_folder_locking">Individual folder locking</string>
+    <string name="why_upgrade_printing_support">Printing support</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">Time zone support</string>
+    <string name="why_upgrade_attendees_emails">Attendees and email reminders</string>
+    <string name="why_upgrade_easy_event_importing">Easy event importing</string>
+    <string name="why_upgrade_new_widgets">New widgets</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">Improved duplicate contact merging</string>
+    <string name="why_upgrade_font_size_customization">Font size customization</string>
+    <string name="why_upgrade_private_contact_sharing">Optional private contact sharing within our apps</string>
+    <string name="why_upgrade_customizable_contact_ringtones">Customizable contact ringtones</string>
+    <string name="why_upgrade_contact_filtering">Contact filtering</string>
+    <string name="why_upgrade_contact_private_contacts">Privately stored contacts</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">Checklists</string>
+    <string name="why_upgrade_different_note_per_widget">Different note and colors per widget</string>
+    <string name="why_upgrade_note_locking">Note locking</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">Date and time format customization</string>
+    <string name="why_upgrade_shortcuts">Home screen shortcuts</string>
+    <string name="why_upgrade_file_compression">File compression support</string>
+    <string name="why_upgrade_recents_tab">Tab with recent files</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">Background color customization</string>
+    <string name="why_upgrade_file_importing">File importing support</string>
+    <string name="why_upgrade_zooming">Zooming</string>
+    <!-- License -->
+    <string name="notice">Mae\'r ap hwn yn defnyddio\'r llyfrgelloedd trydydd parti canlynol i wneud bywyd yn haws. Diolch am bob un.</string>
+    <string name="third_party_licences">Trwyddedau trydydd parti</string>
+    <string name="kotlin_title">Kotlin (iaith rhaglennu)</string>
+    <string name="subsampling_title">Subsampling Scale Image View (zoomable imageviews)</string>
+    <string name="glide_title">Glide (llwytho a cadw delweddau dros dro)</string>
+    <string name="picasso_title">Picasso (llwytho a cadw delweddau dros dro)</string>
+    <string name="cropper_title">Android Image Cropper (tocio a throi delweddau)</string>
+    <string name="rtl_viewpager_title">RtlViewPager (llithro dde i\'r chwith)</string>
+    <string name="joda_title">Joda-Time (amnewidyn dyddiad Java)</string>
+    <string name="stetho_title">Stetho (dadfygio cronfeydd data)</string>
+    <string name="otto_title">Otto (bws digwyddiadau)</string>
+    <string name="photoview_title">PhotoView (GIFiau chwyddadwy)</string>
+    <string name="pattern_title">PatternLockView (diogelwch patrwm)</string>
+    <string name="reprint_title">Reprint (diogelwch ôl bys)</string>
+    <string name="gif_drawable_title">Gif Drawable (GIFiau llwytho)</string>
+    <string name="autofittextview_title">AutoFitTextView (newid maint testun)</string>
+    <string name="robolectric_title">Robolectric (fframwaith profi)</string>
+    <string name="espresso_title">Espresso (cynorthwyydd profi)</string>
+    <string name="gson_title">Gson (dosrannydd JSON)</string>
+    <string name="leak_canary_title">Leak Canary (synhwyrydd cof yn gollwng)</string>
+    <string name="number_picker_title">Number Picker (dewisydd rhifau addasedig)</string>
+    <string name="exoplayer_title">ExoPlayer (chwaraeydd fideo)</string>
+    <string name="panorama_view_title">VR Panorama View (dangos panoramas)</string>
+    <string name="sanselan_title">Apache Sanselan (darllen metadata delweddau)</string>
+    <string name="filters_title">Android Photo Filters (hidlyddion delweddau)</string>
+    <string name="gesture_views_title">Gesture Views (delweddau chwyddadwy)</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (letters on scrollbar)</string>
+    <string name="event_bus_title">Event Bus (communication within the app)</string>
+    <string name="audio_record_view_title">Audio Record View (audio visualization)</string>
+    <string name="sms_mms_title">SMS MMS (SMS and MMS handling)</string>
+    <string name="apng_title">APNG Android (animated WebP support)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (PDF viewer)</string>
+    <string name="m3u_parser_title">M3U Parser (m3u playlist file handling)</string>
+    <string name="android_lame_title">AndroidLame (mp3 encoder)</string>
+    <!-- Trial -->
+    <string name="trial_expired">Trial expired</string>
+    <string name="start_free_trial">Start free trial</string>
+    <string name="trial_expires_soon">Your trial expires soon.</string>
+    <string name="unlock_for_one_final_day">Unlock the app for one final day</string>
+    <string name="welcome_to_app_name">Welcome to %s!</string>
+    <string name="trial_start_description">Thank you for using our app. You can use this unlocked version for &lt;font color=\'#FFFFFF\'&gt;%d days&lt;/font&gt;. Once the trial ends, please consider upgrading to the Pro version. It has a huge amount of new features, modern design, no ads and many other improvements.
+        \n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nHope you\'ll like it :)</string>
+    <string name="trial_end_description">Please upgrade to the Pro version to enjoy the app to the fullest.\n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nSee you there :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="zero">Your trial expires in %d day.</item>
+        <item quantity="one">Your trial expires in %d days.</item>
+        <item quantity="two">Your trial expires in %d days.</item>
+        <item quantity="few">Your trial expires in %d days.</item>
+        <item quantity="many">Your trial expires in %d days.</item>
+        <item quantity="other">Your trial expires in %d days.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">DEPRECATED: This version of the app is no longer maintained, get the Pro version at https://play.google.com/store/apps/details?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Don\'t forget that if you uninstall any paid app within 2 hours, you will automatically be refunded. If you want a refund anytime later, just contact us at hello@simplemobiletools.com and you will get it. That makes it easy to try it out :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">A group of simple, open source Android apps with customizable widgets, without ads and unnecessary permissions.</string>
+</resources>

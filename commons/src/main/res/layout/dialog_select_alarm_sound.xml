@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_select_alarm_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/dialog_select_alarm_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_select_alarm_your_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/bigger_margin"
+            android:paddingTop="@dimen/bigger_margin"
+            android:paddingEnd="@dimen/bigger_margin"
+            android:text="@string/your_sounds" />
+
+        <RadioGroup
+            android:id="@+id/dialog_select_alarm_your_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_margin"
+            android:paddingTop="@dimen/medium_margin"
+            android:paddingEnd="@dimen/activity_margin" />
+
+        <TextView
+            android:id="@+id/dialog_select_alarm_system_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/bigger_margin"
+            android:paddingTop="@dimen/medium_margin"
+            android:paddingEnd="@dimen/bigger_margin"
+            android:text="@string/system_sounds" />
+
+        <RadioGroup
+            android:id="@+id/dialog_select_alarm_system_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_margin"
+            android:paddingTop="@dimen/medium_margin"
+            android:paddingRight="@dimen/activity_margin" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ok">ٹھیک اے</string>
+    <string name="cancel">رد کرو</string>
+    <string name="back">پچھے</string>
+    <string name="nothing">کجھ نہیں</string>
+    <string name="later">فیر</string>
+    <string name="save_as">نویں ناں نال سامبھو</string>
+    <string name="file_saved">فائل سامبھی گئی</string>
+    <string name="invalid_file_format">فائیل فارمیٹ نہیں درست اے</string>
+    <string name="out_of_memory_error">غلطی، کوئی ہور یاد نہیں</string>
+    <string name="an_error_occurred">گلتی ائی اے؜:؜ %s</string>
+    <string name="error">غلطی:؜ ‫%s‬</string>
+    <string name="open_with">ہور اَیپ نال کھُلھو</string>
+    <string name="edit_with">ہور اَیپ نال کھُلھو</string>
+    <string name="edit">سودھو</string>
+    <string name="no_app_found">کوئی ویدھ اَیپ نہیں لبھی</string>
+    <string name="no_browser_found">براؤزر نہیں لبھیا</string>
+    <string name="no_email_client_found">ای‌میل والے نہیں لبھیا</string>
+    <string name="set_as">ناں نال ٹیکو</string>
+    <string name="copy_to_clipboard">کاپی کرو</string>
+    <string name="copy_number_to_clipboard">نمبر کاپی کرو</string>
+    <string name="value_copied_to_clipboard">مُل کاپی کیتا گیا</string>
+    <string name="value_copied_to_clipboard_show">مُل کیتا گیا:؜\n‫%s‬</string>
+    <string name="dial_number">نمبر ڈائیل کرو</string>
+    <string name="unknown">نامعلوم</string>
+    <string name="always">ہمیشاں</string>
+    <string name="never">کدے نہیں</string>
+    <string name="details">وروے</string>
+    <string name="notes">نوٹ</string>
+    <string name="deleting_folder">فولڈر ”⁠‫⁠%s⁠‬⁠“؜ نوں مٹایا جا رہا اے</string>
+    <string name="none">کوئی نہیں</string>
+    <string name="label">چیپی</string>
+    <string name="transparent">پاردرشتہ</string>
+    <string name="transparent_color">پاردرشی رنگ</string>
+    <string name="select_a_different_color">ہور رنگ چݨو</string>
+    <string name="download">ڈاؤن‌لوڈ کرو</string>
+    <string name="notification">خبر دا نوٹ</string>
+    <string name="notifications">خبر دے نوٹ</string>
+    <string name="email">ای‌میل</string>
+    <string name="previous">پچھلا</string>
+    <string name="playpause">پلے / رکھ</string>
+    <string name="next">اگے</string>
+    <string name="number">گݨتی</string>
+    <string name="no_contacts_found">کوئی رابطے نہیں لبھے</string>
+    <string name="request_the_required_permissions">اِجازتاں لئی بینتی کرو</string>
+    <string name="no_access_to_contacts">پہنچ وچ تہاڈے رابطے نہیں اے</string>
+    <string name="no_phone_call_permission">فون کال بݨاؤݨ لئی اَیپ دی اِجازت نہیں اے، سیٹنگاں وچ جاکے دیو</string>
+    <string name="insert_text_here">اِتھے لکھو</string>
+    <string name="call_person">%s کال کرو</string>
+    <string name="confirm_calling_person">Confirm calling %s</string>
+    <string name="zero">صفر</string>
+    <string name="one">اِکّ</string>
+    <string name="two">دو</string>
+    <string name="three">تِن</string>
+    <string name="four">چار</string>
+    <string name="five">پنج</string>
+    <string name="six">چھے</string>
+    <string name="seven">ست</string>
+    <string name="eight">اٹھ</string>
+    <string name="nine">نوں</string>
+    <string name="value">مُل</string>
+    <string name="value_cannot_be_empty">مُل خالی نہیں ہو سکدا</string>
+    <string name="create_new_contact">نواں رابطہ بݨاؤ</string>
+    <string name="add_to_existing_contact">اِک رابطہ وچ ویروے سودھو</string>
+    <string name="app_corrupt">اَیپ خراب ہوگی اے</string>
+    <string name="disclaimer">مُنکر ہوݨ</string>
+    <string name="take_photo">فوٹو کھچو</string>
+    <string name="choose_photo">تصویر چݨو</string>
+    <string name="choose_video">Choose video</string>
+    <string name="choose_contact">Choose contact</string>
+    <string name="choose_file">Choose file</string>
+    <string name="record_audio">Record audio</string>
+    <string name="record_video">Record video</string>
+    <string name="updating">Updating…</string>
+    <string name="phone_storage">فون دی سٹوریج</string>
+    <string name="phone_storage_hidden">فون دی سٹوریج (ہور اَیپاں نوں نظر نہیں آؤندی)</string>
+    <string name="audio">Audio</string>
+    <!-- Events -->
+    <string name="birthday">جنم دن</string>
+    <string name="anniversary">ورھےگنڈھ</string>
+    <!-- Emails -->
+    <string name="home">گھر</string>
+    <string name="work">کم</string>
+    <!-- Phone numbers -->
+    <string name="mobile">موبائیل</string>
+    <string name="main_number">مکھ</string>
+    <string name="work_fax">کم دی فیکس</string>
+    <string name="home_fax">گھر دی فیکس</string>
+    <string name="pager">پیجر</string>
+    <string name="no_phone_number_found">کوئی فون نمبر نہیں لبھیا</string>
+    <!-- View types -->
+    <string name="change_view_type">درش دی قسم بدلو</string>
+    <string name="grid">گرِڈ</string>
+    <string name="grid_pro">گرِڈ (جھونگے دا نشان)</string>
+    <string name="uneven_grid">اسمان گرِڈ</string>
+    <string name="list">لِسٹ</string>
+    <string name="increase_column_count">کالماں دی گݨتی ودھاؤ</string>
+    <string name="reduce_column_count">کالماں دی گݨتی گھٹاؤ</string>
+    <string name="column_count">کالماں دی گݨتی</string>
+    <string name="portrait_column_count">کھڑ رُخ نظارے دے کالماں دی گݨتی</string>
+    <string name="landscape_column_count">پڑے رُک نظارے دے کالماں دی گݨتی</string>
+    <string name="change_cover_image">اگلی تصویر بدلو</string>
+    <string name="select_photo">تصویر چݨو</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d column</item>
+        <item quantity="other">%d columns</item>
+    </plurals>
+    <!-- Blocked numbers -->
+    <string name="manage_blocked_numbers">روکے نمبراں دیاں سیٹنگاں</string>
+    <string name="not_blocking_anyone">تہاڈے کوئی روکے نمبر نہیں اے۔</string>
+    <string name="add_a_blocked_number">کجھ روکیا نمبر پایو</string>
+    <string name="block_number">نمبر روکو</string>
+    <string name="block_numbers">نمبر روکو</string>
+    <string name="blocked_numbers">روکے نمبر</string>
+    <string name="export_blocked_numbers">روکے نمبر ایکسپورٹ کرو</string>
+    <string name="import_blocked_numbers">روکے نمبر ایمپورٹ کرو</string>
+    <string name="must_make_default_dialer">نمبر روکݨ لئی ایس اَیپ مول ضروری اے۔</string>
+    <string name="set_as_default">مول نال ٹیکو</string>
+    <string name="block_confirmation">تسیں پکے، ‫”⁠%s‬“؜ روکو؟</string>
+    <string name="block_unknown_calls">جے رابطے دے باہروں کالاں آؤندیاں اے، ایہہ روکو</string>
+    <string name="block_unknown_messages">جے رابطے دے باہروں سنیہے آؤندے اے، ایہہ روکو</string>
+    <string name="add_blocked_number_helper_text">Enter a number or a pattern (e.g. *12345*, +1*8888) to block all calls and messages from numbers matching the pattern.</string>
+    <string name="must_make_default_caller_id_app">Can\'t block unknown numbers without caller ID permission.</string>
+    <!-- Favorites -->
+    <string name="favorites">پسندیدے</string>
+    <string name="add_favorites">یاد وچ سامبھو</string>
+    <string name="add_to_favorites">یاد وچ سامبھو</string>
+    <string name="remove_from_favorites">یاد وچ ہٹاؤ</string>
+    <!-- Search -->
+    <string name="search">کھوجو</string>
+    <string name="search_in_placeholder">Search in %s</string>
+    <string name="type_2_characters">Type in at least 2 characters to start the search.</string>
+    <string name="search_contacts">Search contacts</string>
+    <string name="search_favorites">Search favorites</string>
+    <string name="search_apps">Search apps</string>
+    <string name="search_events">Search events</string>
+    <string name="search_groups">Search groups</string>
+    <string name="search_history">Search history</string>
+    <string name="search_calls">Search calls</string>
+    <string name="search_files">Search files</string>
+    <string name="search_folders">Search folders</string>
+    <string name="search_files_and_folders">Search files and folders</string>
+    <string name="search_playlists">Search playlists</string>
+    <string name="search_artists">Search artists</string>
+    <string name="search_albums">Search albums</string>
+    <string name="search_tracks">Search tracks</string>
+    <string name="search_text">Search text</string>
+    <string name="search_conversations">Search conversations</string>
+    <string name="search_recordings">Search recordings</string>
+    <!-- Filters -->
+    <string name="filter">فِلٹر کرو</string>
+    <string name="filter_pro">Filter (Pro)</string>
+    <string name="no_items_found">کوئی چیزاں نہیں لبھیاں۔</string>
+    <string name="change_filter">فِلٹر بدلو</string>
+    <!-- Permissions -->
+    <string name="no_storage_permissions">سٹوریج دی اِجازت ضروری اے</string>
+    <string name="no_contacts_permission">رابطے دی اِجازت ضروری اے</string>
+    <string name="no_camera_permissions">کیمرہ دی اِجازت ضروری اے</string>
+    <string name="no_audio_permissions">آڈیو دی اِجازت ضروری اے</string>
+    <string name="no_permission">No permission</string>
+    <string name="allow_notifications_reminders">You must allow the app displaying notifications, else it cannot show reminders.</string>
+    <string name="allow_notifications_files">You must allow the app displaying notifications, else it cannot show the progress bar.</string>
+    <string name="allow_notifications_music_player">You must allow the app displaying notifications, else it cannot play songs.</string>
+    <string name="allow_notifications_voice_recorder">You must allow the app displaying notifications, else it cannot record audio.</string>
+    <string name="allow_notifications_incoming_calls">You must allow the app displaying notifications, else it cannot show incoming calls.</string>
+    <string name="allow_notifications_incoming_messages">You must allow the app displaying notifications, else it cannot show incoming messages.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_required">Permission Required</string>
+    <!-- Renaming -->
+    <string name="rename_file">فائل دا ناں بدلو</string>
+    <string name="rename_folder">فولڈر دا ناں بدلو</string>
+    <string name="rename_file_error">غلطی آئی اے، فائل دا ناں بدل نہیں سکدی</string>
+    <string name="rename_folder_error">غلطی آئی اے، فولڈر دا ناں بدل نہیں سکدی</string>
+    <string name="rename_folder_empty">فولڈر دا ناں وچ کجھ لکھت چاہدی اے</string>
+    <string name="rename_folder_exists">ایس ناں نال اِک فولڈر پہلاں ہی موجودہ اے</string>
+    <string name="rename_folder_root">روٹ فولڈ دا ناں بدل نہیں سکدا</string>
+    <string name="rename_folder_ok">فولڈر دا ناں بدلیا گیا</string>
+    <string name="renaming_folder">فولڈر دا ناں بدلیا جا رہا اے</string>
+    <string name="filename_cannot_be_empty">فائل دا ناں وچ کجھ لکھت چاہدی اے</string>
+    <string name="filename_invalid_characters">فائل دا ناں وچ منع اکھر لبھیا</string>
+    <string name="filename_invalid_characters_placeholder">Filename \'%s\' contains invalid characters</string>
+    <string name="extension_cannot_be_empty">ایکسٹینشن خالی نہیں ہو چاہیدی اے</string>
+    <string name="source_file_doesnt_exist">Source file %s doesn\'t exist</string>
+    <string name="prepend_filenames">پہلے بھاگ وچ فائلاں دے ناؤں پایو</string>
+    <string name="append_filenames">لکھت بعد فائلاں دے ناؤں شامل کرو</string>
+    <string name="simple_renaming">سادے ناؤں بدلدے</string>
+    <string name="pattern_renaming">نمونہ</string>
+    <string name="string_to_add">پاوݨ لئی لکھت</string>
+    <string name="rename_date_time_pattern">%Y - سال
+\n%M - مہینا
+\n%D - دن
+\n%h - گھنٹہ
+\n%m - منٹ
+\n%s - سکنٹ
+\n%i - نمبر اِکّ توں وڈا رہا اتݨ</string>
+    <string name="filename_without_txt">فائل دا ناں، .txt نہیں ورتو۔</string>
+    <string name="filename_without_json">فائل دا ناں (‫‎.json‬ ؜بنہا)؜</string>
+    <string name="filename_without_zip">فائل دا ناں (‫‎.zip‬ ؜بنہا)؜</string>
+    <string name="cannot_hide_files">Starting from Android 11 you cannot hide files and folders like that anymore</string>
+    <!-- Copy / Move -->
+    <string name="copy">کاپی کرو</string>
+    <string name="move">بھیجو</string>
+    <string name="copy_move">کاپی / چھلاؤ</string>
+    <string name="copy_to">اِتھوں تھاں نوں کاپی کرو</string>
+    <string name="move_to">اِتھوں تھاں نوں چلاؤ</string>
+    <string name="source">سروت</string>
+    <string name="destination">منزل</string>
+    <string name="select_destination">منزل چݨو</string>
+    <string name="click_select_destination">منزل چوݨ لئی اِتھے چھوہو</string>
+    <string name="invalid_destination">غلطے آئی اے، چݨیا منزل وچ سامبھ نہیں سکدا</string>
+    <string name="please_select_destination">منزل چݨیو</string>
+    <string name="source_and_destination_same">سروت تے منزل وکھرے ضروری اے</string>
+    <string name="copy_failed">افسوس، فائلاں کاپی کر نہیں سکدیاں</string>
+    <string name="copying">کاپی کیتا جا رہا اے…</string>
+    <string name="copying_success">فائلاں کاپی کیتیاں گیاں</string>
+    <string name="copying_success_one">فائل کاپی کیتی گئی</string>
+    <string name="copy_move_failed">افسوس، غلطی آئی اے</string>
+    <string name="moving">تبدیل کیتا جا رہا اے…</string>
+    <string name="moving_success">فائلاں چالیاں گیاں</string>
+    <string name="moving_success_one">فائل چالی گئی اے</string>
+    <string name="moving_success_partial">سروت دی فائلاں نہیں چال سکدیاں</string>
+    <string name="copying_success_partial">کجھ فائلاں کاپی کر نہیں سکدیاں</string>
+    <string name="no_files_selected">کوئی فائلاں نہیں سکیاں</string>
+    <string name="saving">سامبھیا جا رہا اے…</string>
+    <string name="could_not_create_folder">فولڈر‫ %s‬؜ ؜بݨا نہیں سکدی</string>
+    <string name="could_not_create_file">فائل‫ %s‬؜ ؜بݨا نہیں سکدی</string>
+    <string name="no_new_items">کوئی نویاں چیزاں نہیں لبھیاں</string>
+    <string name="no_space">The destination does not have enough space available.\nRequired %1$s, available %2$s</string>
+    <string name="system_service_disabled">System service for selecting files and folders is unavailable</string>
+    <!-- Create new -->
+    <string name="create_new">نویں بݨاؤ</string>
+    <string name="folder">فولڈر</string>
+    <string name="file">فائیل</string>
+    <string name="create_new_folder">نواں فولڈر بݨاؤ</string>
+    <string name="name_taken">ایس ناں نال کجھ فائل یا فولڈر پہلاں ہی موجودہ اے</string>
+    <string name="invalid_name">ایس ناں وچ منع اکھر لبھے</string>
+    <string name="empty_name">کجھ ناں پایو</string>
+    <string name="unknown_error_occurred">نمعلوم غلطی آئی اے</string>
+    <!-- File operation conflicts -->
+    <string name="file_already_exists">فائل‫ ”⁠%s‬⁠“ ؜پہلاں ہی موجود اے</string>
+    <string name="file_already_exists_overwrite">File \"%s\" already exists. Overwrite\?</string>
+    <string name="folder_already_exists">فولڈر‫ ”⁠%s‬⁠“ ؜پہلاں ہی موجود اے</string>
+    <string name="merge">ملاؤ</string>
+    <string name="keep_both">دوویں رکھو</string>
+    <string name="overwrite">اُتے لِکھو</string>
+    <string name="skip">اگے</string>
+    <string name="append">فائل دا نان بعد ‫\'_1\'‬ ؜لکھو</string>
+    <string name="apply_to_all">سبھ نوں لگو</string>
+    <string name="system_folder_restriction">The system does not allow the operation in this folder, please pick another one</string>
+    <string name="system_folder_copy_restriction">The system does not allow copying into this folder, please pick another one</string>
+    <string name="rename_in_sd_card_system_restriction">The system does not allow renaming in this folder</string>
+    <string name="rename_internal_system_restriction">Cannot rename folders directly on internal storage, only subfolders</string>
+    <string name="cannot_rename_folder">ایہہ فولڈر دا ناں بدل نہیں سکدا اے</string>
+    <!-- File picker -->
+    <string name="select_folder">فولڈر چݨو</string>
+    <string name="select_file">فائل چݨو</string>
+    <string name="confirm_storage_access_title">باہری سٹوریج پہنچ لئی پکا کرو</string>
+    <string name="confirm_folder_access_title">فولڈر دی اِجازت پکا کرو</string>
+    <string name="confirm_storage_access_text">Please choose the top folder of the SD card on the next screen, to grant write access</string>
+    <string name="confirm_storage_access_text_sd">If you don\'t see the SD card, try this</string>
+    <string name="confirm_storage_access_android_text">Please allow the app accessing the selected storage on the next screen by pressing \'Use this folder\' at the bottom.</string>
+    <string name="confirm_storage_access_android_text_specific">Please allow accessing \'<b>%s</b>\' on the next screen by pressing \'<b>Use this folder</b>\' at the bottom.</string>
+    <string name="confirm_create_doc_for_new_folder_text">Please press \'<b>Save</b>\' at the bottom of the next screen to create the new folder.</string>
+    <string name="confirm_selection">چوݨ نوں پکا کرو</string>
+    <string name="loading">لوڈ کر رہا اے…</string>
+    <string name="access_storage_prompt">Please grant our app access to all your files, it might not work well without it.</string>
+    <plurals name="items">
+        <item quantity="one">‫%d‬ ؜چیز</item>
+        <item quantity="other">‫%d‬ ؜چیزاں</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 items? -->
+    <plurals name="delete_items">
+        <item quantity="one">‫%d‬ ؜چیز</item>
+        <item quantity="other">‫%d‬ ؜چیزاں</item>
+    </plurals>
+    <plurals name="deleting_items">
+        <item quantity="one">؜‫%d‬ ؜ چیز مٹائی جا رہی اے</item>
+        <item quantity="other">؜‫%d‬ ؜ چیزاں مٹائیں جا رہیاں اے</item>
+    </plurals>
+    <!-- Are you sure you want to delete 5 contacts? -->
+    <plurals name="delete_contacts">
+        <item quantity="one">؜‫%d‬ ؜ رابطہ</item>
+        <item quantity="other">؜‫%d‬ ؜ رابطے</item>
+    </plurals>
+    <!-- Storages -->
+    <string name="select_storage">سٹوریج چݨو</string>
+    <string name="storage">سٹوریج</string>
+    <string name="internal">اندرونی</string>
+    <string name="sd_card">ایس‌ڈی کارڈ</string>
+    <string name="root">روٹ</string>
+    <string name="wrong_root_selected">Wrong folder selected, please select the main folder of your SD card</string>
+    <string name="sd_card_usb_same">SD card and USB device paths cannot be the same</string>
+    <string name="app_on_sd_card">You seem to have the app installed on an SD card, that makes the app widgets unavailable. You won\'t even see them on the list of available widgets. It is a system limitation, so if you want to use the widgets, you have to move the app back on the internal storage.</string>
+    <string name="wrong_folder_selected">Wrong folder selected, please select path \'%s\'</string>
+    <!-- File properties -->
+    <string name="properties">ویروے</string>
+    <string name="path">پاتھ</string>
+    <string name="items_selected">چݨیاں چیزاں</string>
+    <string name="direct_children_count">ادھین چیزاں دی گݨتی</string>
+    <string name="files_count">ساریاں فائلاں دی گݨتی</string>
+    <string name="resolution">ریزولوشن</string>
+    <string name="duration">معیاد</string>
+    <string name="artist">آرٹسٹ</string>
+    <string name="album">البم</string>
+    <string name="focal_length">پرکاش پاوݨ دی لمبائی</string>
+    <string name="exposure_time">پرگٹاوݨ دا سماں</string>
+    <string name="iso_speed">آئیسو رفتار</string>
+    <string name="f_number">ایف‌نمبر</string>
+    <string name="camera">کیمرہ</string>
+    <string name="exif">ایکسیف فارمیٹ</string>
+    <string name="song_title">گیت دا سرلیکھ</string>
+    <string name="gps_coordinates">بھوگولک گݨک</string>
+    <string name="altitude">اُچائی</string>
+    <string name="remove_exif">ایکسیف ڈیٹا ہٹاؤ</string>
+    <string name="remove_exif_confirmation">Are you sure you want to remove EXIF values like GPS coordinates, camera model etc\?</string>
+    <string name="exif_removed">سارے ایکسیف مُل ہٹاۓ گئے اے</string>
+    <!-- Color customization -->
+    <string name="background_color">پچھے دا رنگ</string>
+    <string name="text_color">لکھت دا رنگ</string>
+    <string name="primary_color">مکھ رنگ</string>
+    <string name="accent_color_white">چٹی تھیم لئی دوجا رنگ</string>
+    <string name="accent_color_black_and_white">سلیٹی تھیم لئی دوجا رنگ</string>
+    <string name="foreground_color">اگواڑا دا رنگ</string>
+    <string name="app_icon_color">آئیکون دا رنگ</string>
+    <string name="bottom_navigation_bar_color">ہیٹھاں بار دا رنگ</string>
+    <string name="restore_defaults">مولاں نوں اُلٹو</string>
+    <string name="use_default">مول ورتو</string>
+    <string name="default_color">مول</string>
+    <string name="change_color">رنگ بدلو</string>
+    <string name="theme">تھیم</string>
+    <string name="changing_color_description">Changing a color will make it switch to Custom theme</string>
+    <string name="save">سامبھو</string>
+    <string name="discard">ہٹاؤ</string>
+    <string name="undo_changes">تبدیلیاں موڑو</string>
+    <string name="undo_changes_confirmation">Are you sure you want to undo your changes\?</string>
+    <string name="cannot_be_undone">This action cannot be undone.</string>
+    <string name="save_before_closing">ہݨے تسیں ساریاں تبدیلیاں نہیں سامبھیاں ہن۔ ہݨ کیہ بند کرن توں پہلاں سامبھیو؟</string>
+    <string name="apply_to_all_apps">ساریاں سادیاں ایپلیکیشناں نوں رنگ لگاؤ</string>
+    <string name="app_icon_color_warning">WARNING: Some launchers do not handle app icon customization properly. In case the icon will disappear, try launching the app via Google Play or some widget, if available. Once launched, just set back the default orange icon #F57C00. You might have to reinstall the app in the worst case.</string>
+    <string name="share_colors_success">Colors updated successfully. A new Theme called \'Shared\' has been added, please use that for updating all app colors in the future.</string>
+    <string name="shared_theme_note">Note that even though you are using the Pro app version, you still need Simple Thank You for technical reasons. It takes care of the color synchronization.</string>
+    <string name="purchase_thank_you">Please purchase &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; to unlock this function and support the development. Thanks!</string>
+    <!-- Themes -->
+    <string name="light_theme">روشنی</string>
+    <string name="dark_theme">ہنیر</string>
+    <string name="auto_theme">خود بخود</string>
+    <string name="auto_light_dark_theme">خود بخود روشنی یا ہنیرا بدلو</string>
+    <string name="solarized">سورجی</string>
+    <string name="dark_red">لال سرخ</string>
+    <string name="white">چٹا</string>
+    <string name="black_white">سلیٹی</string>
+    <string name="custom">چݨے</string>
+    <string name="shared">سانجھا کرو</string>
+    <string name="system_default">سسٹم دا مول</string>
+    <!-- What's new -->
+    <string name="whats_new">کیہ نویں اے</string>
+    <string name="whats_new_disclaimer">* only the bigger updates are listed here, there are always some smaller improvements too</string>
+    <!-- Actionbar items -->
+    <string name="delete">مٹاؤ</string>
+    <string name="remove">ہٹاؤ</string>
+    <string name="rename">ناں بدلو</string>
+    <string name="share">سانجھ کرو</string>
+    <string name="share_via">تھاں نوں سانجھ کرو</string>
+    <string name="resize">مُڑ اکار دیو</string>
+    <string name="select_all">سبھ چݨو</string>
+    <string name="select_text">لکھت چݨو</string>
+    <string name="hide">لُکاؤ</string>
+    <string name="unhide">فیر ویکھو</string>
+    <string name="hide_folder">فولڈر لُکاؤ</string>
+    <string name="unhide_folder">فولڈر نوں لُکا اُلٹاؤ</string>
+    <string name="temporarily_show_hidden">وقتی طور تے لُکائیاں چیزاں ویکھاؤ</string>
+    <string name="stop_showing_hidden">لُکیاں ہوئیاں تصویراں ویکھاوݨا بند کرو</string>
+    <string name="maximum_share_reached">بہٹ جاݨکی، سبھ سانجھ کر نہیں سکدے</string>
+    <string name="empty_and_disable_recycle_bin">ریسائیکل دان نوں خالی کرو تے چالو اُلٹاؤ</string>
+    <string name="undo">موڑو</string>
+    <string name="redo">دُبارہ کرو</string>
+    <string name="print">پرینٹ کرو</string>
+    <string name="print_pro">پرنٹ (فیز ورژن)</string>
+    <string name="shortcut">شورٹکٹ</string>
+    <string name="create_shortcut">شورٹکٹ بݨاؤ</string>
+    <string name="create_shortcut_pro">شورٹکٹ بݨاؤ (فیز ورژن)</string>
+    <string name="add_number_to_contact">رابطے نوں نمبر جوڑو</string>
+    <string name="view_contact_details">رابطے دے ویروے ویکھو</string>
+    <string name="call_from_sim_1">سیم ۱ توں کال کرو</string>
+    <string name="call_from_sim_2">سیم ۲ توں کال کرو</string>
+    <string name="toggle_filename">فائل دا ناں دِکھ بدلو</string>
+    <string name="move_to_top">سکھر تے چلاؤ</string>
+    <string name="move_to_bottom">پہٹھاں نوں چلاؤ</string>
+    <string name="pin_item">چیز لگو</string>
+    <string name="unpin_item">ایہہ چیز لگ اُلٹاؤ</string>
+    <string name="send_sms">سنیہا بھیجو</string>
+    <string name="send_email">ای‌میل بھیجو</string>
+    <string name="call">کال کرو</string>
+    <string name="contact_details">رابطے دے ویروے</string>
+    <string name="add_contact">رابطہ پایو</string>
+    <string name="wallpapers">پچھے دیاں تصویراں</string>
+    <!-- Sorting -->
+    <string name="sort_by">لڑیبندھ</string>
+    <string name="name">ناں</string>
+    <string name="size">اکار</string>
+    <string name="last_modified">پچھلی وار سودھ</string>
+    <string name="date_created">بݨاوݨ دی تریخ</string>
+    <string name="date_taken">کھچݨ دی تریخ</string>
+    <string name="title">سرلیکھ</string>
+    <string name="filename">فائیل دا ناں</string>
+    <string name="extension">ایکسٹینشن</string>
+    <string name="random">رلؕوان</string>
+    <string name="sort_randomly">رلؕواں کرم</string>
+    <string name="ascending">ودھدے کرم</string>
+    <string name="descending">گھٹدے کرم</string>
+    <string name="use_for_this_folder">صرف ایس فولڈر لئی ہی ورتو</string>
+    <string name="sort_numeric_parts">نمبر دیاں بھاگاں لئی لڑی نال اصل مُل ورتو</string>
+    <string name="first_name">پہلا ناں</string>
+    <string name="middle_name">مدھ ناں</string>
+    <string name="surname">اُپنگ</string>
+    <string name="full_name">سارا ناں</string>
+    <string name="use_custom_sorting">چݨی لڑی ورتو</string>
+    <string name="change_order">لڑی بدلو</string>
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Are you sure you want to proceed with the deletion\?</string>
+    <string name="deletion_confirmation">Are you sure you want to delete %s\?</string>
+    <string name="deletion_confirmation_short">Delete %s?</string>
+    <string name="move_to_recycle_bin_confirmation">Are you sure you want to move %s into the Recycle Bin\?</string>
+    <string name="are_you_sure_delete">Are you sure you want to delete this item\?</string>
+    <string name="are_you_sure_recycle_bin">Are you sure you want to move this item into the Recycle Bin\?</string>
+    <string name="do_not_ask_again">ایس سیشن لئی دُبارہ نا پچھو</string>
+    <string name="do_not_show_again">مُڑ نا ویکھاؤ</string>
+    <string name="yes">ہاں</string>
+    <string name="no">نہیں</string>
+    <string name="maybe">شاعد</string>
+    <plurals name="delete_warning">
+        <item quantity="one">WARNING: You are deleting %d folder</item>
+        <item quantity="other">WARNING: You are deleting %d folders</item>
+    </plurals>
+    <!-- Password protection -->
+    <string name="pin">پین کوڈ</string>
+    <string name="enter_pin">پین کوڈ پایو</string>
+    <string name="please_enter_pin">تسیں کوئی پین کوڈ نہیں پاۓ گئے اے</string>
+    <string name="wrong_pin">پین کوڈ نہیں درست اے</string>
+    <string name="repeat_pin">پین کوڈ فیر پایو</string>
+    <string name="pattern">نمونہ</string>
+    <string name="insert_pattern">نمونہ شامل کرو</string>
+    <string name="wrong_pattern">نمونہ نہیں درست اے</string>
+    <string name="repeat_pattern">نمونہ دہراؤ</string>
+    <string name="biometrics">جیو دے انکڑے</string>
+    <string name="fingerprint">فنگرپرنٹ</string>
+    <string name="add_fingerprint">فنگرپرنٹ جوڑو</string>
+    <string name="place_finger">Please place your finger on the fingerprint sensor</string>
+    <string name="open_biometric_dialog">جیو انکڑے دے شناختی لئی پکا کرن وِنڈو کھُلھو</string>
+    <string name="authenticate">تصدیق دیو</string>
+    <string name="authentication_failed">پرماݨی کر نہیں سکدی اے</string>
+    <string name="authentication_blocked">Authentication blocked, please try again in a moment</string>
+    <string name="no_fingerprints_registered">You have no fingerprints registered, please add some in the Settings of your device</string>
+    <string name="go_to_settings">سیٹنگاں نوں جاؤ</string>
+    <string name="protection_setup_successfully">Password setup successfully. Please reinstall the app in case you forget it.</string>
+    <string name="fingerprint_setup_successfully">Protection setup successfully. Please reinstall the app in case of problems with reseting it.</string>
+    <string name="lock_folder">فولڈر نوں کنجی لاؤ</string>
+    <string name="lock_folder_pro">فولڈر بند کرو (فیز ورژن)</string>
+    <string name="unlock_folder">فولڈر نوں کنجی لگا اُلٹاؤ</string>
+    <string name="lock_folder_notice">This protection works in this app only, it is not supposed to replace a real systemwide folder encryption.</string>
+    <!-- Times -->
+    <string name="yesterday">کل</string>
+    <string name="today">اج</string>
+    <string name="tomorrow">کل</string>
+    <string name="every_day">ہر ڈن</string>
+    <string name="hide_year">سال لُکاؤ</string>
+    <string name="seconds_raw">سکنٹ</string>
+    <string name="minutes_raw">منٹ</string>
+    <string name="hours_raw">گھنٹے</string>
+    <string name="days_raw">دن</string>
+    <string name="seconds_letter">سکنٹ</string>
+    <string name="minutes_letter">منٹ</string>
+    <string name="hours_letter">گھنٹے</string>
+    <string name="week_number_short">wk.</string>
+    <plurals name="seconds">
+        <item quantity="one">‫%d‬ ؜سکنٹ</item>
+        <item quantity="other">‫%d‬ ؜سکنٹ</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">‫%d‬ ؜منٹ</item>
+        <item quantity="other">‫%d‬ ؜منٹ</item>
+    </plurals>
+    <plurals name="hours">
+        <item quantity="one">‫%d‬ ؜گھنٹہ</item>
+        <item quantity="other">‫%d‬ ؜گھنٹے</item>
+    </plurals>
+    <plurals name="days">
+        <item quantity="one">‫%d‬ ؜دن</item>
+        <item quantity="other">‫%d‬ ؜دن</item>
+    </plurals>
+    <plurals name="weeks">
+        <item quantity="one">‫%d‬ ؜ہفتہ</item>
+        <item quantity="other">‫%d‬ ؜ہفتے</item>
+    </plurals>
+    <plurals name="months">
+        <item quantity="one">‫%d‬ ؜مہینا</item>
+        <item quantity="other">‫%d‬ ؜مہینے</item>
+    </plurals>
+    <plurals name="years">
+        <item quantity="one">‫%d‬ ؜سال</item>
+        <item quantity="other">‫%d‬ ؜سال</item>
+    </plurals>
+    <!-- For example: I will be there in 5 minutes -->
+    <plurals name="in_seconds">
+        <item quantity="one">‫%d‬ ؜سکنٹ</item>
+        <item quantity="other">‫%d‬ ؜سکنٹ</item>
+    </plurals>
+    <plurals name="in_minutes">
+        <item quantity="one">‫%d‬ ؜منٹ</item>
+        <item quantity="other">‫%d‬ ؜منٹ</item>
+    </plurals>
+    <plurals name="in_hours">
+        <item quantity="one">‫%d‬ ؜گھنٹہ</item>
+        <item quantity="other">‫%d‬ ؜گھنٹے</item>
+    </plurals>
+    <plurals name="in_days">
+        <item quantity="one">‫%d‬ ؜دن</item>
+        <item quantity="other">‫%d‬ ؜دن</item>
+    </plurals>
+    <plurals name="in_weeks">
+        <item quantity="one">%d ہفتہ</item>
+        <item quantity="other">%d ہفتے</item>
+    </plurals>
+    <plurals name="in_months">
+        <item quantity="one">%d مہینا</item>
+        <item quantity="other">%d مہینے</item>
+    </plurals>
+    <plurals name="in_years">
+        <item quantity="one">‫%d‬ ؜سال</item>
+        <item quantity="other">‫%d‬ ؜سال</item>
+    </plurals>
+    <!-- For example: Event reminder: 3 minutes before -->
+    <plurals name="seconds_before">
+        <item quantity="one">؜‫%d‬ ؜سکنٹ پہلاں</item>
+        <item quantity="other">؜‫%d‬ ؜سکنٹ پہلاں</item>
+    </plurals>
+    <plurals name="minutes_before">
+        <item quantity="one">؜‫%d‬ منٹ پہلاں</item>
+        <item quantity="other">؜‫%d‬ منٹ پہلاں</item>
+    </plurals>
+    <plurals name="hours_before">
+        <item quantity="one">؜‫%d‬ گھنٹہ پہلاں</item>
+        <item quantity="other">؜‫%d‬ گھنٹے پہلاں</item>
+    </plurals>
+    <plurals name="days_before">
+        <item quantity="one">؜‫%d‬ دن پہلاں</item>
+        <item quantity="other">؜‫%d‬ دن پہلاں</item>
+    </plurals>
+    <plurals name="weeks_before">
+        <item quantity="one">؜‫%d‬ ہفتہ پہلاں</item>
+        <item quantity="other">؜‫%d‬ ہفتے پہلاں</item>
+    </plurals>
+    <plurals name="months_before">
+        <item quantity="one">؜‫%d‬ منیہا پہلاں</item>
+        <item quantity="other">؜‫%d‬ منیہے پہلاں</item>
+    </plurals>
+    <plurals name="years_before">
+        <item quantity="one">؜‫%d‬ سال پہلاں</item>
+        <item quantity="other">؜‫%d‬ سال پہلاں</item>
+    </plurals>
+    <!-- For example: Postpone reminder by 3 minutes -->
+    <plurals name="by_seconds">
+        <item quantity="one">‫%d‬ ؜سکنٹ</item>
+        <item quantity="other">‫%d‬ ؜سکنٹ</item>
+    </plurals>
+    <plurals name="by_minutes">
+        <item quantity="one">‫%d‬ ؜منٹ</item>
+        <item quantity="other">‫%d‬ ؜منٹ</item>
+    </plurals>
+    <plurals name="by_hours">
+        <item quantity="one">‫%d‬ ؜گھنٹہ</item>
+        <item quantity="other">‫%d‬ ؜گھنٹے</item>
+    </plurals>
+    <plurals name="by_days">
+        <item quantity="one">‫%d‬ ؜دن</item>
+        <item quantity="other">‫%d‬ ؜دن</item>
+    </plurals>
+    <plurals name="by_weeks">
+        <item quantity="one">‫%d‬ ؜ہفتہ</item>
+        <item quantity="other">‫%d‬ ؜ہفتے</item>
+    </plurals>
+    <plurals name="by_months">
+        <item quantity="one">‫%d‬ ؜مہینا</item>
+        <item quantity="other">‫%d‬ ؜مہینے</item>
+    </plurals>
+    <plurals name="by_years">
+        <item quantity="one">‫%d‬ ؜سال</item>
+        <item quantity="other">‫%d‬ ؜سال</item>
+    </plurals>
+    <!-- For example: Time remaining till the alarm goes off: 6 hours, 5 minutes -->
+    <string name="alarm_goes_off_in">Time remaining till the alarm goes off:\n%s</string>
+    <string name="reminder_triggers_in">Time remaining till the reminder triggers:\n%s</string>
+    <string name="time_remaining">باکی سماں:؜\n؜‫%s‬؜</string>
+    <string name="alarm_warning">Please make sure the alarm works properly before relying on it. It could misbehave due to system restrictions related to battery saving.</string>
+    <string name="reminder_warning">Please make sure the reminders work properly before relying on them. Check your device battery and notification settings, if there is nothing blocking the reminders, or killing the app in the background.</string>
+    <string name="notifications_disabled">Notifications of this application are disabled. Please go in your device settings for enabling them.</string>
+    <!-- Alarms -->
+    <string name="alarm">الارم</string>
+    <string name="snooze">فیر لئی بند کرو</string>
+    <string name="dismiss">بند کرو</string>
+    <string name="no_reminder">یاد کراوݨ والا نہیں</string>
+    <string name="at_start">جدوں شروع کرن</string>
+    <string name="system_sounds">سِسٹم دیاں دھُنیاں</string>
+    <string name="your_sounds">تہاڈیاں دھُنیاں</string>
+    <string name="add_new_sound">نویں دھُنی پایو</string>
+    <string name="no_sound">کوئی دھُنی نہیں اے</string>
+    <string name="during_day_at_hh_mm">During the day at hh:mm</string>
+    <string name="during_day_at">During the day at %02d:%02d</string>
+    <!-- Settings -->
+    <string name="settings">سیٹنگاں</string>
+    <string name="purchase_simple_thank_you">سادے شکریئے اَیپ کھریدیو</string>
+    <string name="general_settings">عام</string>
+    <string name="color_customization">رنگ چݨنا</string>
+    <string name="improved_color_customization">Improved color customization</string>
+    <string name="customize_colors">رنگ چݨو</string>
+    <string name="customize_colors_locked">چݨیا رنگ (فیز ورژن)</string>
+    <string name="feature_locked">نہیں اُپلبدھ اے</string>
+    <string name="customize_widget_colors">وِجت دا رنگ چݨو</string>
+    <string name="customize_notifications">خبر دیاں نوٹاں دیاں سیٹنگاں</string>
+    <string name="notification_sound">Notification sound</string>
+    <string name="use_english_language">انگریزی بولی ورتو</string>
+    <string name="language">بولی</string>
+    <string name="show_hidden_items">لُکائیاں چیزاں ویکھو</string>
+    <string name="font_size">فونٹ دا اکار</string>
+    <string name="small">چھوٹا</string>
+    <string name="medium">مدھمان</string>
+    <string name="large">وڈا</string>
+    <string name="extra_large">وادھو وڈے</string>
+    <string name="password_protect_hidden_items">Password protect hidden item visibility</string>
+    <string name="password_protect_whole_app">Password protect the whole application</string>
+    <string name="password_protect_file_deletion">پاس‌ورڈ نال فائل نوں سرکھیا لگاؤ</string>
+    <string name="keep_last_modified">Keep old last-modified value at file operations</string>
+    <string name="show_info_bubble">Show an info bubble at scrolling items by scrollbar dragging</string>
+    <string name="prevent_phone_from_sleeping">Prevent phone from sleeping while the app is in foreground</string>
+    <string name="skip_delete_confirmation">Always skip delete confirmation dialog</string>
+    <string name="enable_pull_to_refresh">Enable pull-to-refresh from the top</string>
+    <string name="use_24_hour_time_format">؜۲۴ گھنٹے دی سماں وݨگی ورتو</string>
+    <string name="change_date_and_time_format">تریخ تے سمیں دی فارمیٹ بدلو</string>
+    <string name="sunday_first">اتوار نوں ہفتہ شروع کرو</string>
+    <string name="widgets">وِجٹ</string>
+    <string name="use_same_snooze">ہمیش صرف اِک فیر سماں ہی ورتو</string>
+    <string name="snooze_time">فیر سماں</string>
+    <string name="vibrate_on_button_press">Vibrate on button press</string>
+    <string name="move_items_into_recycle_bin">Move items into the Recycle Bin instead of deleting</string>
+    <string name="recycle_bin_cleaning_interval">Recycle Bin cleaning interval</string>
+    <string name="empty_recycle_bin">ریسائیکل دان نوں خالی کرو</string>
+    <string name="force_portrait_mode">ہمیش کھڑھا نوں لگو</string>
+    <string name="export_settings">سیٹنگاں ایکسپورٹ کرو</string>
+    <string name="import_settings">سیٹنگاں ایمپورٹ کرو</string>
+    <string name="settings_exported_successfully">سیٹنگاں ایکسپورٹ کیتیاں گیاں</string>
+    <string name="settings_imported_successfully">سیٹنگاں ایمپورٹ کیتیاں گیاں</string>
+    <string name="start_name_with_surname">اُپناں نال ناں شروع کرو</string>
+    <string name="clear_cache">کیش ہٹاؤ</string>
+    <string name="show_call_confirmation_dialog">Show a call confirmation dialog before initiating a call</string>
+    <!-- Setting sections -->
+    <string name="visibility">دکھݨ</string>
+    <string name="security">سرکھیا</string>
+    <string name="scrolling">سکرول کرن</string>
+    <string name="file_operations">فائل ڈاہݨی</string>
+    <string name="recycle_bin">ریسائیکل دان</string>
+    <string name="saving_label">سامبھݨ</string>
+    <string name="startup">شروع</string>
+    <string name="text">لکھت</string>
+    <string name="migrating">چالیاں جا رہیاں اے</string>
+    <string name="quality">حال</string>
+    <string name="main_screen">مکھ سکرین</string>
+    <string name="thumbnails">تھمنیل</string>
+    <string name="list_view">لسٹ سکرین</string>
+    <!-- Excluding -->
+    <string name="exclude">باہر کڈھو</string>
+    <string name="exclude_folder">Exclude folder</string>
+    <string name="excluded_folders">Excluded folders</string>
+    <string name="excluded">(excluded)</string>
+    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="remove_all">Remove all</string>
+    <string name="remove_all_description">Remove all folders from the list of excluded\? This will not delete the folders.</string>
+    <string name="temporarily_show_excluded">Temporarily show excluded</string>
+    <string name="stop_showing_excluded">Stop showing excluded</string>
+    <!-- Default tab to open -->
+    <string name="manage_shown_tabs">تیباں ویکھݨ دیاں ترجیحاں</string>
+    <string name="default_tab_to_open">پہلی ٹیب کیہ کھُلھو</string>
+    <string name="contacts_tab">رابطے</string>
+    <string name="favorites_tab">پسندیدے</string>
+    <string name="call_history_tab">کال کرن دی تریخ</string>
+    <string name="groups_tab">سموہ</string>
+    <string name="last_used_tab">پچھلی ورتوں</string>
+    <string name="files_tab">فائلاں</string>
+    <string name="recent_files_tab">تازہ فائلاں</string>
+    <!-- Recycle Bin -->
+    <string name="restore_this_file">ایس فائل نوں اُلٹو</string>
+    <string name="restore_selected_files">چݨیاں فائلاں نوں اُلٹو</string>
+    <string name="restore_all_files">ساریاں فائلاں نوں اُلٹو</string>
+    <string name="recycle_bin_emptied">ریسائیکل دان خالی کیتا گیا</string>
+    <string name="files_restored_successfully">فائلاں نوں اُلٹائیاں گیاں</string>
+    <string name="empty_recycle_bin_confirmation">Are you sure you want to empty the Recycle Bin\? The files will be permanently lost.</string>
+    <string name="recycle_bin_empty">ریسائیکل دان خالی اے</string>
+    <string name="moving_recycle_bin_items_disabled">Moving Recycle bin items is disabled, please use Restore</string>
+    <string name="show_the_recycle_bin">ریسائیکل دان دکھاؤ</string>
+    <string name="hide_the_recycle_bin">ریسائیکل دان لُکاؤ</string>
+    <string name="open_the_recycle_bin">Open the Recycle Bin</string>
+    <string name="skip_the_recycle_bin">Skip the Recycle Bin, delete files directly</string>
+    <plurals name="moving_items_into_bin">
+        <item quantity="one">Moving %d item into the Recycle Bin</item>
+        <item quantity="other">Moving %d items into the Recycle Bin</item>
+    </plurals>
+    <!-- Import / Export -->
+    <string name="importing">ایمپورٹ کیتیاں جا رہیاں اے۔ ۔</string>
+    <string name="exporting">اوہ ایکسپورٹ کیتے جا رہے اے۔ ۔ ۔</string>
+    <string name="importing_successful">ایمپورٹ کیتا گیا</string>
+    <string name="exporting_successful">ایکسپورٹ کیتا گیا</string>
+    <string name="importing_failed">غلطی آئی اے، ایمپورٹ کر نہیں سکدا</string>
+    <string name="exporting_failed">غلطی آئی اے، ایکسپورٹ کر نہیں سکدا</string>
+    <string name="importing_some_entries_failed">افسوس، کجھ چیزاں ایمپورٹ کر نہیں سکدیاں</string>
+    <string name="exporting_some_entries_failed">افسوس، کجھ چیزاں ایکسپورٹ کر نہیں سکدیاں</string>
+    <string name="no_entries_for_exporting">ایکسپورٹ کرن لئی کوئی چیز اں نہیں لبھیاں</string>
+    <string name="backups">Backups</string>
+    <string name="enable_automatic_backups">Enable automatic backups</string>
+    <string name="manage_automatic_backups">Manage automatic backups</string>
+    <string name="date_time_pattern_info">You can use the following patterns to name your file automatically:\n\n%Y - year\n%M - month\n%D - day\n%h - hour\n%m - minute\n%s - second</string>
+    <string name="no_new_entries_for_importing">No new entries for importing have been found</string>
+    <string name="no_entries_for_importing">ایمپورٹ کرن لئی کوئی چیز اں نہیں لبھیاں</string>
+    <!-- OTG devices -->
+    <string name="usb">یوایس‌بی</string>
+    <string name="usb_detected">You seem to have an USB device attached to your device. To make sure its files appear properly, you need to grant additional permissions.</string>
+    <string name="confirm_usb_storage_access_text">Please choose the top folder of the USB device on the next screen, to grant access</string>
+    <string name="wrong_root_selected_usb">Wrong folder selected, please select the main folder of your USB device</string>
+    <!-- Dates -->
+    <string name="january">جنواری</string>
+    <string name="february">فرواری</string>
+    <string name="march">مارچ</string>
+    <string name="april">اپریل</string>
+    <string name="may">مائی</string>
+    <string name="june">جون</string>
+    <string name="july">جلائی</string>
+    <string name="august">اگست</string>
+    <string name="september">ستمبر</string>
+    <string name="october">اکتوبر</string>
+    <string name="november">نوَمبر</string>
+    <string name="december">دسمبر</string>
+    <!-- Short months -->
+    <string name="january_short">Jan</string>
+    <string name="february_short">Feb</string>
+    <string name="march_short">Mar</string>
+    <string name="april_short">Apr</string>
+    <string name="may_short">May</string>
+    <string name="june_short">June</string>
+    <string name="july_short">July</string>
+    <string name="august_short">Aug</string>
+    <string name="september_short">Sept</string>
+    <string name="october_short">Oct</string>
+    <string name="november_short">Nov</string>
+    <string name="december_short">Dec</string>
+    <!-- in January -->
+    <string name="in_january">جنواری چ</string>
+    <string name="in_february">فرواری چ</string>
+    <string name="in_march">مارچ اِچ</string>
+    <string name="in_april">اپریل چ</string>
+    <string name="in_may">مائی چ</string>
+    <string name="in_june">جون چ</string>
+    <string name="in_july">جلائی چ</string>
+    <string name="in_august">اگست وچ</string>
+    <string name="in_september">ستمبر وچ</string>
+    <string name="in_october">اکتوبر وچ</string>
+    <string name="in_november">نوَمبر وچ</string>
+    <string name="in_december">دسمبر وچ</string>
+    <string name="monday">سوموار</string>
+    <string name="tuesday">منگلوار</string>
+    <string name="wednesday">بدھوار</string>
+    <string name="thursday">جمعرات</string>
+    <string name="friday">جمعہ</string>
+    <string name="saturday">ہفتہ</string>
+    <string name="sunday">اتوار</string>
+    <string name="monday_letter">منگل</string>
+    <string name="tuesday_letter">منگل</string>
+    <string name="wednesday_letter">بُدھ</string>
+    <string name="thursday_letter">جمعرات</string>
+    <string name="friday_letter">جمعہ</string>
+    <string name="saturday_letter">ہفتہ</string>
+    <string name="sunday_letter">ات</string>
+    <string name="monday_short">سوموار</string>
+    <string name="tuesday_short">منگلوار</string>
+    <string name="wednesday_short">بدھوار</string>
+    <string name="thursday_short">جمعرات</string>
+    <string name="friday_short">جمعہ</string>
+    <string name="saturday_short">ہفتہ</string>
+    <string name="sunday_short">اتوار</string>
+    <!-- Pro version -->
+    <string name="upgrade_to_pro_long">Your app version will not be updated anymore. Please upgrade to the Pro version to receive new fixes and other improvements.</string>
+    <string name="upgrade_to_pro_long_click">Your app version will not be updated anymore. Please upgrade to the Pro version to receive new fixes and other improvements by clicking here.</string>
+    <string name="it_is_free">It is free till: %s. If you download it till then, you will be able to use it for free forever.</string>
+    <string name="more_info">ہور جاݨکاری</string>
+    <string name="upgrade">اپگریڈ کرو</string>
+    <string name="upgrade_calendar">You have to migrate locally stored events manually via exporting in an .ics file, then importing. You can find both export/import buttons at the main screen menu.</string>
+    <string name="upgraded_from_free_gallery">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your settings and favorites over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro_gallery">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your settings and favorites over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hello,\n\nseems like you just upgraded from the free version. Once you are happy with this one and maybe migrated your data over, you can uninstall the old free one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_to_pro">Hello,\n\nseems like you already have the Pro app version too. Once you are happy with it and maybe migrated your data over, you can uninstall this one to avoid launching it accidentally as you will not need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_calendar">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your locally stored events over, you have to do it manually by exporting them into an .ics file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_contacts">Hello,\n\nseems like you just upgraded from the free version. If you had any contacts stored under \"%s\", you have to migrate them manually by exporting in a .vcf file from the free app version and importing here through the top menu.\n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <string name="upgraded_from_free_notes">Hello,\n\nseems like you just upgraded from the free version. If you want to migrate your notes over, you have to do it manually by exporting them into a file in the free app version and importing here through the top menu. \n\nOnce you are satisfied with your setup in the Pro version, you can uninstall the old free one as you won\'t need it anymore.\n\nThanks!</string>
+    <!-- About -->
+    <string name="about">بارے</string>
+    <string name="website">ویب‌سائیٹ</string>
+    <string name="website_label">سروت دا کوڈ لئی اوس تے جایو</string>
+    <string name="email_label">Send your feedback or suggestions to</string>
+    <string name="upgrade_to_pro">فیز ورژن لئی کڑی دا پتہ</string>
+    <string name="more_apps">ہور جاݨکاری</string>
+    <string name="more_apps_from_us">ساڈے ولوں ہور ایپلیکیشناں</string>
+    <string name="invite_friends">دوستاں نوں مدا دیو</string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">ہور اَیپ نال مدا دیو:؜</string>
+    <string name="rate_us">آپݨے من دی گل کریو</string>
+    <string name="rate">آپݨے من دی گل کریو</string>
+    <string name="donate">دان کرو</string>
+    <string name="follow_us">سوشل میڈیا کڑیاں</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="support">سہیوگ</string>
+    <string name="help_us">مدد دیو</string>
+    <string name="social">سوشل میڈیا کڑیاں</string>
+    <string name="other">ہور</string>
+    <string name="privacy_policy">پردیداری پالیسی</string>
+    <string name="version_placeholder">ورژن %s</string>
+    <string name="hello">سالام علیکم جی 🙂</string>
+    <string name="about_footer">سلوویکیہ وچ دل نال اَئپ بنائی</string>
+    <string name="additional_info">ہور جاݨکاری</string>
+    <string name="app_version">‫اَیپ ورژن:؜ ‏%s‬؜</string>
+    <string name="device_os">‫ڈیوائیس اوپریٹنگ سِسٹم:؜ ‏%s‬؜</string>
+    <string name="donate_please">Hello,&lt;br&gt;&lt;br&gt; hope you are enjoying the app. It contains no ads, please support its development by purchasing the &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; app, it will also prevent this dialog from showing up again.&lt;br&gt;&lt;br&gt; Thank you!</string>
+    <string name="donate_new">Hello,&lt;br&gt;&lt;br&gt;hope you are enjoying the app. It contains no ads and we aren\'t collecting your data either, please support its development by purchasing &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt;. You will also have all app features including color customization unlocked.&lt;br&gt;&lt;br&gt;Thank you!</string>
+    <string name="donate_short">Support us by purchasing &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; please, it will also unlock all app features including color customization.</string>
+    <string name="purchase">کھریدیو</string>
+    <string name="get_simple_phone">سادی فون ویچی جا رہا اے</string>
+    <string name="update_thank_you">Please update Simple Thank You to the latest version</string>
+    <string name="before_asking_question_read_faq">Before you ask a question, please check the app settings and read the Frequently Asked Questions first. Maybe the solution is there.</string>
+    <string name="before_rate_read_faq">Before you rate us, please check the app settings and read the Frequently Asked Questions first. If you have any problems, maybe the solution is there.</string>
+    <string name="make_sure_latest">Also make sure that you are using the latest app version.</string>
+    <string name="make_sure_upgrade">Also note that this app version is no longer being developed, get the Pro one for many improvements.</string>
+    <string name="read_it">پڑھاؤ</string>
+    <string name="read_faq">سوال تے جواب</string>
+    <string name="rate_us_prompt">Hello,
+\n
+\nit looks like you are using this app for quite a while already, and we really appreciate it.
+\n
+\nIf we can ask you a favor, please rate us on Google Play. That would really help us a lot.
+\n
+\nNo matter how you decide, you will not see this message again.
+\n
+\nThanks!</string>
+    <string name="rate_our_app">جے پسند اے، آپݨے من دی گل کریو</string>
+    <string name="thank_you">مہربانی</string>
+    <string name="widget_locked_pro">The widget is locked.\nPlease upgrade to the Pro version to unlock it.</string>
+    <string name="features_locked">This feature is locked, please purchase &lt;a href=https://play.google.com/store/apps/details\?id=com.simplemobiletools.thankyou&gt;Simple Thank You&lt;/a&gt; for unlocking the full app.&lt;br&gt;&lt;br&gt;It is a one time payment only and if you won\'t be satisfied, we can refund you.</string>
+    <string name="new_app">Hey,&lt;br&gt;&lt;br&gt; just letting you know that some new apps have been released recently:&lt;br&gt;&lt;br&gt; &lt;a href=%1$s&gt;%2$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%3$s&gt;%4$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; &lt;a href=%5$s&gt;%6$s&lt;/a&gt;&lt;br&gt;&lt;br&gt; You can download them by pressing their titles or icons.&lt;br&gt;&lt;br&gt; Thanks</string>
+    <string name="simple_app_launcher">سادہ ایپلیکیشن شروع کرتا</string>
+    <string name="simple_calculator">سادہ کیلکولیٹر</string>
+    <string name="simple_calendar">سادہ کیلینڈر</string>
+    <string name="simple_camera">سادہ کیمرہ</string>
+    <string name="simple_clock">سادہ گڑی</string>
+    <string name="simple_contacts">سادے رابطے</string>
+    <string name="simple_dialer">سادی فون ڈائل</string>
+    <string name="simple_draw">سادہ اُلیکݨ</string>
+    <string name="simple_file_manager">سادیاں فائلاں</string>
+    <string name="simple_flashlight">سادہ ٹورچ</string>
+    <string name="simple_gallery">سادیاں تصویراں</string>
+    <string name="simple_keyboard">سادہ کیبورڈ</string>
+    <string name="simple_launcher">سادہ شروع والا</string>
+    <string name="simple_music_player">سادہ سنگیت</string>
+    <string name="simple_notes">سادے نوٹ</string>
+    <string name="simple_sms_messenger">سادے سنیہے</string>
+    <string name="simple_thank_you">سادے شکریئے</string>
+    <string name="simple_voice_recorder">سادہ ریکارڈ والا</string>
+    <string name="app_launcher_short">ایپلیکیشن شروع کرتا</string>
+    <string name="calculator_short">کیلکولیٹر</string>
+    <string name="calendar_short">کیلنڈر</string>
+    <string name="camera_short">کیمرہ</string>
+    <string name="clock_short">گھڑی</string>
+    <string name="contacts_short">رابطے</string>
+    <string name="dialer_short">فون ڈائل</string>
+    <string name="draw_short">اُلیکو</string>
+    <string name="file_manager_short">فائلاں</string>
+    <string name="flashlight_short">ٹورچ</string>
+    <string name="gallery_short">تصویراں</string>
+    <string name="keyboard_short">کیبورڈ</string>
+    <string name="launcher_short">شروع والا</string>
+    <string name="music_player_short">سنگیت</string>
+    <string name="notes_short">نوٹ</string>
+    <string name="sms_messenger_short">سنیہے</string>
+    <string name="thank_you_short">مہربانی</string>
+    <string name="voice_recorder_short">ریکارڈ والا</string>
+    <string name="sideloaded_app">It looks like your app version is corrupt. Please download the original version &lt;a href=%s&gt;here&lt;/a&gt;.</string>
+    <!-- FAQ -->
+    <string name="frequently_asked_questions">سوال تے جواب</string>
+    <string name="before_asking_question">Before you ask a question, please first read the</string>
+    <string name="faq_1_title_commons">How come I don\'t see this apps widget on the list of widgets\?</string>
+    <string name="faq_1_text_commons">It is most likely because you moved the app on an SD card. There is an Android system limitation which hides the given app widgets in that case. The only solution is to move the app back onto the Internal Storage via your device settings.</string>
+    <string name="faq_2_title_commons">I want to support you, but I cannot donate money. Is there anything else I can do\?</string>
+    <string name="faq_2_text_commons">Yes, of course. You can spread the word about the apps or give good feedback and ratings. You can also help by translating the apps in a new language, or just update some existing translations. The guide to translating is at &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt;this website&lt;/a&gt;, or just contact us at &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt; if you have any questions.</string>
+    <string name="faq_3_title_commons">I deleted some files by mistake, how can I recover them\?</string>
+    <string name="faq_3_text_commons">Sadly, you cannot. Files are deleted instantly after the confirmation dialog, there is no trashbin available.</string>
+    <string name="faq_4_title_commons">I don\'t like the widget colors, can I change them\?</string>
+    <string name="faq_4_text_commons">Yep, as you drag a widget on your home screen a widget config screen appears. You will see colored squares at the bottom left corner, just press them to pick a new color. You can use the slider for adjusting the alpha too.</string>
+    <string name="faq_5_title_commons">Can I somehow restore deleted files\?</string>
+    <string name="faq_5_text_commons">If they were really deleted, you cannot. However, there is a Recycle Bin enabled by default, it will cause the files just be moved in the Bin instead of deleting them.</string>
+    <string name="faq_6_title_commons">The app launcher icon disappeared. What can I do\?</string>
+    <string name="faq_6_text_commons">It is caused by your launcher not supporting icon customization properly. Try launching the app via Google Play or some widget, if available. Once launched, just set back the default orange icon #F57C00. You might have to reinstall the app in the worst case.</string>
+    <string name="faq_7_title_commons">The money has been deducted from my bank account, but I cannot download the app. What can I do\?</string>
+    <string name="faq_7_text_commons">Payments are fully handled by Google, their system glitches from time to time. Just clear your Google Play app cache and restart your device, then retry downloading it.</string>
+    <string name="faq_8_title_commons">Why should I upgrade to the Pro version\?</string>
+    <string name="faq_8_text_commons">As your app version is no longer updated, the bugs you have maybe spotted will never be fixed. There will also be no new functions added. You can purchase the Pro version on Google Play for a small sum of money. It is a one time payment, which means that once you purchase it, you will never have to pay again. Not even after getting a new device. If you won\'t like the Pro version, you can just uninstall it within a few hours and you will automatically get your money back. If you want a refund anytime later, just contact us at hello@simplemobiletools.com and you will get it.</string>
+    <string name="faq_9_title_commons">How can I select multiple items at once\?</string>
+    <string name="faq_9_text_commons">There are multiple ways of doing that. The first one is starting the selection mode by long pressing one item, then short clicking on others to select them. The second way is similar to selecting items on PCs with a mouse, just start the selection mode by long pressing one item, then with your finger still down drag it across other items for selecting. The third way of selecting multiple items is long pressing one item, then long pressing another one and everything in between gets selected. If you want to select all items, just long press one item, then click at the selected item counter at the top left corner. That will select or unselect all everything.</string>
+    <string name="faq_10_title_commons">I have purchased the app, but I cannot download it on another device.</string>
+    <string name="faq_10_text_commons">Try clearing your Google Play app cache and restarting your device. It is some Google Play glitch, not really related to the app itself.</string>
+    <!-- Contributors -->
+    <string name="contributors">لیکھک</string>
+    <string name="translation">ترجمہ</string>
+    <string name="development">ڈیویلپمنٹ</string>
+    <string name="other_help">ہور مدد</string>
+    <string name="contributors_label">This list contains everyone that noticeably helped any app within the Simple Mobile Tools suite, not only this one. Translations are handled by volunteers, let us know if you want to help too. The guide to translating is at &lt;a href=https://github.com/SimpleMobileTools/General-Discussion#how-can-i-suggest-an-edit-to-a-file&gt;this website&lt;/a&gt;, or just contact us at &lt;a href=mailto:hello@simplemobiletools.com&gt;hello@simplemobiletools.com&lt;/a&gt; if you have any questions. Thanks to all contributors and other supporters!</string>
+    <string name="translation_arabic">عربی</string>
+    <string name="translation_azerbaijani">ازیری</string>
+    <string name="translation_bengali">بنگالی</string>
+    <string name="translation_breton">بریٹونی</string>
+    <string name="translation_bulgarian">بولگاریائی</string>
+    <string name="translation_catalan">کیٹالان</string>
+    <string name="translation_czech">چیک</string>
+    <string name="translation_welsh">ویلش</string>
+    <string name="translation_danish">ڈینی</string>
+    <string name="translation_english">انگریزی</string>
+    <string name="translation_german">جرمان</string>
+    <string name="translation_greek">یونانی</string>
+    <string name="translation_spanish">سپینی</string>
+    <string name="translation_basque">باسک</string>
+    <string name="translation_persian">فارسی</string>
+    <string name="translation_finnish">فینی</string>
+    <string name="translation_french">فرانسیسی</string>
+    <string name="translation_galician">گالیسیائی</string>
+    <string name="translation_hindi">ہندی</string>
+    <string name="translation_croatian">کرواشیائی</string>
+    <string name="translation_hungarian">ہنگیریائی</string>
+    <string name="translation_indonesian">اِنڈونیشیائی</string>
+    <string name="translation_italian">اِطالی</string>
+    <string name="translation_hebrew">عبرانی</string>
+    <string name="translation_japanese">جاپانی</string>
+    <string name="translation_korean">کوریائی</string>
+    <string name="translation_lithuanian">لِتھوانیائی</string>
+    <string name="translation_nepali">نیپالی</string>
+    <string name="translation_norwegian">نورویجی</string>
+    <string name="translation_dutch">دچ</string>
+    <string name="translation_polish">پولی</string>
+    <string name="translation_portuguese">پورٹوگلی</string>
+    <string name="translation_romanian">رومینیائی</string>
+    <string name="translation_russian">روسی</string>
+    <string name="translation_slovak">سلوواک</string>
+    <string name="translation_slovenian">سلووینیائی</string>
+    <string name="translation_serbian">سربیائی</string>
+    <string name="translation_swedish">سویدن</string>
+    <string name="translation_tamil">تمل</string>
+    <string name="translation_turkish">ترکی</string>
+    <string name="translation_ukrainian">یوکرینی</string>
+    <string name="translation_vietnamese">ویٹنامی</string>
+    <string name="translation_chinese_hk">چینی (ہونگ کونگ)</string>
+    <string name="translation_chinese_cn">چینی (سادہ کیتی)</string>
+    <string name="translation_chinese_tw">چینی (روڑھی)</string>
+    <!-- Pro comparison (shown in the deprecated free apps) -->
+    <string name="why_upgrade">فیز ورژن دی جاݨکاری</string>
+    <string name="why_upgrade_basic_version">مول ورژن</string>
+    <string name="why_upgrade_pro_version">فیز ورژن</string>
+    <string name="why_upgrade_no_ads">کوئی اِشتہار نہیں</string>
+    <string name="why_upgrade_no_internet_access">کوئی اینٹرنیٹ دی پہنچ نہیں اے</string>
+    <string name="why_upgrade_footer">؜۱۰۰٪ پیسے واپس کرن دی گرنٹی</string>
+    <string name="why_upgrade_footer_one_time_payment">اِکّ وار بھُگتان</string>
+    <string name="why_upgrade_improved_design">وکھرا ڈزائن</string>
+    <!-- Gallery Pro -->
+    <string name="why_upgrade_advanced_photo_editor">فوٹواں لئی اُنت ایڈیٹر</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Advanced photo &amp; video editor</string>
+    <string name="why_upgrade_heic_support">ایچ‌ای‌آئی‌سی / ایچ‌ای‌آئی‌ایف فائل ورت سکدے</string>
+    <string name="why_upgrade_batch_renaming">فائل دا ناں بدلݨ لئی اُنت سموہ دے نشان</string>
+    <string name="why_upgrade_folder_locking">ہر فولڈر بند کرن دے نشان ورت سکدے</string>
+    <string name="why_upgrade_printing_support">ہور پرنٹ کرن دے نشان</string>
+    <!-- Calendar Pro -->
+    <string name="why_upgrade_time_zone_support">ٹائم زون دے نشان</string>
+    <string name="why_upgrade_attendees_emails">حاضرین تے ای‌میل یاد کراون والے</string>
+    <string name="why_upgrade_easy_event_importing">کیلندر نوں سادہ ایمپورٹ کرن</string>
+    <string name="why_upgrade_new_widgets">ہور وِجٹ دے نشان</string>
+    <!-- Contacts Pro -->
+    <string name="why_upgrade_duplicate_contact_merging">رابطے ملاوݨ دے نشان</string>
+    <string name="why_upgrade_font_size_customization">فونٹ دا اکار چݨ سکدے</string>
+    <string name="why_upgrade_private_contact_sharing">ساڈیاں اَیپاں دے اندر وِکلپک چݨیا نجی پردیداری رابطے سانجھ کرن</string>
+    <string name="why_upgrade_customizable_contact_ringtones">ہور رِنگ‌ٹون چوݨاں</string>
+    <string name="why_upgrade_contact_filtering">رابطیاں وچ فِلٹر کر سکدے</string>
+    <string name="why_upgrade_contact_private_contacts">نجی رابطے رکھ سکدے</string>
+    <!-- Notes Pro -->
+    <string name="why_upgrade_checklists">چیک‌لسٹاں</string>
+    <string name="why_upgrade_different_note_per_widget">Different note and colors per widget</string>
+    <string name="why_upgrade_note_locking">نوٹ بند کرن دے نشان</string>
+    <!-- File Manager Pro -->
+    <string name="why_upgrade_date_and_time_format">ہور تریخ تے سمیں دی فارمیٹ چوݨاں</string>
+    <string name="why_upgrade_shortcuts">گھر دی سکرین تے شورٹکٹ لگ سکدے</string>
+    <string name="why_upgrade_file_compression">فائل کمپریس کر سکدے</string>
+    <string name="why_upgrade_recents_tab">حالیہ فائیلاں ٹیب</string>
+    <!-- Draw Pro -->
+    <string name="why_upgrade_background_color_customization">پور رنگ چوݨاں</string>
+    <string name="why_upgrade_file_importing">ہور فائل ایمپورٹ چوݨاں</string>
+    <string name="why_upgrade_zooming">وڈا کرن</string>
+    <!-- License -->
+    <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
+    <string name="third_party_licences">تیجی دھر دے لائیسنس</string>
+    <string name="kotlin_title">کوٹلِن پرگرامنگ بولی</string>
+    <string name="subsampling_title">Subsampling Scale Image View (zoomable imageviews)</string>
+    <string name="glide_title">گلائیڈ تصویر لوڈ کرن تے کیش کرن</string>
+    <string name="picasso_title">پیکاسو تصویر کرن تے کیش کرن</string>
+    <string name="cropper_title">آنڈروئیڈ تصویر کراپ کرتا</string>
+    <string name="rtl_viewpager_title">آر‌ٹی‌ایل‌ویوپیجر سجے توں کھبے سوائیپ کرن والا</string>
+    <string name="joda_title">جوڈا ٹائم جاوا تریخ بدلݨا</string>
+    <string name="stetho_title">ستیٹھو دیبگ ڈیٹابیس</string>
+    <string name="otto_title">اوٹّو ایوینٹ بس</string>
+    <string name="photoview_title">فوٹو ویو جیف فائل والا</string>
+    <string name="pattern_title">پیٹرن‌لاک‌ویو نمونہ سرکھیا</string>
+    <string name="reprint_title">فیر پرنٹ (فنگرپرنٹ پہنچ والا)</string>
+    <string name="gif_drawable_title">جیف ڈراو (جیف فائل لوڈ کرن والا)</string>
+    <string name="autofittextview_title">خود بخود لکھت دا اکار بدلاوݨ اے</string>
+    <string name="robolectric_title">روبوایلیکٹرک</string>
+    <string name="espresso_title">ایسپرسو (آزمائش والا)</string>
+    <string name="gson_title">گی‌سون (جےسون پڑھاوݨ والا)</string>
+    <string name="leak_canary_title">لیک پچھی (یاد مارن لبھݨ دار)</string>
+    <string name="number_picker_title">نمبر چوݨ والا</string>
+    <string name="exoplayer_title">ایکسوپلیئر (ویڈیو)</string>
+    <string name="panorama_view_title">وی‌آر پینوراما دِکھاوݨ والا</string>
+    <string name="sanselan_title">اپاچی سینسیلن تصویر دا میٹاڈیٹا پڑھاوݨ والا</string>
+    <string name="filters_title">آنڈروئیڈ تصویراں دیاں فِلٹراں</string>
+    <string name="gesture_views_title">گیسٹر ویو تصویر نوں وڈا کرن والا</string>
+    <string name="indicator_fast_scroll_title">Indicator Fast Scroll (letters on scrollbar)</string>
+    <string name="event_bus_title">ایوینٹ بس ایپلیکیشن سنچار والا</string>
+    <string name="audio_record_view_title">آڈیو ریکارڈ ویو دھُنیاں دِکھاوݨ والا</string>
+    <string name="sms_mms_title">ایس‌ایم‌ایس ایم‌ایم‌ایس سنیہے والا</string>
+    <string name="apng_title">اےپی‌این‌گی آنڈروئیڈ چالیاں ویب‌پی فائلاں سہیوگ</string>
+    <string name="pdf_view_pager_title">آنڈروئیڈ پی‌ڈی‌ایف دِکھݨ والا</string>
+    <string name="m3u_parser_title">ایم‌تھری‌یو پارسر پلےلِسٹ فائل والا</string>
+    <string name="android_lame_title">آنڈروئیڈلیم ایم‌پی‌تھری اینکوڈ والا</string>
+    <!-- Trial -->
+    <string name="trial_expired">Trial expired</string>
+    <string name="start_free_trial">Start free trial</string>
+    <string name="trial_expires_soon">Your trial expires soon.</string>
+    <string name="unlock_for_one_final_day">Unlock the app for one final day</string>
+    <string name="welcome_to_app_name">Welcome to %s!</string>
+    <string name="trial_start_description">Thank you for using our app. You can use this unlocked version for &lt;font color=\'#FFFFFF\'>%d days&lt;/font>. Once the trial ends, please consider upgrading to the Pro version. It has a huge amount of new features, modern design, no ads and many other improvements.
+        \n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nHope you\'ll like it :)</string>
+    <string name="trial_end_description">Please upgrade to the Pro version to enjoy the app to the fullest.\n\nYou just have to pay for it once in a lifetime and if you won\'t be satisfied, you can uninstall it and get a refund.\n\nSee you there :)</string>
+    <plurals name="trial_expires_days">
+        <item quantity="one">Your trial expires in %d day.</item>
+        <item quantity="other">Your trial expires in %d days.</item>
+    </plurals>
+    <!-- Google Play listing -->
+    <string name="deprecated_app">DEPRECATED: This version of the app is no longer maintained, get the Pro version at https://play.google.com/store/apps/details\?id=com.simplemobiletools.xxx.pro</string>
+    <string name="pro_app_refund">Don\'t forget that if you uninstall any paid app within 2 hours, you will automatically be refunded. If you want a refund anytime later, just contact us at hello@simplemobiletools.com and you will get it. That makes it easy to try it out :)</string>
+    <!-- Description of our developer profile on Google Play, it can have max 140 characters -->
+    <string name="developer_description">A group of simple, open source Android apps with customizable widgets, without ads and unnecessary permissions.</string>
+</resources>

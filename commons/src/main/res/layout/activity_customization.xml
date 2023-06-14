@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customization_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/customization_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        app:menu="@menu/menu_customization"
+        app:title="@string/customize_colors"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/customization_nested_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/customization_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/customization_theme_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:paddingLeft="@dimen/activity_margin"
+                android:paddingTop="@dimen/bigger_margin"
+                android:paddingRight="@dimen/activity_margin"
+                android:paddingBottom="@dimen/bigger_margin">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_theme_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/customization_theme"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/theme" />
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:background="@null"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customization_text_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_theme_holder"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_text_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/text_color" />
+
+                <ImageView
+                    android:id="@+id/customization_text_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customization_background_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_text_color_holder"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_background_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/background_color" />
+
+                <ImageView
+                    android:id="@+id/customization_background_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customization_primary_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_background_color_holder"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_primary_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/primary_color" />
+
+                <ImageView
+                    android:id="@+id/customization_primary_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customization_accent_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_primary_color_holder"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin"
+                android:visibility="gone">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_accent_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/accent_color_white" />
+
+                <ImageView
+                    android:id="@+id/customization_accent_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/customization_app_icon_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_accent_color_holder"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/customization_app_icon_color_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/medium_margin"
+                    android:paddingRight="@dimen/medium_margin"
+                    android:text="@string/app_icon_color" />
+
+                <ImageView
+                    android:id="@+id/customization_app_icon_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/apply_to_all_holder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/customization_app_icon_color_holder"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/big_margin">
+
+                <android.widget.TextView
+                    android:id="@+id/apply_to_all"
+                    style="@style/ColoredButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apply_to_all_apps" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
