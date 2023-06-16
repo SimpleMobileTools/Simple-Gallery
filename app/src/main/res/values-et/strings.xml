@@ -69,15 +69,15 @@
     <string name="height">Kõrgus</string>
     <string name="keep_aspect_ratio">Jäta proportsioon samaks</string>
     <string name="invalid_values">Palun sisesta kehtiv resolutsioon</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Muuda mitme pildi suurust</string>
+    <string name="resize_factor">Suuruse muutmise skaala</string>
+    <string name="resize_factor_info">Muuda pildi suurust etteantud protsendi alusel, mis peab jääma 10 ja 90 vahele.</string>
+    <string name="resize_factor_error">Sisesta number, mis jääb 10 ja 90 vahele</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">%d pildi suuruse muutmine ei õnnestunud</item>
+        <item quantity="other">%d pildi suuruse muutmine ei õnnestunud</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Piltide suuruse muutmine õnnestus</string>
     <!-- Editor -->
     <string name="editor">Redaktor</string>
     <string name="basic_editor">Lihtne redaktor</string>
