@@ -237,13 +237,13 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
         startAsyncTask(true)
     }
 
-    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>, skipRecycleBin: Boolean) {
         val filtered = fileDirItems.filter { File(it.path).isFile && it.path.isMediaFile() } as ArrayList
         if (filtered.isEmpty()) {
             return
         }
 
-        if (config.useRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
+        if (config.useRecycleBin && !skipRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 

@@ -474,10 +474,10 @@ class MediaAdapter(
         activity.handleMediaManagementPrompt {
             if (config.isDeletePasswordProtectionOn) {
                 activity.handleDeletePasswordProtection {
-                    deleteFiles()
+                    deleteFiles(config.tempSkipRecycleBin)
                 }
             } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-                deleteFiles()
+                deleteFiles(config.tempSkipRecycleBin)
             } else {
                 askConfirmDelete()
             }
@@ -505,15 +505,23 @@ class MediaAdapter(
         }
 
         val isRecycleBin = firstPath.startsWith(activity.recycleBinPath)
-        val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
+        val baseString =
+            if (config.useRecycleBin && !config.tempSkipRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), itemsAndSize)
-        DeleteWithRememberDialog(activity, question) {
-            config.tempSkipDeleteConfirmation = it
-            deleteFiles()
+
+        val callback = fun(remember: Boolean, skipRecycleBin: Boolean) {
+            config.tempSkipDeleteConfirmation = remember
+
+            if (remember) {
+                config.tempSkipRecycleBin = skipRecycleBin
+            }
+
+            deleteFiles(skipRecycleBin)
         }
+        DeleteWithRememberDialog(activity, question, config.useRecycleBin, callback)
     }
 
-    private fun deleteFiles() {
+    private fun deleteFiles(skipRecycleBin: Boolean) {
         if (selectedKeys.isEmpty()) {
             return
         }
@@ -542,7 +550,7 @@ class MediaAdapter(
                 }
 
                 media.removeAll(removeMedia)
-                listener?.tryDeleteFiles(fileDirItems)
+                listener?.tryDeleteFiles(fileDirItems, skipRecycleBin)
                 listener?.updateMediaGridDecoration(media)
                 removeSelectedItems(positions)
                 currentMediaHash = media.hashCode()
