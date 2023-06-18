@@ -208,6 +208,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
                 config.tempSkipDeleteConfirmation = false
+                config.tempSkipRecycleBin = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
@@ -219,6 +220,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (config.showAll && !isChangingConfigurations) {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
+            config.tempSkipRecycleBin = false
             unregisterFileUpdateListener()
             GalleryDatabase.destroyInstance()
         }
@@ -885,13 +887,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>, skipRecycleBin: Boolean) {
         val filtered = fileDirItems.filter { !getIsPathDirectory(it.path) && it.path.isMediaFile() } as ArrayList
         if (filtered.isEmpty()) {
             return
         }
 
-        if (config.useRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
+        if (config.useRecycleBin && !skipRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 

@@ -601,7 +601,7 @@ class DirectoryAdapter(
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
-                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.areFavorites())) {
+                val baseString = if (!config.useRecycleBin || config.tempSkipRecycleBin || (isOneItemSelected() && fileDirItem.areFavorites())) {
                     R.string.deletion_confirmation
                 } else {
                     R.string.move_to_recycle_bin_confirmation

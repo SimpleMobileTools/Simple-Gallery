@@ -92,6 +92,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.temporarilyShowHidden = false
             config.temporarilyShowExcluded = false
             config.tempSkipDeleteConfirmation = false
+            config.tempSkipRecycleBin = false
             removeTempFolder()
             checkRecycleBinItems()
             startNewPhotoFetcher()
@@ -270,6 +271,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 config.temporarilyShowHidden = false
                 config.temporarilyShowExcluded = false
                 config.tempSkipDeleteConfirmation = false
+                config.tempSkipRecycleBin = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
@@ -282,6 +284,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.temporarilyShowHidden = false
             config.temporarilyShowExcluded = false
             config.tempSkipDeleteConfirmation = false
+            config.tempSkipRecycleBin = false
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
             removeTempFolder()
             unregisterFileUpdateListener()
@@ -319,6 +322,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                         intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true && intent.flags and Intent.FLAG_GRANT_WRITE_URI_PERMISSION != 0 -> {
                             resultUri = fillExtraOutput(resultData)
                         }
+
                         resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
                         else -> fillIntentPath(resultData, resultIntent)
                     }
@@ -645,8 +649,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     showErrorToast(e)
                 }
             }
+
             else -> {
-                val baseString = if (config.useRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
+                val baseString = if (config.useRecycleBin && !config.tempSkipRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
                 val deletingItems = resources.getQuantityString(baseString, fileDirItems.size, fileDirItems.size)
                 toast(deletingItems)
             }
@@ -667,7 +672,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }?.mapTo(itemsToDelete) { it.toFileDirItem(applicationContext) }
         }
 
-        if (config.useRecycleBin) {
+        if (config.useRecycleBin && !config.tempSkipRecycleBin) {
             val pathsToDelete = ArrayList<String>()
             itemsToDelete.mapTo(pathsToDelete) { it.path }
 

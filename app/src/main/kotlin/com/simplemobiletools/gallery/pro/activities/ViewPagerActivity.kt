@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.pro.activities
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -16,7 +15,6 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore.Images
@@ -58,7 +56,6 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
-import java.io.OutputStream
 import kotlin.math.min
 
 @Suppress("UNCHECKED_CAST")
@@ -1058,10 +1055,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         handleMediaManagementPrompt {
             if (config.isDeletePasswordProtectionOn) {
                 handleDeletePasswordProtection {
-                    deleteConfirmed()
+                    deleteConfirmed(config.tempSkipRecycleBin)
                 }
             } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
-                deleteConfirmed()
+                deleteConfirmed(config.tempSkipRecycleBin)
             } else {
                 askConfirmDelete()
             }
@@ -1074,20 +1071,25 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val filename = "\"${getCurrentPath().getFilenameFromPath()}\""
         val filenameAndSize = "$filename ($size)"
 
-        val baseString = if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
+        val baseString = if (config.useRecycleBin && !config.tempSkipRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             R.string.move_to_recycle_bin_confirmation
         } else {
             R.string.deletion_confirmation
         }
 
         val message = String.format(resources.getString(baseString), filenameAndSize)
-        DeleteWithRememberDialog(this, message) {
-            config.tempSkipDeleteConfirmation = it
-            deleteConfirmed()
+        DeleteWithRememberDialog(this, message, config.useRecycleBin) { remember, skipRecycleBin ->
+            config.tempSkipDeleteConfirmation = remember
+
+            if (remember) {
+                config.tempSkipRecycleBin = skipRecycleBin
+            }
+
+            deleteConfirmed(skipRecycleBin)
         }
     }
 
-    private fun deleteConfirmed() {
+    private fun deleteConfirmed(skipRecycleBin: Boolean) {
         val currentMedium = getCurrentMedium()
         val path = currentMedium?.path ?: return
         if (getIsPathDirectory(path) || !path.isMediaFile()) {
@@ -1095,7 +1097,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         val fileDirItem = currentMedium.toFileDirItem()
-        if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
+        if (config.useRecycleBin && !skipRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             checkManageMediaOrHandleSAFDialogSdk30(fileDirItem.path) {
                 if (!it) {
                     return@checkManageMediaOrHandleSAFDialogSdk30

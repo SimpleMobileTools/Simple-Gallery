@@ -23,4 +23,11 @@
         android:layout_below="@+id/delete_remember_title"
         android:text="@string/do_not_ask_again" />
 
+    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        android:id="@+id/skip_the_recycle_bin_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/delete_remember_checkbox"
+        android:text="@string/skip_the_recycle_bin" />
+
 </RelativeLayout>
