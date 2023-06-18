@@ -1078,7 +1078,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         val message = String.format(resources.getString(baseString), filenameAndSize)
-        val callback = fun(remember: Boolean, skipRecycleBin: Boolean) {
+        DeleteWithRememberDialog(this, message, config.useRecycleBin) { remember, skipRecycleBin ->
             config.tempSkipDeleteConfirmation = remember
 
             if (remember) {
@@ -1087,7 +1087,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
             deleteConfirmed(skipRecycleBin)
         }
-        DeleteWithRememberDialog(this, message, config.useRecycleBin, callback)
     }
 
     private fun deleteConfirmed(skipRecycleBin: Boolean) {
