@@ -16,14 +16,14 @@ import android.view.*
 import android.widget.RelativeLayout
 import android.widget.SeekBar
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
-import com.google.android.exoplayer2.source.ExtractorMediaSource
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
+import com.google.android.exoplayer2.audio.AudioAttributes
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.ContentDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
-import com.google.android.exoplayer2.video.VideoListener
+import com.google.android.exoplayer2.video.VideoSize
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -50,7 +50,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mCloseDownThreshold = 100f
 
     private var mUri: Uri? = null
-    private var mExoPlayer: SimpleExoPlayer? = null
+    private var mExoPlayer: ExoPlayer? = null
     private var mVideoSize = Point(0, 0)
     private var mTimerHandler = Handler()
     private var mPlayWhenReadyHandler = Handler()
@@ -229,7 +229,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun initExoPlayer() {
-        val dataSpec = DataSpec(mUri)
+        val dataSpec = DataSpec(mUri!!)
         val fileDataSource = ContentDataSource(applicationContext)
         try {
             fileDataSource.open(dataSpec)
@@ -238,60 +238,51 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         val factory = DataSource.Factory { fileDataSource }
-        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
-            seekParameters = SeekParameters.CLOSEST_SYNC
-            audioStreamType = C.STREAM_TYPE_MUSIC
-            if (config.loopVideos) {
-                repeatMode = Player.REPEAT_MODE_ONE
+        val mediaSource: MediaSource = ProgressiveMediaSource.Factory(factory)
+            .createMediaSource(MediaItem.fromUri(fileDataSource.uri!!))
+
+        mExoPlayer = ExoPlayer.Builder(this)
+            .setMediaSourceFactory(DefaultMediaSourceFactory(applicationContext))
+            .setSeekParameters(SeekParameters.CLOSEST_SYNC)
+            .build()
+            .apply {
+                setMediaSource(mediaSource)
+                setAudioAttributes(
+                    AudioAttributes
+                        .Builder()
+                        .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
+                        .build(), false
+                )
+                if (config.loopVideos) {
+                    repeatMode = Player.REPEAT_MODE_ONE
+                }
+                prepare()
+                initListeners()
             }
-            prepare(audioSource)
-        }
-        initExoPlayerListeners()
     }
 
-    private fun initExoPlayerListeners() {
-        mExoPlayer!!.addListener(object : Player.EventListener {
-            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
-
-            override fun onSeekProcessed() {}
-
-            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
-
-            override fun onPlayerError(error: ExoPlaybackException?) {}
-
-            override fun onLoadingChanged(isLoading: Boolean) {}
-
-            override fun onPositionDiscontinuity(reason: Int) {
+    private fun ExoPlayer.initListeners() {
+        addListener(object : Player.Listener {
+            override fun onPositionDiscontinuity(oldPosition: Player.PositionInfo, newPosition: Player.PositionInfo, @Player.DiscontinuityReason reason: Int) {
                 // Reset progress views when video loops.
-                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                if (reason == Player.DISCONTINUITY_REASON_AUTO_TRANSITION) {
                     video_seekbar.progress = 0
                     video_curr_time.text = 0.getFormattedDuration()
                 }
             }
 
-            override fun onRepeatModeChanged(repeatMode: Int) {}
-
-            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
-
-            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
-
-            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+            override fun onPlaybackStateChanged(@Player.State playbackState: Int) {
                 when (playbackState) {
                     Player.STATE_READY -> videoPrepared()
                     Player.STATE_ENDED -> videoCompleted()
                 }
             }
-        })
 
-        mExoPlayer!!.addVideoListener(object : VideoListener {
-            override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
-                mVideoSize.x = width
-                mVideoSize.y = height
+            override fun onVideoSizeChanged(videoSize: VideoSize) {
+                mVideoSize.x = videoSize.width
+                mVideoSize.y = videoSize.height
                 setVideoSize()
             }
-
-            override fun onRenderedFirstFrame() {}
         })
     }
 
@@ -545,6 +536,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 mTouchDownTime = System.currentTimeMillis()
                 mProgressAtDown = mExoPlayer!!.currentPosition
             }
+
             MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
             MotionEvent.ACTION_MOVE -> {
                 val diffX = event.rawX - mTouchDownX
@@ -569,6 +561,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                     resetPlayWhenReady()
                 }
             }
+
             MotionEvent.ACTION_UP -> {
                 val diffX = mTouchDownX - event.rawX
                 val diffY = mTouchDownY - event.rawY

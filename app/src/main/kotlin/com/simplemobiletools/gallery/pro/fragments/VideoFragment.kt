@@ -15,14 +15,15 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
-import com.google.android.exoplayer2.source.ExtractorMediaSource
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
+import com.google.android.exoplayer2.audio.AudioAttributes
+import com.google.android.exoplayer2.source.DefaultMediaSourceFactory
+import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.ContentDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.FileDataSource
+import com.google.android.exoplayer2.video.VideoSize
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
@@ -58,7 +59,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mPositionAtPause = 0L
     var mIsPlaying = false
 
-    private var mExoPlayer: SimpleExoPlayer? = null
+    private var mExoPlayer: ExoPlayer? = null
     private var mVideoSize = Point(1, 1)
     private var mTimerHandler = Handler()
 
@@ -348,16 +349,15 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
         }
 
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
-        mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
-        if (mConfig.loopVideos && listener?.isSlideShowActive() == false) {
-            mExoPlayer?.repeatMode = Player.REPEAT_MODE_ONE
-        }
-
         val isContentUri = mMedium.path.startsWith("content://")
         val uri = if (isContentUri) Uri.parse(mMedium.path) else Uri.fromFile(File(mMedium.path))
         val dataSpec = DataSpec(uri)
-        val fileDataSource = if (isContentUri) ContentDataSource(context) else FileDataSource()
+        val fileDataSource = if (isContentUri) {
+            ContentDataSource(requireContext())
+        } else {
+            FileDataSource()
+        }
+
         try {
             fileDataSource.open(dataSpec)
         } catch (e: Exception) {
@@ -366,56 +366,62 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         val factory = DataSource.Factory { fileDataSource }
-        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
+        val mediaSource: MediaSource = ProgressiveMediaSource.Factory(factory)
+            .createMediaSource(MediaItem.fromUri(fileDataSource.uri!!))
+
         mPlayOnPrepared = true
-        mExoPlayer!!.audioStreamType = C.STREAM_TYPE_MUSIC
-        mExoPlayer!!.prepare(audioSource)
 
-        if (mTextureView.surfaceTexture != null) {
-            mExoPlayer!!.setVideoSurface(Surface(mTextureView.surfaceTexture))
-        }
+        mExoPlayer = ExoPlayer.Builder(requireContext())
+            .setMediaSourceFactory(DefaultMediaSourceFactory(requireContext()))
+            .setSeekParameters(SeekParameters.CLOSEST_SYNC)
+            .build()
+            .apply {
+                if (mConfig.loopVideos && listener?.isSlideShowActive() == false) {
+                    repeatMode = Player.REPEAT_MODE_ONE
+                }
+                setMediaSource(mediaSource)
+                setAudioAttributes(
+                    AudioAttributes
+                        .Builder()
+                        .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
+                        .build(), false
+                )
+                prepare()
 
-        mExoPlayer!!.addListener(object : Player.EventListener {
-            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
+                if (mTextureView.surfaceTexture != null) {
+                    setVideoSurface(Surface(mTextureView.surfaceTexture))
+                }
 
-            override fun onSeekProcessed() {}
+                initListeners()
+            }
+    }
 
-            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
-
-            override fun onPlayerError(error: ExoPlaybackException?) {}
-
-            override fun onLoadingChanged(isLoading: Boolean) {}
-
-            override fun onPositionDiscontinuity(reason: Int) {
+    private fun ExoPlayer.initListeners() {
+        addListener(object : Player.Listener {
+            override fun onPositionDiscontinuity(
+                oldPosition: Player.PositionInfo,
+                newPosition: Player.PositionInfo,
+                @Player.DiscontinuityReason reason: Int
+            ) {
                 // Reset progress views when video loops.
-                if (reason == Player.DISCONTINUITY_REASON_PERIOD_TRANSITION) {
+                if (reason == Player.DISCONTINUITY_REASON_AUTO_TRANSITION) {
                     mSeekBar.progress = 0
                     mCurrTimeView.text = 0.getFormattedDuration()
                 }
             }
 
-            override fun onRepeatModeChanged(repeatMode: Int) {}
-
-            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
-
-            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
-
-            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+            override fun onPlaybackStateChanged(@Player.State playbackState: Int) {
                 when (playbackState) {
                     Player.STATE_READY -> videoPrepared()
                     Player.STATE_ENDED -> videoCompleted()
                 }
             }
-        })
 
-        mExoPlayer!!.addVideoListener(object : SimpleExoPlayer.VideoListener {
-            override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
-                mVideoSize.x = width
-                mVideoSize.y = (height / pixelWidthHeightRatio).toInt()
+            override fun onVideoSizeChanged(videoSize: VideoSize) {
+                mVideoSize.x = videoSize.width
+                mVideoSize.y = (videoSize.height / videoSize.pixelWidthHeightRatio).toInt()
                 setVideoSize()
             }
-
-            override fun onRenderedFirstFrame() {}
         })
     }
 
