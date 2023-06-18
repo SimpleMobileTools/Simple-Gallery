@@ -753,11 +753,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun releaseExoPlayer() {
         mIsPlayerPrepared = false
-        mExoPlayer?.stop()
-        ensureBackgroundThread {
-            mExoPlayer?.release()
-            mExoPlayer = null
+        mExoPlayer?.apply {
+            stop()
+            release()
         }
+        mExoPlayer = null
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {}
@@ -767,9 +767,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
-        ensureBackgroundThread {
-            mExoPlayer?.setVideoSurface(Surface(mTextureView.surfaceTexture))
-        }
+        mExoPlayer?.setVideoSurface(Surface(mTextureView.surfaceTexture))
     }
 
     private fun setVideoSize() {
