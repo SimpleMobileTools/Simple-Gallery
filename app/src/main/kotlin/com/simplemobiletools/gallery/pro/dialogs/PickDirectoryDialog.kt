@@ -1,6 +1,11 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
+import android.graphics.Color
 import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +14,7 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.views.MyGridLayoutManager
+import com.simplemobiletools.commons.views.MySearchMenu
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -32,6 +38,10 @@ class PickDirectoryDialog(
     private var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
     private var showHidden = activity.config.shouldShowHidden
     private var currentPathPrefix = ""
+    private val config = view.context.config
+    private val searchView = view.folder_search_view
+    private val searchEditText = view.findViewById<EditText>(R.id.top_toolbar_search)
+    private val searchViewAppBarLayout = view.findViewById<View>(R.id.top_app_bar_layout)
 
     init {
         (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
@@ -40,6 +50,8 @@ class PickDirectoryDialog(
         }
 
         view.directories_fastscroller.updateColors(activity.getProperPrimaryColor())
+
+        configureSearchView()
 
         val builder = activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok, null)
@@ -70,6 +82,75 @@ class PickDirectoryDialog(
         }
 
         fetchDirectories(false)
+    }
+
+    private fun configureSearchView() = with(searchView) {
+        updateHintText(context.getString(R.string.search_folders))
+        searchEditText.imeOptions = EditorInfo.IME_ACTION_DONE
+
+        toggleHideOnScroll(!config.scrollHorizontally)
+        setupMenu()
+        setSearchViewListeners()
+        updateSearchViewUi()
+    }
+
+    private fun MySearchMenu.updateSearchViewUi() {
+        getToolbar().beInvisible()
+        updateColors()
+        setBackgroundColor(Color.TRANSPARENT)
+        searchViewAppBarLayout.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun MySearchMenu.setSearchViewListeners() {
+        onSearchOpenListener = {
+            updateSearchViewLeftIcon(R.drawable.ic_cross_vector)
+        }
+        onSearchClosedListener = {
+            searchEditText.clearFocus()
+            activity.hideKeyboard(searchEditText)
+            updateSearchViewLeftIcon(R.drawable.ic_search_vector)
+        }
+
+        onSearchTextChangedListener = { text ->
+            filterFolderListBySearchQuery(text)
+        }
+    }
+
+    private fun updateSearchViewLeftIcon(iconResId: Int) = with(view.findViewById<ImageView>(R.id.top_toolbar_search_icon)) {
+        post {
+            setImageResource(iconResId)
+        }
+    }
+
+    private fun filterFolderListBySearchQuery(query: String) {
+        val adapter = view.directories_grid.adapter as? DirectoryAdapter
+        var dirsToShow = allDirectories
+        if (query.isNotEmpty()) {
+            dirsToShow = dirsToShow.filter { it.name.contains(query, true) }.sortedBy { !it.name.startsWith(query, true) }
+                .toMutableList() as ArrayList
+        }
+        checkPlaceholderVisibility(dirsToShow)
+
+        val filteredFolderListUpdated = adapter?.dirs != dirsToShow
+        if (filteredFolderListUpdated) {
+            adapter?.updateDirs(dirsToShow)
+
+            view.directories_grid.apply {
+                post {
+                    scrollToPosition(0)
+                }
+            }
+        }
+    }
+
+    private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) = with(view) {
+        directories_empty_placeholder.beVisibleIf(dirs.isEmpty())
+
+        if (folder_search_view.isSearchOpen) {
+            directories_empty_placeholder.text = context.getString(R.string.no_items_found)
+        }
+
+        directories_fastscroller.beVisibleIf(directories_empty_placeholder.isGone())
     }
 
     private fun fetchDirectories(forceShowHiddenAndExcluded: Boolean) {
@@ -143,7 +224,9 @@ class PickDirectoryDialog(
     }
 
     private fun backPressed() {
-        if (activity.config.groupDirectSubfolders) {
+        if (searchView.isSearchOpen) {
+            searchView.closeSearch()
+        } else if (activity.config.groupDirectSubfolders) {
             if (currentPathPrefix.isEmpty()) {
                 dialog?.dismiss()
             } else {

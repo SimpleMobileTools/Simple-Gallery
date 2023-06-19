@@ -9,12 +9,35 @@
         android:id="@+id/directories_grid_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_margin">
+        android:minHeight="@dimen/directory_picker_dialog_min_height"
+        android:paddingTop="@dimen/medium_margin">
+
+        <com.simplemobiletools.commons.views.MySearchMenu
+            android:id="@+id/folder_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin" />
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/directories_empty_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/folder_search_view"
+            android:alpha="0.8"
+            android:gravity="center_horizontal"
+            android:paddingStart="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:text="@string/no_media_with_filters"
+            android:textSize="@dimen/bigger_text_size"
+            android:textStyle="italic"
+            android:visibility="gone" />
 
         <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
             android:id="@+id/directories_fastscroller"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/directories_empty_placeholder">
 
             <com.simplemobiletools.commons.views.MyRecyclerView
                 android:id="@+id/directories_grid"
