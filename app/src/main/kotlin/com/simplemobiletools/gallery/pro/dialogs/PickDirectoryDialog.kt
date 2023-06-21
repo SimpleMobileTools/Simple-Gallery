@@ -183,15 +183,11 @@ class PickDirectoryDialog(
     private fun getOtherFolderOpeningPath(): String {
         val lastCopyPath = config.lastCopyPath
 
-        val lastCopyPathExist = {
-            activity.getDoesFilePathExist(lastCopyPath)
-        }
-
         val lastCopyPathVisible = {
             showHidden || !lastCopyPath.split(File.separator).any { it.startsWith(".") && it.length > 1 }
         }
 
-        return if (lastCopyPathExist() && lastCopyPathVisible()) {
+        return if (activity.getDoesFilePathExist(lastCopyPath) && lastCopyPathVisible()) {
             lastCopyPath
         } else {
             sourcePath
