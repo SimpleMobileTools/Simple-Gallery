@@ -363,6 +363,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getString(LAST_FILEPICKER_PATH, "")!!
         set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
 
+    var lastCopyPath: String
+        get() = prefs.getString(LAST_COPY_PATH, "")!!
+        set(lastCopyPath) = prefs.edit().putString(LAST_COPY_PATH, lastCopyPath).apply()
+
     var tempSkipDeleteConfirmation: Boolean
         get() = prefs.getBoolean(TEMP_SKIP_DELETE_CONFIRMATION, false)
         set(tempSkipDeleteConfirmation) = prefs.edit().putBoolean(TEMP_SKIP_DELETE_CONFIRMATION, tempSkipDeleteConfirmation).apply()
