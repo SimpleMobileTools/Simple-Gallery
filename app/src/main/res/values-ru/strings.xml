@@ -31,8 +31,8 @@
     <string name="switch_to_file_search">Переключиться на поиск файлов по всем видимым папкам</string>
     <string name="set_as_default_folder">Установить как папку по умолчанию</string>
     <string name="unset_as_default_folder">Отключить как папку по умолчанию</string>
-    <string name="reorder_by_dragging">Менять порядок папок перетаскиванием</string>
-    <string name="reorder_by_dragging_pro">Менять порядок папок перетаскиванием (Pro)</string>
+    <string name="reorder_by_dragging">Сортировка папок перетаскиванием</string>
+    <string name="reorder_by_dragging_pro">Сортировка папок перетаскиванием (Pro)</string>
     <string name="restore_to_path">Восстановление в \"%s\"</string>
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -278,7 +278,7 @@
     <string name="pesdk_brush_title_name">Кисть</string>
     <string name="pesdk_brush_button_color">Цвет</string>
     <string name="pesdk_brush_button_size">Размер</string>
-    <string name="pesdk_brush_button_hardness">Чёткость</string>
+    <string name="pesdk_brush_button_hardness">Плотность</string>
     <string name="pesdk_brush_button_bringToFront">Спереди</string>
     <string name="pesdk_brush_button_delete">Удалить</string>
     <string name="pesdk_brush_title_brushColor">Цвет кисти</string>
