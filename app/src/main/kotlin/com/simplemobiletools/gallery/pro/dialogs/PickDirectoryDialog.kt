@@ -170,7 +170,14 @@ class PickDirectoryDialog(
 
     private fun showOtherFolder() {
         activity.hideKeyboard(searchEditText)
-        FilePickerDialog(activity, getOtherFolderOpeningPath(), !isPickingCopyMoveDestination && !isPickingFolderForWidget, showHidden, true, true) {
+        FilePickerDialog(
+            activity,
+            getDefaultCopyDestinationPath(sourcePath),
+            !isPickingCopyMoveDestination && !isPickingFolderForWidget,
+            showHidden,
+            true,
+            true
+        ) {
             config.lastCopyPath = it
             activity.handleLockedFolderOpening(it) { success ->
                 if (success) {
@@ -180,17 +187,19 @@ class PickDirectoryDialog(
         }
     }
 
-    private fun getOtherFolderOpeningPath(): String {
+    private fun getDefaultCopyDestinationPath(currentPath: String): String {
         val lastCopyPath = config.lastCopyPath
 
-        val lastCopyPathVisible = {
-            showHidden || !lastCopyPath.split(File.separator).any { it.startsWith(".") && it.length > 1 }
-        }
+        return if (activity.getDoesFilePathExist(lastCopyPath)) {
+            val isLastCopyPathVisible = !lastCopyPath.split(File.separator).any { it.startsWith(".") && it.length > 1 }
 
-        return if (activity.getDoesFilePathExist(lastCopyPath) && lastCopyPathVisible()) {
-            lastCopyPath
+            if (showHidden || isLastCopyPathVisible) {
+                lastCopyPath
+            } else {
+                currentPath
+            }
         } else {
-            sourcePath
+            currentPath
         }
     }
 
