@@ -126,9 +126,9 @@ class PickDirectoryDialog(
         val adapter = view.directories_grid.adapter as? DirectoryAdapter
         var dirsToShow = allDirectories
         if (query.isNotEmpty()) {
-            dirsToShow = dirsToShow.filter { it.name.contains(query, true) }.sortedBy { !it.name.startsWith(query, true) }
-                .toMutableList() as ArrayList
+            dirsToShow = dirsToShow.filter { it.name.contains(query, true) }.toMutableList() as ArrayList
         }
+        dirsToShow = activity.getSortedDirectories(dirsToShow)
         checkPlaceholderVisibility(dirsToShow)
 
         val filteredFolderListUpdated = adapter?.dirs != dirsToShow
