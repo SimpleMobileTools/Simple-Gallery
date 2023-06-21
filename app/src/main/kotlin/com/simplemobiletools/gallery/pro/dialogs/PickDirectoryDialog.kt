@@ -168,6 +168,7 @@ class PickDirectoryDialog(
     }
 
     private fun showOtherFolder() {
+        activity.hideKeyboard(searchEditText)
         FilePickerDialog(activity, sourcePath, !isPickingCopyMoveDestination && !isPickingFolderForWidget, showHidden, true, true) {
             activity.handleLockedFolderOpening(it) { success ->
                 if (success) {
