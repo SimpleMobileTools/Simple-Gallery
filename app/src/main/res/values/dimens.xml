@@ -26,4 +26,5 @@
     <dimen name="full_brush_size">40dp</dimen>
     <dimen name="lock_padding">30dp</dimen>
     <dimen name="sample_thumbnail_size">180dp</dimen>
+    <dimen name="directory_picker_dialog_min_height">180dp</dimen>
 </resources>
