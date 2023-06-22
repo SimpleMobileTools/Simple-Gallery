@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
+import java.io.File
 
 class PickDirectoryDialog(
     val activity: BaseSimpleActivity,
@@ -38,7 +39,7 @@ class PickDirectoryDialog(
     private var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
     private var showHidden = activity.config.shouldShowHidden
     private var currentPathPrefix = ""
-    private val config = view.context.config
+    private val config = activity.config
     private val searchView = view.folder_search_view
     private val searchEditText = view.findViewById<EditText>(R.id.top_toolbar_search)
     private val searchViewAppBarLayout = view.findViewById<View>(R.id.top_app_bar_layout)
@@ -169,12 +170,36 @@ class PickDirectoryDialog(
 
     private fun showOtherFolder() {
         activity.hideKeyboard(searchEditText)
-        FilePickerDialog(activity, sourcePath, !isPickingCopyMoveDestination && !isPickingFolderForWidget, showHidden, true, true) {
+        FilePickerDialog(
+            activity,
+            getDefaultCopyDestinationPath(sourcePath),
+            !isPickingCopyMoveDestination && !isPickingFolderForWidget,
+            showHidden,
+            true,
+            true
+        ) {
+            config.lastCopyPath = it
             activity.handleLockedFolderOpening(it) { success ->
                 if (success) {
                     callback(it)
                 }
             }
+        }
+    }
+
+    private fun getDefaultCopyDestinationPath(currentPath: String): String {
+        val lastCopyPath = config.lastCopyPath
+
+        return if (activity.getDoesFilePathExist(lastCopyPath)) {
+            val isLastCopyPathVisible = !lastCopyPath.split(File.separator).any { it.startsWith(".") && it.length > 1 }
+
+            if (showHidden || isLastCopyPathVisible) {
+                lastCopyPath
+            } else {
+                currentPath
+            }
+        } else {
+            currentPath
         }
     }
 
