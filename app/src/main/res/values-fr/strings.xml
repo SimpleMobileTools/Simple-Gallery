@@ -75,9 +75,10 @@
     <string name="resize_factor_error">Entrer un nombre entre 10 et 90</string>
     <plurals name="failed_to_resize_images">
         <item quantity="one">Échec de redimensionnement de %d image</item>
+        <item quantity="many">Échec de redimensionnement de %d images</item>
         <item quantity="other">Échec de redimensionnement de %d images</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Les images ont été redimensionnées avec succès</string>
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="basic_editor">Éditeur simple</string>
