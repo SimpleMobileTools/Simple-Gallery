@@ -20,7 +20,6 @@ import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
-import java.io.File
 
 class PickDirectoryDialog(
     val activity: BaseSimpleActivity,
@@ -172,7 +171,7 @@ class PickDirectoryDialog(
         activity.hideKeyboard(searchEditText)
         FilePickerDialog(
             activity,
-            getDefaultCopyDestinationPath(sourcePath),
+            activity.getDefaultCopyDestinationPath(showHidden, sourcePath),
             !isPickingCopyMoveDestination && !isPickingFolderForWidget,
             showHidden,
             true,
@@ -184,22 +183,6 @@ class PickDirectoryDialog(
                     callback(it)
                 }
             }
-        }
-    }
-
-    private fun getDefaultCopyDestinationPath(currentPath: String): String {
-        val lastCopyPath = config.lastCopyPath
-
-        return if (activity.getDoesFilePathExist(lastCopyPath)) {
-            val isLastCopyPathVisible = !lastCopyPath.split(File.separator).any { it.startsWith(".") && it.length > 1 }
-
-            if (showHidden || isLastCopyPathVisible) {
-                lastCopyPath
-            } else {
-                currentPath
-            }
-        } else {
-            currentPath
         }
     }
 

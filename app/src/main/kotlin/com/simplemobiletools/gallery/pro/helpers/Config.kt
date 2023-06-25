@@ -8,7 +8,7 @@ import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.models.AlbumCover
-import java.util.*
+import java.util.Arrays
 
 class Config(context: Context) : BaseConfig(context) {
     companion object {
@@ -362,10 +362,6 @@ class Config(context: Context) : BaseConfig(context) {
     var lastFilepickerPath: String
         get() = prefs.getString(LAST_FILEPICKER_PATH, "")!!
         set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
-
-    var lastCopyPath: String
-        get() = prefs.getString(LAST_COPY_PATH, "")!!
-        set(lastCopyPath) = prefs.edit().putString(LAST_COPY_PATH, lastCopyPath).apply()
 
     var tempSkipDeleteConfirmation: Boolean
         get() = prefs.getBoolean(TEMP_SKIP_DELETE_CONFIRMATION, false)
