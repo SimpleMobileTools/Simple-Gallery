@@ -799,7 +799,7 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
             val file = File(newPath)
             val pathLastModifiedMap = mapOf(file.absolutePath to file.lastModified())
             try {
-                resizeImage(newPath, newSize) { success ->
+                resizeImage(path, newPath, newSize) { success ->
                     if (success) {
                         toast(R.string.file_saved)
 
@@ -822,17 +822,17 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
     }
 }
 
-fun BaseSimpleActivity.resizeImage(path: String, size: Point, callback: (success: Boolean) -> Unit) {
+fun BaseSimpleActivity.resizeImage(oldPath: String, newPath: String, size: Point, callback: (success: Boolean) -> Unit) {
     var oldExif: ExifInterface? = null
     if (isNougatPlus()) {
-        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(path)))
+        val inputStream = contentResolver.openInputStream(Uri.fromFile(File(oldPath)))
         oldExif = ExifInterface(inputStream!!)
     }
 
-    val newBitmap = Glide.with(applicationContext).asBitmap().load(path).submit(size.x, size.y).get()
+    val newBitmap = Glide.with(applicationContext).asBitmap().load(oldPath).submit(size.x, size.y).get()
 
-    val newFile = File(path)
-    val newFileDirItem = FileDirItem(path, path.getFilenameFromPath())
+    val newFile = File(newPath)
+    val newFileDirItem = FileDirItem(newPath, newPath.getFilenameFromPath())
     getFileOutputStream(newFileDirItem, true) { out ->
         if (out != null) {
             out.use {

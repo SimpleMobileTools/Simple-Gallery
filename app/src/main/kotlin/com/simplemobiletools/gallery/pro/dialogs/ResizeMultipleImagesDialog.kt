@@ -87,7 +87,7 @@ class ResizeMultipleImagesDialog(
                         val lastModified = File(path).lastModified()
 
                         try {
-                            resizeImage(path, size) {
+                            resizeImage(path, path, size) {
                                 if (it) {
                                     pathsToRescan.add(path)
                                     pathLastModifiedMap[path] = lastModified
