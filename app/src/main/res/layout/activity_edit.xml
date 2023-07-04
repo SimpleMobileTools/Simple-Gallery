@@ -34,7 +34,7 @@
             android:layout_above="@+id/bottom_editor_crop_rotate_actions"
             android:layout_marginBottom="@dimen/bottom_filters_height_with_margin" />
 
-        <com.theartofdev.edmodo.cropper.CropImageView
+        <com.canhub.cropper.CropImageView
             android:id="@+id/crop_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

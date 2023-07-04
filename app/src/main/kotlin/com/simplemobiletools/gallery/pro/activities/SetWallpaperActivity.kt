@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import com.canhub.cropper.CropImageView
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.checkAppSideloading
 import com.simplemobiletools.commons.extensions.toast
@@ -14,9 +15,10 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
-import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_set_wallpaper.*
-import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.*
+import kotlinx.android.synthetic.main.activity_set_wallpaper.crop_image_view
+import kotlinx.android.synthetic.main.activity_set_wallpaper.set_wallpaper_toolbar
+import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.bottom_set_wallpaper_aspect_ratio
+import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.bottom_set_wallpaper_rotate
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val RATIO_PORTRAIT = 0
@@ -134,21 +136,21 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
             RadioGroupDialog(this, items) {
                 wallpaperFlag = it as Int
-                crop_image_view.getCroppedImageAsync()
+                crop_image_view.croppedImageAsync()
             }
         } else {
-            crop_image_view.getCroppedImageAsync()
+            crop_image_view.croppedImageAsync()
         }
     }
 
-    override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
+    override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (isDestroyed)
             return
 
-        if (result.error == null) {
+        if (result.error == null && result.bitmap != null) {
             toast(R.string.setting_wallpaper)
             ensureBackgroundThread {
-                val bitmap = result.bitmap
+                val bitmap = result.bitmap!!
                 val wantedHeight = wallpaperManager.desiredMinimumHeight
                 val ratio = wantedHeight / bitmap.height.toFloat()
                 val wantedWidth = (bitmap.width * ratio).toInt()
@@ -167,7 +169,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 finish()
             }
         } else {
-            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)}: ${result.error?.message}")
         }
     }
 }
