@@ -24,6 +24,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.canhub.cropper.CropImageView
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
@@ -44,7 +45,6 @@ import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.openEditor
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.FilterItem
-import com.theartofdev.edmodo.cropper.CropImageView
 import com.zomato.photofilters.FilterPack
 import com.zomato.photofilters.imageprocessors.Filter
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -318,7 +318,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setOldExif()
 
         if (crop_image_view.isVisible()) {
-            crop_image_view.getCroppedImageAsync()
+            crop_image_view.croppedImageAsync()
         } else if (editor_draw_canvas.isVisible()) {
             val bitmap = editor_draw_canvas.getBitmap()
             if (saveUri.scheme == "file") {
@@ -387,7 +387,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 crop_image_view.isVisible() -> {
                     isSharingBitmap = true
                     runOnUiThread {
-                        crop_image_view.getCroppedImageAsync()
+                        crop_image_view.croppedImageAsync()
                     }
                 }
                 editor_draw_canvas.isVisible() -> shareBitmap(editor_draw_canvas.getBitmap())
@@ -752,7 +752,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         ResizeDialog(this, point) {
             resizeWidth = it.x
             resizeHeight = it.y
-            crop_image_view.getCroppedImageAsync()
+            crop_image_view.croppedImageAsync()
         }
     }
 
@@ -776,10 +776,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
-        if (result.error == null) {
+        if (result.error == null && result.bitmap != null) {
             setOldExif()
 
-            val bitmap = result.bitmap
+            val bitmap = result.bitmap!!
             if (isSharingBitmap) {
                 isSharingBitmap = false
                 shareBitmap(bitmap)
@@ -826,7 +826,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 toast(R.string.unknown_file_location)
             }
         } else {
-            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)}: ${result.error?.message}")
         }
     }
 
