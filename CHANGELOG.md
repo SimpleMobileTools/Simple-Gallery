@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.27.0 *(2023-07-05)*
+----------------------------
+
+ * Fixed image resizing with renaming
+ * Added search at the destination picker dialog
+ * Remember the last used folder at copying
+ * Allow skipping the recycle bin at deleting
+ * Updated some libraries
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.26.10 *(2023-06-12)*
 ----------------------------
 
