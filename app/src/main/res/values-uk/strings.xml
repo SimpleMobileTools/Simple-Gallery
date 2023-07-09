@@ -69,15 +69,17 @@
     <string name="height">Висота</string>
     <string name="keep_aspect_ratio">Зберігати співвідношення сторін</string>
     <string name="invalid_values">Введіть допустиму роздільну здатність</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Змінити розмір кількох зображень</string>
+    <string name="resize_factor">Коефіцієнт зміни розміру</string>
+    <string name="resize_factor_info">Зміна розміру зображення до заданого відсотка, значення повинно бути в межах від 10 до 90.</string>
+    <string name="resize_factor_error">Введіть число від 10 до 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Не вдалося змінити розмір %d зображення</item>
+        <item quantity="few">Не вдалося змінити розмір %d зображень</item>
+        <item quantity="many">Не вдалося змінити розмір %d зображень</item>
+        <item quantity="other">Не вдалося змінити розмір %d зображень</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Розмір зображень успішно змінено</string>
     <!-- Editor -->
     <string name="editor">Редактор</string>
     <string name="basic_editor">Базовий редактор</string>
