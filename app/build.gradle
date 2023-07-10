@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:930c670513'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:571e8e3ef2'
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
@@ -100,11 +100,11 @@ dependencies {
     }
     compileOnly 'com.squareup.okhttp3:okhttp:4.9.0'
 
-    kapt 'com.github.bumptech.glide:compiler:4.13.2'
+    kapt 'com.github.bumptech.glide:compiler:4.15.1'
 
-    kapt 'androidx.room:room-compiler:2.4.3'
-    implementation 'androidx.room:room-runtime:2.4.3'
-    annotationProcessor 'androidx.room:room-compiler:2.4.3'
+    kapt 'androidx.room:room-compiler:2.5.2'
+    implementation 'androidx.room:room-runtime:2.5.2'
+    annotationProcessor 'androidx.room:room-compiler:2.5.2'
 
     //implementation project(':commons')
 }

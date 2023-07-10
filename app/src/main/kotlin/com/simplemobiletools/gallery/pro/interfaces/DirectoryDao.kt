@@ -2,7 +2,7 @@ package com.simplemobiletools.gallery.pro.interfaces
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy.REPLACE
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.models.Directory
@@ -12,10 +12,10 @@ interface DirectoryDao {
     @Query("SELECT path, thumbnail, filename, media_count, last_modified, date_taken, size, location, media_types, sort_value FROM directories")
     fun getAll(): List<Directory>
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(directory: Directory)
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(directories: List<Directory>)
 
     @Query("DELETE FROM directories WHERE path = :path COLLATE NOCASE")
