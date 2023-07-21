@@ -23,7 +23,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -136,6 +135,7 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
                     o1.sortValue.normalizeString().toLowerCase().compareTo(o2.sortValue.normalizeString().toLowerCase())
                 }
             }
+
             sorting and SORT_BY_PATH != 0 -> {
                 if (o1.sortValue.isEmpty()) {
                     o1.sortValue = o1.path.toLowerCase()
@@ -151,6 +151,7 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
                     o1.sortValue.toLowerCase().compareTo(o2.sortValue.toLowerCase())
                 }
             }
+
             sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.sortValue.toLowerCase(), o2.sortValue.toLowerCase())
             sorting and SORT_BY_SIZE != 0 -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
             sorting and SORT_BY_DATE_MODIFIED != 0 -> (o1.sortValue.toLongOrNull() ?: 0).compareTo(o2.sortValue.toLongOrNull() ?: 0)
@@ -196,7 +197,13 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
 fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
     val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
     // Sort by path length, to ensure that parents get processed first
-    val foldersByPathLength = dirs.filter { currentPathPrefix.isEmpty() || (it.path.startsWith(currentPathPrefix, true) && it.path != currentPathPrefix) }.sortedBy { it.path.length }
+    val foldersByPathLength = dirs.filter {
+        currentPathPrefix.isEmpty() ||
+            (it.path.startsWith(currentPathPrefix, true) && it.path != currentPathPrefix)
+    }.sortedBy {
+        it.path.length
+    }
+
     var newDirId = 1000L
     val groups = mutableMapOf<String, MutableList<Directory>>()
 
