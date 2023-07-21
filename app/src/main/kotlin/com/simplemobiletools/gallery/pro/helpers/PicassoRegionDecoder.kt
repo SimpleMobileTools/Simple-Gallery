@@ -9,8 +9,7 @@ class PicassoRegionDecoder(
     val showHighestQuality: Boolean,
     val screenWidth: Int,
     val screenHeight: Int,
-    val minTileDpi: Int,
-    val isHeic: Boolean
+    val minTileDpi: Int
 ) : ImageRegionDecoder {
     private var decoder: BitmapRegionDecoder? = null
     private val decoderLock = Any()
@@ -35,7 +34,7 @@ class PicassoRegionDecoder(
 
             val options = BitmapFactory.Options()
             options.inSampleSize = newSampleSize
-            options.inPreferredConfig = if (showHighestQuality || isHeic) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888
             val bitmap = decoder!!.decodeRegion(rect, options)
             return bitmap ?: throw RuntimeException("Region decoder returned null bitmap - image format may not be supported")
         }
