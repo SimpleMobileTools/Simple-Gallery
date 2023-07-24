@@ -674,7 +674,6 @@ import java.io.FileInputStream
         mPlayPauseButton.setImageResource(R.drawable.ic_play_outline_vector)
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         mPositionAtPause = mExoPlayer?.currentPosition ?: 0L
-        releaseExoPlayer()
     }
 
     private fun videoEnded(): Boolean {
