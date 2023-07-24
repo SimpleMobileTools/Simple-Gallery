@@ -52,6 +52,7 @@ import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
 import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -152,7 +153,7 @@ class DirectoryAdapter(
             R.id.cab_exclude -> tryExcludeFolder()
             R.id.cab_lock -> tryLockFolder()
             R.id.cab_unlock -> unlockFolder()
-            R.id.cab_copy_to -> copyMoveTo(true)
+            R.id.cab_copy_to -> copyFilesTo()
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
             R.id.cab_create_shortcut -> tryCreateShortcut()
@@ -505,16 +506,24 @@ class DirectoryAdapter(
         }
     }
 
-    private fun moveFilesTo() {
-        activity.handleDeletePasswordProtection {
-            copyMoveTo(false)
+    private fun copyFilesTo() {
+        handleLockedFolderOpeningForFolders(getSelectedPaths()) {
+            copyMoveTo(it, true)
         }
     }
 
-    private fun copyMoveTo(isCopyOperation: Boolean) {
+    private fun moveFilesTo() {
+        activity.handleDeletePasswordProtection {
+            handleLockedFolderOpeningForFolders(getSelectedPaths()) {
+                copyMoveTo(it, false)
+            }
+        }
+    }
+
+    private fun copyMoveTo(selectedPaths: Collection<String>, isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
         val showHidden = config.shouldShowHidden
-        getSelectedPaths().forEach {
+        selectedPaths.forEach {
             val filter = config.filterMedia
             File(it).listFiles()?.filter {
                 !File(it.absolutePath).isDirectory &&
@@ -583,6 +592,7 @@ class DirectoryAdapter(
             config.isDeletePasswordProtectionOn -> activity.handleDeletePasswordProtection {
                 deleteFolders()
             }
+
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size
@@ -654,17 +664,23 @@ class DirectoryAdapter(
                     }
                 }
 
-                if (foldersToDelete.size == 1) {
-                    activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) { success ->
-                        if (success) {
-                            listener?.deleteFolders(foldersToDelete)
-                        }
-                    }
-                } else {
-                    foldersToDelete = foldersToDelete.filter { !config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
-                    listener?.deleteFolders(foldersToDelete)
+                handleLockedFolderOpeningForFolders(foldersToDelete.map { it.absolutePath }) {
+                    listener?.deleteFolders(it.map { File(it) }.toMutableList() as ArrayList<File>)
                 }
             }
+        }
+    }
+
+    private fun handleLockedFolderOpeningForFolders(folders: Collection<String>, callback: (Collection<String>) -> Unit) {
+        if (folders.size == 1) {
+            activity.handleLockedFolderOpening(folders.first()) { success ->
+                if (success) {
+                    callback(folders)
+                }
+            }
+        } else {
+            val filtered = folders.filter { !config.isFolderProtected(it) }
+            callback(filtered)
         }
     }
 
