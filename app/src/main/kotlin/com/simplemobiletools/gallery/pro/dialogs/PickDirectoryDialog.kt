@@ -105,6 +105,7 @@ class PickDirectoryDialog(
         onSearchOpenListener = {
             updateSearchViewLeftIcon(R.drawable.ic_cross_vector)
         }
+
         onSearchClosedListener = {
             searchEditText.clearFocus()
             activity.hideKeyboard(searchEditText)
