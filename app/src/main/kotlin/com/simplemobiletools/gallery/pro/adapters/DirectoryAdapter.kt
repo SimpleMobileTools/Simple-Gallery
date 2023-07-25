@@ -305,7 +305,7 @@ class DirectoryAdapter(
                 }
             }
         } else {
-            if (selectedPaths.any { File(it).isHidden }) {
+            if (selectedPaths.any { it.isThisOrParentFolderHidden() }) {
                 ConfirmationDialog(activity, "", R.string.cant_unhide_folder, R.string.ok, 0) {}
                 return
             }

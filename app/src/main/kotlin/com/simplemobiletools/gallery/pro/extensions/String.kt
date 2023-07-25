@@ -91,3 +91,18 @@ fun String.getDistinctPath(): String {
 }
 
 fun String.isDownloadsFolder() = equals(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString(), true)
+
+fun String.isThisOrParentFolderHidden(): Boolean {
+    var curFile = File(this)
+    while (true) {
+        if (curFile.isHidden) {
+            return true
+        }
+
+        curFile = curFile.parentFile ?: break
+        if (curFile.absolutePath == "/") {
+            break
+        }
+    }
+    return false
+}
