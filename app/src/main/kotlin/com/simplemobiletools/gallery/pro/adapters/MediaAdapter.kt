@@ -508,8 +508,9 @@ class MediaAdapter(
         val baseString =
             if (config.useRecycleBin && !config.tempSkipRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), itemsAndSize)
+        val showSkipRecycleBinOption = config.useRecycleBin && !isRecycleBin
 
-        DeleteWithRememberDialog(activity, question, config.useRecycleBin) { remember, skipRecycleBin ->
+        DeleteWithRememberDialog(activity, question, showSkipRecycleBinOption) { remember, skipRecycleBin ->
             config.tempSkipDeleteConfirmation = remember
 
             if (remember) {
