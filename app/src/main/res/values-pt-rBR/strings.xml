@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
     <string name="hidden_all_files">Você deve dar para o aplicativo a permissão de acesso à todos os arquivos para acessar arquivos encondidos, do contrário não pode funcionar.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>

@@ -93,6 +93,7 @@
 \nДаданне некаторых элементаў сюды не прывядзе да выключэння якой-небудзь іншай тэчкі.</string>
     <string name="hidden_folders_placeholder">Здаецца, у вас няма тэчак, схаваных з файлам \".nomedia\".</string>
     <string name="hidden_all_files">Вы павінны даць праграме доступ да ўсіх файлаў, каб бачыць схаваныя файлы, інакш яна не можа працаваць.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <string name="height">Вышыня</string>
     <string name="keep_aspect_ratio">Захоўвайце суадносіны бакоў</string>
     <string name="invalid_values">Увядзіце сапраўднае рашэнне</string>

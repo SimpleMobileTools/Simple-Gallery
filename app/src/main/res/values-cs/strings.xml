@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Spravovat skryté složky</string>
     <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
     <string name="hidden_all_files">Pro zobrazení skrytých souborů musíte aplikaci povolit přístup ke všem souborům.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Zahrnuté složky</string>
     <string name="manage_included_folders">Spravovat zahrnuté složky</string>

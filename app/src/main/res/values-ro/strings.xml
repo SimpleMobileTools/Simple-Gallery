@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Gestionează dosarele ascunse</string>
     <string name="hidden_folders_placeholder">Se pare că nu ai niciun dosar ascuns cu un fișier \".nomedia\".</string>
     <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Dosare incluse</string>
     <string name="manage_included_folders">Gestionează dosarele incluse</string>

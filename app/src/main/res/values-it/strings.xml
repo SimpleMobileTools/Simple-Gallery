@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
     <string name="hidden_folders_placeholder">Non c\'è alcuna cartella nascosta con un file .nomedia.</string>
     <string name="hidden_all_files">È necessario concedere all\'applicazione l\'accesso a Tutti i file per vedere i file nascosti, altrimenti non può funzionare.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>

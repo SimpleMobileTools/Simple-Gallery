@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
     <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
     <string name="hidden_all_files">Πρέπει να εκχωρήσετε στην εφαρμογή πρόσβαση σε \"Όλα τα αρχεία\" για να δείτε τα κρυφά αρχεία, διαφορετικά δεν μπορεί να λειτουργήσει.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Συμπεριλαμβανόμενοι Φάκελοι</string>
     <string name="manage_included_folders">Διαχείριση συμπεριλαμβανόμενων Φακέλων</string>

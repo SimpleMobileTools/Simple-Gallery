@@ -193,10 +193,10 @@ class DirectoryAdapter(
 
     private fun checkHideBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
         menu.findItem(R.id.cab_hide).isVisible =
-            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { !it.doesThisOrParentHaveNoMedia(HashMap(), null) && !File(it).isHidden }
+            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { !it.doesThisOrParentHaveNoMedia(HashMap(), null) }
 
         menu.findItem(R.id.cab_unhide).isVisible =
-            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { it.doesThisOrParentHaveNoMedia(HashMap(), null) && !File(it).isHidden }
+            (!isRPlus() || isExternalStorageManager()) && selectedPaths.any { it.doesThisOrParentHaveNoMedia(HashMap(), null) }
     }
 
     private fun checkPinBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
@@ -304,6 +304,11 @@ class DirectoryAdapter(
                 }
             }
         } else {
+            if (selectedPaths.any { File(it).isHidden }) {
+                ConfirmationDialog(activity, "", R.string.cant_unhide_folder, R.string.ok, 0) {}
+                return
+            }
+
             selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !config.isFolderProtected(it)) }.forEach {
                 val path = it
                 activity.handleLockedFolderOpening(path) { success ->
@@ -583,6 +588,7 @@ class DirectoryAdapter(
             config.isDeletePasswordProtectionOn -> activity.handleDeletePasswordProtection {
                 deleteFolders()
             }
+
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size

@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Quản lý thư mục ẩn</string>
     <string name="hidden_folders_placeholder">Có vẻ như bạn không có bất kỳ thư mục nào bị ẩn với tệp \".nomedia\".</string>
     <string name="hidden_all_files">Bạn phải cấp cho ứng dụng quyền truy cập Tất cả các tệp để xem các tệp ẩn, nếu không ứng dụng sẽ không thể hoạt động.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Bao gồm các thư mục</string>
     <string name="manage_included_folders">Quản lý các thư mục được bao gồm</string>

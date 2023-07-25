@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Керування прихованими теками</string>
     <string name="hidden_folders_placeholder">Схоже, у вас немає тек, прихованих за допомогою файлу \".nomedia\".</string>
     <string name="hidden_all_files">Ви повинні надати доступ застосунку до всіх файлів, щоб бачити приховані файли, інакше це не може працювати.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Включені папки</string>
     <string name="manage_included_folders">Керування включеними папками</string>
