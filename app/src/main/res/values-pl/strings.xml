@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Wygląda na to, że nie masz żadnych ukrytych folderów z plikiem „.nomedia”.</string>
     <string name="hidden_all_files">Musisz przyznać aplikacji dostęp do wszystkich plików, aby widzieć ukryte pliki, inaczej to nie będzie działać.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Jeśli folder lub jeden z jego folderów nadrzędnych ma kropkę przed swoją nazwą, jest ukryty i nie można go odkryć w ten sposób. Musisz usunąć kropkę, zmieniając jego nazwę.</string>
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
