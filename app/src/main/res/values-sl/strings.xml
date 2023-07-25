@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Urejaj skrite mape</string>
     <string name="hidden_folders_placeholder">Kot kaže, ne obstajajo skrite mape z \".nomedia\" datoteko.</string>
     <string name="hidden_all_files">Dovoliti morate dostop do vseh datotek, da so vidne skrite datoteke, sicer ne bo delovalo.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Vključene mape</string>
     <string name="manage_included_folders">Urejaj vključene mape</string>

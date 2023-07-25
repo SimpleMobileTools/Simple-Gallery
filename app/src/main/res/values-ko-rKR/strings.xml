@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">숨겨진 폴더 관리</string>
     <string name="hidden_folders_placeholder">\".nomedia\"파일로 숨겨진 폴더가 존재하지 않습니다.</string>
     <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">포함된 폴더</string>
     <string name="manage_included_folders">포함된 폴더 관리</string>

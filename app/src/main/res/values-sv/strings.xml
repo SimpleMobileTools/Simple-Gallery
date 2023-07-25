@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Hantera dolda mappar</string>
     <string name="hidden_folders_placeholder">Det verkar som att inga mappar har dolts med \".nomedia\"-filer.</string>
     <string name="hidden_all_files">Du måste ge appen behörighet till alla filer för att se dolda filer, annars fungerar det inte.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Inkluderade mappar</string>
     <string name="manage_included_folders">Hantera inkluderade mappar</string>

@@ -55,6 +55,7 @@
     <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
     <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
     <string name="hidden_all_files">Ezkutuko fitxategiak ikusteko Fitxategi guztiak sarbidea eman behar diozu aplikazioari, bestela ezin izango du funtzionatu.</string>
+    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Sartutako karpetak</string>
     <string name="manage_included_folders">Kudeatu sartutako karpetak</string>

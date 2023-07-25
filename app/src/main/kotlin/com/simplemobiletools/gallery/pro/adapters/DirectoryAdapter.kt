@@ -305,6 +305,11 @@ class DirectoryAdapter(
                 }
             }
         } else {
+            if (selectedPaths.any { it.isThisOrParentFolderHidden() }) {
+                ConfirmationDialog(activity, "", R.string.cant_unhide_folder, R.string.ok, 0) {}
+                return
+            }
+
             selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !config.isFolderProtected(it)) }.forEach {
                 val path = it
                 activity.handleLockedFolderOpening(path) { success ->
