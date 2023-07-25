@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Gestiona les carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no teniu cap carpeta oculta amb el fitxer «.nomedia».</string>
     <string name="hidden_all_files">Cal concedir a l\'aplicació accés a tots els fitxers per veure els fitxers ocults, en cas contrari podria no funcionar.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Si una carpeta o una de les seves carpetes superiors té un punt abans del seu nom, està amagada i no es pot mostrar aquí. Heu d\'eliminar el punt canviant el seu nom.</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
     <string name="manage_included_folders">Gestiona les carpetes incloses</string>
