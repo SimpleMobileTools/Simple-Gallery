@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Spravovať skryté priečinky</string>
     <string name="hidden_folders_placeholder">Zdá sa, že nemáte žiadne priečinky skryté pomocou súboru \".nomedia\".</string>
     <string name="hidden_all_files">Na zobrazenie skrytých súborov musíte apke povoliť prístup ku všetkým súborom, ináč to fungovať nebude.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Ak priečinok, alebo niektorý z vyšších priečinkov obsahuje pred názvom bodku, je ukrytý a týmto spôsobom sa ho nedá odokryť. Na odstránenie bodky musíte priečinok premenovať.</string>
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
