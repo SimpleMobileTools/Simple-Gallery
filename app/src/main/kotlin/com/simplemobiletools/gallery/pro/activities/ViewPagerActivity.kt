@@ -1070,15 +1070,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val size = fileDirItem.getProperSize(this, countHidden = true).formatSize()
         val filename = "\"${getCurrentPath().getFilenameFromPath()}\""
         val filenameAndSize = "$filename ($size)"
+        val isInRecycleBin = getCurrentMedium()!!.getIsInRecycleBin()
 
-        val baseString = if (config.useRecycleBin && !config.tempSkipRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
+        val baseString = if (config.useRecycleBin && !config.tempSkipRecycleBin && !isInRecycleBin) {
             R.string.move_to_recycle_bin_confirmation
         } else {
             R.string.deletion_confirmation
         }
 
         val message = String.format(resources.getString(baseString), filenameAndSize)
-        DeleteWithRememberDialog(this, message, config.useRecycleBin) { remember, skipRecycleBin ->
+        val showSkipRecycleBinOption = config.useRecycleBin && !isInRecycleBin
+
+        DeleteWithRememberDialog(this, message, showSkipRecycleBinOption) { remember, skipRecycleBin ->
             config.tempSkipDeleteConfirmation = remember
 
             if (remember) {

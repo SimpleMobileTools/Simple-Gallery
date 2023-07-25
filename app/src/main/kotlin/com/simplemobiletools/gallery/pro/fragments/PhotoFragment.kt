@@ -665,7 +665,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
-            override fun make() = PicassoRegionDecoder(showHighestQuality, mScreenWidth, mScreenHeight, minTileDpi, mMedium.isHeic())
+            override fun make() = PicassoRegionDecoder(showHighestQuality, mScreenWidth, mScreenHeight, minTileDpi)
         }
 
         var newOrientation = (rotation + mCurrentRotationDegrees) % 360

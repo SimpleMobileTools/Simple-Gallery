@@ -214,7 +214,7 @@
     <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">Password protect excluded folder visibility</string>
+    <string name="password_protect_excluded">設定密碼保護，隱藏不顯示的資料夾</string>
     <string name="media_management_manual">出錯了，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
     <string name="media_management_note">若重新導向未順利運作，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>

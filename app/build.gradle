@@ -78,12 +78,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:571e8e3ef2'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:ae8713396b'
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.7'
+    implementation 'androidx.media3:media3-exoplayer:1.1.0'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'

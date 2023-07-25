@@ -75,8 +75,8 @@
     <string name="resize_factor_info">Αλλάξτε το μέγεθος των εικόνων στο δεδομένο ποσοστό. Η τιμή πρέπει να είναι μεταξύ 10 και 90.</string>
     <string name="resize_factor_error">Εισάγετε έναν αριθμό μεταξύ 10 και 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Αποτυχία αλλαγής μεγέθους εικόνας %d</item>
-        <item quantity="other">Αποτυχία αλλαγής μεγέθους εικόνων %d</item>
+        <item quantity="one">Αποτυχία αλλαγής μεγέθους %d εικόνας</item>
+        <item quantity="other">Αποτυχία αλλαγής μεγέθους %d εικόνων</item>
     </plurals>
     <string name="images_resized_successfully">Το μέγεθος των εικόνων άλλαξε με επιτυχία</string>
     <!-- Editor -->

@@ -5,7 +5,7 @@
     <string name="edit">Редакция</string>
     <string name="open_camera">Камера</string>
     <string name="hidden">(скрито)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(изключено)</string>
     <string name="pin_folder">Закачете папката</string>
     <string name="unpin_folder">Откачете папката</string>
     <string name="pin_to_the_top">Закачете отгоре</string>
@@ -54,7 +54,7 @@
     <string name="hidden_folders">Скрити папки</string>
     <string name="manage_hidden_folders">Управление на скритите папки</string>
     <string name="hidden_folders_placeholder">Изглежда нямате папки скрити чрез \'.nomedia\' файл.</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
+    <string name="hidden_all_files">Трябва да предоставите на приложението достъп до всички файлове, за да видите скритите файлове, в противен случай то не може да работи.</string>
     <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
     <!-- Include folders -->
     <string name="include_folders">Включени папки</string>
@@ -70,19 +70,19 @@
     <string name="height">Височина</string>
     <string name="keep_aspect_ratio">Запазете съотношението на страните</string>
     <string name="invalid_values">Моля въведете валидна резолюция</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Преоразмеряване на няколко изображения</string>
+    <string name="resize_factor">Коефициент на преоразмеряване</string>
+    <string name="resize_factor_info">Преоразмерете изображенията до дадения процент, стойността трябва да е в рамките на 10 и 90.</string>
+    <string name="resize_factor_error">Въведете число между 10 и 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Преоразмеряването неуспешно за %d изображение</item>
+        <item quantity="other">Преоразмеряването неуспешно за %d изображения</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Изображенията са преоразмерени успешно</string>
     <!-- Editor -->
     <string name="editor">Редактор</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">Базов редактор</string>
+    <string name="advanced_editor">Разширен редактор</string>
     <string name="rotate">Завъртане</string>
     <string name="invalid_image_path">Неправилен път до изображението</string>
     <string name="invalid_video_path">Неправилен път до видеото</string>
@@ -102,9 +102,9 @@
     <string name="rotate_left">Завъртане наляво</string>
     <string name="rotate_right">Завъртане надясно</string>
     <string name="rotate_one_eighty">Завъртане на 180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">Трансформирай</string>
+    <string name="crop">Изрежи</string>
+    <string name="draw">Рисувай</string>
     <string name="flip">Oбръщане</string>
     <string name="flip_horizontally">Хоризонтално обръщане</string>
     <string name="flip_vertically">Вертикално обръщане</string>
@@ -210,19 +210,19 @@
     <string name="limit_folder_title">Ограничаване на заглавията на папките до един ред</string>
     <string name="square">Квадрат</string>
     <string name="rounded_corners">Заоблени ъгли</string>
-    <string name="export_favorite_paths">Експортиране на пътищата на любимите файлове</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
+    <string name="export_favorite_paths">Експортиране на любимите</string>
+    <string name="import_favorite_paths">Импортиране на любими</string>
+    <string name="paths_imported_successfully">Пътищата са импортирани успешно</string>
     <string name="media_management_prompt">За да работят надеждно всички операции, моля задайте това приложение да управлява медията в настройките на вашето устройство.</string>
     <string name="password_protect_excluded">Защита на изключена папка с парола</string>
     <string name="media_management_manual">Нещо се обърка, моля, влезте в Настройки на вашето устройство - Приложения - Достъп до специални приложения - Приложения за управление на медии и разрешете на това приложение да управлява медиите.</string>
     <string name="media_management_note">Ако пренасочването не работи, моля, влезте в Настройки на вашето устройство - Приложения - Достъп до специални приложения - Приложения за управление на медии и разрешете на това приложение да управлява медиите.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="media_management_alternative">Ако не искате да го направите, можете също да отидете в Настройки на вашето устройство - Приложения - Специален достъп до приложения - Приложения за управление на медии и да разрешите на това приложение да управлява медии.</string>
+    <string name="alternative_media_access">Като алтернатива можете да разрешите достъп само до медийни файлове. В този случай обаче няма да можете да работите със скрити файлове.</string>
+    <string name="media_only">Само медия</string>
+    <string name="all_files">Всички файлове</string>
+    <string name="search_all_files">Търсете всички файлове вместо папки на главния екран</string>
+    <string name="show_all_folders">Показване на бутон на менюто за бързо превключване на Показване на съдържанието на всички папки</string>
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюри</string>
     <string name="fullscreen_media">Медия на цял екран</string>
@@ -375,7 +375,7 @@
     <string name="faq_15_text">Кешът на приложението може да отнеме до 250 MB, което гарантира по-бързо зареждане на изображението. Ако приложението заема още повече място, най-вероятно това е причинено от това, че имате елементи в кошчето. Тези файлове се броят към размера на приложението. Можете да изчистите кошчето, като го отворите и изтриете всички файлове или от настройките на приложението. Всеки файл в кошчето се изтрива автоматично след 30 дни.</string>
     <string name="faq_16_title">Какво се случи със скриването на файлове и папки и защо вече не мога да виждам скрити елементи\?</string>
     <string name="faq_16_text">Започвайки с Android 11, вече не можете да скривате или показвате файлове или папки, не можете да виждате скритите в приложения за галерия поради системни ограничения. За това ще трябва да използвате някакъв файлов мениджър.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">Или можете също да предоставите на тази галерия достъп до всички файлове през настройките на вашето устройство, което ще ни позволи да показваме скрити елементи и ще направи файловите операции по-надеждни като цяло.</string>
     <string name="faq_17_title">Защо вече не мога да добавя липсващи папки\?</string>
     <string name="faq_17_text">Това спря да работи поради системните промени, които дойдоха и с Android 11, приложението вече не може да преглежда истински папки, разчита на така наречения MediaStore при извличане на данни.</string>
     <string name="faq_18_title">Защо виждам реклами по време на възпроизвеждане на видео\?</string>
