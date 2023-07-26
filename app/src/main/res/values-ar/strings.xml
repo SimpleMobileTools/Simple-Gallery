@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
     <string name="hidden_folders_placeholder">يبدو أنه لا توجد لديك أي مجلدات مخفية بملف \".nomedia\".</string>
     <string name="hidden_all_files">يجب عليك منح التطبيق حق الوصول إلى جميع الملفات لرؤية الملفات المخفية ، وإلا فإنه لا يمكن أن يعمل.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">إذا كان المجلد أو أحد مجلداته الأصل يحتوي على نقطة قبل اسمه ، فهو مخفي ولا يمكن إلغاء إخفائه مثل هذا. يجب عليك إزالة النقطة عن طريق إعادة تسميتها.</string>
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>

@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Halda peidetud kaustu</string>
     <string name="hidden_folders_placeholder">Tundub, et sa pole „.nomedia“ faili abil ühtegi kausta märkinud peidetuks.</string>
     <string name="hidden_all_files">Peidetud failide nägemiseks pead andma sellele rakendusele juurdepääsu kõikidele failidele, muidu ei saa see töötada.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Kui kausta või mõne tema ülemkausta nime alguses on punkt, siis on tegemist peidetud kaustaga ning sa peitmist lõpetada ei saa. Palun muuda nime ja eemalda nime algusest punkt.</string>
     <!-- Include folders -->
     <string name="include_folders">Kaasatud kaustad</string>
     <string name="manage_included_folders">Halda kaasatud kaustu</string>
