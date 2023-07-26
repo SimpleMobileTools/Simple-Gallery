@@ -78,7 +78,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:ae8713396b'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:fad9b2cdb0'
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
