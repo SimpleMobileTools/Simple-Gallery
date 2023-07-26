@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.27.1 *(2023-07-26)*
+----------------------------
+
+ * Improved video playback
+ * Fixed some subfolder grouping related issues
+ * Do not allow copying locked folders content without unlocking
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.27.0 *(2023-07-05)*
 ----------------------------
 
