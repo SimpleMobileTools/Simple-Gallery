@@ -204,7 +204,7 @@ class PickDirectoryDialog(
         val adapter = DirectoryAdapter(activity, dirs.clone() as ArrayList<Directory>, null, view.directories_grid, true) {
             val clickedDir = it as Directory
             val path = clickedDir.path
-            if (clickedDir.subfoldersCount == 1 || !activity.config.groupDirectSubfolders) {
+            if (clickedDir.subfoldersCount == 1 || !activity.config.isDirectoryGroupingActive()) {
                 if (isPickingCopyMoveDestination && path.trimEnd('/') == sourcePath) {
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
@@ -236,7 +236,7 @@ class PickDirectoryDialog(
     private fun backPressed() {
         if (searchView.isSearchOpen) {
             searchView.closeSearch()
-        } else if (activity.config.groupDirectSubfolders) {
+        } else if (activity.config.isDirectoryGroupingActive()) {
             if (currentPathPrefix.isEmpty()) {
                 dialog?.dismiss()
             } else {

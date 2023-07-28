@@ -144,6 +144,8 @@
 
     <!-- View types -->
     <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>

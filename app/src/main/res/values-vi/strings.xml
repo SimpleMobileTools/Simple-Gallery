@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Không có tập tin phương tiện cho trình chiếu được tìm thấy</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Nhóm thư mục con trực tiếp</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Nhóm theo</string>
     <string name="do_not_group_files">Không nhóm các tệp</string>

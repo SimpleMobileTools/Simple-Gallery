@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">没有找到可播放幻灯片媒体文件</string>
     <!-- View types -->
     <string name="group_direct_subfolders">直接分组文件夹</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">分组依据</string>
     <string name="do_not_group_files">不分组文件</string>

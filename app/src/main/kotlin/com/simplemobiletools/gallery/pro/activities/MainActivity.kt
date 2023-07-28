@@ -299,7 +299,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     override fun onBackPressed() {
         if (main_menu.isSearchOpen) {
             main_menu.closeSearch()
-        } else if (config.groupDirectSubfolders) {
+        } else if (config.isDirectoryGroupingActive()) {
             if (mCurrentPathPrefix.isEmpty()) {
                 super.onBackPressed()
             } else {
@@ -921,7 +921,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         val dirs = getSortedDirectories(newDirs)
-        if (config.groupDirectSubfolders) {
+        if (config.isDirectoryGroupingActive()) {
             mDirs = dirs.clone() as ArrayList<Directory>
         }
 
@@ -1253,7 +1253,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             ) {
                 val clickedDir = it as Directory
                 val path = clickedDir.path
-                if (clickedDir.subfoldersCount == 1 || !config.groupDirectSubfolders) {
+                if (clickedDir.subfoldersCount == 1 || !config.isDirectoryGroupingActive()) {
                     if (path != config.tempFolderPath) {
                         itemClicked(path)
                     }

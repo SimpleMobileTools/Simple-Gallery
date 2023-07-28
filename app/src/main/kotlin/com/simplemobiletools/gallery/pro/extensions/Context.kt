@@ -169,15 +169,18 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
 }
 
 fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
-    return if (config.groupDirectSubfolders) {
+    return if (config.isDirectoryGroupingActive()) {
         dirs.forEach {
             it.subfoldersCount = 0
             it.subfoldersMediaCount = it.mediaCnt
         }
 
-        val parentDirs = getDirectParentSubfolders(dirs, currentPathPrefix)
+        val parentDirs = when (config.directoryGrouping) {
+            DIRECTORY_GROUPING_DIRECT_SUBFOLDERS -> getDirectParentSubfolders(dirs, currentPathPrefix)
+            DIRECTORY_GROUPING_FILE_STRUCTURE -> getSubfoldersPerFileStructure(dirs, currentPathPrefix)
+            else -> getDirectParentSubfolders(dirs, currentPathPrefix)
+        }
         updateSubfolderCounts(dirs, parentDirs)
-
         // show the current folder as an available option too, not just subfolders
         if (currentPathPrefix.isNotEmpty()) {
             val currentFolder =
@@ -302,6 +305,108 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
     } else {
         dirsToShow
     }
+}
+
+fun Context.getSubfoldersPerFileStructure(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
+    val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
+    // Sort by path length, to ensure that parents get processed first
+    val foldersByPathLength = dirs.filter {
+        currentPathPrefix.isEmpty() ||
+            (it.path.startsWith(currentPathPrefix, true) && it.path != currentPathPrefix)
+    }.sortedBy {
+        it.path.length
+    }
+    var newDirId = 1000L
+    val groups = mutableMapOf<String, MutableList<Directory>>()
+
+    for (folder in foldersByPathLength) {
+        val parent = groups.keys.firstOrNull { folder.path.startsWith(it, true) }
+        if (parent != null) {
+            // If we have parent in top level groups
+            // Add this folder to that group,
+            // but also add all folders in between which may not have media files
+            groups.getOrPut(parent, ::mutableListOf).apply {
+                var midParent = File(folder.path).parent
+                while (midParent != null && none { it.path.equals(midParent, true) }) {
+                    val isSortingAscending = config.sorting.isSortingAscending()
+                    val subDirs = dirs.filter { File(it.path).parent.equals(midParent, true) } as ArrayList<Directory>
+                    if (subDirs.isNotEmpty()) {
+                        val lastModified = if (isSortingAscending) {
+                            subDirs.minByOrNull { it.modified }?.modified
+                        } else {
+                            subDirs.maxByOrNull { it.modified }?.modified
+                        } ?: 0
+
+                        val dateTaken = if (isSortingAscending) {
+                            subDirs.minByOrNull { it.taken }?.taken
+                        } else {
+                            subDirs.maxByOrNull { it.taken }?.taken
+                        } ?: 0
+
+                        var mediaTypes = 0
+                        subDirs.forEach {
+                            mediaTypes = mediaTypes or it.types
+                        }
+
+                        val directory = Directory(
+                            newDirId++,
+                            midParent,
+                            subDirs.first().tmb,
+                            getFolderNameFromPath(midParent),
+                            subDirs.sumBy { it.mediaCnt },
+                            lastModified,
+                            dateTaken,
+                            subDirs.sumByLong { it.size },
+                            getPathLocation(midParent),
+                            mediaTypes,
+                            ""
+                        )
+
+                        directory.containsMediaFilesDirectly = false
+                        dirs.add(directory)
+                        add(directory)
+                    }
+                    midParent = File(midParent).parent
+                }
+                add(folder)
+            }
+        } else {
+            // If we have don't have parent in top level groups
+            // Set this folder as top level group if it is direct child
+            if (currentPathPrefix.isEmpty() || File(folder.path).parent.equals(currentPathPrefix, true)) {
+                groups.getOrPut(folder.path, ::mutableListOf).add(folder)
+            } else {
+                // Otherwise find its parent which is a direct child of current path prefix
+                // And create a group for it
+                var firstVisibleParent = File(folder.path).parent
+                while (firstVisibleParent != null && !File(firstVisibleParent).parent.equals(currentPathPrefix, true)) {
+                    firstVisibleParent = File(firstVisibleParent).parent
+                }
+                if (firstVisibleParent != null) {
+                    groups.getOrPut(firstVisibleParent, ::mutableListOf).add(folder)
+                }
+            }
+        }
+    }
+
+    val currentPaths = groups.keys.toMutableList()
+
+    if (currentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
+        currentPaths.add(RECYCLE_BIN)
+    }
+
+    if (currentPathPrefix.isEmpty() && folders.contains(FAVORITES)) {
+        currentPaths.add(FAVORITES)
+    }
+
+    if (folders.size == currentPaths.size) {
+        return dirs.filter { currentPaths.contains(it.path) } as ArrayList<Directory>
+    }
+
+    folders.clear()
+    folders.addAll(currentPaths)
+
+    return dirs.filter { folders.contains(it.path) } as ArrayList<Directory>
 }
 
 fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {

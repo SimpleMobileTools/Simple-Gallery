@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Gruppieren nach</string>
     <string name="do_not_group_files">Dateien nicht gruppieren</string>

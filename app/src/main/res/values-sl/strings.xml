@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Združi neposredne podmape</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Združi po</string>
     <string name="do_not_group_files">Ne združuj datotek</string>

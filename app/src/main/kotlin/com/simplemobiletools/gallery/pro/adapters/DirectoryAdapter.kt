@@ -52,7 +52,6 @@ import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
 import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
 import java.util.*
-import kotlin.collections.ArrayList
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -66,7 +65,7 @@ class DirectoryAdapter(
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
-    private var groupDirectSubfolders = config.groupDirectSubfolders
+    private var isDirectoryGroupingActive = config.isDirectoryGroupingActive()
     private var currentDirectoriesHash = dirs.hashCode()
     private var lockedFolderPaths = ArrayList<String>()
     private var isDragAndDropping = false
@@ -853,7 +852,7 @@ class DirectoryAdapter(
                 nameCount += " (${directory.subfoldersMediaCount})"
             }
 
-            if (groupDirectSubfolders) {
+            if (isDirectoryGroupingActive) {
                 if (directory.subfoldersCount > 1) {
                     nameCount += " [${directory.subfoldersCount}]"
                 }

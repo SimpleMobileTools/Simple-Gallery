@@ -78,6 +78,8 @@ const val LAST_EDITOR_CROP_ASPECT_RATIO = "last_editor_crop_aspect_ratio"
 const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect_ratio_x_2"
 const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y_2"
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
+const val DIRECTORY_GROUPING = "directory_grouping"
+const val WAS_DIRECTORY_GROUPING_MIGRATED = "was_directory_grouping_migrated"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
 const val ALLOW_ROTATING_WITH_GESTURES = "allow_rotating_with_gestures"
@@ -152,6 +154,11 @@ const val PICKED_PATHS = "picked_paths"
 const val SHOULD_INIT_FRAGMENT = "should_init_fragment"
 const val PORTRAIT_PATH = "portrait_path"
 const val SKIP_AUTHENTICATION = "skip_authentication"
+
+// directory grouping
+const val DIRECTORY_GROUPING_NONE = 0
+const val DIRECTORY_GROUPING_DIRECT_SUBFOLDERS = 1
+const val DIRECTORY_GROUPING_FILE_STRUCTURE = 2
 
 // rotations
 const val ROTATE_BY_SYSTEM_SETTING = 0

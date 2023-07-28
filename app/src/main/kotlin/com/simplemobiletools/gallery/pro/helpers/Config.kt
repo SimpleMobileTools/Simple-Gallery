@@ -483,9 +483,17 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1f)
         set(lastEditorCropOtherAspectRatioY) = prefs.edit().putFloat(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
 
-    var groupDirectSubfolders: Boolean
-        get() = prefs.getBoolean(GROUP_DIRECT_SUBFOLDERS, false)
-        set(groupDirectSubfolders) = prefs.edit().putBoolean(GROUP_DIRECT_SUBFOLDERS, groupDirectSubfolders).apply()
+    fun isDirectoryGroupingActive(): Boolean {
+        return directoryGrouping != DIRECTORY_GROUPING_NONE
+    }
+
+    var wasDirectoryGroupingMigrated: Boolean
+        get() = prefs.getBoolean(WAS_DIRECTORY_GROUPING_MIGRATED, false)
+        set(wasDirectoryGroupingMigrated) = prefs.edit().putBoolean(WAS_DIRECTORY_GROUPING_MIGRATED, wasDirectoryGroupingMigrated).apply()
+
+    var directoryGrouping: Int
+        get() = prefs.getInt(DIRECTORY_GROUPING, DIRECTORY_GROUPING_NONE)
+        set(directoryGrouping) = prefs.edit().putInt(DIRECTORY_GROUPING, directoryGrouping).apply()
 
     var showWidgetFolderName: Boolean
         get() = prefs.getBoolean(SHOW_WIDGET_FOLDER_NAME, true)

@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Grupper direkte undermapper</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupper etter</string>
     <string name="do_not_group_files">Ikke grupper filer</string>

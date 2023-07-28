@@ -157,6 +157,8 @@
     <string name="no_animation">Няма</string>
     <string name="fade">Знікае</string>
     <string name="group_direct_subfolders">Згрупаваць прамыя падпапкі</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <string name="group_by">Згрупаваць па</string>
     <string name="do_not_group_files">Не групаваць файлы</string>
     <string name="by_folder">Папка</string>

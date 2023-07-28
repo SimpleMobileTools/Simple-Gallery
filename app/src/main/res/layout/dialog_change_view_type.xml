@@ -37,13 +37,31 @@
             android:id="@+id/group_direct_subfolders_divider"
             layout="@layout/divider" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-            android:id="@+id/change_view_type_dialog_group_direct_subfolders"
+        <RadioGroup
+            android:id="@+id/grouping_dialog_radio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/group_direct_subfolders" />
+            android:layout_marginBottom="@dimen/medium_margin">
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/grouping_dialog_radio_none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/do_not_group_folders" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/grouping_dialog_radio_direct_subfolders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/group_direct_subfolders" />
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/grouping_dialog_radio_file_structure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/group_folders_file_structure" />
+
+        </RadioGroup>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/change_view_type_dialog_use_for_this_folder"

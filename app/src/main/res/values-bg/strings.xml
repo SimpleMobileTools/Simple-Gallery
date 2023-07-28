@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Не са открити медийни файлове за слайдшоу</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Групиране на вътрешни папки</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Групиране чрез</string>
     <string name="do_not_group_files">Без групиране на файлове</string>

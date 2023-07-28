@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Zoskupiť podľa</string>
     <string name="do_not_group_files">Nezoskupovať súbory</string>

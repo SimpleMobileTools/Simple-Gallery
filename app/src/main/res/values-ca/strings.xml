@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">No s\'ha trobat cap contingut multimèdia per a la presentació de diapositives</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupa les subcarpetes directes</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupa per</string>
     <string name="do_not_group_files">No agrupis els fitxers</string>

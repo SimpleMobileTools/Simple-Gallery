@@ -143,6 +143,8 @@
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Grupiraj izravne podmape</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupiraj prema</string>
     <string name="do_not_group_files">Nemoj grupirati ove datoteke</string>

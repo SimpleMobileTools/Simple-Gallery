@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_settings.*
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
-import java.util.*
+import java.util.Locale
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
@@ -892,7 +892,7 @@ class SettingsActivity : SimpleActivity() {
                 put(SORT_ORDER, config.sorting)
                 put(DIRECTORY_SORT_ORDER, config.directorySorting)
                 put(GROUP_BY, config.groupBy)
-                put(GROUP_DIRECT_SUBFOLDERS, config.groupDirectSubfolders)
+                put(DIRECTORY_GROUPING, config.directoryGrouping)
                 put(PINNED_FOLDERS, TextUtils.join(",", config.pinnedFolders))
                 put(DISPLAY_FILE_NAMES, config.displayFileNames)
                 put(FILTER_MEDIA, config.filterMedia)
@@ -987,6 +987,7 @@ class SettingsActivity : SimpleActivity() {
                         checkAppIconColor()
                     }
                 }
+
                 USE_ENGLISH -> config.useEnglish = value.toBoolean()
                 WAS_USE_ENGLISH_TOGGLED -> config.wasUseEnglishToggled = value.toBoolean()
                 WIDGET_BG_COLOR -> config.widgetBgColor = value.toInt()
@@ -1035,7 +1036,7 @@ class SettingsActivity : SimpleActivity() {
                 SORT_ORDER -> config.sorting = value.toInt()
                 DIRECTORY_SORT_ORDER -> config.directorySorting = value.toInt()
                 GROUP_BY -> config.groupBy = value.toInt()
-                GROUP_DIRECT_SUBFOLDERS -> config.groupDirectSubfolders = value.toBoolean()
+                DIRECTORY_GROUPING -> config.directoryGrouping = value.toInt()
                 PINNED_FOLDERS -> config.addPinnedFolders(value.toStringSet())
                 DISPLAY_FILE_NAMES -> config.displayFileNames = value.toBoolean()
                 FILTER_MEDIA -> config.filterMedia = value.toInt()

@@ -9,6 +9,9 @@ import com.simplemobiletools.commons.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.commons.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.helpers.DIRECTORY_GROUPING_DIRECT_SUBFOLDERS
+import com.simplemobiletools.gallery.pro.helpers.DIRECTORY_GROUPING_FILE_STRUCTURE
+import com.simplemobiletools.gallery.pro.helpers.DIRECTORY_GROUPING_NONE
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import kotlinx.android.synthetic.main.dialog_change_view_type.view.*
 
@@ -35,9 +38,15 @@ class ChangeViewTypeDialog(val activity: BaseSimpleActivity, val fromFoldersView
             }
 
             change_view_type_dialog_radio.check(viewToCheck)
-            change_view_type_dialog_group_direct_subfolders.apply {
+
+            val groupingToCheck = when (config.directoryGrouping) {
+                DIRECTORY_GROUPING_DIRECT_SUBFOLDERS -> grouping_dialog_radio_direct_subfolders.id
+                DIRECTORY_GROUPING_FILE_STRUCTURE -> grouping_dialog_radio_file_structure.id
+                else -> grouping_dialog_radio_none.id
+            }
+            grouping_dialog_radio.apply {
                 beVisibleIf(fromFoldersView)
-                isChecked = config.groupDirectSubfolders
+                check(groupingToCheck)
             }
 
             change_view_type_dialog_use_for_this_folder.apply {
@@ -63,7 +72,11 @@ class ChangeViewTypeDialog(val activity: BaseSimpleActivity, val fromFoldersView
 
         if (fromFoldersView) {
             config.viewTypeFolders = viewType
-            config.groupDirectSubfolders = view.change_view_type_dialog_group_direct_subfolders.isChecked
+            config.directoryGrouping = when (view.grouping_dialog_radio.checkedRadioButtonId) {
+                view.grouping_dialog_radio_direct_subfolders.id -> DIRECTORY_GROUPING_DIRECT_SUBFOLDERS
+                view.grouping_dialog_radio_file_structure.id -> DIRECTORY_GROUPING_FILE_STRUCTURE
+                else -> DIRECTORY_GROUPING_NONE
+            }
         } else {
             if (view.change_view_type_dialog_use_for_this_folder.isChecked) {
                 config.saveFolderViewType(pathToUse, viewType)

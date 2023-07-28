@@ -143,6 +143,8 @@
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupar subcarpetas directas</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
     <string name="do_not_group_files">No agrupar</string>

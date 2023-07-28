@@ -140,6 +140,8 @@
     <string name="no_media_for_slideshow">לא נמצאה מדיה עבור מצגת השקופיות</string>
     <!-- View types -->
     <string name="group_direct_subfolders">קבץ תיקיות משנה ישירות</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">קבץ לפי</string>
     <string name="do_not_group_files">אין לקבץ קבצים</string>

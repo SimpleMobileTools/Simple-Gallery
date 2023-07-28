@@ -143,6 +143,8 @@
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Agrupar subpastas</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Agrupar por</string>
     <string name="do_not_group_files">Não agrupar ficheiros</string>

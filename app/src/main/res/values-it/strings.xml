@@ -143,6 +143,8 @@
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Raggruppa per</string>
     <string name="do_not_group_files">Non raggruppare i file</string>

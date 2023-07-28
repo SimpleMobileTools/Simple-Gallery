@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Slaidiesitluse jaoks ei ole leitud ühtegi meediafaili</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Rühmita otseseid alamkaustu</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Rühmituse alus</string>
     <string name="do_not_group_files">Ärge rühmita faile</string>

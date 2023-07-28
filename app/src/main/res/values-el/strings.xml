@@ -142,6 +142,8 @@
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Ομαδοποίηση υποφακέλων</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Ομαδοποίηση κατά</string>
     <string name="do_not_group_files">Χωρίς</string>

@@ -144,6 +144,8 @@
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
     <!-- View types -->
     <string name="group_direct_subfolders">Групувати безпосередні підтеки</string>
+    <string name="do_not_group_folders">Do not group folders</string>
+    <string name="group_folders_file_structure">Follow file structure</string>
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Групувати за</string>
     <string name="do_not_group_files">Не групувати файли</string>
