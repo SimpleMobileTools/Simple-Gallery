@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
     <string name="hidden_all_files">Чтобы видеть скрытые файлы, необходимо предоставить приложению доступ ко всем файлам.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Если папка или одна из её родительских папок имеет точку перед именем, то она является скрытой и не может быть показана таким образом. Необходимо удалить точку, переименовав папку.</string>
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
