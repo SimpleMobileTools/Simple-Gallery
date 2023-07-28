@@ -197,88 +197,89 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
 
 fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
     val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
-    // Sort by path length, to ensure that parents get processed first
-    val foldersByPathLength = dirs.filter {
-        currentPathPrefix.isEmpty() ||
-            (it.path.startsWith(currentPathPrefix, true) && it.path != currentPathPrefix)
-    }.sortedBy {
-        it.path.length
-    }
-
+    val currentPaths = LinkedHashSet<String>()
+    val foldersWithoutMediaFiles = ArrayList<String>()
     var newDirId = 1000L
-    val groups = mutableMapOf<String, MutableList<Directory>>()
 
-    for (folder in foldersByPathLength) {
-        val parent = groups.keys.firstOrNull { folder.path.startsWith(it, true) }
-        if (parent != null) {
-            // If we have parent in top level groups
-            // Add this folder to that group,
-            // but also add all folders in between which may not have media files
-            groups.getOrPut(parent, ::mutableListOf).apply {
-                var midParent = File(folder.path).parent
-                while (midParent != null && none { it.path.equals(midParent, true) }) {
-                    val isSortingAscending = config.sorting.isSortingAscending()
-                    val subDirs = dirs.filter { File(it.path).parent.equals(midParent, true) } as ArrayList<Directory>
-                    if (subDirs.isNotEmpty()) {
-                        val lastModified = if (isSortingAscending) {
-                            subDirs.minByOrNull { it.modified }?.modified
-                        } else {
-                            subDirs.maxByOrNull { it.modified }?.modified
-                        } ?: 0
+    for (path in folders) {
+        if (path == RECYCLE_BIN || path == FAVORITES) {
+            continue
+        }
 
-                        val dateTaken = if (isSortingAscending) {
-                            subDirs.minByOrNull { it.taken }?.taken
-                        } else {
-                            subDirs.maxByOrNull { it.taken }?.taken
-                        } ?: 0
+        if (currentPathPrefix.isNotEmpty()) {
+            if (!path.startsWith(currentPathPrefix, true)) {
+                continue
+            }
 
-                        var mediaTypes = 0
-                        subDirs.forEach {
-                            mediaTypes = mediaTypes or it.types
-                        }
+            if (!File(path).parent.equals(currentPathPrefix, true)) {
+                continue
+            }
+        }
 
-                        val directory = Directory(
-                            newDirId++,
-                            midParent,
-                            subDirs.first().tmb,
-                            getFolderNameFromPath(midParent),
-                            subDirs.sumBy { it.mediaCnt },
-                            lastModified,
-                            dateTaken,
-                            subDirs.sumByLong { it.size },
-                            getPathLocation(midParent),
-                            mediaTypes,
-                            ""
-                        )
+        if (currentPathPrefix.isNotEmpty() && path.equals(currentPathPrefix, true) || File(path).parent.equals(currentPathPrefix, true)) {
+            currentPaths.add(path)
+        } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
+            // if we have folders like
+            // /storage/emulated/0/Pictures/Images and
+            // /storage/emulated/0/Pictures/Screenshots,
+            // but /storage/emulated/0/Pictures is empty, still Pictures with the first folders thumbnails and proper other info
+            val parent = File(path).parent
+            if (parent != null && !folders.contains(parent) && dirs.none { it.path.equals(parent, true) }) {
+                currentPaths.add(parent)
+                val isSortingAscending = config.sorting.isSortingAscending()
+                val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
+                if (subDirs.isNotEmpty()) {
+                    val lastModified = if (isSortingAscending) {
+                        subDirs.minByOrNull { it.modified }?.modified
+                    } else {
+                        subDirs.maxByOrNull { it.modified }?.modified
+                    } ?: 0
 
-                        directory.containsMediaFilesDirectly = false
-                        dirs.add(directory)
-                        add(directory)
+                    val dateTaken = if (isSortingAscending) {
+                        subDirs.minByOrNull { it.taken }?.taken
+                    } else {
+                        subDirs.maxByOrNull { it.taken }?.taken
+                    } ?: 0
+
+                    var mediaTypes = 0
+                    subDirs.forEach {
+                        mediaTypes = mediaTypes or it.types
                     }
-                    midParent = File(midParent).parent
+
+                    val directory = Directory(
+                        newDirId++,
+                        parent,
+                        subDirs.first().tmb,
+                        getFolderNameFromPath(parent),
+                        subDirs.sumBy { it.mediaCnt },
+                        lastModified,
+                        dateTaken,
+                        subDirs.sumByLong { it.size },
+                        getPathLocation(parent),
+                        mediaTypes,
+                        ""
+                    )
+
+                    directory.containsMediaFilesDirectly = false
+                    dirs.add(directory)
+                    currentPaths.add(parent)
+                    foldersWithoutMediaFiles.add(parent)
                 }
-                add(folder)
             }
         } else {
-            // If we have don't have parent in top level groups
-            // Set this folder as top level group if it is direct child
-            if (currentPathPrefix.isEmpty() || File(folder.path).parent.equals(currentPathPrefix, true)) {
-                groups.getOrPut(folder.path, ::mutableListOf).add(folder)
-            } else {
-                // Otherwise find its parent which is a direct child of current path prefix
-                // And create a group for it
-                var firstVisibleParent = File(folder.path).parent
-                while (firstVisibleParent != null && !File(firstVisibleParent).parent.equals(currentPathPrefix, true)) {
-                    firstVisibleParent = File(firstVisibleParent).parent
-                }
-                if (firstVisibleParent != null) {
-                    groups.getOrPut(firstVisibleParent, ::mutableListOf).add(folder)
-                }
-            }
+            currentPaths.add(path)
         }
     }
 
-    val currentPaths = groups.keys.toMutableList()
+    var areDirectSubfoldersAvailable = false
+    currentPaths.forEach {
+        val path = it
+        currentPaths.forEach {
+            if (!foldersWithoutMediaFiles.contains(it) && !it.equals(path, true) && File(it).parent?.equals(path, true) == true) {
+                areDirectSubfoldersAvailable = true
+            }
+        }
+    }
 
     if (currentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
         currentPaths.add(RECYCLE_BIN)
@@ -295,7 +296,12 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
     folders.clear()
     folders.addAll(currentPaths)
 
-    return dirs.filter { folders.contains(it.path) } as ArrayList<Directory>
+    val dirsToShow = dirs.filter { folders.contains(it.path) } as ArrayList<Directory>
+    return if (areDirectSubfoldersAvailable) {
+        getDirectParentSubfolders(dirsToShow, currentPathPrefix)
+    } else {
+        dirsToShow
+    }
 }
 
 fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {
