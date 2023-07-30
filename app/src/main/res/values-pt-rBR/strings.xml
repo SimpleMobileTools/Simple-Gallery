@@ -38,7 +38,7 @@
     <string name="filter_media">Filtrar mídia</string>
     <string name="images">Imagens</string>
     <string name="videos">Vídeos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">Gifs</string>
     <string name="raw_images">Imagens RAW</string>
     <string name="svgs">SVGs</string>
     <string name="portraits">Retratos</string>
@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
     <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta por um arquivo \".nomedia\".</string>
     <string name="hidden_all_files">Você deve dar para o aplicativo a permissão de acesso à todos os arquivos para acessar arquivos encondidos, do contrário não pode funcionar.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Se uma pasta ou uma de suas pastas pai tiver um ponto antes de seu nome, ela estará oculta e não poderá ser exibida dessa maneira. Você deve remover o ponto renomeando-a.</string>
     <!-- Include folders -->
     <string name="include_folders">Pastas inclusas</string>
     <string name="manage_included_folders">Gerenciar pastas inclusas</string>
@@ -70,15 +70,16 @@
     <string name="height">Altura</string>
     <string name="keep_aspect_ratio">Manter proporção</string>
     <string name="invalid_values">Digite uma resolução válida</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Redimensionar várias imagens</string>
+    <string name="resize_factor">Fator de redimensionamento</string>
+    <string name="resize_factor_info">Redimensiona as imagens para a porcentagem fornecida; o valor deve estar entre 10 e 90.</string>
+    <string name="resize_factor_error">Digite um número entre 10 e 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Falha ao redimensionar %d imagem</item>
+        <item quantity="many">Falha ao redimensionar %d imagens</item>
+        <item quantity="other">Falha ao redimensionar %d imagens</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Imagens redimensionadas com sucesso</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="basic_editor">Editor básico</string>
