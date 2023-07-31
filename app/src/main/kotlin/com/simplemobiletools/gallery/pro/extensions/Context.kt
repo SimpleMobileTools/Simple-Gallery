@@ -42,6 +42,7 @@ import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.collections.set
+import kotlin.math.max
 
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
@@ -175,8 +176,9 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
             it.subfoldersMediaCount = it.mediaCnt
         }
 
-        val parentDirs = getDirectParentSubfolders(dirs, currentPathPrefix)
-        updateSubfolderCounts(dirs, parentDirs)
+        val filledDirs = fillWithSharedDirectParents(dirs)
+        val parentDirs = getDirectParentSubfolders(filledDirs, currentPathPrefix)
+        updateSubfolderCounts(filledDirs, parentDirs)
 
         // show the current folder as an available option too, not just subfolders
         if (currentPathPrefix.isNotEmpty()) {
@@ -195,11 +197,73 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
     }
 }
 
+private fun Context.addParentWithoutMediaFiles(into: ArrayList<Directory>, path: String): Boolean {
+    val isSortingAscending = config.sorting.isSortingAscending()
+    val subDirs = into.filter { File(it.path).parent.equals(path, true) } as ArrayList<Directory>
+    val newDirId = max(1000L, into.maxOf { it.id ?: 0L })
+    if (subDirs.isNotEmpty()) {
+        val lastModified = if (isSortingAscending) {
+            subDirs.minByOrNull { it.modified }?.modified
+        } else {
+            subDirs.maxByOrNull { it.modified }?.modified
+        } ?: 0
+
+        val dateTaken = if (isSortingAscending) {
+            subDirs.minByOrNull { it.taken }?.taken
+        } else {
+            subDirs.maxByOrNull { it.taken }?.taken
+        } ?: 0
+
+        var mediaTypes = 0
+        subDirs.forEach {
+            mediaTypes = mediaTypes or it.types
+        }
+
+        val directory = Directory(
+            newDirId + 1,
+            path,
+            subDirs.first().tmb,
+            getFolderNameFromPath(path),
+            subDirs.sumBy { it.mediaCnt },
+            lastModified,
+            dateTaken,
+            subDirs.sumByLong { it.size },
+            getPathLocation(path),
+            mediaTypes,
+            ""
+        )
+
+        directory.containsMediaFilesDirectly = false
+        into.add(directory)
+        return true
+    }
+    return false
+}
+
+fun Context.fillWithSharedDirectParents(dirs: ArrayList<Directory>): ArrayList<Directory> {
+    val allDirs = ArrayList<Directory>(dirs)
+    val childCounts = mutableMapOf<String, Int>()
+    for (dir in dirs) {
+        File(dir.path).parent?.let {
+            val current = childCounts[it] ?: 0
+            childCounts.put(it, current + 1)
+        }
+    }
+
+    childCounts
+        .filter { dir -> dir.value > 1 && dirs.none { it.path.equals(dir.key, true) } }
+        .toList()
+        .sortedByDescending { it.first.length }
+        .forEach { (parent, _) ->
+            addParentWithoutMediaFiles(allDirs, parent)
+        }
+    return allDirs
+}
+
 fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
     val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
     val currentPaths = LinkedHashSet<String>()
     val foldersWithoutMediaFiles = ArrayList<String>()
-    var newDirId = 1000L
 
     for (path in folders) {
         if (path == RECYCLE_BIN || path == FAVORITES) {
@@ -226,43 +290,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
             val parent = File(path).parent
             if (parent != null && !folders.contains(parent) && dirs.none { it.path.equals(parent, true) }) {
                 currentPaths.add(parent)
-                val isSortingAscending = config.sorting.isSortingAscending()
-                val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
-                if (subDirs.isNotEmpty()) {
-                    val lastModified = if (isSortingAscending) {
-                        subDirs.minByOrNull { it.modified }?.modified
-                    } else {
-                        subDirs.maxByOrNull { it.modified }?.modified
-                    } ?: 0
-
-                    val dateTaken = if (isSortingAscending) {
-                        subDirs.minByOrNull { it.taken }?.taken
-                    } else {
-                        subDirs.maxByOrNull { it.taken }?.taken
-                    } ?: 0
-
-                    var mediaTypes = 0
-                    subDirs.forEach {
-                        mediaTypes = mediaTypes or it.types
-                    }
-
-                    val directory = Directory(
-                        newDirId++,
-                        parent,
-                        subDirs.first().tmb,
-                        getFolderNameFromPath(parent),
-                        subDirs.sumBy { it.mediaCnt },
-                        lastModified,
-                        dateTaken,
-                        subDirs.sumByLong { it.size },
-                        getPathLocation(parent),
-                        mediaTypes,
-                        ""
-                    )
-
-                    directory.containsMediaFilesDirectly = false
-                    dirs.add(directory)
-                    currentPaths.add(parent)
+                if (addParentWithoutMediaFiles(dirs, parent)) {
                     foldersWithoutMediaFiles.add(parent)
                 }
             }
