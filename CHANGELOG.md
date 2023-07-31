@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.27.2 *(2023-07-31)*
+----------------------------
+
+ * Updated the photo/video editor SDK
+ * Reverted some subfolder grouping related changes
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.27.1 *(2023-07-26)*
 ----------------------------
 

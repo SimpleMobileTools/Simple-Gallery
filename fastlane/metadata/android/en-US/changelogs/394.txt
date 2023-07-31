@@ -1,0 +1,3 @@
+ * Updated the photo/video editor SDK
+ * Reverted some subfolder grouping related changes
+ * Added some translation, stability, UX and UI improvements
