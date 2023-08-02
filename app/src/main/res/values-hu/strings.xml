@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Rejtett mappák kezelése</string>
     <string name="hidden_folders_placeholder">Úgy tűnik, nincsenek „.nomedia” fájllal elrejtett mappái.</string>
     <string name="hidden_all_files">Meg kell adnia az alkalmazásnak az összes fájl elérésének engedélyét a rejtett fájlok megtekintéséhez, különben nem tud működni.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Ha egy mappa vagy valamelyik szülőmappája neve előtt pont van, akkor az el van rejtve, és így nem lehet feloldani. Átnevezéssel el kell távolítania a pontot.</string>
     <!-- Include folders -->
     <string name="include_folders">Belevett mappák</string>
     <string name="manage_included_folders">Belevett mappák kezelése</string>
@@ -70,15 +70,15 @@
     <string name="height">Magasság</string>
     <string name="keep_aspect_ratio">Képarány megtartása</string>
     <string name="invalid_values">Írjon be érvényes felbontást</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Több kép átméretezése</string>
+    <string name="resize_factor">Átméretezés mértéke</string>
+    <string name="resize_factor_info">A képek átméretezése a megadott százalékos értékre, az értéknek 10 és 90 között kell lennie.</string>
+    <string name="resize_factor_error">Adjon meg egy számot 10 és 90 között</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Nem sikerült átméretezni a %d képet</item>
+        <item quantity="other">Nem sikerült átméretezni a %d képeket</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Képek átméretezése sikeresen</string>
     <!-- Editor -->
     <string name="editor">Szerkesztő</string>
     <string name="basic_editor">Alapvető szerkesztő</string>
