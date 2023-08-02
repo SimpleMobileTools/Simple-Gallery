@@ -18,6 +18,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -545,9 +546,10 @@ fun Context.loadJpg(
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
     var builder = Glide.with(applicationContext)
+        .asBitmap()
         .load(path)
         .apply(options)
-        .transition(DrawableTransitionOptions.withCrossFade())
+        .transition(BitmapTransitionOptions.withCrossFade())
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
         val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
