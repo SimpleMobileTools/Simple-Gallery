@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
     <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier caché par un fichier .nomedia.</string>
     <string name="hidden_all_files">Vous devez accorder à l\'application l\'accès à tous les fichiers pour voir les fichiers cachés, sinon elle ne peut pas fonctionner.</string>
-    <string name="cant_unhide_folder">Si un dossier ou l'un de ses dossiers parents a un point avant son nom, il est caché et ne peut pas être affiché comme ceci. Vous devez supprimer le point en le renommant.</string>
+    <string name="cant_unhide_folder">Si un dossier ou l\'un de ses dossiers parents a un point avant son nom, il est caché et ne peut pas être affiché comme ceci. Vous devez supprimer le point en le renommant.</string>
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
