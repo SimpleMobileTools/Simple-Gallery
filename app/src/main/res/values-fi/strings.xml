@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Näyttää siltä, että sinulla ei ole kansioita piilotettuna \".nomedia\" -tiedostolla.</string>
     <string name="hidden_all_files">Sovellukselle on myönnettävä kaikkien tiedostojen käyttöoikeus, jotta se näkee piilotiedostot, tai se ei toimi.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Jos kansion tai yhdenkin sen yläkansion nimi alkaa pisteellä, se piilotetaan. Kansio voidaan näyttää vain poistamalla piste nimen edestä.</string>
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
@@ -70,15 +70,15 @@
     <string name="height">Korkeus</string>
     <string name="keep_aspect_ratio">Säilytä kuvasuhde</string>
     <string name="invalid_values">Aseta oikea resoluutio</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
+    <string name="resize_multiple_images">Muuta useamman kuvan kokoa</string>
+    <string name="resize_factor">Koon kerroin</string>
     <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_factor_error">Syötä numero väliltä 10 ja 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">%d:n kuvan koon muuttaminen epäonnistui</item>
+        <item quantity="other">%d:n kuvan koon muuttaminen epäonnistui</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Kuvien koot muutettu</string>
     <!-- Editor -->
     <string name="editor">Editori</string>
     <string name="basic_editor">Peruseditori</string>
