@@ -1,0 +1,49 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    // needed only if we are including commons locally from our pc, not via Jitpack
+    /*ext {
+        propCompileSdkVersion = 33
+        propMinSdkVersion = 23
+        propTargetSdkVersion = propCompileSdkVersion
+        propVersionCode = 1
+        propVersionName = '5.34.26'
+    }*/
+
+    ext.kotlin_version = '1.9.0'
+    ext.is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
+
+    repositories {
+        google()
+        jcenter()
+        if (is_proprietary) {
+            maven { url 'https://artifactory.img.ly/artifactory/imgly' }
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        if (is_proprietary) {
+            classpath 'ly.img.android.pesdk:plugin:10.7.3'
+        }
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        if (is_proprietary) {
+            maven { url 'https://artifactory.img.ly/artifactory/imgly' }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
