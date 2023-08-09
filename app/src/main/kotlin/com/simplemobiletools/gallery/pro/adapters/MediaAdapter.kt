@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.allViews
 import com.bumptech.glide.Glide
 import com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -23,6 +24,7 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
+import com.simplemobiletools.gallery.pro.databinding.*
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -30,9 +32,6 @@ import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
-import kotlinx.android.synthetic.main.photo_item_grid.view.file_type
-import kotlinx.android.synthetic.main.thumbnail_section.view.thumbnail_section
-import kotlinx.android.synthetic.main.video_item_grid.view.*
 
 class MediaAdapter(
     activity: BaseSimpleActivity, var media: ArrayList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -74,24 +73,24 @@ class MediaAdapter(
     override fun getActionMenuId() = R.menu.cab_media
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (viewType == ITEM_SECTION) {
-            R.layout.thumbnail_section
+        val binding = if (viewType == ITEM_SECTION) {
+            ThumbnailSectionBinding.inflate(layoutInflater, parent, false)
         } else {
             if (isListViewType) {
                 if (viewType == ITEM_MEDIUM_PHOTO) {
-                    R.layout.photo_item_list
+                    PhotoItemListBinding.inflate(layoutInflater, parent, false)
                 } else {
-                    R.layout.video_item_list
+                    VideoItemListBinding.inflate(layoutInflater, parent, false)
                 }
             } else {
                 if (viewType == ITEM_MEDIUM_PHOTO) {
-                    R.layout.photo_item_grid
+                    PhotoItemGridBinding.inflate(layoutInflater, parent, false)
                 } else {
-                    R.layout.video_item_grid
+                    VideoItemGridBinding.inflate(layoutInflater, parent, false)
                 }
             }
         }
-        return createViewHolder(layoutType, parent)
+        return createViewHolder(binding.root)
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
@@ -196,8 +195,8 @@ class MediaAdapter(
         super.onViewRecycled(holder)
         if (!activity.isDestroyed) {
             val itemView = holder.itemView
-            visibleItemPaths.remove(itemView.medium_name?.tag)
-            val tmb = itemView.medium_thumbnail
+            visibleItemPaths.remove(itemView.allViews.firstOrNull { it.id == R.id.medium_name }?.tag)
+            val tmb = itemView.allViews.firstOrNull { it.id == R.id.medium_thumbnail }
             if (tmb != null) {
                 Glide.with(activity).clear(tmb)
             }
@@ -242,7 +241,7 @@ class MediaAdapter(
 
         val isSDOrOtgRootFolder = activity.isAStorageRootFolder(firstPath.getParentPath()) && !firstPath.startsWith(activity.internalStoragePath)
         if (isRPlus() && isSDOrOtgRootFolder && !isExternalStorageManager()) {
-            activity.toast(R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
+            activity.toast(com.simplemobiletools.commons.R.string.rename_in_sd_card_system_restriction, Toast.LENGTH_LONG)
             finishActMode()
             return
         }
@@ -354,7 +353,7 @@ class MediaAdapter(
     private fun handleRotate(paths: List<String>, degrees: Int) {
         var fileCnt = paths.size
         rotatedImagePaths.clear()
-        activity.toast(R.string.saving)
+        activity.toast(com.simplemobiletools.commons.R.string.saving)
         ensureBackgroundThread {
             paths.forEach {
                 rotatedImagePaths.add(it)
@@ -406,7 +405,7 @@ class MediaAdapter(
         }.toMutableList() as ArrayList
 
         if (!isCopyOperation && paths.any { it.startsWith(recycleBinPath) }) {
-            activity.toast(R.string.moving_recycle_bin_items_disabled, Toast.LENGTH_LONG)
+            activity.toast(com.simplemobiletools.commons.R.string.moving_recycle_bin_items_disabled, Toast.LENGTH_LONG)
         }
 
         if (fileDirItems.isEmpty()) {
@@ -500,13 +499,13 @@ class MediaAdapter(
                 fileDirItems.add(curFileDirItem)
             }
             val fileSize = fileDirItems.sumByLong { it.getProperSize(activity, countHidden = true) }.formatSize()
-            val deleteItemsString = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            val deleteItemsString = resources.getQuantityString(com.simplemobiletools.commons.R.plurals.delete_items, itemsCnt, itemsCnt)
             "$deleteItemsString ($fileSize)"
         }
 
         val isRecycleBin = firstPath.startsWith(activity.recycleBinPath)
         val baseString =
-            if (config.useRecycleBin && !config.tempSkipRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
+            if (config.useRecycleBin && !config.tempSkipRecycleBin && !isRecycleBin) com.simplemobiletools.commons.R.string.move_to_recycle_bin_confirmation else com.simplemobiletools.commons.R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), itemsAndSize)
         val showSkipRecycleBinOption = config.useRecycleBin && !isRecycleBin
 
@@ -607,62 +606,62 @@ class MediaAdapter(
 
     private fun setupThumbnail(view: View, medium: Medium) {
         val isSelected = selectedKeys.contains(medium.path.hashCode())
-        view.apply {
+        bindItem(view, medium).apply {
             val padding = if (config.thumbnailSpacing <= 1) {
                 config.thumbnailSpacing
             } else {
                 0
             }
 
-            media_item_holder.setPadding(padding, padding, padding, padding)
+            mediaItemHolder.setPadding(padding, padding, padding, padding)
 
             favorite.beVisibleIf(medium.isFavorite && config.markFavoriteItems)
 
-            play_portrait_outline?.beVisibleIf(medium.isVideo() || medium.isPortrait())
+            playPortraitOutline?.beVisibleIf(medium.isVideo() || medium.isPortrait())
             if (medium.isVideo()) {
-                play_portrait_outline?.setImageResource(R.drawable.ic_play_outline_vector)
-                play_portrait_outline?.beVisible()
+                playPortraitOutline?.setImageResource(com.simplemobiletools.commons.R.drawable.ic_play_outline_vector)
+                playPortraitOutline?.beVisible()
             } else if (medium.isPortrait()) {
-                play_portrait_outline?.setImageResource(R.drawable.ic_portrait_photo_vector)
-                play_portrait_outline?.beVisibleIf(showFileTypes)
+                playPortraitOutline?.setImageResource(R.drawable.ic_portrait_photo_vector)
+                playPortraitOutline?.beVisibleIf(showFileTypes)
             }
 
             if (showFileTypes && (medium.isGIF() || medium.isRaw() || medium.isSVG())) {
-                file_type.setText(
+                fileType?.setText(
                     when (medium.type) {
                         TYPE_GIFS -> R.string.gif
                         TYPE_RAWS -> R.string.raw
                         else -> R.string.svg
                     }
                 )
-                file_type.beVisible()
+                fileType?.beVisible()
             } else {
-                file_type?.beGone()
+                fileType?.beGone()
             }
 
-            medium_name.beVisibleIf(displayFilenames || isListViewType)
-            medium_name.text = medium.name
-            medium_name.tag = medium.path
+            mediumName.beVisibleIf(displayFilenames || isListViewType)
+            mediumName.text = medium.name
+            mediumName.tag = medium.path
 
             val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
             if (showVideoDuration) {
-                video_duration?.text = medium.videoDuration.getFormattedDuration()
+                videoDuration?.text = medium.videoDuration.getFormattedDuration()
             }
-            video_duration?.beVisibleIf(showVideoDuration)
+            videoDuration?.beVisibleIf(showVideoDuration)
 
-            medium_check?.beVisibleIf(isSelected)
+            mediumCheck.beVisibleIf(isSelected)
             if (isSelected) {
-                medium_check?.background?.applyColorFilter(properPrimaryColor)
-                medium_check.applyColorFilter(contrastColor)
+                mediumCheck.background?.applyColorFilter(properPrimaryColor)
+                mediumCheck.applyColorFilter(contrastColor)
             }
 
             if (isListViewType) {
-                media_item_holder.isSelected = isSelected
+                mediaItemHolder.isSelected = isSelected
             }
 
             var path = medium.path
-            if (hasOTGConnected && context.isPathOnOTG(path)) {
-                path = path.getOTGPublicPath(context)
+            if (hasOTGConnected && root.context.isPathOnOTG(path)) {
+                path = path.getOTGPublicPath(root.context)
             }
 
             val roundedCorners = when {
@@ -673,16 +672,16 @@ class MediaAdapter(
 
             if (loadImageInstantly) {
                 activity.loadImage(
-                    medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(), rotatedImagePaths
+                    medium.type, path, mediumThumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners, medium.getKey(), rotatedImagePaths
                 )
             } else {
-                medium_thumbnail.setImageDrawable(null)
-                medium_thumbnail.isHorizontalScrolling = scrollHorizontally
+                mediumThumbnail.setImageDrawable(null)
+                mediumThumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
                         activity.loadImage(
-                            medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
+                            medium.type, path, mediumThumbnail, scrollHorizontally, animateGifs, cropThumbnails, roundedCorners,
                             medium.getKey(), rotatedImagePaths
                         )
                     }
@@ -690,16 +689,16 @@ class MediaAdapter(
             }
 
             if (isListViewType) {
-                medium_name.setTextColor(textColor)
-                play_portrait_outline?.applyColorFilter(textColor)
+                mediumName.setTextColor(textColor)
+                playPortraitOutline?.applyColorFilter(textColor)
             }
         }
     }
 
     private fun setupSection(view: View, section: ThumbnailSection) {
-        view.apply {
-            thumbnail_section.text = section.title
-            thumbnail_section.setTextColor(textColor)
+        ThumbnailSectionBinding.bind(view).apply {
+            thumbnailSection.text = section.title
+            thumbnailSection.setTextColor(textColor)
         }
     }
 
@@ -710,5 +709,21 @@ class MediaAdapter(
         }
 
         return (media[realIndex] as? Medium)?.getBubbleText(sorting, activity, dateFormat, timeFormat) ?: ""
+    }
+
+    private fun bindItem(view: View, medium: Medium): MediaItemBinding {
+        return if (isListViewType) {
+            if (!medium.isVideo() && !medium.isPortrait()) {
+                PhotoItemListBinding.bind(view).toMediaItemBinding()
+            } else {
+                VideoItemListBinding.bind(view).toMediaItemBinding()
+            }
+        } else {
+            if (!medium.isVideo() && !medium.isPortrait()) {
+                PhotoItemGridBinding.bind(view).toMediaItemBinding()
+            } else {
+                VideoItemGridBinding.bind(view).toMediaItemBinding()
+            }
+        }
     }
 }

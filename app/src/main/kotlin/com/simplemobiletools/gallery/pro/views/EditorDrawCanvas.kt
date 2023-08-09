@@ -65,11 +65,13 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
                 mStartY = y
                 actionDown(x, y)
             }
+
             MotionEvent.ACTION_MOVE -> {
                 if (event.pointerCount == 1 && !mWasMultitouch) {
                     actionMove(x, y)
                 }
             }
+
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> actionUp()
             MotionEvent.ACTION_POINTER_DOWN -> mWasMultitouch = true
         }

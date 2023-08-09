@@ -15,4 +15,5 @@ data class DateTaken(
     @ColumnInfo(name = "parent_path") var parentPath: String,
     @ColumnInfo(name = "date_taken") var taken: Long,
     @ColumnInfo(name = "last_fixed") var lastFixed: Int,
-    @ColumnInfo(name = "last_modified") var lastModified: Long)
+    @ColumnInfo(name = "last_modified") var lastModified: Long
+)

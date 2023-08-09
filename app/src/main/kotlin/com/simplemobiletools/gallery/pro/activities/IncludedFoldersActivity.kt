@@ -7,43 +7,46 @@ import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageFoldersAdapter
+import com.simplemobiletools.gallery.pro.databinding.ActivityManageFoldersBinding
 import com.simplemobiletools.gallery.pro.extensions.config
-import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
+
+    private lateinit var binding: ActivityManageFoldersBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_folders)
+        binding = ActivityManageFoldersBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         updateFolders()
         setupOptionsMenu()
-        manage_folders_toolbar.title = getString(R.string.include_folders)
+        binding.manageFoldersToolbar.title = getString(R.string.include_folders)
 
-        updateMaterialActivityViews(manage_folders_coordinator, manage_folders_list, useTransparentNavigation = true, useTopSearchMenu = false)
-        setupMaterialScrollListener(manage_folders_list, manage_folders_toolbar)
+        updateMaterialActivityViews(binding.manageFoldersCoordinator, binding.manageFoldersList, useTransparentNavigation = true, useTopSearchMenu = false)
+        setupMaterialScrollListener(binding.manageFoldersList, binding.manageFoldersToolbar)
     }
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(manage_folders_toolbar, NavigationIcon.Arrow)
+        setupToolbar(binding.manageFoldersToolbar, NavigationIcon.Arrow)
     }
 
     private fun updateFolders() {
         val folders = ArrayList<String>()
         config.includedFolders.mapTo(folders) { it }
-        manage_folders_placeholder.apply {
+        binding.manageFoldersPlaceholder.apply {
             text = getString(R.string.included_activity_placeholder)
             beVisibleIf(folders.isEmpty())
             setTextColor(getProperTextColor())
         }
 
-        val adapter = ManageFoldersAdapter(this, folders, false, this, manage_folders_list) {}
-        manage_folders_list.adapter = adapter
+        val adapter = ManageFoldersAdapter(this, folders, false, this, binding.manageFoldersList) {}
+        binding.manageFoldersList.adapter = adapter
     }
 
     private fun setupOptionsMenu() {
-        manage_folders_toolbar.setOnMenuItemClickListener { menuItem ->
+        binding.manageFoldersToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.add_folder -> addFolder()
                 else -> return@setOnMenuItemClickListener false

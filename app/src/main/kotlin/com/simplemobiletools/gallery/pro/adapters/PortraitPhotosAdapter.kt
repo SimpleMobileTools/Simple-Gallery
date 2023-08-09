@@ -12,7 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.extensions.getFileKey
 import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.portrait_photo_item.view.*
+import com.simplemobiletools.gallery.pro.databinding.PortraitPhotoItemBinding
 
 class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>, val sideElementWidth: Int, val itemClick: (Int, Int) -> Unit) :
     RecyclerView.Adapter<PortraitPhotosAdapter.ViewHolder>() {
@@ -27,8 +27,8 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.portrait_photo_item, parent, false)
-        return ViewHolder(view)
+        val binding = PortraitPhotoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding.root)
     }
 
     override fun getItemCount() = photos.size
@@ -46,14 +46,14 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(photo: String, position: Int): View {
-            itemView.apply {
-                portrait_photo_item_thumbnail.layoutParams.width = if (position == 0 || position == photos.lastIndex) {
+            PortraitPhotoItemBinding.bind(itemView).apply {
+                portraitPhotoItemThumbnail.layoutParams.width = if (position == 0 || position == photos.lastIndex) {
                     sideElementWidth
                 } else {
                     itemWidth
                 }
 
-                portrait_photo_item_thumbnail.background = if (photo.isEmpty() || position != currentSelectionIndex) {
+                portraitPhotoItemThumbnail.background = if (photo.isEmpty() || position != currentSelectionIndex) {
                     null
                 } else {
                     strokeBackground
@@ -68,17 +68,17 @@ class PortraitPhotosAdapter(val context: Context, val photos: ArrayList<String>,
                     .load(photo)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .apply(options)
-                    .into(portrait_photo_item_thumbnail)
+                    .into(portraitPhotoItemThumbnail)
 
                 if (photo.isNotEmpty()) {
-                    isClickable = true
-                    views[position] = this
-                    setOnClickListener {
-                        itemClick(position, x.toInt())
+                    root.isClickable = true
+                    views[position] = root
+                    root.setOnClickListener {
+                        itemClick(position, root.x.toInt())
                         setCurrentPhoto(position)
                     }
                 } else {
-                    isClickable = false
+                    root.isClickable = false
                 }
             }
             return itemView

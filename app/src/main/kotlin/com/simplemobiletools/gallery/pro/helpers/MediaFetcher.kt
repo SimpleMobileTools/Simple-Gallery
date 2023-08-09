@@ -19,7 +19,8 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import java.io.File
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
@@ -777,6 +778,7 @@ class MediaFetcher(val context: Context) {
                         o1.name.normalizeString().toLowerCase().compareTo(o2.name.normalizeString().toLowerCase())
                     }
                 }
+
                 sorting and SORT_BY_PATH != 0 -> {
                     if (sorting and SORT_USE_NUMERIC_VALUE != 0) {
                         AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
@@ -784,6 +786,7 @@ class MediaFetcher(val context: Context) {
                         o1.path.toLowerCase().compareTo(o2.path.toLowerCase())
                     }
                 }
+
                 sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
                 sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
                 else -> o1.taken.compareTo(o2.taken)
@@ -860,6 +863,7 @@ class MediaFetcher(val context: Context) {
                 today,
                 yesterday
             )
+
             grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 || grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0 -> formatDate(key, false)
             grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
             grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
@@ -868,7 +872,7 @@ class MediaFetcher(val context: Context) {
         }
 
         if (result.isEmpty()) {
-            result = context.getString(R.string.unknown)
+            result = context.getString(com.simplemobiletools.commons.R.string.unknown)
         }
 
         return if (grouping and GROUP_SHOW_FILE_COUNT != 0) {
@@ -880,8 +884,8 @@ class MediaFetcher(val context: Context) {
 
     private fun getFinalDate(date: String, today: String, yesterday: String): String {
         return when (date) {
-            today -> context.getString(R.string.today)
-            yesterday -> context.getString(R.string.yesterday)
+            today -> context.getString(com.simplemobiletools.commons.R.string.today)
+            yesterday -> context.getString(com.simplemobiletools.commons.R.string.yesterday)
             else -> date
         }
     }

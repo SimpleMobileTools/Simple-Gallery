@@ -10,7 +10,7 @@ buildscript {
         propVersionName = '5.34.26'
     }*/
 
-    ext.kotlin_version = '1.6.21'
+    ext.kotlin_version = '1.9.0'
     ext.is_proprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
 
     repositories {
@@ -22,7 +22,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.android.tools.build:gradle:8.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         if (is_proprietary) {
             classpath 'ly.img.android.pesdk:plugin:10.7.3'

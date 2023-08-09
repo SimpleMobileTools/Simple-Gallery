@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -10,12 +9,13 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
+    namespace = "com.simplemobiletools.gallery.pro"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 394
         versionName "6.27.2"
         setProperty("archivesBaseName", "gallery-$versionCode")
@@ -68,17 +68,22 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     packagingOptions {
         exclude 'META-INF/library_release.kotlin_module'
     }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:fad9b2cdb0'
+    implementation 'com.github.esensar:Simple-Commons:98cea1b5bb'
     implementation 'com.vanniktech:android-image-cropper:4.5.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'

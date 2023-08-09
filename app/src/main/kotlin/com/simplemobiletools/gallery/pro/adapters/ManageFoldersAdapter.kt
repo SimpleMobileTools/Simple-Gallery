@@ -9,9 +9,8 @@ import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.extensions.setupViewBackground
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
-import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.ItemManageFolderBinding
 import com.simplemobiletools.gallery.pro.extensions.config
-import kotlinx.android.synthetic.main.item_manage_folder.view.*
 
 class ManageFoldersAdapter(
     activity: BaseSimpleActivity, var folders: ArrayList<String>, val isShowingExcludedFolders: Boolean, val listener: RefreshRecyclerViewListener?,
@@ -24,13 +23,13 @@ class ManageFoldersAdapter(
         setupDragListener(true)
     }
 
-    override fun getActionMenuId() = R.menu.cab_remove_only
+    override fun getActionMenuId() = com.simplemobiletools.commons.R.menu.cab_remove_only
 
     override fun prepareActionMode(menu: Menu) {}
 
     override fun actionItemPressed(id: Int) {
         when (id) {
-            R.id.cab_remove -> removeSelection()
+            com.simplemobiletools.commons.R.id.cab_remove -> removeSelection()
         }
     }
 
@@ -46,7 +45,9 @@ class ManageFoldersAdapter(
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return createViewHolder(ItemManageFolderBinding.inflate(layoutInflater, parent, false).root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
@@ -61,21 +62,21 @@ class ManageFoldersAdapter(
     private fun getSelectedItems() = folders.filter { selectedKeys.contains(it.hashCode()) } as ArrayList<String>
 
     private fun setupView(view: View, folder: String) {
-        view.apply {
-            setupViewBackground(activity)
-            manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
-            manage_folder_title.apply {
+        ItemManageFolderBinding.bind(view).apply {
+            root.setupViewBackground(activity)
+            manageFolderHolder.isSelected = selectedKeys.contains(folder.hashCode())
+            manageFolderTitle.apply {
                 text = folder
                 setTextColor(context.getProperTextColor())
             }
 
-            overflow_menu_icon.drawable.apply {
+            overflowMenuIcon.drawable.apply {
                 mutate()
                 setTint(activity.getProperTextColor())
             }
 
-            overflow_menu_icon.setOnClickListener {
-                showPopupMenu(overflow_menu_anchor, folder)
+            overflowMenuIcon.setOnClickListener {
+                showPopupMenu(overflowMenuAnchor, folder)
             }
         }
     }
@@ -90,7 +91,7 @@ class ManageFoldersAdapter(
             setOnMenuItemClickListener { item ->
                 val eventTypeId = folder.hashCode()
                 when (item.itemId) {
-                    R.id.cab_remove -> {
+                    com.simplemobiletools.commons.R.id.cab_remove -> {
                         executeItemMenuOperation(eventTypeId) {
                             removeSelection()
                         }

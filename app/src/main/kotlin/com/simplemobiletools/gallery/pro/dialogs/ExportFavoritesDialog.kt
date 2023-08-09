@@ -6,8 +6,8 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.DialogExportFavoritesBinding
 import com.simplemobiletools.gallery.pro.extensions.config
-import kotlinx.android.synthetic.main.dialog_export_favorites.view.*
 
 class ExportFavoritesDialog(
     val activity: BaseSimpleActivity, val defaultFilename: String, val hidePath: Boolean,
@@ -21,17 +21,17 @@ class ExportFavoritesDialog(
             activity.internalStoragePath
         }
 
-        val view = activity.layoutInflater.inflate(R.layout.dialog_export_favorites, null).apply {
-            export_favorites_filename.setText(defaultFilename.removeSuffix(".txt"))
+        val binding = DialogExportFavoritesBinding.inflate(activity.layoutInflater).apply {
+            exportFavoritesFilename.setText(defaultFilename.removeSuffix(".txt"))
 
             if (hidePath) {
-                export_favorites_path_label.beGone()
-                export_favorites_path.beGone()
+                exportFavoritesPathLabel.beGone()
+                exportFavoritesPath.beGone()
             } else {
-                export_favorites_path.text = activity.humanizePath(folder)
-                export_favorites_path.setOnClickListener {
+                exportFavoritesPath.text = activity.humanizePath(folder)
+                exportFavoritesPath.setOnClickListener {
                     FilePickerDialog(activity, folder, false, showFAB = true) {
-                        export_favorites_path.text = activity.humanizePath(it)
+                        exportFavoritesPath.text = activity.humanizePath(it)
                         folder = it
                     }
                 }
@@ -39,27 +39,30 @@ class ExportFavoritesDialog(
         }
 
         activity.getAlertDialogBuilder()
-            .setPositiveButton(R.string.ok, null)
-            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(com.simplemobiletools.commons.R.string.ok, null)
+            .setNegativeButton(com.simplemobiletools.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(view, this, R.string.export_favorite_paths) { alertDialog ->
+                activity.setupDialogStuff(binding.root, this, R.string.export_favorite_paths) { alertDialog ->
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                        var filename = view.export_favorites_filename.value
+                        var filename = binding.exportFavoritesFilename.value
                         if (filename.isEmpty()) {
-                            activity.toast(R.string.filename_cannot_be_empty)
+                            activity.toast(com.simplemobiletools.commons.R.string.filename_cannot_be_empty)
                             return@setOnClickListener
                         }
 
                         filename += ".txt"
                         val newPath = "${folder.trimEnd('/')}/$filename"
                         if (!newPath.getFilenameFromPath().isAValidFilename()) {
-                            activity.toast(R.string.filename_invalid_characters)
+                            activity.toast(com.simplemobiletools.commons.R.string.filename_invalid_characters)
                             return@setOnClickListener
                         }
 
                         activity.config.lastExportedFavoritesFolder = folder
                         if (!hidePath && activity.getDoesFilePathExist(newPath)) {
-                            val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newPath.getFilenameFromPath())
+                            val title = String.format(
+                                activity.getString(com.simplemobiletools.commons.R.string.file_already_exists_overwrite),
+                                newPath.getFilenameFromPath()
+                            )
                             ConfirmationDialog(activity, title) {
                                 callback(newPath, filename)
                                 alertDialog.dismiss()

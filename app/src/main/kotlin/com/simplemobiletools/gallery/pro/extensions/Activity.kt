@@ -99,7 +99,7 @@ fun SimpleActivity.launchAbout() {
         FAQItem(R.string.faq_7_title, R.string.faq_7_text),
         FAQItem(R.string.faq_14_title, R.string.faq_14_text),
         FAQItem(R.string.faq_1_title, R.string.faq_1_text),
-        FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
+        FAQItem(com.simplemobiletools.commons.R.string.faq_5_title_commons, com.simplemobiletools.commons.R.string.faq_5_text_commons),
         FAQItem(R.string.faq_5_title, R.string.faq_5_text),
         FAQItem(R.string.faq_4_title, R.string.faq_4_text),
         FAQItem(R.string.faq_6_title, R.string.faq_6_text),
@@ -110,14 +110,14 @@ fun SimpleActivity.launchAbout() {
         FAQItem(R.string.faq_15_title, R.string.faq_15_text),
         FAQItem(R.string.faq_2_title, R.string.faq_2_text),
         FAQItem(R.string.faq_18_title, R.string.faq_18_text),
-        FAQItem(R.string.faq_9_title_commons, R.string.faq_9_text_commons),
+        FAQItem(com.simplemobiletools.commons.R.string.faq_9_title_commons, com.simplemobiletools.commons.R.string.faq_9_text_commons),
     )
 
-    if (!resources.getBoolean(R.bool.hide_google_relations)) {
-        faqItems.add(FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
-        faqItems.add(FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons))
-        faqItems.add(FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons))
-        faqItems.add(FAQItem(R.string.faq_10_title_commons, R.string.faq_10_text_commons))
+    if (!resources.getBoolean(com.simplemobiletools.commons.R.bool.hide_google_relations)) {
+        faqItems.add(FAQItem(com.simplemobiletools.commons.R.string.faq_2_title_commons, com.simplemobiletools.commons.R.string.faq_2_text_commons))
+        faqItems.add(FAQItem(com.simplemobiletools.commons.R.string.faq_6_title_commons, com.simplemobiletools.commons.R.string.faq_6_text_commons))
+        faqItems.add(FAQItem(com.simplemobiletools.commons.R.string.faq_7_title_commons, com.simplemobiletools.commons.R.string.faq_7_text_commons))
+        faqItems.add(FAQItem(com.simplemobiletools.commons.R.string.faq_10_title_commons, com.simplemobiletools.commons.R.string.faq_10_text_commons))
     }
 
     if (isRPlus() && !isExternalStorageManager()) {
@@ -138,7 +138,7 @@ fun BaseSimpleActivity.handleMediaManagementPrompt(callback: () -> Unit) {
         if (Environment.isExternalStorageManager()) {
             callback()
         } else {
-            var messagePrompt = getString(R.string.access_storage_prompt)
+            var messagePrompt = getString(com.simplemobiletools.commons.R.string.access_storage_prompt)
             messagePrompt += if (isSPlus()) {
                 "\n\n${getString(R.string.media_management_alternative)}"
             } else {
@@ -214,7 +214,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
                 addNoMediaIntoMediaStore(file.absolutePath)
                 callback()
             } else {
-                toast(R.string.unknown_error_occurred)
+                toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
                 callback()
             }
         }
@@ -225,7 +225,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
                     addNoMediaIntoMediaStore(file.absolutePath)
                 }
             } else {
-                toast(R.string.unknown_error_occurred)
+                toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
             }
         } catch (e: Exception) {
             showErrorToast(e)
@@ -296,7 +296,7 @@ fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, call
 
 fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: (destinationPath: String) -> Unit) {
     if (fileDirItems.isEmpty()) {
-        toast(R.string.unknown_error_occurred)
+        toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
         return
     }
 
@@ -477,10 +477,10 @@ fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
             recycleBin.deleteRecursively()
             mediaDB.clearRecycleBin()
             directoryDB.deleteRecycleBin()
-            toast(R.string.recycle_bin_emptied)
+            toast(com.simplemobiletools.commons.R.string.recycle_bin_emptied)
             callback?.invoke()
         } catch (e: Exception) {
-            toast(R.string.unknown_error_occurred)
+            toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
         }
     }
 }
@@ -495,7 +495,13 @@ fun BaseSimpleActivity.emptyAndDisableTheRecycleBin(callback: () -> Unit) {
 }
 
 fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
-    ConfirmationDialog(this, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+    ConfirmationDialog(
+        this,
+        "",
+        com.simplemobiletools.commons.R.string.empty_recycle_bin_confirmation,
+        com.simplemobiletools.commons.R.string.yes,
+        com.simplemobiletools.commons.R.string.no
+    ) {
         callback()
     }
 }
@@ -611,7 +617,7 @@ fun AppCompatActivity.fixDateTaken(
 
                 runOnUiThread {
                     if (showToasts) {
-                        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+                        toast(if (didUpdateFile) R.string.dates_fixed_successfully else com.simplemobiletools.commons.R.string.unknown_error_occurred)
                     }
 
                     callback?.invoke()
@@ -647,7 +653,7 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
         getFileOutputStream(tmpFileDirItem) {
             if (it == null) {
                 if (showToasts) {
-                    toast(R.string.unknown_error_occurred)
+                    toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
                 }
                 return@getFileOutputStream
             }
@@ -672,7 +678,7 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
         }
     } catch (e: OutOfMemoryError) {
         if (showToasts) {
-            toast(R.string.out_of_memory_error)
+            toast(com.simplemobiletools.commons.R.string.out_of_memory_error)
         }
     } catch (e: Exception) {
         if (showToasts) {
@@ -692,7 +698,7 @@ fun Activity.tryRotateByExif(path: String, degrees: Int, showToasts: Boolean, ca
             fileRotatedSuccessfully(path, oldLastModified)
             callback.invoke()
             if (showToasts) {
-                toast(R.string.file_saved)
+                toast(com.simplemobiletools.commons.R.string.file_saved)
             }
             true
         } else {
@@ -801,7 +807,7 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
             try {
                 resizeImage(path, newPath, newSize) { success ->
                     if (success) {
-                        toast(R.string.file_saved)
+                        toast(com.simplemobiletools.commons.R.string.file_saved)
 
                         val paths = arrayListOf(file.absolutePath)
                         rescanPathsAndUpdateLastModified(paths, pathLastModifiedMap) {
@@ -814,7 +820,7 @@ fun BaseSimpleActivity.launchResizeImageDialog(path: String, callback: (() -> Un
                     }
                 }
             } catch (e: OutOfMemoryError) {
-                toast(R.string.out_of_memory_error)
+                toast(com.simplemobiletools.commons.R.string.out_of_memory_error)
             } catch (e: Exception) {
                 showErrorToast(e)
             }
@@ -882,7 +888,7 @@ fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> U
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .fitCenter()
 
-        val size = resources.getDimension(R.dimen.shortcut_size).toInt()
+        val size = resources.getDimension(com.simplemobiletools.commons.R.dimen.shortcut_size).toInt()
         val builder = Glide.with(this)
             .asDrawable()
             .load(tmb)

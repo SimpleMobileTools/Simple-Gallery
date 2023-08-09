@@ -31,6 +31,9 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
+import com.simplemobiletools.gallery.pro.databinding.DirectoryItemGridRoundedCornersBinding
+import com.simplemobiletools.gallery.pro.databinding.DirectoryItemGridSquareBinding
+import com.simplemobiletools.gallery.pro.databinding.DirectoryItemListBinding
 import com.simplemobiletools.gallery.pro.dialogs.ConfirmDeleteFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickMediumDialog
@@ -39,20 +42,8 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.*
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_check
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_location
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_lock
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_name
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_pin
-import kotlinx.android.synthetic.main.directory_item_grid_square.view.dir_thumbnail
-import kotlinx.android.synthetic.main.directory_item_list.view.*
-import kotlinx.android.synthetic.main.directory_item_list.view.dir_drag_handle
-import kotlinx.android.synthetic.main.directory_item_list.view.dir_holder
-import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
 import java.util.*
-import kotlin.collections.ArrayList
 
 class DirectoryAdapter(
     activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -87,13 +78,13 @@ class DirectoryAdapter(
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = when {
-            isListViewType -> R.layout.directory_item_list
-            folderStyle == FOLDER_STYLE_SQUARE -> R.layout.directory_item_grid_square
-            else -> R.layout.directory_item_grid_rounded_corners
+        val binding = when {
+            isListViewType -> DirectoryItemListBinding.inflate(layoutInflater, parent, false)
+            folderStyle == FOLDER_STYLE_SQUARE -> DirectoryItemGridSquareBinding.inflate(layoutInflater, parent, false)
+            else -> DirectoryItemGridRoundedCornersBinding.inflate(layoutInflater, parent, false)
         }
 
-        return createViewHolder(layoutType, parent)
+        return createViewHolder(binding.root)
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
@@ -188,7 +179,7 @@ class DirectoryAdapter(
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed) {
-            Glide.with(activity).clear(holder.itemView.dir_thumbnail!!)
+            Glide.with(activity).clear(bindItem(holder.itemView).dirThumbnail)
         }
     }
 
@@ -251,7 +242,7 @@ class DirectoryAdapter(
             val sourcePath = firstDir.path
             val dir = File(sourcePath)
             if (activity.isAStorageRootFolder(dir.absolutePath)) {
-                activity.toast(R.string.rename_folder_root)
+                activity.toast(com.simplemobiletools.commons.R.string.rename_folder_root)
                 return
             }
 
@@ -306,7 +297,7 @@ class DirectoryAdapter(
             }
         } else {
             if (selectedPaths.any { it.isThisOrParentFolderHidden() }) {
-                ConfirmationDialog(activity, "", R.string.cant_unhide_folder, R.string.ok, 0) {}
+                ConfirmationDialog(activity, "", R.string.cant_unhide_folder, com.simplemobiletools.commons.R.string.ok, 0) {}
                 return
             }
 
@@ -602,7 +593,13 @@ class DirectoryAdapter(
             else -> {
                 val itemsCnt = selectedKeys.size
                 if (itemsCnt == 1 && getSelectedItems().first().isRecycleBin()) {
-                    ConfirmationDialog(activity, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+                    ConfirmationDialog(
+                        activity,
+                        "",
+                        com.simplemobiletools.commons.R.string.empty_recycle_bin_confirmation,
+                        com.simplemobiletools.commons.R.string.yes,
+                        com.simplemobiletools.commons.R.string.no
+                    ) {
                         deleteFolders()
                     }
                     return
@@ -612,18 +609,18 @@ class DirectoryAdapter(
                     val folder = getSelectedPaths().first().getFilenameFromPath()
                     "\"$folder\""
                 } else {
-                    resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                    resources.getQuantityString(com.simplemobiletools.commons.R.plurals.delete_items, itemsCnt, itemsCnt)
                 }
 
                 val fileDirItem = getFirstSelectedItem() ?: return
                 val baseString = if (!config.useRecycleBin || config.tempSkipRecycleBin || (isOneItemSelected() && fileDirItem.areFavorites())) {
-                    R.string.deletion_confirmation
+                    com.simplemobiletools.commons.R.string.deletion_confirmation
                 } else {
-                    R.string.move_to_recycle_bin_confirmation
+                    com.simplemobiletools.commons.R.string.move_to_recycle_bin_confirmation
                 }
 
                 val question = String.format(resources.getString(baseString), items)
-                val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
+                val warning = resources.getQuantityString(com.simplemobiletools.commons.R.plurals.delete_warning, itemsCnt, itemsCnt)
                 ConfirmDeleteFolderDialog(activity, question, warning) {
                     deleteFolders()
                 }
@@ -772,8 +769,8 @@ class DirectoryAdapter(
 
     private fun setupView(view: View, directory: Directory, holder: ViewHolder) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
-        view.apply {
-            dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
+        bindItem(view).apply {
+            dirPath?.text = "${directory.path.substringBeforeLast("/")}/"
             val thumbnailType = when {
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS
@@ -782,25 +779,25 @@ class DirectoryAdapter(
                 else -> TYPE_IMAGES
             }
 
-            dir_check?.beVisibleIf(isSelected)
+            dirCheck.beVisibleIf(isSelected)
             if (isSelected) {
-                dir_check.background?.applyColorFilter(properPrimaryColor)
-                dir_check.applyColorFilter(contrastColor)
+                dirCheck.background?.applyColorFilter(properPrimaryColor)
+                dirCheck.applyColorFilter(contrastColor)
             }
 
             if (isListViewType) {
-                dir_holder.isSelected = isSelected
+                dirHolder.isSelected = isSelected
             }
 
             if (scrollHorizontally && !isListViewType && folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
-                (dir_thumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dir_name.id)
+                (dirThumbnail.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ABOVE, dirName.id)
 
-                val photoCntParams = (photo_cnt.layoutParams as RelativeLayout.LayoutParams)
-                val nameParams = (dir_name.layoutParams as RelativeLayout.LayoutParams)
+                val photoCntParams = (photoCnt.layoutParams as RelativeLayout.LayoutParams)
+                val nameParams = (dirName.layoutParams as RelativeLayout.LayoutParams)
                 nameParams.removeRule(RelativeLayout.BELOW)
 
                 if (config.showFolderMediaCount == FOLDER_MEDIA_CNT_LINE) {
-                    nameParams.addRule(RelativeLayout.ABOVE, photo_cnt.id)
+                    nameParams.addRule(RelativeLayout.ABOVE, photoCnt.id)
                     nameParams.removeRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
 
                     photoCntParams.removeRule(RelativeLayout.BELOW)
@@ -811,11 +808,11 @@ class DirectoryAdapter(
             }
 
             if (lockedFolderPaths.contains(directory.path)) {
-                dir_lock.beVisible()
-                dir_lock.background = ColorDrawable(context.getProperBackgroundColor())
-                dir_lock.applyColorFilter(context.getProperBackgroundColor().getContrastColor())
+                dirLock.beVisible()
+                dirLock.background = ColorDrawable(root.context.getProperBackgroundColor())
+                dirLock.applyColorFilter(root.context.getProperBackgroundColor().getContrastColor())
             } else {
-                dir_lock.beGone()
+                dirLock.beGone()
                 val roundedCorners = when {
                     isListViewType -> ROUNDED_CORNERS_SMALL
                     folderStyle == FOLDER_STYLE_SQUARE -> ROUNDED_CORNERS_NONE
@@ -825,7 +822,7 @@ class DirectoryAdapter(
                 activity.loadImage(
                     thumbnailType,
                     directory.tmb,
-                    dir_thumbnail,
+                    dirThumbnail,
                     scrollHorizontally,
                     animateGifs,
                     cropThumbnails,
@@ -834,18 +831,18 @@ class DirectoryAdapter(
                 )
             }
 
-            dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
-            dir_location.beVisibleIf(directory.location != LOCATION_INTERNAL)
-            if (dir_location.isVisible()) {
-                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card_vector else R.drawable.ic_usb_vector)
+            dirPin.beVisibleIf(pinnedFolders.contains(directory.path))
+            dirLocation.beVisibleIf(directory.location != LOCATION_INTERNAL)
+            if (dirLocation.isVisible()) {
+                dirLocation.setImageResource(if (directory.location == LOCATION_SD) com.simplemobiletools.commons.R.drawable.ic_sd_card_vector else com.simplemobiletools.commons.R.drawable.ic_usb_vector)
             }
 
-            photo_cnt.text = directory.subfoldersMediaCount.toString()
-            photo_cnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
+            photoCnt.text = directory.subfoldersMediaCount.toString()
+            photoCnt.beVisibleIf(showMediaCount == FOLDER_MEDIA_CNT_LINE)
 
             if (limitFolderTitle) {
-                dir_name.setSingleLine()
-                dir_name.ellipsize = TextUtils.TruncateAt.MIDDLE
+                dirName.setSingleLine()
+                dirName.ellipsize = TextUtils.TruncateAt.MIDDLE
             }
 
             var nameCount = directory.name
@@ -859,26 +856,26 @@ class DirectoryAdapter(
                 }
             }
 
-            dir_name.text = nameCount
+            dirName.text = nameCount
 
             if (isListViewType || folderStyle == FOLDER_STYLE_ROUNDED_CORNERS) {
-                photo_cnt.setTextColor(textColor)
-                dir_name.setTextColor(textColor)
-                dir_location.applyColorFilter(textColor)
+                photoCnt.setTextColor(textColor)
+                dirName.setTextColor(textColor)
+                dirLocation.applyColorFilter(textColor)
             }
 
             if (isListViewType) {
-                dir_path.setTextColor(textColor)
-                dir_pin.applyColorFilter(textColor)
-                dir_location.applyColorFilter(textColor)
-                dir_drag_handle.beVisibleIf(isDragAndDropping)
+                dirPath?.setTextColor(textColor)
+                dirPin.applyColorFilter(textColor)
+                dirLocation.applyColorFilter(textColor)
+                dirDragHandle.beVisibleIf(isDragAndDropping)
             } else {
-                dir_drag_handle_wrapper.beVisibleIf(isDragAndDropping)
+                dirDragHandleWrapper?.beVisibleIf(isDragAndDropping)
             }
 
             if (isDragAndDropping) {
-                dir_drag_handle.applyColorFilter(textColor)
-                dir_drag_handle.setOnTouchListener { v, event ->
+                dirDragHandle.applyColorFilter(textColor)
+                dirDragHandle.setOnTouchListener { v, event ->
                     if (event.action == MotionEvent.ACTION_DOWN) {
                         startReorderDragListener?.requestDrag(holder)
                     }
@@ -911,4 +908,12 @@ class DirectoryAdapter(
     }
 
     override fun onChange(position: Int) = dirs.getOrNull(position)?.getBubbleText(directorySorting, activity, dateFormat, timeFormat) ?: ""
+
+    private fun bindItem(view: View): DirectoryItemBinding {
+        return when {
+            isListViewType -> DirectoryItemListBinding.bind(view).toItemBinding()
+            folderStyle == FOLDER_STYLE_SQUARE -> DirectoryItemGridSquareBinding.bind(view).toItemBinding()
+            else -> DirectoryItemGridRoundedCornersBinding.bind(view).toItemBinding()
+        }
+    }
 }

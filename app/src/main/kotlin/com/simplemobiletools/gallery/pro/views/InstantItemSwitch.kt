@@ -40,6 +40,7 @@ class InstantItemSwitch(context: Context, attrs: AttributeSet) : RelativeLayout(
                 mTouchDownY = event.rawY
                 mTouchDownTime = System.currentTimeMillis()
             }
+
             MotionEvent.ACTION_UP -> {
                 val diffX = mTouchDownX - event.rawX
                 val diffY = mTouchDownY - event.rawY
@@ -47,6 +48,7 @@ class InstantItemSwitch(context: Context, attrs: AttributeSet) : RelativeLayout(
                     performClick()
                 }
             }
+
             MotionEvent.ACTION_MOVE -> {
                 if (passTouches) {
                     return false
