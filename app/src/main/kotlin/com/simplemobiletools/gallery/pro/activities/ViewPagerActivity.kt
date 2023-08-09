@@ -97,7 +97,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filterIsInstanceTo(mMediaFiles, Medium::class.java)
 
-        handlePermission(getPermissionToRequest()) {
+        handlePartialMediaPermissions(getPermissionsToRequest()) {
             if (it) {
                 initViewPager()
             } else {

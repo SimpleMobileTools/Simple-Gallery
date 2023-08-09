@@ -48,7 +48,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         setupOptionsMenu()
         refreshMenuItems()
-        handlePermission(getPermissionToRequest()) {
+        handlePartialMediaPermissions(getPermissionsToRequest()) {
             if (it) {
                 checkIntent(savedInstanceState)
             } else {
