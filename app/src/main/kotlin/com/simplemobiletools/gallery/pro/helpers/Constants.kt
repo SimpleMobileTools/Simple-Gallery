@@ -244,6 +244,8 @@ const val FOLDER_STYLE_ROUNDED_CORNERS = 2
 
 fun getPermissionToRequest() = if (isTiramisuPlus()) PERMISSION_READ_MEDIA_IMAGES else PERMISSION_WRITE_STORAGE
 
+fun getRequiredPermission() = if (isUpsideDownCakePlus()) PERMISSION_READ_MEDIA_VISUAL_USER_SELECTED else getPermissionToRequest()
+
 fun getPermissionsToRequest(): Collection<Int> {
     val permissions = mutableListOf(getPermissionToRequest())
     if (isRPlus()) {

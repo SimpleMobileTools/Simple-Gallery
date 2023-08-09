@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
 import com.simplemobiletools.gallery.pro.helpers.getPermissionToRequest
+import com.simplemobiletools.gallery.pro.helpers.getPermissionsToRequest
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
@@ -62,7 +63,7 @@ class NewPhotoEditActivity : SimpleActivity() {
             return
         }
 
-        handlePermission(getPermissionToRequest()) {
+        handlePartialMediaPermissions(getPermissionsToRequest()) {
             if (it) {
                 initEditActivity()
             } else {
@@ -296,9 +297,9 @@ class NewPhotoEditActivity : SimpleActivity() {
             }
 
             val theme = if (isUsingSystemDarkTheme()) {
-                R.style.Theme_Imgly_NoFullscreen
+                ly.img.android.pesdk.ui.R.style.Theme_Imgly_NoFullscreen
             } else {
-                R.style.Theme_Imgly_Light_NoFullscreen
+                ly.img.android.pesdk.ui.R.style.Theme_Imgly_Light_NoFullscreen
             }
 
             getSettingsModel(UiConfigTheme::class.java).theme = theme

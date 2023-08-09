@@ -1,3 +1,0 @@
-include ':app'
-//include ':commons'
-//project(':commons').projectDir = new File('../Simple-Commons/commons')

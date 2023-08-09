@@ -111,7 +111,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onResume() {
         super.onResume()
-        if (!hasPermission(getPermissionToRequest())) {
+        if (!hasPermission(getRequiredPermission())) {
             finish()
             return
         }
