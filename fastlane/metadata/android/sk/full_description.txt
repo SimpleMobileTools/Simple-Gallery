@@ -1,55 +1,25 @@
-Jednoduchá Galéria je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG, panorám a mnoho ďalších.
+Jednoduchá galéria vám prináša všetky fotografie prezeranie a editačné funkcie, ktoré vám chýba na vašom Androide v jednej štýlovej ľahko použiteľný app. Prehliadať, spravovať, úrodu a upravovať fotografie alebo videá rýchlejšie ako kedykoľvek predtým, obnoviť náhodne zmazané súbory alebo vytvoriť skryté galérie pre vaše najcennejšie obrázky a videá. A s pokročilou podporou súborov a plnou prispôsobenia, konečne, vaša galéria funguje len tak, ako chcete.
 
-Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá prístup na internet, vaše súkromie je chránené.
+ADVANCED PHOTO EDITOR
+Otočte úpravu fotografií do hry pre dieťa s jednoduchým organizátorom súborov a fotoalbumom. Intuitívne gestá uľahčujú úpravu vašich obrázkov na letáku. Crop, flip, otáčať a obnoviť obrázky alebo aplikovať štýlové filtre, aby ich pop v okamihu.
 
--------------------------------------------------
-JEDNODUCHÁ GALÉRIA - FUNKCIE
--------------------------------------------------
+VŠETKO POTREBUJETE
+Jednoduchá galéria podporuje obrovské množstvo rôznych typov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, GIF, Panoramic fotografií, videí a mnoho ďalších, takže si môžete vychutnať úplnú flexibilitu vo vašom výbere formátu. Vôbec zázrak "Môžem použiť tento formát na môj Android"? Teraz odpoveď je áno.
 
-• Offline galéria bez reklám a vyskakujúcich okien
-• Editor Jednoduchej Galérie - orezávajte, otáčajte, meňte veľkosť, kreslite, používajte filtre a viac
-• Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia, bezpečia a stability
-• Nie sú potrebné žiadne podozrivé oprávnenia
-• Rýchlo prehliadajte obrázky a videá
-• Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, GIF, panoramatické atď)
-• Množstvo intuitívnych gest pre jednoduchú úpravu a organizovanie súborov
-• Veľa rôznych spôsobov filtrovania, zoskupovania a radenia súborov
-• Zmeňte si vzhľad Jednoduchej Galérie
-• Dostupná vo viac ako 30 jazykoch
-• Označte obľúbené súbory pre rýchly prístup
-• Chráňte vaše obrázky a videá vzorom, PIN kódom alebo odtlačkom prstov
-• Použite PIN kód, vzor, alebo odtlačky prstov na zabezpečenie spúšťania apky, alebo niektorých funkcií
-• Obnovte vymazané fotky a videá pomocou odpadkového koša
-• Prepnite viditeľnosť súborov pre ich ochranu
-• Vytvorte zo súborov prezentáciu
-• Prezrite si detailné informácie o súboroch (rozlíšenie, EXIF hodnoty atď)
-• Priblížte kvalitné fotky, videá alebo GIFy jednoduchými gestami
-• Pohodlne prepnite medzi obrazom na výšku a šírku pre pohodlné pozeranie filmov
-• Rýchle zdieľanie súborov na sociálne siete, emaily, alebo kdekoľvek inde
-• Vytlačte si obrázky, alebo nastavte ako tapetu pár klikmi
-• Vytvortvárajte odkazy súborov a priečinkov na domovskú obrazovku pre rýchli prístup
-• Zobrazte fotky na mape, ak sú dostupné súradnice
-• Samozrejmá prítomnosť štandardných súborových operácií ako mazanie atď
-• Zmeňte jas, alebo hlasitosť jednoduchými vertikálnymi potiahnutiami prsta
-• Jednoduchá Galéria má otvorený zdrojový kód
-… a mnoho mnoho ďalšieho!
+Urobte si to
+Jednoduchá galéria je vysoko prispôsobiteľný dizajn umožňuje, aby vyzerala aplikácia fotografií, cítiť a pracovať len tak, ako chcete. Z UI na tlačidlo funkcie na spodnom paneli, Jednoduchá galéria vám dáva tvorivú slobodu, ktorú potrebujete v aplikácii galérie.
 
-POKROČILÝ EDITOR OBRÁZKOV
-Jednoduchá Galéria umožňuje ľahkú úpravu obrázkov. Orezávajte, preklápajte, alebo meňte ich veľkosť. Ak sa cítite kreatívne, môžete aj aplikovať filtre, alebo na nich kresliť!
+REŠTAURÁCIA FOTOGRAFIE & VIDEÁ
+Nikdy sa nebojte náhodou, že jedna drahocenná fotografia alebo video, ktoré jednoducho nemôžete nahradiť. Jednoduchá galéria vám umožní rýchlo obnoviť všetky zmazané fotografie a videá, čo znamená, že v hornej časti je najlepšie mediálna galéria pre Android, Jednoduchá galéria zdvojnásobuje ako úžasná aplikácia pre foto klenbu.
 
-PODPORA PRE MNOŽSTVO TYPOV SÚBOROV
-Na rozdiel od niektorých galérií podporuje Jednoduchá Galéria množstvo rôznych druhov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
+PROTECTVO VAŠE PRIVATE FOTOGRAFIE, VIDEÁ & OBRÁZKY
+Uistiť svoj fotoalbum je bezpečný. S jednoduchými bezpečnostnými prvkami galérie môžete použiť pin, vzor alebo skener odtlačkov prstov vášho zariadenia na obmedzenie, ktorí môžu zobraziť alebo upravovať vybrané fotografie a videá alebo prístup k dôležitým súborom. Môžete dokonca chrániť aplikáciu sám alebo umiestniť zámky na konkrétne funkcie organizátora súboru.
 
-VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV
-Od vzhľadu po funkcie na spodej lište, Jednoduchá Galéria je upraviteľná a bude fungovať presne tak, ako chcete. Žiadna iná galéria nie je taká flexibilná! Vďaka otvorenému zdrojovému kódu je apka dostupná v 32 jazykoch!
+Ide o dizajn materiálu a tmavú tému predvolene, poskytuje skvelé užívateľské skúsenosti pre jednoduché použitie. Nedostatok prístupu k internetu vám dáva viac súkromia, bezpečnosti a stability ako iné aplikácie.
 
-OBNOVTE VYMAZANÉ FOTKY A VIDEÁ
-Vymazali ste náhodou dôležitú fotku, alebo video? Jednoduchá Galéria obsahuje užitočný odpadkový kôš, vďaka ktorému viete jednoducho obnoviť vymazané súbory.
+Neobsahuje žiadne reklamy alebo zbytočné povolenia. Je plne opensource, poskytuje prispôsobiteľné farby.
 
-OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ
-Použitím PIN kódu, vzoru, alebo odtlačkov prstov viete vaše súbory ochrániť, alebo ukryť. Taktiež viete ochrániť aj buď spúšťanie apky ako takej, alebo niektoré jej funkcie. Napríklad tým viete zabrániť náhodnému vymazaniu súborov bez vašich odtlačkov prstov.
-
-Pozrite si celú sadu aplikácií na:
+Pozrite sa na celú sadu jednoduchých nástrojov tu:
 https://www.simplemobiletools.com
 
 Facebook:
