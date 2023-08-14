@@ -215,8 +215,8 @@
     <string name="import_favorite_paths">Importovať obľúbené</string>
     <string name="paths_imported_successfully">Cesty boli úspešne importované</string>
     <string name="media_management_prompt">Aby súborové operácie fungovali správne, prosím povoľte túto apku ako Správca médií v nastaveniach zariadenia.</string>
-    <string name="password_protect_excluded">Heslo chráni bezkontaktnú viditeľnosť zložky</string>
-    <string name="media_management_manual">Niečo sa pokazilo, prejdite do nastavení zariadenia - Aplikácie - Špeciálny prístup aplikácie - Media Management aplikácie a umožňujú túto aplikáciu spravovať médiá.</string>
+    <string name="password_protect_excluded">Uzamknúť viditeľnosť vylúčených priečinkov heslom</string>
+    <string name="media_management_manual">Niečo sa pokazilo, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
     <string name="media_management_note">Ak presmerovanie nefunguje, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
     <string name="media_management_alternative">Ak to nechce spraviť, prosím choďte do nastavení vášho zariadenia - Aplikácie - Špeciálny prístup aplikácií - Aplikácie na správu médií a povoľte tejto apke správu médií.</string>
     <string name="alternative_media_access">Ako alternatíva môžete povoliť prístup iba k médiám. V tomto prípade ale nebudete môcť pracovať so skrytými súbormi.</string>
@@ -307,7 +307,7 @@
     <string name="pesdk_sticker_button_brightness">Jas</string>
     <string name="pesdk_sticker_category_name_custom">Nahrávky</string>
     <string name="pesdk_overlay_title_name">Prekrytie</string>
-    <string name="pesdk_overlay_button_blendModeNormal">Normálne</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Žiadne</string>
     <string name="pesdk_overlay_button_blendModeDarken">Stmavenie</string>
     <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Prekrytie</string>
