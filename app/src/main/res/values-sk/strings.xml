@@ -76,6 +76,7 @@
     <string name="resize_factor_error">Zadajte číslo medzi 10 a 90</string>
     <plurals name="failed_to_resize_images">
         <item quantity="one">Nepodarilo sa zmeniť veľkosť %d obrázku</item>
+        <item quantity="few">Nepodarilo sa zmeniť veľkosť %d obrázkov</item>
         <item quantity="other">Nepodarilo sa zmeniť veľkosť %d obrázkov</item>
     </plurals>
     <string name="images_resized_successfully">Veľkosť obrázkov bola zmenená úspešne</string>
