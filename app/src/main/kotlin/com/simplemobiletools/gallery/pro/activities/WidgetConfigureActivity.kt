@@ -30,13 +30,12 @@ class WidgetConfigureActivity : SimpleActivity() {
     private var mFolderPath = ""
     private var mDirectories = ArrayList<Directory>()
 
-    private lateinit var binding: ActivityWidgetConfigBinding
+    private val binding by viewBinding(ActivityWidgetConfigBinding::inflate)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
         setResult(RESULT_CANCELED)
-        binding = ActivityWidgetConfigBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initVariables()
 

@@ -38,13 +38,12 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     private var mCurrTime = 0
 
     private var mTimerHandler = Handler()
-    private lateinit var binding: ActivityPanoramaVideoBinding
+    private val binding by viewBinding(ActivityPanoramaVideoBinding::inflate)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-        binding = ActivityPanoramaVideoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         checkNotchSupport()

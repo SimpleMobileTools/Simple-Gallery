@@ -2,10 +2,7 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getProperTextColor
-import com.simplemobiletools.commons.extensions.internalStoragePath
-import com.simplemobiletools.commons.extensions.isExternalStorageManager
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.isRPlus
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
@@ -16,12 +13,11 @@ import com.simplemobiletools.gallery.pro.extensions.config
 
 class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
-    private lateinit var binding: ActivityManageFoldersBinding
+    private val binding by viewBinding(ActivityManageFoldersBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        binding = ActivityManageFoldersBinding.inflate(layoutInflater)
         setContentView(binding.root)
         updateFolders()
         setupOptionsMenu()

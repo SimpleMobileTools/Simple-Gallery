@@ -58,12 +58,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private var mIgnoreCloseDown = false
 
-    private lateinit var binding: ActivityVideoPlayerBinding
+    private val binding by viewBinding(ActivityVideoPlayerBinding::inflate)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
         super.onCreate(savedInstanceState)
-        binding = ActivityVideoPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupOptionsMenu()
         setupOrientation()

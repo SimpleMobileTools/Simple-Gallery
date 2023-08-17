@@ -70,7 +70,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private var mStoredPrimaryColor = 0
     private var mStoredThumbnailSpacing = 0
 
-    private lateinit var binding: ActivityMediaBinding
+    private val binding by viewBinding(ActivityMediaBinding::inflate)
 
     companion object {
         var mMedia = ArrayList<ThumbnailItem>()
@@ -79,7 +79,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        binding = ActivityMediaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         intent.apply {

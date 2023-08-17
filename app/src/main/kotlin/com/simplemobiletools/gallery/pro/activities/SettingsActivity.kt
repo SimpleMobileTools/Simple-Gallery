@@ -32,12 +32,11 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private var mRecycleBinContentSize = 0L
-    private lateinit var binding: ActivitySettingsBinding
+    private val binding by viewBinding(ActivitySettingsBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         updateMaterialActivityViews(binding.settingsCoordinator, binding.settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)

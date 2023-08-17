@@ -34,13 +34,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     var mIsVideo = false
 
-    private lateinit var binding: FragmentHolderBinding
+    private val binding by viewBinding(FragmentHolderBinding::inflate)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
 
         super.onCreate(savedInstanceState)
-        binding = FragmentHolderBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (checkAppSideloading()) {
             return

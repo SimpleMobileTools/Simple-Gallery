@@ -82,12 +82,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mFavoritePaths = ArrayList<String>()
     private var mIgnoredPaths = ArrayList<String>()
 
-    private lateinit var binding: ActivityMediumBinding
+    private val binding by viewBinding(ActivityMediumBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
         super.onCreate(savedInstanceState)
-        binding = ActivityMediumBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupOptionsMenu()
         refreshMenuItems()

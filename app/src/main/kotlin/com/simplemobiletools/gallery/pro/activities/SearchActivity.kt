@@ -31,12 +31,11 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mAllMedia = ArrayList<ThumbnailItem>()
 
-    private lateinit var binding: ActivitySearchBinding
+    private val binding by viewBinding(ActivitySearchBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupOptionsMenu()
         updateMaterialActivityViews(binding.searchCoordinator, binding.searchGrid, useTransparentNavigation = true, useTopSearchMenu = true)

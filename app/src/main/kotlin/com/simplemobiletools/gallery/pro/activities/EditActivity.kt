@@ -89,11 +89,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var oldExif: ExifInterface? = null
     private var filterInitialBitmap: Bitmap? = null
     private var originalUri: Uri? = null
-    private lateinit var binding: ActivityEditBinding
+    private val binding by viewBinding(ActivityEditBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         if (checkAppSideloading()) {

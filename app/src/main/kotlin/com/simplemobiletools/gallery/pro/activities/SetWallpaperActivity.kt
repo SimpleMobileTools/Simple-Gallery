@@ -10,6 +10,7 @@ import com.canhub.cropper.CropImageView
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.checkAppSideloading
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
@@ -29,11 +30,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     lateinit var uri: Uri
     lateinit var wallpaperManager: WallpaperManager
 
-    private lateinit var binding: ActivitySetWallpaperBinding
+    private val binding by viewBinding(ActivitySetWallpaperBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySetWallpaperBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupBottomActions()
 

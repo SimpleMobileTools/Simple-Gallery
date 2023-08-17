@@ -29,13 +29,12 @@ open class PanoramaPhotoActivity : SimpleActivity() {
     private var isExploreEnabled = true
     private var isRendering = false
 
-    private lateinit var binding: ActivityPanoramaPhotoBinding
+    private val binding by viewBinding(ActivityPanoramaPhotoBinding::inflate)
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
-        binding = ActivityPanoramaPhotoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         checkNotchSupport()
