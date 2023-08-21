@@ -251,8 +251,10 @@ fun getPermissionsToRequest(): Collection<Int> {
     if (isRPlus()) {
         permissions.add(PERMISSION_MEDIA_LOCATION)
     }
+
     if (isTiramisuPlus()) {
         permissions.add(PERMISSION_READ_MEDIA_VIDEO)
     }
+
     return permissions
 }
