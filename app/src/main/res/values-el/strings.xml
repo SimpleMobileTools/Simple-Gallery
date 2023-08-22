@@ -284,8 +284,8 @@
     <string name="pesdk_editor_title_name">Επεξεργαστής</string>
     <string name="pesdk_editor_title_closeEditorAlert">Κλείσιμο Επεξεργαστή\?</string>
     <string name="pesdk_editor_text_closeEditorAlert">Θέλετε πραγματικά να απορρίψετε τις αλλαγές;</string>
-    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Ναί</string>
-    <string name="pesdk_editor_button_closeEditorAlertCancelation">Όχι</string>
+    <string name="pesdk_editor_button_closeEditorAlertConfirmation">Αποδοχή</string>
+    <string name="pesdk_editor_button_closeEditorAlertCancelation">Ακύρωση</string>
     <string name="pesdk_editor_cancel">Ακύρωση</string>
     <string name="pesdk_editor_accept">Αποδοχή</string>
     <string name="pesdk_editor_save">Αποθήκευση</string>
