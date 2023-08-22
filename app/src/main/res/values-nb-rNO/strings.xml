@@ -70,15 +70,15 @@
     <string name="height">Høyde</string>
     <string name="keep_aspect_ratio">Behold sideforhold</string>
     <string name="invalid_values">Oppfør en gyldig oppløsning</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Endre størrelse på flere bilder</string>
+    <string name="resize_factor">Faktor for størrelsesendring</string>
+    <string name="resize_factor_info">Endre størrelse på bilder til den angitte prosenten, verdi må være mellom 10 og 90.</string>
+    <string name="resize_factor_error">Angi et tall mellom 10 og 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Klarte ikke endre størrelse på %d bilde</item>
+        <item quantity="other">Klarte ikke endre størrelse på %d bilder</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Størrelsen på bildene endret</string>
     <!-- Editor -->
     <string name="editor">Redigering</string>
     <string name="basic_editor">Enkel redigering</string>
