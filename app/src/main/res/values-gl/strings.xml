@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Galería sinxela</string>
+    <string name="app_name">Galería Simple</string>
     <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
@@ -283,7 +283,7 @@
     <string name="pesdk_brush_title_brushColor">Cor do Pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Pechalo Editor\?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">De verdade queres descartalos cambios\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">De verdade queres desbotar os cambios\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
