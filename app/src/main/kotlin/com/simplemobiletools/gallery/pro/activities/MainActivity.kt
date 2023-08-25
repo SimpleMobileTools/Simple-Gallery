@@ -167,13 +167,17 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun handleMediaPermissions(force: Boolean = false, callback: (granted: Boolean) -> Unit) {
-        handlePartialMediaPermissions(getPermissionsToRequest(), force) {
-            callback(it)
-            if (!mWasMediaManagementPromptShown) {
-                mWasMediaManagementPromptShown = true
-                handleMediaManagementPrompt { }
+    private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
+        if (!hasAllPermissions(getPermissionsToRequest())) {
+            handlePartialMediaPermissions(getPermissionsToRequest(), true) {
+                callback(it)
+                if (!mWasMediaManagementPromptShown) {
+                    mWasMediaManagementPromptShown = true
+                    handleMediaManagementPrompt { }
+                }
             }
+        } else {
+            callback(true)
         }
     }
 
@@ -360,8 +364,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             findItem(R.id.temporarily_show_excluded).isVisible = !config.temporarilyShowExcluded
             findItem(R.id.stop_showing_excluded).isVisible = config.temporarilyShowExcluded
-
-            findItem(R.id.access_more_media).isVisible = isUpsideDownCakePlus()
         }
     }
 
@@ -399,7 +401,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
                 R.id.temporarily_show_excluded -> tryToggleTemporarilyShowExcluded()
                 R.id.stop_showing_excluded -> tryToggleTemporarilyShowExcluded()
-                R.id.access_more_media -> handleMediaPermissions(force = true) { }
                 R.id.create_new_folder -> createNewFolder()
                 R.id.open_recycle_bin -> openRecycleBin()
                 R.id.column_count -> changeColumnCount()
