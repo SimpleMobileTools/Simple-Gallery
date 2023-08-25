@@ -435,7 +435,6 @@ class PhotoFragment : ViewPagerFragment() {
             if (drawable.intrinsicWidth == 0) {
                 loadWithGlide(path, addZoomableView)
             } else {
-                drawable.setLoopLimit(0)
                 mView.gestures_view.setImageDrawable(drawable)
             }
         } else {
