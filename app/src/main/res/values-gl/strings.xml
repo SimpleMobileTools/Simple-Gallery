@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Galería sinxela</string>
+    <string name="app_name">Galería Simple</string>
     <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Xestionar cartafoles ocultos</string>
     <string name="hidden_folders_placeholder">Semella que non tes ningún cartafol oculto cun ficheiro \".nomedia\".</string>
     <string name="hidden_all_files">Ten que concederlle acceso á aplicación a todolos ficheiros para velos ficheiros ocultos, se non, a aplicación non pode funcionar.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Se un cartafol ou algún dos seus cartoles nai ten un punto antes do nome fará que esté agochado. Debes eliminar o punto cambiándolle o nome.</string>
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
     <string name="manage_included_folders">Xestionar cartafoles incluídos</string>
@@ -70,15 +70,15 @@
     <string name="height">Alto</string>
     <string name="keep_aspect_ratio">Manter proporcións</string>
     <string name="invalid_values">Por favor escribe unha resolución válida</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Cambiar tamaño a varias imaxes</string>
+    <string name="resize_factor">Factor de escala</string>
+    <string name="resize_factor_info">Escalar a unha porcentaxe dada, o valor debe estar entre 10 e 90.</string>
+    <string name="resize_factor_error">Escribe un número entre 10 e 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Fallou o escalado de %d imaxe</item>
+        <item quantity="other">Fallou o escalado de %d imaxes</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Escalado de imaxes correcto</string>
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="basic_editor">Editor básico</string>
@@ -283,7 +283,7 @@
     <string name="pesdk_brush_title_brushColor">Cor do Pincel</string>
     <string name="pesdk_editor_title_name">Editor</string>
     <string name="pesdk_editor_title_closeEditorAlert">Pechalo Editor\?</string>
-    <string name="pesdk_editor_text_closeEditorAlert">De verdade queres descartalos cambios\?</string>
+    <string name="pesdk_editor_text_closeEditorAlert">De verdade queres desbotar os cambios\?</string>
     <string name="pesdk_editor_button_closeEditorAlertConfirmation">Si</string>
     <string name="pesdk_editor_button_closeEditorAlertCancelation">Non</string>
     <string name="pesdk_editor_cancel">Cancelar</string>
