@@ -740,18 +740,18 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun checkIfPanorama() {
-        mIsPanorama = try {
-            val inputStream = if (mMedium.path.startsWith("content:/")) {
+        mIsPanorama = try  {
+            if (mMedium.path.startsWith("content:/")) {
                 requireContext().contentResolver.openInputStream(Uri.parse(mMedium.path))
             } else {
                 File(mMedium.path).inputStream()
+            }.use {
+                val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(it, mMedium.name), HashMap<String, Any>())
+                imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
+                    imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
+                    imageParser.contains("GPano:FullPanoWidthPixels=") ||
+                    imageParser.contains("GPano:ProjectionType>Equirectangular")
             }
-
-            val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, mMedium.name), HashMap<String, Any>())
-            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) ||
-                imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true) ||
-                imageParser.contains("GPano:FullPanoWidthPixels=") ||
-                imageParser.contains("GPano:ProjectionType>Equirectangular")
         } catch (e: Exception) {
             false
         } catch (e: OutOfMemoryError) {

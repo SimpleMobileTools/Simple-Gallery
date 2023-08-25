@@ -362,6 +362,7 @@ import java.io.FileInputStream
         try {
             fileDataSource.open(dataSpec)
         } catch (e: Exception) {
+            fileDataSource.close()
             activity?.showErrorToast(e)
             return
         }
@@ -369,6 +370,8 @@ import java.io.FileInputStream
         val factory = DataSource.Factory { fileDataSource }
         val mediaSource: MediaSource = ProgressiveMediaSource.Factory(factory)
             .createMediaSource(MediaItem.fromUri(fileDataSource.uri!!))
+
+        fileDataSource.close()
 
         mPlayOnPrepared = true
 
