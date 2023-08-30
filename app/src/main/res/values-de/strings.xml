@@ -189,8 +189,8 @@
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
     <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität zeigen</string>
     <string name="show_recycle_bin_last">Papierkorb als letztes Element auf dem Hauptbildschirm anzeigen</string>
-    <string name="allow_down_gesture">Schließen der Vollbildansicht mit einer Abwärtsgeste ermöglichen</string>
-    <string name="allow_one_to_one_zoom">1:1-Zoom mit zweimaligem doppeltem Antippen ermöglichen</string>
+    <string name="allow_down_gesture">Schließen der Vollbildansicht mit einer Abwärtsgeste zulassen</string>
+    <string name="allow_one_to_one_zoom">1:1-Zoom mit zweimaligem doppeltem Antippen zulassen</string>
     <string name="open_videos_on_separate_screen">Videos immer auf einem separaten Bildschirm mit neuen horizontalen Gesten öffnen</string>
     <string name="show_notch">Notch anzeigen, wenn vorhanden</string>
     <string name="allow_rotating_gestures">Rotieren von Bildern mit Gesten zulassen</string>
