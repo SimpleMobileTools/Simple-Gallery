@@ -364,6 +364,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         try {
             fileDataSource.open(dataSpec)
         } catch (e: Exception) {
+            fileDataSource.close()
             activity?.showErrorToast(e)
             return
         }
@@ -371,6 +372,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val factory = DataSource.Factory { fileDataSource }
         val mediaSource: MediaSource = ProgressiveMediaSource.Factory(factory)
             .createMediaSource(MediaItem.fromUri(fileDataSource.uri!!))
+
+        fileDataSource.close()
 
         mPlayOnPrepared = true
 
