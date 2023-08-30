@@ -100,7 +100,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         setupOptionsMenu()
-        handlePartialMediaPermissions(getPermissionsToRequest()) {
+        handlePermission(getPermissionToRequest()) {
             if (!it) {
                 toast(com.simplemobiletools.commons.R.string.no_storage_permissions)
                 finish()

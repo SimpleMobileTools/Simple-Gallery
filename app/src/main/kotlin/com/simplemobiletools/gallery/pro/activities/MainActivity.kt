@@ -168,16 +168,19 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun handleMediaPermissions(callback: (granted: Boolean) -> Unit) {
-        if (!hasAllPermissions(getPermissionsToRequest())) {
-            handlePartialMediaPermissions(getPermissionsToRequest(), true) {
-                callback(it)
+        handlePermission(getPermissionToRequest()) { granted ->
+            callback(granted)
+            if (granted && isRPlus()) {
+                handlePermission(PERMISSION_MEDIA_LOCATION) {}
+                if (isTiramisuPlus()) {
+                    handlePermission(PERMISSION_READ_MEDIA_VIDEO) {}
+                }
+
                 if (!mWasMediaManagementPromptShown) {
                     mWasMediaManagementPromptShown = true
                     handleMediaManagementPrompt { }
                 }
             }
-        } else {
-            callback(true)
         }
     }
 

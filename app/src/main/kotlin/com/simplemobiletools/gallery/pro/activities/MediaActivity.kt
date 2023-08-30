@@ -381,7 +381,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun tryLoadGallery() {
-        handlePartialMediaPermissions(getPermissionsToRequest()) {
+        handlePermission(getPermissionToRequest()) {
             if (it) {
                 val dirName = when {
                     mPath == FAVORITES -> getString(com.simplemobiletools.commons.R.string.favorites)
