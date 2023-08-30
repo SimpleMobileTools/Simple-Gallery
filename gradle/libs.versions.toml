@@ -11,7 +11,7 @@ androidx-constraintlayout = "2.1.4"
 #exif
 exif = "1.0.1"
 #Room
-room = "2.6.0-alpha03"
+room = "2.6.0-beta01"
 #Simple tools
 simple-commons = "687fa225a8"
 #Gradle
@@ -34,7 +34,7 @@ okio = "3.0.0"
 picasso = "2.71828"
 #build
 app-build-compileSDKVersion = "34"
-app-build-targetSDK = "34"
+app-build-targetSDK = "33"
 app-build-minimumSDK = "23"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
