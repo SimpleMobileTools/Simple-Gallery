@@ -17,7 +17,6 @@ import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
 import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
 import com.simplemobiletools.gallery.pro.helpers.getPermissionToRequest
-import com.simplemobiletools.gallery.pro.helpers.getPermissionsToRequest
 import ly.img.android.pesdk.VideoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
@@ -58,7 +57,7 @@ class NewVideoEditActivity : SimpleActivity() {
             return
         }
 
-        handlePartialMediaPermissions(getPermissionsToRequest()) {
+        handlePermission(getPermissionToRequest()) {
             if (it) {
                 initEditActivity()
             } else {
