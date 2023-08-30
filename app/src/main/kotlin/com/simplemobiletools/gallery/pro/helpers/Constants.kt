@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.pro.helpers
 
-import com.simplemobiletools.commons.helpers.MONTH_SECONDS
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_MEDIA_IMAGES
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.isTiramisuPlus
+import com.simplemobiletools.commons.helpers.*
 
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -246,3 +243,18 @@ const val FOLDER_STYLE_SQUARE = 1
 const val FOLDER_STYLE_ROUNDED_CORNERS = 2
 
 fun getPermissionToRequest() = if (isTiramisuPlus()) PERMISSION_READ_MEDIA_IMAGES else PERMISSION_WRITE_STORAGE
+
+fun getRequiredPermission() = if (isUpsideDownCakePlus()) PERMISSION_READ_MEDIA_VISUAL_USER_SELECTED else getPermissionToRequest()
+
+fun getPermissionsToRequest(): Collection<Int> {
+    val permissions = mutableListOf(getPermissionToRequest())
+    if (isRPlus()) {
+        permissions.add(PERMISSION_MEDIA_LOCATION)
+    }
+
+    if (isTiramisuPlus()) {
+        permissions.add(PERMISSION_READ_MEDIA_VIDEO)
+    }
+
+    return permissions
+}

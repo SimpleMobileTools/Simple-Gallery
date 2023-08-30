@@ -449,11 +449,11 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
 
 fun Context.getFolderNameFromPath(path: String): String {
     return when (path) {
-        internalStoragePath -> getString(R.string.internal)
-        sdCardPath -> getString(R.string.sd_card)
-        otgPath -> getString(R.string.usb)
-        FAVORITES -> getString(R.string.favorites)
-        RECYCLE_BIN -> getString(R.string.recycle_bin)
+        internalStoragePath -> getString(com.simplemobiletools.commons.R.string.internal)
+        sdCardPath -> getString(com.simplemobiletools.commons.R.string.sd_card)
+        otgPath -> getString(com.simplemobiletools.commons.R.string.usb)
+        FAVORITES -> getString(com.simplemobiletools.commons.R.string.favorites)
+        RECYCLE_BIN -> getString(com.simplemobiletools.commons.R.string.recycle_bin)
         else -> path.getFilenameFromPath()
     }
 }
@@ -550,7 +550,8 @@ fun Context.loadPng(
         })
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerSize =
+            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
         val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
@@ -580,7 +581,8 @@ fun Context.loadJpg(
         .transition(BitmapTransitionOptions.withCrossFade())
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerSize =
+            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
         val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
@@ -609,7 +611,8 @@ fun Context.loadStaticGIF(
         .apply(options)
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerSize =
+            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
         val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
@@ -629,7 +632,8 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
         .transition(DrawableTransitionOptions.withCrossFade())
 
     if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+        val cornerSize =
+            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
         val cornerRadius = resources.getDimension(cornerSize).toInt()
         builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
@@ -654,7 +658,8 @@ fun Context.tryLoadingWithPicasso(path: String, view: MySquareImageView, cropThu
         }
 
         if (roundCorners != ROUNDED_CORNERS_NONE) {
-            val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) R.dimen.rounded_corner_radius_small else R.dimen.rounded_corner_radius_big
+            val cornerSize =
+                if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
             val cornerRadius = resources.getDimension(cornerSize).toInt()
             builder = builder.transform(PicassoRoundedCornersTransformation(cornerRadius.toFloat()))
         }
@@ -893,7 +898,7 @@ fun Context.updateFavorite(path: String, isFavorite: Boolean) {
             favoritesDB.deleteFavoritePath(path)
         }
     } catch (e: Exception) {
-        toast(R.string.unknown_error_occurred)
+        toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
     }
 }
 

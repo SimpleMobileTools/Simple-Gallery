@@ -11,8 +11,8 @@ import com.simplemobiletools.commons.extensions.setupViewBackground
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.ItemManageFolderBinding
 import com.simplemobiletools.gallery.pro.extensions.removeNoMedia
-import kotlinx.android.synthetic.main.item_manage_folder.view.*
 
 class ManageHiddenFoldersAdapter(
     activity: BaseSimpleActivity, var folders: ArrayList<String>, val listener: RefreshRecyclerViewListener?,
@@ -45,7 +45,9 @@ class ManageHiddenFoldersAdapter(
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return createViewHolder(ItemManageFolderBinding.inflate(layoutInflater, parent, false).root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
@@ -60,10 +62,10 @@ class ManageHiddenFoldersAdapter(
     private fun getSelectedItems() = folders.filter { selectedKeys.contains(it.hashCode()) } as ArrayList<String>
 
     private fun setupView(view: View, folder: String) {
-        view.apply {
-            setupViewBackground(activity)
-            manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
-            manage_folder_title.apply {
+        ItemManageFolderBinding.bind(view).apply {
+            root.setupViewBackground(activity)
+            manageFolderHolder.isSelected = selectedKeys.contains(folder.hashCode())
+            manageFolderTitle.apply {
                 text = folder
                 setTextColor(context.getProperTextColor())
             }

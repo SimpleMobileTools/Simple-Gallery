@@ -9,7 +9,8 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.helpers.*
 import java.io.File
 import java.io.Serializable
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 @Entity(tableName = "media", indices = [(Index(value = ["full_path"], unique = true))])
 data class Medium(

@@ -4,52 +4,54 @@ import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getProperTextColor
+import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageHiddenFoldersAdapter
+import com.simplemobiletools.gallery.pro.databinding.ActivityManageFoldersBinding
 import com.simplemobiletools.gallery.pro.extensions.addNoMedia
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getNoMediaFolders
-import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
+    private val binding by viewBinding(ActivityManageFoldersBinding::inflate)
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_folders)
+        setContentView(binding.root)
         updateFolders()
         setupOptionsMenu()
-        manage_folders_toolbar.title = getString(R.string.hidden_folders)
+        binding.manageFoldersToolbar.title = getString(R.string.hidden_folders)
 
-        updateMaterialActivityViews(manage_folders_coordinator, manage_folders_list, useTransparentNavigation = true, useTopSearchMenu = false)
-        setupMaterialScrollListener(manage_folders_list, manage_folders_toolbar)
+        updateMaterialActivityViews(binding.manageFoldersCoordinator, binding.manageFoldersList, useTransparentNavigation = true, useTopSearchMenu = false)
+        setupMaterialScrollListener(binding.manageFoldersList, binding.manageFoldersToolbar)
     }
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(manage_folders_toolbar, NavigationIcon.Arrow)
+        setupToolbar(binding.manageFoldersToolbar, NavigationIcon.Arrow)
     }
 
     private fun updateFolders() {
         getNoMediaFolders {
             runOnUiThread {
-                manage_folders_placeholder.apply {
+                binding.manageFoldersPlaceholder.apply {
                     text = getString(R.string.hidden_folders_placeholder)
                     beVisibleIf(it.isEmpty())
                     setTextColor(getProperTextColor())
                 }
 
-                val adapter = ManageHiddenFoldersAdapter(this, it, this, manage_folders_list) {}
-                manage_folders_list.adapter = adapter
+                val adapter = ManageHiddenFoldersAdapter(this, it, this, binding.manageFoldersList) {}
+                binding.manageFoldersList.adapter = adapter
             }
         }
     }
 
     private fun setupOptionsMenu() {
-        manage_folders_toolbar.setOnMenuItemClickListener { menuItem ->
+        binding.manageFoldersToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.add_folder -> addFolder()
                 else -> return@setOnMenuItemClickListener false

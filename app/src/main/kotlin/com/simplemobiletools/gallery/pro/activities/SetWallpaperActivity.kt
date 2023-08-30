@@ -10,15 +10,13 @@ import com.canhub.cropper.CropImageView
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.checkAppSideloading
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.activity_set_wallpaper.crop_image_view
-import kotlinx.android.synthetic.main.activity_set_wallpaper.set_wallpaper_toolbar
-import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.bottom_set_wallpaper_aspect_ratio
-import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.bottom_set_wallpaper_rotate
+import com.simplemobiletools.gallery.pro.databinding.ActivitySetWallpaperBinding
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val RATIO_PORTRAIT = 0
@@ -32,9 +30,11 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     lateinit var uri: Uri
     lateinit var wallpaperManager: WallpaperManager
 
+    private val binding by viewBinding(ActivitySetWallpaperBinding::inflate)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_set_wallpaper)
+        setContentView(binding.root)
         setupBottomActions()
 
         if (checkAppSideloading()) {
@@ -55,7 +55,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(set_wallpaper_toolbar, NavigationIcon.Arrow)
+        setupToolbar(binding.setWallpaperToolbar, NavigationIcon.Arrow)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
@@ -70,10 +70,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     private fun setupOptionsMenu() {
-        set_wallpaper_toolbar.setOnMenuItemClickListener { menuItem ->
+        binding.setWallpaperToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.save -> confirmWallpaper()
-                R.id.allow_changing_aspect_ratio -> crop_image_view.clearAspectRatio()
+                R.id.allow_changing_aspect_ratio -> binding.cropImageView.clearAspectRatio()
                 else -> return@setOnMenuItemClickListener false
             }
             return@setOnMenuItemClickListener true
@@ -89,7 +89,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
 
         wallpaperManager = WallpaperManager.getInstance(applicationContext)
-        crop_image_view.apply {
+        binding.cropImageView.apply {
             setOnCropImageCompleteListener(this@SetWallpaperActivity)
             setImageUriAsync(uri)
         }
@@ -98,12 +98,12 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     private fun setupBottomActions() {
-        bottom_set_wallpaper_aspect_ratio.setOnClickListener {
+        binding.bottomSetWallpaperActions.bottomSetWallpaperAspectRatio.setOnClickListener {
             changeAspectRatio()
         }
 
-        bottom_set_wallpaper_rotate.setOnClickListener {
-            crop_image_view.rotateImage(90)
+        binding.bottomSetWallpaperActions.bottomSetWallpaperRotate.setOnClickListener {
+            binding.cropImageView.rotateImage(90)
         }
     }
 
@@ -115,9 +115,9 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
 
         when (aspectRatio) {
-            RATIO_PORTRAIT -> crop_image_view.setAspectRatio(heightToUse, widthToUse)
-            RATIO_LANDSCAPE -> crop_image_view.setAspectRatio(widthToUse, heightToUse)
-            else -> crop_image_view.setAspectRatio(widthToUse, widthToUse)
+            RATIO_PORTRAIT -> binding.cropImageView.setAspectRatio(heightToUse, widthToUse)
+            RATIO_LANDSCAPE -> binding.cropImageView.setAspectRatio(widthToUse, heightToUse)
+            else -> binding.cropImageView.setAspectRatio(widthToUse, widthToUse)
         }
     }
 
@@ -136,10 +136,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
             RadioGroupDialog(this, items) {
                 wallpaperFlag = it as Int
-                crop_image_view.croppedImageAsync()
+                binding.cropImageView.croppedImageAsync()
             }
         } else {
-            crop_image_view.croppedImageAsync()
+            binding.cropImageView.croppedImageAsync()
         }
     }
 
@@ -163,7 +163,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                     }
                     setResult(Activity.RESULT_OK)
                 } catch (e: OutOfMemoryError) {
-                    toast(R.string.out_of_memory_error)
+                    toast(com.simplemobiletools.commons.R.string.out_of_memory_error)
                     setResult(Activity.RESULT_CANCELED)
                 }
                 finish()

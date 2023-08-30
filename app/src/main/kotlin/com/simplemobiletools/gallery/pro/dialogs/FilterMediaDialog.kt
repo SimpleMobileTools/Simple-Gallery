@@ -4,45 +4,45 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.DialogFilterMediaBinding
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.*
-import kotlinx.android.synthetic.main.dialog_filter_media.view.*
 
 class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result: Int) -> Unit) {
-    private var view = activity.layoutInflater.inflate(R.layout.dialog_filter_media, null)
+    private val binding = DialogFilterMediaBinding.inflate(activity.layoutInflater)
 
     init {
         val filterMedia = activity.config.filterMedia
-        view.apply {
-            filter_media_images.isChecked = filterMedia and TYPE_IMAGES != 0
-            filter_media_videos.isChecked = filterMedia and TYPE_VIDEOS != 0
-            filter_media_gifs.isChecked = filterMedia and TYPE_GIFS != 0
-            filter_media_raws.isChecked = filterMedia and TYPE_RAWS != 0
-            filter_media_svgs.isChecked = filterMedia and TYPE_SVGS != 0
-            filter_media_portraits.isChecked = filterMedia and TYPE_PORTRAITS != 0
+        binding.apply {
+            filterMediaImages.isChecked = filterMedia and TYPE_IMAGES != 0
+            filterMediaVideos.isChecked = filterMedia and TYPE_VIDEOS != 0
+            filterMediaGifs.isChecked = filterMedia and TYPE_GIFS != 0
+            filterMediaRaws.isChecked = filterMedia and TYPE_RAWS != 0
+            filterMediaSvgs.isChecked = filterMedia and TYPE_SVGS != 0
+            filterMediaPortraits.isChecked = filterMedia and TYPE_PORTRAITS != 0
         }
 
         activity.getAlertDialogBuilder()
-            .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
-            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(com.simplemobiletools.commons.R.string.ok) { dialog, which -> dialogConfirmed() }
+            .setNegativeButton(com.simplemobiletools.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(view, this, R.string.filter_media)
+                activity.setupDialogStuff(binding.root, this, R.string.filter_media)
             }
     }
 
     private fun dialogConfirmed() {
         var result = 0
-        if (view.filter_media_images.isChecked)
+        if (binding.filterMediaImages.isChecked)
             result += TYPE_IMAGES
-        if (view.filter_media_videos.isChecked)
+        if (binding.filterMediaVideos.isChecked)
             result += TYPE_VIDEOS
-        if (view.filter_media_gifs.isChecked)
+        if (binding.filterMediaGifs.isChecked)
             result += TYPE_GIFS
-        if (view.filter_media_raws.isChecked)
+        if (binding.filterMediaRaws.isChecked)
             result += TYPE_RAWS
-        if (view.filter_media_svgs.isChecked)
+        if (binding.filterMediaSvgs.isChecked)
             result += TYPE_SVGS
-        if (view.filter_media_portraits.isChecked)
+        if (binding.filterMediaPortraits.isChecked)
             result += TYPE_PORTRAITS
 
         if (result == 0) {

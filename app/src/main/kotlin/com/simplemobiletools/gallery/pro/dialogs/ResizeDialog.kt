@@ -6,13 +6,13 @@ import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.dialog_resize_image.view.*
+import com.simplemobiletools.gallery.pro.databinding.DialogResizeImageBinding
 
 class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callback: (newSize: Point) -> Unit) {
     init {
-        val view = activity.layoutInflater.inflate(R.layout.dialog_resize_image, null)
-        val widthView = view.resize_image_width
-        val heightView = view.resize_image_height
+        val binding = DialogResizeImageBinding.inflate(activity.layoutInflater)
+        val widthView = binding.resizeImageWidth
+        val heightView = binding.resizeImageHeight
 
         widthView.setText(size.x.toString())
         heightView.setText(size.y.toString())
@@ -27,7 +27,7 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
                     width = size.x
                 }
 
-                if (view.keep_aspect_ratio.isChecked) {
+                if (binding.keepAspectRatio.isChecked) {
                     heightView.setText((width / ratio).toInt().toString())
                 }
             }
@@ -41,18 +41,18 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
                     height = size.y
                 }
 
-                if (view.keep_aspect_ratio.isChecked) {
+                if (binding.keepAspectRatio.isChecked) {
                     widthView.setText((height * ratio).toInt().toString())
                 }
             }
         }
 
         activity.getAlertDialogBuilder()
-            .setPositiveButton(R.string.ok, null)
-            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(com.simplemobiletools.commons.R.string.ok, null)
+            .setNegativeButton(com.simplemobiletools.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(view, this, R.string.resize_and_save) { alertDialog ->
-                    alertDialog.showKeyboard(view.resize_image_width)
+                activity.setupDialogStuff(binding.root, this, R.string.resize_and_save) { alertDialog ->
+                    alertDialog.showKeyboard(binding.resizeImageWidth)
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val width = getViewValue(widthView)
                         val height = getViewValue(heightView)

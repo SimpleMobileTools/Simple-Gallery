@@ -27,12 +27,12 @@ import androidx.media3.exoplayer.source.MediaSource
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.databinding.ActivityVideoPlayerBinding
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
-import kotlinx.android.synthetic.main.activity_video_player.*
-import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
-@UnstableApi open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener, TextureView.SurfaceTextureListener {
+@UnstableApi
+open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener, TextureView.SurfaceTextureListener {
     private val PLAY_WHEN_READY_DRAG_DELAY = 100L
 
     private var mIsFullscreen = false
@@ -58,10 +58,12 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
     private var mIgnoreCloseDown = false
 
+    private val binding by viewBinding(ActivityVideoPlayerBinding::inflate)
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         showTransparentTop = true
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_video_player)
+        setContentView(binding.root)
         setupOptionsMenu()
         setupOrientation()
         checkNotchSupport()
@@ -70,11 +72,11 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
     override fun onResume() {
         super.onResume()
-        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        binding.topShadow.layoutParams.height = statusBarHeight + actionBarHeight
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
         if (config.blackBackground) {
-            video_player_holder.background = ColorDrawable(Color.BLACK)
+            binding.videoPlayerHolder.background = ColorDrawable(Color.BLACK)
         }
 
         if (config.maxBrightness) {
@@ -83,12 +85,12 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             window.attributes = attributes
         }
 
-        updateTextColors(video_player_holder)
+        updateTextColors(binding.videoPlayerHolder)
 
         if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
-            video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+            binding.videoToolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
-            video_toolbar.setPadding(0, 0, 0, 0)
+            binding.videoToolbar.setPadding(0, 0, 0, 0)
         }
     }
 
@@ -105,24 +107,24 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
         super.onDestroy()
         if (!isChangingConfigurations) {
             pauseVideo()
-            video_curr_time.text = 0.getFormattedDuration()
+            binding.bottomVideoTimeHolder.videoCurrTime.text = 0.getFormattedDuration()
             releaseExoPlayer()
-            video_seekbar.progress = 0
+            binding.bottomVideoTimeHolder.videoSeekbar.progress = 0
             mTimerHandler.removeCallbacksAndMessages(null)
             mPlayWhenReadyHandler.removeCallbacksAndMessages(null)
         }
     }
 
     private fun setupOptionsMenu() {
-        (video_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
-        video_toolbar.apply {
+        (binding.videoAppbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        binding.videoToolbar.apply {
             setTitleTextColor(Color.WHITE)
-            overflowIcon = resources.getColoredDrawableWithColor(R.drawable.ic_three_dots_vector, Color.WHITE)
-            navigationIcon = resources.getColoredDrawableWithColor(R.drawable.ic_arrow_left_vector, Color.WHITE)
+            overflowIcon = resources.getColoredDrawableWithColor(com.simplemobiletools.commons.R.drawable.ic_three_dots_vector, Color.WHITE)
+            navigationIcon = resources.getColoredDrawableWithColor(com.simplemobiletools.commons.R.drawable.ic_arrow_left_vector, Color.WHITE)
         }
 
-        updateMenuItemColors(video_toolbar.menu, forceWhiteIcons = true)
-        video_toolbar.setOnMenuItemClickListener { menuItem ->
+        updateMenuItemColors(binding.videoToolbar.menu, forceWhiteIcons = true)
+        binding.videoToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_change_orientation -> changeOrientation()
                 R.id.menu_open_with -> openPath(mUri!!.toString(), true)
@@ -132,7 +134,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             return@setOnMenuItemClickListener true
         }
 
-        video_toolbar.setNavigationOnClickListener {
+        binding.videoToolbar.setNavigationOnClickListener {
             finish()
         }
     }
@@ -141,16 +143,16 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
-        video_surface_frame.onGlobalLayout {
-            video_surface_frame.controller.resetState()
+        binding.videoSurfaceFrame.onGlobalLayout {
+            binding.videoSurfaceFrame.controller.resetState()
         }
 
-        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        (video_appbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
+        binding.topShadow.layoutParams.height = statusBarHeight + actionBarHeight
+        (binding.videoAppbar.layoutParams as RelativeLayout.LayoutParams).topMargin = statusBarHeight
         if (!portrait && navigationBarOnSide && navigationBarWidth > 0) {
-            video_toolbar.setPadding(0, 0, navigationBarWidth, 0)
+            binding.videoToolbar.setPadding(0, 0, navigationBarWidth, 0)
         } else {
-            video_toolbar.setPadding(0, 0, 0, 0)
+            binding.videoToolbar.setPadding(0, 0, 0, 0)
         }
     }
 
@@ -166,7 +168,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
     private fun initPlayer() {
         mUri = intent.data ?: return
-        video_toolbar.title = getFilenameFromUri(mUri!!)
+        binding.videoToolbar.title = getFilenameFromUri(mUri!!)
         initTimeHolder()
 
         showSystemUI(true)
@@ -175,17 +177,17 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             fullscreenToggled(isFullscreen)
         }
 
-        video_curr_time.setOnClickListener { doSkip(false) }
-        video_duration.setOnClickListener { doSkip(true) }
-        video_toggle_play_pause.setOnClickListener { togglePlayPause() }
-        video_surface_frame.setOnClickListener { toggleFullscreen() }
-        video_surface_frame.controller.settings.swallowDoubleTaps = true
+        binding.bottomVideoTimeHolder.videoCurrTime.setOnClickListener { doSkip(false) }
+        binding.bottomVideoTimeHolder.videoDuration.setOnClickListener { doSkip(true) }
+        binding.bottomVideoTimeHolder.videoTogglePlayPause.setOnClickListener { togglePlayPause() }
+        binding.videoSurfaceFrame.setOnClickListener { toggleFullscreen() }
+        binding.videoSurfaceFrame.controller.settings.swallowDoubleTaps = true
 
-        video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
-        video_next_file.setOnClickListener { handleNextFile() }
+        binding.bottomVideoTimeHolder.videoNextFile.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
+        binding.bottomVideoTimeHolder.videoNextFile.setOnClickListener { handleNextFile() }
 
-        video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
-        video_prev_file.setOnClickListener { handlePrevFile() }
+        binding.bottomVideoTimeHolder.videoPrevFile.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
+        binding.bottomVideoTimeHolder.videoPrevFile.setOnClickListener { handlePrevFile() }
 
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onDoubleTap(e: MotionEvent): Boolean {
@@ -194,30 +196,30 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             }
         })
 
-        video_surface_frame.setOnTouchListener { view, event ->
+        binding.videoSurfaceFrame.setOnTouchListener { view, event ->
             handleEvent(event)
             gestureDetector.onTouchEvent(event)
             false
         }
 
         initExoPlayer()
-        video_surface.surfaceTextureListener = this
+        binding.videoSurface.surfaceTextureListener = this
 
         if (config.allowVideoGestures) {
-            video_brightness_controller.initialize(this, slide_info, true, video_player_holder, singleTap = { x, y ->
+            binding.videoBrightnessController.initialize(this, binding.slideInfo, true, binding.videoPlayerHolder, singleTap = { x, y ->
                 toggleFullscreen()
             }, doubleTap = { x, y ->
                 doSkip(false)
             })
 
-            video_volume_controller.initialize(this, slide_info, false, video_player_holder, singleTap = { x, y ->
+            binding.videoVolumeController.initialize(this, binding.slideInfo, false, binding.videoPlayerHolder, singleTap = { x, y ->
                 toggleFullscreen()
             }, doubleTap = { x, y ->
                 doSkip(true)
             })
         } else {
-            video_brightness_controller.beGone()
-            video_volume_controller.beGone()
+            binding.videoBrightnessController.beGone()
+            binding.videoVolumeController.beGone()
         }
 
         if (config.hideSystemUI) {
@@ -267,8 +269,8 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             override fun onPositionDiscontinuity(oldPosition: Player.PositionInfo, newPosition: Player.PositionInfo, @Player.DiscontinuityReason reason: Int) {
                 // Reset progress views when video loops.
                 if (reason == Player.DISCONTINUITY_REASON_AUTO_TRANSITION) {
-                    video_seekbar.progress = 0
-                    video_curr_time.text = 0.getFormattedDuration()
+                    binding.bottomVideoTimeHolder.videoSeekbar.progress = 0
+                    binding.bottomVideoTimeHolder.videoCurrTime.text = 0.getFormattedDuration()
                 }
             }
 
@@ -289,10 +291,10 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
     private fun videoPrepared() {
         if (!mWasVideoStarted) {
-            video_toggle_play_pause.beVisible()
+            binding.bottomVideoTimeHolder.videoTogglePlayPause.beVisible()
             mDuration = (mExoPlayer!!.duration / 1000).toInt()
-            video_seekbar.max = mDuration
-            video_duration.text = mDuration.getFormattedDuration()
+            binding.bottomVideoTimeHolder.videoSeekbar.max = mDuration
+            binding.bottomVideoTimeHolder.videoDuration.text = mDuration.getFormattedDuration()
             setPosition(mCurrTime)
 
             if (config.rememberLastVideoPosition) {
@@ -302,7 +304,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             if (config.autoplayVideos) {
                 resumeVideo()
             } else {
-                video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
+                binding.bottomVideoTimeHolder.videoTogglePlayPause.setImageResource(com.simplemobiletools.commons.R.drawable.ic_play_outline_vector)
             }
         }
     }
@@ -317,7 +319,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
     }
 
     private fun resumeVideo() {
-        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline_vector)
+        binding.bottomVideoTimeHolder.videoTogglePlayPause.setImageResource(com.simplemobiletools.commons.R.drawable.ic_pause_outline_vector)
         if (mExoPlayer == null) {
             return
         }
@@ -334,7 +336,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
     }
 
     private fun pauseVideo() {
-        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline_vector)
+        binding.bottomVideoTimeHolder.videoTogglePlayPause.setImageResource(com.simplemobiletools.commons.R.drawable.ic_play_outline_vector)
         if (mExoPlayer == null) {
             return
         }
@@ -358,8 +360,8 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
     private fun setPosition(seconds: Int) {
         mExoPlayer?.seekTo(seconds * 1000L)
-        video_seekbar.progress = seconds
-        video_curr_time.text = seconds.getFormattedDuration()
+        binding.bottomVideoTimeHolder.videoSeekbar.progress = seconds
+        binding.bottomVideoTimeHolder.videoCurrTime.text = seconds.getFormattedDuration()
     }
 
     private fun setLastVideoSavedPosition() {
@@ -376,8 +378,8 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
         clearLastVideoSavedProgress()
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
-        video_seekbar.progress = video_seekbar.max
-        video_curr_time.text = mDuration.getFormattedDuration()
+        binding.bottomVideoTimeHolder.videoSeekbar.progress = binding.bottomVideoTimeHolder.videoSeekbar.max
+        binding.bottomVideoTimeHolder.videoCurrTime.text = mDuration.getFormattedDuration()
         pauseVideo()
     }
 
@@ -410,7 +412,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
         val screenProportion = screenWidth.toFloat() / screenHeight.toFloat()
 
-        video_surface.layoutParams.apply {
+        binding.videoSurface.layoutParams.apply {
             if (videoProportion > screenProportion) {
                 width = screenWidth
                 height = (screenWidth.toFloat() / videoProportion).toInt()
@@ -418,7 +420,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
                 width = (videoProportion * screenHeight.toFloat()).toInt()
                 height = screenHeight
             }
-            video_surface.layoutParams = this
+            binding.videoSurface.layoutParams = this
         }
 
         val multiplier = if (screenWidth > screenHeight) 0.5 else 0.8
@@ -456,26 +458,31 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
         val newAlpha = if (isFullScreen) 0f else 1f
         arrayOf(
-            video_prev_file,
-            video_toggle_play_pause,
-            video_next_file,
-            video_curr_time,
-            video_seekbar,
-            video_duration,
-            top_shadow,
-            video_bottom_gradient
+            binding.bottomVideoTimeHolder.videoPrevFile,
+            binding.bottomVideoTimeHolder.videoTogglePlayPause,
+            binding.bottomVideoTimeHolder.videoNextFile,
+            binding.bottomVideoTimeHolder.videoCurrTime,
+            binding.bottomVideoTimeHolder.videoSeekbar,
+            binding.bottomVideoTimeHolder.videoDuration,
+            binding.topShadow,
+            binding.videoBottomGradient
         ).forEach {
             it.animate().alpha(newAlpha).start()
         }
-        video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
-        arrayOf(video_prev_file, video_next_file, video_curr_time, video_duration).forEach {
+        binding.bottomVideoTimeHolder.videoSeekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
+        arrayOf(
+            binding.bottomVideoTimeHolder.videoPrevFile,
+            binding.bottomVideoTimeHolder.videoNextFile,
+            binding.bottomVideoTimeHolder.videoCurrTime,
+            binding.bottomVideoTimeHolder.videoDuration,
+        ).forEach {
             it.isClickable = !mIsFullscreen
         }
 
-        video_appbar.animate().alpha(newAlpha).withStartAction {
-            video_appbar.beVisible()
+        binding.videoAppbar.animate().alpha(newAlpha).withStartAction {
+            binding.videoAppbar.beVisible()
         }.withEndAction {
-            video_appbar.beVisibleIf(newAlpha == 1f)
+            binding.videoAppbar.beVisibleIf(newAlpha == 1f)
         }.start()
     }
 
@@ -492,11 +499,11 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             }
         }
 
-        video_time_holder.setPadding(0, 0, right, bottom)
-        video_seekbar.setOnSeekBarChangeListener(this)
-        video_seekbar.max = mDuration
-        video_duration.text = mDuration.getFormattedDuration()
-        video_curr_time.text = mCurrTime.getFormattedDuration()
+        binding.bottomVideoTimeHolder.videoTimeHolder.setPadding(0, 0, right, bottom)
+        binding.bottomVideoTimeHolder.videoSeekbar.setOnSeekBarChangeListener(this)
+        binding.bottomVideoTimeHolder.videoSeekbar.max = mDuration
+        binding.bottomVideoTimeHolder.videoDuration.text = mDuration.getFormattedDuration()
+        binding.bottomVideoTimeHolder.videoCurrTime.text = mCurrTime.getFormattedDuration()
         setupTimer()
     }
 
@@ -505,8 +512,8 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
             override fun run() {
                 if (mExoPlayer != null && !mIsDragged && mIsPlaying) {
                     mCurrTime = (mExoPlayer!!.currentPosition / 1000).toInt()
-                    video_seekbar.progress = mCurrTime
-                    video_curr_time.text = mCurrTime.getFormattedDuration()
+                    binding.bottomVideoTimeHolder.videoSeekbar.progress = mCurrTime
+                    binding.bottomVideoTimeHolder.videoCurrTime.text = mCurrTime.getFormattedDuration()
                 }
 
                 mTimerHandler.postDelayed(this, 1000)
@@ -543,9 +550,13 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
                 val diffX = event.rawX - mTouchDownX
                 val diffY = event.rawY - mTouchDownY
 
-                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY)) && video_surface_frame.controller.state.zoom == 1f) {
+                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY)) && binding.videoSurfaceFrame.controller.state.zoom == 1f) {
                     if (!mIsDragged) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                        arrayOf(
+                            binding.bottomVideoTimeHolder.videoCurrTime,
+                            binding.bottomVideoTimeHolder.videoSeekbar,
+                            binding.bottomVideoTimeHolder.videoDuration,
+                        ).forEach {
                             it.animate().alpha(1f).start()
                         }
                     }
@@ -570,7 +581,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
                 if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold &&
                     downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION &&
-                    video_surface_frame.controller.state.zoom == 1f
+                    binding.videoSurfaceFrame.controller.state.zoom == 1f
                 ) {
                     supportFinishAfterTransition()
                 }
@@ -578,7 +589,11 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
                 mIgnoreCloseDown = false
                 if (mIsDragged) {
                     if (mIsFullscreen) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                        arrayOf(
+                            binding.bottomVideoTimeHolder.videoCurrTime,
+                            binding.bottomVideoTimeHolder.videoSeekbar,
+                            binding.bottomVideoTimeHolder.videoDuration,
+                        ).forEach {
                             it.animate().alpha(0f).start()
                         }
                     }
@@ -653,7 +668,7 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
-        mExoPlayer?.setVideoSurface(Surface(video_surface!!.surfaceTexture))
+        mExoPlayer?.setVideoSurface(Surface(binding.videoSurface.surfaceTexture))
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {}

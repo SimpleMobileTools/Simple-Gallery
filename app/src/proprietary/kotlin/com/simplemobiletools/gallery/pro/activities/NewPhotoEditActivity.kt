@@ -66,7 +66,7 @@ class NewPhotoEditActivity : SimpleActivity() {
             if (it) {
                 initEditActivity()
             } else {
-                toast(R.string.no_storage_permissions)
+                toast(com.simplemobiletools.commons.R.string.no_storage_permissions)
                 finish()
             }
         }
@@ -214,7 +214,7 @@ class NewPhotoEditActivity : SimpleActivity() {
                 if (success) {
                     callback()
                 } else {
-                    toast(R.string.unknown_error_occurred)
+                    toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
                     finish()
                 }
             }
@@ -296,9 +296,9 @@ class NewPhotoEditActivity : SimpleActivity() {
             }
 
             val theme = if (isUsingSystemDarkTheme()) {
-                R.style.Theme_Imgly_NoFullscreen
+                ly.img.android.pesdk.ui.R.style.Theme_Imgly_NoFullscreen
             } else {
-                R.style.Theme_Imgly_Light_NoFullscreen
+                ly.img.android.pesdk.ui.R.style.Theme_Imgly_Light_NoFullscreen
             }
 
             getSettingsModel(UiConfigTheme::class.java).theme = theme

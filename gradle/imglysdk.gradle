@@ -1,0 +1,42 @@
+// This file had to stay in Groovy
+// Since just converting it to Kotlin will not work
+// There needs to be a way to conditinally apply this plugin
+// But that results in missing references for `imglyConfig`
+apply plugin: 'ly.img.android.sdk'
+
+imglyConfig {
+    vesdk {
+        enabled true
+        licensePath 'vesdk_android_license'
+    }
+
+    pesdk {
+        enabled true
+        licensePath 'pesdk_android_license'
+    }
+
+    modules {
+        include 'ui:video-trim'
+        include 'ui:core'
+        include 'ui:text'
+        include 'ui:focus'
+        include 'ui:brush'
+        include 'ui:filter'
+        include 'ui:sticker'
+        include 'ui:overlay'
+        include 'ui:transform'
+        include 'ui:adjustment'
+        include 'ui:video-composition'
+
+        include 'backend:serializer'
+        include 'backend:sticker-smart'
+        include 'backend:sticker-animated'
+
+        include 'assets:font-basic'
+        include 'assets:filter-basic'
+        include 'assets:overlay-basic'
+        include 'assets:sticker-shapes'
+        include 'assets:sticker-emoticons'
+        include 'assets:sticker-animated'
+    }
+}

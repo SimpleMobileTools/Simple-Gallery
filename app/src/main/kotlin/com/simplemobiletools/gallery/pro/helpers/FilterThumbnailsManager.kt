@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.helpers
 
 import android.graphics.Bitmap
 import com.simplemobiletools.gallery.pro.models.FilterItem
-import java.util.*
 
 class FilterThumbnailsManager {
     private var filterThumbnails = ArrayList<FilterItem>(10)

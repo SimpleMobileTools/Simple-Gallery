@@ -99,6 +99,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                     mTouchDownValue = getCurrentVolume()
                 }
             }
+
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.rawX
                 val diffY = mTouchDownY - event.rawY
@@ -125,6 +126,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 }
                 mLastTouchY = event.rawY
             }
+
             MotionEvent.ACTION_UP -> {
                 if (mIsBrightnessScroll) {
                     mTouchDownValue = mTempBrightness

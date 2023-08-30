@@ -4,8 +4,7 @@ import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.dialog_other_aspect_ratio.view.*
+import com.simplemobiletools.gallery.pro.databinding.DialogOtherAspectRatioBinding
 
 class OtherAspectRatioDialog(
     val activity: BaseSimpleActivity,
@@ -15,53 +14,53 @@ class OtherAspectRatioDialog(
     private var dialog: AlertDialog? = null
 
     init {
-        val view = activity.layoutInflater.inflate(R.layout.dialog_other_aspect_ratio, null).apply {
-            other_aspect_ratio_2_1.setOnClickListener { ratioPicked(Pair(2f, 1f)) }
-            other_aspect_ratio_3_2.setOnClickListener { ratioPicked(Pair(3f, 2f)) }
-            other_aspect_ratio_4_3.setOnClickListener { ratioPicked(Pair(4f, 3f)) }
-            other_aspect_ratio_5_3.setOnClickListener { ratioPicked(Pair(5f, 3f)) }
-            other_aspect_ratio_16_9.setOnClickListener { ratioPicked(Pair(16f, 9f)) }
-            other_aspect_ratio_19_9.setOnClickListener { ratioPicked(Pair(19f, 9f)) }
-            other_aspect_ratio_custom.setOnClickListener { customRatioPicked() }
+        val binding = DialogOtherAspectRatioBinding.inflate(activity.layoutInflater).apply {
+            otherAspectRatio21.setOnClickListener { ratioPicked(Pair(2f, 1f)) }
+            otherAspectRatio32.setOnClickListener { ratioPicked(Pair(3f, 2f)) }
+            otherAspectRatio43.setOnClickListener { ratioPicked(Pair(4f, 3f)) }
+            otherAspectRatio53.setOnClickListener { ratioPicked(Pair(5f, 3f)) }
+            otherAspectRatio169.setOnClickListener { ratioPicked(Pair(16f, 9f)) }
+            otherAspectRatio199.setOnClickListener { ratioPicked(Pair(19f, 9f)) }
+            otherAspectRatioCustom.setOnClickListener { customRatioPicked() }
 
-            other_aspect_ratio_1_2.setOnClickListener { ratioPicked(Pair(1f, 2f)) }
-            other_aspect_ratio_2_3.setOnClickListener { ratioPicked(Pair(2f, 3f)) }
-            other_aspect_ratio_3_4.setOnClickListener { ratioPicked(Pair(3f, 4f)) }
-            other_aspect_ratio_3_5.setOnClickListener { ratioPicked(Pair(3f, 5f)) }
-            other_aspect_ratio_9_16.setOnClickListener { ratioPicked(Pair(9f, 16f)) }
-            other_aspect_ratio_9_19.setOnClickListener { ratioPicked(Pair(9f, 19f)) }
+            otherAspectRatio12.setOnClickListener { ratioPicked(Pair(1f, 2f)) }
+            otherAspectRatio23.setOnClickListener { ratioPicked(Pair(2f, 3f)) }
+            otherAspectRatio34.setOnClickListener { ratioPicked(Pair(3f, 4f)) }
+            otherAspectRatio35.setOnClickListener { ratioPicked(Pair(3f, 5f)) }
+            otherAspectRatio916.setOnClickListener { ratioPicked(Pair(9f, 16f)) }
+            otherAspectRatio919.setOnClickListener { ratioPicked(Pair(9f, 19f)) }
 
             val radio1SelectedItemId = when (lastOtherAspectRatio) {
-                Pair(2f, 1f) -> other_aspect_ratio_2_1.id
-                Pair(3f, 2f) -> other_aspect_ratio_3_2.id
-                Pair(4f, 3f) -> other_aspect_ratio_4_3.id
-                Pair(5f, 3f) -> other_aspect_ratio_5_3.id
-                Pair(16f, 9f) -> other_aspect_ratio_16_9.id
-                Pair(19f, 9f) -> other_aspect_ratio_19_9.id
+                Pair(2f, 1f) -> otherAspectRatio21.id
+                Pair(3f, 2f) -> otherAspectRatio32.id
+                Pair(4f, 3f) -> otherAspectRatio43.id
+                Pair(5f, 3f) -> otherAspectRatio53.id
+                Pair(16f, 9f) -> otherAspectRatio169.id
+                Pair(19f, 9f) -> otherAspectRatio199.id
                 else -> 0
             }
-            other_aspect_ratio_dialog_radio_1.check(radio1SelectedItemId)
+            otherAspectRatioDialogRadio1.check(radio1SelectedItemId)
 
             val radio2SelectedItemId = when (lastOtherAspectRatio) {
-                Pair(1f, 2f) -> other_aspect_ratio_1_2.id
-                Pair(2f, 3f) -> other_aspect_ratio_2_3.id
-                Pair(3f, 4f) -> other_aspect_ratio_3_4.id
-                Pair(3f, 5f) -> other_aspect_ratio_3_5.id
-                Pair(9f, 16f) -> other_aspect_ratio_9_16.id
-                Pair(9f, 19f) -> other_aspect_ratio_9_19.id
+                Pair(1f, 2f) -> otherAspectRatio12.id
+                Pair(2f, 3f) -> otherAspectRatio23.id
+                Pair(3f, 4f) -> otherAspectRatio34.id
+                Pair(3f, 5f) -> otherAspectRatio35.id
+                Pair(9f, 16f) -> otherAspectRatio916.id
+                Pair(9f, 19f) -> otherAspectRatio919.id
                 else -> 0
             }
-            other_aspect_ratio_dialog_radio_2.check(radio2SelectedItemId)
+            otherAspectRatioDialogRadio2.check(radio2SelectedItemId)
 
             if (radio1SelectedItemId == 0 && radio2SelectedItemId == 0) {
-                other_aspect_ratio_dialog_radio_1.check(other_aspect_ratio_custom.id)
+                otherAspectRatioDialogRadio1.check(otherAspectRatioCustom.id)
             }
         }
 
         activity.getAlertDialogBuilder()
-            .setNegativeButton(R.string.cancel, null)
+            .setNegativeButton(com.simplemobiletools.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(view, this) { alertDialog ->
+                activity.setupDialogStuff(binding.root, this) { alertDialog ->
                     dialog = alertDialog
                 }
             }
