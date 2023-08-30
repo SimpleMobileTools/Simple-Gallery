@@ -207,7 +207,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             .load(uri)
             .apply(options)
             .listener(object : RequestListener<Bitmap> {
-                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>, isFirstResource: Boolean): Boolean {
                     if (uri != originalUri) {
                         uri = originalUri
                         Handler().post {
@@ -218,10 +218,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
 
                 override fun onResourceReady(
-                    bitmap: Bitmap?,
-                    model: Any?,
-                    target: Target<Bitmap>?,
-                    dataSource: DataSource?,
+                    bitmap: Bitmap,
+                    model: Any,
+                    target: Target<Bitmap>,
+                    dataSource: DataSource,
                     isFirstResource: Boolean
                 ): Boolean {
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
@@ -630,16 +630,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     Glide.with(this)
                         .asBitmap()
                         .load(uri).listener(object : RequestListener<Bitmap> {
-                            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>, isFirstResource: Boolean): Boolean {
                                 showErrorToast(e.toString())
                                 return false
                             }
 
                             override fun onResourceReady(
-                                resource: Bitmap?,
-                                model: Any?,
-                                target: Target<Bitmap>?,
-                                dataSource: DataSource?,
+                                resource: Bitmap,
+                                model: Any,
+                                target: Target<Bitmap>,
+                                dataSource: DataSource,
                                 isFirstResource: Boolean
                             ) = false
                         })

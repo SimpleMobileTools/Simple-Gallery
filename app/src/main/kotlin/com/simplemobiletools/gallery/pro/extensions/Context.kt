@@ -533,16 +533,16 @@ fun Context.loadPng(
         .load(path)
         .apply(options)
         .listener(object : RequestListener<Bitmap> {
-            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Bitmap>, isFirstResource: Boolean): Boolean {
                 tryLoadingWithPicasso(path, target, cropThumbnails, roundCorners, signature)
                 return true
             }
 
             override fun onResourceReady(
-                resource: Bitmap?,
-                model: Any?,
-                targetBitmap: Target<Bitmap>?,
-                dataSource: DataSource?,
+                resource: Bitmap,
+                model: Any,
+                targetBitmap: Target<Bitmap>,
+                dataSource: DataSource,
                 isFirstResource: Boolean
             ): Boolean {
                 return false

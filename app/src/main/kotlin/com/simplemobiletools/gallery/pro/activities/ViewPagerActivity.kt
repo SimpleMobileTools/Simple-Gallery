@@ -1016,22 +1016,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 .load(path)
                 .apply(options)
                 .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>, isFirstResource: Boolean): Boolean {
                         showErrorToast(e?.localizedMessage ?: "")
                         return false
                     }
 
                     override fun onResourceReady(
-                        bitmap: Bitmap?,
-                        model: Any?,
-                        target: Target<Bitmap>?,
-                        dataSource: DataSource?,
+                        bitmap: Bitmap,
+                        model: Any,
+                        target: Target<Bitmap>,
+                        dataSource: DataSource,
                         isFirstResource: Boolean
                     ): Boolean {
-                        if (bitmap != null) {
-                            printHelper.printBitmap(path.getFilenameFromPath(), bitmap)
-                        }
-
+                        printHelper.printBitmap(path.getFilenameFromPath(), bitmap)
                         return false
                     }
                 }).submit(requestedWidth, requestedHeight)
