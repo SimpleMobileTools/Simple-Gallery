@@ -18,11 +18,11 @@ dependencyResolutionManagement {
     }
 }
 // TODO: This will be deprecated in future. Migrate to the newer `pluginManagement { includeBuild() }` mechanism instead of explicitly substituting dependency.
-includeBuild("../Simple-Commons") {
-    dependencySubstitution {
-        substitute(module("com.github.SimpleMobileTools:Simple-Commons")).using(project(":commons"))
-    }
-}
+//includeBuild("../Simple-Commons") {
+//    dependencySubstitution {
+//        substitute(module("com.github.SimpleMobileTools:Simple-Commons")).using(project(":commons"))
+//    }
+//}
 rootProject.name = "Simple-Gallery"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
