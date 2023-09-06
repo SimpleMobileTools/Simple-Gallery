@@ -15,7 +15,7 @@ room = "2.6.0-beta01"
 #Simple tools
 simple-commons = "7c1e5b5777"
 #Gradle
-gradlePlugins-agp = "8.1.0"
+gradlePlugins-agp = "8.1.1"
 #Other
 androidGifDrawable = "1.2.25"
 androidImageCropper = "4.5.0"
