@@ -22,7 +22,7 @@ class ChangeSortingDialog(
     init {
         currSorting = if (isDirectorySorting) config.directorySorting else config.getFolderSorting(pathToUse)
         binding = DialogChangeSortingBinding.inflate(activity.layoutInflater).apply {
-            useForThisFolderDivider.beVisibleIf(showFolderCheckbox || (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
+            sortingDialogOrderDivider.beVisibleIf(showFolderCheckbox || (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
 
             sortingDialogNumericSorting.beVisibleIf(showFolderCheckbox && (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
             sortingDialogNumericSorting.isChecked = currSorting and SORT_USE_NUMERIC_VALUE != 0
@@ -46,14 +46,14 @@ class ChangeSortingDialog(
 
     private fun setupSortRadio() {
         val sortingRadio = binding.sortingDialogRadioSorting
-        sortingRadio.setOnCheckedChangeListener { group, checkedId ->
+        sortingRadio.setOnCheckedChangeListener { _, checkedId ->
             val isSortingByNameOrPath = checkedId == binding.sortingDialogRadioName.id || checkedId == binding.sortingDialogRadioPath.id
             binding.sortingDialogNumericSorting.beVisibleIf(isSortingByNameOrPath)
-            binding.useForThisFolderDivider.beVisibleIf(binding.sortingDialogNumericSorting.isVisible() || binding.sortingDialogUseForThisFolder.isVisible())
+            binding.sortingDialogOrderDivider.beVisibleIf(binding.sortingDialogNumericSorting.isVisible() || binding.sortingDialogUseForThisFolder.isVisible())
 
             val hideSortOrder = checkedId == binding.sortingDialogRadioCustom.id || checkedId == binding.sortingDialogRadioRandom.id
             binding.sortingDialogRadioOrder.beGoneIf(hideSortOrder)
-            binding.sortingDialogOrderDivider.beGoneIf(hideSortOrder)
+            binding.sortingDialogSortingDivider.beGoneIf(hideSortOrder)
         }
 
         val sortBtn = when {
