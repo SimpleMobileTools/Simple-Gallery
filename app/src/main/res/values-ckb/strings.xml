@@ -45,15 +45,15 @@
     <string name="error_saving_file">Could not overwrite the source file</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="lock_orientation">Lock orientation</string>
+    <string name="lock_orientation">قفڵکردنی ئاڕاستەکان</string>
     <string name="rotate_left">Rotate left</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder\?</string>
     <string name="force_landscape">Force landscape</string>
     <string name="pesdk_transform_button_resetCrop">Reset</string>
     <string name="reorder_by_dragging_pro">Reorder folders by dragging (Pro)</string>
     <string name="include_videos">Include videos</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="unknown_location">Unknown location</string>
+    <string name="change_orientation">گۆڕینی ئاڕاستەکان</string>
+    <string name="unknown_location">شوێنی نەناسراو</string>
     <string name="by_last_modified_daily">Last modified (daily)</string>
     <string name="faq_15_title">Why does the app take up so much space\?</string>
     <string name="bottom_actions">Bottom actions</string>
@@ -70,9 +70,9 @@
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="random_order">Random order</string>
-    <string name="all_folders">All folders</string>
+    <string name="all_folders">هەموو فۆڵدەرەکان</string>
     <string name="loop_videos">Loop videos</string>
-    <string name="volume">Volume</string>
+    <string name="volume">ئاستی دەنگ</string>
     <string name="pesdk_common_title_lightBlueColor">Light blue</string>
     <string name="height">Height</string>
     <string name="allow_changing_aspect_ratio">Allow changing the aspect ratio</string>
@@ -102,7 +102,7 @@
     <string name="show_file_count_section_header">Show file count at section headers</string>
     <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="edit">Edit</string>
+    <string name="edit">دەستکاری</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.
 \n
@@ -135,7 +135,7 @@
     <string name="pesdk_sticker_button_color">Color</string>
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue\?</string>
     <string name="move_backwards">Move backwards</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">جێگیرکردن لەسەرەوە</string>
     <string name="pesdk_common_button_flipH">Flip H</string>
     <string name="pesdk_overlay_asset_paper">Paper</string>
     <string name="gifs">GIFs</string>
@@ -144,11 +144,11 @@
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_launcher_name">گەلەری</string>
     <string name="by_extension">Extension</string>
     <string name="pesdk_common_title_colorPicker">Color Picker</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="hidden">(hidden)</string>
+    <string name="hidden">(شاراوە)</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders. That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
     <string name="pesdk_overlay_asset_none">None</string>
@@ -163,7 +163,7 @@
     <string name="pesdk_sticker_button_straighten">Straighten</string>
     <string name="pesdk_common_title_pinkColor">Pink</string>
     <string name="pesdk_editor_cancel">Cancel</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(لەگەڵیدایە)</string>
     <string name="pesdk_overlay_asset_rain">Rain</string>
     <string name="thumbnails">Thumbnails</string>
     <string name="pesdk_common_title_whiteColor">White</string>
@@ -171,7 +171,7 @@
     <string name="video_editing_failed">Video editing failed</string>
     <string name="resize_multiple_images">Resize multiple images</string>
     <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="unlock_orientation">کردنەوەی ئاڕاستەکان</string>
     <string name="fixing">Fixing…</string>
     <string name="manage_extended_details">Manage extended details</string>
     <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do\?</string>
@@ -189,7 +189,7 @@
     <string name="pesdk_focus_button_gaussian">Gaussian</string>
     <string name="pesdk_common_title_purpleColor">Purple</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="unpin_folder">Unpin folder</string>
+    <string name="unpin_folder">لادانی جێگیری</string>
     <string name="pesdk_focus_button_linear">Linear</string>
     <string name="pesdk_sticker_category_name_custom">Uploads</string>
     <string name="pesdk_common_title_greenColor">Green</string>
@@ -201,7 +201,7 @@
     <string name="pesdk_editor_text_exportProgressUnknown">Exporting…</string>
     <string name="pesdk_brush_button_size">Size</string>
     <string name="file_thumbnail_style">File thumbnail style</string>
-    <string name="pin_folder">Pin folder</string>
+    <string name="pin_folder">جێگیرکردنی فۆڵدەر</string>
     <string name="show_media_count">Show folder media count on the main view</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
     <string name="vesdk_video_trim_title_name">Trim</string>
@@ -228,7 +228,7 @@
     <string name="file_loading_priority">File loading priority</string>
     <string name="setting_wallpaper">Setting wallpaper…</string>
     <string name="pesdk_adjustments_button_gammaTool">Gamma</string>
-    <string name="show_on_map">Show on map</string>
+    <string name="show_on_map">پیشاندان لەسەر نەخشە</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="pesdk_sticker_title_options">Sticker Options</string>
     <string name="transform">Transform</string>
@@ -257,7 +257,7 @@
     <string name="pesdk_adjustments_button_reset">Reset</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
-    <string name="folder_view">Switch to folder view</string>
+    <string name="folder_view">گۆڕین بۆ شێوازی پیشاندانی فۆڵدەر</string>
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery\?</string>
     <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
     <string name="animation">Animation</string>
@@ -324,13 +324,13 @@
     <string name="rotate_right">Rotate right</string>
     <string name="switch_to_file_search">Switch to file search across all visible folders</string>
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">گەلەری</string>
     <string name="pesdk_text_title_options">Text Options</string>
     <string name="no_image_editor_found">No image editor found</string>
     <string name="pesdk_text_title_name">Text</string>
-    <string name="other_folder">Other folder</string>
+    <string name="other_folder">فۆڵدەرەکانی تر</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
-    <string name="brightness">Brightness</string>
+    <string name="brightness">ڕووناکی</string>
     <string name="pesdk_brush_title_name">Brush</string>
     <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
     <string name="folder_thumbnail_style">Folder thumbnail style</string>
@@ -347,9 +347,9 @@
     <string name="image_editing_failed">Image editing failed</string>
     <string name="speed">Speed</string>
     <string name="pesdk_adjustments_button_contrastTool">Contrast</string>
-    <string name="open_camera">Open camera</string>
+    <string name="open_camera">چوون بۆ کامێرا</string>
     <string name="pesdk_filter_asset_none">None</string>
-    <string name="show_all">Show all folders content</string>
+    <string name="show_all">پیشاندانی هەموو فایلەکانی ناو فۆڵدەر</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="show_image_file_types">Show image file types</string>
