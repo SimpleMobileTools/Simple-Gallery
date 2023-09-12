@@ -98,7 +98,7 @@
     <string name="no_image_editor_found">Keine Bildeditor-App gefunden</string>
     <string name="no_video_editor_found">Keine Videoeditor-App gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateipfad</string>
-    <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
+    <string name="error_saving_file">Quelldatei konnte nicht überschrieben werden</string>
     <string name="rotate_left">Nach links drehen</string>
     <string name="rotate_right">Nach rechts drehen</string>
     <string name="rotate_one_eighty">Um 180° drehen</string>
