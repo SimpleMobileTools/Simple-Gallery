@@ -13,7 +13,7 @@ exif = "1.0.1"
 #Room
 room = "2.6.0-beta01"
 #Simple tools
-simple-commons = "73d78e5cd3"
+simple-commons = "e0db4c5f28"
 #Gradle
 gradlePlugins-agp = "8.1.1"
 #Other
