@@ -45,8 +45,7 @@
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">這功能藉由新增一個\".nomedia\"檔案，來隱藏資料夾和所有子資料夾。您可以透過[設定]中的\"顯示隱藏的項目\"選項來檢視。
-\n是否繼續？</string>
+    <string name="hide_folder_description">啟用此功能將會在選定資料夾中建立「.nomedia」檔案，使該資料夾及其所有子資料夾被隱藏。如果您想查看這些隱藏的資料夾，可以在設定中選擇「顯示隱藏項目」的選項。是否繼續？</string>
     <string name="exclude_folder_description">此資料夾與子資料夾將只會都從簡易相簿中排除。您可以在設定中進行管理。</string>
     <string name="exclude_folder_parent">是否排除上層資料夾？</string>
     <string name="excluded_activity_placeholder">[排除資料夾]只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，它們仍會出現在其他應用程式中。
@@ -55,14 +54,15 @@
     <string name="hidden_folders">隱藏資料夾</string>
     <string name="manage_hidden_folders">管理隱藏資料夾</string>
     <string name="hidden_folders_placeholder">看來沒有以「.nomedia」檔案來隱藏的資料夾。</string>
-    <string name="hidden_all_files">You have to grant the app All Files access to see hidden files, else it cannot work.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="hidden_all_files">為了讓您能夠查看隱藏的檔案，請務必開放「所有檔案存取」的權限給此應用程式，否則將無法正常使用。</string>
+    <string name="cant_unhide_folder">若資料夾或其母資料夾的名稱前方有「.」，該資料夾將會被隱藏，而此情況下不能直接取消隱藏。您需要改變資料夾名稱以移除前方的「.」。</string>
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>
     <string name="manage_included_folders">管理包含資料夾</string>
     <string name="add_folder">增加資料夾</string>
-    <string name="included_activity_placeholder">如果有些資料夾含有媒體檔案，但本 app 沒有辨識到，您可以在此手動加入。
-\n在此加入項目不會排除其他資料夾。</string>
+    <string name="included_activity_placeholder">如果您擁有一些含有媒體文件但未被應用程式識別的資料夾，您可以手動於此新增它們。
+\n
+\n此處新增的項目不會將其他資料夾排除在外。</string>
     <string name="no_media_add_included">未發現媒體檔案。您可以手動加入包含媒體檔案的資料夾來解決。</string>
     <!-- Resizing -->
     <string name="resize_and_save">縮放所選區域並儲存</string>
@@ -70,19 +70,18 @@
     <string name="height">高度</string>
     <string name="keep_aspect_ratio">保持長寬比</string>
     <string name="invalid_values">請輸入有效的解析度</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">批量調整圖片大小</string>
+    <string name="resize_factor">調整比例</string>
+    <string name="resize_factor_info">請將圖片大小調整至指定百分比，數值範圍為 10 到 90。</string>
+    <string name="resize_factor_error">請輸入 10 到 90 之間的數值</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="other">%d 張圖片大小調整失敗</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">圖片調整大小成功</string>
     <!-- Editor -->
     <string name="editor">編輯器</string>
-    <string name="basic_editor">Basic Editor</string>
-    <string name="advanced_editor">Advanced Editor</string>
+    <string name="basic_editor">基礎編輯器</string>
+    <string name="advanced_editor">進階編輯器</string>
     <string name="rotate">旋轉</string>
     <string name="invalid_image_path">無效的圖片路徑</string>
     <string name="invalid_video_path">無效的影片路徑</string>
@@ -102,9 +101,9 @@
     <string name="rotate_left">向左轉</string>
     <string name="rotate_right">向右轉</string>
     <string name="rotate_one_eighty">旋轉180º</string>
-    <string name="transform">Transform</string>
-    <string name="crop">Crop</string>
-    <string name="draw">Draw</string>
+    <string name="transform">變形</string>
+    <string name="crop">裁切</string>
+    <string name="draw">繪畫</string>
     <string name="flip">翻轉</string>
     <string name="flip_horizontally">水平翻轉</string>
     <string name="flip_vertically">垂直翻轉</string>
@@ -154,7 +153,7 @@
     <string name="by_date_taken_monthly">拍攝日期 (按月)</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
-    <string name="show_file_count_section_header">Show file count at section headers</string>
+    <string name="show_file_count_section_header">於分段標題顯示檔案數量</string>
     <string name="grouping_and_sorting">請注意，歸類和排序兩者是獨立的</string>
     <!-- Widgets -->
     <string name="folder_on_widget">在小工具顯示資料夾:</string>
