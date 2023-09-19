@@ -77,7 +77,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mDirs = ArrayList<Directory>()
     private var mDirsIgnoringSearch = ArrayList<Directory>()
 
-    private var mStoredAnimateGifs = true
+    private var mStoredAnimateGifsInFolders = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredTextColor = 0
@@ -198,8 +198,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         refreshMenuItems()
 
-        if (mStoredAnimateGifs != config.animateGifs) {
-            getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
+        if (mStoredAnimateGifsInFolders != config.animateGifsInFolders) {
+            getRecyclerAdapter()?.updateAnimateGifs(config.animateGifsInFolders)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
@@ -438,7 +438,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mStoredTextColor = getProperTextColor()
         mStoredPrimaryColor = getProperPrimaryColor()
         config.apply {
-            mStoredAnimateGifs = animateGifs
+            mStoredAnimateGifsInFolders = animateGifsInFolders
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredStyleString = "$folderStyle$showFolderMediaCount$limitFolderTitle"

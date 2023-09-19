@@ -55,7 +55,7 @@ class DirectoryAdapter(
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
     private var pinnedFolders = config.pinnedFolders
     private var scrollHorizontally = config.scrollHorizontally
-    private var animateGifs = config.animateGifs
+    private var animateGifs = config.animateGifsInFolders
     private var cropThumbnails = config.cropThumbnails
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()

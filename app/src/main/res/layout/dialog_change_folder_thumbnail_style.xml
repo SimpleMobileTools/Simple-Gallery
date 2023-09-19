@@ -87,5 +87,13 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/limit_folder_title" />
 
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/dialog_animate_gifs_in_folders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/animate_gifs" />
+
     </LinearLayout>
 </ScrollView>
