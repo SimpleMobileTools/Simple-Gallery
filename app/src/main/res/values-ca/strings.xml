@@ -365,7 +365,7 @@
     <string name="faq_10_title">Puc escapçar imatges amb aquesta aplicació\?</string>
     <string name="faq_10_text">Sí, podeu escapçar imatges a l\'editor, arrossegant les cantonades de la imatge. Es pot accedir a l\'editor prement prolongadament una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures dels fitxers multimèdia\?</string>
-    <string name="faq_11_text">Si, només cal utilitzar l\'element de menú «Agrupa per» mentre esteu a la vista de miniatures. Podeu agrupar fitxers amb diversos criteris, inclosa la data de presa. Si utilitzeu la funció «Mostra el contingut de totes les carpetes», també podeu agrupar-les per carpetes.</string>
+    <string name="faq_11_text">Sí, només cal utilitzar l\'element de menú «Agrupa per» mentre esteu a la vista de miniatures. Podeu agrupar fitxers amb diversos criteris, inclosa la data de presa. Si utilitzeu la funció «Mostra el contingut de totes les carpetes», també podeu agrupar-les per carpetes.</string>
     <string name="faq_12_title">L\'ordenació per la data de presa no sembla funcionar correctament, com puc solucionar-ho\?</string>
     <string name="faq_12_text">Probablement, els fitxers s\'han copiat des de qualsevol lloc. Podeu arreglar-ho seleccionant les miniatures de fitxer i seleccionant «Corregeix el valor de la data de presa».</string>
     <string name="faq_13_title">Veig algunes bandes de colors a les imatges. Com puc millorar la qualitat\?</string>
