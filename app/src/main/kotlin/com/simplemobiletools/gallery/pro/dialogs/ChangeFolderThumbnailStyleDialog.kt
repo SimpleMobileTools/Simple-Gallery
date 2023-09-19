@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.dialogs
 
 import android.content.DialogInterface
 import android.widget.RelativeLayout
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners

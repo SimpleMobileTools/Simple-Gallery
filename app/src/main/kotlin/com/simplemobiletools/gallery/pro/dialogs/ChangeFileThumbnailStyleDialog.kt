@@ -1,14 +1,12 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
 import android.content.DialogInterface
-import android.widget.Toast
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.models.RadioItem
-import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.databinding.DialogChangeFileThumbnailStyleBinding
 import com.simplemobiletools.gallery.pro.extensions.config
 
