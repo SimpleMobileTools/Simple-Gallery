@@ -48,7 +48,6 @@ import java.nio.channels.FileChannel
 import kotlin.collections.set
 import kotlin.math.max
 
-
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
 fun Context.getHumanizedFilename(path: String): String {
