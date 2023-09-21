@@ -5,11 +5,11 @@
     <string name="edit">編輯</string>
     <string name="open_camera">開啟相機</string>
     <string name="hidden">(隱藏)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(已排除)</string>
     <string name="pin_folder">釘選資料夾</string>
     <string name="unpin_folder">取消釘選資料夾</string>
     <string name="pin_to_the_top">釘選在頂端</string>
-    <string name="show_all">資料夾內容全部顯示</string>
+    <string name="show_all">顯示全部資料夾內容</string>
     <string name="all_folders">全部資料夾</string>
     <string name="folder_view">切換成資料夾檢視</string>
     <string name="other_folder">其他資料夾</string>
@@ -213,7 +213,7 @@
     <string name="import_favorite_paths">Import favorites</string>
     <string name="paths_imported_successfully">Paths imported successfully</string>
     <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">設定密碼保護，隱藏不顯示的資料夾</string>
+    <string name="password_protect_excluded">密碼保護以隱藏特定資料夾</string>
     <string name="media_management_manual">出錯了，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
     <string name="media_management_note">若重新導向未順利運作，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
     <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
