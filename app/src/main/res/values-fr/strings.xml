@@ -5,7 +5,7 @@
     <string name="edit">Modifier</string>
     <string name="open_camera">Ouvrir l\'appareil photo</string>
     <string name="hidden">(caché)</string>
-    <string name="excluded">(exclu)</string>
+    <string name="excluded">(exclu·s)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Libérer le dossier</string>
     <string name="pin_to_the_top">Épingler le dossier</string>
@@ -173,7 +173,7 @@
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Rapport d\'affichage</string>
     <string name="black_background_at_fullscreen">Arrière-plan et barre d\'état noirs</string>
-    <string name="scroll_thumbnails_horizontally">Défiler les miniatures horizontalement</string>
+    <string name="scroll_thumbnails_horizontally">Faire défiler les miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_photo_gestures">Contrôler la luminosité des images par gestes verticaux</string>
