@@ -20,7 +20,6 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
     private var config = activity.config
     private val binding = DialogChangeFolderThumbnailStyleBinding.inflate(activity.layoutInflater).apply {
         dialogFolderLimitTitle.isChecked = config.limitFolderTitle
-        dialogAnimateGifsInFolders.isChecked = config.animateGifsInFolders
     }
 
     init {
@@ -32,7 +31,6 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
                     setupStyle()
                     setupMediaCount()
                     updateSample()
-                    updateAnimateGifsCheckbox()
                 }
             }
     }
@@ -41,7 +39,6 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
         val styleRadio = binding.dialogRadioFolderStyle
         styleRadio.setOnCheckedChangeListener { group, checkedId ->
             updateSample()
-            updateAnimateGifsCheckbox()
         }
 
         val styleBtn = when (config.folderStyle) {
@@ -120,7 +117,10 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
     }
 
     override fun onClick(dialog: DialogInterface, which: Int) {
-        val style = getStyle()
+        val style = when (binding.dialogRadioFolderStyle.checkedRadioButtonId) {
+            R.id.dialog_radio_folder_square -> FOLDER_STYLE_SQUARE
+            else -> FOLDER_STYLE_ROUNDED_CORNERS
+        }
 
         val count = when (binding.dialogRadioFolderCountHolder.checkedRadioButtonId) {
             R.id.dialog_radio_folder_count_line -> FOLDER_MEDIA_CNT_LINE
@@ -131,25 +131,6 @@ class ChangeFolderThumbnailStyleDialog(val activity: BaseSimpleActivity, val cal
         config.folderStyle = style
         config.showFolderMediaCount = count
         config.limitFolderTitle = binding.dialogFolderLimitTitle.isChecked
-
-        if (style == FOLDER_STYLE_ROUNDED_CORNERS) {
-            config.animateGifsInFolders = false
-        } else {
-            config.animateGifsInFolders = binding.dialogAnimateGifsInFolders.isChecked
-        }
-
         callback()
-    }
-
-    private fun getStyle(): Int {
-        return when (binding.dialogRadioFolderStyle.checkedRadioButtonId) {
-            R.id.dialog_radio_folder_square -> FOLDER_STYLE_SQUARE
-            else -> FOLDER_STYLE_ROUNDED_CORNERS
-        }
-    }
-
-    private fun updateAnimateGifsCheckbox() {
-        val style = getStyle()
-        binding.dialogAnimateGifsInFolders.beVisibleIf(style != FOLDER_STYLE_ROUNDED_CORNERS)
     }
 }

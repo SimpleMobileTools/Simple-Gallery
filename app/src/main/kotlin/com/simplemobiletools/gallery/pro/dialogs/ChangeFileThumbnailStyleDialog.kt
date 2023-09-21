@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.pro.dialogs
 import android.content.DialogInterface
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.models.RadioItem
@@ -23,10 +22,7 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
             dialogFileStyleShowThumbnailFileTypes.isChecked = config.showThumbnailFileTypes
             dialogFileStyleMarkFavoriteItems.isChecked = config.markFavoriteItems
 
-            dialogFileStyleRoundedCornersHolder.setOnClickListener {
-                dialogFileStyleRoundedCorners.toggle()
-                updateAnimateGifsCheckbox()
-            }
+            dialogFileStyleRoundedCornersHolder.setOnClickListener { dialogFileStyleRoundedCorners.toggle() }
             dialogFileStyleAnimateGifsHolder.setOnClickListener { dialogFileStyleAnimateGifs.toggle() }
             dialogFileStyleShowThumbnailVideoDurationHolder.setOnClickListener { dialogFileStyleShowThumbnailVideoDuration.toggle() }
             dialogFileStyleShowThumbnailFileTypesHolder.setOnClickListener { dialogFileStyleShowThumbnailFileTypes.toggle() }
@@ -52,7 +48,6 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
         }
 
         updateThumbnailSpacingText()
-        updateAnimateGifsCheckbox()
 
         activity.getAlertDialogBuilder()
             .setPositiveButton(com.simplemobiletools.commons.R.string.ok, this)
@@ -64,19 +59,11 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
 
     override fun onClick(dialog: DialogInterface, which: Int) {
         config.fileRoundedCorners = binding.dialogFileStyleRoundedCorners.isChecked
-        if (binding.dialogFileStyleRoundedCorners.isChecked) {
-            config.animateGifs = false
-        } else {
-            config.animateGifs = binding.dialogFileStyleAnimateGifs.isChecked
-        }
+        config.animateGifs = binding.dialogFileStyleAnimateGifs.isChecked
         config.showThumbnailVideoDuration = binding.dialogFileStyleShowThumbnailVideoDuration.isChecked
         config.showThumbnailFileTypes = binding.dialogFileStyleShowThumbnailFileTypes.isChecked
         config.markFavoriteItems = binding.dialogFileStyleMarkFavoriteItems.isChecked
         config.thumbnailSpacing = thumbnailSpacing
-    }
-
-    private fun updateAnimateGifsCheckbox() {
-        binding.dialogFileStyleAnimateGifs.beVisibleIf(!binding.dialogFileStyleRoundedCorners.isChecked)
     }
 
     private fun updateThumbnailSpacingText() {

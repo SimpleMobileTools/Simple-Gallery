@@ -164,10 +164,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ANIMATE_GIFS, false)
         set(animateGifs) = prefs.edit().putBoolean(ANIMATE_GIFS, animateGifs).apply()
 
-    var animateGifsInFolders: Boolean
-        get() = prefs.getBoolean(ANIMATE_GIFS_IN_FOLDERS, false)
-        set(animateGifsInFolders) = prefs.edit().putBoolean(ANIMATE_GIFS_IN_FOLDERS, animateGifsInFolders).apply()
-
     var maxBrightness: Boolean
         get() = prefs.getBoolean(MAX_BRIGHTNESS, false)
         set(maxBrightness) = prefs.edit().putBoolean(MAX_BRIGHTNESS, maxBrightness).apply()
