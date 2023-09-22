@@ -17,13 +17,11 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
     init {
         binding = DialogChangeFileThumbnailStyleBinding.inflate(activity.layoutInflater).apply {
             dialogFileStyleRoundedCorners.isChecked = config.fileRoundedCorners
-            dialogFileStyleAnimateGifs.isChecked = config.animateGifs
             dialogFileStyleShowThumbnailVideoDuration.isChecked = config.showThumbnailVideoDuration
             dialogFileStyleShowThumbnailFileTypes.isChecked = config.showThumbnailFileTypes
             dialogFileStyleMarkFavoriteItems.isChecked = config.markFavoriteItems
 
             dialogFileStyleRoundedCornersHolder.setOnClickListener { dialogFileStyleRoundedCorners.toggle() }
-            dialogFileStyleAnimateGifsHolder.setOnClickListener { dialogFileStyleAnimateGifs.toggle() }
             dialogFileStyleShowThumbnailVideoDurationHolder.setOnClickListener { dialogFileStyleShowThumbnailVideoDuration.toggle() }
             dialogFileStyleShowThumbnailFileTypesHolder.setOnClickListener { dialogFileStyleShowThumbnailFileTypes.toggle() }
             dialogFileStyleMarkFavoriteItemsHolder.setOnClickListener { dialogFileStyleMarkFavoriteItems.toggle() }
@@ -59,7 +57,6 @@ class ChangeFileThumbnailStyleDialog(val activity: BaseSimpleActivity) : DialogI
 
     override fun onClick(dialog: DialogInterface, which: Int) {
         config.fileRoundedCorners = binding.dialogFileStyleRoundedCorners.isChecked
-        config.animateGifs = binding.dialogFileStyleAnimateGifs.isChecked
         config.showThumbnailVideoDuration = binding.dialogFileStyleShowThumbnailVideoDuration.isChecked
         config.showThumbnailFileTypes = binding.dialogFileStyleShowThumbnailFileTypes.isChecked
         config.markFavoriteItems = binding.dialogFileStyleMarkFavoriteItems.isChecked

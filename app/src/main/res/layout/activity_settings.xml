@@ -327,6 +327,21 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/settings_animate_gifs_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_animate_gifs"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/animate_gifs" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/settings_file_thumbnail_style_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
