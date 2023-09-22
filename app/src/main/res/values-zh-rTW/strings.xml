@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">簡易相簿</string>
-    <string name="app_launcher_name">簡易相簿</string>
+    <string name="app_launcher_name">相簿</string>
     <string name="edit">編輯</string>
     <string name="open_camera">開啟相機</string>
     <string name="hidden">(隱藏)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(已排除)</string>
     <string name="pin_folder">釘選資料夾</string>
     <string name="unpin_folder">取消釘選資料夾</string>
     <string name="pin_to_the_top">釘選在頂端</string>
-    <string name="show_all">資料夾內容全部顯示</string>
+    <string name="show_all">顯示全部資料夾內容</string>
     <string name="all_folders">全部資料夾</string>
     <string name="folder_view">切換成資料夾檢視</string>
     <string name="other_folder">其他資料夾</string>
@@ -32,7 +32,7 @@
     <string name="set_as_default_folder">設為預設資料夾</string>
     <string name="unset_as_default_folder">取消設為預設資料夾</string>
     <string name="reorder_by_dragging">透過拖曳來重新排序資料夾</string>
-    <string name="reorder_by_dragging_pro">透過拖曳來重新排序資料夾 (Pro)</string>
+    <string name="reorder_by_dragging_pro">透過拖曳來重新排序資料夾 (專業版)</string>
     <string name="restore_to_path">還原到「%s」</string>
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -201,7 +201,7 @@
     <string name="allow_zooming_videos">點兩下螢幕來縮放影片</string>
     <string name="folder_thumbnail_style">資料夾縮圖樣式</string>
     <string name="file_thumbnail_style">檔案縮圖樣式</string>
-    <string name="mark_favorite_items">Mark favorite items</string>
+    <string name="mark_favorite_items">標記我的最愛</string>
     <string name="thumbnail_spacing">縮圖的間隔</string>
     <string name="show_file_count_line">獨立一行顯示檔案數量</string>
     <string name="show_file_count_brackets">在括號內顯示檔案數量</string>
@@ -209,19 +209,19 @@
     <string name="limit_folder_title">資料夾名稱最長只顯示一行</string>
     <string name="square">方形</string>
     <string name="rounded_corners">圓角</string>
-    <string name="export_favorite_paths">Export favorites</string>
-    <string name="import_favorite_paths">Import favorites</string>
-    <string name="paths_imported_successfully">Paths imported successfully</string>
-    <string name="media_management_prompt">To make sure that all file operations work reliably, please make this app a Media management app in your device settings.</string>
-    <string name="password_protect_excluded">設定密碼保護，隱藏不顯示的資料夾</string>
+    <string name="export_favorite_paths">匯出我的最愛</string>
+    <string name="import_favorite_paths">匯入我的最愛</string>
+    <string name="paths_imported_successfully">路徑匯入成功</string>
+    <string name="media_management_prompt">為了確保所有檔案操作都能可靠地運作，請將此 app 設為裝置設定中的媒體管理 app。</string>
+    <string name="password_protect_excluded">密碼保護以隱藏特定資料夾</string>
     <string name="media_management_manual">出錯了，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
     <string name="media_management_note">若重新導向未順利運作，請至裝置的設定 - 應用程式（和通知） - 特殊應用程式存取權 - 媒體管理應用程式，允許本 app 管理媒體。</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="alternative_media_access">Alternatively, you can allow accessing media files only. In that case you will not be able to work with hidden files though.</string>
-    <string name="media_only">Media only</string>
-    <string name="all_files">All files</string>
-    <string name="search_all_files">Search all files instead of folders on the main screen</string>
-    <string name="show_all_folders">Show a menu button for toggling Show All Folders Content quickly</string>
+    <string name="media_management_alternative">如果您不想這麼做，也可以進入您的裝置設定 - 應用程式 - 特殊應用程式存取 - 媒體管理應用程式，並允許此應用程式管理媒體。</string>
+    <string name="alternative_media_access">或者，您只能允許存取媒體檔案。但在這種情況下，您將無法處理隱藏檔案。</string>
+    <string name="media_only">僅媒體</string>
+    <string name="all_files">所有檔案</string>
+    <string name="search_all_files">在主畫面搜尋所有檔案，而非資料夾</string>
+    <string name="show_all_folders">顯示一個選單按鈕，快速切換「顯示所有資料夾內容」</string>
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
     <string name="fullscreen_media">全螢幕媒體檔案</string>
@@ -297,29 +297,29 @@
     <string name="pesdk_sticker_button_color">顏色</string>
     <string name="pesdk_sticker_button_delete">刪除</string>
     <string name="pesdk_sticker_button_bringToFront">移到最上層</string>
-    <string name="pesdk_sticker_button_straighten">Straighten</string>
+    <string name="pesdk_sticker_button_straighten">矯正</string>
     <string name="pesdk_sticker_button_replace">更改</string>
     <string name="pesdk_sticker_button_opacity">不透明度</string>
     <string name="pesdk_sticker_button_contrast">對比</string>
     <string name="pesdk_sticker_button_saturation">飽和度</string>
     <string name="pesdk_sticker_button_brightness">亮度</string>
-    <string name="pesdk_sticker_category_name_custom">Uploads</string>
-    <string name="pesdk_overlay_title_name">Overlay</string>
+    <string name="pesdk_sticker_category_name_custom">上傳</string>
+    <string name="pesdk_overlay_title_name">覆蓋</string>
     <string name="pesdk_overlay_button_blendModeNormal">Normal</string>
-    <string name="pesdk_overlay_button_blendModeDarken">Darken</string>
+    <string name="pesdk_overlay_button_blendModeDarken">變暗</string>
     <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
-    <string name="pesdk_overlay_button_blendModeOverlay">Overlay</string>
-    <string name="pesdk_overlay_button_blendModeLighten">Lighten</string>
-    <string name="pesdk_overlay_button_blendModeMultiply">Multiply</string>
-    <string name="pesdk_overlay_button_blendModeColorBurn">Color Burn</string>
-    <string name="pesdk_overlay_button_blendModeSoftLight">Soft Light</string>
-    <string name="pesdk_overlay_button_blendModeHardLight">Hard Light</string>
+    <string name="pesdk_overlay_button_blendModeOverlay">覆蓋</string>
+    <string name="pesdk_overlay_button_blendModeLighten">變亮</string>
+    <string name="pesdk_overlay_button_blendModeMultiply">色彩增值</string>
+    <string name="pesdk_overlay_button_blendModeColorBurn">加深顏色</string>
+    <string name="pesdk_overlay_button_blendModeSoftLight">柔光</string>
+    <string name="pesdk_overlay_button_blendModeHardLight">實光</string>
     <string name="pesdk_overlay_asset_none">無</string>
-    <string name="pesdk_overlay_asset_golden">Golden</string>
-    <string name="pesdk_overlay_asset_lightleak1">Lightleak 1</string>
-    <string name="pesdk_overlay_asset_mosaic">Mosaic</string>
-    <string name="pesdk_overlay_asset_paper">Paper</string>
-    <string name="pesdk_overlay_asset_rain">Rain</string>
+    <string name="pesdk_overlay_asset_golden">金色</string>
+    <string name="pesdk_overlay_asset_lightleak1">光漏 1</string>
+    <string name="pesdk_overlay_asset_mosaic">馬賽克</string>
+    <string name="pesdk_overlay_asset_paper">紙質</string>
+    <string name="pesdk_overlay_asset_rain">雨</string>
     <string name="pesdk_overlay_asset_vintage">Vintage</string>
     <string name="pesdk_common_button_flipH">水平翻轉</string>
     <string name="pesdk_common_button_flipV">垂直翻轉</string>
@@ -343,7 +343,7 @@
     <string name="pesdk_common_title_greenColor">綠色</string>
     <string name="pesdk_common_title_aquamarinColor">藍綠</string>
     <string name="pesdk_common_title_pipettableColor">顏色吸取器</string>
-    <string name="vesdk_video_trim_title_name">Trim</string>
+    <string name="vesdk_video_trim_title_name">修剪</string>
     <!-- FAQ -->
     <string name="faq_1_title">如何將簡易相簿設為裝置的預設相簿？</string>
     <string name="faq_1_text">首先開啟裝置的設定，在應用程式相關設定處找到目前的預設相簿。 選擇「預設為開啟」或類似的選項，然後按「清除預設值」。 之後開啟圖片或影片檔案時會出現選擇 APP 的畫面，此時即可將簡易相簿設為預設相簿。</string>
@@ -375,11 +375,11 @@
     <string name="faq_15_text">APP 快取最高會佔用 250MB，來讓圖片載入得更快。如果本 APP 佔用了超過 250MB 的空間，很有可能是因為有檔案在回收桶裡，這些檔案也會算在 APP 佔用的空間上。您可以開啟回收桶並刪除所有檔案，或是從設定中清空它。檔案被丟入回收桶 30 天後將會自動被刪除。</string>
     <string name="faq_16_title">檔案／資料夾隱藏怎麼了？為什麼我看不到隱藏的項目了？</string>
     <string name="faq_16_text">自 Android 11 開始，因系統限制，無法隱藏或解除隱藏檔案或資料夾，也無法在相簿 app 中看到已隱藏的項目。請使用檔案管理程式達成上述操作。</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
+    <string name="faq_16_text_extra">或者，您也可以通過您的裝置設定授予此相簿存取所有檔案的權限，這將允許我們顯示隱藏項目並使檔案操作更為可靠。</string>
     <string name="faq_17_title">為什麼不能再包含缺漏的資料夾了？</string>
     <string name="faq_17_text">因 Android 11 的系統變更，這項功能無法再運作。app 沒辦法瀏覽實際的資料夾，而是透過所謂的 MediaStorage 來擷取資料。</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_18_title">為什麼我在播放影片時看到廣告？</string>
+    <string name="faq_18_text">我們的應用程式完全沒有廣告。如果您在播放影片時看到它們，那麼您一定是在使用其他應用程式的影片播放器。嘗試在裝置設定中找到您的預設影片播放器，然後對其進行清除其預設值。下次您嘗試播放影片時，系統會提示您選擇應用程式，您可以在此選擇您想要使用的影片播放器。</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
