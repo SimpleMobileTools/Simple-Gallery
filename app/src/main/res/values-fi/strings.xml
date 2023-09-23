@@ -72,11 +72,11 @@
     <string name="invalid_values">Aseta oikea resoluutio</string>
     <string name="resize_multiple_images">Muuta useamman kuvan kokoa</string>
     <string name="resize_factor">Koon kerroin</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
+    <string name="resize_factor_info">Muuta kuvien kokoa annettuun prosenttiosuuteen, arvon on oltava 10 ja 90 väliltä.</string>
     <string name="resize_factor_error">Syötä numero väliltä 10 ja 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">%d:n kuvan koon muuttaminen epäonnistui</item>
-        <item quantity="other">%d:n kuvan koon muuttaminen epäonnistui</item>
+        <item quantity="one">%d kuvan koon muuttaminen epäonnistui</item>
+        <item quantity="other">%d kuvien koon muuttaminen epäonnistui</item>
     </plurals>
     <string name="images_resized_successfully">Kuvien koot muutettu</string>
     <!-- Editor -->
