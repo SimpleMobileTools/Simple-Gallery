@@ -124,6 +124,7 @@ dependencies {
     compileOnly(libs.okhttp)
 
     ksp(libs.glide.compiler)
+    implementation(libs.zjupure.webpdecoder)
 
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
 import android.os.Process
@@ -14,12 +15,15 @@ import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.integration.webp.decoder.WebpDrawable
+import com.bumptech.glide.integration.webp.decoder.WebpDrawableTransformation
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
@@ -37,7 +41,6 @@ import com.simplemobiletools.gallery.pro.interfaces.*
 import com.simplemobiletools.gallery.pro.models.*
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Picasso
-import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
@@ -463,31 +466,11 @@ fun Context.loadImage(
     roundCorners: Int, signature: ObjectKey, skipMemoryCacheAtPaths: ArrayList<String>? = null
 ) {
     target.isHorizontalScrolling = horizontalScroll
-    if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS || type == TYPE_PORTRAITS) {
-        if (type == TYPE_IMAGES && path.isPng()) {
-            loadPng(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
-        } else {
-            loadJpg(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
-        }
-    } else if (type == TYPE_GIFS) {
-        if (!animateGifs) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
-            return
-        }
-
-        try {
-            val gifDrawable = GifDrawable(path)
-            target.setImageDrawable(gifDrawable)
-            gifDrawable.start()
-
-            target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
-        } catch (e: Exception) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
-        } catch (e: OutOfMemoryError) {
-            loadStaticGIF(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths)
-        }
-    } else if (type == TYPE_SVGS) {
+    if (type == TYPE_SVGS) {
         loadSVG(path, target, cropThumbnails, roundCorners, signature)
+    } else {
+        val tryLoadingWithPicasso = type == TYPE_IMAGES && path.isPng()
+        loadImageBase(path, target, cropThumbnails, roundCorners, signature, skipMemoryCacheAtPaths, animateGifs, tryLoadingWithPicasso)
     }
 }
 
@@ -512,109 +495,72 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(
+fun Context.loadImageBase(
     path: String,
     target: MySquareImageView,
     cropThumbnails: Boolean,
     roundCorners: Int,
     signature: ObjectKey,
-    skipMemoryCacheAtPaths: ArrayList<String>? = null
+    skipMemoryCacheAtPaths: ArrayList<String>? = null,
+    animate: Boolean = false,
+    tryLoadingWithPicasso: Boolean = false,
+    crossFadeDuration: Int = 300
 ) {
     val options = RequestOptions()
         .signature(signature)
         .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .priority(Priority.LOW)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .format(DecodeFormat.PREFER_ARGB_8888)
 
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    if (cropThumbnails) {
+        options.optionalTransform(CenterCrop())
+        options.optionalTransform(WebpDrawable::class.java, WebpDrawableTransformation(CenterCrop()))
+    } else {
+        options.optionalTransform(FitCenter())
+        options.optionalTransform(WebpDrawable::class.java, WebpDrawableTransformation(FitCenter()))
+    }
+
+    // animation is only supported without rounded corners
+    if (animate && roundCorners == ROUNDED_CORNERS_NONE) {
+        // this is required to make glide cache aware of changes
+        options.decode(Drawable::class.java)
+    } else {
+        options.dontAnimate()
+        // don't animate is not enough for webp files, decode as bitmap forces first frame use in animated webps
+        options.decode(Bitmap::class.java)
+    }
+
+    if (roundCorners != ROUNDED_CORNERS_NONE) {
+        val cornerSize = if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
+        val cornerRadius = resources.getDimension(cornerSize).toInt()
+        val roundedCornersTransform = RoundedCorners(cornerRadius)
+        options.optionalTransform(MultiTransformation(CenterCrop(), roundedCornersTransform))
+        options.optionalTransform(WebpDrawable::class.java, MultiTransformation(WebpDrawableTransformation(CenterCrop()), WebpDrawableTransformation(roundedCornersTransform)))
+    }
+
     var builder = Glide.with(applicationContext)
-        .asBitmap()
         .load(path)
         .apply(options)
-        .listener(object : RequestListener<Bitmap> {
-            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Bitmap>, isFirstResource: Boolean): Boolean {
+        .transition(DrawableTransitionOptions.withCrossFade(crossFadeDuration))
+
+    if (tryLoadingWithPicasso) {
+        builder = builder.listener(object : RequestListener<Drawable> {
+            override fun onLoadFailed(e: GlideException?, model: Any?, targetBitmap: Target<Drawable>, isFirstResource: Boolean): Boolean {
                 tryLoadingWithPicasso(path, target, cropThumbnails, roundCorners, signature)
                 return true
             }
 
             override fun onResourceReady(
-                resource: Bitmap,
+                resource: Drawable,
                 model: Any,
-                targetBitmap: Target<Bitmap>,
+                targetBitmap: Target<Drawable>,
                 dataSource: DataSource,
                 isFirstResource: Boolean
             ): Boolean {
                 return false
             }
         })
-
-    if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize =
-            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
-        val cornerRadius = resources.getDimension(cornerSize).toInt()
-        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
-    }
-
-    builder.into(target)
-}
-
-fun Context.loadJpg(
-    path: String,
-    target: MySquareImageView,
-    cropThumbnails: Boolean,
-    roundCorners: Int,
-    signature: ObjectKey,
-    skipMemoryCacheAtPaths: ArrayList<String>? = null
-) {
-    val options = RequestOptions()
-        .signature(signature)
-        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-        .priority(Priority.LOW)
-        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    var builder = Glide.with(applicationContext)
-        .asBitmap()
-        .load(path)
-        .apply(options)
-        .transition(BitmapTransitionOptions.withCrossFade())
-
-    if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize =
-            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
-        val cornerRadius = resources.getDimension(cornerSize).toInt()
-        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
-    }
-
-    builder.into(target)
-}
-
-fun Context.loadStaticGIF(
-    path: String,
-    target: MySquareImageView,
-    cropThumbnails: Boolean,
-    roundCorners: Int,
-    signature: ObjectKey,
-    skipMemoryCacheAtPaths: ArrayList<String>? = null
-) {
-    val options = RequestOptions()
-        .signature(signature)
-        .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
-        .priority(Priority.LOW)
-        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    var builder = Glide.with(applicationContext)
-        .asBitmap() // make sure the GIF wont animate
-        .load(path)
-        .apply(options)
-
-    if (roundCorners != ROUNDED_CORNERS_NONE) {
-        val cornerSize =
-            if (roundCorners == ROUNDED_CORNERS_SMALL) com.simplemobiletools.commons.R.dimen.rounded_corner_radius_small else com.simplemobiletools.commons.R.dimen.rounded_corner_radius_big
-        val cornerRadius = resources.getDimension(cornerSize).toInt()
-        builder = builder.transform(CenterCrop(), RoundedCorners(cornerRadius))
     }
 
     builder.into(target)

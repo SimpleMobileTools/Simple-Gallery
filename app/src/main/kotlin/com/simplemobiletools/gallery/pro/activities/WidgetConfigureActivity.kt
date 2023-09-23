@@ -178,7 +178,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             if (path != null) {
                 runOnUiThread {
                     val signature = ObjectKey(System.currentTimeMillis().toString())
-                    loadJpg(path, binding.configImage, config.cropThumbnails, ROUNDED_CORNERS_NONE, signature)
+                    loadImageBase(path, binding.configImage, config.cropThumbnails, ROUNDED_CORNERS_NONE, signature)
                 }
             }
         }

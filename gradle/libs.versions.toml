@@ -22,6 +22,7 @@ androidImageCropper = "4.5.0"
 apng = "2.25.0"
 awebp = "2.25.0"
 glideCompiler = "4.15.1"
+zjupureWebpdecoder = "2.3.4.15.1"
 gestureviews = "a8e8fa8d27"
 androidsvgAar = "1.4"
 imagefilters = "1.0.7"
@@ -71,6 +72,7 @@ sdk-panowidget = { module = "com.google.vr:sdk-panowidget", version.ref = "sdkPa
 apng = { module = "com.github.penfeizhou.android.animation:apng", version.ref = "apng" }
 awebp = { module = "com.github.penfeizhou.android.animation:awebp", version.ref = "awebp" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideCompiler" }
+zjupure-webpdecoder = { module = "com.github.zjupure:webpdecoder", version.ref = "zjupureWebpdecoder" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 [bundles]
 room = [
