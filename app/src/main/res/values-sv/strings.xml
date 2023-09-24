@@ -26,8 +26,8 @@
     <string name="fix_date_taken">Korrigera fotodatum</string>
     <string name="fixing">Korrigerar…</string>
     <string name="dates_fixed_successfully">Datumen har korrigerats</string>
-    <string name="no_date_takens_found">Inga Datum Tagna värden funna</string>
-    <string name="share_resized">Dela en version med ändrad storlek</string>
+    <string name="no_date_takens_found">Inga Datum Tagna värden hittades</string>
+    <string name="share_resized">Dela en storleksändrad version</string>
     <string name="switch_to_file_search">Växla till filsökning i alla synliga mappar</string>
     <string name="set_as_default_folder">Använd som standardmapp</string>
     <string name="unset_as_default_folder">Ta bort som standardmapp</string>
@@ -42,7 +42,7 @@
     <string name="raw_images">RAW-bilder</string>
     <string name="svgs">SVG-bilder</string>
     <string name="portraits">Porträtt</string>
-    <string name="no_media_with_filters">Inga mediefiler hittades med valda filter.</string>
+    <string name="no_media_with_filters">Inga mediafiler hittades med de valda filtren.</string>
     <string name="change_filters_underlined"><u>Ändra filter</u></string>
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda objekt\'-alternativet i Inställningar. Vill du fortsätta\?</string>
@@ -62,7 +62,7 @@
     <string name="add_folder">Lägg till mapp</string>
     <string name="included_activity_placeholder">Om du har mappar som innehåller media, som inte känns igen av appen, kan du lägga till dem manuellt här.
 \n
-\nAtt lägga till mappar här kommer in nya att exkludera nån annan mapp.</string>
+\nAtt lägga till några föremål här kommer inte att utseluta någon annan mapp.</string>
     <string name="no_media_add_included">Inga mediefiler hittades. Du kan lägga till de mappar som innehåller mediefiler manuellt.</string>
     <!-- Resizing -->
     <string name="resize_and_save">Ändra storlek och spara</string>
@@ -75,8 +75,8 @@
     <string name="resize_factor_info">Ändra storlek på bilder till angiven procentandel, värdet måste vara inom 10 och 90.</string>
     <string name="resize_factor_error">Ange ett nummer mellan 10 och 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Misslyckades med att ändra storleken %d bild</item>
-        <item quantity="other">Misslyckades med att ändra storleken %d bilder</item>
+        <item quantity="one">Misslyckades med att ändra storleken på %d bild</item>
+        <item quantity="other">Misslyckades med att ändra storleken på %d bilder</item>
     </plurals>
     <string name="images_resized_successfully">Bilder har ändrat storlek</string>
     <!-- Editor -->
@@ -215,9 +215,9 @@
     <string name="paths_imported_successfully">Sökvägar importerade</string>
     <string name="media_management_prompt">För att vara försäkrad om att filhanteringen fungerar som den ska, ställ in appen som filhanterare i din apparats inställningar.</string>
     <string name="password_protect_excluded">Lösenord skyddar exkluderad mapp synlighet</string>
-    <string name="media_management_manual">Something went wrong, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_note">If the redirection does not work, please go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
-    <string name="media_management_alternative">If you do not want to do it, you can also go into your device Settings - Apps - Special app access - Media management apps and allow this app to manage media.</string>
+    <string name="media_management_manual">Något gick fel, vänligen gå till dina Inställningar - Appar - Säskild åtkomst - Hantera media och tillåt den här appen att hantera media.</string>
+    <string name="media_management_note">Om omdirigeringen inte fungerar, vänligen gå till dina Inställningar - Appar - Säskild åtkomst - Hantera media och tillåt den här appen att hantera media.</string>
+    <string name="media_management_alternative">Om du inte vill göra det, kan du också gå till dina Inställningar - Appar - Säskild åtkomst - Hantera media och tillåt den här appen att hantera media.</string>
     <string name="alternative_media_access">Alternativt kan du endast tillåta åtkomst till mediafiler. I så fall kommer du dock inte att kunna arbeta med dolda filer.</string>
     <string name="media_only">Endast media</string>
     <string name="all_files">Alla filer</string>
@@ -354,33 +354,33 @@
     <string name="faq_3_text">Du kan trycka länge på önskat album och välja Fäst-ikonen i åtgärdsmenyn, som kommer att fästa det högst upp. Du kan fästa flera mappar också, fästa objekt kommer att sorteras enligt standardsorteringsmetoden.</string>
     <string name="faq_4_title">Hur kan jag snabbspola videor framåt\?</string>
     <string name="faq_4_text">Du kan göra det genom att dubbelklicka på sidan av skärmen eller trycka på texterna för nuvarande eller maxlängd nära sökfältet. Om du aktiverar öppning av videor på en separat skärm i appinställningarna kan du också använda horisontella gester.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder\?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too. Note that some devices do not allow hiding folders like Camera, Screenshots and Downloads.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up\?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do\?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -&gt; Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible\?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -&gt; Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -&gt; Manage Included Folders. That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_10_title">Can I crop images with this app\?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails\?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it\?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality\?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it\?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too. Note that hiding works recursively though, so if you hide a folder, all subfolders will become hidden too. So for unhiding the subfolders you have to unhide the parent folder.</string>
-    <string name="faq_15_title">Why does the app take up so much space\?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
-    <string name="faq_16_title">What happened to file and folder hiding and why cannot I see hidden items anymore\?</string>
+    <string name="faq_5_title">Vad är skillnaden mellan att dölja och utesluta en mapp\?</string>
+    <string name="faq_5_text">Uteslut förhindrar att mappen endast visas i Simple Gallery, medan Dölj fungerar systemmässigt och den döljer mappen från andra gallerier också. Det fungerar genom att skapa en tom \".nomedia\"-fil i den givna mappen, som du sedan kan ta bort med vilken filhanterare som helst. Observera att vissa enheter inte tillåter att dölja mappar som Kamera, Skärmdumpar och Nedladdningar.</string>
+    <string name="faq_6_title">Varför dyker mappar med omslagsbilder eller klistermärken upp\?</string>
+    <string name="faq_6_text">Det kan hända att du kommer att se några ovanliga album dyka upp. Du kan enkelt utesluta dem genom att trycka länge på dem och välja Uteslut. I nästa dialogruta kan du sedan välja den överordnade mappen, chansen är stor att den förhindrar att de andra relaterade albumen också dyker upp.</string>
+    <string name="faq_7_title">En mapp med bilder visas inte, eller så visas inte alla objekt. Vad kan jag göra\?</string>
+    <string name="faq_7_text">Det kan ha flera anledningar, men det är enkelt att lösa det. Gå bara till Inställningar -&gt; Hantera inkluderade mappar, välj Plus och navigera till önskad mapp.</string>
+    <string name="faq_8_title">Om jag bara vill ha några få särskilda mappar synliga\?</string>
+    <string name="faq_8_text">Att lägga till en mapp i de inkluderade mapparna utesluter inte automatiskt någonting. Det du kan göra är att gå in i Inställningar -&gt; Hantera uteslutna mappar, uteslut rotmappen \"/\", lägg sedan till önskade mappar i Inställningar -&gt; Hantera inkluderade mappar. Det kommer att göra endast de valda mapparna synliga, eftersom både uteslutning och inkludering är rekursiva och om en mapp både utesluts och inkluderas kommer den att dyka upp.</string>
+    <string name="faq_10_title">Kan jag beskära bilder med den här appen\?</string>
+    <string name="faq_10_text">Ja, du kan beskära bilder i editorn genom att dra i bildhörnen. Du kan komma till redigeraren antingen genom att trycka länge på en bildminiatyr och välja Redigera, eller välja Redigera från helskärmsvyn.</string>
+    <string name="faq_11_title">Kan jag på något sätt gruppera mediefilminiatyrer\?</string>
+    <string name="faq_11_text">Javisst, använd bara menyalternativet \"Gruppera efter\" när du är i miniatyrvyn. Du kan gruppera filer efter flera kriterier, inklusive datum tagen. Om du använder funktionen \"Visa innehåll i alla mappar\" kan du också gruppera dem efter mappar.</string>
+    <string name="faq_12_title">Sortering efter tagningsdatum verkar inte fungera korrekt, hur kan jag fixa det\?</string>
+    <string name="faq_12_text">Det beror troligen på att filerna har kopierats någonstans ifrån. Du kan fixa det genom att välja filens miniatyrbilder och välja \"Reparera Datum Taget värdet\".</string>
+    <string name="faq_13_title">Jag ser lite färg banding på bilderna. Hur kan jag förbättra kvaliteten\?</string>
+    <string name="faq_13_text">Den nuvarande lösningen för att visa bilder fungerar bra i de allra flesta fall, men om du vill ha ännu bättre bildkvalitet kan du aktivera \"Visa bilder i högsta möjliga kvalitet\" i appinställningarna, i avsnittet \"Djupt zoombara bilder\" .</string>
+    <string name="faq_14_title">Jag har gömt en fil/mapp. Hur kan jag visa den\?</string>
+    <string name="faq_14_text">Du kan antingen trycka på menyalternativet \"Visa dolda objekt tillfälligt\" på huvudskärmen eller växla mellan \"Visa dolda objekt\" i appinställningarna för att se det dolda objektet. Om du vill visa den, tryck bara länge på den och välj \"Visa\". Mappar döljs genom att lägga till en dold \".nomedia\"-fil i dem, du kan också radera filen med vilken filhanterare som helst. Observera att döljning fungerar rekursivt, så om du gömmer en mapp kommer alla undermappar att bli dolda också. Så för att visa undermapparna måste du visa den överordnade mappen.</string>
+    <string name="faq_15_title">Varför upptar appen så mycket utrymme\?</string>
+    <string name="faq_15_text">Appens cache kan ta upp till 250 MB, det säkerställer snabbare bildladdning. Om appen tar upp ännu mer plats beror det troligen på att du har föremål i papperskorgen. Dessa filer räknas till appstorleken. Du kan rensa papperskorgen genom att öppna den och ta bort alla filer, eller från appinställningarna. Varje fil i papperskorgen raderas automatiskt efter 30 dagar.</string>
+    <string name="faq_16_title">Vad hände med att dölja filer och mappar och varför kan jag inte se dolda objekt längre\?</string>
     <string name="faq_16_text">Från och med Android 11 kan du inte dölja eller visa filer eller mappar längre, du kan inte se de dolda i galleri apps heller. Du måste använda någon filhanterare för det.</string>
-    <string name="faq_16_text_extra">Or you can also grant this gallery access to All Files through your device settings, that will allow us showing hidden items and make file operations more reliable in general.</string>
-    <string name="faq_17_title">Why cannot I include missing folders anymore\?</string>
-    <string name="faq_17_text">That stopped working due to the system changes that came with Android 11 too, the app cannot browse real folders anymore, it relies on the so called MediaStore at fetching data.</string>
-    <string name="faq_18_title">Why do I see ads during video playback\?</string>
-    <string name="faq_18_text">Our apps have no ads whatsoever. If you see them during video playback, you must be using some other apps video player. Try finding your default video player in the device settings, then do a \"Clear defaults\" on it. The next time you invoke some video intent you will see an app picker prompt, where you can select what app you want to use.</string>
+    <string name="faq_16_text_extra">Eller så kan du också ge det här galleriet åtkomst till Alla filer via dina enhetsinställningar, vilket gör att vi kan visa dolda objekt och göra filoperationer mer tillförlitliga i allmänhet.</string>
+    <string name="faq_17_title">Varför kan jag inte längre inkludera saknade mappar\?</string>
+    <string name="faq_17_text">Det slutade fungera på grund av systemändringarna som kom med Android 11, appen kan inte bläddra i riktiga mappar längre, den förlitar sig på MediaStore för att hämta data.</string>
+    <string name="faq_18_title">Varför ser jag annonser under videouppspelning\?</string>
+    <string name="faq_18_text">Våra appar har inga som helst annonser. Om du ser dem under videouppspelning använder du någon annan videospelare. Försök att hitta din standardvideospelare i enhetsinställningarna och gör sedan en \"Rensa standardinställningar\" på den. Nästa gång du vill öppna en video kommer du att se ett appväljarfönster, där du kan välja vilken app du vill använda.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
