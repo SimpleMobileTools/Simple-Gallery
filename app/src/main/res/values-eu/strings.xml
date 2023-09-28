@@ -55,7 +55,7 @@
     <string name="manage_hidden_folders">Kudeatu ezkutatutako karpetak</string>
     <string name="hidden_folders_placeholder">Badirudi \".nomedia\" fitxategia duen ezkutatutako karpetarik ez duzula.</string>
     <string name="hidden_all_files">Ezkutuko fitxategiak ikusteko Fitxategi guztiak sarbidea eman behar diozu aplikazioari, bestela ezin izango du funtzionatu.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Karpeta batek edo bere karpeta nagusietako batek bere izenaren aurretik puntu bat badu, ezkutatuta egongo da eta ezin da horrela erakutsi. Puntua kendu behar duzu izena aldatuz.</string>
     <!-- Include folders -->
     <string name="include_folders">Sartutako karpetak</string>
     <string name="manage_included_folders">Kudeatu sartutako karpetak</string>
@@ -70,15 +70,15 @@
     <string name="height">Altuera</string>
     <string name="keep_aspect_ratio">Mantendu aspektu-erlazioa</string>
     <string name="invalid_values">Sartu baliozko bereizmena</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Hainbat irudiren tamaina aldatu</string>
+    <string name="resize_factor">Tamaina aldatzeko faktorea</string>
+    <string name="resize_factor_info">Aldatu irudiak emandako ehunekora, balioa 10 eta 90 artekoa izan behar du.</string>
+    <string name="resize_factor_error">Sartu 10 eta 90 arteko zenbaki bat</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Ezin izan da irudi %d-en tamaina aldatu</item>
+        <item quantity="other">Ezin izan da %d irudiren tamaina aldatu</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Irudien tamaina behar bezala aldatu da</string>
     <!-- Editor -->
     <string name="editor">Editorea</string>
     <string name="basic_editor">Oinarrizko editorea</string>
@@ -316,7 +316,7 @@
     <string name="pesdk_overlay_button_blendModeSoftLight">Argi leuna</string>
     <string name="pesdk_overlay_button_blendModeHardLight">Argi gogorra</string>
     <string name="pesdk_overlay_asset_none">Bat ere ez</string>
-    <string name="pesdk_overlay_asset_golden">Urrea</string>
+    <string name="pesdk_overlay_asset_golden">Urrezkoa</string>
     <string name="pesdk_overlay_asset_lightleak1">Argi-filtrazioa 1</string>
     <string name="pesdk_overlay_asset_mosaic">Mosaikoa</string>
     <string name="pesdk_overlay_asset_paper">Papera</string>
@@ -338,7 +338,7 @@
     <string name="pesdk_common_title_pinkColor">Arrosa</string>
     <string name="pesdk_common_title_redColor">Gorria</string>
     <string name="pesdk_common_title_orangeColor">Laranja</string>
-    <string name="pesdk_common_title_goldColor">Urrea</string>
+    <string name="pesdk_common_title_goldColor">Urrezkoa</string>
     <string name="pesdk_common_title_yellowColor">Horia</string>
     <string name="pesdk_common_title_oliveColor">Oliba</string>
     <string name="pesdk_common_title_greenColor">Berdea</string>
