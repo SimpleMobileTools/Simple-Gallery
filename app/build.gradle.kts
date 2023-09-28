@@ -1,6 +1,6 @@
-import java.io.FileInputStream
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
 
 val isProprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
 
