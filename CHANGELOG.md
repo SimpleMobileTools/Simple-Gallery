@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.28.0 *(2023-09-28)*
+----------------------------
+
+ * Animate GIFs and WebP files at folders too, if set so
+ * Added some translation, stability, UX and UI improvements
+
 Version 6.27.2 *(2023-07-31)*
 ----------------------------
 
