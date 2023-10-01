@@ -224,7 +224,7 @@
     <string name="search_all_files">Bilatu fitxategi guztiak karpetak ordez hasierako pantailan</string>
     <string name="show_all_folders">Erakutsi menu-botoia Erakutsi karpeta guztien edukira azkar aldatzeko</string>
     <!-- Setting sections -->
-    <string name="thumbnails">Iruditxoak</string>
+    <string name="thumbnails">Miniaturak</string>
     <string name="fullscreen_media">Pantaila osoko multimedia</string>
     <string name="extended_details">Xehetasun hedatuak</string>
     <string name="bottom_actions">Beheko ekintzak</string>
