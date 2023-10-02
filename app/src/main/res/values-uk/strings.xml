@@ -327,7 +327,7 @@
     <string name="pesdk_common_button_flipH">Горизонтальний переворот</string>
     <string name="pesdk_common_button_flipV">Вертикальний переворот</string>
     <string name="pesdk_common_button_undo">Скасувати</string>
-    <string name="pesdk_common_button_redo">Повторити</string>
+    <string name="pesdk_common_button_redo">Відтворити</string>
     <string name="pesdk_common_title_colorPicker">Вибрати колір</string>
     <string name="pesdk_common_title_transparentColor">Прозорий</string>
     <string name="pesdk_common_title_whiteColor">Білий</string>
