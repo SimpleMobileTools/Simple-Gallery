@@ -93,19 +93,21 @@
 \nДаданне некаторых элементаў сюды не прывядзе да выключэння якой-небудзь іншай тэчкі.</string>
     <string name="hidden_folders_placeholder">Здаецца, у вас няма тэчак, схаваных з файлам \".nomedia\".</string>
     <string name="hidden_all_files">Вы павінны даць праграме доступ да ўсіх файлаў, каб бачыць схаваныя файлы, інакш яна не можа працаваць.</string>
-    <string name="cant_unhide_folder">If a folder or one of its parent folders has a dot before its name, it is hidden and cannot be unhidden like this. You have to remove the dot by renaming it.</string>
+    <string name="cant_unhide_folder">Калі папка або адна з яе бацькоўскіх тэчак мае кропку перад імем, яна схаваная і не можа быць паказана такім чынам. Вы павінны выдаліць кропку, перайменаваўшы яе.</string>
     <string name="height">Вышыня</string>
     <string name="keep_aspect_ratio">Захоўвайце суадносіны бакоў</string>
     <string name="invalid_values">Увядзіце сапраўднае рашэнне</string>
-    <string name="resize_multiple_images">Resize multiple images</string>
-    <string name="resize_factor">Resize factor</string>
-    <string name="resize_factor_info">Resize images to the given percentage, value must be within 10 and 90.</string>
-    <string name="resize_factor_error">Enter a number between 10 and 90</string>
+    <string name="resize_multiple_images">Змяніць памер некалькіх малюнкаў</string>
+    <string name="resize_factor">Каэфіцыент змены памеру</string>
+    <string name="resize_factor_info">Зменіце памер выявы да вызначанага працэнта, значэнне павінна быць ад 10 да 90.</string>
+    <string name="resize_factor_error">Увядзіце лік ад 10 да 90</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="one">Не ўдалося змяніць памер %d малюнка</item>
+        <item quantity="few">Не ўдалося змяніць памер %d малюнкаў</item>
+        <item quantity="many">Не ўдалося змяніць памер %d малюнкаў</item>
+        <item quantity="other">Не ўдалося змяніць памер %d малюнкаў</item>
     </plurals>
-    <string name="images_resized_successfully">Images resized successfully</string>
+    <string name="images_resized_successfully">Памер малюнкаў паспяхова зменены</string>
     <string name="rotate">Павярнуць</string>
     <string name="invalid_image_path">Няправільны шлях выявы</string>
     <string name="invalid_video_path">Няправільны шлях відэа</string>
