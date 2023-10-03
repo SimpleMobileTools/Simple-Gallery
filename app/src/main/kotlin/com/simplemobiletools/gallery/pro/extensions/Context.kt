@@ -15,6 +15,8 @@ import android.provider.MediaStore.Images
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.integration.webp.WebpBitmapFactory
+import com.bumptech.glide.integration.webp.decoder.WebpDownsampler
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable
 import com.bumptech.glide.integration.webp.decoder.WebpDrawableTransformation
 import com.bumptech.glide.load.DataSource
@@ -539,9 +541,11 @@ fun Context.loadImageBase(
         options.optionalTransform(WebpDrawable::class.java, MultiTransformation(WebpDrawableTransformation(CenterCrop()), WebpDrawableTransformation(roundedCornersTransform)))
     }
 
+    WebpBitmapFactory.sUseSystemDecoder = false // CVE-2023-4863
     var builder = Glide.with(applicationContext)
         .load(path)
         .apply(options)
+        .set(WebpDownsampler.USE_SYSTEM_DECODER, false) // CVE-2023-4863
         .transition(DrawableTransitionOptions.withCrossFade(crossFadeDuration))
 
     if (tryLoadingWithPicasso) {
