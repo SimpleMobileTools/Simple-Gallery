@@ -72,7 +72,7 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
             else -> GROUP_BY_FOLDER
         }
 
-        if (binding.groupingDialogRadioGrouping.checkedRadioButtonId == R.id.grouping_dialog_radio_descending) {
+        if (binding.groupingDialogRadioOrder.checkedRadioButtonId == R.id.grouping_dialog_radio_descending) {
             grouping = grouping or GROUP_DESCENDING
         }
 
