@@ -230,7 +230,7 @@
     <string name="bottom_actions">Hành động dưới cùng</string>
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Quản lý các hành động dưới cùng có thể nhìn thấy</string>
-    <string name="toggle_favorite">chuyển đổi yêu thích</string>
+    <string name="toggle_favorite">Chuyển đổi yêu thích</string>
     <string name="toggle_file_visibility">Ẩn/bỏ ẩn</string>
     <!-- New editor strings -->
     <string name="pesdk_transform_button_freeCrop">Tùy chỉnh</string>
