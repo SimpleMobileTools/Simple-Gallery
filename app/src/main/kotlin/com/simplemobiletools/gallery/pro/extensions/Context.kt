@@ -810,6 +810,60 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     }
 }
 
+fun Context.forceUpdateDirectory(folder: String) {
+    ensureBackgroundThread {
+        applicationContext.rescanPath(folder) {
+            val sorting = config.getFolderSorting(folder)
+            val grouping = config.getFolderGrouping(folder)
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0 ||
+                sorting and SORT_BY_DATE_TAKEN != 0 ||
+                grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 ||
+                grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0
+
+            val getProperLastModified = config.directorySorting and SORT_BY_DATE_MODIFIED != 0 ||
+                sorting and SORT_BY_DATE_MODIFIED != 0 ||
+                grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 ||
+                grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0
+
+            val mediaFetcher = MediaFetcher(applicationContext)
+            val getImagesOnly = false
+            val getVideosOnly = false
+            val favoritePaths = getFavoritePaths()
+            val getProperFileSize = false
+            val lastModifieds = mediaFetcher.getLastModifieds()
+            val dateTakens = mediaFetcher.getDateTakens()
+            val android11Files = mediaFetcher?.getAndroid11FolderMedia(getImagesOnly, getVideosOnly, favoritePaths, false, true, dateTakens)
+            val albumCovers = config.parseAlbumCovers()
+            val hiddenString = getString(R.string.hidden)
+            val includedFolders = config.includedFolders
+            val noMediaFolders = getNoMediaFoldersSync()
+
+            val newMedia = mediaFetcher.getFilesFrom(
+                folder, getImagesOnly, getVideosOnly, getProperDateTaken, getProperLastModified,
+                getProperFileSize, favoritePaths, false, lastModifieds, dateTakens, android11Files
+            )
+
+            mediaFetcher.shouldStop = true
+
+            if (newMedia.isEmpty()) {
+                return@rescanPath
+            }
+
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, getProperFileSize, noMediaFolders)
+
+            Thread {
+                try {
+                    directoryDB.insert(newDir)
+                    if (folder != RECYCLE_BIN && folder != FAVORITES) {
+                        mediaDB.insertAll(newMedia)
+                    }
+                } catch (ignored: Exception) {
+                }
+            }.start()
+        }
+    }
+}
+
 fun Context.updateDBDirectory(directory: Directory) {
     try {
         directoryDB.updateDirectory(

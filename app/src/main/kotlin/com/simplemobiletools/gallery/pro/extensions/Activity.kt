@@ -305,7 +305,12 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
         val destination = it
         handleSAFDialog(source) {
             if (it) {
-                copyMoveFilesTo(fileDirItems, source.trimEnd('/'), destination, isCopyOperation, true, config.shouldShowHidden, callback)
+                val updatingDirectoryCallback: (String) -> Unit = { destinationPath: String ->
+                    forceUpdateDirectory(destination)
+                    forceUpdateDirectory(source)
+                    callback?.invoke(destinationPath)
+                }
+                copyMoveFilesTo(fileDirItems, source.trimEnd('/'), destination, isCopyOperation, true, config.shouldShowHidden, updatingDirectoryCallback)
             }
         }
     }
