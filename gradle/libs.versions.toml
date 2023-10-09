@@ -71,7 +71,7 @@ sdk-videowidget = { module = "com.google.vr:sdk-videowidget", version.ref = "sdk
 sdk-panowidget = { module = "com.google.vr:sdk-panowidget", version.ref = "sdkPanowidget" }
 apng = { module = "com.github.penfeizhou.android.animation:apng", version.ref = "apng" }
 awebp = { module = "com.github.penfeizhou.android.animation:awebp", version.ref = "awebp" }
-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideCompiler" }
+glide-compiler = { module = "com.github.bumptech.glide:ksp", version.ref = "glideCompiler" }
 zjupure-webpdecoder = { module = "com.github.zjupure:webpdecoder", version.ref = "zjupureWebpdecoder" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 [bundles]
