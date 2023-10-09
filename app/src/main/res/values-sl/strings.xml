@@ -26,7 +26,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
-    <string name="no_date_takens_found">Datum nastanka ni bil najden</string>
+    <string name="no_date_takens_found">Datum posnetka ni bil najden</string>
     <string name="share_resized">Deli pomanjšano verzijo</string>
     <string name="switch_to_file_search">Preklop na iskanje datotek v vseh vidnih mapah</string>
     <string name="set_as_default_folder">Nastavite kot privzeto mapo</string>
@@ -149,9 +149,9 @@
     <string name="by_last_modified">Nazadnje spremenjeno</string>
     <string name="by_last_modified_daily">Nazadnje spremenjeno (dnevno)</string>
     <string name="by_last_modified_monthly">Nazadnje spremenjeno (mesečno)</string>
-    <string name="by_date_taken">Datum nastanka</string>
-    <string name="by_date_taken_daily">Datum nastanka (dnevno)</string>
-    <string name="by_date_taken_monthly">Datum nastanka (mesečno)</string>
+    <string name="by_date_taken">Datum posnetka</string>
+    <string name="by_date_taken_daily">Datum posnetka (dnevno)</string>
+    <string name="by_date_taken_monthly">Datum posnetka (mesečno)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
     <string name="show_file_count_section_header">Prikažite število datotek v glavi razdelka</string>

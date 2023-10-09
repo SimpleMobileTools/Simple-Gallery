@@ -212,7 +212,7 @@
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les favoris</string>
-    <string name="import_favorite_paths">Importer les favoris</string>
+    <string name="import_favorite_paths">Importer des favoris</string>
     <string name="paths_imported_successfully">Favoris importés</string>
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
