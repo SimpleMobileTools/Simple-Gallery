@@ -13,7 +13,7 @@
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Ansicht: Als Ordner</string>
     <string name="other_folder">Ordner wählen</string>
-    <string name="show_on_map">Auf Karte zeigen</string>
+    <string name="show_on_map">Auf Karte anzeigen</string>
     <string name="unknown_location">Adresse nicht bekannt</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
@@ -187,7 +187,7 @@
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
-    <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität zeigen</string>
+    <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität anzeigen</string>
     <string name="show_recycle_bin_last">Papierkorb als letztes Element auf dem Hauptbildschirm anzeigen</string>
     <string name="allow_down_gesture">Schließen der Vollbildansicht mit einer Abwärtsgeste zulassen</string>
     <string name="allow_one_to_one_zoom">1:1-Zoom mit zweimaligem doppeltem Antippen zulassen</string>
@@ -369,7 +369,7 @@
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren\?</string>
     <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass die Bilder von woanders kopiert worden sind. In diesem Fall sollten die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markiert und dann im Menü oben rechts die Funktion „Aufnahmedatum korrigieren“ ausgeführt werden.</string>
     <string name="faq_13_title">Ich sehe Banding (streifiger Farbverlauf) auf den Bildern. Wie kann ich die Qualität verbessern\?</string>
-    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert in den allermeisten Fällen gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität zeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
+    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert in den allermeisten Fällen gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität anzeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen\?</string>
     <string name="faq_14_text">Man kann entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Versteckte Elemente anzeigen“ in den Anwendungseinstellungen einschalten, um das ausgeblendete Element zu sehen. Um es dauerhaft wieder einzublenden, drückt man einfach lange darauf und wählt „Nicht verstecken“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; man kann die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Bitte beachten, dass das Verstecken rekursiv funktioniert, d. h. wenn man einen Ordner versteckt, werden auch alle Unterordner versteckt. Um die Unterordner wieder sichtbar zu machen, muss man also den übergeordneten Ordner sichtbar machen.</string>
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz\?</string>
