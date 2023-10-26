@@ -4,7 +4,13 @@
 
 Simple Gallery brings you all the photo viewing and editing features you have been missing on your Android in one stylish easy-to-use app. Browse, manage, crop and edit photos or videos faster than ever, recover accidentally deleted files or create hidden galleries for your most precious images and videos. And with advanced file-support and full customization, finally, your gallery works just the way you want.
 
-And now it supports AVIF viewing on old Android!
+</br>
+</br>
+
+# **And now it supports AVIF viewing on old Android! Download it at https://github.com/Mario-Hero/Simple-Gallery-AVIF/releases/tag/Publish**
+
+</br>
+</br>
 
 ADVANCED PHOTO EDITOR  
 Turn photo editing into child's play with Simple Gallery's improved file organizer and photo album. Intuitive gestures make it super easy to edit your images on the fly. Crop, flip, rotate and resize pictures or apply stylish filters to make them pop in an instant.
