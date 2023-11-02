@@ -15,9 +15,9 @@ room = "2.6.0-beta01"
 #Simple tools
 simple-commons = "9e60e24790"
 #Gradle
-gradlePlugins-agp = "7.4.0"
+gradlePlugins-agp = "8.1.2"
 #Other
-androidGifDrawable = "1.2.25"
+androidGifDrawable = "1.2.28"
 androidImageCropper = "4.5.0"
 apng = "2.28.0"
 awebp = "2.28.0"
@@ -31,7 +31,7 @@ sdkVideowidget = "1.180.0"
 sdkPanowidget = "1.180.0"
 media3Exoplayer = "1.1.0"
 okhttp = "4.9.0"
-okio = "3.0.0"
+okio = "3.6.0"
 picasso = "2.71828"
 #build
 app-build-compileSDKVersion = "34"
@@ -74,6 +74,7 @@ awebp = { module = "com.github.penfeizhou.android.animation:awebp", version.ref 
 glide-compiler = { module = "com.github.bumptech.glide:ksp", version.ref = "glideCompiler" }
 zjupure-webpdecoder = { module = "com.github.zjupure:webpdecoder", version.ref = "zjupureWebpdecoder" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+avif-integration = { group = "com.github.bumptech.glide", name = "avif-integration", version = "5.0.0-rc01" }
 [bundles]
 room = [
     "androidx-room-ktx",
