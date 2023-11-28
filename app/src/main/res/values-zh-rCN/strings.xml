@@ -75,8 +75,7 @@
     <string name="resize_factor_info">将图片尺寸调整到给定比例，值须在 10 到 90 以内。</string>
     <string name="resize_factor_error">输入 10 到 90之间的数字</string>
     <plurals name="failed_to_resize_images">
-        <item quantity="one">Failed to resize %d image</item>
-        <item quantity="other">Failed to resize %d images</item>
+        <item quantity="other">未能调整 %d 张图片的尺寸</item>
     </plurals>
     <string name="images_resized_successfully">成功调整了图片尺寸</string>
     <!-- Editor -->

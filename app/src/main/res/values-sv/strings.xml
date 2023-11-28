@@ -196,7 +196,7 @@
     <string name="allow_rotating_gestures">Tillåt bildrotation med gester</string>
     <string name="file_loading_priority">Filladdningsprioritet</string>
     <string name="speed">Hastighet</string>
-    <string name="compromise">Kompromiss</string>
+    <string name="compromise">Komprimera</string>
     <string name="avoid_showing_invalid_files">Undvik att visa ogiltiga filer</string>
     <string name="show_image_file_types">Visa bildfiltyper</string>
     <string name="allow_zooming_videos">Tillåt förstoring av videor genom att dubbelklicka</string>

@@ -54,7 +54,7 @@
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestiona les carpetes ocultes</string>
     <string name="hidden_folders_placeholder">Sembla que no teniu cap carpeta oculta amb el fitxer «.nomedia».</string>
-    <string name="hidden_all_files">Cal concedir a l\'aplicació accés a tots els fitxers per veure els fitxers ocults, en cas contrari podria no funcionar.</string>
+    <string name="hidden_all_files">Cal concedir a l\'aplicació accés a tots els fitxers per a veure els fitxers ocults, en cas contrari podria no funcionar.</string>
     <string name="cant_unhide_folder">Si una carpeta o una de les seves carpetes superiors té un punt abans del seu nom, està amagada i no es pot mostrar aquí. Heu d\'eliminar el punt canviant el seu nom.</string>
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
@@ -213,7 +213,7 @@
     <string name="export_favorite_paths">Exporta els preferits</string>
     <string name="import_favorite_paths">Importa els preferits</string>
     <string name="paths_imported_successfully">Els camins s\'han importat correctament</string>
-    <string name="media_management_prompt">Per assegurar que totes les operacions de fitxers funcionin de manera fiable, feu que aquesta aplicació sigui una aplicació de gestió multimèdia a la configuració del dispositiu.</string>
+    <string name="media_management_prompt">Per a assegurar que totes les operacions de fitxers funcionin de manera fiable, feu que aquesta aplicació sigui una aplicació de gestió multimèdia a la configuració del dispositiu.</string>
     <string name="password_protect_excluded">Protegeix amb contrasenya la visibilitat de les carpetes excloses</string>
     <string name="media_management_manual">S\'ha produït un error, aneu a la Configuració del dispositiu - Aplicacions - Accés especial a l\'aplicació - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
     <string name="media_management_note">Si la redirecció no funciona, aneu a la Configuració del dispositiu - Aplicacions - Accés especial d\'aplicacions - Aplicacions de gestió multimèdia i permeteu que aquesta aplicació gestioni el contingut multimèdia.</string>
@@ -222,7 +222,7 @@
     <string name="media_only">Només fitxers multimèdia</string>
     <string name="all_files">Tots els fitxers</string>
     <string name="search_all_files">Cerca tots els fitxers en lloc de carpetes a la pantalla principal</string>
-    <string name="show_all_folders">Mostra un botó de menú per commutar «Mostra el contingut de totes les carpetes ràpidament»</string>
+    <string name="show_all_folders">Mostra un botó de menú per a commutar «Mostra el contingut de totes les carpetes ràpidament»</string>
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Contingut multimèdia a pantalla completa</string>
@@ -369,16 +369,16 @@
     <string name="faq_12_title">L\'ordenació per la data de presa no sembla funcionar correctament, com puc solucionar-ho\?</string>
     <string name="faq_12_text">Probablement, els fitxers s\'han copiat des de qualsevol lloc. Podeu arreglar-ho seleccionant les miniatures de fitxer i seleccionant «Corregeix el valor de la data de presa».</string>
     <string name="faq_13_title">Veig algunes bandes de colors a les imatges. Com puc millorar la qualitat\?</string>
-    <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una qualitat d\'imatge millor, podeu activar «Mostra les imatges amb la màxima qualitat possible» a la configuració de l\'aplicació, a la secció «Imatges ampliables profundament».</string>
+    <string name="faq_13_text">La solució actual per a mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una qualitat d\'imatge millor, podeu activar «Mostra les imatges amb la màxima qualitat possible» a la configuració de l\'aplicació, a la secció «Imatges ampliables profundament».</string>
     <string name="faq_14_title">He ocultat un fitxer/carpeta. Com puc mostrar-ho\?</string>
-    <string name="faq_14_text">Podeu prémer l\'element de menú «Mostra temporalment els elements ocults» a la pantalla principal o canviar «Mostra els elements ocults» a la configuració de l\'aplicació per veure l\'element ocult. Si el voleu mostrar, premeu-lo i seleccioneu «Mostra». Les carpetes s\'oculten afegint un fitxer «.nomedia» ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Tingueu en compte que l\'ocultació funciona recursivament, així que si oculteu una carpeta, totes les subcarpetes també es faran ocultes. Per tant, per a fer visibles les subcarpetes cal mostrar la carpeta superior.</string>
+    <string name="faq_14_text">Podeu prémer l\'element de menú «Mostra temporalment els elements ocults» a la pantalla principal o canviar «Mostra els elements ocults» a la configuració de l\'aplicació per a veure l\'element ocult. Si el voleu mostrar, premeu-lo i seleccioneu «Mostra». Les carpetes s\'oculten afegint un fitxer «.nomedia» ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers. Tingueu en compte que l\'ocultació funciona recursivament, així que si oculteu una carpeta, totes les subcarpetes també es faran ocultes. Per tant, per a fer visibles les subcarpetes cal mostrar la carpeta superior.</string>
     <string name="faq_15_title">Per què l\'aplicació ocupa tant espai\?</string>
     <string name="faq_15_text">La memòria cau de l\'aplicació pot ocupar fins a 250 MB, i garanteix una càrrega més ràpida de les imatges. Si l\'aplicació ocupa més espai, probablement serà perquè hi ha elements a la paperera de reciclatge. Aquests fitxers compten en la mida de l\'aplicació. Podeu netejar la paperera de reciclatge obrint-la i suprimint tots els fitxers, o des de la configuració de l\'aplicació. Els fitxers de la paperera s\'eliminen automàticament després de 30 dies.</string>
     <string name="faq_16_title">Què ha passat amb l\'ocultació de fitxers i carpetes i per què ja no puc veure els elements ocults\?</string>
     <string name="faq_16_text">A partir d\'Android 11, ja no podeu amagar ni mostrar carpetes ni fitxers, tampoc no podeu veure els ocults a les aplicacions de galeria per restriccions del sistema. Haureu d\'utilitzar algun gestor de fitxers per a això.</string>
     <string name="faq_16_text_extra">O també podeu concedir a aquesta galeria accés a tots els fitxers mitjançant la configuració del vostre dispositiu, que permetrà mostrar els elements ocults i fer que les operacions dels fitxers siguin més fiables en general.</string>
     <string name="faq_17_title">Per què ja no puc incloure les carpetes que manquen\?</string>
-    <string name="faq_17_text">Això ha deixat de funcionar a causa dels canvis del sistema que també han vingut amb Android 11, l\'aplicació ja no pot navegar per carpetes reals, es basa en l\'anomenat MediaStore per obtenir dades.</string>
+    <string name="faq_17_text">Això ha deixat de funcionar a causa dels canvis del sistema que també han vingut amb Android 11, l\'aplicació ja no pot navegar per carpetes reals, es basa en l\'anomenat MediaStore per a obtenir dades.</string>
     <string name="faq_18_title">Per què veig anuncis comercials durant la reproducció de vídeo\?</string>
     <string name="faq_18_text">Les nostres aplicacions no tenen cap anunci. Si els veieu durant la reproducció de vídeo, estareu utilitzant una altra aplicació de reproducció de vídeo. Intenteu trobar el reproductor de vídeo predeterminat a la configuració del dispositiu i, a continuació, feu «Esborra els valors predeterminats». La pròxima vegada que invoqueu una acció de vídeo, veureu un missatge de selecció d\'aplicacions, on podreu seleccionar quina aplicació voleu utilitzar.</string>
     <!--
