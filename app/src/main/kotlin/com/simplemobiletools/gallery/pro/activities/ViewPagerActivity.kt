@@ -1360,7 +1360,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsFullScreen) {
             hideSystemUI(true)
         } else {
-            stopSlideshow()
             showSystemUI(true)
         }
     }
