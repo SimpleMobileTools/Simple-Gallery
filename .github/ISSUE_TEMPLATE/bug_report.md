@@ -8,12 +8,12 @@ assignees: ''
 ---
 
 **Checklist**
-[ ] I can reproduce the bug with the latest version. 
-[ ] I made sure that there are no existing issues - open or closed - to which I could contribute my information to.
-[ ]  I have read the FAQ and my problem isn't listed.
-[ ]  I have taken the time to fill in all the required details. I understand that the bug report will be dismissed otherwise.
-[ ]  This issue contains only one bug.
-[ ]  I have read and understood the [contribution guidelines.](https://github.com/FossifyX/General-Discussion?tab=readme-ov-file#contribution-rules-for-developers)
+ - [ ] I can reproduce the bug with the latest version. 
+ - [ ] I made sure that there are no existing issues - open or closed - to which I could contribute my information to.
+ - [ ]  I have read the FAQ and my problem isn't listed.
+ - [ ]  I have taken the time to fill in all the required details. I understand that the bug report will be dismissed otherwise.
+ - [ ]  This issue contains only one bug.
+ - [ ]  I have read and understood the [contribution guidelines.](https://github.com/FossifyX/General-Discussion?tab=readme-ov-file#contribution-rules-for-developers)
 
 **Describe the bug**
 A clear and concise description of what the bug is.
