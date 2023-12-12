@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.simplemobiletools.commons.views.MyTextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<org.fossify.commons.views.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/thumbnail_section"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false"
     android:padding="@dimen/activity_margin"
-    android:textSize="@dimen/bigger_text_size"/>
+    android:textSize="@dimen/bigger_text_size" />

@@ -3,7 +3,7 @@
     <string name="gif">GIF</string>
     <string name="raw">RAW</string>
     <string name="svg">SVG</string>
-    <string name="package_name">com.simplemobiletools.gallery.pro</string>
+    <string name="package_name">org.fossify.gallery</string>
 
     <!-- Release notes -->
     <string name="release_369">Allow temporarily showing excluded folders on Android 11+</string>

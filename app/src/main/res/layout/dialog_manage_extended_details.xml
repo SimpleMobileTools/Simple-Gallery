@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/manage_extended_details_scrollview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -14,77 +13,77 @@
         android:paddingTop="@dimen/medium_margin"
         android:paddingRight="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/filename"/>
+            android:text="@string/filename" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/path"/>
+            android:text="@string/path" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/size"/>
+            android:text="@string/size" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_resolution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/resolution"/>
+            android:text="@string/resolution" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_last_modified"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/last_modified"/>
+            android:text="@string/last_modified" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_date_taken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/date_taken"/>
+            android:text="@string/date_taken" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_camera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/camera"/>
+            android:text="@string/camera" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_exif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/exif"/>
+            android:text="@string/exif" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_gps_coordinates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
-            android:text="@string/gps_coordinates"/>
+            android:text="@string/gps_coordinates" />
 
     </LinearLayout>
 </ScrollView>

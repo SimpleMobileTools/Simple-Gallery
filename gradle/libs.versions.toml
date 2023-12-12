@@ -15,7 +15,7 @@ room = "2.6.0-beta01"
 #Simple tools
 simple-commons = "9e60e24790"
 #Gradle
-gradlePlugins-agp = "7.4.0"
+gradlePlugins-agp = "8.1.2"
 #Other
 androidGifDrawable = "1.2.25"
 androidImageCropper = "4.5.0"
@@ -40,7 +40,7 @@ app-build-minimumSDK = "23"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
 #versioning
-app-version-appId = "com.simplemobiletools.gallery.pro"
+app-version-appId = "org.fossify.gallery"
 app-version-versionCode = "396"
 app-version-versionName = "6.28.1"
 subsamplingScaleImageView = "80efdaa570"

@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.simplemobiletools.commons.views.MyRecyclerView
+        <org.fossify.commons.views.MyRecyclerView
             android:id="@+id/media_grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+            app:layoutManager="org.fossify.commons.views.MyGridLayoutManager"
             app:spanCount="@integer/media_columns_vertical_scroll" />
 
     </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>

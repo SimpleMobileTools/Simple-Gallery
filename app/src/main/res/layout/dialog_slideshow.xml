@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/interval_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/interval" />
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/interval_hint"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/bigger_text_size" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
 
         <RelativeLayout
             android:id="@+id/animation_holder"
@@ -57,7 +57,7 @@
             android:paddingEnd="@dimen/bigger_margin"
             android:paddingBottom="@dimen/bigger_margin">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/animation_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 android:paddingRight="@dimen/medium_margin"
                 android:text="@string/animation" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/animation_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_below="@+id/animation_holder"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/include_videos"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -104,7 +104,7 @@
             android:layout_below="@+id/include_videos_holder"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/include_gifs"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -121,7 +121,7 @@
             android:layout_below="@+id/include_gifs_holder"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/random_order"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -138,7 +138,7 @@
             android:layout_below="@+id/random_order_holder"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/move_backwards"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -155,7 +155,7 @@
             android:layout_below="@+id/move_backwards_holder"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/loop_slideshow"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"

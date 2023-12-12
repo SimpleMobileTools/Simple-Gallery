@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/medium_margin">
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/change_view_type_dialog_radio_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/grid" />
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/change_view_type_dialog_radio_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:id="@+id/group_direct_subfolders_divider"
             layout="@layout/divider" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/change_view_type_dialog_group_direct_subfolders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/group_direct_subfolders" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/change_view_type_dialog_use_for_this_folder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
