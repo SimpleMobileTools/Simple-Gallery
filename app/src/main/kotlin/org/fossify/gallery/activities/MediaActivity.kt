@@ -104,17 +104,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (mShowAll) {
             registerFileUpdateListener()
-
-            if (isPackageInstalled("org.fossify.gallery")) {
-                ConfirmationDialog(
-                    this,
-                    "",
-                    org.fossify.commons.R.string.upgraded_from_free_gallery,
-                    org.fossify.commons.R.string.ok,
-                    0,
-                    false
-                ) {}
-            }
         }
 
         binding.mediaEmptyTextPlaceholder2.setOnClickListener {

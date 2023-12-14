@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.CreateNewFolderDialog
 import org.fossify.commons.dialogs.FilePickerDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
@@ -508,17 +507,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 if (!mWasDefaultFolderChecked) {
                     openDefaultFolder()
                     mWasDefaultFolderChecked = true
-                }
-
-                if (isPackageInstalled("org.fossify.gallery")) {
-                    ConfirmationDialog(
-                        this,
-                        "",
-                        org.fossify.commons.R.string.upgraded_from_free_gallery,
-                        org.fossify.commons.R.string.ok,
-                        0,
-                        false
-                    ) {}
                 }
 
                 checkOTGPath()
