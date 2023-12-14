@@ -385,6 +385,6 @@
     <string name="faq_18_text">В наших приложениях вообще нет рекламы. Если вы видите её во время воспроизведения видео, то, должно быть, используете сторонний видеопроигрыватель. Попробуйте найти видеопроигрыватель по умолчанию в настройках устройства, а затем выполните для данной настройки \"Очистить настройки по умолчанию\". В следующий раз, когда вы откроете воспроизведение видео, будет предложено выбрать приложение, которое вы хотите использовать.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

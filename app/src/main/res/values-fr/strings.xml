@@ -384,6 +384,6 @@
     <string name="faq_18_text">Nos applications ne comportent aucune publicité. Si vous en voyez pendant la lecture d\'une vidéo, vous devez sûrement utiliser le lecteur vidéo d\'une autre application. Essayez de trouver le lecteur vidéo par défaut dans les paramètres de votre appareil, puis faites "Supprimer les valeurs par défaut". Lors du prochain lancement d\'une vidéo, une invite de sélection d\'application s\'affichera, et vous pourrez choisir l\'application que vous souhaitez utiliser.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

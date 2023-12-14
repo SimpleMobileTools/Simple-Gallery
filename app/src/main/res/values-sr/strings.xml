@@ -383,6 +383,6 @@
     <string name="faq_18_text">Наше апликације немају никакве огласе. Ако их видите током репродукције видео записа, сигурно користите неки други видео плејер апликација. Покушајте да пронађете подразумевани видео плејер у поставкама уређаја, а затим на њему урадите \"Обриши подразумеване вредности\". Када се следећи пут позовете на неку намеру видео записа видећете одзивник за одабирач апликација, где можете да изаберете коју апликацију желите да користите.</string>
     <!--
         haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

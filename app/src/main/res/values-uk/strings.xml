@@ -385,6 +385,6 @@
     <string name="faq_18_text">У наших додатках немає жодної реклами. Якщо ви бачите її під час відтворення відео, ви, мабуть, використовуєте інший відеопрогравач. Спробуйте знайти у налаштуваннях пристрою свій відеопрогравач за промовчанням, а далі виконайте на ньому «Очистити налаштування за промовчанням». Наступного разу, коли ви запустите певне відео, ви побачите вікно вибору додатку, який ви хочете використовувати.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>
