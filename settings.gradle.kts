@@ -25,6 +25,6 @@ include(":app")
 // TODO: This will be deprecated in future. Migrate to the newer `pluginManagement { includeBuild() }` mechanism instead of explicitly substituting dependency.
 /*includeBuild("../Commons") {
     dependencySubstitution {
-        substitute(module("com.github.SimpleMobileTools:Simple-Commons")).using(project(":commons"))
+        substitute(module("org.fossify:commons")).using(project(":commons"))
     }
 }*/
