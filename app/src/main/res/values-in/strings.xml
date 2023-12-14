@@ -383,6 +383,6 @@
     <string name="faq_18_text">Aplikasi kami tidak memiliki iklan apa pun. Jika Anda melihatnya selama pemutaran video, Anda harus menggunakan beberapa pemutar video aplikasi lain. Coba temukan pemutar video default Anda di pengaturan perangkat, lalu lakukan \"Hapus default\" di atasnya. Saat berikutnya Anda memanggil beberapa maksud video, Anda akan melihat permintaan pemilih aplikasi, di mana Anda dapat memilih aplikasi apa yang ingin Anda gunakan.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

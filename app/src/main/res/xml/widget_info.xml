@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:configure="com.simplemobiletools.gallery.pro.activities.WidgetConfigureActivity"
+    android:configure="org.fossify.gallery.activities.WidgetConfigureActivity"
     android:initialLayout="@layout/widget"
     android:minWidth="@dimen/widget_initial_size"
     android:minHeight="40dp"

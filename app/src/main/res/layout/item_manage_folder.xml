@@ -9,7 +9,7 @@
     android:focusable="true"
     android:paddingStart="@dimen/activity_margin">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/manage_folder_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

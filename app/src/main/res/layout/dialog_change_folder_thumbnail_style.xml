@@ -25,7 +25,7 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/medium_margin">
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/dialog_radio_folder_square"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/square" />
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/dialog_radio_folder_rounded_corners"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_marginTop="@dimen/medium_margin"
             android:paddingBottom="@dimen/medium_margin">
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/dialog_radio_folder_count_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/show_file_count_line" />
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/dialog_radio_folder_count_brackets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/show_file_count_brackets" />
 
-            <com.simplemobiletools.commons.views.MyCompatRadioButton
+            <org.fossify.commons.views.MyCompatRadioButton
                 android:id="@+id/dialog_radio_folder_count_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
 
         <include layout="@layout/divider" />
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/dialog_folder_limit_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

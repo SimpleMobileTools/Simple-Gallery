@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery.pro.activities
+package org.fossify.gallery.activities
 
 import android.annotation.TargetApi
 import android.app.Activity
@@ -8,18 +8,18 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.exifinterface.media.ExifInterface
-import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
-import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.helpers.isNougatPlus
-import com.simplemobiletools.commons.helpers.isRPlus
-import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.fixDateTaken
-import com.simplemobiletools.gallery.pro.extensions.tryDeleteFileDirItem
-import com.simplemobiletools.gallery.pro.helpers.getPermissionToRequest
+import org.fossify.commons.extensions.*
+import org.fossify.commons.helpers.REAL_FILE_PATH
+import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.isNougatPlus
+import org.fossify.commons.helpers.isRPlus
+import org.fossify.commons.models.FileDirItem
+import org.fossify.gallery.R
+import org.fossify.gallery.dialogs.SaveAsDialog
+import org.fossify.gallery.extensions.config
+import org.fossify.gallery.extensions.fixDateTaken
+import org.fossify.gallery.extensions.tryDeleteFileDirItem
+import org.fossify.gallery.helpers.getPermissionToRequest
 import ly.img.android.pesdk.PhotoEditorSettingsList
 import ly.img.android.pesdk.assets.filter.basic.FilterPackBasic
 import ly.img.android.pesdk.assets.font.basic.FontPackBasic
@@ -66,7 +66,7 @@ class NewPhotoEditActivity : SimpleActivity() {
             if (it) {
                 initEditActivity()
             } else {
-                toast(com.simplemobiletools.commons.R.string.no_storage_permissions)
+                toast(org.fossify.commons.R.string.no_storage_permissions)
                 finish()
             }
         }
@@ -214,7 +214,7 @@ class NewPhotoEditActivity : SimpleActivity() {
                 if (success) {
                     callback()
                 } else {
-                    toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
+                    toast(org.fossify.commons.R.string.unknown_error_occurred)
                     finish()
                 }
             }

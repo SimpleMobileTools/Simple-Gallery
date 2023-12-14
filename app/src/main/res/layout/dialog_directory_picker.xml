@@ -12,13 +12,13 @@
         android:minHeight="@dimen/directory_picker_dialog_min_height"
         android:paddingTop="@dimen/medium_margin">
 
-        <com.simplemobiletools.commons.views.MySearchMenu
+        <org.fossify.commons.views.MySearchMenu
             android:id="@+id/folder_search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/medium_margin" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/directories_empty_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,18 +39,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/directories_empty_placeholder">
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/directories_grid"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none"
-                app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+                app:layoutManager="org.fossify.commons.views.MyGridLayoutManager"
                 app:spanCount="@integer/directory_columns_vertical_scroll" />
 
         </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
     </RelativeLayout>
 
-    <com.simplemobiletools.commons.views.MyFloatingActionButton
+    <org.fossify.commons.views.MyFloatingActionButton
         android:id="@+id/directories_show_hidden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

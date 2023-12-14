@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true">
 
-    <com.simplemobiletools.commons.views.MySquareImageView
+    <org.fossify.commons.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -34,9 +34,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/small_margin"
-        android:padding="@dimen/small_margin"
-        android:gravity="end"
         android:background="@drawable/circle_black_background"
+        android:gravity="end"
+        android:padding="@dimen/small_margin"
         android:src="@drawable/ic_star_vector"
         android:visibility="gone" />
 

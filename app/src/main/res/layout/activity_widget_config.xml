@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground">
 
-                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                <org.fossify.commons.views.MyAppCompatCheckbox
                     android:id="@+id/folder_picker_show_folder_name"
                     style="@style/SettingsCheckboxStyle"
                     android:layout_width="match_parent"
@@ -34,7 +34,7 @@
 
             </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/folder_picker_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:paddingStart="@dimen/activity_margin"
                 android:text="@string/folder_on_widget" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/folder_picker_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:background="@drawable/widget_round_background">
 
-            <com.simplemobiletools.commons.views.MySquareImageView
+            <org.fossify.commons.views.MySquareImageView
                 android:id="@+id/config_image"
                 android:layout_width="@dimen/widget_initial_size"
                 android:layout_height="@dimen/widget_initial_size"
@@ -74,7 +74,7 @@
                 android:layout_marginEnd="@dimen/normal_margin"
                 android:layout_marginBottom="@dimen/small_margin" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/config_folder_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             android:layout_toEndOf="@+id/config_bg_color"
             android:background="@drawable/widget_config_seekbar_background">
 
-            <com.simplemobiletools.commons.views.MySeekBar
+            <org.fossify.commons.views.MySeekBar
                 android:id="@+id/config_bg_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

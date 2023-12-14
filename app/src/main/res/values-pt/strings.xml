@@ -384,6 +384,6 @@
     <string name="faq_18_text">As nossas aplicações não têm anúncios. Se você vê-os durante a reprodução de um vídeo, deve estar a usar outra aplicação . Tente encontrar o reprodutor de vídeo padrão nas definições do dispositivo e, em seguida, faça um \"Limpar dados\". Da próxima vez quiser reproduzir um vídeo, surgirá uma opção para escolher a aplicação utilizada.</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

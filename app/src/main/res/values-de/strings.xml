@@ -383,6 +383,6 @@
     <string name="faq_18_text">Unsere Anwendungen enthalten keinerlei Werbung. Wenn während der Videowiedergabe trotzdem welche gezeigt wird, liegt das daran, dass man den Videoplayer einer anderen App verwendet. Man sollte versuchen, den Standard-Videoplayer in den Geräteeinstellungen zu finden, und dann „Standardeinstellungen löschen“ ausführen. Beim nächsten Aufruf eines Videos, wird eine Aufforderung zur Auswahl der Anwendung angezeigt, aus der man die gewünschte Anwendung auswählen kann.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

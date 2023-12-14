@@ -13,7 +13,7 @@
         android:paddingTop="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/export_favorites_path_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             android:text="@string/path"
             android:textSize="@dimen/smaller_text_size" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/export_favorites_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:paddingTop="@dimen/small_margin"
             android:paddingBottom="@dimen/activity_margin" />
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/export_favorites_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +45,6 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/normal_text_size" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
     </LinearLayout>
 </ScrollView>

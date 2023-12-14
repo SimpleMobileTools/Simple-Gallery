@@ -383,6 +383,6 @@
     <string name="faq_18_text">Onze apps bevatten geen advertenties. Indien er wél advertenties verschijnen bij video\'s, dan kan dat alleen vanuit een andere app zijn. Probeer uit te vinden welke app als standaard-videospeler is ingesteld, zoek de app in de systeeminstellingen op en klik op \"Standaardwaarden wissen\". Kies de volgende keer bij het afspelen van een video welke app er gebruikt moet worden.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

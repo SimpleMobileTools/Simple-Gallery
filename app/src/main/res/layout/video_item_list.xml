@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/small_margin"
     android:paddingBottom="@dimen/small_margin">
 
-    <com.simplemobiletools.commons.views.MySquareImageView
+    <org.fossify.commons.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="@dimen/list_view_folder_thumbnail_size"
         android:layout_height="@dimen/list_view_folder_thumbnail_size" />
@@ -24,9 +24,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/smaller_margin"
-        android:padding="@dimen/tiny_margin"
-        android:gravity="end"
         android:background="@drawable/circle_black_background"
+        android:gravity="end"
+        android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_star_vector"
         android:visibility="gone" />
 
