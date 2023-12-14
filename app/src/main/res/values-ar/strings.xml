@@ -387,6 +387,6 @@
     <string name="faq_18_text">لا تحتوي تطبيقاتنا على أي إعلانات على الإطلاق. إذا رأيتها أثناء تشغيل الفيديو، فيجب أن تستخدم مشغل فيديو بعض التطبيقات الأخرى. حاول العثور على مشغل الفيديو الافتراضي في إعدادات الجهاز، ثم قم بإجراء \"مسح الإعدادات الافتراضية\" عليه. في المرة التالية التي تستدعي فيها بعض نوايا الفيديو، سترى مطالبة منتقي التطبيقات، حيث يمكنك تحديد التطبيق الذي تريد استخدامه.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

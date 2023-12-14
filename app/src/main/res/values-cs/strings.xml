@@ -384,6 +384,6 @@
     <string name="faq_18_text">Naše aplikace žádné reklamy neobsahují. Pokud je vidíte během přehrávání videa, používáte na jeho přehrávání nějakou jinou aplikaci. Zkuste v nastavení zařízení najít svůj výchozí přehrávač videa a poté v něm použijte volbu „Vymazat výchozí“. Při příštím spuštění videa se zobrazí výzva k výběru aplikace, kde si můžete vybrat, jakou aplikaci chcete použít.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

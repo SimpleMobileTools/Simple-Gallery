@@ -383,6 +383,6 @@
     <string name="faq_18_text">我们的应用没有任何广告。如果您在视频播放期间看到它们，那么您一定是在使用其他视频播放器。尝试在设备设置中找到默认的视频播放器，然后在其上执行“清除默认设置”。下次你调用视频意图，你会看到一个应用选择提示，在那里你可以选择你想使用的播放器。</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

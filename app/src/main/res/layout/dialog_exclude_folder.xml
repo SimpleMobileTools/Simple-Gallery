@@ -11,14 +11,14 @@
         android:orientation="vertical"
         android:padding="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/exclude_folder_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/exclude_folder_description"
             android:textSize="@dimen/bigger_text_size" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/exclude_folder_parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

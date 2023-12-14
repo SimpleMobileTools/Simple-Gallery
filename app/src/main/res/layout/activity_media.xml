@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MySearchMenu
+    <org.fossify.commons.views.MySearchMenu
         android:id="@+id/media_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/media_empty_text_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:textStyle="italic"
             android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/media_empty_text_placeholder_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,13 +53,13 @@
                 android:layout_height="wrap_content"
                 app:supportSwipeToRefresh="true">
 
-                <com.simplemobiletools.commons.views.MyRecyclerView
+                <org.fossify.commons.views.MyRecyclerView
                     android:id="@+id/media_grid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layoutAnimation="@anim/layout_animation"
                     android:scrollbars="none"
-                    app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+                    app:layoutManager="org.fossify.commons.views.MyGridLayoutManager"
                     app:spanCount="@integer/media_columns_vertical_scroll" />
 
             </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>

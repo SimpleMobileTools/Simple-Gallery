@@ -383,6 +383,6 @@
     <string name="faq_18_text">As nosas aplicacións non teñen ningún tipo de anuncio. Se os ves durante a reprodución de vídeo, debes estar usando outras aplicacións de reprodutor de vídeo. Tenta atopar o teu reprodutor de vídeo predeterminado na configuración do dispositivo e, a continuación, fai un \"Borrar valores predeterminados\". A próxima vez que invoques algunha intención de vídeo, verás un indicador de selección de aplicacións, onde podes seleccionar a aplicación que queres usar.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

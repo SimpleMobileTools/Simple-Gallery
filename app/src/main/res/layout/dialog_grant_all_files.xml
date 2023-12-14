@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/bigger_margin"
         android:src="@drawable/ic_folder_vector" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/grant_all_files_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

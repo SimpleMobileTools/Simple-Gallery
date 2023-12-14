@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/big_margin"
     android:paddingRight="@dimen/big_margin">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/delete_remember_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,14 +16,14 @@
         android:text="@string/proceed_with_deletion"
         android:textSize="@dimen/bigger_text_size" />
 
-    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+    <org.fossify.commons.views.MyAppCompatCheckbox
         android:id="@+id/delete_remember_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/delete_remember_title"
         android:text="@string/do_not_ask_again" />
 
-    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+    <org.fossify.commons.views.MyAppCompatCheckbox
         android:id="@+id/skip_the_recycle_bin_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -384,6 +384,6 @@
     <string name="faq_18_text">Naše apky nemajú vôbec žiadne reklamy. Ak sa vám zobrazujú počas prehrávania videí, používate prehrávač inej apky. Skúste v nastaveniach zariadenia nájsť predvolený prehrávač a použiť \"Odstrániť predvolené\". Pri ďalšom spustení videa uvidíte zoznam apiek, ktoré môžete na prehrávanie použiť.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>
