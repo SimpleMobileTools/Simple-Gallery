@@ -21,7 +21,7 @@
             android:paddingEnd="@dimen/activity_margin"
             android:paddingBottom="@dimen/bigger_margin">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/dialog_file_style_spacing_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:paddingEnd="@dimen/medium_margin"
                 android:text="@string/thumbnail_spacing" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/dialog_file_style_spacing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/dialog_file_style_rounded_corners"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/dialog_file_style_show_thumbnail_video_duration"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/dialog_file_style_show_thumbnail_file_types"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/dialog_file_style_mark_favorite_items"
                 style="@style/SettingsCheckboxStyle"
                 android:layout_width="match_parent"

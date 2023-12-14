@@ -1,6 +1,6 @@
--keep class com.simplemobiletools.** { *; }
+-keep class org.fossify.** { *; }
 -dontwarn android.graphics.Canvas
--dontwarn com.simplemobiletools.**
+-dontwarn org.fossify.**
 -dontwarn org.apache.**
 
 # Picasso

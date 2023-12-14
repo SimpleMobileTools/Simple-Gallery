@@ -34,8 +34,8 @@
     <uses-sdk tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano" />
 
     <queries>
-        <package android:name="com.simplemobiletools.gallery.debug" />
-        <package android:name="com.simplemobiletools.gallery" />
+        <package android:name="org.fossify.gallery.debug" />
+        <package android:name="org.fossify.gallery" />
     </queries>
 
     <uses-feature
@@ -43,7 +43,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name="org.fossify.gallery.App"
         android:allowBackup="true"
         android:appCategory="image"
         android:icon="@mipmap/ic_launcher"
@@ -122,14 +122,14 @@
         </activity>
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:name="org.fossify.commons.activities.AboutActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:name="org.fossify.commons.activities.CustomizationActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
@@ -223,7 +223,7 @@
         </activity>
 
         <activity
-            android:name=".activities.EditActivity"
+            android:name="org.fossify.gallery.activities.EditActivity"
             android:configChanges="orientation"
             android:exported="true"
             android:label="@string/basic_editor">
@@ -294,7 +294,7 @@
             android:name=".receivers.RefreshMediaReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.simplemobiletools.REFRESH_MEDIA" />
+                <action android:name="org.fossify.REFRESH_MEDIA" />
             </intent-filter>
         </receiver>
 

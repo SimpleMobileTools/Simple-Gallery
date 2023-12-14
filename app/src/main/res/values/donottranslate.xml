@@ -3,41 +3,6 @@
     <string name="gif">GIF</string>
     <string name="raw">RAW</string>
     <string name="svg">SVG</string>
-    <string name="package_name">com.simplemobiletools.gallery.pro</string>
-
-    <!-- Release notes -->
-    <string name="release_369">Allow temporarily showing excluded folders on Android 11+</string>
-    <string name="release_327">
-        Adding some folder thumbnail customization at the app settings\n
-        Allow setting a default folder to be opened at app launch
-    </string>
-    <string name="release_295">Allow fast forwarding videos by double clicking on screen sides</string>
-    <string name="release_277">Fully replaced the photo editor with a powerful third party library (for resizing images use Menu -> Resize from the fullscreen view, until it gets added in the editor)</string>
-    <string name="release_258">
-        Allow customizing the bottom navigation bar color\n
-        Share files in the order they were selected
-    </string>
-    <string name="release_225">
-        Implemented export/importing for app settings and other preferences, like sorting\n
-        Allow hiding Notch on fullscreen view on Android 9+\n
-        Autosave images zoomed at the fullscreen view
-    </string>
-    <string name="release_221">
-        Allow drawing in the editor\n
-        Allow batch rotating images from the thumbnails view (proper thumbnail refreshing might need an app restart)\n
-        Allow sharing images directly from the editor\n
-        Allow zooming GIFs and videos
-    </string>
-    <string name="release_220">Reverted to the old way of opening videos, opening on separate screen can be enabled in the app settings</string>
-    <string name="release_217">
-        Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping\n
-        Added optional 1:1 pixel ratio zooming with two double taps at fullscreen view\n
-        Allow adding Copy at the fullscreen bottom actions\n
-        Always include images at slideshows, never videos
-    </string>
-    <string name="release_213">
-        Added an initial widget implementation for creating homescreen folder shortcuts\n
-        Added optional grouping of direct subfolders, as a check at the \"Change view type\" dialog
-    </string>
+    <string name="package_name">org.fossify.gallery</string>
 
 </resources>

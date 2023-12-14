@@ -212,7 +212,7 @@
     <string name="square">Carré</string>
     <string name="rounded_corners">Arrondi</string>
     <string name="export_favorite_paths">Exporter les favoris</string>
-    <string name="import_favorite_paths">Importer les favoris</string>
+    <string name="import_favorite_paths">Importer des favoris</string>
     <string name="paths_imported_successfully">Favoris importés</string>
     <string name="media_management_prompt">Pour vous assurer que toutes les opérations de fichiers fonctionnent de manière fiable, veuillez faire de cette application l\'application de gestion des médias dans les paramètres de votre appareil.</string>
     <string name="password_protect_excluded">Protection par mot de passe de la visibilité des dossiers exclus</string>
@@ -384,6 +384,6 @@
     <string name="faq_18_text">Nos applications ne comportent aucune publicité. Si vous en voyez pendant la lecture d\'une vidéo, vous devez sûrement utiliser le lecteur vidéo d\'une autre application. Essayez de trouver le lecteur vidéo par défaut dans les paramètres de votre appareil, puis faites "Supprimer les valeurs par défaut". Lors du prochain lancement d\'une vidéo, une invite de sélection d\'application s\'affichera, et vous pourrez choisir l\'application que vous souhaitez utiliser.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

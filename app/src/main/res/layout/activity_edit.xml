@@ -43,7 +43,7 @@
             app:cropBackgroundColor="@color/crop_image_view_background"
             app:cropInitialCropWindowPaddingRatio="0" />
 
-        <com.simplemobiletools.gallery.pro.views.EditorDrawCanvas
+        <org.fossify.gallery.views.EditorDrawCanvas
             android:id="@+id/editor_draw_canvas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

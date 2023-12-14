@@ -2,6 +2,5 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/shortcut_image"
-        android:drawable="@mipmap/ic_launcher"/>
-
+        android:drawable="@mipmap/ic_launcher" />
 </layer-list>

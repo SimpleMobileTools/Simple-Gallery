@@ -9,7 +9,7 @@
     android:focusable="true"
     android:paddingTop="@dimen/medium_margin">
 
-    <com.simplemobiletools.commons.views.MySquareImageView
+    <org.fossify.commons.views.MySquareImageView
         android:id="@+id/dir_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
