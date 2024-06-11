@@ -19,20 +19,17 @@ Never worry about accidentally deleting that one precious photo or video you jus
 PROTECT YOUR PRIVATE PHOTOS, VIDEOS & FILES  
 Rest assured your photo album is safe. With Simple Gallery's superior security features you can use a pin, pattern or your device’s fingerprint scanner to limit who can view or edit selected photos and videos or access important files. You can even protect the app itself or place locks on specific functions of the file organizer.
 
-Check out the full suite of Simple Tools here:  
-https://www.simplemobiletools.com
+<a href="https://f-droid.org/packages/com.simplemobiletools.gallery.pro">Get it on F-Droid</a>
 
-Facebook:  
-https://www.facebook.com/simplemobiletools
-
-Reddit:  
-https://www.reddit.com/r/SimpleMobileTools
-
-Telegram:  
-https://t.me/SimpleMobileTools
-
-<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery.pro'><img src='https://simplemobiletools.com/images/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
-<a href='https://f-droid.org/packages/com.simplemobiletools.gallery.pro'><img src='https://simplemobiletools.com/images/button-fdroid.svg' alt='Get it on F-Droid' height='45' /></a>
+Support us:  
+IBAN: SK4083300000002000965231  
+Bitcoin: 19Hc8A7sWGud8sP19VXDC5a5j28UyJfpyJ  
+Ethereum: 0xB7a2DD6f2408Bce77334655CF5E7639aE31feb30  
+Litecoin: LYACbHTKaM9ZubKQGxJ4NRyVy1gHUuztRP  
+Bitcoin Cash: qz6dvmhq5vzkcsypxpp2mnur30muxdah4gvulx3y85  
+Tether: 0x250f9cC32863E59b87037a14955Ed64F879653F0  
+<a href="https://paypal.me/SimpleMobileTools?country.x=SK&locale.x=en_US">PayPal</a>  
+<a href="https://www.patreon.com/tiborkaputa">Patreon</a>
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.jpeg" width="30%">
