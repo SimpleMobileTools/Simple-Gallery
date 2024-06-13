@@ -49,6 +49,7 @@ import com.squareup.picasso.Picasso
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 fun Activity.sharePath(path: String) {
     sharePathIntent(path, BuildConfig.APPLICATION_ID)
@@ -329,18 +330,45 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(
     }
 }
 
-fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean, movedRange: Pair<Int, Int>) -> Unit)?) {
     ensureBackgroundThread {
         var pathsCnt = paths.size
         val OTGPath = config.OTGPath
 
-        for (source in paths) {
+        var availableSize = getAvailableInternalMemorySize().toLong()
+
+        // If available size is more than 200MB, keep a safe distance from
+        // exceeding the remaining size
+        if (availableSize > 1024 * 1024 * 200)
+            availableSize -= 1024 * 1024 * 50
+        var totalCopiedSize = 0L
+
+        var lastDeletedIndex = -1
+        val ensureSizeIsAvailable = { index: Int, size: Long ->
+            // Try to delete already moved files if space if not sufficient
+            if (size <= availableSize && totalCopiedSize > 0 && totalCopiedSize + size > availableSize) {
+                // Return true in wasSuccess for now, callback will be called
+                // at the end of the function with the correct parameter
+                callback?.invoke(true, Pair(lastDeletedIndex + 1, index + 1))
+                availableSize = getAvailableInternalMemorySize()
+                totalCopiedSize = 0L
+                lastDeletedIndex = index
+            }
+
+            size <= availableSize
+        }
+
+        for ((index, source) in paths.withIndex()) {
             if (OTGPath.isNotEmpty() && source.startsWith(OTGPath)) {
                 var inputStream: InputStream? = null
                 var out: OutputStream? = null
                 try {
                     val destination = "$recycleBinPath/$source"
                     val fileDocument = getSomeDocumentFile(source)
+                    val originalSize = fileDocument?.getItemSize(true)!!
+                    if (!ensureSizeIsAvailable(index, originalSize))
+                        continue
+
                     inputStream = applicationContext.contentResolver.openInputStream(fileDocument?.uri!!)
                     out = getFileOutputStreamSync(destination, source.getMimeType())
 
@@ -355,9 +383,11 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
 
                     out?.flush()
 
-                    if (fileDocument.getItemSize(true) == copiedSize && getDoesFilePathExist(destination)) {
+                    if (originalSize == copiedSize && getDoesFilePathExist(destination)) {
                         mediaDB.updateDeleted("$RECYCLE_BIN$source", System.currentTimeMillis(), source)
                         pathsCnt--
+
+                        totalCopiedSize += copiedSize
                     }
                 } catch (e: Exception) {
                     showErrorToast(e)
@@ -368,6 +398,10 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
                 }
             } else {
                 val file = File(source)
+                val originalSize = file.length()
+                if (!ensureSizeIsAvailable(index, originalSize))
+                    continue
+
                 val internalFile = File(recycleBinPath, source)
                 val lastModified = file.lastModified()
                 try {
@@ -378,6 +412,8 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
                         if (config.keepLastModified && lastModified != 0L) {
                             internalFile.setLastModified(lastModified)
                         }
+
+                        totalCopiedSize += originalSize
                     }
                 } catch (e: Exception) {
                     showErrorToast(e)
@@ -385,7 +421,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
                 }
             }
         }
-        callback?.invoke(pathsCnt == 0)
+        callback?.invoke(pathsCnt == 0, Pair(lastDeletedIndex + 1, paths.size))
     }
 }
 
