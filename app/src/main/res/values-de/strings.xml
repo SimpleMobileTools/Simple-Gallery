@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Schlichte Galerie</string>
+    <string name="app_name">Einfache Galerie</string>
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
@@ -13,7 +13,7 @@
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Ansicht: Als Ordner</string>
     <string name="other_folder">Ordner wählen</string>
-    <string name="show_on_map">Auf Karte zeigen</string>
+    <string name="show_on_map">Auf Karte anzeigen</string>
     <string name="unknown_location">Adresse nicht bekannt</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
@@ -113,11 +113,11 @@
     <string name="other_aspect_ratio">Anderes</string>
     <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Schlichter Hintergrund</string>
-    <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
-    <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
-    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
-    <string name="setting_wallpaper">Hintergrund festlegen …</string>
+    <string name="simple_wallpaper">Einfaches Hintergrundbild</string>
+    <string name="set_as_wallpaper">Als Hintergrundbild festlegen</string>
+    <string name="set_as_wallpaper_failed">Als Hintergrundbild festlegen fehlgeschlagen</string>
+    <string name="set_as_wallpaper_with">Als Hintergrundbild festlegen mit:</string>
+    <string name="setting_wallpaper">Hintergrundbild festlegen …</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
@@ -187,7 +187,7 @@
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
-    <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität zeigen</string>
+    <string name="show_highest_quality">Bilder in der höchstmöglichen Qualität anzeigen</string>
     <string name="show_recycle_bin_last">Papierkorb als letztes Element auf dem Hauptbildschirm anzeigen</string>
     <string name="allow_down_gesture">Schließen der Vollbildansicht mit einer Abwärtsgeste zulassen</string>
     <string name="allow_one_to_one_zoom">1:1-Zoom mit zweimaligem doppeltem Antippen zulassen</string>
@@ -346,8 +346,8 @@
     <string name="pesdk_common_title_pipettableColor">Pipettierbare Farbe</string>
     <string name="vesdk_video_trim_title_name">Zuschneiden</string>
     <!-- FAQ -->
-    <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen\?</string>
-    <string name="faq_1_text">Zunächst muss man unter „Apps“ in den Geräteeinstellungen die aktuelle Standardgalerie finden, dort nach einer Bedienfläche wie „Standardmäßig öffnen“ suchen, diese betätigen und „Standardeinstellungen löschen“ wählen. Beim nächsten Öffnen eines Bildes oder eines Videos, sollte ein Auswahlfenster erscheinen, in dem man Schlichte Galerie als Standard-Anwendung auswählen kann.</string>
+    <string name="faq_1_title">Wie kann ich Einfache Galerie als Standardanwendung auswählen\?</string>
+    <string name="faq_1_text">Zunächst muss man unter „Apps“ in den Geräteeinstellungen die aktuelle Standardgalerie finden, dort nach einer Bedienfläche wie „Standardmäßig öffnen“ suchen, diese betätigen und „Standardeinstellungen löschen“ wählen. Beim nächsten Öffnen eines Bildes oder eines Videos, sollte ein Auswahlfenster erscheinen, in dem man Einfache Galerie als Standard-Anwendung auswählen kann.</string>
     <string name="faq_2_title">Ich habe die App mit einem Passwort geschützt und es vergessen. Was kann ich tun\?</string>
     <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder man installiert die App neu oder sucht die App in den Geräteeinstellungen und wählt dort „Daten löschen“. Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
     <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen\?</string>
@@ -355,7 +355,7 @@
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen\?</string>
     <string name="faq_4_text">Das geht, indem man doppelt auf die Seite des Bildschirms drückt, oder indem man auf den Text nahe der Suchleiste drückt, der die aktuelle bzw. maximale Zeit anzeigt. Wenn in den App-Einstellungen die Funktion aktiviert ist, dass Videos in einem separaten Fenster geöffnet werden, kann man zudem horizontale Gesten verwenden.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen dem Verstecken und dem Ausschließen eines Ordners\?</string>
-    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in Schlichte Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Downloads nicht zulassen.</string>
+    <string name="faq_5_text">„Ausschließen“ verhindert, dass der Ordner nur in Einfache Galerie angezeigt wird, während „Verstecken“ systemweit funktioniert und den Ordner auch vor anderen Galerien verbirgt. Dabei wird eine leere .nomedia-Datei im angegebenen Ordner erstellt, die man mit einem beliebigen Dateimanager auch wieder entfernen kann. Zu beachten ist, dass einige Geräte das Verstecken von Ordnern wie Kamera, Bildschirmfotos und Downloads nicht zulassen.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musikcover oder Aufkleber\?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnlichen Alben erscheinen. Diese kann man ausschließen, indem man sie lange drückt und \'Ausschließen\' auswählt. Im nächsten Dialog kann man den übergeordneten Ordner auswählen, wodurch die anderen zugehörigen Alben auch nicht auftauchen sollten.</string>
     <string name="faq_7_title">Ein Ordner mit Bildern wird nicht angezeigt oder es werden nicht alle Bilder angezeigt. Was kann ich tun\?</string>
@@ -369,7 +369,7 @@
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren\?</string>
     <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass die Bilder von woanders kopiert worden sind. In diesem Fall sollten die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markiert und dann im Menü oben rechts die Funktion „Aufnahmedatum korrigieren“ ausgeführt werden.</string>
     <string name="faq_13_title">Ich sehe Banding (streifiger Farbverlauf) auf den Bildern. Wie kann ich die Qualität verbessern\?</string>
-    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert in den allermeisten Fällen gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität zeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
+    <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert in den allermeisten Fällen gut, aber für eine noch bessere Bildqualität kann die Einstellung „Bilder in der höchstmöglichen Qualität anzeigen“ im Menü unter „Stark vergrößerbare Bilder“ gesetzt werden.</string>
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen\?</string>
     <string name="faq_14_text">Man kann entweder auf den Menüpunkt „Ausgeblendete Elemente vorübergehend anzeigen“ auf dem Hauptbildschirm drücken oder „Versteckte Elemente anzeigen“ in den Anwendungseinstellungen einschalten, um das ausgeblendete Element zu sehen. Um es dauerhaft wieder einzublenden, drückt man einfach lange darauf und wählt „Nicht verstecken“. Ordner werden durch Hinzufügen einer versteckten .nomedia-Datei ausgeblendet; man kann die Datei auch mit einem beliebigen Dateiverwaltungsprogramm löschen. Bitte beachten, dass das Verstecken rekursiv funktioniert, d. h. wenn man einen Ordner versteckt, werden auch alle Unterordner versteckt. Um die Unterordner wieder sichtbar zu machen, muss man also den übergeordneten Ordner sichtbar machen.</string>
     <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz\?</string>

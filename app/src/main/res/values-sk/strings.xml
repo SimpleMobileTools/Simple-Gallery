@@ -307,7 +307,7 @@
     <string name="pesdk_sticker_button_brightness">Jas</string>
     <string name="pesdk_sticker_category_name_custom">Nahrávky</string>
     <string name="pesdk_overlay_title_name">Prekrytie</string>
-    <string name="pesdk_overlay_button_blendModeNormal">Žiadne</string>
+    <string name="pesdk_overlay_button_blendModeNormal">Normálne</string>
     <string name="pesdk_overlay_button_blendModeDarken">Stmavenie</string>
     <string name="pesdk_overlay_button_blendModeScreen">Screen</string>
     <string name="pesdk_overlay_button_blendModeOverlay">Prekrytie</string>
