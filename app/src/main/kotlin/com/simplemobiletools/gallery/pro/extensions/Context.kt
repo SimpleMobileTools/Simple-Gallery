@@ -47,6 +47,12 @@ import java.io.File
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.channels.FileChannel
+import android.util.Log
+import com.simplemobiletools.gallery.pro.helpers.supabase
+import io.github.jan.supabase.postgrest.postgrest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlin.collections.set
 import kotlin.math.max
 
@@ -838,16 +844,28 @@ fun Context.getFavoritePaths(): ArrayList<String> {
     }
 }
 
-fun Context.getFavoriteFromPath(path: String) = Favorite(null, path, path.getFilenameFromPath(), path.getParentPath())
+fun Context.getFavoriteFromPath(path: String) = Favorite(id = null, fullPath = path, filename = path.getFilenameFromPath(), parentPath = path.getParentPath())
 
 fun Context.updateFavorite(path: String, isFavorite: Boolean) {
     try {
         if (isFavorite) {
-            favoritesDB.insert(getFavoriteFromPath(path))
+            val favorite = getFavoriteFromPath(path)
+            favoritesDB.insert(favorite)
+            CoroutineScope(Dispatchers.IO).launch {
+                supabase.postgrest["favorites"].upsert(favorite, onConflict = "full_path")
+            }
         } else {
             favoritesDB.deleteFavoritePath(path)
+            CoroutineScope(Dispatchers.IO).launch {
+                supabase.postgrest["favorites"].delete {
+                    filter {
+                        eq("full_path", path)
+                    }
+                }
+            }
         }
     } catch (e: Exception) {
+        Log.e("Supabase", "Error updating favorite", e)
         toast(com.simplemobiletools.commons.R.string.unknown_error_occurred)
     }
 }

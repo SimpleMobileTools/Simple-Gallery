@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.imgly).apply(false)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
@@ -128,6 +129,10 @@ dependencies {
 
     implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
+
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.postgrest)
+    implementation(libs.ktor.client.android)
 }
 
 // Apply the PESDKPlugin

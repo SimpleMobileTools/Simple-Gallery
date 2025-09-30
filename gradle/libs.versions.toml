@@ -5,6 +5,7 @@ imgly = "10.7.3"
 kotlin = "1.8.22"
 #KSP
 ksp = "1.8.22-1.0.11"
+kotlin-serialization = "1.8.22"
 #AndroidX
 androidx-swiperefreshlayout = "1.1.0"
 androidx-constraintlayout = "2.1.4"
@@ -44,6 +45,9 @@ app-version-appId = "com.simplemobiletools.gallery.pro"
 app-version-versionCode = "396"
 app-version-versionName = "6.28.1"
 subsamplingScaleImageView = "80efdaa570"
+supabase = "3.2.4"
+ktor = "3.3.0"
+
 [libraries]
 #AndroidX
 androidx-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3Exoplayer" }
@@ -74,6 +78,9 @@ awebp = { module = "com.github.penfeizhou.android.animation:awebp", version.ref 
 glide-compiler = { module = "com.github.bumptech.glide:ksp", version.ref = "glideCompiler" }
 zjupure-webpdecoder = { module = "com.github.zjupure:webpdecoder", version.ref = "zjupureWebpdecoder" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+supabase-bom = { group = "io.github.jan-tennert.supabase", name = "bom", version.ref = "supabase" }
+supabase-postgrest = { group = "io.github.jan-tennert.supabase", name = "postgrest-kt" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 [bundles]
 room = [
     "androidx-room-ktx",
@@ -84,3 +91,4 @@ android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 imgly = { id = "ly.img.android.sdk", version.ref = "imgly" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-serialization" }
