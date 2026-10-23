@@ -1,6 +1,16 @@
-# Simple Gallery
+# Simple Gallery AVIF
 
 <img alt="Logo" src="graphics/icon.png" width="120" />
+
+这是Simple Gallery的AVIF改版，使其支持了AVIF图片的读取。可以在右侧的Release页面下载。
+
+This is the AVIF version of Simple Gallery, which now supports the reading of AVIF images. You can download it in Release Page.
+
+如果有访问ftp或windows共享文件夹的需求，可以用我的另一个改版软件[MaterialFilesAvif](https://github.com/Mario-Hero/MaterialFilesAvif).
+
+If you need to access FTP or Windows shared folders, you can use my other modified software, [MaterialFilesAvif](https://github.com/Mario-Hero/MaterialFilesAvif).
+
+</br>
 
 Simple Gallery brings you all the photo viewing and editing features you have been missing on your Android in one stylish easy-to-use app. Browse, manage, crop and edit photos or videos faster than ever, recover accidentally deleted files or create hidden galleries for your most precious images and videos. And with advanced file-support and full customization, finally, your gallery works just the way you want.
 
